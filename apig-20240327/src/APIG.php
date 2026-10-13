@@ -72,10 +72,14 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePortalRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreatePortalResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductCategoryRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductCategoryResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductRefRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductRefResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateProductResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateRiskCheckTaskRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateRiskCheckTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSecretRequest;
@@ -188,6 +192,14 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginWorkspaceRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginWorkspaceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetPortalRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetPortalResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetProductCategoryRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetProductCategoryResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetProductRefRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetProductRefResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetProductRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetProductResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetRiskNotificationRequest;
@@ -198,8 +210,12 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetSourceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetTraceConfigResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HandleOidcCallbackRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HandleOidcCallbackResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\InitiateOidcAuthRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\InitiateOidcAuthResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InvokeAIAgentRequest;
@@ -208,8 +224,12 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelCardsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelCardsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelProvidersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelProvidersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListApiPathFieldTemplatesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListApiPathFieldTemplatesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListBatchExportTasksRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListBatchExportTasksResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListChatSessionsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListChatSessionsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupConsumersRequest;
@@ -222,6 +242,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerQuotaRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerQuotaRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListDevelopersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListDevelopersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsRequest;
@@ -244,6 +266,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysShrinkRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGlobalPoliciesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGlobalPoliciesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListHiMarketConsumersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListHiMarketConsumersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListHiMarketConsumerSubscriptionsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListHiMarketConsumerSubscriptionsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiOperationsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiOperationsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiRoutesRequest;
@@ -254,10 +280,14 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListInstallableGatewaysRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListInstallableGatewaysResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListK8sClusterSourcesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListK8sClusterSourcesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpProductToolsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpProductToolsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpServersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListMcpServersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListMigrationTasksRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListMigrationTasksResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListModelCardsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListModelCardsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListMseNacosSourcesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListMseNacosSourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPluginAttachmentsRequest;
@@ -274,6 +304,20 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListPoliciesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPoliciesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListPolicyClassesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPortalPublicationsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPortalPublicationsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPortalsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPortalsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListProductCategoriesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListProductCategoriesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListProductPublicationsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListProductPublicationsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListProductsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListProductsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListProductSubscriptionsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListProductSubscriptionsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPublishableProductsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListPublishableProductsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListRiskCheckResultsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListRiskCheckResultsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSecretReferencesRequest;
@@ -293,6 +337,12 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\LoginDeveloperRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\LoginDeveloperResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\LogoutDeveloperRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\LogoutDeveloperResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\PublishProductRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\PublishProductResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RefreshPluginOAuthCodeRequest;
@@ -303,6 +353,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ResetGatewayQuotaRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RestartGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RunPluginPipelineRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RunPluginPipelineResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\SubscribeProductRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\SubscribeProductResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\TagResourcesRequest;
@@ -311,6 +363,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UnDeployMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UninstallPluginResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UnpublishProductRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UnpublishProductResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UntagResourcesShrinkRequest;
@@ -322,12 +376,16 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAuthorizationRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateCategoryProductsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateCategoryProductsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerGroupResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDeveloperStatusRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDeveloperStatusResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateEnvironmentRequest;
@@ -362,6 +420,12 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePortalRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePortalResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateProductCategoryRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateProductCategoryResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateProductRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateProductResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateRiskNotificationRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateRiskNotificationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateSecretRequest;
@@ -3177,6 +3241,172 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createPolicyAttachmentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a HiMarket developer portal and returns the ID of the newly created portal.
+     *
+     * @param request - CreatePortalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePortalResponse
+     *
+     * @param CreatePortalRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreatePortalResponse
+     */
+    public function createPortalWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePortal',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/portals',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePortalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a HiMarket developer portal and returns the ID of the newly created portal.
+     *
+     * @param request - CreatePortalRequest
+     *
+     * @returns CreatePortalResponse
+     *
+     * @param CreatePortalRequest $request
+     *
+     * @return CreatePortalResponse
+     */
+    public function createPortal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPortalWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+     *
+     * @param request - CreateProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProductResponse
+     *
+     * @param CreateProductRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProductResponse
+     */
+    public function createProductWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->autoApprove) {
+            @$body['autoApprove'] = $request->autoApprove;
+        }
+
+        if (null !== $request->categories) {
+            @$body['categories'] = $request->categories;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->document) {
+            @$body['document'] = $request->document;
+        }
+
+        if (null !== $request->feature) {
+            @$body['feature'] = $request->feature;
+        }
+
+        if (null !== $request->icon) {
+            @$body['icon'] = $request->icon;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProduct',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+     *
+     * @param request - CreateProductRequest
+     *
+     * @returns CreateProductResponse
+     *
+     * @param CreateProductRequest $request
+     *
+     * @return CreateProductResponse
+     */
+    public function createProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createProductWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7384,6 +7614,234 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain name configurations.
+     *
+     * @param request - GetPortalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPortalResponse
+     *
+     * @param string           $portalId
+     * @param GetPortalRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetPortalResponse
+     */
+    public function getPortalWithOptions($portalId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetPortal',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/portals/' . Url::percentEncode($portalId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPortalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain name configurations.
+     *
+     * @param request - GetPortalRequest
+     *
+     * @returns GetPortalResponse
+     *
+     * @param string           $portalId
+     * @param GetPortalRequest $request
+     *
+     * @return GetPortalResponse
+     */
+    public function getPortal($portalId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPortalWithOptions($portalId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, Agent, and model configurations, product capability configurations, and region.
+     *
+     * @param request - GetProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProductResponse
+     *
+     * @param string            $productId
+     * @param GetProductRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProductResponse
+     */
+    public function getProductWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetProduct',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, Agent, and model configurations, product capability configurations, and region.
+     *
+     * @param request - GetProductRequest
+     *
+     * @returns GetProductResponse
+     *
+     * @param string            $productId
+     * @param GetProductRequest $request
+     *
+     * @return GetProductResponse
+     */
+    public function getProduct($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getProductWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the details of a product category by ID and returns the ID, name, description, and icon of the category.
+     *
+     * @param request - GetProductCategoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProductCategoryResponse
+     *
+     * @param string                    $categoryId
+     * @param GetProductCategoryRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetProductCategoryResponse
+     */
+    public function getProductCategoryWithOptions($categoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetProductCategory',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/product-categories/' . Url::percentEncode($categoryId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProductCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a product category by ID and returns the ID, name, description, and icon of the category.
+     *
+     * @param request - GetProductCategoryRequest
+     *
+     * @returns GetProductCategoryResponse
+     *
+     * @param string                    $categoryId
+     * @param GetProductCategoryRequest $request
+     *
+     * @return GetProductCategoryResponse
+     */
+    public function getProductCategory($categoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getProductCategoryWithOptions($categoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+     *
+     * @param request - GetProductRefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProductRefResponse
+     *
+     * @param string               $productId
+     * @param GetProductRefRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetProductRefResponse
+     */
+    public function getProductRefWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetProductRef',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '/ref',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProductRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+     *
+     * @param request - GetProductRefRequest
+     *
+     * @returns GetProductRefResponse
+     *
+     * @param string               $productId
+     * @param GetProductRefRequest $request
+     *
+     * @return GetProductRefResponse
+     */
+    public function getProductRef($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getProductRefWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the resource overview information.
      *
      * @param request - GetResourceOverviewRequest
@@ -7787,6 +8245,71 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+     *
+     * @param request - HandleOidcCallbackRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HandleOidcCallbackResponse
+     *
+     * @param HandleOidcCallbackRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return HandleOidcCallbackResponse
+     */
+    public function handleOidcCallbackWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->code) {
+            @$query['code'] = $request->code;
+        }
+
+        if (null !== $request->state) {
+            @$query['state'] = $request->state;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'HandleOidcCallback',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/oidc/callback',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return HandleOidcCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+     *
+     * @param request - HandleOidcCallbackRequest
+     *
+     * @returns HandleOidcCallbackResponse
+     *
+     * @param HandleOidcCallbackRequest $request
+     *
+     * @return HandleOidcCallbackResponse
+     */
+    public function handleOidcCallback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->handleOidcCallbackWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
      *
      * @param request - ImportHttpApiRequest
@@ -7897,6 +8420,67 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->importHttpApiWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the business response parameter data.
+     *
+     * @param request - InitiateOidcAuthRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitiateOidcAuthResponse
+     *
+     * @param InitiateOidcAuthRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return InitiateOidcAuthResponse
+     */
+    public function initiateOidcAuthWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InitiateOidcAuth',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/oidc/authorize',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return InitiateOidcAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the business response parameter data.
+     *
+     * @param request - InitiateOidcAuthRequest
+     *
+     * @returns InitiateOidcAuthResponse
+     *
+     * @param InitiateOidcAuthRequest $request
+     *
+     * @return InitiateOidcAuthResponse
+     */
+    public function initiateOidcAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->initiateOidcAuthWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8259,6 +8843,71 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Performs a paging query on the field template list and returns the template ID, request path, and applicable protocol for each template record.
+     *
+     * @param request - ListApiPathFieldTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiPathFieldTemplatesResponse
+     *
+     * @param ListApiPathFieldTemplatesRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListApiPathFieldTemplatesResponse
+     */
+    public function listApiPathFieldTemplatesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApiPathFieldTemplates',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/api-path-fields/templates',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApiPathFieldTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query on the field template list and returns the template ID, request path, and applicable protocol for each template record.
+     *
+     * @param request - ListApiPathFieldTemplatesRequest
+     *
+     * @returns ListApiPathFieldTemplatesResponse
+     *
+     * @param ListApiPathFieldTemplatesRequest $request
+     *
+     * @return ListApiPathFieldTemplatesResponse
+     */
+    public function listApiPathFieldTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listApiPathFieldTemplatesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of batch export tasks.
      *
      * @param request - ListBatchExportTasksRequest
@@ -8345,6 +8994,79 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listBatchExportTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query on the list of HiMarket chat sessions, returning the session ID, name, conversation type, and associated API products for each session. The response also includes the paging page number, paging size, and total count.
+     *
+     * @param request - ListChatSessionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChatSessionsResponse
+     *
+     * @param ListChatSessionsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListChatSessionsResponse
+     */
+    public function listChatSessionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChatSessions',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/sessions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChatSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on the list of HiMarket chat sessions, returning the session ID, name, conversation type, and associated API products for each session. The response also includes the paging page number, paging size, and total count.
+     *
+     * @param request - ListChatSessionsRequest
+     *
+     * @returns ListChatSessionsResponse
+     *
+     * @param ListChatSessionsRequest $request
+     *
+     * @return ListChatSessionsResponse
+     */
+    public function listChatSessions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listChatSessionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8789,6 +9511,91 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listConsumersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query on the HiMarket developer list. You can filter the paging results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+     *
+     * @param request - ListDevelopersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDevelopersResponse
+     *
+     * @param ListDevelopersRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListDevelopersResponse
+     */
+    public function listDevelopersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->portalId) {
+            @$query['portalId'] = $request->portalId;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->username) {
+            @$query['username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDevelopers',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/developers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDevelopersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on the HiMarket developer list. You can filter the paging results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+     *
+     * @param request - ListDevelopersRequest
+     *
+     * @returns ListDevelopersResponse
+     *
+     * @param ListDevelopersRequest $request
+     *
+     * @return ListDevelopersResponse
+     */
+    public function listDevelopers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDevelopersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9690,6 +10497,170 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. The paging process allows you to filter subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+     *
+     * @param request - ListHiMarketConsumerSubscriptionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHiMarketConsumerSubscriptionsResponse
+     *
+     * @param string                                   $consumerId
+     * @param ListHiMarketConsumerSubscriptionsRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListHiMarketConsumerSubscriptionsResponse
+     */
+    public function listHiMarketConsumerSubscriptionsWithOptions($consumerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListHiMarketConsumerSubscriptions',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/consumers/' . Url::percentEncode($consumerId) . '/subscriptions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListHiMarketConsumerSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. The paging process allows you to filter subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+     *
+     * @param request - ListHiMarketConsumerSubscriptionsRequest
+     *
+     * @returns ListHiMarketConsumerSubscriptionsResponse
+     *
+     * @param string                                   $consumerId
+     * @param ListHiMarketConsumerSubscriptionsRequest $request
+     *
+     * @return ListHiMarketConsumerSubscriptionsResponse
+     */
+    public function listHiMarketConsumerSubscriptions($consumerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listHiMarketConsumerSubscriptionsWithOptions($consumerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paging query on the HiMarket consumer list. You can filter consumers by name keywords, portal ID, and developer ID. The response includes the ID, name, description, and primary status of each consumer.
+     *
+     * @param request - ListHiMarketConsumersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHiMarketConsumersResponse
+     *
+     * @param ListHiMarketConsumersRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListHiMarketConsumersResponse
+     */
+    public function listHiMarketConsumersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->developerId) {
+            @$query['developerId'] = $request->developerId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->portalId) {
+            @$query['portalId'] = $request->portalId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListHiMarketConsumers',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/consumers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListHiMarketConsumersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query on the HiMarket consumer list. You can filter consumers by name keywords, portal ID, and developer ID. The response includes the ID, name, description, and primary status of each consumer.
+     *
+     * @param request - ListHiMarketConsumersRequest
+     *
+     * @returns ListHiMarketConsumersResponse
+     *
+     * @param ListHiMarketConsumersRequest $request
+     *
+     * @return ListHiMarketConsumersResponse
+     */
+    public function listHiMarketConsumers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listHiMarketConsumersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves a list of API operations.
      *
      * @param request - ListHttpApiOperationsRequest
@@ -10179,6 +11150,63 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Queries the details of Model Context Protocol (MCP) tools in an MCP Server API product and returns a list of tools. Each tool includes three text fields (name, title, and description) and four map structures (inputSchema, outputSchema, annotations, and meta).
+     *
+     * @param request - ListMcpProductToolsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMcpProductToolsResponse
+     *
+     * @param string                     $productId
+     * @param ListMcpProductToolsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMcpProductToolsResponse
+     */
+    public function listMcpProductToolsWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListMcpProductTools',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '/tools',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMcpProductToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of Model Context Protocol (MCP) tools in an MCP Server API product and returns a list of tools. Each tool includes three text fields (name, title, and description) and four map structures (inputSchema, outputSchema, annotations, and meta).
+     *
+     * @param request - ListMcpProductToolsRequest
+     *
+     * @returns ListMcpProductToolsResponse
+     *
+     * @param string                     $productId
+     * @param ListMcpProductToolsRequest $request
+     *
+     * @return ListMcpProductToolsResponse
+     */
+    public function listMcpProductTools($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMcpProductToolsWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves a list of MCP servers.
      *
      * @remarks
@@ -10332,6 +11360,67 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listMigrationTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+     *
+     * @param request - ListModelCardsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelCardsResponse
+     *
+     * @param ListModelCardsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListModelCardsResponse
+     */
+    public function listModelCardsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelCards',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/model-cards',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelCardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+     *
+     * @param request - ListModelCardsRequest
+     *
+     * @returns ListModelCardsResponse
+     *
+     * @param ListModelCardsRequest $request
+     *
+     * @return ListModelCardsResponse
+     */
+    public function listModelCards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelCardsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10968,6 +12057,533 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listPolicyClassesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query for the list of published API products on a specified HiMarket developer portal. The paging result contains list items, each returning the publication record ID, API product ID, API product name, and API product type.
+     *
+     * @param request - ListPortalPublicationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPortalPublicationsResponse
+     *
+     * @param string                        $portalId
+     * @param ListPortalPublicationsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListPortalPublicationsResponse
+     */
+    public function listPortalPublicationsWithOptions($portalId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productName) {
+            @$query['productName'] = $request->productName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPortalPublications',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/portals/' . Url::percentEncode($portalId) . '/publications',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPortalPublicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query for the list of published API products on a specified HiMarket developer portal. The paging result contains list items, each returning the publication record ID, API product ID, API product name, and API product type.
+     *
+     * @param request - ListPortalPublicationsRequest
+     *
+     * @returns ListPortalPublicationsResponse
+     *
+     * @param string                        $portalId
+     * @param ListPortalPublicationsRequest $request
+     *
+     * @return ListPortalPublicationsResponse
+     */
+    public function listPortalPublications($portalId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPortalPublicationsWithOptions($portalId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query for the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+     *
+     * @param request - ListPortalsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPortalsResponse
+     *
+     * @param ListPortalsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListPortalsResponse
+     */
+    public function listPortalsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPortals',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/portals',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPortalsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query for the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+     *
+     * @param request - ListPortalsRequest
+     *
+     * @returns ListPortalsResponse
+     *
+     * @param ListPortalsRequest $request
+     *
+     * @return ListPortalsResponse
+     */
+    public function listPortals($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPortalsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of product categories for the current tenant with paging. You can search by category name keywords. Each item in the list includes the category ID, category name, category description, and category icon.
+     *
+     * @param request - ListProductCategoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductCategoriesResponse
+     *
+     * @param ListProductCategoriesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListProductCategoriesResponse
+     */
+    public function listProductCategoriesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProductCategories',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/product-categories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProductCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of product categories for the current tenant with paging. You can search by category name keywords. Each item in the list includes the category ID, category name, category description, and category icon.
+     *
+     * @param request - ListProductCategoriesRequest
+     *
+     * @returns ListProductCategoriesResponse
+     *
+     * @param ListProductCategoriesRequest $request
+     *
+     * @return ListProductCategoriesResponse
+     */
+    public function listProductCategories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProductCategoriesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+     *
+     * @param request - ListProductPublicationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductPublicationsResponse
+     *
+     * @param string                         $productId
+     * @param ListProductPublicationsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListProductPublicationsResponse
+     */
+    public function listProductPublicationsWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->portalName) {
+            @$query['portalName'] = $request->portalName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProductPublications',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '/publications',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProductPublicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+     *
+     * @param request - ListProductPublicationsRequest
+     *
+     * @returns ListProductPublicationsResponse
+     *
+     * @param string                         $productId
+     * @param ListProductPublicationsRequest $request
+     *
+     * @return ListProductPublicationsResponse
+     */
+    public function listProductPublications($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProductPublicationsWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query to retrieve the paging list of subscribe records for a specified API product. The records can be filtered by subscribe status and searched by consumer name keywords. Each record includes the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+     *
+     * @param request - ListProductSubscriptionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductSubscriptionsResponse
+     *
+     * @param string                          $productId
+     * @param ListProductSubscriptionsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListProductSubscriptionsResponse
+     */
+    public function listProductSubscriptionsWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerName) {
+            @$query['consumerName'] = $request->consumerName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProductSubscriptions',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '/subscriptions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProductSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query to retrieve the paging list of subscribe records for a specified API product. The records can be filtered by subscribe status and searched by consumer name keywords. Each record includes the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+     *
+     * @param request - ListProductSubscriptionsRequest
+     *
+     * @returns ListProductSubscriptionsResponse
+     *
+     * @param string                          $productId
+     * @param ListProductSubscriptionsRequest $request
+     *
+     * @return ListProductSubscriptionsResponse
+     */
+    public function listProductSubscriptions($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProductSubscriptionsWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a paginated list of API products under the current tenant. You can specify the product name, product type, product status, product category, and the portal where the product is published in the request parameters. The response includes the product ID, name, description, status, type, documentation, icon, product category, automatic subscription approval status, and the MCP, agent, model, and product capability configurations.
+     *
+     * @param request - ListProductsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProductsResponse
+     *
+     * @param ListProductsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProductsResponse
+     */
+    public function listProductsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryIds) {
+            @$query['categoryIds'] = $request->categoryIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->portalId) {
+            @$query['portalId'] = $request->portalId;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProducts',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a paginated list of API products under the current tenant. You can specify the product name, product type, product status, product category, and the portal where the product is published in the request parameters. The response includes the product ID, name, description, status, type, documentation, icon, product category, automatic subscription approval status, and the MCP, agent, model, and product capability configurations.
+     *
+     * @param request - ListProductsRequest
+     *
+     * @returns ListProductsResponse
+     *
+     * @param ListProductsRequest $request
+     *
+     * @return ListProductsResponse
+     */
+    public function listProducts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listProductsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+     *
+     * @param request - ListPublishableProductsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPublishableProductsResponse
+     *
+     * @param string                         $portalId
+     * @param ListPublishableProductsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListPublishableProductsResponse
+     */
+    public function listPublishableProductsWithOptions($portalId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPublishableProducts',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/portals/' . Url::percentEncode($portalId) . '/publishable-products',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPublishableProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+     *
+     * @param request - ListPublishableProductsRequest
+     *
+     * @returns ListPublishableProductsResponse
+     *
+     * @param string                         $portalId
+     * @param ListPublishableProductsRequest $request
+     *
+     * @return ListPublishableProductsResponse
+     */
+    public function listPublishableProducts($portalId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPublishableProductsWithOptions($portalId, $request, $headers, $runtime);
     }
 
     /**
@@ -11646,6 +13262,189 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+     *
+     * @param request - LoginDeveloperRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LoginDeveloperResponse
+     *
+     * @param LoginDeveloperRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return LoginDeveloperResponse
+     */
+    public function loginDeveloperWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->password) {
+            @$body['password'] = $request->password;
+        }
+
+        if (null !== $request->username) {
+            @$body['username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'LoginDeveloper',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/developers/login',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return LoginDeveloperResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+     *
+     * @param request - LoginDeveloperRequest
+     *
+     * @returns LoginDeveloperResponse
+     *
+     * @param LoginDeveloperRequest $request
+     *
+     * @return LoginDeveloperResponse
+     */
+    public function loginDeveloper($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->loginDeveloperWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Logs a developer out of a HiMarket developer account. This operation takes no business request parameters. A successful response returns only the requestId, code, and message fields.
+     *
+     * @param request - LogoutDeveloperRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LogoutDeveloperResponse
+     *
+     * @param LogoutDeveloperRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return LogoutDeveloperResponse
+     */
+    public function logoutDeveloperWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'LogoutDeveloper',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/developers/logout',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return LogoutDeveloperResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Logs a developer out of a HiMarket developer account. This operation takes no business request parameters. A successful response returns only the requestId, code, and message fields.
+     *
+     * @param request - LogoutDeveloperRequest
+     *
+     * @returns LogoutDeveloperResponse
+     *
+     * @param LogoutDeveloperRequest $request
+     *
+     * @return LogoutDeveloperResponse
+     */
+    public function logoutDeveloper($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->logoutDeveloperWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+     *
+     * @param request - PublishProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishProductResponse
+     *
+     * @param string                $productId
+     * @param PublishProductRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PublishProductResponse
+     */
+    public function publishProductWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->portalId) {
+            @$body['portalId'] = $request->portalId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PublishProduct',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '/publications',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+     *
+     * @param request - PublishProductRequest
+     *
+     * @returns PublishProductResponse
+     *
+     * @param string                $productId
+     * @param PublishProductRequest $request
+     *
+     * @return PublishProductResponse
+     */
+    public function publishProduct($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->publishProductWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the list of consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
@@ -12094,6 +13893,69 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Subscribes to an API product on a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+     *
+     * @param request - SubscribeProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubscribeProductResponse
+     *
+     * @param string                  $consumerId
+     * @param SubscribeProductRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubscribeProductResponse
+     */
+    public function subscribeProductWithOptions($consumerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubscribeProduct',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/consumers/' . Url::percentEncode($consumerId) . '/subscriptions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SubscribeProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Subscribes to an API product on a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+     *
+     * @param request - SubscribeProductRequest
+     *
+     * @returns SubscribeProductResponse
+     *
+     * @param string                  $consumerId
+     * @param SubscribeProductRequest $request
+     *
+     * @return SubscribeProductResponse
+     */
+    public function subscribeProduct($consumerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->subscribeProductWithOptions($consumerId, $request, $headers, $runtime);
+    }
+
+    /**
      * Syncs an external MCP server.
      *
      * @param request - SyncMCPServersRequest
@@ -12414,6 +14276,65 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->uninstallPluginWithOptions($pluginId, $headers, $runtime);
+    }
+
+    /**
+     * Unpublishes a publication record of an API product based on the API product ID and the publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by the ListProductPublications operation. This operation only manages the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
+     *
+     * @param request - UnpublishProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnpublishProductResponse
+     *
+     * @param string                  $productId
+     * @param string                  $publicationId
+     * @param UnpublishProductRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UnpublishProductResponse
+     */
+    public function unpublishProductWithOptions($productId, $publicationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'UnpublishProduct',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '/publications/' . Url::percentEncode($publicationId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UnpublishProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unpublishes a publication record of an API product based on the API product ID and the publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by the ListProductPublications operation. This operation only manages the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
+     *
+     * @param request - UnpublishProductRequest
+     *
+     * @returns UnpublishProductResponse
+     *
+     * @param string                  $productId
+     * @param string                  $publicationId
+     * @param UnpublishProductRequest $request
+     *
+     * @return UnpublishProductResponse
+     */
+    public function unpublishProduct($productId, $publicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->unpublishProductWithOptions($productId, $publicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -12800,6 +14721,73 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Adds or removes API products in bulk under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, and does not return item-by-item processing results.
+     *
+     * @param request - UpdateCategoryProductsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCategoryProductsResponse
+     *
+     * @param string                        $categoryId
+     * @param UpdateCategoryProductsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateCategoryProductsResponse
+     */
+    public function updateCategoryProductsWithOptions($categoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->action) {
+            @$body['action'] = $request->action;
+        }
+
+        if (null !== $request->productIds) {
+            @$body['productIds'] = $request->productIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCategoryProducts',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/product-categories/' . Url::percentEncode($categoryId) . '/products',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCategoryProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds or removes API products in bulk under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, and does not return item-by-item processing results.
+     *
+     * @param request - UpdateCategoryProductsRequest
+     *
+     * @returns UpdateCategoryProductsResponse
+     *
+     * @param string                        $categoryId
+     * @param UpdateCategoryProductsRequest $request
+     *
+     * @return UpdateCategoryProductsResponse
+     */
+    public function updateCategoryProducts($categoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateCategoryProductsWithOptions($categoryId, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates a consumer.
      *
      * @param request - UpdateConsumerRequest
@@ -13022,6 +15010,73 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updateConsumerGroupWithOptions($consumerGroupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, and does not return the updated developer information.
+     *
+     * @param request - UpdateDeveloperStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDeveloperStatusResponse
+     *
+     * @param string                       $developerId
+     * @param UpdateDeveloperStatusRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateDeveloperStatusResponse
+     */
+    public function updateDeveloperStatusWithOptions($developerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->portalId) {
+            @$body['portalId'] = $request->portalId;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDeveloperStatus',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/developers/' . Url::percentEncode($developerId) . '/status',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDeveloperStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, and does not return the updated developer information.
+     *
+     * @param request - UpdateDeveloperStatusRequest
+     *
+     * @returns UpdateDeveloperStatusResponse
+     *
+     * @param string                       $developerId
+     * @param UpdateDeveloperStatusRequest $request
+     *
+     * @return UpdateDeveloperStatusResponse
+     */
+    public function updateDeveloperStatus($developerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDeveloperStatusWithOptions($developerId, $request, $headers, $runtime);
     }
 
     /**
@@ -14411,6 +16466,251 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updatePolicyWithOptions($policyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+     *
+     * @param request - UpdatePortalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePortalResponse
+     *
+     * @param string              $portalId
+     * @param UpdatePortalRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdatePortalResponse
+     */
+    public function updatePortalWithOptions($portalId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->portalSettingConfig) {
+            @$body['portalSettingConfig'] = $request->portalSettingConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePortal',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/portals/' . Url::percentEncode($portalId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePortalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+     *
+     * @param request - UpdatePortalRequest
+     *
+     * @returns UpdatePortalResponse
+     *
+     * @param string              $portalId
+     * @param UpdatePortalRequest $request
+     *
+     * @return UpdatePortalResponse
+     */
+    public function updatePortal($portalId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePortalWithOptions($portalId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the name, description, type, documentation, icon, automatic subscription approval setting, product categories, and capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+     *
+     * @param request - UpdateProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProductResponse
+     *
+     * @param string               $productId
+     * @param UpdateProductRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProductResponse
+     */
+    public function updateProductWithOptions($productId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->autoApprove) {
+            @$body['autoApprove'] = $request->autoApprove;
+        }
+
+        if (null !== $request->categories) {
+            @$body['categories'] = $request->categories;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->document) {
+            @$body['document'] = $request->document;
+        }
+
+        if (null !== $request->feature) {
+            @$body['feature'] = $request->feature;
+        }
+
+        if (null !== $request->icon) {
+            @$body['icon'] = $request->icon;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProduct',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/products/' . Url::percentEncode($productId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name, description, type, documentation, icon, automatic subscription approval setting, product categories, and capabilities of an API product by API product ID. The request body is in JSON format. A successful response returns only the requestId, code, and message, and does not return the updated product information.
+     *
+     * @param request - UpdateProductRequest
+     *
+     * @returns UpdateProductResponse
+     *
+     * @param string               $productId
+     * @param UpdateProductRequest $request
+     *
+     * @return UpdateProductResponse
+     */
+    public function updateProduct($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateProductWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the name, description, and icon of a product category by category ID. The request body is in JSON format. The response returns only the request ID, response status code, and response message.
+     *
+     * @param request - UpdateProductCategoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProductCategoryResponse
+     *
+     * @param string                       $categoryId
+     * @param UpdateProductCategoryRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateProductCategoryResponse
+     */
+    public function updateProductCategoryWithOptions($categoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->icon) {
+            @$body['icon'] = $request->icon;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProductCategory',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/himarket/v1/product-categories/' . Url::percentEncode($categoryId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProductCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name, description, and icon of a product category by category ID. The request body is in JSON format. The response returns only the request ID, response status code, and response message.
+     *
+     * @param request - UpdateProductCategoryRequest
+     *
+     * @returns UpdateProductCategoryResponse
+     *
+     * @param string                       $categoryId
+     * @param UpdateProductCategoryRequest $request
+     *
+     * @return UpdateProductCategoryResponse
+     */
+    public function updateProductCategory($categoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateProductCategoryWithOptions($categoryId, $request, $headers, $runtime);
     }
 
     /**
