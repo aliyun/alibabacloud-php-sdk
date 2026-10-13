@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeDiagnosticResultRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeDiagnosticResultResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeFaultReportRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeFaultReportResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeHyperNodeRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeHyperNodeResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeInvocationsRequest;
@@ -83,6 +85,9 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClustersRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClustersResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListDiagnosticResultsRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListDiagnosticResultsResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFaultReportsRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFaultReportsResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFaultReportsShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeHyperNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeHyperNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeNodesRequest;
@@ -127,6 +132,8 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReportNodesStatusRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReportNodesStatusResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReportNodesStatusShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReportNodeStatusRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReportNodeStatusResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RunCommandRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RunCommandResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RunCommandShrinkRequest;
@@ -139,6 +146,8 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopInvocationRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopInvocationResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopInvocationShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopNodeDiagnosticRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopNodeDiagnosticResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopNodesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopNodesShrinkRequest;
@@ -160,26 +169,6 @@ class Eflocontroller extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-wulanchabu' => 'eflo-controller.cn-wulanchabu.aliyuncs.com',
-            'cn-beijing' => 'eflo-controller.cn-beijing.aliyuncs.com',
-            'cn-shanghai' => 'eflo-controller.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'eflo-controller.cn-hongkong.aliyuncs.com',
-            'cn-heyuan' => 'eflo-controller.cn-heyuan.aliyuncs.com',
-            'cn-zhangjiakou' => 'eflo-controller.cn-zhangjiakou.aliyuncs.com',
-            'cn-shenzhen' => 'eflo-controller.cn-shenzhen.aliyuncs.com',
-            'ap-northeast-1' => 'eflo-controller.ap-northeast-1.aliyuncs.com',
-            'cn-guangzhou' => 'eflo-controller.cn-guangzhou.aliyuncs.com',
-            'ap-southeast-1' => 'eflo-controller.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3' => 'eflo-controller.ap-southeast-3.aliyuncs.com',
-            'cn-huhehaote' => 'eflo-controller.cn-huhehaote.aliyuncs.com',
-            'ap-southeast-7' => 'eflo-controller.ap-southeast-7.aliyuncs.com',
-            'cn-hangzhou' => 'eflo-controller.cn-hangzhou.aliyuncs.com',
-            'ap-southeast-8' => 'eflo-controller.ap-southeast-8.aliyuncs.com',
-            'eu-central-1' => 'eflo-controller.eu-central-1.aliyuncs.com',
-            'me-east-1' => 'eflo-controller.me-east-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'eflo-controller.cn-shanghai-finance-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eflo-controller', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -270,10 +259,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Changes the node group of a node.
+     * Modifies the node group of nodes.
      *
      * @remarks
-     * Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
      *
      * @param tmpReq - ChangeNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -328,10 +317,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Changes the node group of a node.
+     * Modifies the node group of nodes.
      *
      * @remarks
-     * Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
      *
      * @param request - ChangeNodeGroupRequest
      *
@@ -1383,10 +1372,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cluster.
+     * Queries the details of a Lingjun AI Computing Service cluster.
      *
      * @remarks
-     * Queries the details of a specified cluster.
+     * Closes a remote session.
      *
      * @param request - DescribeClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1425,10 +1414,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cluster.
+     * Queries the details of a Lingjun AI Computing Service cluster.
      *
      * @remarks
-     * Queries the details of a specified cluster.
+     * Closes a remote session.
      *
      * @param request - DescribeClusterRequest
      *
@@ -1447,9 +1436,6 @@ class Eflocontroller extends OpenApiClient
 
     /**
      * Queries the results of a diagnostic task.
-     *
-     * @remarks
-     * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param request - DescribeDiagnosticResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1490,9 +1476,6 @@ class Eflocontroller extends OpenApiClient
     /**
      * Queries the results of a diagnostic task.
      *
-     * @remarks
-     * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
-     *
      * @param request - DescribeDiagnosticResultRequest
      *
      * @returns DescribeDiagnosticResultResponse
@@ -1509,10 +1492,73 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a hyper node.
+     * Queries the details of a fault report after a user submits one.
      *
      * @remarks
-     * Queries the details of a specified hyper node.
+     * Queries the details of a fault report. After you call ReportNodeStatus to submit a fault report, you can obtain the report ID from the ReportId response parameter. You can also call ListFaultReports to query existing fault reports and obtain the ReportId.
+     *
+     * @param request - DescribeFaultReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFaultReportResponse
+     *
+     * @param DescribeFaultReportRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeFaultReportResponse
+     */
+    public function describeFaultReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->reportId) {
+            @$body['ReportId'] = $request->reportId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFaultReport',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFaultReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a fault report after a user submits one.
+     *
+     * @remarks
+     * Queries the details of a fault report. After you call ReportNodeStatus to submit a fault report, you can obtain the report ID from the ReportId response parameter. You can also call ListFaultReports to query existing fault reports and obtain the ReportId.
+     *
+     * @param request - DescribeFaultReportRequest
+     *
+     * @returns DescribeFaultReportResponse
+     *
+     * @param DescribeFaultReportRequest $request
+     *
+     * @return DescribeFaultReportResponse
+     */
+    public function describeFaultReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFaultReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a hypernode.
+     *
+     * @remarks
+     * Queries the details of a hypernode.
      *
      * @param request - DescribeHyperNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1551,10 +1597,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a hyper node.
+     * Queries the details of a hypernode.
      *
      * @remarks
-     * Queries the details of a specified hyper node.
+     * Queries the details of a hypernode.
      *
      * @param request - DescribeHyperNodeRequest
      *
@@ -1572,7 +1618,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the execution history and status of Cloud Assistant commands.
+     * Queries the execution list and status of O&M Assistant commands.
      *
      * @param request - DescribeInvocationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1623,7 +1669,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the execution history and status of Cloud Assistant commands.
+     * Queries the execution list and status of O&M Assistant commands.
      *
      * @param request - DescribeInvocationsRequest
      *
@@ -1641,7 +1687,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the results of a network test.
+     * Queries network test results.
      *
      * @param request - DescribeNetTestResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1680,7 +1726,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the results of a network test.
+     * Queries network test results.
      *
      * @param request - DescribeNetTestResultRequest
      *
@@ -1698,10 +1744,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the list of nodes.
+     * Queries a list of nodes.
      *
      * @remarks
-     * Queries the detailed information of a hyper node.
+     * Queries the details of a supernode.
      *
      * @param request - DescribeNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1740,10 +1786,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the list of nodes.
+     * Queries a list of nodes.
      *
      * @remarks
-     * Queries the detailed information of a hyper node.
+     * Queries the details of a supernode.
      *
      * @param request - DescribeNodeRequest
      *
@@ -1761,10 +1807,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a node group.
+     * Queries node groups.
      *
      * @remarks
-     * This operation queries the details of a node group.
+     * Queries the details of a supernode.
      *
      * @param request - DescribeNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1803,10 +1849,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a node group.
+     * Queries node groups.
      *
      * @remarks
-     * This operation queries the details of a node group.
+     * Queries the details of a supernode.
      *
      * @param request - DescribeNodeGroupRequest
      *
@@ -1827,10 +1873,10 @@ class Eflocontroller extends OpenApiClient
      * Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
      *
      * @remarks
-     * The returned results contain the following information:
-     * - The processing status of each node with configuration drift
-     * - The processing result, status, and reason for each node
-     * - The refreshed and skipped properties for each node
+     * The returned results include the following:
+     * - The processing status of each node with configuration drift.
+     * - The processing result, status, and reason for each node.
+     * - The refreshed and skipped properties for each node.
      *
      * @param tmpReq - DescribeNodeGroupRefreshTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1890,10 +1936,10 @@ class Eflocontroller extends OpenApiClient
      * Queries the detailed progress of a node group configuration refresh task. Returns the actual execution result for each node, including refreshed properties, properties skipped because they exceeded the MaxDisruptiveAction constraint, and failure reasons.
      *
      * @remarks
-     * The returned results contain the following information:
-     * - The processing status of each node with configuration drift
-     * - The processing result, status, and reason for each node
-     * - The refreshed and skipped properties for each node
+     * The returned results include the following:
+     * - The processing status of each node with configuration drift.
+     * - The processing result, status, and reason for each node.
+     * - The refreshed and skipped properties for each node.
      *
      * @param request - DescribeNodeGroupRefreshTaskRequest
      *
@@ -1911,7 +1957,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Describes the constraints for a node type.
+     * Queries the constraints for a node type.
      *
      * @param request - DescribeNodeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1950,7 +1996,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Describes the constraints for a node type.
+     * Queries the constraints for a node type.
      *
      * @param request - DescribeNodeTypeRequest
      *
@@ -2025,7 +2071,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
+     * Queries the list and status of files sent by O&M Assistant.
      *
      * @param request - DescribeSendFileResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2068,7 +2114,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the files that are sent by an O\\\\\\&M assistant and the status of the files.
+     * Queries the list and status of files sent by O&M Assistant.
      *
      * @param request - DescribeSendFileResultsRequest
      *
@@ -2086,7 +2132,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a task.
+     * Queries the details of a node.
      *
      * @param request - DescribeTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2125,7 +2171,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a task.
+     * Queries the details of a node.
      *
      * @param request - DescribeTaskRequest
      *
@@ -2354,7 +2400,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists the node groups of a cluster and the nodes in each group.
+     * Queries the host group list under a cluster and the host list under each group.
      *
      * @param request - ListClusterHyperNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2415,7 +2461,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists the node groups of a cluster and the nodes in each group.
+     * Queries the host group list under a cluster and the host list under each group.
      *
      * @param request - ListClusterHyperNodesRequest
      *
@@ -2433,7 +2479,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the nodes in a cluster.
+     * Queries the list of nodes in a cluster.
      *
      * @param request - ListClusterNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2498,7 +2544,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the nodes in a cluster.
+     * Queries the list of nodes in a cluster.
      *
      * @param request - ListClusterNodesRequest
      *
@@ -2516,7 +2562,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Query cluster instances with optional filtering by resource group and tags.
+     * Queries a list of cluster instances.
      *
      * @param request - ListClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2569,7 +2615,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Query cluster instances with optional filtering by resource group and tags.
+     * Queries a list of cluster instances.
      *
      * @param request - ListClustersRequest
      *
@@ -2587,10 +2633,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * List of Diagnostic Tasks.
-     *
-     * @remarks
-     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+     * Queries a list of diagnostic tasks.
      *
      * @param request - ListDiagnosticResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2641,10 +2684,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * List of Diagnostic Tasks.
-     *
-     * @remarks
-     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+     * Queries a list of diagnostic tasks.
      *
      * @param request - ListDiagnosticResultsRequest
      *
@@ -2662,7 +2702,88 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists the active physical servers in the rack.
+     * Queries the list of historical fault reports.
+     *
+     * @remarks
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+     *
+     * @param tmpReq - ListFaultReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFaultReportsResponse
+     *
+     * @param ListFaultReportsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListFaultReportsResponse
+     */
+    public function listFaultReportsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListFaultReportsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->nodes) {
+            $request->nodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->nodesShrink) {
+            @$body['Nodes'] = $request->nodesShrink;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListFaultReports',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFaultReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of historical fault reports.
+     *
+     * @remarks
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+     *
+     * @param request - ListFaultReportsRequest
+     *
+     * @returns ListFaultReportsResponse
+     *
+     * @param ListFaultReportsRequest $request
+     *
+     * @return ListFaultReportsResponse
+     */
+    public function listFaultReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFaultReportsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of available rack physical machines.
      *
      * @param request - ListFreeHyperNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2725,7 +2846,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists the active physical servers in the rack.
+     * Queries the list of available rack physical machines.
      *
      * @param request - ListFreeHyperNodesRequest
      *
@@ -2743,7 +2864,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists all unused nodes.
+     * Queries the list of unused nodes.
      *
      * @param request - ListFreeNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2808,7 +2929,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists all unused nodes.
+     * Queries the list of unused nodes.
      *
      * @param request - ListFreeNodesRequest
      *
@@ -2826,10 +2947,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Machines.
+     * Queries a list of machines.
      *
      * @remarks
-     * Queries the details of hypernodes.
+     * Queries the details of hyper nodes.
      *
      * @param tmpReq - ListHyperNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2928,10 +3049,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Machines.
+     * Queries a list of machines.
      *
      * @remarks
-     * Queries the details of hypernodes.
+     * Queries the details of hyper nodes.
      *
      * @param request - ListHyperNodesRequest
      *
@@ -3077,7 +3198,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of available machine types.
+     * Queries the list of available machine types.
      *
      * @param request - ListMachineTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3116,7 +3237,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of available machine types.
+     * Queries the list of available machine types.
      *
      * @param request - ListMachineTypesRequest
      *
@@ -3134,7 +3255,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists network test results.
+     * Queries the list of network tests.
      *
      * @param request - ListNetTestResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3185,7 +3306,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists network test results.
+     * Queries the list of network tests.
      *
      * @param request - ListNetTestResultsRequest
      *
@@ -3206,7 +3327,7 @@ class Eflocontroller extends OpenApiClient
      * Queries nodes with configuration drift within a node group and the drift details.
      *
      * @remarks
-     * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+     * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the drift type, before-and-after values, and the required action level for refreshing each inconsistent property. This is a read-only operation.
      *
      * @param tmpReq - ListNodeGroupDriftedNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3266,7 +3387,7 @@ class Eflocontroller extends OpenApiClient
      * Queries nodes with configuration drift within a node group and the drift details.
      *
      * @remarks
-     * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the difference type, before-and-after values, and the action level required for refresh for each inconsistent property. This is a read-only operation.
+     * Compares the node group configuration template with the actual configuration of each node, and returns all nodes with configuration inconsistencies, along with the drift type, before-and-after values, and the required action level for refreshing each inconsistent property. This is a read-only operation.
      *
      * @param request - ListNodeGroupDriftedNodesRequest
      *
@@ -3284,7 +3405,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the list of node group configuration refresh tasks with paging.
+     * Queries the list of node group configuration refresh tasks by paging.
      *
      * @remarks
      * If you do not know which node group has refresh tasks, you can use conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
@@ -3348,7 +3469,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the list of node group configuration refresh tasks with paging.
+     * Queries the list of node group configuration refresh tasks by paging.
      *
      * @remarks
      * If you do not know which node group has refresh tasks, you can use conditional query. The task list contains only summary information. To query task details, use the DescribeNodeGroupRefreshTask operation.
@@ -3369,7 +3490,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Query Node Group Information Under the Cluster.
+     * Queries node group information in a cluster.
      *
      * @param request - ListNodeGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3420,7 +3541,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Query Node Group Information Under the Cluster.
+     * Queries node group information in a cluster.
      *
      * @param request - ListNodeGroupsRequest
      *
@@ -3793,12 +3914,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+     * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
      *
      * @remarks
-     * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+     * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
      * Limits:
-     * - Only one node group configuration refresh task can be running at a time for a node group.
+     * - A node group can have only one running node group configuration refresh task at a time.
      * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
      * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
      *
@@ -3853,12 +3974,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+     * Refreshes node group configurations to existing nodes. Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
      *
      * @remarks
-     * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID. Query the result by calling DescribeNodeGroupRefreshTask.
+     * Manually triggers the node group configuration to take effect on existing nodes. After node group properties are changed, existing nodes do not perform automatic synchronization by default, which causes configuration drift. You can call this operation to refresh node properties. The operation returns an asynchronous refresh task ID, and the result can be queried through DescribeNodeGroupRefreshTask.
      * Limits:
-     * - Only one node group configuration refresh task can be running at a time for a node group.
+     * - A node group can have only one running node group configuration refresh task at a time.
      * - When the asynchronous task executes the refresh, if a node is not in the "In Use" state, the refresh of that node is failed.
      * <warning>Currently, only the RamRoleName property is supported for refresh.</warning>
      *
@@ -3950,6 +4071,77 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->reimageNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Reports a fault for an abnormal node.
+     *
+     * @remarks
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+     *
+     * @param request - ReportNodeStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReportNodeStatusResponse
+     *
+     * @param ReportNodeStatusRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ReportNodeStatusResponse
+     */
+    public function reportNodeStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->diagnosisType) {
+            @$body['DiagnosisType'] = $request->diagnosisType;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReportNodeStatus',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReportNodeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Reports a fault for an abnormal node.
+     *
+     * @remarks
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+     *
+     * @param request - ReportNodeStatusRequest
+     *
+     * @returns ReportNodeStatusResponse
+     *
+     * @param ReportNodeStatusRequest $request
+     *
+     * @return ReportNodeStatusResponse
+     */
+    public function reportNodeStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reportNodeStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -4407,6 +4599,69 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopInvocationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Stops an ongoing fault reporting diagnostics process after a user initiates a fault report.
+     *
+     * @remarks
+     * Stops an ongoing fault reporting diagnostics process. Before calling this operation, initiate a fault report for the abnormal node by calling ReportNodeStatus, and use the returned ReportId as the ReportId for this operation.
+     *
+     * @param request - StopNodeDiagnosticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopNodeDiagnosticResponse
+     *
+     * @param StopNodeDiagnosticRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopNodeDiagnosticResponse
+     */
+    public function stopNodeDiagnosticWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->reportId) {
+            @$body['ReportId'] = $request->reportId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StopNodeDiagnostic',
+            'version' => '2022-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopNodeDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops an ongoing fault reporting diagnostics process after a user initiates a fault report.
+     *
+     * @remarks
+     * Stops an ongoing fault reporting diagnostics process. Before calling this operation, initiate a fault report for the abnormal node by calling ReportNodeStatus, and use the returned ReportId as the ReportId for this operation.
+     *
+     * @param request - StopNodeDiagnosticRequest
+     *
+     * @returns StopNodeDiagnosticResponse
+     *
+     * @param StopNodeDiagnosticRequest $request
+     *
+     * @return StopNodeDiagnosticResponse
+     */
+    public function stopNodeDiagnostic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopNodeDiagnosticWithOptions($request, $runtime);
     }
 
     /**

@@ -17,9 +17,15 @@ class rdmaInfoDetail extends Model
      * @var int
      */
     public $backendRdmaNicCount;
+
+    /**
+     * @var bool
+     */
+    public $backendRdmaSupported;
     protected $_name = [
         'backendRdmaNicBwInGbps' => 'BackendRdmaNicBwInGbps',
         'backendRdmaNicCount' => 'BackendRdmaNicCount',
+        'backendRdmaSupported' => 'BackendRdmaSupported',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class rdmaInfoDetail extends Model
 
         if (null !== $this->backendRdmaNicCount) {
             $res['BackendRdmaNicCount'] = $this->backendRdmaNicCount;
+        }
+
+        if (null !== $this->backendRdmaSupported) {
+            $res['BackendRdmaSupported'] = $this->backendRdmaSupported;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class rdmaInfoDetail extends Model
 
         if (isset($map['BackendRdmaNicCount'])) {
             $model->backendRdmaNicCount = $map['BackendRdmaNicCount'];
+        }
+
+        if (isset($map['BackendRdmaSupported'])) {
+            $model->backendRdmaSupported = $map['BackendRdmaSupported'];
         }
 
         return $model;
