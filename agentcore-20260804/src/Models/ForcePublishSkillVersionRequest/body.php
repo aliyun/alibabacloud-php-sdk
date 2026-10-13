@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class body extends Model
 {
     /**
+     * @var string
+     */
+    public $commitMsg;
+
+    /**
      * @var bool
      */
     public $updateLatestLabel;
     protected $_name = [
+        'commitMsg' => 'commitMsg',
         'updateLatestLabel' => 'updateLatestLabel',
     ];
 
@@ -24,6 +30,10 @@ class body extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->commitMsg) {
+            $res['commitMsg'] = $this->commitMsg;
+        }
+
         if (null !== $this->updateLatestLabel) {
             $res['updateLatestLabel'] = $this->updateLatestLabel;
         }
@@ -39,6 +49,10 @@ class body extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['commitMsg'])) {
+            $model->commitMsg = $map['commitMsg'];
+        }
+
         if (isset($map['updateLatestLabel'])) {
             $model->updateLatestLabel = $map['updateLatestLabel'];
         }

@@ -21,6 +21,11 @@ class ListCredentialsRequest extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $nameLike;
 
     /**
@@ -30,6 +35,7 @@ class ListCredentialsRequest extends Model
     protected $_name = [
         'credentialType' => 'credentialType',
         'maxResults' => 'maxResults',
+        'name' => 'name',
         'nameLike' => 'nameLike',
         'nextToken' => 'nextToken',
     ];
@@ -48,6 +54,10 @@ class ListCredentialsRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
         if (null !== $this->nameLike) {
@@ -75,6 +85,10 @@ class ListCredentialsRequest extends Model
 
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
         if (isset($map['nameLike'])) {

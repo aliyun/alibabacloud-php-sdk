@@ -10,10 +10,16 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceResponseBody\data\ne
 class networkConfiguration extends Model
 {
     /**
+     * @var string
+     */
+    public $publicEgressIp;
+
+    /**
      * @var vpc
      */
     public $vpc;
     protected $_name = [
+        'publicEgressIp' => 'publicEgressIp',
         'vpc' => 'vpc',
     ];
 
@@ -28,6 +34,10 @@ class networkConfiguration extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->publicEgressIp) {
+            $res['publicEgressIp'] = $this->publicEgressIp;
+        }
+
         if (null !== $this->vpc) {
             $res['vpc'] = null !== $this->vpc ? $this->vpc->toArray($noStream) : $this->vpc;
         }
@@ -43,6 +53,10 @@ class networkConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['publicEgressIp'])) {
+            $model->publicEgressIp = $map['publicEgressIp'];
+        }
+
         if (isset($map['vpc'])) {
             $model->vpc = vpc::fromMap($map['vpc']);
         }

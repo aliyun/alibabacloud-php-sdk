@@ -5,9 +5,12 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\agenticFsMounts;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\environment;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\harness;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\model_;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\network;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\ossMounts;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\runtime;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\skills;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\subAgents;
@@ -17,6 +20,11 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest\body\t
 class body extends Model
 {
     /**
+     * @var agenticFsMounts[]
+     */
+    public $agenticFsMounts;
+
+    /**
      * @var string
      */
     public $description;
@@ -25,6 +33,11 @@ class body extends Model
      * @var environment
      */
     public $environment;
+
+    /**
+     * @var harness
+     */
+    public $harness;
 
     /**
      * @var string
@@ -45,6 +58,11 @@ class body extends Model
      * @var network
      */
     public $network;
+
+    /**
+     * @var ossMounts[]
+     */
+    public $ossMounts;
 
     /**
      * @var runtime
@@ -71,12 +89,15 @@ class body extends Model
      */
     public $tools;
     protected $_name = [
+        'agenticFsMounts' => 'agenticFsMounts',
         'description' => 'description',
         'environment' => 'environment',
+        'harness' => 'harness',
         'instruction' => 'instruction',
         'model' => 'model',
         'name' => 'name',
         'network' => 'network',
+        'ossMounts' => 'ossMounts',
         'runtime' => 'runtime',
         'skills' => 'skills',
         'subAgents' => 'subAgents',
@@ -86,14 +107,23 @@ class body extends Model
 
     public function validate()
     {
+        if (\is_array($this->agenticFsMounts)) {
+            Model::validateArray($this->agenticFsMounts);
+        }
         if (null !== $this->environment) {
             $this->environment->validate();
+        }
+        if (null !== $this->harness) {
+            $this->harness->validate();
         }
         if (null !== $this->model) {
             $this->model->validate();
         }
         if (null !== $this->network) {
             $this->network->validate();
+        }
+        if (\is_array($this->ossMounts)) {
+            Model::validateArray($this->ossMounts);
         }
         if (null !== $this->runtime) {
             $this->runtime->validate();
@@ -116,12 +146,27 @@ class body extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agenticFsMounts) {
+            if (\is_array($this->agenticFsMounts)) {
+                $res['agenticFsMounts'] = [];
+                $n1 = 0;
+                foreach ($this->agenticFsMounts as $item1) {
+                    $res['agenticFsMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
 
         if (null !== $this->environment) {
             $res['environment'] = null !== $this->environment ? $this->environment->toArray($noStream) : $this->environment;
+        }
+
+        if (null !== $this->harness) {
+            $res['harness'] = null !== $this->harness ? $this->harness->toArray($noStream) : $this->harness;
         }
 
         if (null !== $this->instruction) {
@@ -138,6 +183,17 @@ class body extends Model
 
         if (null !== $this->network) {
             $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
+        }
+
+        if (null !== $this->ossMounts) {
+            if (\is_array($this->ossMounts)) {
+                $res['ossMounts'] = [];
+                $n1 = 0;
+                foreach ($this->ossMounts as $item1) {
+                    $res['ossMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->runtime) {
@@ -192,12 +248,27 @@ class body extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agenticFsMounts'])) {
+            if (!empty($map['agenticFsMounts'])) {
+                $model->agenticFsMounts = [];
+                $n1 = 0;
+                foreach ($map['agenticFsMounts'] as $item1) {
+                    $model->agenticFsMounts[$n1] = agenticFsMounts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
 
         if (isset($map['environment'])) {
             $model->environment = environment::fromMap($map['environment']);
+        }
+
+        if (isset($map['harness'])) {
+            $model->harness = harness::fromMap($map['harness']);
         }
 
         if (isset($map['instruction'])) {
@@ -214,6 +285,17 @@ class body extends Model
 
         if (isset($map['network'])) {
             $model->network = network::fromMap($map['network']);
+        }
+
+        if (isset($map['ossMounts'])) {
+            if (!empty($map['ossMounts'])) {
+                $model->ossMounts = [];
+                $n1 = 0;
+                foreach ($map['ossMounts'] as $item1) {
+                    $model->ossMounts[$n1] = ossMounts::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['runtime'])) {

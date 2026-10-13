@@ -18,9 +18,15 @@ class body extends Model
      * @var networkConfiguration
      */
     public $networkConfiguration;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'name' => 'name',
         'networkConfiguration' => 'networkConfiguration',
+        'storageType' => 'storageType',
     ];
 
     public function validate()
@@ -42,6 +48,10 @@ class body extends Model
             $res['networkConfiguration'] = null !== $this->networkConfiguration ? $this->networkConfiguration->toArray($noStream) : $this->networkConfiguration;
         }
 
+        if (null !== $this->storageType) {
+            $res['storageType'] = $this->storageType;
+        }
+
         return $res;
     }
 
@@ -59,6 +69,10 @@ class body extends Model
 
         if (isset($map['networkConfiguration'])) {
             $model->networkConfiguration = networkConfiguration::fromMap($map['networkConfiguration']);
+        }
+
+        if (isset($map['storageType'])) {
+            $model->storageType = $map['storageType'];
         }
 
         return $model;

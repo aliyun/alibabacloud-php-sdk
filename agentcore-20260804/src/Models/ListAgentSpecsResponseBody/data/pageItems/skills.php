@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentSpecsResponseBody\data\pageItems;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentSpecsResponseBody\data\pageItems\skills\versionSelector;
 
 class skills extends Model
 {
@@ -12,12 +13,27 @@ class skills extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
+     * @var versionSelector
+     */
+    public $versionSelector;
     protected $_name = [
         'name' => 'name',
+        'sourceType' => 'sourceType',
+        'versionSelector' => 'versionSelector',
     ];
 
     public function validate()
     {
+        if (null !== $this->versionSelector) {
+            $this->versionSelector->validate();
+        }
         parent::validate();
     }
 
@@ -26,6 +42,14 @@ class skills extends Model
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['sourceType'] = $this->sourceType;
+        }
+
+        if (null !== $this->versionSelector) {
+            $res['versionSelector'] = null !== $this->versionSelector ? $this->versionSelector->toArray($noStream) : $this->versionSelector;
         }
 
         return $res;
@@ -41,6 +65,14 @@ class skills extends Model
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['sourceType'])) {
+            $model->sourceType = $map['sourceType'];
+        }
+
+        if (isset($map['versionSelector'])) {
+            $model->versionSelector = versionSelector::fromMap($map['versionSelector']);
         }
 
         return $model;

@@ -1,3 +1,209 @@
+2026-10-13 Version: 2.0.0
+- Support API ConvertMcpToFreeEdit.
+- Support API CreateCustomAgent.
+- Support API DeleteCustomAgent.
+- Support API DisableConnector.
+- Support API EnableConnector.
+- Support API GetCustomAgent.
+- Support API GetMcpMarketItem.
+- Support API GetWorkspaceAcrRamAuthorizeUrl.
+- Support API GetWorkspaceAgenticFsMountRamAuthorizeUrl.
+- Support API InstallMcpMarketItem.
+- Support API ListConnectorModels.
+- Support API ListConnectors.
+- Support API ListCustomAgents.
+- Support API ListMcpMarketItems.
+- Support API ListSandboxSessions.
+- Support API ListSandboxes.
+- Support API ListSkillReferences.
+- Support API UpdateConnector.
+- Support API UpdateCustomAgent.
+- Support API UpdateMcpTemplateConfig.
+- Support API VerifyConnector.
+- Support API VerifyWorkspaceAcrRamAuthorization.
+- Support API VerifyWorkspaceAgenticFsMountRamAuthorization.
+- Support API VerifyWorkspaceOssMountRamAuthorization.
+- Update API CreateCredential: add request parameters body.resourceRefs.
+- Update API CreateCredential: add request parameters body.resourceScope.
+- Update API CreateCredential: add response parameters Body.data.resourceRefs.
+- Update API CreateCredential: add response parameters Body.data.resourceScope.
+- Update API CreateExternalAgent: add request parameters body.model.quota.
+- Update API CreateExternalAgent: add request parameters body.skills.$.sourceType.
+- Update API CreateExternalAgent: add request parameters body.skills.$.versionSelector.
+- Update API CreateExternalAgent: add response parameters Body.data.configuredSkills.
+- Update API CreateExternalAgent: add response parameters Body.data.model.quota.
+- Update API CreateExternalAgent: add response parameters Body.data.skills.$.appliedVersion.
+- Update API CreateExternalAgent: add response parameters Body.data.skills.$.fromTemplate.
+- Update API CreateExternalAgent: add response parameters Body.data.skills.$.resolvedVersion.
+- Update API CreateExternalAgent: add response parameters Body.data.skills.$.sourceType.
+- Update API CreateExternalAgent: add response parameters Body.data.skills.$.versionSelector.
+- Update API CreateExternalAgent: delete response parameters Body.data.effectiveResult.
+- Update API CreateExternalAgent: delete response parameters Body.data.effectiveSpecVersion.
+- Update API CreateManagedAgent: add request parameters body.agenticFsMounts.
+- Update API CreateManagedAgent: add request parameters body.harness.
+- Update API CreateManagedAgent: add request parameters body.ossMounts.
+- Update API CreateManagedAgent: add request parameters body.model.quota.
+- Update API CreateManagedAgent: add request parameters body.runtime.hpa.
+- Update API CreateManagedAgent: add request parameters body.skills.$.sourceType.
+- Update API CreateManagedAgent: add request parameters body.skills.$.versionSelector.
+- Update API CreateManagedAgent: add request parameters body.subAgents.$.skills.
+- Update API CreateManagedAgent: add response parameters Body.data.agenticFsMounts.
+- Update API CreateManagedAgent: add response parameters Body.data.configuredSkills.
+- Update API CreateManagedAgent: add response parameters Body.data.harness.
+- Update API CreateManagedAgent: add response parameters Body.data.ossMounts.
+- Update API CreateManagedAgent: add response parameters Body.data.sandboxPhaseCounts.
+- Update API CreateManagedAgent: add response parameters Body.data.model.quota.
+- Update API CreateManagedAgent: add response parameters Body.data.runtime.hpa.
+- Update API CreateManagedAgent: add response parameters Body.data.skills.$.appliedVersion.
+- Update API CreateManagedAgent: add response parameters Body.data.skills.$.fromTemplate.
+- Update API CreateManagedAgent: add response parameters Body.data.skills.$.resolvedVersion.
+- Update API CreateManagedAgent: add response parameters Body.data.skills.$.sourceType.
+- Update API CreateManagedAgent: add response parameters Body.data.skills.$.versionSelector.
+- Update API CreateManagedAgent: add response parameters Body.data.subAgents.$.skills.
+- Update API CreateMcp: add request parameters body.customTags.
+- Update API CreateMcp: add request parameters body.deploymentConfig.
+- Update API CreateMcp: add request parameters body.auth.codePackage.
+- Update API CreateMcp: add response parameters Body.data.customTags.
+- Update API CreateMcp: add response parameters Body.data.deploymentConfig.
+- Update API CreateMcp: add response parameters Body.data.endpoint.
+- Update API CreateMcp: add response parameters Body.data.functionName.
+- Update API CreateMcp: add response parameters Body.data.marketSource.
+- Update API CreateMcp: add response parameters Body.data.officialTag.
+- Update API CreateMcp: add response parameters Body.data.template.
+- Update API CreateMcp: add response parameters Body.data.usageActive.
+- Update API CreateMcp: add response parameters Body.data.auth.codePackage.
+- Update API CreateWorkspace: add request parameters body.storageType.
+- Update API CreateWorkspace: add response parameters Body.data.aiRegistryNamespaceId.
+- Update API CreateWorkspace: add response parameters Body.data.authorizationStatus.
+- Update API CreateWorkspace: add response parameters Body.data.bucketName.
+- Update API CreateWorkspace: add response parameters Body.data.cmsWorkspaceId.
+- Update API CreateWorkspace: add response parameters Body.data.createTime.
+- Update API CreateWorkspace: add response parameters Body.data.resourceGroupId.
+- Update API CreateWorkspace: add response parameters Body.data.statusReason.
+- Update API CreateWorkspace: add response parameters Body.data.storageType.
+- Update API CreateWorkspace: add response parameters Body.data.tags.
+- Update API DeleteExternalAgent: delete response parameters Body.data.effectiveSpecVersion.
+- Update API DeleteManagedAgent: delete response parameters Body.data.effectiveSpecVersion.
+- Update API ForcePublishSkillVersion: add request parameters body.commitMsg.
+- Update API GetAgentSpecLatest: add response parameters Body.data.skills.$.sourceType.
+- Update API GetAgentSpecLatest: add response parameters Body.data.skills.$.versionSelector.
+- Update API GetCredential: add response parameters Body.data.resourceRefs.
+- Update API GetCredential: add response parameters Body.data.resourceScope.
+- Update API GetExternalAgent: add response parameters Body.data.configuredSkills.
+- Update API GetExternalAgent: add response parameters Body.data.model.quota.
+- Update API GetExternalAgent: add response parameters Body.data.skills.$.appliedVersion.
+- Update API GetExternalAgent: add response parameters Body.data.skills.$.fromTemplate.
+- Update API GetExternalAgent: add response parameters Body.data.skills.$.resolvedVersion.
+- Update API GetExternalAgent: add response parameters Body.data.skills.$.sourceType.
+- Update API GetExternalAgent: add response parameters Body.data.skills.$.versionSelector.
+- Update API GetExternalAgent: delete response parameters Body.data.effectiveResult.
+- Update API GetExternalAgent: delete response parameters Body.data.effectiveSpecVersion.
+- Update API GetManagedAgent: add response parameters Body.data.agenticFsMounts.
+- Update API GetManagedAgent: add response parameters Body.data.configuredSkills.
+- Update API GetManagedAgent: add response parameters Body.data.harness.
+- Update API GetManagedAgent: add response parameters Body.data.ossMounts.
+- Update API GetManagedAgent: add response parameters Body.data.sandboxPhaseCounts.
+- Update API GetManagedAgent: add response parameters Body.data.model.quota.
+- Update API GetManagedAgent: add response parameters Body.data.runtime.hpa.
+- Update API GetManagedAgent: add response parameters Body.data.skills.$.appliedVersion.
+- Update API GetManagedAgent: add response parameters Body.data.skills.$.fromTemplate.
+- Update API GetManagedAgent: add response parameters Body.data.skills.$.resolvedVersion.
+- Update API GetManagedAgent: add response parameters Body.data.skills.$.sourceType.
+- Update API GetManagedAgent: add response parameters Body.data.skills.$.versionSelector.
+- Update API GetManagedAgent: add response parameters Body.data.subAgents.$.skills.
+- Update API GetMcp: add response parameters Body.data.createdAt.
+- Update API GetMcp: add response parameters Body.data.customTags.
+- Update API GetMcp: add response parameters Body.data.deploymentConfig.
+- Update API GetMcp: add response parameters Body.data.endpoint.
+- Update API GetMcp: add response parameters Body.data.functionName.
+- Update API GetMcp: add response parameters Body.data.marketSource.
+- Update API GetMcp: add response parameters Body.data.officialTag.
+- Update API GetMcp: add response parameters Body.data.template.
+- Update API GetMcp: add response parameters Body.data.updatedAt.
+- Update API GetMcp: add response parameters Body.data.usageActive.
+- Update API GetMcp: add response parameters Body.data.auth.codePackage.
+- Update API GetSkillDetail: add response parameters Body.data.draftMode.
+- Update API GetSkillDetail: add response parameters Body.data.versions.$.contentMd5.
+- Update API GetTeam: delete response parameters Body.data.agents.$.effectiveSpecVersion.
+- Update API GetWorkspace: add response parameters Body.data.authorizationStatus.
+- Update API GetWorkspace: add response parameters Body.data.bucketName.
+- Update API GetWorkspace: add response parameters Body.data.storageType.
+- Update API GetWorkspace: add response parameters Body.data.networkConfiguration.publicEgressIp.
+- Update API ListAgentSpecs: add response parameters Body.data.pageItems.$.skills.$.sourceType.
+- Update API ListAgentSpecs: add response parameters Body.data.pageItems.$.skills.$.versionSelector.
+- Update API ListCredentials: add request parameters name.
+- Update API ListCredentials: add response parameters Body.items.$.resourceRefs.
+- Update API ListCredentials: add response parameters Body.items.$.resourceScope.
+- Update API ListExternalAgents: delete response parameters Body.items.$.effectiveSpecVersion.
+- Update API ListManagedAgents: add response parameters Body.items.$.harness.
+- Update API ListManagedAgents: delete response parameters Body.items.$.effectiveSpecVersion.
+- Update API ListMcps: add request parameters customTag.
+- Update API ListMcps: add request parameters officialTag.
+- Update API ListMcps: add request parameters usageActive.
+- Update API ListMcps: add response parameters Body.items.$.createdAt.
+- Update API ListMcps: add response parameters Body.items.$.customTags.
+- Update API ListMcps: add response parameters Body.items.$.deploymentConfig.
+- Update API ListMcps: add response parameters Body.items.$.endpoint.
+- Update API ListMcps: add response parameters Body.items.$.functionName.
+- Update API ListMcps: add response parameters Body.items.$.marketSource.
+- Update API ListMcps: add response parameters Body.items.$.officialTag.
+- Update API ListMcps: add response parameters Body.items.$.updatedAt.
+- Update API ListMcps: add response parameters Body.items.$.usageActive.
+- Update API ListMcps: add response parameters Body.items.$.auth.codePackage.
+- Update API ListSkills: add response parameters Body.data.pageItems.$.draftMode.
+- Update API ListUsers: add request parameters email.
+- Update API PrecheckSkillUploadViaOss: add response parameters Body.data.$.draftMode.
+- Update API PrecheckSkillUploadViaOss: add response parameters Body.data.$.headRevision.
+- Update API PrecheckSkillUploadViaOss: add response parameters Body.data.$.headStatus.
+- Update API PublishSkillVersion: add request parameters body.commitMsg.
+- Update API UpdateCredential: add request parameters body.resourceRefs.
+- Update API UpdateCredential: add request parameters body.resourceScope.
+- Update API UpdateCredential: add response parameters Body.data.resourceRefs.
+- Update API UpdateCredential: add response parameters Body.data.resourceScope.
+- Update API UpdateExternalAgent: add request parameters body.model.quota.
+- Update API UpdateExternalAgent: add request parameters body.skills.$.sourceType.
+- Update API UpdateExternalAgent: add request parameters body.skills.$.versionSelector.
+- Update API UpdateExternalAgent: add response parameters Body.data.configuredSkills.
+- Update API UpdateExternalAgent: add response parameters Body.data.model.quota.
+- Update API UpdateExternalAgent: add response parameters Body.data.skills.$.appliedVersion.
+- Update API UpdateExternalAgent: add response parameters Body.data.skills.$.fromTemplate.
+- Update API UpdateExternalAgent: add response parameters Body.data.skills.$.resolvedVersion.
+- Update API UpdateExternalAgent: add response parameters Body.data.skills.$.sourceType.
+- Update API UpdateExternalAgent: add response parameters Body.data.skills.$.versionSelector.
+- Update API UpdateExternalAgent: delete response parameters Body.data.effectiveResult.
+- Update API UpdateExternalAgent: delete response parameters Body.data.effectiveSpecVersion.
+- Update API UpdateManagedAgent: add request parameters body.agenticFsMounts.
+- Update API UpdateManagedAgent: add request parameters body.harness.
+- Update API UpdateManagedAgent: add request parameters body.ossMounts.
+- Update API UpdateManagedAgent: add request parameters body.model.quota.
+- Update API UpdateManagedAgent: add request parameters body.runtime.hpa.
+- Update API UpdateManagedAgent: add request parameters body.skills.$.sourceType.
+- Update API UpdateManagedAgent: add request parameters body.skills.$.versionSelector.
+- Update API UpdateManagedAgent: add request parameters body.subAgents.$.skills.
+- Update API UpdateManagedAgent: add response parameters Body.data.agenticFsMounts.
+- Update API UpdateManagedAgent: add response parameters Body.data.configuredSkills.
+- Update API UpdateManagedAgent: add response parameters Body.data.harness.
+- Update API UpdateManagedAgent: add response parameters Body.data.ossMounts.
+- Update API UpdateManagedAgent: add response parameters Body.data.sandboxPhaseCounts.
+- Update API UpdateManagedAgent: add response parameters Body.data.model.quota.
+- Update API UpdateManagedAgent: add response parameters Body.data.runtime.hpa.
+- Update API UpdateManagedAgent: add response parameters Body.data.skills.$.appliedVersion.
+- Update API UpdateManagedAgent: add response parameters Body.data.skills.$.fromTemplate.
+- Update API UpdateManagedAgent: add response parameters Body.data.skills.$.resolvedVersion.
+- Update API UpdateManagedAgent: add response parameters Body.data.skills.$.sourceType.
+- Update API UpdateManagedAgent: add response parameters Body.data.skills.$.versionSelector.
+- Update API UpdateManagedAgent: add response parameters Body.data.subAgents.$.skills.
+- Update API UpdateMcp: add request parameters body.customTags.
+- Update API UpdateMcp: add request parameters body.deploymentConfig.
+- Update API UpdateMcp: add request parameters body.auth.codePackage.
+- Update API UpdateModel: add request parameters body.capabilities.
+- Update API UpdateModel: add request parameters body.contextSize.
+- Update API UpdateModel: add request parameters body.maxTokens.
+- Update API UpdateWorkspace: add response parameters Body.data.authorizationStatus.
+- Update API UpdateWorkspace: add response parameters Body.data.bucketName.
+- Update API UpdateWorkspace: add response parameters Body.data.storageType.
+
+
 2026-08-29 Version: 1.1.1
 - Update API ListMcps: add request parameters name.
 - Update API ListMcps: add request parameters searchType.

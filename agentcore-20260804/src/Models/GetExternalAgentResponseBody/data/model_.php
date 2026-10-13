@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\GetExternalAgentResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetExternalAgentResponseBody\data\model\quota;
 
 class model_ extends Model
 {
@@ -17,13 +18,22 @@ class model_ extends Model
      * @var string
      */
     public $modelName;
+
+    /**
+     * @var quota
+     */
+    public $quota;
     protected $_name = [
         'modelConnectionId' => 'modelConnectionId',
         'modelName' => 'modelName',
+        'quota' => 'quota',
     ];
 
     public function validate()
     {
+        if (null !== $this->quota) {
+            $this->quota->validate();
+        }
         parent::validate();
     }
 
@@ -36,6 +46,10 @@ class model_ extends Model
 
         if (null !== $this->modelName) {
             $res['modelName'] = $this->modelName;
+        }
+
+        if (null !== $this->quota) {
+            $res['quota'] = null !== $this->quota ? $this->quota->toArray($noStream) : $this->quota;
         }
 
         return $res;
@@ -55,6 +69,10 @@ class model_ extends Model
 
         if (isset($map['modelName'])) {
             $model->modelName = $map['modelName'];
+        }
+
+        if (isset($map['quota'])) {
+            $model->quota = quota::fromMap($map['quota']);
         }
 
         return $model;

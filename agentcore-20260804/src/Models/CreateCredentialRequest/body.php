@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialRequest\body\resourceRefs;
 
 class body extends Model
 {
@@ -27,15 +28,30 @@ class body extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var resourceRefs[]
+     */
+    public $resourceRefs;
+
+    /**
+     * @var string
+     */
+    public $resourceScope;
     protected $_name = [
         'credentialMetadata' => 'credentialMetadata',
         'credentialType' => 'credentialType',
         'description' => 'description',
         'name' => 'name',
+        'resourceRefs' => 'resourceRefs',
+        'resourceScope' => 'resourceScope',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceRefs)) {
+            Model::validateArray($this->resourceRefs);
+        }
         parent::validate();
     }
 
@@ -56,6 +72,21 @@ class body extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->resourceRefs) {
+            if (\is_array($this->resourceRefs)) {
+                $res['resourceRefs'] = [];
+                $n1 = 0;
+                foreach ($this->resourceRefs as $item1) {
+                    $res['resourceRefs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->resourceScope) {
+            $res['resourceScope'] = $this->resourceScope;
         }
 
         return $res;
@@ -83,6 +114,21 @@ class body extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['resourceRefs'])) {
+            if (!empty($map['resourceRefs'])) {
+                $model->resourceRefs = [];
+                $n1 = 0;
+                foreach ($map['resourceRefs'] as $item1) {
+                    $model->resourceRefs[$n1] = resourceRefs::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['resourceScope'])) {
+            $model->resourceScope = $map['resourceScope'];
         }
 
         return $model;

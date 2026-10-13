@@ -19,6 +19,11 @@ class versions extends Model
     public $commitMsg;
 
     /**
+     * @var string
+     */
+    public $contentMd5;
+
+    /**
      * @var int
      */
     public $createTime;
@@ -55,6 +60,7 @@ class versions extends Model
     protected $_name = [
         'author' => 'author',
         'commitMsg' => 'commitMsg',
+        'contentMd5' => 'contentMd5',
         'createTime' => 'createTime',
         'description' => 'description',
         'downloadCount' => 'downloadCount',
@@ -78,6 +84,10 @@ class versions extends Model
 
         if (null !== $this->commitMsg) {
             $res['commitMsg'] = $this->commitMsg;
+        }
+
+        if (null !== $this->contentMd5) {
+            $res['contentMd5'] = $this->contentMd5;
         }
 
         if (null !== $this->createTime) {
@@ -125,6 +135,10 @@ class versions extends Model
 
         if (isset($map['commitMsg'])) {
             $model->commitMsg = $map['commitMsg'];
+        }
+
+        if (isset($map['contentMd5'])) {
+            $model->contentMd5 = $map['contentMd5'];
         }
 
         if (isset($map['createTime'])) {

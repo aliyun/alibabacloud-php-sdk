@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest\body;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest\body\auth\codePackage;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest\body\auth\directProxy;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest\body\auth\httpToMcp;
 
 class auth extends Model
 {
+    /**
+     * @var codePackage
+     */
+    public $codePackage;
+
     /**
      * @var directProxy
      */
@@ -25,6 +31,7 @@ class auth extends Model
      */
     public $httpToMcp;
     protected $_name = [
+        'codePackage' => 'codePackage',
         'directProxy' => 'directProxy',
         'enabled' => 'enabled',
         'httpToMcp' => 'httpToMcp',
@@ -32,6 +39,9 @@ class auth extends Model
 
     public function validate()
     {
+        if (null !== $this->codePackage) {
+            $this->codePackage->validate();
+        }
         if (null !== $this->directProxy) {
             $this->directProxy->validate();
         }
@@ -44,6 +54,10 @@ class auth extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->codePackage) {
+            $res['codePackage'] = null !== $this->codePackage ? $this->codePackage->toArray($noStream) : $this->codePackage;
+        }
+
         if (null !== $this->directProxy) {
             $res['directProxy'] = null !== $this->directProxy ? $this->directProxy->toArray($noStream) : $this->directProxy;
         }
@@ -74,6 +88,10 @@ class auth extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['codePackage'])) {
+            $model->codePackage = codePackage::fromMap($map['codePackage']);
+        }
+
         if (isset($map['directProxy'])) {
             $model->directProxy = directProxy::fromMap($map['directProxy']);
         }

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCredentialsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCredentialsResponseBody\items\resourceRefs;
 
 class items extends Model
 {
@@ -49,6 +50,16 @@ class items extends Model
     public $regionId;
 
     /**
+     * @var resourceRefs[]
+     */
+    public $resourceRefs;
+
+    /**
+     * @var string
+     */
+    public $resourceScope;
+
+    /**
      * @var string
      */
     public $updatedAt;
@@ -66,12 +77,17 @@ class items extends Model
         'description' => 'description',
         'name' => 'name',
         'regionId' => 'regionId',
+        'resourceRefs' => 'resourceRefs',
+        'resourceScope' => 'resourceScope',
         'updatedAt' => 'updatedAt',
         'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceRefs)) {
+            Model::validateArray($this->resourceRefs);
+        }
         parent::validate();
     }
 
@@ -108,6 +124,21 @@ class items extends Model
 
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceRefs) {
+            if (\is_array($this->resourceRefs)) {
+                $res['resourceRefs'] = [];
+                $n1 = 0;
+                foreach ($this->resourceRefs as $item1) {
+                    $res['resourceRefs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->resourceScope) {
+            $res['resourceScope'] = $this->resourceScope;
         }
 
         if (null !== $this->updatedAt) {
@@ -159,6 +190,21 @@ class items extends Model
 
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['resourceRefs'])) {
+            if (!empty($map['resourceRefs'])) {
+                $model->resourceRefs = [];
+                $n1 = 0;
+                foreach ($map['resourceRefs'] as $item1) {
+                    $model->resourceRefs[$n1] = resourceRefs::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['resourceScope'])) {
+            $model->resourceScope = $map['resourceScope'];
         }
 
         if (isset($map['updatedAt'])) {

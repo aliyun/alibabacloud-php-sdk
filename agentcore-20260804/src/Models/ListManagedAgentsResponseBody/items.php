@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\ListManagedAgentsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListManagedAgentsResponseBody\items\harness;
 
 class items extends Model
 {
@@ -34,9 +35,9 @@ class items extends Model
     public $description;
 
     /**
-     * @var int
+     * @var harness
      */
-    public $effectiveSpecVersion;
+    public $harness;
 
     /**
      * @var int
@@ -73,7 +74,7 @@ class items extends Model
         'createdAt' => 'createdAt',
         'deployType' => 'deployType',
         'description' => 'description',
-        'effectiveSpecVersion' => 'effectiveSpecVersion',
+        'harness' => 'harness',
         'latestSpecVersion' => 'latestSpecVersion',
         'name' => 'name',
         'runtime' => 'runtime',
@@ -84,6 +85,9 @@ class items extends Model
 
     public function validate()
     {
+        if (null !== $this->harness) {
+            $this->harness->validate();
+        }
         parent::validate();
     }
 
@@ -110,8 +114,8 @@ class items extends Model
             $res['description'] = $this->description;
         }
 
-        if (null !== $this->effectiveSpecVersion) {
-            $res['effectiveSpecVersion'] = $this->effectiveSpecVersion;
+        if (null !== $this->harness) {
+            $res['harness'] = null !== $this->harness ? $this->harness->toArray($noStream) : $this->harness;
         }
 
         if (null !== $this->latestSpecVersion) {
@@ -169,8 +173,8 @@ class items extends Model
             $model->description = $map['description'];
         }
 
-        if (isset($map['effectiveSpecVersion'])) {
-            $model->effectiveSpecVersion = $map['effectiveSpecVersion'];
+        if (isset($map['harness'])) {
+            $model->harness = harness::fromMap($map['harness']);
         }
 
         if (isset($map['latestSpecVersion'])) {

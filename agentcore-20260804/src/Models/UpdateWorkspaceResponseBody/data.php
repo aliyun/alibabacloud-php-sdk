@@ -12,6 +12,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $authorizationStatus;
+
+    /**
+     * @var string
+     */
+    public $bucketName;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -32,6 +42,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $storageType;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
@@ -39,10 +54,13 @@ class data extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'authorizationStatus' => 'authorizationStatus',
+        'bucketName' => 'bucketName',
         'name' => 'name',
         'networkConfiguration' => 'networkConfiguration',
         'regionId' => 'regionId',
         'status' => 'status',
+        'storageType' => 'storageType',
         'tenantId' => 'tenantId',
         'workspaceId' => 'workspaceId',
     ];
@@ -58,6 +76,14 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authorizationStatus) {
+            $res['authorizationStatus'] = $this->authorizationStatus;
+        }
+
+        if (null !== $this->bucketName) {
+            $res['bucketName'] = $this->bucketName;
+        }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -72,6 +98,10 @@ class data extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->storageType) {
+            $res['storageType'] = $this->storageType;
         }
 
         if (null !== $this->tenantId) {
@@ -93,6 +123,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['authorizationStatus'])) {
+            $model->authorizationStatus = $map['authorizationStatus'];
+        }
+
+        if (isset($map['bucketName'])) {
+            $model->bucketName = $map['bucketName'];
+        }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
@@ -107,6 +145,10 @@ class data extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['storageType'])) {
+            $model->storageType = $map['storageType'];
         }
 
         if (isset($map['tenantId'])) {

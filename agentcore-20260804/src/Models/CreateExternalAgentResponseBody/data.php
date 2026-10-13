@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentResponseBody\data\effectiveResult;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentResponseBody\data\configuredSkills;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentResponseBody\data\externalAgentStatus;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentResponseBody\data\model_;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentResponseBody\data\skills;
@@ -18,6 +18,11 @@ class data extends Model
      * @var string
      */
     public $agentId;
+
+    /**
+     * @var configuredSkills[]
+     */
+    public $configuredSkills;
 
     /**
      * @var string
@@ -38,16 +43,6 @@ class data extends Model
      * @var string
      */
     public $description;
-
-    /**
-     * @var effectiveResult
-     */
-    public $effectiveResult;
-
-    /**
-     * @var int
-     */
-    public $effectiveSpecVersion;
 
     /**
      * @var externalAgentStatus
@@ -125,12 +120,11 @@ class data extends Model
     public $workspaceId;
     protected $_name = [
         'agentId' => 'agentId',
+        'configuredSkills' => 'configuredSkills',
         'createMode' => 'createMode',
         'createdAt' => 'createdAt',
         'deployType' => 'deployType',
         'description' => 'description',
-        'effectiveResult' => 'effectiveResult',
-        'effectiveSpecVersion' => 'effectiveSpecVersion',
         'externalAgentStatus' => 'externalAgentStatus',
         'instruction' => 'instruction',
         'latestSpecVersion' => 'latestSpecVersion',
@@ -150,8 +144,8 @@ class data extends Model
 
     public function validate()
     {
-        if (null !== $this->effectiveResult) {
-            $this->effectiveResult->validate();
+        if (\is_array($this->configuredSkills)) {
+            Model::validateArray($this->configuredSkills);
         }
         if (null !== $this->externalAgentStatus) {
             $this->externalAgentStatus->validate();
@@ -178,6 +172,17 @@ class data extends Model
             $res['agentId'] = $this->agentId;
         }
 
+        if (null !== $this->configuredSkills) {
+            if (\is_array($this->configuredSkills)) {
+                $res['configuredSkills'] = [];
+                $n1 = 0;
+                foreach ($this->configuredSkills as $item1) {
+                    $res['configuredSkills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->createMode) {
             $res['createMode'] = $this->createMode;
         }
@@ -192,14 +197,6 @@ class data extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-
-        if (null !== $this->effectiveResult) {
-            $res['effectiveResult'] = null !== $this->effectiveResult ? $this->effectiveResult->toArray($noStream) : $this->effectiveResult;
-        }
-
-        if (null !== $this->effectiveSpecVersion) {
-            $res['effectiveSpecVersion'] = $this->effectiveSpecVersion;
         }
 
         if (null !== $this->externalAgentStatus) {
@@ -291,6 +288,17 @@ class data extends Model
             $model->agentId = $map['agentId'];
         }
 
+        if (isset($map['configuredSkills'])) {
+            if (!empty($map['configuredSkills'])) {
+                $model->configuredSkills = [];
+                $n1 = 0;
+                foreach ($map['configuredSkills'] as $item1) {
+                    $model->configuredSkills[$n1] = configuredSkills::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['createMode'])) {
             $model->createMode = $map['createMode'];
         }
@@ -305,14 +313,6 @@ class data extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-
-        if (isset($map['effectiveResult'])) {
-            $model->effectiveResult = effectiveResult::fromMap($map['effectiveResult']);
-        }
-
-        if (isset($map['effectiveSpecVersion'])) {
-            $model->effectiveSpecVersion = $map['effectiveSpecVersion'];
         }
 
         if (isset($map['externalAgentStatus'])) {

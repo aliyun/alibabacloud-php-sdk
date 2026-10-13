@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\runtime\compute;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\runtime\hpa;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\runtime\sessionPolicy;
 
 class runtime extends Model
@@ -16,11 +17,17 @@ class runtime extends Model
     public $compute;
 
     /**
+     * @var hpa
+     */
+    public $hpa;
+
+    /**
      * @var sessionPolicy
      */
     public $sessionPolicy;
     protected $_name = [
         'compute' => 'compute',
+        'hpa' => 'hpa',
         'sessionPolicy' => 'sessionPolicy',
     ];
 
@@ -28,6 +35,9 @@ class runtime extends Model
     {
         if (null !== $this->compute) {
             $this->compute->validate();
+        }
+        if (null !== $this->hpa) {
+            $this->hpa->validate();
         }
         if (null !== $this->sessionPolicy) {
             $this->sessionPolicy->validate();
@@ -40,6 +50,10 @@ class runtime extends Model
         $res = [];
         if (null !== $this->compute) {
             $res['compute'] = null !== $this->compute ? $this->compute->toArray($noStream) : $this->compute;
+        }
+
+        if (null !== $this->hpa) {
+            $res['hpa'] = null !== $this->hpa ? $this->hpa->toArray($noStream) : $this->hpa;
         }
 
         if (null !== $this->sessionPolicy) {
@@ -59,6 +73,10 @@ class runtime extends Model
         $model = new self();
         if (isset($map['compute'])) {
             $model->compute = compute::fromMap($map['compute']);
+        }
+
+        if (isset($map['hpa'])) {
+            $model->hpa = hpa::fromMap($map['hpa']);
         }
 
         if (isset($map['sessionPolicy'])) {

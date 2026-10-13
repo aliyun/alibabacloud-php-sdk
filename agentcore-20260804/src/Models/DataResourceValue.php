@@ -11,27 +11,27 @@ class DataResourceValue extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var string
-     */
     public $content;
 
     /**
      * @var mixed[]
      */
     public $metadata;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'name' => 'name',
-        'type' => 'type',
         'content' => 'content',
         'metadata' => 'metadata',
+        'name' => 'name',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -45,14 +45,6 @@ class DataResourceValue extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
-        }
-
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -66,6 +58,14 @@ class DataResourceValue extends Model
             }
         }
 
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -77,14 +77,6 @@ class DataResourceValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
-        }
-
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
@@ -96,6 +88,14 @@ class DataResourceValue extends Model
                     $model->metadata[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

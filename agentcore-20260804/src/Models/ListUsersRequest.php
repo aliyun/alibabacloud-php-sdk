@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListUsersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $email;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -28,6 +33,7 @@ class ListUsersRequest extends Model
      */
     public $nextToken;
     protected $_name = [
+        'email' => 'email',
         'maxResults' => 'maxResults',
         'name' => 'name',
         'nameLike' => 'nameLike',
@@ -42,6 +48,10 @@ class ListUsersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->email) {
+            $res['email'] = $this->email;
+        }
+
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
@@ -69,6 +79,10 @@ class ListUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['email'])) {
+            $model->email = $map['email'];
+        }
+
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }

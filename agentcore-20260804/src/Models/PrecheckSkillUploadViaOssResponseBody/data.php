@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $draftMode;
+
+    /**
+     * @var string
+     */
     public $editingVersion;
 
     /**
@@ -22,6 +27,16 @@ class data extends Model
      * @var bool
      */
     public $exists;
+
+    /**
+     * @var string
+     */
+    public $headRevision;
+
+    /**
+     * @var string
+     */
+    public $headStatus;
 
     /**
      * @var string
@@ -68,9 +83,12 @@ class data extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'draftMode' => 'draftMode',
         'editingVersion' => 'editingVersion',
         'entryPath' => 'entryPath',
         'exists' => 'exists',
+        'headRevision' => 'headRevision',
+        'headStatus' => 'headStatus',
         'maxPublishedVersion' => 'maxPublishedVersion',
         'owner' => 'owner',
         'parsedVersion' => 'parsedVersion',
@@ -90,6 +108,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->draftMode) {
+            $res['draftMode'] = $this->draftMode;
+        }
+
         if (null !== $this->editingVersion) {
             $res['editingVersion'] = $this->editingVersion;
         }
@@ -100,6 +122,14 @@ class data extends Model
 
         if (null !== $this->exists) {
             $res['exists'] = $this->exists;
+        }
+
+        if (null !== $this->headRevision) {
+            $res['headRevision'] = $this->headRevision;
+        }
+
+        if (null !== $this->headStatus) {
+            $res['headStatus'] = $this->headStatus;
         }
 
         if (null !== $this->maxPublishedVersion) {
@@ -149,6 +179,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['draftMode'])) {
+            $model->draftMode = $map['draftMode'];
+        }
+
         if (isset($map['editingVersion'])) {
             $model->editingVersion = $map['editingVersion'];
         }
@@ -159,6 +193,14 @@ class data extends Model
 
         if (isset($map['exists'])) {
             $model->exists = $map['exists'];
+        }
+
+        if (isset($map['headRevision'])) {
+            $model->headRevision = $map['headRevision'];
+        }
+
+        if (isset($map['headStatus'])) {
+            $model->headStatus = $map['headStatus'];
         }
 
         if (isset($map['maxPublishedVersion'])) {

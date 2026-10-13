@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchDeleteModelsShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchUploadSkillsViaOssRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchUploadSkillsViaOssResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchUploadSkillsViaOssShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ConvertMcpToFreeEditRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ConvertMcpToFreeEditResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentIMChannelRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentIMChannelResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentIMChannelShrinkRequest;
@@ -24,6 +26,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentSpecVersionShrinkRequ
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentBootstrapTokenRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentBootstrapTokenResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentRequest;
@@ -67,6 +72,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentSpecVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentSpecVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCredentialResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCustomAgentRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCustomAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteExternalAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteExternalAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteIdentityProviderRequest;
@@ -89,10 +96,15 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteWorkspaceRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteWorkspaceResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DisableConnectorRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DisableConnectorResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DownloadAgentSpecViaOssRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DownloadAgentSpecViaOssResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DownloadSkillVersionViaOssRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DownloadSkillVersionViaOssResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\EnableConnectorRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\EnableConnectorResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\EnableConnectorShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ForcePublishSkillVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ForcePublishSkillVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ForcePublishSkillVersionShrinkRequest;
@@ -108,6 +120,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentSpecVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentSpecVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCredentialResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetExternalAgentBootstrapOptionsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetExternalAgentBootstrapOptionsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetExternalAgentRequest;
@@ -116,6 +130,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetManagedAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetManagedAgentResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpMarketItemRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpMarketItemResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetModelConnectionRequest;
@@ -136,10 +152,17 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetTeamRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetTeamResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetUserRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetUserResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceAcrRamAuthorizeUrlRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceAcrRamAuthorizeUrlResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspacePluginRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspacePluginResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetWorkspaceResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\InstallMcpMarketItemRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\InstallMcpMarketItemResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\InstallMcpMarketItemShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\InstallWorkspacePluginRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\InstallWorkspacePluginResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\InstallWorkspacePluginShrinkRequest;
@@ -150,14 +173,22 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentSpecsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentTeamsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentTeamsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentTeamsShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorModelsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorModelsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCredentialsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCredentialsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCustomAgentsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCustomAgentsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListExternalAgentsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListExternalAgentsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListManagedAgentsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListManagedAgentsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpMarketItemsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpMarketItemsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpToolsRequest;
@@ -170,8 +201,14 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListPredefinedModelProvidersRequ
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListPredefinedModelProvidersResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListPredefinedModelsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListPredefinedModelsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListSandboxesRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListSandboxesResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListSandboxSessionsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListSandboxSessionsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListServiceEndpointsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListServiceEndpointsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListSkillReferencesRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListSkillReferencesResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListSkillsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListSkillsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListTeamsRequest;
@@ -213,9 +250,15 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAgentIMChannelShrinkReques
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAgentSpecRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAgentSpecResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAgentSpecShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateConnectorRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateConnectorResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateConnectorShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateCredentialShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateCustomAgentRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateCustomAgentResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateCustomAgentShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentShrinkRequest;
@@ -228,6 +271,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpTemplateConfigRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpTemplateConfigResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpTemplateConfigShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelConnectionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelConnectionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelConnectionShrinkRequest;
@@ -258,6 +304,15 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UploadAgentSpecViaOssShrinkReque
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UploadSkillViaOssRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UploadSkillViaOssResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UploadSkillViaOssShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\VerifyConnectorRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\VerifyConnectorResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\VerifyConnectorShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\VerifyWorkspaceAcrRamAuthorizationRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\VerifyWorkspaceAcrRamAuthorizationResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\VerifyWorkspaceAgenticFsMountRamAuthorizationRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\VerifyWorkspaceAgenticFsMountRamAuthorizationResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\VerifyWorkspaceOssMountRamAuthorizationRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\VerifyWorkspaceOssMountRamAuthorizationResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -298,7 +353,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 批量删除模型.
+     * Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
      *
      * @param tmpReq - BatchDeleteModelsRequest
      * @param headers - map
@@ -353,7 +408,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 批量删除模型.
+     * Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
      *
      * @param request - BatchDeleteModelsRequest
      *
@@ -447,6 +502,77 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->batchUploadSkillsViaOssWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Converts an MCP to free editing.
+     *
+     * @remarks
+     * Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+     *
+     * @param request - ConvertMcpToFreeEditRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertMcpToFreeEditResponse
+     *
+     * @param string                      $workspaceId
+     * @param string                      $mcpServerId
+     * @param ConvertMcpToFreeEditRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ConvertMcpToFreeEditResponse
+     */
+    public function convertMcpToFreeEditWithOptions($workspaceId, $mcpServerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConvertMcpToFreeEdit',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/mcp-servers/' . Url::percentEncode($mcpServerId) . '/convert-to-free-edit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ConvertMcpToFreeEditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Converts an MCP to free editing.
+     *
+     * @remarks
+     * Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+     *
+     * @param request - ConvertMcpToFreeEditRequest
+     *
+     * @returns ConvertMcpToFreeEditResponse
+     *
+     * @param string                      $workspaceId
+     * @param string                      $mcpServerId
+     * @param ConvertMcpToFreeEditRequest $request
+     *
+     * @return ConvertMcpToFreeEditResponse
+     */
+    public function convertMcpToFreeEdit($workspaceId, $mcpServerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->convertMcpToFreeEditWithOptions($workspaceId, $mcpServerId, $request, $headers, $runtime);
     }
 
     /**
@@ -610,11 +736,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+     * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
      *
      * @remarks
      * ## Request description
-     * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+     * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
      *
      * @param tmpReq - CreateAgentSpecVersionRequest
      * @param headers - map
@@ -664,11 +790,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+     * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
      *
      * @remarks
      * ## Request description
-     * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+     * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
      *
      * @param request - CreateAgentSpecVersionRequest
      *
@@ -689,7 +815,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 创建凭证
+     * Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+     *
+     * @remarks
+     * Creates a credential in a workspace for authentication of services such as Connector.
      *
      * @param tmpReq - CreateCredentialRequest
      * @param headers - map
@@ -744,7 +873,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 创建凭证
+     * Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+     *
+     * @remarks
+     * Creates a credential in a workspace for authentication of services such as Connector.
      *
      * @param request - CreateCredentialRequest
      *
@@ -761,6 +893,93 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->createCredentialWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a custom agent in a specified workspace and submits the container image deployment configuration. The creation process is asynchronous. You can call the GetCustomAgent operation to query the deployment result.
+     *
+     * @remarks
+     * Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and the runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
+     * Currently, only ACR container image deployment is supported. Use artifact.container and specify the service listening port in artifact.port. Omit artifact.code. The image must have the required access permissions and be accessible over the network allowed by the workspace.
+     * The creation process is asynchronous. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
+     * The clientToken parameter does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
+     *
+     * @param tmpReq - CreateCustomAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomAgentResponse
+     *
+     * @param string                   $workspaceId
+     * @param CreateCustomAgentRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCustomAgentResponse
+     */
+    public function createCustomAgentWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCustomAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomAgent',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/custom-agents',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom agent in a specified workspace and submits the container image deployment configuration. The creation process is asynchronous. You can call the GetCustomAgent operation to query the deployment result.
+     *
+     * @remarks
+     * Before you call this operation, prepare a writable workspace, a RAM role ARN, an ACR container image, and the runtime configuration. You must specify name, artifact, roleArn, and runtime. The runtime parameter must include both compute and sessionPolicy.
+     * Currently, only ACR container image deployment is supported. Use artifact.container and specify the service listening port in artifact.port. Omit artifact.code. The image must have the required access permissions and be accessible over the network allowed by the workspace.
+     * The creation process is asynchronous. A successful response indicates that the request is accepted. Use the returned agentId to call GetCustomAgent and check latestVersionStatus, latestExecutionError, and status for the corresponding latestSpecVersion to confirm the deployment result. After the deployment is ready, you can call CreateServiceEndpoint to configure the access endpoint.
+     * The clientToken parameter does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold parameter for health checks does not take effect. Omit this parameter.
+     *
+     * @param request - CreateCustomAgentRequest
+     *
+     * @returns CreateCustomAgentResponse
+     *
+     * @param string                   $workspaceId
+     * @param CreateCustomAgentRequest $request
+     *
+     * @return CreateCustomAgentResponse
+     */
+    public function createCustomAgent($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCustomAgentWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -845,10 +1064,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+     * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
      *
      * @remarks
-     * Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+     * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
      *
      * @param request - CreateExternalAgentBootstrapTokenRequest
      * @param headers - map
@@ -892,10 +1111,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+     * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
      *
      * @remarks
-     * Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+     * Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
      *
      * @param request - CreateExternalAgentBootstrapTokenRequest
      *
@@ -916,7 +1135,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+     * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
      *
      * @param tmpReq - CreateIdentityProviderRequest
      * @param headers - map
@@ -965,7 +1184,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+     * Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
      *
      * @param request - CreateIdentityProviderRequest
      *
@@ -1218,7 +1437,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 创建模型连接.
+     * Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
      *
      * @param tmpReq - CreateModelConnectionRequest
      * @param headers - map
@@ -1273,7 +1492,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 创建模型连接.
+     * Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
      *
      * @param request - CreateModelConnectionRequest
      *
@@ -1370,7 +1589,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 创建团队
+     * Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
      *
      * @param tmpReq - CreateTeamRequest
      * @param headers - map
@@ -1425,7 +1644,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 创建团队
+     * Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
      *
      * @param request - CreateTeamRequest
      *
@@ -1445,7 +1664,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 创建用户.
+     * Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
      *
      * @param tmpReq - CreateUserRequest
      * @param headers - map
@@ -1500,7 +1719,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 创建用户.
+     * Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
      *
      * @param request - CreateUserRequest
      *
@@ -1523,7 +1742,7 @@ class AgentCore extends OpenApiClient
      * Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
      *
      * @remarks
-     * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+     * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
      *
      * @param tmpReq - CreateWorkspaceRequest
      * @param headers - map
@@ -1580,7 +1799,7 @@ class AgentCore extends OpenApiClient
      * Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
      *
      * @remarks
-     * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+     * ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
      *
      * @param request - CreateWorkspaceRequest
      *
@@ -1599,7 +1818,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 调试模型.
+     * Calls a specified model through a published model connection to verify whether the model call chain is available.
      *
      * @param tmpReq - DebugModelRequest
      * @param headers - map
@@ -1649,7 +1868,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 调试模型.
+     * Calls a specified model through a published model connection to verify whether the model call chain is available.
      *
      * @param request - DebugModelRequest
      *
@@ -1877,7 +2096,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除凭证
+     * Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+     *
+     * @remarks
+     * Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
      *
      * @param request - DeleteCredentialRequest
      * @param headers - map
@@ -1921,7 +2143,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除凭证
+     * Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+     *
+     * @remarks
+     * Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
      *
      * @param request - DeleteCredentialRequest
      *
@@ -1939,6 +2164,75 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->deleteCredentialWithOptions($workspaceId, $credentialId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a custom agent in a specified workspace. A successful request indicates that the deletion is accepted, and the runtime resources are subsequently cleaned up in the background.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the workspace is writable. If the agent is still associated with a team, you must dissociate the team first.
+     * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already being deleted, a subsequent request returns the current summary.
+     * You can call GetCustomAgent to check the deletion progress. After the deletion is complete, a detail query returns a resource not found error.
+     *
+     * @param request - DeleteCustomAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomAgentResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $agentId
+     * @param DeleteCustomAgentRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteCustomAgentResponse
+     */
+    public function deleteCustomAgentWithOptions($workspaceId, $agentId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomAgent',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/custom-agents/' . Url::percentEncode($agentId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a custom agent in a specified workspace. A successful request indicates that the deletion is accepted, and the runtime resources are subsequently cleaned up in the background.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the workspace is writable. If the agent is still associated with a team, you must dissociate the team first.
+     * Deletion is an asynchronous process. After the request is accepted, the associated invocation endpoints become unavailable, and the runtime resources are subsequently cleaned up. The status in the response is typically Deleting. If the agent is already being deleted, a subsequent request returns the current summary.
+     * You can call GetCustomAgent to check the deletion progress. After the deletion is complete, a detail query returns a resource not found error.
+     *
+     * @param request - DeleteCustomAgentRequest
+     *
+     * @returns DeleteCustomAgentResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $agentId
+     * @param DeleteCustomAgentRequest $request
+     *
+     * @return DeleteCustomAgentResponse
+     */
+    public function deleteCustomAgent($workspaceId, $agentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteCustomAgentWithOptions($workspaceId, $agentId, $request, $headers, $runtime);
     }
 
     /**
@@ -2007,7 +2301,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+     * Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
      *
      * @param request - DeleteIdentityProviderRequest
      * @param headers - map
@@ -2051,7 +2345,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+     * Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
      *
      * @param request - DeleteIdentityProviderRequest
      *
@@ -2134,7 +2428,7 @@ class AgentCore extends OpenApiClient
      * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
      *
      * @param request - DeleteMcpRequest
@@ -2176,7 +2470,7 @@ class AgentCore extends OpenApiClient
      * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
      *
      * @param request - DeleteMcpRequest
@@ -2198,7 +2492,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除模型.
+     * Deletes a model from a specified workspace. Models that are currently in use cannot be deleted.
      *
      * @param request - DeleteModelRequest
      * @param headers - map
@@ -2242,7 +2536,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除模型.
+     * Deletes a model from a specified workspace. Models that are currently in use cannot be deleted.
      *
      * @param request - DeleteModelRequest
      *
@@ -2263,7 +2557,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除模型连接.
+     * Submits an asynchronous deletion task for a specified model connection. The connection cannot be deleted if it has associated models or runtime references.
      *
      * @param request - DeleteModelConnectionRequest
      * @param headers - map
@@ -2307,7 +2601,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除模型连接.
+     * Submits an asynchronous deletion task for a specified model connection. The connection cannot be deleted if it has associated models or runtime references.
      *
      * @param request - DeleteModelConnectionRequest
      *
@@ -2331,7 +2625,7 @@ class AgentCore extends OpenApiClient
      * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
      *
      * @param request - DeleteSkillRequest
@@ -2373,7 +2667,7 @@ class AgentCore extends OpenApiClient
      * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
      *
      * @param request - DeleteSkillRequest
@@ -2398,7 +2692,7 @@ class AgentCore extends OpenApiClient
      * Deletes the draft version currently being edited for a specified Skill.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Deletes the draft version currently being edited for a specified Skill.
      *
      * @param request - DeleteSkillDraftRequest
@@ -2440,7 +2734,7 @@ class AgentCore extends OpenApiClient
      * Deletes the draft version currently being edited for a specified Skill.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Deletes the draft version currently being edited for a specified Skill.
      *
      * @param request - DeleteSkillDraftRequest
@@ -2462,7 +2756,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除团队
+     * Deletes a team from a specified workspace. Deleting a team does not delete the users or agents within it. Only the membership associations are removed.
      *
      * @param request - DeleteTeamRequest
      * @param headers - map
@@ -2506,7 +2800,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除团队
+     * Deletes a team from a specified workspace. Deleting a team does not delete the users or agents within it. Only the membership associations are removed.
      *
      * @param request - DeleteTeamRequest
      *
@@ -2527,7 +2821,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除用户.
+     * Deletes a user from a specified workspace. A user cannot be deleted while the user is still a member of any team. Remove the user from all teams before deleting the user.
      *
      * @param request - DeleteUserRequest
      * @param headers - map
@@ -2571,7 +2865,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 删除用户.
+     * Deletes a user from a specified workspace. A user cannot be deleted while the user is still a member of any team. Remove the user from all teams before deleting the user.
      *
      * @param request - DeleteUserRequest
      *
@@ -2655,7 +2949,72 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Retrieves a pre-signed OSS download URL for a specified AgentSpec ZIP package.
+     * Disables a QoderCLI Connector in a specified workspace. The Connector can be disabled only when no Agent is using it. After the Connector is disabled, the Connector and its Service Account Key configuration are removed.
+     *
+     * @remarks
+     * Disables a Connector in a specified workspace.
+     *
+     * @param request - DisableConnectorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableConnectorResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $connectorName
+     * @param DisableConnectorRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DisableConnectorResponse
+     */
+    public function disableConnectorWithOptions($workspaceId, $connectorName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DisableConnector',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/connectors/' . Url::percentEncode($connectorName) . '/actions/disable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables a QoderCLI Connector in a specified workspace. The Connector can be disabled only when no Agent is using it. After the Connector is disabled, the Connector and its Service Account Key configuration are removed.
+     *
+     * @remarks
+     * Disables a Connector in a specified workspace.
+     *
+     * @param request - DisableConnectorRequest
+     *
+     * @returns DisableConnectorResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $connectorName
+     * @param DisableConnectorRequest $request
+     *
+     * @return DisableConnectorResponse
+     */
+    public function disableConnector($workspaceId, $connectorName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableConnectorWithOptions($workspaceId, $connectorName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
      *
      * @remarks
      * ## Operation description
@@ -2703,7 +3062,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Retrieves a pre-signed OSS download URL for a specified AgentSpec ZIP package.
+     * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
      *
      * @remarks
      * ## Operation description
@@ -2731,7 +3090,7 @@ class AgentCore extends OpenApiClient
      * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
      *
      * @param request - DownloadSkillVersionViaOssRequest
@@ -2774,7 +3133,7 @@ class AgentCore extends OpenApiClient
      * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
      *
      * @param request - DownloadSkillVersionViaOssRequest
@@ -2797,11 +3156,88 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Skips the regular review process and forcibly publishes the specified Skill version.
+     * Enables a QoderCLI Connector in a specified workspace. The request must include the site, API key, and at least one service account key. The service validates all account keys before saving the configuration.
      *
      * @remarks
-     * ## Request description
-     * Skips the regular review process and forcibly publishes the specified Skill version.
+     * Enables a Connector in a specified workspace. Credential verification is required before the Connector can be enabled.
+     *
+     * @param tmpReq - EnableConnectorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableConnectorResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $connectorName
+     * @param EnableConnectorRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EnableConnectorResponse
+     */
+    public function enableConnectorWithOptions($workspaceId, $connectorName, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new EnableConnectorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableConnector',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/connectors/' . Url::percentEncode($connectorName) . '/actions/enable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables a QoderCLI Connector in a specified workspace. The request must include the site, API key, and at least one service account key. The service validates all account keys before saving the configuration.
+     *
+     * @remarks
+     * Enables a Connector in a specified workspace. Credential verification is required before the Connector can be enabled.
+     *
+     * @param request - EnableConnectorRequest
+     *
+     * @returns EnableConnectorResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $connectorName
+     * @param EnableConnectorRequest $request
+     *
+     * @return EnableConnectorResponse
+     */
+    public function enableConnector($workspaceId, $connectorName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableConnectorWithOptions($workspaceId, $connectorName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Skips the regular review process and forcibly publishes a specified Skill version.
+     *
+     * @remarks
+     * ## Operation description
+     * Skips the regular review process and forcibly publishes a specified Skill version.
      *
      * @param tmpReq - ForcePublishSkillVersionRequest
      * @param headers - map
@@ -2852,11 +3288,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Skips the regular review process and forcibly publishes the specified Skill version.
+     * Skips the regular review process and forcibly publishes a specified Skill version.
      *
      * @remarks
-     * ## Request description
-     * Skips the regular review process and forcibly publishes the specified Skill version.
+     * ## Operation description
+     * Skips the regular review process and forcibly publishes a specified Skill version.
      *
      * @param request - ForcePublishSkillVersionRequest
      *
@@ -3012,11 +3448,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+     * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
      *
      * @remarks
      * ## Operation description
-     * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+     * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
      *
      * @param request - GetAgentSpecImportFileUrlRequest
      * @param headers - map
@@ -3059,11 +3495,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+     * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
      *
      * @remarks
      * ## Operation description
-     * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+     * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
      *
      * @param request - GetAgentSpecImportFileUrlRequest
      *
@@ -3219,7 +3655,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询凭证
+     * Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+     *
+     * @remarks
+     * Queries the details of a single credential. Sensitive fields are not returned.
      *
      * @param request - GetCredentialRequest
      * @param headers - map
@@ -3257,7 +3696,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询凭证
+     * Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+     *
+     * @remarks
+     * Queries the details of a single credential. Sensitive fields are not returned.
      *
      * @param request - GetCredentialRequest
      *
@@ -3275,6 +3717,75 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->getCredentialWithOptions($workspaceId, $credentialId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询自定义智能体.
+     *
+     * @remarks
+     * 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
+     * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
+     * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+     *
+     * @param request - GetCustomAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomAgentResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $agentId
+     * @param GetCustomAgentRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetCustomAgentResponse
+     */
+    public function getCustomAgentWithOptions($workspaceId, $agentId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomAgent',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/custom-agents/' . Url::percentEncode($agentId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自定义智能体.
+     *
+     * @remarks
+     * 创建或更新后，可轮询本接口查询最新配置版本的执行结果。latestVersionStatus 与 latestSpecVersion 对应；latestExecutionError 表示该版本的等待或失败原因，retryable 为 true 时可稍后再次查询。
+     * 返回的配置为最新提交的配置，可能尚未生效。请结合 latestVersionStatus、智能体整体状态 status 和运行实例统计 sandboxPhaseCounts 确认部署及运行情况。
+     * 查询不存在、已完成删除或不属于指定工作空间的自定义智能体时，返回资源不存在错误。
+     *
+     * @param request - GetCustomAgentRequest
+     *
+     * @returns GetCustomAgentResponse
+     *
+     * @param string                $workspaceId
+     * @param string                $agentId
+     * @param GetCustomAgentRequest $request
+     *
+     * @return GetCustomAgentResponse
+     */
+    public function getCustomAgent($workspaceId, $agentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCustomAgentWithOptions($workspaceId, $agentId, $request, $headers, $runtime);
     }
 
     /**
@@ -3526,11 +4037,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+     * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
      *
      * @remarks
      * ## Operation description
-     * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+     * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
      *
      * @param request - GetMcpRequest
      * @param headers - map
@@ -3568,11 +4079,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+     * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
      *
      * @remarks
      * ## Operation description
-     * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+     * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
      *
      * @param request - GetMcpRequest
      *
@@ -3590,6 +4101,71 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->getMcpWithOptions($workspaceId, $mcpServerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the details of an MCP marketplace template.
+     *
+     * @remarks
+     * Returns the current template version and installation form schema.
+     *
+     * @param request - GetMcpMarketItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMcpMarketItemResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $marketItemId
+     * @param GetMcpMarketItemRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMcpMarketItemResponse
+     */
+    public function getMcpMarketItemWithOptions($workspaceId, $marketItemId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMcpMarketItem',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/mcp-market/items/' . Url::percentEncode($marketItemId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMcpMarketItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an MCP marketplace template.
+     *
+     * @remarks
+     * Returns the current template version and installation form schema.
+     *
+     * @param request - GetMcpMarketItemRequest
+     *
+     * @returns GetMcpMarketItemResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $marketItemId
+     * @param GetMcpMarketItemRequest $request
+     *
+     * @return GetMcpMarketItemResponse
+     */
+    public function getMcpMarketItem($workspaceId, $marketItemId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMcpMarketItemWithOptions($workspaceId, $marketItemId, $request, $headers, $runtime);
     }
 
     /**
@@ -3652,7 +4228,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询模型连接.
+     * Queries the detailed configuration, credential configuration status, publish status, and region of a specified model connection.
      *
      * @param request - GetModelConnectionRequest
      * @param headers - map
@@ -3690,7 +4266,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询模型连接.
+     * Queries the detailed configuration, credential configuration status, publish status, and region of a specified model connection.
      *
      * @param request - GetModelConnectionRequest
      *
@@ -4048,7 +4624,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询团队
+     * Queries the details of a specified team. The response includes the complete attributes and team roles of each user member and agent member in the team.
      *
      * @param request - GetTeamRequest
      * @param headers - map
@@ -4086,7 +4662,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询团队
+     * Queries the details of a specified team. The response includes the complete attributes and team roles of each user member and agent member in the team.
      *
      * @param request - GetTeamRequest
      *
@@ -4107,7 +4683,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询用户.
+     * Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
      *
      * @param request - GetUserRequest
      * @param headers - map
@@ -4145,7 +4721,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询用户.
+     * Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
      *
      * @param request - GetUserRequest
      *
@@ -4166,10 +4742,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+     * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
      *
      * @remarks
-     * ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+     * ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
      *
      * @param request - GetWorkspaceRequest
      * @param headers - map
@@ -4206,10 +4782,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+     * Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
      *
      * @remarks
-     * ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+     * ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
      *
      * @param request - GetWorkspaceRequest
      *
@@ -4226,6 +4802,160 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->getWorkspaceWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the ACR RAM authorization URL for a workspace.
+     *
+     * @remarks
+     * ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+     *
+     * @param request - GetWorkspaceAcrRamAuthorizeUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceAcrRamAuthorizeUrlResponse
+     *
+     * @param string                                $workspaceId
+     * @param GetWorkspaceAcrRamAuthorizeUrlRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetWorkspaceAcrRamAuthorizeUrlResponse
+     */
+    public function getWorkspaceAcrRamAuthorizeUrlWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acrInstanceId) {
+            @$query['acrInstanceId'] = $request->acrInstanceId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->repository) {
+            @$query['repository'] = $request->repository;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspaceAcrRamAuthorizeUrl',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/acr/authorize',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceAcrRamAuthorizeUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the ACR RAM authorization URL for a workspace.
+     *
+     * @remarks
+     * ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+     *
+     * @param request - GetWorkspaceAcrRamAuthorizeUrlRequest
+     *
+     * @returns GetWorkspaceAcrRamAuthorizeUrlResponse
+     *
+     * @param string                                $workspaceId
+     * @param GetWorkspaceAcrRamAuthorizeUrlRequest $request
+     *
+     * @return GetWorkspaceAcrRamAuthorizeUrlResponse
+     */
+    public function getWorkspaceAcrRamAuthorizeUrl($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkspaceAcrRamAuthorizeUrlWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the RAM authorization URL for mounting AgenticFS in a workspace.
+     *
+     * @remarks
+     * The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+     *
+     * @param request - GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
+     *
+     * @param string                                           $workspaceId
+     * @param GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest $request
+     * @param string[]                                         $headers
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
+     */
+    public function getWorkspaceAgenticFsMountRamAuthorizeUrlWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessPointId) {
+            @$query['accessPointId'] = $request->accessPointId;
+        }
+
+        if (null !== $request->fileSystemId) {
+            @$query['fileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->server) {
+            @$query['server'] = $request->server;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspaceAgenticFsMountRamAuthorizeUrl',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/agentic-fs/authorize',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the RAM authorization URL for mounting AgenticFS in a workspace.
+     *
+     * @remarks
+     * The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+     *
+     * @param request - GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
+     *
+     * @returns GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
+     *
+     * @param string                                           $workspaceId
+     * @param GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest $request
+     *
+     * @return GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
+     */
+    public function getWorkspaceAgenticFsMountRamAuthorizeUrl($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkspaceAgenticFsMountRamAuthorizeUrlWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4291,6 +5021,93 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->getWorkspacePluginWithOptions($workspaceId, $pluginName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Installs an MCP marketplace template.
+     *
+     * @remarks
+     * Validates the input based on the specified template version and creates an MCP in the workspace.
+     *
+     * @param tmpReq - InstallMcpMarketItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallMcpMarketItemResponse
+     *
+     * @param string                      $workspaceId
+     * @param string                      $marketItemId
+     * @param InstallMcpMarketItemRequest $tmpReq
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return InstallMcpMarketItemResponse
+     */
+    public function installMcpMarketItemWithOptions($workspaceId, $marketItemId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new InstallMcpMarketItemShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->templateVersion) {
+            @$query['templateVersion'] = $request->templateVersion;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InstallMcpMarketItem',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/mcp-market/items/' . Url::percentEncode($marketItemId) . '/install',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallMcpMarketItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Installs an MCP marketplace template.
+     *
+     * @remarks
+     * Validates the input based on the specified template version and creates an MCP in the workspace.
+     *
+     * @param request - InstallMcpMarketItemRequest
+     *
+     * @returns InstallMcpMarketItemResponse
+     *
+     * @param string                      $workspaceId
+     * @param string                      $marketItemId
+     * @param InstallMcpMarketItemRequest $request
+     *
+     * @return InstallMcpMarketItemResponse
+     */
+    public function installMcpMarketItem($workspaceId, $marketItemId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->installMcpMarketItemWithOptions($workspaceId, $marketItemId, $request, $headers, $runtime);
     }
 
     /**
@@ -4377,10 +5194,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the IM channel list of a specified agent.
+     * Queries the list of IM channels for a specified agent.
      *
      * @remarks
-     * Queries the IM channel list of a specified agent.
+     * Queries the list of IM channels for a specified agent.
      *
      * @param request - ListAgentIMChannelsRequest
      * @param headers - map
@@ -4436,10 +5253,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the IM channel list of a specified agent.
+     * Queries the list of IM channels for a specified agent.
      *
      * @remarks
-     * Queries the IM channel list of a specified agent.
+     * Queries the list of IM channels for a specified agent.
      *
      * @param request - ListAgentIMChannelsRequest
      *
@@ -4460,11 +5277,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+     * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
      *
      * @remarks
      * ## Operation description
-     * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+     * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
      *
      * @param request - ListAgentSpecsRequest
      * @param headers - map
@@ -4539,11 +5356,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+     * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
      *
      * @remarks
      * ## Operation description
-     * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+     * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
      *
      * @param request - ListAgentSpecsRequest
      *
@@ -4563,7 +5380,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the list of teams to which specified agents belong. Specify the agent IDs through agentIds to retrieve the membership information between each agent and its teams, including the team ID, team name, and the role that the agent assumes in the team.
+     * Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
      *
      * @param tmpReq - ListAgentTeamsRequest
      * @param headers - map
@@ -4612,7 +5429,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the list of teams to which specified agents belong. Specify the agent IDs through agentIds to retrieve the membership information between each agent and its teams, including the team ID, team name, and the role that the agent assumes in the team.
+     * Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
      *
      * @param request - ListAgentTeamsRequest
      *
@@ -4632,7 +5449,162 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询凭证列表.
+     * Queries the available official models and enterprise models for an enabled QoderCLI Connector. The service retrieves models in real time by using the saved API key and organization ID, and deduplicates the results by model ID.
+     *
+     * @remarks
+     * Queries the list of available models for a specified Connector. Pagination is supported.
+     *
+     * @param request - ListConnectorModelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConnectorModelsResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $connectorName
+     * @param ListConnectorModelsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListConnectorModelsResponse
+     */
+    public function listConnectorModelsWithOptions($workspaceId, $connectorName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectorKeyId) {
+            @$query['connectorKeyId'] = $request->connectorKeyId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConnectorModels',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/connectors/' . Url::percentEncode($connectorName) . '/models',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConnectorModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the available official models and enterprise models for an enabled QoderCLI Connector. The service retrieves models in real time by using the saved API key and organization ID, and deduplicates the results by model ID.
+     *
+     * @remarks
+     * Queries the list of available models for a specified Connector. Pagination is supported.
+     *
+     * @param request - ListConnectorModelsRequest
+     *
+     * @returns ListConnectorModelsResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $connectorName
+     * @param ListConnectorModelsRequest $request
+     *
+     * @return ListConnectorModelsResponse
+     */
+    public function listConnectorModels($workspaceId, $connectorName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConnectorModelsWithOptions($workspaceId, $connectorName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of connectors supported by a specified workspace, including their status, number of bound agents, and configurations. The current version returns the QoderCLI connector.
+     *
+     * @remarks
+     * Queries the list of connectors in a specified workspace.
+     *
+     * @param request - ListConnectorsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConnectorsResponse
+     *
+     * @param string                $workspaceId
+     * @param ListConnectorsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListConnectorsResponse
+     */
+    public function listConnectorsWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConnectors',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/connectors',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of connectors supported by a specified workspace, including their status, number of bound agents, and configurations. The current version returns the QoderCLI connector.
+     *
+     * @remarks
+     * Queries the list of connectors in a specified workspace.
+     *
+     * @param request - ListConnectorsRequest
+     *
+     * @returns ListConnectorsResponse
+     *
+     * @param string                $workspaceId
+     * @param ListConnectorsRequest $request
+     *
+     * @return ListConnectorsResponse
+     */
+    public function listConnectors($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConnectorsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+     *
+     * @remarks
+     * Queries credentials in a workspace with paging. Supports filtering by type and name.
      *
      * @param request - ListCredentialsRequest
      * @param headers - map
@@ -4657,6 +5629,10 @@ class AgentCore extends OpenApiClient
 
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
 
         if (null !== $request->nameLike) {
@@ -4687,7 +5663,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询凭证列表.
+     * Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
+     *
+     * @remarks
+     * Queries credentials in a workspace with paging. Supports filtering by type and name.
      *
      * @param request - ListCredentialsRequest
      *
@@ -4704,6 +5683,83 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->listCredentialsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query to retrieve the summary of custom agents in a specified workspace. For paging, the complete configuration, and the execute results of the latest version, call GetCustomAgent.
+     *
+     * @remarks
+     * The default value of maxResults is 20, and the maximum value is 100. If this parameter is omitted or set to 0, the default value is used.
+     * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it yourself. An empty token in the response indicates that there are no more pages.
+     * This operation returns the summaries of the current page and does not return the complete deployment configuration or the execution errors of the latest version. To obtain this information, call GetCustomAgent by using the agentId in items.
+     *
+     * @param request - ListCustomAgentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomAgentsResponse
+     *
+     * @param string                  $workspaceId
+     * @param ListCustomAgentsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListCustomAgentsResponse
+     */
+    public function listCustomAgentsWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomAgents',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/custom-agents',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query to retrieve the summary of custom agents in a specified workspace. For paging, the complete configuration, and the execute results of the latest version, call GetCustomAgent.
+     *
+     * @remarks
+     * The default value of maxResults is 20, and the maximum value is 100. If this parameter is omitted or set to 0, the default value is used.
+     * Omit nextToken in the first request. In subsequent requests, pass the nextToken value returned in the previous response as is, and keep the same workspace. The nextToken is an opaque token. Do not parse or construct it yourself. An empty token in the response indicates that there are no more pages.
+     * This operation returns the summaries of the current page and does not return the complete deployment configuration or the execution errors of the latest version. To obtain this information, call GetCustomAgent by using the agentId in items.
+     *
+     * @param request - ListCustomAgentsRequest
+     *
+     * @returns ListCustomAgentsResponse
+     *
+     * @param string                  $workspaceId
+     * @param ListCustomAgentsRequest $request
+     *
+     * @return ListCustomAgentsResponse
+     */
+    public function listCustomAgents($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCustomAgentsWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4920,6 +5976,91 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Queries MCP marketplace templates.
+     *
+     * @remarks
+     * Queries all online official MCP templates. You can filter results by keyword, usage tag, and MCP type.
+     *
+     * @param request - ListMcpMarketItemsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMcpMarketItemsResponse
+     *
+     * @param string                    $workspaceId
+     * @param ListMcpMarketItemsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListMcpMarketItemsResponse
+     */
+    public function listMcpMarketItemsWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->mcpType) {
+            @$query['mcpType'] = $request->mcpType;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->officialTag) {
+            @$query['officialTag'] = $request->officialTag;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMcpMarketItems',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/mcp-market/items',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMcpMarketItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries MCP marketplace templates.
+     *
+     * @remarks
+     * Queries all online official MCP templates. You can filter results by keyword, usage tag, and MCP type.
+     *
+     * @param request - ListMcpMarketItemsRequest
+     *
+     * @returns ListMcpMarketItemsResponse
+     *
+     * @param string                    $workspaceId
+     * @param ListMcpMarketItemsRequest $request
+     *
+     * @return ListMcpMarketItemsResponse
+     */
+    public function listMcpMarketItems($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMcpMarketItemsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the list of tools exposed by a specified MCP service and their input/output schemas.
      *
      * @remarks
@@ -5020,6 +6161,10 @@ class AgentCore extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customTag) {
+            @$query['customTag'] = $request->customTag;
+        }
+
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
         }
@@ -5032,8 +6177,16 @@ class AgentCore extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->officialTag) {
+            @$query['officialTag'] = $request->officialTag;
+        }
+
         if (null !== $request->searchType) {
             @$query['searchType'] = $request->searchType;
+        }
+
+        if (null !== $request->usageActive) {
+            @$query['usageActive'] = $request->usageActive;
         }
 
         $req = new OpenApiRequest([
@@ -5080,10 +6233,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询模型连接列表.
+     * Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
      *
      * @remarks
-     * 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+     * Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
      *
      * @param request - ListModelConnectionsRequest
      * @param headers - map
@@ -5150,10 +6303,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询模型连接列表.
+     * Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
      *
      * @remarks
-     * 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+     * Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
      *
      * @param request - ListModelConnectionsRequest
      *
@@ -5360,10 +6513,170 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Queries the list of active sessions in the sandbox of a specified managed agent by paging, and returns the session source and external channel type.
+     *
+     * @remarks
+     * Queries the list of active sessions in the sandbox of a specified managed agent.
+     *
+     * @param request - ListSandboxSessionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSandboxSessionsResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $agentId
+     * @param string                     $sandboxId
+     * @param ListSandboxSessionsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSandboxSessionsResponse
+     */
+    public function listSandboxSessionsWithOptions($workspaceId, $agentId, $sandboxId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSandboxSessions',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/managed-agents/' . Url::percentEncode($agentId) . '/sandboxes/' . Url::percentEncode($sandboxId) . '/sessions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSandboxSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of active sessions in the sandbox of a specified managed agent by paging, and returns the session source and external channel type.
+     *
+     * @remarks
+     * Queries the list of active sessions in the sandbox of a specified managed agent.
+     *
+     * @param request - ListSandboxSessionsRequest
+     *
+     * @returns ListSandboxSessionsResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $agentId
+     * @param string                     $sandboxId
+     * @param ListSandboxSessionsRequest $request
+     *
+     * @return ListSandboxSessionsResponse
+     */
+    public function listSandboxSessions($workspaceId, $agentId, $sandboxId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSandboxSessionsWithOptions($workspaceId, $agentId, $sandboxId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of sandboxes for a managed agent in a specified workspace. You can filter results by sandbox ID and active session ID fragments.
+     *
+     * @remarks
+     * Queries the list of sandboxes for a specified managed agent. The searchText parameter performs a fuzzy match on sandbox ID fragments, and the sessionId parameter performs a fuzzy match on active session ID fragments. Both parameters are case-insensitive and can be used together with AND logic.
+     *
+     * @param request - ListSandboxesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSandboxesResponse
+     *
+     * @param string               $workspaceId
+     * @param string               $agentId
+     * @param ListSandboxesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSandboxesResponse
+     */
+    public function listSandboxesWithOptions($workspaceId, $agentId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchText) {
+            @$query['searchText'] = $request->searchText;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSandboxes',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/managed-agents/' . Url::percentEncode($agentId) . '/sandboxes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSandboxesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of sandboxes for a managed agent in a specified workspace. You can filter results by sandbox ID and active session ID fragments.
+     *
+     * @remarks
+     * Queries the list of sandboxes for a specified managed agent. The searchText parameter performs a fuzzy match on sandbox ID fragments, and the sessionId parameter performs a fuzzy match on active session ID fragments. Both parameters are case-insensitive and can be used together with AND logic.
+     *
+     * @param request - ListSandboxesRequest
+     *
+     * @returns ListSandboxesResponse
+     *
+     * @param string               $workspaceId
+     * @param string               $agentId
+     * @param ListSandboxesRequest $request
+     *
+     * @return ListSandboxesResponse
+     */
+    public function listSandboxes($workspaceId, $agentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSandboxesWithOptions($workspaceId, $agentId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
      *
      * @remarks
-     * ## Request description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+     * ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
      *
      * @param request - ListServiceEndpointsRequest
      * @param headers - map
@@ -5437,7 +6750,7 @@ class AgentCore extends OpenApiClient
      * Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
      *
      * @remarks
-     * ## Request description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+     * ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
      *
      * @param request - ListServiceEndpointsRequest
      *
@@ -5457,11 +6770,88 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+     * Queries the reference relationships of a skill.
+     *
+     * @param request - ListSkillReferencesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillReferencesResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $skillName
+     * @param ListSkillReferencesRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListSkillReferencesResponse
+     */
+    public function listSkillReferencesWithOptions($workspaceId, $skillName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNo) {
+            @$query['pageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->selectorType) {
+            @$query['selectorType'] = $request->selectorType;
+        }
+
+        if (null !== $request->selectorValue) {
+            @$query['selectorValue'] = $request->selectorValue;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkillReferences',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/skills/' . Url::percentEncode($skillName) . '/references',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSkillReferencesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the reference relationships of a skill.
+     *
+     * @param request - ListSkillReferencesRequest
+     *
+     * @returns ListSkillReferencesResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $skillName
+     * @param ListSkillReferencesRequest $request
+     *
+     * @return ListSkillReferencesResponse
+     */
+    public function listSkillReferences($workspaceId, $skillName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSkillReferencesWithOptions($workspaceId, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
      *
      * @remarks
      * ## Operation description
-     * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+     * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
      *
      * @param request - ListSkillsRequest
      * @param headers - map
@@ -5536,11 +6926,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+     * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
      *
      * @remarks
      * ## Operation description
-     * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+     * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
      *
      * @param request - ListSkillsRequest
      *
@@ -5560,7 +6950,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询团队列表.
+     * Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
      *
      * @param request - ListTeamsRequest
      * @param headers - map
@@ -5611,7 +7001,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询团队列表.
+     * Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
      *
      * @param request - ListTeamsRequest
      *
@@ -5631,7 +7021,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询用户列表.
+     * Performs a paged query for users in a specified workspace. You can use nameLike to filter users by fuzzy match on the username, maxResults to specify the maximum number of records per page for paging, and nextToken to retrieve the next page. If maxResults is not specified, 10 records are returned by default.
      *
      * @param request - ListUsersRequest
      * @param headers - map
@@ -5650,6 +7040,10 @@ class AgentCore extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->email) {
+            @$query['email'] = $request->email;
+        }
+
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
         }
@@ -5686,7 +7080,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 查询用户列表.
+     * Performs a paged query for users in a specified workspace. You can use nameLike to filter users by fuzzy match on the username, maxResults to specify the maximum number of records per page for paging, and nextToken to retrieve the next page. If maxResults is not specified, 10 records are returned by default.
      *
      * @param request - ListUsersRequest
      *
@@ -5706,10 +7100,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+     * Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
      *
      * @remarks
-     * ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+     * ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
      *
      * @param request - ListWorkspacesRequest
      * @param headers - map
@@ -5759,10 +7153,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+     * Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
      *
      * @remarks
-     * ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+     * ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
      *
      * @param request - ListWorkspacesRequest
      *
@@ -5784,7 +7178,7 @@ class AgentCore extends OpenApiClient
      * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
      *
      * @param tmpReq - OfflineSkillRequest
@@ -5838,7 +7232,7 @@ class AgentCore extends OpenApiClient
      * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
      *
      * @param request - OfflineSkillRequest
@@ -5942,7 +7336,7 @@ class AgentCore extends OpenApiClient
      * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
      *
      * @param tmpReq - PrecheckSkillUploadViaOssRequest
@@ -5995,7 +7389,7 @@ class AgentCore extends OpenApiClient
      * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
      *
      * @param request - PrecheckSkillUploadViaOssRequest
@@ -6016,11 +7410,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Publishes a specified Skill version to change its state to published.
+     * Publishes a specified Skill version to transition it to the published state.
      *
      * @remarks
      * ## Operation description
-     * Publishes a specified Skill version to change its state to published.
+     * Publishes a specified Skill version to transition it to the published state.
      *
      * @param tmpReq - PublishSkillVersionRequest
      * @param headers - map
@@ -6071,11 +7465,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Publishes a specified Skill version to change its state to published.
+     * Publishes a specified Skill version to transition it to the published state.
      *
      * @remarks
      * ## Operation description
-     * Publishes a specified Skill version to change its state to published.
+     * Publishes a specified Skill version to transition it to the published state.
      *
      * @param request - PublishSkillVersionRequest
      *
@@ -6097,11 +7491,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Converts a specified Skill version back into an editable draft for further modifications.
+     * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
      *
      * @remarks
-     * ## Operation description
-     * Converts a specified Skill version back into an editable draft for further modifications.
+     * ## Request description
+     * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
      *
      * @param tmpReq - RedraftSkillVersionRequest
      * @param headers - map
@@ -6152,11 +7546,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Converts a specified Skill version back into an editable draft for further modifications.
+     * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
      *
      * @remarks
-     * ## Operation description
-     * Converts a specified Skill version back into an editable draft for further modifications.
+     * ## Request description
+     * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
      *
      * @param request - RedraftSkillVersionRequest
      *
@@ -6178,7 +7572,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 重置用户密码
+     * Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
      *
      * @param tmpReq - ResetUserPasswordRequest
      * @param headers - map
@@ -6227,7 +7621,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 重置用户密码
+     * Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
      *
      * @param request - ResetUserPasswordRequest
      *
@@ -6658,7 +8052,87 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 更新凭证
+     * Updates the API Key or Service Account Key collection for an enabled QoderCLI Connector. When serviceAccountKeys is submitted, the service treats it as the complete updated key collection and performs additions, renames, rotations, and deletions accordingly.
+     *
+     * @remarks
+     * Updates the sensitive configuration of a specified Connector and aligns Service Account Keys by ID.
+     *
+     * @param tmpReq - UpdateConnectorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConnectorResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $connectorName
+     * @param UpdateConnectorRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateConnectorResponse
+     */
+    public function updateConnectorWithOptions($workspaceId, $connectorName, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateConnectorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConnector',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/connectors/' . Url::percentEncode($connectorName) . '/actions/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the API Key or Service Account Key collection for an enabled QoderCLI Connector. When serviceAccountKeys is submitted, the service treats it as the complete updated key collection and performs additions, renames, rotations, and deletions accordingly.
+     *
+     * @remarks
+     * Updates the sensitive configuration of a specified Connector and aligns Service Account Keys by ID.
+     *
+     * @param request - UpdateConnectorRequest
+     *
+     * @returns UpdateConnectorResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $connectorName
+     * @param UpdateConnectorRequest $request
+     *
+     * @return UpdateConnectorResponse
+     */
+    public function updateConnector($workspaceId, $connectorName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConnectorWithOptions($workspaceId, $connectorName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+     *
+     * @remarks
+     * Updates the metadata or resource scope of a specified credential.
      *
      * @param tmpReq - UpdateCredentialRequest
      * @param headers - map
@@ -6714,7 +8188,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 更新凭证
+     * Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+     *
+     * @remarks
+     * Updates the metadata or resource scope of a specified credential.
      *
      * @param request - UpdateCredentialRequest
      *
@@ -6732,6 +8209,97 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->updateCredentialWithOptions($workspaceId, $credentialId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the configuration of a specified custom agent in a workspace and executes the update asynchronously. Omitted top-level fields retain their original configurations. You can call the GetCustomAgent operation to query the update result.
+     *
+     * @remarks
+     * Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced in their entirety. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
+     * When updating an image, you must specify artifact.port and the type, instanceId, namespace, repo, and tag fields of artifact.container. To retain a custom startup command, also provide the entrypoint field. Currently, only Alibaba Cloud Container Registry (ACR) container image deployment is supported. Omit the artifact.code field.
+     * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or any of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still subject to workspace network restrictions. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
+     * The update is an asynchronous process. A successful response indicates that the request is accepted. Call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
+     * The clientToken field currently does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold field for health checks currently does not take effect. Omit this field.
+     *
+     * @param tmpReq - UpdateCustomAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomAgentResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $agentId
+     * @param UpdateCustomAgentRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateCustomAgentResponse
+     */
+    public function updateCustomAgentWithOptions($workspaceId, $agentId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateCustomAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCustomAgent',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/custom-agents/' . Url::percentEncode($agentId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCustomAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the configuration of a specified custom agent in a workspace and executes the update asynchronously. Omitted top-level fields retain their original configurations. You can call the GetCustomAgent operation to query the update result.
+     *
+     * @remarks
+     * Provide at least one top-level field to update. Omitted top-level fields retain their original configurations. When providing a configuration object, specify its required subfields and include any optional configurations that you want to retain. Arrays are replaced in their entirety. Pass an empty array [] to clear a list. The agenticFsMounts field does not accept null. Pass null for the description field to clear the description, and pass null for the healthCheck field to remove the health check.
+     * When updating an image, you must specify artifact.port and the type, instanceId, namespace, repo, and tag fields of artifact.container. To retain a custom startup command, also provide the entrypoint field. Currently, only Alibaba Cloud Container Registry (ACR) container image deployment is supported. Omit the artifact.code field.
+     * When providing the runtime field, both compute and sessionPolicy must be present. If you omit hpa or any of its fields, unspecified elastic configurations use default values. To retain the original elastic configurations, provide them together. When providing the network field, omitted access items are treated as allowed, but actual access is still subject to workspace network restrictions. To retain the original restrictions, provide both accessInternet and accessVpc. When providing healthCheck, you must specify the port field, and other unspecified items use default values. When providing logging.sls, you must specify both project and logstore.
+     * The update is an asynchronous process. A successful response indicates that the request is accepted. Call the GetCustomAgent operation to query latestSpecVersion, latestVersionStatus, and latestExecutionError, and check the status field to confirm the update result.
+     * The clientToken field currently does not provide idempotency guarantees. Do not rely on this parameter to prevent duplicate requests. The healthyThreshold field for health checks currently does not take effect. Omit this field.
+     *
+     * @param request - UpdateCustomAgentRequest
+     *
+     * @returns UpdateCustomAgentResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $agentId
+     * @param UpdateCustomAgentRequest $request
+     *
+     * @return UpdateCustomAgentResponse
+     */
+    public function updateCustomAgent($workspaceId, $agentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateCustomAgentWithOptions($workspaceId, $agentId, $request, $headers, $runtime);
     }
 
     /**
@@ -6818,7 +8386,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the login switch, member synchronization switch, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
+     * Updates the login toggle, member synchronization toggle, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
      *
      * @param tmpReq - UpdateIdentityProviderRequest
      * @param headers - map
@@ -6868,7 +8436,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the login switch, member synchronization switch, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
+     * Updates the login toggle, member synchronization toggle, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
      *
      * @param request - UpdateIdentityProviderRequest
      *
@@ -7051,7 +8619,99 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the description of a specified model. Other model configurations cannot be modified through this operation.
+     * Updates MCP parameters by template.
+     *
+     * @remarks
+     * Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created, without upgrading the template version.
+     *
+     * @param tmpReq - UpdateMcpTemplateConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMcpTemplateConfigResponse
+     *
+     * @param string                         $workspaceId
+     * @param string                         $mcpServerId
+     * @param UpdateMcpTemplateConfigRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateMcpTemplateConfigResponse
+     */
+    public function updateMcpTemplateConfigWithOptions($workspaceId, $mcpServerId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMcpTemplateConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->templateVersion) {
+            @$query['templateVersion'] = $request->templateVersion;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMcpTemplateConfig',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/mcp-servers/' . Url::percentEncode($mcpServerId) . '/template-config',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMcpTemplateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates MCP parameters by template.
+     *
+     * @remarks
+     * Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created, without upgrading the template version.
+     *
+     * @param request - UpdateMcpTemplateConfigRequest
+     *
+     * @returns UpdateMcpTemplateConfigResponse
+     *
+     * @param string                         $workspaceId
+     * @param string                         $mcpServerId
+     * @param UpdateMcpTemplateConfigRequest $request
+     *
+     * @return UpdateMcpTemplateConfigResponse
+     */
+    public function updateMcpTemplateConfig($workspaceId, $mcpServerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMcpTemplateConfigWithOptions($workspaceId, $mcpServerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+     *
+     * @remarks
+     * This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+     * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+     * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
      *
      * @param tmpReq - UpdateModelRequest
      * @param headers - map
@@ -7107,7 +8767,12 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the description of a specified model. Other model configurations cannot be modified through this operation.
+     * Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+     *
+     * @remarks
+     * This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+     * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+     * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
      *
      * @param request - UpdateModelRequest
      *
@@ -7287,7 +8952,7 @@ class AgentCore extends OpenApiClient
      * Updates the version labels and their mappings for a specified Skill.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Updates the version labels and their mappings for a specified Skill.
      *
      * @param tmpReq - UpdateSkillLabelsRequest
@@ -7341,7 +9006,7 @@ class AgentCore extends OpenApiClient
      * Updates the version labels and their mappings for a specified Skill.
      *
      * @remarks
-     * ## Request description
+     * ## Operation description
      * Updates the version labels and their mappings for a specified Skill.
      *
      * @param request - UpdateSkillLabelsRequest
@@ -7442,7 +9107,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 更新团队
+     * Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
      *
      * @param tmpReq - UpdateTeamRequest
      * @param headers - map
@@ -7498,7 +9163,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 更新团队
+     * Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
      *
      * @param request - UpdateTeamRequest
      *
@@ -7519,7 +9184,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 更新用户.
+     * Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
      *
      * @param tmpReq - UpdateUserRequest
      * @param headers - map
@@ -7575,7 +9240,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * 更新用户.
+     * Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
      *
      * @param request - UpdateUserRequest
      *
@@ -7596,10 +9261,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
      *
      * @remarks
-     * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+     * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
      *
      * @param tmpReq - UpdateWorkspaceRequest
      * @param headers - map
@@ -7654,10 +9319,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
      *
      * @remarks
-     * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+     * ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
      *
      * @param request - UpdateWorkspaceRequest
      *
@@ -7828,5 +9493,297 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->uploadSkillViaOssWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Validates whether one or more Qoder Service Account Keys are available at a specified site. This operation does not save keys or modify the Connector status.
+     *
+     * @remarks
+     * Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
+     *
+     * @param tmpReq - VerifyConnectorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyConnectorResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $connectorName
+     * @param VerifyConnectorRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return VerifyConnectorResponse
+     */
+    public function verifyConnectorWithOptions($workspaceId, $connectorName, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new VerifyConnectorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyConnector',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/connectors/' . Url::percentEncode($connectorName) . '/actions/verify',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Validates whether one or more Qoder Service Account Keys are available at a specified site. This operation does not save keys or modify the Connector status.
+     *
+     * @remarks
+     * Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
+     *
+     * @param request - VerifyConnectorRequest
+     *
+     * @returns VerifyConnectorResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $connectorName
+     * @param VerifyConnectorRequest $request
+     *
+     * @return VerifyConnectorResponse
+     */
+    public function verifyConnector($workspaceId, $connectorName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->verifyConnectorWithOptions($workspaceId, $connectorName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Verifies the ACR RAM authorization of a workspace.
+     *
+     * @remarks
+     * ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+     *
+     * @param request - VerifyWorkspaceAcrRamAuthorizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyWorkspaceAcrRamAuthorizationResponse
+     *
+     * @param string                                    $workspaceId
+     * @param VerifyWorkspaceAcrRamAuthorizationRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return VerifyWorkspaceAcrRamAuthorizationResponse
+     */
+    public function verifyWorkspaceAcrRamAuthorizationWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acrInstanceId) {
+            @$query['acrInstanceId'] = $request->acrInstanceId;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->repository) {
+            @$query['repository'] = $request->repository;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyWorkspaceAcrRamAuthorization',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/acr/authorize/verify',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyWorkspaceAcrRamAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Verifies the ACR RAM authorization of a workspace.
+     *
+     * @remarks
+     * ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+     *
+     * @param request - VerifyWorkspaceAcrRamAuthorizationRequest
+     *
+     * @returns VerifyWorkspaceAcrRamAuthorizationResponse
+     *
+     * @param string                                    $workspaceId
+     * @param VerifyWorkspaceAcrRamAuthorizationRequest $request
+     *
+     * @return VerifyWorkspaceAcrRamAuthorizationResponse
+     */
+    public function verifyWorkspaceAcrRamAuthorization($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->verifyWorkspaceAcrRamAuthorizationWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the RAM authorization status of AgenticFS mounting for a workspace.
+     *
+     * @remarks
+     * Determines the shared role and target access point based on the workspace and server, checks whether the role has a mounted policy with the expected name and a type of Custom, and returns AUTHORIZED or UNAUTHORIZED. Consistent with OSS/ACR, this operation does not verify the policy body, role trust, or actual mount read/write permissions. If the upstream query fails, an error is returned.
+     *
+     * @param request - VerifyWorkspaceAgenticFsMountRamAuthorizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyWorkspaceAgenticFsMountRamAuthorizationResponse
+     *
+     * @param string                                               $workspaceId
+     * @param VerifyWorkspaceAgenticFsMountRamAuthorizationRequest $request
+     * @param string[]                                             $headers
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return VerifyWorkspaceAgenticFsMountRamAuthorizationResponse
+     */
+    public function verifyWorkspaceAgenticFsMountRamAuthorizationWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->server) {
+            @$query['server'] = $request->server;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyWorkspaceAgenticFsMountRamAuthorization',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/agentic-fs/authorize/verify',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyWorkspaceAgenticFsMountRamAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the RAM authorization status of AgenticFS mounting for a workspace.
+     *
+     * @remarks
+     * Determines the shared role and target access point based on the workspace and server, checks whether the role has a mounted policy with the expected name and a type of Custom, and returns AUTHORIZED or UNAUTHORIZED. Consistent with OSS/ACR, this operation does not verify the policy body, role trust, or actual mount read/write permissions. If the upstream query fails, an error is returned.
+     *
+     * @param request - VerifyWorkspaceAgenticFsMountRamAuthorizationRequest
+     *
+     * @returns VerifyWorkspaceAgenticFsMountRamAuthorizationResponse
+     *
+     * @param string                                               $workspaceId
+     * @param VerifyWorkspaceAgenticFsMountRamAuthorizationRequest $request
+     *
+     * @return VerifyWorkspaceAgenticFsMountRamAuthorizationResponse
+     */
+    public function verifyWorkspaceAgenticFsMountRamAuthorization($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->verifyWorkspaceAgenticFsMountRamAuthorizationWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Verifies the RAM authorization for a workspace to access an OSS bucket and returns the current authorization status. When bucketName is specified, verifies the authorization for an agent-mounted bucket. When bucketName is not specified, verifies and updates the authorization status of the workspace\\"s private OSS storage.
+     *
+     * @remarks
+     * Queries whether the workspace OSS mount role is bound to the custom RAM policy corresponding to the target bucket, and returns AUTHORIZED or UNAUTHORIZED. When bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. When bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks. Alibaba Cloud Container Registry (ACR) and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is reused and permissions are only appended without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not recreated or renamed due to new naming templates.
+     *
+     * @param request - VerifyWorkspaceOssMountRamAuthorizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyWorkspaceOssMountRamAuthorizationResponse
+     *
+     * @param string                                         $workspaceId
+     * @param VerifyWorkspaceOssMountRamAuthorizationRequest $request
+     * @param string[]                                       $headers
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return VerifyWorkspaceOssMountRamAuthorizationResponse
+     */
+    public function verifyWorkspaceOssMountRamAuthorizationWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucketName) {
+            @$query['bucketName'] = $request->bucketName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyWorkspaceOssMountRamAuthorization',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/oss-mount/authorize/verify',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyWorkspaceOssMountRamAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Verifies the RAM authorization for a workspace to access an OSS bucket and returns the current authorization status. When bucketName is specified, verifies the authorization for an agent-mounted bucket. When bucketName is not specified, verifies and updates the authorization status of the workspace\\"s private OSS storage.
+     *
+     * @remarks
+     * Queries whether the workspace OSS mount role is bound to the custom RAM policy corresponding to the target bucket, and returns AUTHORIZED or UNAUTHORIZED. When bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. When bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks. Alibaba Cloud Container Registry (ACR) and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is reused and permissions are only appended without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not recreated or renamed due to new naming templates.
+     *
+     * @param request - VerifyWorkspaceOssMountRamAuthorizationRequest
+     *
+     * @returns VerifyWorkspaceOssMountRamAuthorizationResponse
+     *
+     * @param string                                         $workspaceId
+     * @param VerifyWorkspaceOssMountRamAuthorizationRequest $request
+     *
+     * @return VerifyWorkspaceOssMountRamAuthorizationResponse
+     */
+    public function verifyWorkspaceOssMountRamAuthorization($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->verifyWorkspaceOssMountRamAuthorizationWithOptions($workspaceId, $request, $headers, $runtime);
     }
 }

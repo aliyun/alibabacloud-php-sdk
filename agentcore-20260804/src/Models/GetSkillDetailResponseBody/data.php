@@ -27,6 +27,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $draftMode;
+
+    /**
+     * @var string
+     */
     public $editingVersion;
 
     /**
@@ -92,6 +97,7 @@ class data extends Model
         'bizTags' => 'bizTags',
         'description' => 'description',
         'downloadCount' => 'downloadCount',
+        'draftMode' => 'draftMode',
         'editingVersion' => 'editingVersion',
         'enable' => 'enable',
         'from' => 'from',
@@ -131,6 +137,10 @@ class data extends Model
 
         if (null !== $this->downloadCount) {
             $res['downloadCount'] = $this->downloadCount;
+        }
+
+        if (null !== $this->draftMode) {
+            $res['draftMode'] = $this->draftMode;
         }
 
         if (null !== $this->editingVersion) {
@@ -218,6 +228,10 @@ class data extends Model
 
         if (isset($map['downloadCount'])) {
             $model->downloadCount = $map['downloadCount'];
+        }
+
+        if (isset($map['draftMode'])) {
+            $model->draftMode = $map['draftMode'];
         }
 
         if (isset($map['editingVersion'])) {

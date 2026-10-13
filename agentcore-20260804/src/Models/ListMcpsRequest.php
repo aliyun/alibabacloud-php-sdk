@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListMcpsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $customTag;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -26,12 +31,25 @@ class ListMcpsRequest extends Model
     /**
      * @var string
      */
+    public $officialTag;
+
+    /**
+     * @var string
+     */
     public $searchType;
+
+    /**
+     * @var bool
+     */
+    public $usageActive;
     protected $_name = [
+        'customTag' => 'customTag',
         'maxResults' => 'maxResults',
         'name' => 'name',
         'nextToken' => 'nextToken',
+        'officialTag' => 'officialTag',
         'searchType' => 'searchType',
+        'usageActive' => 'usageActive',
     ];
 
     public function validate()
@@ -42,6 +60,10 @@ class ListMcpsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customTag) {
+            $res['customTag'] = $this->customTag;
+        }
+
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
@@ -54,8 +76,16 @@ class ListMcpsRequest extends Model
             $res['nextToken'] = $this->nextToken;
         }
 
+        if (null !== $this->officialTag) {
+            $res['officialTag'] = $this->officialTag;
+        }
+
         if (null !== $this->searchType) {
             $res['searchType'] = $this->searchType;
+        }
+
+        if (null !== $this->usageActive) {
+            $res['usageActive'] = $this->usageActive;
         }
 
         return $res;
@@ -69,6 +99,10 @@ class ListMcpsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['customTag'])) {
+            $model->customTag = $map['customTag'];
+        }
+
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
@@ -81,8 +115,16 @@ class ListMcpsRequest extends Model
             $model->nextToken = $map['nextToken'];
         }
 
+        if (isset($map['officialTag'])) {
+            $model->officialTag = $map['officialTag'];
+        }
+
         if (isset($map['searchType'])) {
             $model->searchType = $map['searchType'];
+        }
+
+        if (isset($map['usageActive'])) {
+            $model->usageActive = $map['usageActive'];
         }
 
         return $model;

@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\auth;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\deploymentConfig;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\marketSource;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponseBody\data\template;
 
 class data extends Model
 {
@@ -22,7 +25,37 @@ class data extends Model
     /**
      * @var string
      */
+    public $createdAt;
+
+    /**
+     * @var string[]
+     */
+    public $customTags;
+
+    /**
+     * @var deploymentConfig
+     */
+    public $deploymentConfig;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $endpoint;
+
+    /**
+     * @var string
+     */
+    public $functionName;
+
+    /**
+     * @var marketSource
+     */
+    public $marketSource;
 
     /**
      * @var string
@@ -38,6 +71,11 @@ class data extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $officialTag;
 
     /**
      * @var string
@@ -60,6 +98,11 @@ class data extends Model
     public $swaggerConfig;
 
     /**
+     * @var template
+     */
+    public $template;
+
+    /**
      * @var string
      */
     public $type;
@@ -67,20 +110,40 @@ class data extends Model
     /**
      * @var string
      */
+    public $updatedAt;
+
+    /**
+     * @var string
+     */
     public $url;
+
+    /**
+     * @var bool
+     */
+    public $usageActive;
     protected $_name = [
         'addresses' => 'addresses',
         'auth' => 'auth',
+        'createdAt' => 'createdAt',
+        'customTags' => 'customTags',
+        'deploymentConfig' => 'deploymentConfig',
         'description' => 'description',
+        'endpoint' => 'endpoint',
+        'functionName' => 'functionName',
+        'marketSource' => 'marketSource',
         'mcpServerConfig' => 'mcpServerConfig',
         'mcpServerId' => 'mcpServerId',
         'name' => 'name',
+        'officialTag' => 'officialTag',
         'protocol' => 'protocol',
         'status' => 'status',
         'statusReason' => 'statusReason',
         'swaggerConfig' => 'swaggerConfig',
+        'template' => 'template',
         'type' => 'type',
+        'updatedAt' => 'updatedAt',
         'url' => 'url',
+        'usageActive' => 'usageActive',
     ];
 
     public function validate()
@@ -90,6 +153,18 @@ class data extends Model
         }
         if (null !== $this->auth) {
             $this->auth->validate();
+        }
+        if (\is_array($this->customTags)) {
+            Model::validateArray($this->customTags);
+        }
+        if (null !== $this->deploymentConfig) {
+            $this->deploymentConfig->validate();
+        }
+        if (null !== $this->marketSource) {
+            $this->marketSource->validate();
+        }
+        if (null !== $this->template) {
+            $this->template->validate();
         }
         parent::validate();
     }
@@ -112,8 +187,39 @@ class data extends Model
             $res['auth'] = null !== $this->auth ? $this->auth->toArray($noStream) : $this->auth;
         }
 
+        if (null !== $this->createdAt) {
+            $res['createdAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->customTags) {
+            if (\is_array($this->customTags)) {
+                $res['customTags'] = [];
+                $n1 = 0;
+                foreach ($this->customTags as $item1) {
+                    $res['customTags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->deploymentConfig) {
+            $res['deploymentConfig'] = null !== $this->deploymentConfig ? $this->deploymentConfig->toArray($noStream) : $this->deploymentConfig;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->endpoint) {
+            $res['endpoint'] = $this->endpoint;
+        }
+
+        if (null !== $this->functionName) {
+            $res['functionName'] = $this->functionName;
+        }
+
+        if (null !== $this->marketSource) {
+            $res['marketSource'] = null !== $this->marketSource ? $this->marketSource->toArray($noStream) : $this->marketSource;
         }
 
         if (null !== $this->mcpServerConfig) {
@@ -126,6 +232,10 @@ class data extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->officialTag) {
+            $res['officialTag'] = $this->officialTag;
         }
 
         if (null !== $this->protocol) {
@@ -144,12 +254,24 @@ class data extends Model
             $res['swaggerConfig'] = $this->swaggerConfig;
         }
 
+        if (null !== $this->template) {
+            $res['template'] = null !== $this->template ? $this->template->toArray($noStream) : $this->template;
+        }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
 
+        if (null !== $this->updatedAt) {
+            $res['updatedAt'] = $this->updatedAt;
+        }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
+        }
+
+        if (null !== $this->usageActive) {
+            $res['usageActive'] = $this->usageActive;
         }
 
         return $res;
@@ -178,8 +300,39 @@ class data extends Model
             $model->auth = auth::fromMap($map['auth']);
         }
 
+        if (isset($map['createdAt'])) {
+            $model->createdAt = $map['createdAt'];
+        }
+
+        if (isset($map['customTags'])) {
+            if (!empty($map['customTags'])) {
+                $model->customTags = [];
+                $n1 = 0;
+                foreach ($map['customTags'] as $item1) {
+                    $model->customTags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['deploymentConfig'])) {
+            $model->deploymentConfig = deploymentConfig::fromMap($map['deploymentConfig']);
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['endpoint'])) {
+            $model->endpoint = $map['endpoint'];
+        }
+
+        if (isset($map['functionName'])) {
+            $model->functionName = $map['functionName'];
+        }
+
+        if (isset($map['marketSource'])) {
+            $model->marketSource = marketSource::fromMap($map['marketSource']);
         }
 
         if (isset($map['mcpServerConfig'])) {
@@ -192,6 +345,10 @@ class data extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['officialTag'])) {
+            $model->officialTag = $map['officialTag'];
         }
 
         if (isset($map['protocol'])) {
@@ -210,12 +367,24 @@ class data extends Model
             $model->swaggerConfig = $map['swaggerConfig'];
         }
 
+        if (isset($map['template'])) {
+            $model->template = template::fromMap($map['template']);
+        }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
 
+        if (isset($map['updatedAt'])) {
+            $model->updatedAt = $map['updatedAt'];
+        }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
+        }
+
+        if (isset($map['usageActive'])) {
+            $model->usageActive = $map['usageActive'];
         }
 
         return $model;

@@ -36,11 +36,6 @@ class agents extends Model
     /**
      * @var int
      */
-    public $effectiveSpecVersion;
-
-    /**
-     * @var int
-     */
     public $latestSpecVersion;
 
     /**
@@ -78,7 +73,6 @@ class agents extends Model
         'createdAt' => 'createdAt',
         'deployType' => 'deployType',
         'description' => 'description',
-        'effectiveSpecVersion' => 'effectiveSpecVersion',
         'latestSpecVersion' => 'latestSpecVersion',
         'name' => 'name',
         'runtime' => 'runtime',
@@ -114,10 +108,6 @@ class agents extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-
-        if (null !== $this->effectiveSpecVersion) {
-            $res['effectiveSpecVersion'] = $this->effectiveSpecVersion;
         }
 
         if (null !== $this->latestSpecVersion) {
@@ -177,10 +167,6 @@ class agents extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-
-        if (isset($map['effectiveSpecVersion'])) {
-            $model->effectiveSpecVersion = $map['effectiveSpecVersion'];
         }
 
         if (isset($map['latestSpecVersion'])) {

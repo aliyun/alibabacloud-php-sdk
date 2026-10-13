@@ -5,9 +5,13 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\agenticFsMounts;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\configuredSkills;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\environment;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\harness;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\model_;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\network;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\ossMounts;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\runtime;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\skills;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\subAgents;
@@ -20,6 +24,16 @@ class data extends Model
      * @var string
      */
     public $agentId;
+
+    /**
+     * @var agenticFsMounts[]
+     */
+    public $agenticFsMounts;
+
+    /**
+     * @var configuredSkills[]
+     */
+    public $configuredSkills;
 
     /**
      * @var string
@@ -45,6 +59,11 @@ class data extends Model
      * @var environment
      */
     public $environment;
+
+    /**
+     * @var harness
+     */
+    public $harness;
 
     /**
      * @var string
@@ -77,6 +96,11 @@ class data extends Model
     public $network;
 
     /**
+     * @var ossMounts[]
+     */
+    public $ossMounts;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -85,6 +109,11 @@ class data extends Model
      * @var runtime
      */
     public $runtime;
+
+    /**
+     * @var int[]
+     */
+    public $sandboxPhaseCounts;
 
     /**
      * @var skills[]
@@ -122,19 +151,24 @@ class data extends Model
     public $workspaceId;
     protected $_name = [
         'agentId' => 'agentId',
+        'agenticFsMounts' => 'agenticFsMounts',
+        'configuredSkills' => 'configuredSkills',
         'createMode' => 'createMode',
         'createdAt' => 'createdAt',
         'deployType' => 'deployType',
         'description' => 'description',
         'environment' => 'environment',
+        'harness' => 'harness',
         'instruction' => 'instruction',
         'latestSpecVersion' => 'latestSpecVersion',
         'latestVersionStatus' => 'latestVersionStatus',
         'model' => 'model',
         'name' => 'name',
         'network' => 'network',
+        'ossMounts' => 'ossMounts',
         'regionId' => 'regionId',
         'runtime' => 'runtime',
+        'sandboxPhaseCounts' => 'sandboxPhaseCounts',
         'skills' => 'skills',
         'status' => 'status',
         'subAgents' => 'subAgents',
@@ -146,8 +180,17 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->agenticFsMounts)) {
+            Model::validateArray($this->agenticFsMounts);
+        }
+        if (\is_array($this->configuredSkills)) {
+            Model::validateArray($this->configuredSkills);
+        }
         if (null !== $this->environment) {
             $this->environment->validate();
+        }
+        if (null !== $this->harness) {
+            $this->harness->validate();
         }
         if (null !== $this->model) {
             $this->model->validate();
@@ -155,8 +198,14 @@ class data extends Model
         if (null !== $this->network) {
             $this->network->validate();
         }
+        if (\is_array($this->ossMounts)) {
+            Model::validateArray($this->ossMounts);
+        }
         if (null !== $this->runtime) {
             $this->runtime->validate();
+        }
+        if (\is_array($this->sandboxPhaseCounts)) {
+            Model::validateArray($this->sandboxPhaseCounts);
         }
         if (\is_array($this->skills)) {
             Model::validateArray($this->skills);
@@ -180,6 +229,28 @@ class data extends Model
             $res['agentId'] = $this->agentId;
         }
 
+        if (null !== $this->agenticFsMounts) {
+            if (\is_array($this->agenticFsMounts)) {
+                $res['agenticFsMounts'] = [];
+                $n1 = 0;
+                foreach ($this->agenticFsMounts as $item1) {
+                    $res['agenticFsMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->configuredSkills) {
+            if (\is_array($this->configuredSkills)) {
+                $res['configuredSkills'] = [];
+                $n1 = 0;
+                foreach ($this->configuredSkills as $item1) {
+                    $res['configuredSkills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->createMode) {
             $res['createMode'] = $this->createMode;
         }
@@ -198,6 +269,10 @@ class data extends Model
 
         if (null !== $this->environment) {
             $res['environment'] = null !== $this->environment ? $this->environment->toArray($noStream) : $this->environment;
+        }
+
+        if (null !== $this->harness) {
+            $res['harness'] = null !== $this->harness ? $this->harness->toArray($noStream) : $this->harness;
         }
 
         if (null !== $this->instruction) {
@@ -224,12 +299,32 @@ class data extends Model
             $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
 
+        if (null !== $this->ossMounts) {
+            if (\is_array($this->ossMounts)) {
+                $res['ossMounts'] = [];
+                $n1 = 0;
+                foreach ($this->ossMounts as $item1) {
+                    $res['ossMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
 
         if (null !== $this->runtime) {
             $res['runtime'] = null !== $this->runtime ? $this->runtime->toArray($noStream) : $this->runtime;
+        }
+
+        if (null !== $this->sandboxPhaseCounts) {
+            if (\is_array($this->sandboxPhaseCounts)) {
+                $res['sandboxPhaseCounts'] = [];
+                foreach ($this->sandboxPhaseCounts as $key1 => $value1) {
+                    $res['sandboxPhaseCounts'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->skills) {
@@ -296,6 +391,28 @@ class data extends Model
             $model->agentId = $map['agentId'];
         }
 
+        if (isset($map['agenticFsMounts'])) {
+            if (!empty($map['agenticFsMounts'])) {
+                $model->agenticFsMounts = [];
+                $n1 = 0;
+                foreach ($map['agenticFsMounts'] as $item1) {
+                    $model->agenticFsMounts[$n1] = agenticFsMounts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['configuredSkills'])) {
+            if (!empty($map['configuredSkills'])) {
+                $model->configuredSkills = [];
+                $n1 = 0;
+                foreach ($map['configuredSkills'] as $item1) {
+                    $model->configuredSkills[$n1] = configuredSkills::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['createMode'])) {
             $model->createMode = $map['createMode'];
         }
@@ -314,6 +431,10 @@ class data extends Model
 
         if (isset($map['environment'])) {
             $model->environment = environment::fromMap($map['environment']);
+        }
+
+        if (isset($map['harness'])) {
+            $model->harness = harness::fromMap($map['harness']);
         }
 
         if (isset($map['instruction'])) {
@@ -340,12 +461,32 @@ class data extends Model
             $model->network = network::fromMap($map['network']);
         }
 
+        if (isset($map['ossMounts'])) {
+            if (!empty($map['ossMounts'])) {
+                $model->ossMounts = [];
+                $n1 = 0;
+                foreach ($map['ossMounts'] as $item1) {
+                    $model->ossMounts[$n1] = ossMounts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
 
         if (isset($map['runtime'])) {
             $model->runtime = runtime::fromMap($map['runtime']);
+        }
+
+        if (isset($map['sandboxPhaseCounts'])) {
+            if (!empty($map['sandboxPhaseCounts'])) {
+                $model->sandboxPhaseCounts = [];
+                foreach ($map['sandboxPhaseCounts'] as $key1 => $value1) {
+                    $model->sandboxPhaseCounts[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['skills'])) {
