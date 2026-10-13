@@ -45,6 +45,10 @@ use AlibabaCloud\SDK\LHM\V20250116\Models\ExecDataCheckToggleRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\ExecDataCheckToggleResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\ExecMetaDataComponentNameRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\ExecMetaDataComponentNameResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ExecMetaProfilingSkillJobDisableRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ExecMetaProfilingSkillJobDisableResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ExecMetaProfilingTaskRunRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ExecMetaProfilingTaskRunResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\ExecSqlTransSingleScriptTranslateRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\ExecSqlTransSingleScriptTranslateResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\ExecWorkflowConnectivityRequest;
@@ -86,8 +90,12 @@ use AlibabaCloud\SDK\LHM\V20250116\Models\GetLhmAgentStatusRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\GetLhmAgentStatusResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\GetLhmDWResourceGroupStatusRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\GetLhmDWResourceGroupStatusResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\GetMetaCompareIncrementDbOverviewRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\GetMetaCompareIncrementDbOverviewResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\GetMetaOssTempKeyRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\GetMetaOssTempKeyResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\GetMetaProfilingResultDbOverviewRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\GetMetaProfilingResultDbOverviewResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\GetSqlConversionProgressRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\GetSqlConversionProgressResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\GetSqlConversionResultRequest;
@@ -114,6 +122,14 @@ use AlibabaCloud\SDK\LHM\V20250116\Models\ListDataCheckTaskHistoryRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\ListDataCheckTaskHistoryResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaDataComponentPageRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaDataComponentPageResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaProfilingResultCatalogPageRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaProfilingResultCatalogPageResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaProfilingResultTablePageRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaProfilingResultTablePageResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaProfilingResultUdfPageRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaProfilingResultUdfPageResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaProfilingSkillJobPageRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\ListMetaProfilingSkillJobPageResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\PostInnerConvertRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\PostInnerConvertResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\PostInnerReaderRequest;
@@ -124,6 +140,8 @@ use AlibabaCloud\SDK\LHM\V20250116\Models\SaveSkillAuditRecordRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\SaveSkillAuditRecordResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\SingleSqlDryRunRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\SingleSqlDryRunResponse;
+use AlibabaCloud\SDK\LHM\V20250116\Models\SkillAddMetaProfilingJobRequest;
+use AlibabaCloud\SDK\LHM\V20250116\Models\SkillAddMetaProfilingJobResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\SyntaxCheckAndTransformSqlConversionTaskRequest;
 use AlibabaCloud\SDK\LHM\V20250116\Models\SyntaxCheckAndTransformSqlConversionTaskResponse;
 use AlibabaCloud\SDK\LHM\V20250116\Models\UpdateDataCheckTaskRequest;
@@ -2154,6 +2172,176 @@ class LHM extends OpenApiClient
     }
 
     /**
+     * 停止探查任务
+     *
+     * @remarks
+     * ## 接口说明
+     * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+     * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+     * ## 请求说明
+     * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+     * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+     * ## 返回说明
+     * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+     * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+     *
+     * @param request - ExecMetaProfilingSkillJobDisableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecMetaProfilingSkillJobDisableResponse
+     *
+     * @param ExecMetaProfilingSkillJobDisableRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ExecMetaProfilingSkillJobDisableResponse
+     */
+    public function execMetaProfilingSkillJobDisableWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dsId) {
+            @$body['dsId'] = $request->dsId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecMetaProfilingSkillJobDisable',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/meta/skill/profiling/job/disable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecMetaProfilingSkillJobDisableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止探查任务
+     *
+     * @remarks
+     * ## 接口说明
+     * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+     * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+     * ## 请求说明
+     * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+     * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+     * ## 返回说明
+     * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+     * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+     *
+     * @param request - ExecMetaProfilingSkillJobDisableRequest
+     *
+     * @returns ExecMetaProfilingSkillJobDisableResponse
+     *
+     * @param ExecMetaProfilingSkillJobDisableRequest $request
+     *
+     * @return ExecMetaProfilingSkillJobDisableResponse
+     */
+    public function execMetaProfilingSkillJobDisable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->execMetaProfilingSkillJobDisableWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 立即执行探查任务
+     *
+     * @remarks
+     * ## 接口说明
+     * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+     * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+     * ## 请求说明
+     * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+     * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+     * ## 返回说明
+     * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+     * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+     *
+     * @param request - ExecMetaProfilingTaskRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecMetaProfilingTaskRunResponse
+     *
+     * @param ExecMetaProfilingTaskRunRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ExecMetaProfilingTaskRunResponse
+     */
+    public function execMetaProfilingTaskRunWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->batchNo) {
+            @$body['batchNo'] = $request->batchNo;
+        }
+
+        if (null !== $request->componentId) {
+            @$body['componentId'] = $request->componentId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecMetaProfilingTaskRun',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/meta/profiling/task/runNow',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecMetaProfilingTaskRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 立即执行探查任务
+     *
+     * @remarks
+     * ## 接口说明
+     * 校验一个数据源名称在当前租户下是否已被占用，用于新建数据源或修改数据源名称之前的前置检查。
+     * 同租户内的数据源名称不可重复，名称冲突时新建会直接失败。先调用本接口确认名称可用，可以避免把冲突留到提交新建请求时才暴露。
+     * ## 请求说明
+     * - `dsName` 为待校验的数据源名称，按名称精确匹配当前租户下未删除的数据源，不支持前缀或模糊匹配。
+     * - 校验范围限定在当前租户，其他租户下的同名数据源不影响结果；已被删除的数据源名称可以重新使用。
+     * ## 返回说明
+     * 返回单值响应，`data` 为布尔值，表示名称校验结果：`true`-已存在同名数据源，该名称不可用；`false`-该名称未被占用，可以用于新建。
+     * 注意 `data` 的语义与 `success` 相反方向：`success` 为 `true` 且 `data` 为 `true` 表示接口调用成功且查到了同名数据源，此时应当更换名称。`success` 为 `false` 时结合 `errCode` 与 `errMessage` 定位调用失败原因。
+     *
+     * @param request - ExecMetaProfilingTaskRunRequest
+     *
+     * @returns ExecMetaProfilingTaskRunResponse
+     *
+     * @param ExecMetaProfilingTaskRunRequest $request
+     *
+     * @return ExecMetaProfilingTaskRunResponse
+     */
+    public function execMetaProfilingTaskRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->execMetaProfilingTaskRunWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Converts a single SQL script.
      *
      * @remarks
@@ -3876,6 +4064,95 @@ class LHM extends OpenApiClient
     }
 
     /**
+     * Retrieves an overview of incremental changes in a data source.
+     *
+     * @remarks
+     * ## Operation description
+     * Queries the overview of a data validation report by validation batch. Returns the number of tables validated, the number of passed tables, the pass rate, statistics by partition and field, and the report generation status. This operation serves as the primary entry point for viewing validation results. For table-level details, call the report instance or column-level result API operation.
+     * ## Request description
+     * - `batchId`: Required. The ID of the validation job (batch), which is obtained from the return value of the save validation task API operation. Subsequent execution, termination, rerun, and report API operations use this ID to reference the same validation.
+     * ## Response description
+     * Returns a single-value response. The `data` field is the overview object: `checkType` indicates the validation type (0: data volume comparison, 1: metric comparison, 2: weak content comparison), `checkResult` indicates the validation result (0: no records, 1: passed, 2: failed), `reportStatus` indicates the report generation status (0: not generated, 1: generating, 2: generated), and `reportGenerateMessage` provides the generation prompt message. The statistics section includes the number of validated tables, failed tables, passed tables, skipped tables and partitions, validated partitions, validated rows and passed rows, pass rate (`passProcess` is a decimal, `passProcessExport` is a string with a percentage sign), the number of validated and passed fields, as well as the source and destination data source information, associated task ID and time, and template information in metric validation scenarios.
+     *
+     * @param request - GetMetaCompareIncrementDbOverviewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMetaCompareIncrementDbOverviewResponse
+     *
+     * @param GetMetaCompareIncrementDbOverviewRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetMetaCompareIncrementDbOverviewResponse
+     */
+    public function getMetaCompareIncrementDbOverviewWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->catalogName) {
+            @$body['catalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dbName) {
+            @$body['dbName'] = $request->dbName;
+        }
+
+        if (null !== $request->isSummary) {
+            @$body['isSummary'] = $request->isSummary;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMetaCompareIncrementDbOverview',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/meta/profiling/result/databases/overviewOfCompareIncrement',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMetaCompareIncrementDbOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves an overview of incremental changes in a data source.
+     *
+     * @remarks
+     * ## Operation description
+     * Queries the overview of a data validation report by validation batch. Returns the number of tables validated, the number of passed tables, the pass rate, statistics by partition and field, and the report generation status. This operation serves as the primary entry point for viewing validation results. For table-level details, call the report instance or column-level result API operation.
+     * ## Request description
+     * - `batchId`: Required. The ID of the validation job (batch), which is obtained from the return value of the save validation task API operation. Subsequent execution, termination, rerun, and report API operations use this ID to reference the same validation.
+     * ## Response description
+     * Returns a single-value response. The `data` field is the overview object: `checkType` indicates the validation type (0: data volume comparison, 1: metric comparison, 2: weak content comparison), `checkResult` indicates the validation result (0: no records, 1: passed, 2: failed), `reportStatus` indicates the report generation status (0: not generated, 1: generating, 2: generated), and `reportGenerateMessage` provides the generation prompt message. The statistics section includes the number of validated tables, failed tables, passed tables, skipped tables and partitions, validated partitions, validated rows and passed rows, pass rate (`passProcess` is a decimal, `passProcessExport` is a string with a percentage sign), the number of validated and passed fields, as well as the source and destination data source information, associated task ID and time, and template information in metric validation scenarios.
+     *
+     * @param request - GetMetaCompareIncrementDbOverviewRequest
+     *
+     * @returns GetMetaCompareIncrementDbOverviewResponse
+     *
+     * @param GetMetaCompareIncrementDbOverviewRequest $request
+     *
+     * @return GetMetaCompareIncrementDbOverviewResponse
+     */
+    public function getMetaCompareIncrementDbOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMetaCompareIncrementDbOverviewWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves temporary OSS upload credentials (STS), including the AccessKey, security token, bucket, upload directory, and expiration time.
      *
      * @remarks
@@ -3944,6 +4221,71 @@ class LHM extends OpenApiClient
         $headers = [];
 
         return $this->getMetaOssTempKeyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the data source overview.
+     *
+     * @param request - GetMetaProfilingResultDbOverviewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMetaProfilingResultDbOverviewResponse
+     *
+     * @param GetMetaProfilingResultDbOverviewRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetMetaProfilingResultDbOverviewResponse
+     */
+    public function getMetaProfilingResultDbOverviewWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->isSummary) {
+            @$query['isSummary'] = $request->isSummary;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMetaProfilingResultDbOverview',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/meta/profiling/result/databases/overviewOfTaskDimension',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMetaProfilingResultDbOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the data source overview.
+     *
+     * @param request - GetMetaProfilingResultDbOverviewRequest
+     *
+     * @returns GetMetaProfilingResultDbOverviewResponse
+     *
+     * @param GetMetaProfilingResultDbOverviewRequest $request
+     *
+     * @return GetMetaProfilingResultDbOverviewResponse
+     */
+    public function getMetaProfilingResultDbOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMetaProfilingResultDbOverviewWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5164,6 +5506,438 @@ class LHM extends OpenApiClient
     }
 
     /**
+     * 获取catalog分页列表.
+     *
+     * @param request - ListMetaProfilingResultCatalogPageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMetaProfilingResultCatalogPageResponse
+     *
+     * @param ListMetaProfilingResultCatalogPageRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListMetaProfilingResultCatalogPageResponse
+     */
+    public function listMetaProfilingResultCatalogPageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->catalogName) {
+            @$body['catalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dbName) {
+            @$body['dbName'] = $request->dbName;
+        }
+
+        if (null !== $request->groupBy) {
+            @$body['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$body['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->orderBy) {
+            @$body['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$body['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$body['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMetaProfilingResultCatalogPage',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/meta/profiling/result/catalogs/pageOfTaskDimension',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMetaProfilingResultCatalogPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取catalog分页列表.
+     *
+     * @param request - ListMetaProfilingResultCatalogPageRequest
+     *
+     * @returns ListMetaProfilingResultCatalogPageResponse
+     *
+     * @param ListMetaProfilingResultCatalogPageRequest $request
+     *
+     * @return ListMetaProfilingResultCatalogPageResponse
+     */
+    public function listMetaProfilingResultCatalogPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMetaProfilingResultCatalogPageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paging query on table-level details in metadata profiling results, and returns the storage size, record count, partition information, external or transactional property, migration status, and last access time of each table.
+     *
+     * @param request - ListMetaProfilingResultTablePageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMetaProfilingResultTablePageResponse
+     *
+     * @param ListMetaProfilingResultTablePageRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListMetaProfilingResultTablePageResponse
+     */
+    public function listMetaProfilingResultTablePageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->componentType) {
+            @$body['componentType'] = $request->componentType;
+        }
+
+        if (null !== $request->dataRange) {
+            @$body['dataRange'] = $request->dataRange;
+        }
+
+        if (null !== $request->dataSize) {
+            @$body['dataSize'] = $request->dataSize;
+        }
+
+        if (null !== $request->dataUnit) {
+            @$body['dataUnit'] = $request->dataUnit;
+        }
+
+        if (null !== $request->dbName) {
+            @$body['dbName'] = $request->dbName;
+        }
+
+        if (null !== $request->groupBy) {
+            @$body['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->isPartitioned) {
+            @$body['isPartitioned'] = $request->isPartitioned;
+        }
+
+        if (null !== $request->isSummary) {
+            @$body['isSummary'] = $request->isSummary;
+        }
+
+        if (null !== $request->migrationStatus) {
+            @$body['migrationStatus'] = $request->migrationStatus;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$body['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->orderBy) {
+            @$body['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$body['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$body['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tableName) {
+            @$body['tableName'] = $request->tableName;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMetaProfilingResultTablePage',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/meta/profiling/result/tables/pageOfTaskDimension',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMetaProfilingResultTablePageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query on table-level details in metadata profiling results, and returns the storage size, record count, partition information, external or transactional property, migration status, and last access time of each table.
+     *
+     * @param request - ListMetaProfilingResultTablePageRequest
+     *
+     * @returns ListMetaProfilingResultTablePageResponse
+     *
+     * @param ListMetaProfilingResultTablePageRequest $request
+     *
+     * @return ListMetaProfilingResultTablePageResponse
+     */
+    public function listMetaProfilingResultTablePage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMetaProfilingResultTablePageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询函数分页列表.
+     *
+     * @param request - ListMetaProfilingResultUdfPageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMetaProfilingResultUdfPageResponse
+     *
+     * @param ListMetaProfilingResultUdfPageRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListMetaProfilingResultUdfPageResponse
+     */
+    public function listMetaProfilingResultUdfPageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->catalogName) {
+            @$body['catalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->componentType) {
+            @$body['componentType'] = $request->componentType;
+        }
+
+        if (null !== $request->dbName) {
+            @$body['dbName'] = $request->dbName;
+        }
+
+        if (null !== $request->funcName) {
+            @$body['funcName'] = $request->funcName;
+        }
+
+        if (null !== $request->groupBy) {
+            @$body['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->isSummary) {
+            @$body['isSummary'] = $request->isSummary;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$body['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->orderBy) {
+            @$body['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$body['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$body['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMetaProfilingResultUdfPage',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/meta/profiling/result/udf/pageOfTaskDimension',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMetaProfilingResultUdfPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询函数分页列表.
+     *
+     * @param request - ListMetaProfilingResultUdfPageRequest
+     *
+     * @returns ListMetaProfilingResultUdfPageResponse
+     *
+     * @param ListMetaProfilingResultUdfPageRequest $request
+     *
+     * @return ListMetaProfilingResultUdfPageResponse
+     */
+    public function listMetaProfilingResultUdfPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMetaProfilingResultUdfPageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query on metadata profiling nodes and their scheduling and execute information, and returns paging data including basic node information, associated data components, comparison difference counts, the latest execute batch, and the next scheduled time.
+     *
+     * @param request - ListMetaProfilingSkillJobPageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMetaProfilingSkillJobPageResponse
+     *
+     * @param ListMetaProfilingSkillJobPageRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListMetaProfilingSkillJobPageResponse
+     */
+    public function listMetaProfilingSkillJobPageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->componentIds) {
+            @$body['componentIds'] = $request->componentIds;
+        }
+
+        if (null !== $request->dsId) {
+            @$body['dsId'] = $request->dsId;
+        }
+
+        if (null !== $request->dsName) {
+            @$body['dsName'] = $request->dsName;
+        }
+
+        if (null !== $request->dsType) {
+            @$body['dsType'] = $request->dsType;
+        }
+
+        if (null !== $request->groupBy) {
+            @$body['groupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->isDisplaySystemTask) {
+            @$body['isDisplaySystemTask'] = $request->isDisplaySystemTask;
+        }
+
+        if (null !== $request->jobId) {
+            @$body['jobId'] = $request->jobId;
+        }
+
+        if (null !== $request->jobName) {
+            @$body['jobName'] = $request->jobName;
+        }
+
+        if (null !== $request->needTotalCount) {
+            @$body['needTotalCount'] = $request->needTotalCount;
+        }
+
+        if (null !== $request->orderBy) {
+            @$body['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$body['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$body['pageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMetaProfilingSkillJobPage',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/meta/skill/profiling/job/page',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMetaProfilingSkillJobPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on metadata profiling nodes and their scheduling and execute information, and returns paging data including basic node information, associated data components, comparison difference counts, the latest execute batch, and the next scheduled time.
+     *
+     * @param request - ListMetaProfilingSkillJobPageRequest
+     *
+     * @returns ListMetaProfilingSkillJobPageResponse
+     *
+     * @param ListMetaProfilingSkillJobPageRequest $request
+     *
+     * @return ListMetaProfilingSkillJobPageResponse
+     */
+    public function listMetaProfilingSkillJobPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMetaProfilingSkillJobPageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * User Scheduling Task Transformation.
      *
      * @remarks
@@ -5594,6 +6368,107 @@ class LHM extends OpenApiClient
         $headers = [];
 
         return $this->singleSqlDryRunWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates or updates a metadata profiling task by using a skill, configures the target component, profiling schema, profiling type, and rules, and returns the profiling task ID.
+     *
+     * @param request - SkillAddMetaProfilingJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SkillAddMetaProfilingJobResponse
+     *
+     * @param SkillAddMetaProfilingJobRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SkillAddMetaProfilingJobResponse
+     */
+    public function skillAddMetaProfilingJobWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->componentId) {
+            @$body['componentId'] = $request->componentId;
+        }
+
+        if (null !== $request->jobDesc) {
+            @$body['jobDesc'] = $request->jobDesc;
+        }
+
+        if (null !== $request->jobId) {
+            @$body['jobId'] = $request->jobId;
+        }
+
+        if (null !== $request->jobName) {
+            @$body['jobName'] = $request->jobName;
+        }
+
+        if (null !== $request->metaIds) {
+            @$body['metaIds'] = $request->metaIds;
+        }
+
+        if (null !== $request->pluginId) {
+            @$body['pluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->profilingFlag) {
+            @$body['profilingFlag'] = $request->profilingFlag;
+        }
+
+        if (null !== $request->profilingPermission) {
+            @$body['profilingPermission'] = $request->profilingPermission;
+        }
+
+        if (null !== $request->profilingRule) {
+            @$body['profilingRule'] = $request->profilingRule;
+        }
+
+        if (null !== $request->profilingSchemaList) {
+            @$body['profilingSchemaList'] = $request->profilingSchemaList;
+        }
+
+        if (null !== $request->profilingType) {
+            @$body['profilingType'] = $request->profilingType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SkillAddMetaProfilingJob',
+            'version' => '2025-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/meta/skill/profiling/job',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SkillAddMetaProfilingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates or updates a metadata profiling task by using a skill, configures the target component, profiling schema, profiling type, and rules, and returns the profiling task ID.
+     *
+     * @param request - SkillAddMetaProfilingJobRequest
+     *
+     * @returns SkillAddMetaProfilingJobResponse
+     *
+     * @param SkillAddMetaProfilingJobRequest $request
+     *
+     * @return SkillAddMetaProfilingJobResponse
+     */
+    public function skillAddMetaProfilingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->skillAddMetaProfilingJobWithOptions($request, $headers, $runtime);
     }
 
     /**
