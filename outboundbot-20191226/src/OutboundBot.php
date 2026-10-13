@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentShrinkReques
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentUserSayRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentUserSayResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateBeebotIntentUserSayShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateCustomScriptTemplateRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateCustomScriptTemplateResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateDialogueFlowRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateDialogueFlowResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateDownloadUrlRequest;
@@ -50,6 +52,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateJobGroupExportTaskReques
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateJobGroupExportTaskResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateJobGroupRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateJobGroupResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateNumberRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateNumberResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateScriptRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateScriptResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateScriptWaveformRequest;
@@ -60,6 +64,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTaskExportTaskRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTaskExportTaskResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTenantKeyRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTenantKeyResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateVoiceCloneRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateVoiceCloneResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAgentProfilesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAgentProfilesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAgentProfilesShrinkRequest;
@@ -74,6 +80,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteContactBlockListRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteContactBlockListResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteContactWhiteListRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteContactWhiteListResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteCustomScriptTemplateRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteCustomScriptTemplateResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteDialogueFlowRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteDialogueFlowResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteGlobalQuestionRequest;
@@ -92,6 +100,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteScriptRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteScriptResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteScriptWaveformRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteScriptWaveformResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteVoiceCloneRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteVoiceCloneResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeBeebotIntentRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeBeebotIntentResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DescribeDialogueNodeStatisticsRequest;
@@ -200,6 +210,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListBeebotIntentUserSayRequest
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListBeebotIntentUserSayResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListChatbotInstancesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListChatbotInstancesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListCustomScriptTemplatesRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListCustomScriptTemplatesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListDialogueFlowsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListDialogueFlowsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListDownloadTasksRequest;
@@ -236,10 +248,14 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptVariablesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptVariablesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptVoiceConfigsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptVoiceConfigsResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListSipTrunksRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListSipTrunksResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListTagsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListTagsResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListVoiceCloneRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListVoiceCloneResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyAgentProfileRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyAgentProfileResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyAgentProfileShrinkRequest;
@@ -278,6 +294,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyTagGroupsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyTagGroupsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyTTSConfigRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyTTSConfigResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyVoiceCloneRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ModifyVoiceCloneResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\PublishScriptForDebugRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\PublishScriptForDebugResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\PublishScriptRequest;
@@ -320,6 +338,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SubmitBatchJobsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SubmitBatchJobsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SubmitRecordingRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SubmitRecordingResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SubmitScriptPreReviewResultRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SubmitScriptPreReviewResultResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SubmitScriptReviewRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SubmitScriptReviewResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\SuspendCallRequest;
@@ -351,9 +371,6 @@ class OutboundBot extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shanghai' => 'outboundbot.cn-shanghai.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('outboundbot', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -628,7 +645,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Changes the resource group of a resource.
+     * Changes the resource group.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -671,7 +688,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Changes the resource group of a resource.
+     * Changes the resource group.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -689,7 +706,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * You can create an intelligent configuration.
+     * Creates an agent configuration.
      *
      * @param request - CreateAgentProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -780,7 +797,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * You can create an intelligent configuration.
+     * Creates an agent configuration.
      *
      * @param request - CreateAgentProfileRequest
      *
@@ -929,7 +946,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deprecated. Do not use this operation to batch-create outbound calling jobs.
+     * *[Deprecated]** Creates outbound jobs in batches.
      *
      * @param request - CreateBatchJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1000,7 +1017,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deprecated. Do not use this operation to batch-create outbound calling jobs.
+     * *[Deprecated]** Creates outbound jobs in batches.
      *
      * @param request - CreateBatchJobsRequest
      *
@@ -1337,6 +1354,91 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBeebotIntentUserSayWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a custom script template for a specified script.
+     *
+     * @param request - CreateCustomScriptTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomScriptTemplateResponse
+     *
+     * @param CreateCustomScriptTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateCustomScriptTemplateResponse
+     */
+    public function createCustomScriptTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->labelsJson) {
+            @$body['LabelsJson'] = $request->labelsJson;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->promptJson) {
+            @$body['PromptJson'] = $request->promptJson;
+        }
+
+        if (null !== $request->scriptId) {
+            @$body['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomScriptTemplate',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomScriptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom script template for a specified script.
+     *
+     * @param request - CreateCustomScriptTemplateRequest
+     *
+     * @returns CreateCustomScriptTemplateResponse
+     *
+     * @param CreateCustomScriptTemplateRequest $request
+     *
+     * @return CreateCustomScriptTemplateResponse
+     */
+    public function createCustomScriptTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomScriptTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -1985,6 +2087,67 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a phone number and associates it with the current tenant.
+     *
+     * @param request - CreateNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNumberResponse
+     *
+     * @param CreateNumberRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateNumberResponse
+     */
+    public function createNumberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->numbers) {
+            @$query['Numbers'] = $request->numbers;
+        }
+
+        if (null !== $request->trunkId) {
+            @$query['TrunkId'] = $request->trunkId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNumber',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a phone number and associates it with the current tenant.
+     *
+     * @param request - CreateNumberRequest
+     *
+     * @returns CreateNumberResponse
+     *
+     * @param CreateNumberRequest $request
+     *
+     * @return CreateNumberResponse
+     */
+    public function createNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNumberWithOptions($request, $runtime);
+    }
+
+    /**
      * Create a scenario.
      *
      * @param request - CreateScriptRequest
@@ -2367,7 +2530,76 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deletes Large Language Model (LLM) agents.
+     * Creates a cloned voice.
+     *
+     * @param request - CreateVoiceCloneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVoiceCloneResponse
+     *
+     * @param CreateVoiceCloneRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateVoiceCloneResponse
+     */
+    public function createVoiceCloneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->voiceName) {
+            @$query['VoiceName'] = $request->voiceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVoiceClone',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVoiceCloneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a cloned voice.
+     *
+     * @param request - CreateVoiceCloneRequest
+     *
+     * @returns CreateVoiceCloneResponse
+     *
+     * @param CreateVoiceCloneRequest $request
+     *
+     * @return CreateVoiceCloneResponse
+     */
+    public function createVoiceClone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVoiceCloneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a foundation model robot.
      *
      * @param tmpReq - DeleteAgentProfilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2416,7 +2648,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deletes Large Language Model (LLM) agents.
+     * Deletes a foundation model robot.
      *
      * @param request - DeleteAgentProfilesRequest
      *
@@ -2434,7 +2666,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deletes all entries from the number district database. This operation is deprecated.
+     * Clears the number attribution database. This operation is deprecated.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2463,7 +2695,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Deletes all entries from the number district database. This operation is deprecated.
+     * Clears the number attribution database. This operation is deprecated.
      *
      * @returns DeleteAllNumberDistrictInfoResponse
      *
@@ -2807,6 +3039,67 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteContactWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a specified custom script template.
+     *
+     * @param request - DeleteCustomScriptTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomScriptTemplateResponse
+     *
+     * @param DeleteCustomScriptTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteCustomScriptTemplateResponse
+     */
+    public function deleteCustomScriptTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentProfileId) {
+            @$body['AgentProfileId'] = $request->agentProfileId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomScriptTemplate',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomScriptTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified custom script template.
+     *
+     * @param request - DeleteCustomScriptTemplateRequest
+     *
+     * @returns DeleteCustomScriptTemplateResponse
+     *
+     * @param DeleteCustomScriptTemplateRequest $request
+     *
+     * @return DeleteCustomScriptTemplateResponse
+     */
+    public function deleteCustomScriptTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomScriptTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -3375,7 +3668,68 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the intent in the small model scenario.
+     * Deletes a specified cloned voice. Before deletion, the system checks whether the voice is still referenced by scenarios under the instance. Deletion fails if the voice is referenced.
+     *
+     * @param request - DeleteVoiceCloneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVoiceCloneResponse
+     *
+     * @param DeleteVoiceCloneRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteVoiceCloneResponse
+     */
+    public function deleteVoiceCloneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->voiceId) {
+            @$query['VoiceId'] = $request->voiceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVoiceClone',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVoiceCloneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified cloned voice. Before deletion, the system checks whether the voice is still referenced by scenarios under the instance. Deletion fails if the voice is referenced.
+     *
+     * @param request - DeleteVoiceCloneRequest
+     *
+     * @returns DeleteVoiceCloneResponse
+     *
+     * @param DeleteVoiceCloneRequest $request
+     *
+     * @return DeleteVoiceCloneResponse
+     */
+    public function deleteVoiceClone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVoiceCloneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the intent in a small model scenario.
      *
      * @remarks
      *
@@ -3424,7 +3778,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the intent in the small model scenario.
+     * Retrieves the intent in a small model scenario.
      *
      * @remarks
      *
@@ -3509,7 +3863,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the tag statistics of hits for a job group.
+     * Queries the label hit statistics of a job group.
      *
      * @param request - DescribeDsReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3552,7 +3906,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the tag statistics of hits for a job group.
+     * Queries the label hit statistics of a job group.
      *
      * @param request - DescribeDsReportsRequest
      *
@@ -3639,7 +3993,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Returns the execution status of tasks in a task group.
+     * Retrieves the execution status of jobs in a job group.
      *
      * @param request - DescribeGroupExecutingInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3682,7 +4036,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Returns the execution status of tasks in a task group.
+     * Retrieves the execution status of jobs in a job group.
      *
      * @param request - DescribeGroupExecutingInfoRequest
      *
@@ -3700,7 +4054,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the information of an outbound robot business instance.
+     * Queries the details of an outbound robot instance.
      *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3739,7 +4093,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the information of an outbound robot business instance.
+     * Queries the details of an outbound robot instance.
      *
      * @param request - DescribeInstanceRequest
      *
@@ -4013,7 +4367,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves data for intelligent outbound call job groups.
+     * Queries outbound robot task data.
      *
      * @param request - DescribeJobGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4060,7 +4414,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves data for intelligent outbound call job groups.
+     * Queries outbound robot task data.
      *
      * @param request - DescribeJobGroupRequest
      *
@@ -4139,7 +4493,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Returns information about a script.
+     * Retrieves the details of a script.
      *
      * @param request - DescribeScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4182,7 +4536,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Returns information about a script.
+     * Retrieves the details of a script.
      *
      * @param request - DescribeScriptRequest
      *
@@ -4326,7 +4680,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * TTS preview.
+     * Previews text-to-speech (TTS) audio.
      *
      * @param request - DescribeTTSDemoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4417,7 +4771,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * TTS preview.
+     * Previews text-to-speech (TTS) audio.
      *
      * @param request - DescribeTTSDemoRequest
      *
@@ -4650,7 +5004,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Downloads a call recording.
+     * Downloads call recordings.
      *
      * @param request - DownloadRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4701,7 +5055,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Downloads a call recording.
+     * Downloads call recordings.
      *
      * @param request - DownloadRecordingRequest
      *
@@ -4910,8 +5264,6 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Upload a hotword list file.
-     *
      * @param request - GenerateUploadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4953,8 +5305,6 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Upload a hotword list file.
-     *
      * @param request - GenerateUploadUrlRequest
      *
      * @returns GenerateUploadUrlResponse
@@ -5032,7 +5382,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration of an agent.
+     * Retrieves the agent configuration.
      *
      * @param request - GetAgentProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5079,7 +5429,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration of an agent.
+     * Retrieves the agent configuration.
      *
      * @param request - GetAgentProfileRequest
      *
@@ -5215,6 +5565,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of annotation tags.
+     *
      * @param request - GetAnnotationMissionTagInfoListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5260,6 +5612,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of annotation tags.
+     *
      * @param request - GetAnnotationMissionTagInfoListRequest
      *
      * @returns GetAnnotationMissionTagInfoListResponse
@@ -5394,7 +5748,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieve the global outbound time periods for the outbound calling system.
+     * Retrieves the global outbound calling time periods in the outbound system.
      *
      * @param request - GetBaseStrategyPeriodRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5437,7 +5791,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieve the global outbound time periods for the outbound calling system.
+     * Retrieves the global outbound calling time periods in the outbound system.
      *
      * @param request - GetBaseStrategyPeriodRequest
      *
@@ -5571,7 +5925,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the global outbound call policy whitelist.
+     * Queries the global outbound whitelist.
      *
      * @param request - GetContactWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5626,7 +5980,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the global outbound call policy whitelist.
+     * Queries the global outbound whitelist.
      *
      * @param request - GetContactWhiteListRequest
      *
@@ -5896,7 +6250,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the download URL for the number library template. This API is deprecated.
+     * Retrieves the download URL for a number library template. This operation is deprecated.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5925,7 +6279,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the download URL for the number library template. This API is deprecated.
+     * Retrieves the download URL for a number library template. This operation is deprecated.
      *
      * @returns GetNumberDistrictInfoTemplateDownloadUrlResponse
      *
@@ -5939,7 +6293,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Obtains the public key of the asymmetric encryption algorithm.
+     * Retrieves the public key of an asymmetric encryption algorithm.
      *
      * @param request - GetPublicKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5971,7 +6325,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Obtains the public key of the asymmetric encryption algorithm.
+     * Retrieves the public key of an asymmetric encryption algorithm.
      *
      * @param request - GetPublicKeyRequest
      *
@@ -6099,7 +6453,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieve a task by its UUID.
+     * Retrieves a task by UUID.
      *
      * @param request - GetTaskByUuidRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6134,7 +6488,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieve a task by its UUID.
+     * Retrieves a task by UUID.
      *
      * @param request - GetTaskByUuidRequest
      *
@@ -6390,7 +6744,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists the phone numbers bound to the tenant.
+     * Queries the numbers bound to a tenant.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6419,7 +6773,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists the phone numbers bound to the tenant.
+     * Queries the numbers bound to a tenant.
      *
      * @returns ListAllTenantBindNumberBindingResponse
      *
@@ -6433,7 +6787,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists annotation missions.
+     * Retrieves a list of annotation tasks.
      *
      * @param request - ListAnnotationMissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6504,7 +6858,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists annotation missions.
+     * Retrieves a list of annotation tasks.
      *
      * @param request - ListAnnotationMissionRequest
      *
@@ -6522,7 +6876,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListAnnotationMissionSession.
+     * Lists annotation mission sessions.
      *
      * @param request - ListAnnotationMissionSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6581,7 +6935,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListAnnotationMissionSession.
+     * Lists annotation mission sessions.
      *
      * @param request - ListAnnotationMissionSessionRequest
      *
@@ -6668,7 +7022,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists intents for small-model scenarios.
+     * Queries the list of intents in small model scenarios.
      *
      * @param request - ListBeebotIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6723,7 +7077,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists intents for small-model scenarios.
+     * Queries the list of intents in small model scenarios.
      *
      * @param request - ListBeebotIntentRequest
      *
@@ -6741,7 +7095,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists the utterance templates for a specified intent in a scenario.
+     * Queries the utterance templates for Chatbot intents in small model scenarios.
      *
      * @param request - ListBeebotIntentLgfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6800,7 +7154,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists the utterance templates for a specified intent in a scenario.
+     * Queries the utterance templates for Chatbot intents in small model scenarios.
      *
      * @param request - ListBeebotIntentLgfRequest
      *
@@ -6895,7 +7249,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+     * Queries a list of Chatbot instances in the public cloud edition.
      *
      * @param request - ListChatbotInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6942,7 +7296,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+     * Queries a list of Chatbot instances in the public cloud edition.
      *
      * @param request - ListChatbotInstancesRequest
      *
@@ -6957,6 +7311,71 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listChatbotInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询自定义场景模板列表.
+     *
+     * @param request - ListCustomScriptTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomScriptTemplatesResponse
+     *
+     * @param ListCustomScriptTemplatesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListCustomScriptTemplatesResponse
+     */
+    public function listCustomScriptTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomScriptTemplates',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomScriptTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自定义场景模板列表.
+     *
+     * @param request - ListCustomScriptTemplatesRequest
+     *
+     * @returns ListCustomScriptTemplatesResponse
+     *
+     * @param ListCustomScriptTemplatesRequest $request
+     *
+     * @return ListCustomScriptTemplatesResponse
+     */
+    public function listCustomScriptTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomScriptTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -7021,7 +7440,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the list of download tasks in Download Hub.
+     * Queries the download center list.
      *
      * @param request - ListDownloadTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7056,7 +7475,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the list of download tasks in Download Hub.
+     * Queries the download center list.
      *
      * @param request - ListDownloadTasksRequest
      *
@@ -7196,7 +7615,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the list of Outbound Bot service instances.
+     * Queries a list of outbound robot instances.
      *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7251,7 +7670,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the list of Outbound Bot service instances.
+     * Queries a list of outbound robot instances.
      *
      * @param request - ListInstancesRequest
      *
@@ -7269,7 +7688,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Query intent for the Annotation Center list.
+     * Queries intents in the annotation center list.
      *
      * @param request - ListIntentionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7340,7 +7759,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Query intent for the Annotation Center list.
+     * Queries intents in the annotation center list.
      *
      * @param request - ListIntentionsRequest
      *
@@ -7431,7 +7850,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of outbound call task groups.
+     * Queries the list of outbound job groups.
      *
      * @param request - ListJobGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7502,7 +7921,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of outbound call task groups.
+     * Queries the list of outbound job groups.
      *
      * @param request - ListJobGroupsRequest
      *
@@ -7520,7 +7939,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
+     * Retrieves the list of outbound job groups asynchronously. When the Async parameter is specified in a ListJobGroup call, use this operation to retrieve the asynchronous results of the ListJobGroup operation.
      *
      * @param request - ListJobGroupsAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7555,7 +7974,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Asynchronously retrieves the list of outbound call task groups. When the Async parameter is specified in the ListJobGroup operation, use this operation to retrieve the results of the asynchronous ListJobGroup call.
+     * Retrieves the list of outbound job groups asynchronously. When the Async parameter is specified in a ListJobGroup call, use this operation to retrieve the asynchronous results of the ListJobGroup operation.
      *
      * @param request - ListJobGroupsAsyncRequest
      *
@@ -7841,7 +8260,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the publication history of the small model for outbound calls.
+     * Queries the publish history list for small model outbound calls.
      *
      * @param request - ListScriptPublishHistoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7892,7 +8311,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the publication history of the small model for outbound calls.
+     * Queries the publish history list for small model outbound calls.
      *
      * @param request - ListScriptPublishHistoriesRequest
      *
@@ -7995,7 +8414,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the variables that are currently used in a scenario.
+     * Retrieves the variables currently used in the scenario.
      *
      * @param request - ListScriptVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8042,7 +8461,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the variables that are currently used in a scenario.
+     * Retrieves the variables currently used in the scenario.
      *
      * @param request - ListScriptVariablesRequest
      *
@@ -8206,7 +8625,57 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Query the tag relationships for resources.
+     * Queries the list of SIP trunks.
+     *
+     * @param request - ListSipTrunksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSipTrunksResponse
+     *
+     * @param ListSipTrunksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSipTrunksResponse
+     */
+    public function listSipTrunksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListSipTrunks',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSipTrunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of SIP trunks.
+     *
+     * @param request - ListSipTrunksRequest
+     *
+     * @returns ListSipTrunksResponse
+     *
+     * @param ListSipTrunksRequest $request
+     *
+     * @return ListSipTrunksResponse
+     */
+    public function listSipTrunks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSipTrunksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries resource tag relationships.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8261,7 +8730,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Query the tag relationships for resources.
+     * Queries resource tag relationships.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -8340,7 +8809,76 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modify the agent configuration.
+     * Performs a paged query to retrieve the list of cloned voices for an instance by using paging.
+     *
+     * @param request - ListVoiceCloneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVoiceCloneResponse
+     *
+     * @param ListVoiceCloneRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListVoiceCloneResponse
+     */
+    public function listVoiceCloneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVoiceClone',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVoiceCloneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query to retrieve the list of cloned voices for an instance by using paging.
+     *
+     * @param request - ListVoiceCloneRequest
+     *
+     * @returns ListVoiceCloneResponse
+     *
+     * @param ListVoiceCloneRequest $request
+     *
+     * @return ListVoiceCloneResponse
+     */
+    public function listVoiceClone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVoiceCloneWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the agent configuration.
      *
      * @param tmpReq - ModifyAgentProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8433,7 +8971,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modify the agent configuration.
+     * Modifies the agent configuration.
      *
      * @param request - ModifyAgentProfileRequest
      *
@@ -8451,7 +8989,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Updates the status and name of an annotation task.
+     * Modifies the status and name of an annotation task.
      *
      * @param request - ModifyAnnotationMissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8502,7 +9040,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Updates the status and name of an annotation task.
+     * Modifies the status and name of an annotation task.
      *
      * @param request - ModifyAnnotationMissionRequest
      *
@@ -8838,7 +9376,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modifies a dialogue flow. This is a legacy API for the canvas.
+     * Modifies a dialog flow. This is a legacy canvas operation.
      *
      * @param request - ModifyDialogueFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8893,7 +9431,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modifies a dialogue flow. This is a legacy API for the canvas.
+     * Modifies a dialog flow. This is a legacy canvas operation.
      *
      * @param request - ModifyDialogueFlowRequest
      *
@@ -9057,7 +9595,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modifies an Outbound Bot instance.
+     * Modifies an outbound robot instance.
      *
      * @param request - ModifyInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9112,7 +9650,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modifies an Outbound Bot instance.
+     * Modifies an outbound robot instance.
      *
      * @param request - ModifyInstanceRequest
      *
@@ -9211,7 +9749,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modify an intelligent outbound call task group.
+     * Modifies an outbound robot job group.
      *
      * @param request - ModifyJobGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9306,7 +9844,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modify an intelligent outbound call task group.
+     * Modifies an outbound robot job group.
      *
      * @param request - ModifyJobGroupRequest
      *
@@ -9777,6 +10315,75 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 修改声音克隆.
+     *
+     * @param request - ModifyVoiceCloneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyVoiceCloneResponse
+     *
+     * @param ModifyVoiceCloneRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyVoiceCloneResponse
+     */
+    public function modifyVoiceCloneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->voiceId) {
+            @$query['VoiceId'] = $request->voiceId;
+        }
+
+        if (null !== $request->voiceName) {
+            @$query['VoiceName'] = $request->voiceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyVoiceClone',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyVoiceCloneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改声音克隆.
+     *
+     * @param request - ModifyVoiceCloneRequest
+     *
+     * @returns ModifyVoiceCloneResponse
+     *
+     * @param ModifyVoiceCloneRequest $request
+     *
+     * @return ModifyVoiceCloneResponse
+     */
+    public function modifyVoiceClone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVoiceCloneWithOptions($request, $runtime);
+    }
+
+    /**
      * Publishing a scenario.
      *
      * @param request - PublishScriptRequest
@@ -10170,7 +10777,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries scenario information by status.
+     * Queries scenario information based on the scenario status.
      *
      * @param request - QueryScriptsByStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10221,7 +10828,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries scenario information by status.
+     * Queries scenario information based on the scenario status.
      *
      * @param request - QueryScriptsByStatusRequest
      *
@@ -10239,7 +10846,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+     * *[Deprecated]** Submits the cause of a call failure to the outbound call business system.
      *
      * @param request - RecordFailureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10306,7 +10913,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+     * *[Deprecated]** Submits the cause of a call failure to the outbound call business system.
      *
      * @param request - RecordFailureRequest
      *
@@ -10531,7 +11138,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * You can save a list of annotation chat instances.
+     * Saves the list of annotated chat instances.
      *
      * @param request - SaveAnnotationMissionSessionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10594,7 +11201,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * You can save a list of annotation chat instances.
+     * Saves the list of annotated chat instances.
      *
      * @param request - SaveAnnotationMissionSessionListRequest
      *
@@ -10612,7 +11219,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Saves instance tags in a batch.
+     * Saves instance tag information in batches.
      *
      * @param request - SaveAnnotationMissionTagInfoListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10663,7 +11270,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Saves instance tags in a batch.
+     * Saves instance tag information in batches.
      *
      * @param request - SaveAnnotationMissionTagInfoListRequest
      *
@@ -11018,7 +11625,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Search for tasks.
+     * Queries tasks.
      *
      * @param request - SearchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11053,7 +11660,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Search for tasks.
+     * Queries tasks.
      *
      * @param request - SearchTaskRequest
      *
@@ -11275,6 +11882,75 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitRecordingWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits the pre-review approval or rejection result for a script review record under a specified instance for a whitelisted tenant, and returns the updated script information.
+     *
+     * @param request - SubmitScriptPreReviewResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitScriptPreReviewResultResponse
+     *
+     * @param SubmitScriptPreReviewResultRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SubmitScriptPreReviewResultResponse
+     */
+    public function submitScriptPreReviewResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->recordId) {
+            @$query['RecordId'] = $request->recordId;
+        }
+
+        if (null !== $request->rejectReason) {
+            @$query['RejectReason'] = $request->rejectReason;
+        }
+
+        if (null !== $request->reviewResult) {
+            @$query['ReviewResult'] = $request->reviewResult;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitScriptPreReviewResult',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitScriptPreReviewResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits the pre-review approval or rejection result for a script review record under a specified instance for a whitelisted tenant, and returns the updated script information.
+     *
+     * @param request - SubmitScriptPreReviewResultRequest
+     *
+     * @returns SubmitScriptPreReviewResultResponse
+     *
+     * @param SubmitScriptPreReviewResultRequest $request
+     *
+     * @return SubmitScriptPreReviewResultResponse
+     */
+    public function submitScriptPreReviewResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitScriptPreReviewResultWithOptions($request, $runtime);
     }
 
     /**
@@ -11629,7 +12305,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Prepares a task for execution.
+     * Prepares a node for execution.
      *
      * @param request - TaskPreparingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11676,7 +12352,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Prepares a task for execution.
+     * Prepares a node for execution.
      *
      * @param request - TaskPreparingRequest
      *
@@ -11828,7 +12504,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Upload recording files.
+     * Uploads a recording file.
      *
      * @param request - UploadScriptRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11883,7 +12559,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Upload recording files.
+     * Uploads a recording file.
      *
      * @param request - UploadScriptRecordingRequest
      *
