@@ -21,6 +21,11 @@ class instanceSpecs extends Model
     /**
      * @var int
      */
+    public $baseProtectionBandwidth;
+
+    /**
+     * @var int
+     */
     public $connLimit;
 
     /**
@@ -95,6 +100,7 @@ class instanceSpecs extends Model
     protected $_name = [
         'bandwidthMbps' => 'BandwidthMbps',
         'baseBandwidth' => 'BaseBandwidth',
+        'baseProtectionBandwidth' => 'BaseProtectionBandwidth',
         'connLimit' => 'ConnLimit',
         'cpsLimit' => 'CpsLimit',
         'defenseCount' => 'DefenseCount',
@@ -126,6 +132,10 @@ class instanceSpecs extends Model
 
         if (null !== $this->baseBandwidth) {
             $res['BaseBandwidth'] = $this->baseBandwidth;
+        }
+
+        if (null !== $this->baseProtectionBandwidth) {
+            $res['BaseProtectionBandwidth'] = $this->baseProtectionBandwidth;
         }
 
         if (null !== $this->connLimit) {
@@ -205,6 +215,10 @@ class instanceSpecs extends Model
 
         if (isset($map['BaseBandwidth'])) {
             $model->baseBandwidth = $map['BaseBandwidth'];
+        }
+
+        if (isset($map['BaseProtectionBandwidth'])) {
+            $model->baseProtectionBandwidth = $map['BaseProtectionBandwidth'];
         }
 
         if (isset($map['ConnLimit'])) {
