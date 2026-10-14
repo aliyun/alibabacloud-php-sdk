@@ -7,10 +7,14 @@ namespace AlibabaCloud\SDK\SysOM\V20231230;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckAgentConfigSupportedRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckAgentConfigSupportedResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CheckInstanceSupportResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CpuHighAgentStreamResponseRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CpuHighAgentStreamResponseResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAgentConfigRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAgentConfigResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertDestinationRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyRequest;
@@ -21,6 +25,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateInstanceInspectionRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateInstanceInspectionResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateVmcoreDiagnosisTaskRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateVmcoreDiagnosisTaskResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAgentConfigRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAgentConfigResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertDestinationRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\DeleteAlertStrategyRequest;
@@ -33,10 +39,16 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotStreamResponseRequest
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GenerateCopilotStreamResponseResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAbnormalEventsCountRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAbnormalEventsCountResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentConfigRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentConfigResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentTaskRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentTaskResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAifgResultRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAifgResultResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAifgUrlRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAifgUrlResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAIQueryResultRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAIQueryResultResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetAlertDestinationRequest;
@@ -49,10 +61,18 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\GetCopilotHistoryRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetCopilotHistoryResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetDiagnosisResultRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetDiagnosisResultResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetGpuClusterArgsOptionsRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetGpuClusterArgsOptionsResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetGpuClusterListAlarmRecordRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetGpuClusterListAlarmRecordResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetGpuClusterTopologyRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetGpuClusterTopologyResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHealthPercentageRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHealthPercentageResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHostCountRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHostCountResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHotfixTaskRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHotfixTaskResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHotspotAnalysisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHotspotAnalysisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetHotspotCompareRequest;
@@ -69,6 +89,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\GetInspectionReportRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetInspectionReportResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetInstantScoreRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetInstantScoreResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetListGpuClusterRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetListGpuClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetListRecordRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetListRecordResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetProblemPercentageRequest;
@@ -90,6 +112,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentWithTypeRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentWithTypeResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallHotfixRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallHotfixResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeAnomalyDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeAnomalyDiagnosisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeDiagnosisRequest;
@@ -100,6 +124,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentInstallRecordsRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentInstallRecordsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentsRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAgentsResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAifgJobsRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAifgJobsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertDestinationsRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertDestinationsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListAlertItemsResponse;
@@ -133,27 +159,39 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\ListPodsOfInstanceResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListVmcoreDiagnosisTaskRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListVmcoreDiagnosisTaskResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\QueryHotfixStatusRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\QueryHotfixStatusResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIAnalysisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIAnalysisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIDiffAnalysisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIDiffAnalysisResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAifgAnalysisRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\StartAifgAnalysisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentWithTypeRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentWithTypeResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallHotfixRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallHotfixResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAgentConfigRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAgentConfigResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertDestinationRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertEnabledRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertEnabledResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertStrategyResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateClusterAgentConfigRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateClusterAgentConfigResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordShrinkRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateInstanceAgentConfigRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateInstanceAgentConfigResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentRequest;
@@ -200,14 +238,14 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnosis on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnosis on it.
+     * Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
      *
      * @remarks
-     * >Notice: The diagnosis feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
-     * Take note of the following items when you invoke this operation to authorize SysOM to diagnose ECS instances:
+     * >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+     * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
      * - Each authorization is valid for 7 days. After 7 days, the authorization expires and you must invoke this operation again to re-authorize.
      * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The Resource Access Management (RAM) user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
-     * - When you invoke this operation to authorize diagnosis on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnosis on instances that have this label.
+     * - When you invoke this operation to authorize diagnostics on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
      *
      * @param request - AuthDiagnosisRequest
      * @param headers - map
@@ -224,15 +262,6 @@ class SysOM extends OpenApiClient
     public function authDiagnosisWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->autoCreateRole) {
             @$body['autoCreateRole'] = $request->autoCreateRole;
@@ -248,7 +277,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -267,14 +295,14 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnosis on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnosis on it.
+     * Authorizes SysOM to diagnose ECS instances under the current account. You must call this operation to authorize diagnostics on a specific ECS instance before you can call the InvokeDiagnosis operation to initiate diagnostics on it.
      *
      * @remarks
-     * >Notice: The diagnosis feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
-     * Take note of the following items when you invoke this operation to authorize SysOM to diagnose ECS instances:
+     * >Notice: The diagnostics feature requires a service-linked role to be created under the Resource Access Management (RAM) user. Invoking this operation automatically checks whether the service-linked role exists and creates it if it does not. The RAM user that invokes this operation must have the ram:CreateServiceLinkedRole permission.</notice>
+     * Note the following when you invoke this operation to authorize SysOM to diagnose ECS instances:
      * - Each authorization is valid for 7 days. After 7 days, the authorization expires and you must invoke this operation again to re-authorize.
      * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you invoke this operation, automatic creation is performed. The Resource Access Management (RAM) user that invokes this operation must have the `ram:CreateServiceLinkedRole` permission.
-     * - When you invoke this operation to authorize diagnosis on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnosis on instances that have this label.
+     * - When you invoke this operation to authorize diagnostics on a specific instance, the label `sysom:diagnosis` is automatically associated with the target ECS instance. SysOM only allows diagnostics on instances that have this label.
      *
      * @param request - AuthDiagnosisRequest
      *
@@ -293,7 +321,94 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Checks whether a target instance is supported by SysOM.
+     * Checks whether resources such as clusters and nodes support the current configuration.
+     *
+     * @remarks
+     * The instance list retrieved by this operation contains only machines managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+     *
+     * @param request - CheckAgentConfigSupportedRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckAgentConfigSupportedResponse
+     *
+     * @param CheckAgentConfigSupportedRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CheckAgentConfigSupportedResponse
+     */
+    public function checkAgentConfigSupportedWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->checkType) {
+            @$query['checkType'] = $request->checkType;
+        }
+
+        if (null !== $request->clusters) {
+            @$query['clusters'] = $request->clusters;
+        }
+
+        if (null !== $request->configId) {
+            @$query['configId'] = $request->configId;
+        }
+
+        if (null !== $request->content) {
+            @$query['content'] = $request->content;
+        }
+
+        if (null !== $request->instances) {
+            @$query['instances'] = $request->instances;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckAgentConfigSupported',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/checkAgentConfigSupported',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckAgentConfigSupportedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Checks whether resources such as clusters and nodes support the current configuration.
+     *
+     * @remarks
+     * The instance list retrieved by this operation contains only machines managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+     *
+     * @param request - CheckAgentConfigSupportedRequest
+     *
+     * @returns CheckAgentConfigSupportedResponse
+     *
+     * @param CheckAgentConfigSupportedRequest $request
+     *
+     * @return CheckAgentConfigSupportedResponse
+     */
+    public function checkAgentConfigSupported($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkAgentConfigSupportedWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Checks whether target instances are supported by SysOM.
      *
      * @remarks
      * The instance list returned by this operation contains only instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -313,15 +428,6 @@ class SysOM extends OpenApiClient
     public function checkInstanceSupportWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->instances) {
             @$body['instances'] = $request->instances;
@@ -333,7 +439,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -352,7 +457,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Checks whether a target instance is supported by SysOM.
+     * Checks whether target instances are supported by SysOM.
      *
      * @remarks
      * The instance list returned by this operation contains only instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -391,15 +496,6 @@ class SysOM extends OpenApiClient
     public function cpuHighAgentStreamResponseWithSSE($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->llmParamString) {
             @$body['llmParamString'] = $request->llmParamString;
@@ -407,7 +503,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -456,15 +551,6 @@ class SysOM extends OpenApiClient
     public function cpuHighAgentStreamResponseWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->llmParamString) {
             @$body['llmParamString'] = $request->llmParamString;
@@ -472,7 +558,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -510,6 +595,75 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * Creates a component configuration.
+     *
+     * @param request - CreateAgentConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentConfigResponse
+     *
+     * @param CreateAgentConfigRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAgentConfigResponse
+     */
+    public function createAgentConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->configName) {
+            @$body['configName'] = $request->configName;
+        }
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgentConfig',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/createAgentConfig',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a component configuration.
+     *
+     * @param request - CreateAgentConfigRequest
+     *
+     * @returns CreateAgentConfigResponse
+     *
+     * @param CreateAgentConfigRequest $request
+     *
+     * @return CreateAgentConfigResponse
+     */
+    public function createAgentConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAgentConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a contact for alert notifications.
      *
      * @param request - CreateAlertDestinationRequest
@@ -527,15 +681,6 @@ class SysOM extends OpenApiClient
     public function createAlertDestinationWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->appId) {
             @$body['app_id'] = $request->appId;
@@ -571,7 +716,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -626,15 +770,6 @@ class SysOM extends OpenApiClient
     public function createAlertStrategyWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->enabled) {
             @$body['enabled'] = $request->enabled;
@@ -654,7 +789,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -695,9 +829,9 @@ class SysOM extends OpenApiClient
      * Creates a VPC endpoint connection for a cluster.
      *
      * @remarks
-     * - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
-     * - Populate the parameters based on the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-     * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
+     * - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
+     * - Populate the parameters based on the input parameters of the general LLM service, convert them to a string, and assign the string to llmParamString.
+     * - Convert the returned string to a dictionary before use. Refer to the response format of the general LLM service.
      *
      * @param request - CreateClusterVpcEndpointConnectionRequest
      * @param headers - map
@@ -714,15 +848,6 @@ class SysOM extends OpenApiClient
     public function createClusterVpcEndpointConnectionWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->clusterId) {
             @$body['clusterId'] = $request->clusterId;
@@ -738,7 +863,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -760,9 +884,9 @@ class SysOM extends OpenApiClient
      * Creates a VPC endpoint connection for a cluster.
      *
      * @remarks
-     * - Use this operation with the call_sseapi interface of the aliyun-tea-openapi-inner package.
-     * - Populate the parameters based on the general LLM service input parameters, convert them to a string, and assign the string to llmParamString.
-     * - Convert the returned data from a string to a dict before use. Refer to the general LLM service response format.
+     * - Use this operation together with the call_sseapi operation in the aliyun-tea-openapi-inner package.
+     * - Populate the parameters based on the input parameters of the general LLM service, convert them to a string, and assign the string to llmParamString.
+     * - Convert the returned string to a dictionary before use. Refer to the response format of the general LLM service.
      *
      * @param request - CreateClusterVpcEndpointConnectionRequest
      *
@@ -798,15 +922,6 @@ class SysOM extends OpenApiClient
     public function createInstanceInspectionWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->instance) {
             @$body['instance'] = $request->instance;
@@ -830,7 +945,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -868,7 +982,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Creates an intelligent diagnostic node for system breakdowns, which diagnoses the vmcore or dmesg log files provided as input parameters.
+     * Creates an intelligent breakdown diagnostic node to diagnose the vmcore or dmesg log file specified in the input parameters.
      *
      * @param request - CreateVmcoreDiagnosisTaskRequest
      * @param headers - map
@@ -885,15 +999,6 @@ class SysOM extends OpenApiClient
     public function createVmcoreDiagnosisTaskWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->debuginfoCommonUrl) {
             @$body['debuginfoCommonUrl'] = $request->debuginfoCommonUrl;
@@ -917,7 +1022,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -936,7 +1040,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Creates an intelligent diagnostic node for system breakdowns, which diagnoses the vmcore or dmesg log files provided as input parameters.
+     * Creates an intelligent breakdown diagnostic node to diagnose the vmcore or dmesg log file specified in the input parameters.
      *
      * @param request - CreateVmcoreDiagnosisTaskRequest
      *
@@ -952,6 +1056,71 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->createVmcoreDiagnosisTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a component configuration.
+     *
+     * @param request - DeleteAgentConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentConfigResponse
+     *
+     * @param DeleteAgentConfigRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAgentConfigResponse
+     */
+    public function deleteAgentConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->configId) {
+            @$query['configId'] = $request->configId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgentConfig',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/deleteAgentConfig',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a component configuration.
+     *
+     * @param request - DeleteAgentConfigRequest
+     *
+     * @returns DeleteAgentConfigResponse
+     *
+     * @param DeleteAgentConfigRequest $request
+     *
+     * @return DeleteAgentConfigResponse
+     */
+    public function deleteAgentConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAgentConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -973,16 +1142,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->id) {
             @$query['id'] = $request->id;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -1024,7 +1185,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Deletes an alert policy for push notifications.
+     * Deletes an alert policy for push alerting.
      *
      * @param request - DeleteAlertStrategyRequest
      * @param headers - map
@@ -1042,16 +1203,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->id) {
             @$query['id'] = $request->id;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -1074,7 +1227,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Deletes an alert policy for push notifications.
+     * Deletes an alert policy for push alerting.
      *
      * @param request - DeleteAlertStrategyRequest
      *
@@ -1096,7 +1249,7 @@ class SysOM extends OpenApiClient
      * Queries metric data.
      *
      * @remarks
-     * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+     * The instance list returned by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
      *
      * @param request - DescribeMetricListRequest
      * @param headers - map
@@ -1114,10 +1267,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->endTime) {
             @$query['endTime'] = $request->endTime;
         }
@@ -1132,10 +1281,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->startTime) {
             @$query['startTime'] = $request->startTime;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -1161,7 +1306,7 @@ class SysOM extends OpenApiClient
      * Queries metric data.
      *
      * @remarks
-     * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+     * The instance list returned by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
      *
      * @param request - DescribeMetricListRequest
      *
@@ -1180,10 +1325,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the response from the Copilot service.
+     * Retrieves the response result from the Copilot service.
      *
      * @remarks
-     * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+     * - Populate parameters according to the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
      * - Convert the returned data from a string to a dict before use. Refer to the standard LLM service response format.
      *
      * @param request - GenerateCopilotResponseRequest
@@ -1201,15 +1346,6 @@ class SysOM extends OpenApiClient
     public function generateCopilotResponseWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->llmParamString) {
             @$body['llmParamString'] = $request->llmParamString;
@@ -1217,7 +1353,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1236,10 +1371,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the response from the Copilot service.
+     * Retrieves the response result from the Copilot service.
      *
      * @remarks
-     * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+     * - Populate parameters according to the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
      * - Convert the returned data from a string to a dict before use. Refer to the standard LLM service response format.
      *
      * @param request - GenerateCopilotResponseRequest
@@ -1263,7 +1398,7 @@ class SysOM extends OpenApiClient
      *
      * @remarks
      * - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
-     * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+     * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
      * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
      *
      * @param request - GenerateCopilotStreamResponseRequest
@@ -1281,15 +1416,6 @@ class SysOM extends OpenApiClient
     public function generateCopilotStreamResponseWithSSE($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->llmParamString) {
             @$body['llmParamString'] = $request->llmParamString;
@@ -1297,7 +1423,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1333,7 +1458,7 @@ class SysOM extends OpenApiClient
      *
      * @remarks
      * - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
-     * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+     * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
      * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
      *
      * @param request - GenerateCopilotStreamResponseRequest
@@ -1351,15 +1476,6 @@ class SysOM extends OpenApiClient
     public function generateCopilotStreamResponseWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->llmParamString) {
             @$body['llmParamString'] = $request->llmParamString;
@@ -1367,7 +1483,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1390,7 +1505,7 @@ class SysOM extends OpenApiClient
      *
      * @remarks
      * - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
-     * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+     * - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
      * - Convert the returned string data to a dict before use. Refer to the standard LLM service response format.
      *
      * @param request - GenerateCopilotStreamResponseRequest
@@ -1410,7 +1525,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Queries the AI Infra analysis results.
+     * Queries AI Infra analysis results.
      *
      * @param request - GetAIQueryResultRequest
      * @param headers - map
@@ -1427,15 +1542,6 @@ class SysOM extends OpenApiClient
     public function getAIQueryResultWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->analysisId) {
             @$body['analysisId'] = $request->analysisId;
@@ -1443,7 +1549,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1462,7 +1567,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Queries the AI Infra analysis results.
+     * Queries AI Infra analysis results.
      *
      * @param request - GetAIQueryResultRequest
      *
@@ -1499,10 +1604,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->cluster) {
             @$query['cluster'] = $request->cluster;
         }
@@ -1533,10 +1634,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->start) {
             @$query['start'] = $request->start;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -1578,7 +1675,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified component.
+     * Retrieves the details of a specific component.
      *
      * @param request - GetAgentRequest
      * @param headers - map
@@ -1596,16 +1693,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->agentId) {
             @$query['agent_id'] = $request->agentId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -1628,7 +1717,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified component.
+     * Retrieves the details of a specific component.
      *
      * @param request - GetAgentRequest
      *
@@ -1644,6 +1733,87 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->getAgentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves component configurations.
+     *
+     * @param request - GetAgentConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentConfigResponse
+     *
+     * @param GetAgentConfigRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAgentConfigResponse
+     */
+    public function getAgentConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->configId) {
+            @$query['configId'] = $request->configId;
+        }
+
+        if (null !== $request->configName) {
+            @$query['configName'] = $request->configName;
+        }
+
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentConfig',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/getAgentConfig',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves component configurations.
+     *
+     * @param request - GetAgentConfigRequest
+     *
+     * @returns GetAgentConfigResponse
+     *
+     * @param GetAgentConfigRequest $request
+     *
+     * @return GetAgentConfigResponse
+     */
+    public function getAgentConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAgentConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1665,16 +1835,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->taskId) {
             @$query['task_id'] = $request->taskId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -1716,6 +1878,140 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * Retrieves diagnostic results.
+     *
+     * @remarks
+     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. Check the `data.status` field in the response to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
+     *
+     * @param request - GetAifgResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAifgResultResponse
+     *
+     * @param GetAifgResultRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAifgResultResponse
+     */
+    public function getAifgResultWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAifgResult',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aifg/getAifgResult',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAifgResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves diagnostic results.
+     *
+     * @remarks
+     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. Check the `data.status` field in the response to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
+     *
+     * @param request - GetAifgResultRequest
+     *
+     * @returns GetAifgResultResponse
+     *
+     * @param GetAifgResultRequest $request
+     *
+     * @return GetAifgResultResponse
+     */
+    public function getAifgResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAifgResultWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the URL link of a diagnostic result.
+     *
+     * @remarks
+     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response data to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+     *
+     * @param request - GetAifgUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAifgUrlResponse
+     *
+     * @param GetAifgUrlRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetAifgUrlResponse
+     */
+    public function getAifgUrlWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAifgUrl',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aifg/getAifgUrl',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAifgUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the URL link of a diagnostic result.
+     *
+     * @remarks
+     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response data to determine the current state. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+     *
+     * @param request - GetAifgUrlRequest
+     *
+     * @returns GetAifgUrlResponse
+     *
+     * @param GetAifgUrlRequest $request
+     *
+     * @return GetAifgUrlResponse
+     */
+    public function getAifgUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAifgUrlWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the information of a specified alert contact.
      *
      * @param request - GetAlertDestinationRequest
@@ -1734,16 +2030,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->id) {
             @$query['id'] = $request->id;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -1785,7 +2073,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves an alert for a user based on the policy ID.
+     * Retrieves an alert rule of a user by policy ID.
      *
      * @param request - GetAlertStrategyRequest
      * @param headers - map
@@ -1803,16 +2091,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->id) {
             @$query['id'] = $request->id;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -1835,7 +2115,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves an alert for a user based on the policy ID.
+     * Retrieves an alert rule of a user by policy ID.
      *
      * @param request - GetAlertStrategyRequest
      *
@@ -1872,10 +2152,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->configName) {
             @$query['configName'] = $request->configName;
         }
@@ -1894,10 +2170,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->versionId) {
             @$query['versionId'] = $request->versionId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -1939,7 +2211,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the chat history of Copilot.
+     * Retrieves the historical chat records of Copilot.
      *
      * @param request - GetCopilotHistoryRequest
      * @param headers - map
@@ -1956,15 +2228,6 @@ class SysOM extends OpenApiClient
     public function getCopilotHistoryWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->count) {
             @$body['count'] = $request->count;
@@ -1972,7 +2235,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -1991,7 +2253,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the chat history of Copilot.
+     * Retrieves the historical chat records of Copilot.
      *
      * @param request - GetCopilotHistoryRequest
      *
@@ -2010,10 +2272,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the diagnostic result.
+     * Retrieves diagnostic results.
      *
      * @remarks
-     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
      *
      * @param request - GetDiagnosisResultRequest
      * @param headers - map
@@ -2031,16 +2293,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->taskId) {
             @$query['task_id'] = $request->taskId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -2063,10 +2317,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the diagnostic result.
+     * Retrieves diagnostic results.
      *
      * @remarks
-     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+     * The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic results from `data.result`.
      *
      * @param request - GetDiagnosisResultRequest
      *
@@ -2085,7 +2339,280 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the health status distribution of nodes or Pods within a specified time period.
+     * Retrieves the GPU cluster parameter list.
+     *
+     * @remarks
+     * After installing the component for the target ACK cluster:
+     * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances are included in the first batch.
+     * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component without user intervention.
+     *
+     * @param request - GetGpuClusterArgsOptionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGpuClusterArgsOptionsResponse
+     *
+     * @param GetGpuClusterArgsOptionsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetGpuClusterArgsOptionsResponse
+     */
+    public function getGpuClusterArgsOptionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filterType) {
+            @$query['filterType'] = $request->filterType;
+        }
+
+        if (null !== $request->filterValues) {
+            @$query['filterValues'] = $request->filterValues;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetGpuClusterArgsOptions',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiTopology/topology/listClusterTopologyOptions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGpuClusterArgsOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the GPU cluster parameter list.
+     *
+     * @remarks
+     * After installing the component for the target ACK cluster:
+     * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only 50 instances are included in the first batch.
+     * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component without user intervention.
+     *
+     * @param request - GetGpuClusterArgsOptionsRequest
+     *
+     * @returns GetGpuClusterArgsOptionsResponse
+     *
+     * @param GetGpuClusterArgsOptionsRequest $request
+     *
+     * @return GetGpuClusterArgsOptionsResponse
+     */
+    public function getGpuClusterArgsOptions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGpuClusterArgsOptionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the list of GPU cluster alerts.
+     *
+     * @remarks
+     * After installing the component on the target ACK cluster:
+     * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
+     * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without user intervention.
+     *
+     * @param request - GetGpuClusterListAlarmRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGpuClusterListAlarmRecordResponse
+     *
+     * @param GetGpuClusterListAlarmRecordRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetGpuClusterListAlarmRecordResponse
+     */
+    public function getGpuClusterListAlarmRecordWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alarmCluster) {
+            @$query['alarmCluster'] = $request->alarmCluster;
+        }
+
+        if (null !== $request->alarmExtInfo) {
+            @$query['alarmExtInfo'] = $request->alarmExtInfo;
+        }
+
+        if (null !== $request->alarmTask) {
+            @$query['alarmTask'] = $request->alarmTask;
+        }
+
+        if (null !== $request->alarmTime) {
+            @$query['alarmTime'] = $request->alarmTime;
+        }
+
+        if (null !== $request->alarmType) {
+            @$query['alarmType'] = $request->alarmType;
+        }
+
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetGpuClusterListAlarmRecord',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiTopology/topology/listAlarmRecord',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGpuClusterListAlarmRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of GPU cluster alerts.
+     *
+     * @remarks
+     * After installing the component on the target ACK cluster:
+     * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
+     * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without user intervention.
+     *
+     * @param request - GetGpuClusterListAlarmRecordRequest
+     *
+     * @returns GetGpuClusterListAlarmRecordResponse
+     *
+     * @param GetGpuClusterListAlarmRecordRequest $request
+     *
+     * @return GetGpuClusterListAlarmRecordResponse
+     */
+    public function getGpuClusterListAlarmRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGpuClusterListAlarmRecordWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the GPU cluster topology.
+     *
+     * @remarks
+     * After you install the component on the target ACK cluster:
+     * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
+     * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without requiring manual intervention.
+     *
+     * @param request - GetGpuClusterTopologyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGpuClusterTopologyResponse
+     *
+     * @param GetGpuClusterTopologyRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetGpuClusterTopologyResponse
+     */
+    public function getGpuClusterTopologyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channelId) {
+            @$query['channelId'] = $request->channelId;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['clusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->communicationId) {
+            @$query['communicationId'] = $request->communicationId;
+        }
+
+        if (null !== $request->instanceIdList) {
+            @$query['instanceIdList'] = $request->instanceIdList;
+        }
+
+        if (null !== $request->podList) {
+            @$query['podList'] = $request->podList;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->taskIdList) {
+            @$query['taskIdList'] = $request->taskIdList;
+        }
+
+        if (null !== $request->topoType) {
+            @$query['topoType'] = $request->topoType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetGpuClusterTopology',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiTopology/topology/clusterTopology',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGpuClusterTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the GPU cluster topology.
+     *
+     * @remarks
+     * After you install the component on the target ACK cluster:
+     * 1. When a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster has more than 50 nodes, only the first 50 nodes are processed in the first batch.
+     * 2. The operating system console periodically checks the scaling status of managed clusters. When a new ECS instance is added to a cluster, the console automatically installs the component on it without requiring manual intervention.
+     *
+     * @param request - GetGpuClusterTopologyRequest
+     *
+     * @returns GetGpuClusterTopologyResponse
+     *
+     * @param GetGpuClusterTopologyRequest $request
+     *
+     * @return GetGpuClusterTopologyResponse
+     */
+    public function getGpuClusterTopology($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGpuClusterTopologyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the health status distribution of nodes or pods over a specified time period.
      *
      * @param request - GetHealthPercentageRequest
      * @param headers - map
@@ -2103,10 +2630,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->cluster) {
             @$query['cluster'] = $request->cluster;
         }
@@ -2121,10 +2644,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->start) {
             @$query['start'] = $request->start;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -2147,7 +2666,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the health status distribution of nodes or Pods within a specified time period.
+     * Retrieves the health status distribution of nodes or pods over a specified time period.
      *
      * @param request - GetHealthPercentageRequest
      *
@@ -2166,7 +2685,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the number of cluster nodes or the number of Pods on a node.
+     * Retrieves the number of nodes or node Pods in a cluster.
      *
      * @param request - GetHostCountRequest
      * @param headers - map
@@ -2184,10 +2703,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->cluster) {
             @$query['cluster'] = $request->cluster;
         }
@@ -2202,10 +2717,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->start) {
             @$query['start'] = $request->start;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -2228,7 +2739,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the number of cluster nodes or the number of Pods on a node.
+     * Retrieves the number of nodes or node Pods in a cluster.
      *
      * @param request - GetHostCountRequest
      *
@@ -2264,15 +2775,6 @@ class SysOM extends OpenApiClient
     public function getHotSpotUniqListWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->begEnd) {
             @$body['beg_end'] = $request->begEnd;
@@ -2300,7 +2802,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2338,6 +2839,73 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * Queries the status of an asynchronous task for CVE hotfixes on a node.
+     *
+     * @remarks
+     * The hotfix task process is asynchronous. When you call this operation, the task may still be running. You can check the `data.status` field in the response to determine the task status. If `data.status` is `Success`, the task succeeded, and you can obtain the task result from the `data.result` field.
+     *
+     * @param request - GetHotfixTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHotfixTaskResponse
+     *
+     * @param GetHotfixTaskRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetHotfixTaskResponse
+     */
+    public function getHotfixTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetHotfixTask',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/hotfix_manager/task/get',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetHotfixTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status of an asynchronous task for CVE hotfixes on a node.
+     *
+     * @remarks
+     * The hotfix task process is asynchronous. When you call this operation, the task may still be running. You can check the `data.status` field in the response to determine the task status. If `data.status` is `Success`, the task succeeded, and you can obtain the task result from the `data.result` field.
+     *
+     * @param request - GetHotfixTaskRequest
+     *
+     * @returns GetHotfixTaskResponse
+     *
+     * @param GetHotfixTaskRequest $request
+     *
+     * @return GetHotfixTaskResponse
+     */
+    public function getHotfixTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getHotfixTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves hot spot analysis results.
      *
      * @param request - GetHotspotAnalysisRequest
@@ -2355,15 +2923,6 @@ class SysOM extends OpenApiClient
     public function getHotspotAnalysisWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->appType) {
             @$body['appType'] = $request->appType;
@@ -2391,7 +2950,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2429,7 +2987,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the hot spot comparison and tracing results.
+     * Retrieves the results of a hot spot comparison trace.
      *
      * @param request - GetHotspotCompareRequest
      * @param headers - map
@@ -2446,15 +3004,6 @@ class SysOM extends OpenApiClient
     public function getHotspotCompareWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->beg1End) {
             @$body['beg1_end'] = $request->beg1End;
@@ -2498,7 +3047,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2517,7 +3065,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the hot spot comparison and tracing results.
+     * Retrieves the results of a hot spot comparison trace.
      *
      * @param request - GetHotspotCompareRequest
      *
@@ -2553,15 +3101,6 @@ class SysOM extends OpenApiClient
     public function getHotspotInstanceListWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->begEnd) {
             @$body['beg_end'] = $request->begEnd;
@@ -2577,7 +3116,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2632,15 +3170,6 @@ class SysOM extends OpenApiClient
     public function getHotspotPidListWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->begEnd) {
             @$body['beg_end'] = $request->begEnd;
@@ -2660,7 +3189,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2715,15 +3243,6 @@ class SysOM extends OpenApiClient
     public function getHotspotTrackingWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->begEnd) {
             @$body['beg_end'] = $request->begEnd;
@@ -2751,7 +3270,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2807,16 +3325,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->reportId) {
             @$query['reportId'] = $request->reportId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -2876,20 +3386,12 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->cluster) {
             @$query['cluster'] = $request->cluster;
         }
 
         if (null !== $request->instance) {
             @$query['instance'] = $request->instance;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -2931,7 +3433,82 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of AI Infra analysis records.
+     * Retrieves a list of GPU clusters.
+     *
+     * @remarks
+     * After installing the component for the target ACK cluster:
+     * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
+     * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
+     *
+     * @param request - GetListGpuClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetListGpuClusterResponse
+     *
+     * @param GetListGpuClusterRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetListGpuClusterResponse
+     */
+    public function getListGpuClusterWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->timeRegion) {
+            @$query['timeRegion'] = $request->timeRegion;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetListGpuCluster',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aiTopology/topology/listCluster',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetListGpuClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of GPU clusters.
+     *
+     * @remarks
+     * After installing the component for the target ACK cluster:
+     * 1. First, when a cluster is managed for the first time, the component is installed on all ECS instances currently in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
+     * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on it without user intervention.
+     *
+     * @param request - GetListGpuClusterRequest
+     *
+     * @returns GetListGpuClusterResponse
+     *
+     * @param GetListGpuClusterRequest $request
+     *
+     * @return GetListGpuClusterResponse
+     */
+    public function getListGpuCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getListGpuClusterWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves a list of AI Infra analysis records.
      *
      * @param request - GetListRecordRequest
      * @param headers - map
@@ -2949,10 +3526,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->analysisId) {
             @$query['analysisId'] = $request->analysisId;
         }
@@ -2971,10 +3544,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->region) {
             @$query['region'] = $request->region;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -2997,7 +3566,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of AI Infra analysis records.
+     * Retrieves a list of AI Infra analysis records.
      *
      * @param request - GetListRecordRequest
      *
@@ -3016,7 +3585,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the proportion of abnormal issues for nodes in a cluster or pods in a node within a specified time range.
+     * Retrieves the proportion of anomaly issues for nodes in a cluster or pods in a node within a specified time range.
      *
      * @param request - GetProblemPercentageRequest
      * @param headers - map
@@ -3034,10 +3603,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->cluster) {
             @$query['cluster'] = $request->cluster;
         }
@@ -3052,10 +3617,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->start) {
             @$query['start'] = $request->start;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -3078,7 +3639,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the proportion of abnormal issues for nodes in a cluster or pods in a node within a specified time range.
+     * Retrieves the proportion of anomaly issues for nodes in a cluster or pods in a node within a specified time range.
      *
      * @param request - GetProblemPercentageRequest
      *
@@ -3115,10 +3676,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->cluster) {
             @$query['cluster'] = $request->cluster;
         }
@@ -3133,10 +3690,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->start) {
             @$query['start'] = $request->start;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -3196,10 +3749,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->cluster) {
             @$query['cluster'] = $request->cluster;
         }
@@ -3210,10 +3759,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->type) {
             @$query['type'] = $request->type;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -3282,10 +3827,6 @@ class SysOM extends OpenApiClient
         }
 
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->channel) {
             @$query['channel'] = $request->channel;
         }
@@ -3296,10 +3837,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->serviceName) {
             @$query['service_name'] = $request->serviceName;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -3362,16 +3899,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->taskId) {
             @$query['taskId'] = $request->taskId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -3413,13 +3942,13 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Initializes SysOM and ensures that the service-linked role exists.
+     * Initializes SysOM to ensure that the service-linked role exists.
      *
      * @remarks
      * Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
-     * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, invoking this operation triggers automatic creation of the service-linked role if it does not exist.
+     * - `check_only`: If this parameter is set to True, only a check is performed to determine whether the service-linked role exists. The service-linked role is not created. If this parameter is set to False or left empty, automatic creation of the service-linked role is performed if it does not exist.
      * >
-     * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, refer to: [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview), [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html)
+     * > Note: When you call this operation to initialize the role, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
      *
      * @param request - InitialSysomRequest
      * @param headers - map
@@ -3436,15 +3965,6 @@ class SysOM extends OpenApiClient
     public function initialSysomWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->checkOnly) {
             @$body['check_only'] = $request->checkOnly;
@@ -3456,7 +3976,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3475,13 +3994,13 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Initializes SysOM and ensures that the service-linked role exists.
+     * Initializes SysOM to ensure that the service-linked role exists.
      *
      * @remarks
      * Some SysOM API operations require role assumption based on the `AliyunServiceRoleForSysom` service-linked role. Before using SysOM features, invoke this operation to perform initialization and ensure that the service-linked role has been created.
-     * - `check_only`: If this parameter is set to True, the operation only checks whether the service-linked role exists and does not create it. If this parameter is set to False or left empty, invoking this operation triggers automatic creation of the service-linked role if it does not exist.
+     * - `check_only`: If this parameter is set to True, only a check is performed to determine whether the service-linked role exists. The service-linked role is not created. If this parameter is set to False or left empty, automatic creation of the service-linked role is performed if it does not exist.
      * >
-     * > Note: When you call this operation to initialize the role through the API, you agree to the user agreement of the operating system console by default. For more information, refer to: [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview), [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html)
+     * > Note: When you call this operation to initialize the role, you agree to the user agreement of the operating system console by default. For more information, see [Operating system console overview](https://www.alibabacloud.com/help/en/alinux/product-overview/os-console-overview) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
      *
      * @param request - InitialSysomRequest
      *
@@ -3500,10 +4019,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Installs an Agent on a specified instance.
+     * Installs an agent on a specified instance.
      *
      * @remarks
-     * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
+     * Calling this operation to install an agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
      *
      * @param request - InstallAgentRequest
      * @param headers - map
@@ -3520,15 +4039,6 @@ class SysOM extends OpenApiClient
     public function installAgentWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->agentId) {
             @$body['agent_id'] = $request->agentId;
@@ -3548,7 +4058,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3567,10 +4076,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Installs an Agent on a specified instance.
+     * Installs an agent on a specified instance.
      *
      * @remarks
-     * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
+     * Calling this operation to install an agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetAgentTask operation to query the task execution status.
      *
      * @param request - InstallAgentRequest
      *
@@ -3593,8 +4102,8 @@ class SysOM extends OpenApiClient
      *
      * @remarks
      * After you install a component on the target ACK cluster:
-     * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are processed in the first batch.
-     * 2. Then, the operating system console periodically checks the scaling status of the managed cluster in each epoch. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
+     * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
+     * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
      *
      * @param request - InstallAgentForClusterRequest
      * @param headers - map
@@ -3611,15 +4120,6 @@ class SysOM extends OpenApiClient
     public function installAgentForClusterWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->agentId) {
             @$body['agent_id'] = $request->agentId;
@@ -3643,7 +4143,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3666,8 +4165,8 @@ class SysOM extends OpenApiClient
      *
      * @remarks
      * After you install a component on the target ACK cluster:
-     * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are processed in the first batch.
-     * 2. Then, the operating system console periodically checks the scaling status of the managed cluster in each epoch. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
+     * 1. First, when the cluster is managed for the first time, the component is installed on all existing ECS instances in the cluster. If the cluster contains more than 50 nodes, only 50 instances are included in the first batch.
+     * 2. Then, the operating system console periodically checks the scaling status of the managed cluster. When a new ECS instance is added to the cluster, the operating system console automatically installs the component on the instance without user intervention.
      *
      * @param request - InstallAgentForClusterRequest
      *
@@ -3689,7 +4188,7 @@ class SysOM extends OpenApiClient
      * Installs an Agent on a specified instance.
      *
      * @remarks
-     * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
+     * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to check the task execution status.
      *
      * @param request - InstallAgentWithTypeRequest
      * @param headers - map
@@ -3706,15 +4205,6 @@ class SysOM extends OpenApiClient
     public function installAgentWithTypeWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->tag) {
             @$body['Tag'] = $request->tag;
@@ -3742,7 +4232,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3764,7 +4253,7 @@ class SysOM extends OpenApiClient
      * Installs an Agent on a specified instance.
      *
      * @remarks
-     * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the task execution status.
+     * Calling this operation to install an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to check the task execution status.
      *
      * @param request - InstallAgentWithTypeRequest
      *
@@ -3783,7 +4272,78 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Initiates an anomaly diagnostics task.
+     * Installs CVE hotfixes asynchronously on specified instances.
+     *
+     * @remarks
+     * This operation asynchronously installs the agent. After the operation is called, a task ID is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+     *
+     * @param request - InstallHotfixRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallHotfixResponse
+     *
+     * @param InstallHotfixRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InstallHotfixResponse
+     */
+    public function installHotfixWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cveId) {
+            @$body['cveId'] = $request->cveId;
+        }
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InstallHotfix',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/hotfix_manager/hotfix/install',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallHotfixResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Installs CVE hotfixes asynchronously on specified instances.
+     *
+     * @remarks
+     * This operation asynchronously installs the agent. After the operation is called, a task ID is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+     *
+     * @param request - InstallHotfixRequest
+     *
+     * @returns InstallHotfixResponse
+     *
+     * @param InstallHotfixRequest $request
+     *
+     * @return InstallHotfixResponse
+     */
+    public function installHotfix($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->installHotfixWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Initiates an anomaly diagnosis.
      *
      * @param request - InvokeAnomalyDiagnosisRequest
      * @param headers - map
@@ -3801,16 +4361,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->uuid) {
             @$query['uuid'] = $request->uuid;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -3833,7 +4385,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Initiates an anomaly diagnostics task.
+     * Initiates an anomaly diagnosis.
      *
      * @param request - InvokeAnomalyDiagnosisRequest
      *
@@ -3953,10 +4505,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->cluster) {
             @$query['cluster'] = $request->cluster;
         }
@@ -3999,10 +4547,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->start) {
             @$query['start'] = $request->start;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -4062,10 +4606,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
@@ -4092,10 +4632,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['status'] = $request->status;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -4155,10 +4691,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
@@ -4173,10 +4705,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->type) {
             @$query['type'] = $request->type;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -4218,7 +4746,94 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of alert contacts.
+     * Retrieves a list of diagnostic tasks.
+     *
+     * @remarks
+     * This operation retrieves the list of regions where the current user has machines managed by SysOM. If the user has ECS instances in a region but those instances are not managed by SysOM, that region does not appear in the results.
+     *
+     * @param request - ListAifgJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAifgJobsResponse
+     *
+     * @param ListAifgJobsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAifgJobsResponse
+     */
+    public function listAifgJobsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['serviceName'] = $request->serviceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAifgJobs',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aifg/listAifgJobs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAifgJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of diagnostic tasks.
+     *
+     * @remarks
+     * This operation retrieves the list of regions where the current user has machines managed by SysOM. If the user has ECS instances in a region but those instances are not managed by SysOM, that region does not appear in the results.
+     *
+     * @param request - ListAifgJobsRequest
+     *
+     * @returns ListAifgJobsResponse
+     *
+     * @param ListAifgJobsRequest $request
+     *
+     * @return ListAifgJobsResponse
+     */
+    public function listAifgJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAifgJobsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves a list of alert contacts.
      *
      * @param request - ListAlertDestinationsRequest
      * @param headers - map
@@ -4236,10 +4851,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
@@ -4258,10 +4869,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -4284,7 +4891,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of alert contacts.
+     * Retrieves a list of alert contacts.
      *
      * @param request - ListAlertDestinationsRequest
      *
@@ -4351,7 +4958,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves all push alert policies for the current user.
+     * Retrieves all alert policies configured by the user for push notifications.
      *
      * @param request - ListAlertStrategiesRequest
      * @param headers - map
@@ -4369,10 +4976,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
@@ -4391,10 +4994,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -4417,7 +5016,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves all push alert policies for the current user.
+     * Retrieves all alert policies configured by the user for push notifications.
      *
      * @param request - ListAlertStrategiesRequest
      *
@@ -4436,7 +5035,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of managed or unmanaged instances along with their instance information.
+     * Retrieves a list of managed and unmanaged instances along with their instance information.
      *
      * @param request - ListAllInstancesRequest
      * @param headers - map
@@ -4454,10 +5053,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
@@ -4494,10 +5089,6 @@ class SysOM extends OpenApiClient
             @$query['region'] = $request->region;
         }
 
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -4518,7 +5109,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of managed or unmanaged instances along with their instance information.
+     * Retrieves a list of managed and unmanaged instances along with their instance information.
      *
      * @param request - ListAllInstancesRequest
      *
@@ -4537,7 +5128,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the component installation records of a cluster.
+     * Retrieves the installation records of cluster components.
      *
      * @param request - ListClusterAgentInstallRecordsRequest
      * @param headers - map
@@ -4555,10 +5146,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->agentConfigId) {
             @$query['agent_config_id'] = $request->agentConfigId;
         }
@@ -4583,10 +5170,6 @@ class SysOM extends OpenApiClient
             @$query['plugin_version'] = $request->pluginVersion;
         }
 
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -4607,7 +5190,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the component installation records of a cluster.
+     * Retrieves the installation records of cluster components.
      *
      * @param request - ListClusterAgentInstallRecordsRequest
      *
@@ -4644,10 +5227,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->clusterId) {
             @$query['cluster_id'] = $request->clusterId;
         }
@@ -4674,10 +5253,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -4737,10 +5312,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
@@ -4759,10 +5330,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['status'] = $request->status;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -4804,7 +5371,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the health status list of cluster nodes or Pods within a specified time range.
+     * Retrieves the health status list of cluster nodes or pods within a specified time range.
      *
      * @param request - ListInstanceHealthRequest
      * @param headers - map
@@ -4822,10 +5389,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->cluster) {
             @$query['cluster'] = $request->cluster;
         }
@@ -4850,10 +5413,6 @@ class SysOM extends OpenApiClient
             @$query['start'] = $request->start;
         }
 
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -4874,7 +5433,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the health status list of cluster nodes or Pods within a specified time range.
+     * Retrieves the health status list of cluster nodes or pods within a specified time range.
      *
      * @param request - ListInstanceHealthRequest
      *
@@ -4893,7 +5452,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves all values of a specified type of instance information.
+     * Retrieves all values of a specific type of instance information.
      *
      * @param request - ListInstanceInfoRequest
      * @param headers - map
@@ -4911,10 +5470,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->infoType) {
             @$query['infoType'] = $request->infoType;
         }
@@ -4943,10 +5498,6 @@ class SysOM extends OpenApiClient
             @$query['region'] = $request->region;
         }
 
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -4967,7 +5518,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves all values of a specified type of instance information.
+     * Retrieves all values of a specific type of instance information.
      *
      * @param request - ListInstanceInfoRequest
      *
@@ -4986,7 +5537,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves instance statuses.
+     * Retrieves the instance status.
      *
      * @remarks
      * Retrieves the list of machines managed by SysOM.
@@ -5007,10 +5558,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
@@ -5029,10 +5576,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['status'] = $request->status;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -5055,7 +5598,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves instance statuses.
+     * Retrieves the instance status.
      *
      * @remarks
      * Retrieves the list of machines managed by SysOM.
@@ -5077,7 +5620,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of instances.
+     * Retrieves the list of managed instances.
      *
      * @remarks
      * This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -5098,10 +5641,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->clusterId) {
             @$query['cluster_id'] = $request->clusterId;
         }
@@ -5126,10 +5665,6 @@ class SysOM extends OpenApiClient
             @$query['status'] = $request->status;
         }
 
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -5150,7 +5685,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of instances.
+     * Retrieves the list of managed instances.
      *
      * @remarks
      * This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -5193,10 +5728,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->infoType) {
             @$query['info_type'] = $request->infoType;
         }
@@ -5215,10 +5746,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->region) {
             @$query['region'] = $request->region;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -5290,10 +5817,6 @@ class SysOM extends OpenApiClient
         }
 
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
@@ -5354,10 +5877,6 @@ class SysOM extends OpenApiClient
             @$query['resource_group_name'] = $request->resourceGroupName;
         }
 
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -5400,7 +5919,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of instances for plugin installation, update, or uninstallation.
+     * Retrieves the list of instances for plug-in installation, update, or uninstallation.
      *
      * @remarks
      * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -5421,10 +5940,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->current) {
             @$query['current'] = $request->current;
         }
@@ -5453,10 +5968,6 @@ class SysOM extends OpenApiClient
             @$query['region'] = $request->region;
         }
 
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -5477,7 +5988,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of instances for plugin installation, update, or uninstallation.
+     * Retrieves the list of instances for plug-in installation, update, or uninstallation.
      *
      * @remarks
      * The instance list retrieved by this operation contains only machines that are managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
@@ -5517,10 +6028,6 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->clusterId) {
             @$query['cluster_id'] = $request->clusterId;
         }
@@ -5535,10 +6042,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -5652,16 +6155,8 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->days) {
             @$query['days'] = $request->days;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -5703,6 +6198,77 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * Asynchronously queries the CVE hotfix status on specified instances.
+     *
+     * @remarks
+     * The call to this operation to install the agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to obtain the execution status of the task.
+     *
+     * @param request - QueryHotfixStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHotfixStatusResponse
+     *
+     * @param QueryHotfixStatusRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryHotfixStatusResponse
+     */
+    public function queryHotfixStatusWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cveId) {
+            @$body['cveId'] = $request->cveId;
+        }
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryHotfixStatus',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/hotfix_manager/hotfix/query_status',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryHotfixStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Asynchronously queries the CVE hotfix status on specified instances.
+     *
+     * @remarks
+     * The call to this operation to install the agent is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to obtain the execution status of the task.
+     *
+     * @param request - QueryHotfixStatusRequest
+     *
+     * @returns QueryHotfixStatusResponse
+     *
+     * @param QueryHotfixStatusRequest $request
+     *
+     * @return QueryHotfixStatusResponse
+     */
+    public function queryHotfixStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryHotfixStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Starts AI job analysis.
      *
      * @param request - StartAIAnalysisRequest
@@ -5720,15 +6286,6 @@ class SysOM extends OpenApiClient
     public function startAIAnalysisWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->analysisTool) {
             @$body['analysisTool'] = $request->analysisTool;
@@ -5788,7 +6345,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -5829,7 +6385,7 @@ class SysOM extends OpenApiClient
      * Starts an AI Infra differential analysis.
      *
      * @remarks
-     * Currently, only comparative analysis of the same pid across different steps within the same AI Infra analysis record is supported.
+     * Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
      *
      * @param request - StartAIDiffAnalysisRequest
      * @param headers - map
@@ -5846,15 +6402,6 @@ class SysOM extends OpenApiClient
     public function startAIDiffAnalysisWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->task1) {
             @$body['task1'] = $request->task1;
@@ -5866,7 +6413,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -5888,7 +6434,7 @@ class SysOM extends OpenApiClient
      * Starts an AI Infra differential analysis.
      *
      * @remarks
-     * Currently, only comparative analysis of the same pid across different steps within the same AI Infra analysis record is supported.
+     * Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
      *
      * @param request - StartAIDiffAnalysisRequest
      *
@@ -5904,6 +6450,85 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->startAIDiffAnalysisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Triggers AI application diagnostics.
+     *
+     * @remarks
+     * Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
+     *
+     * @param request - StartAifgAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAifgAnalysisResponse
+     *
+     * @param StartAifgAnalysisRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StartAifgAnalysisResponse
+     */
+    public function startAifgAnalysisWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->channel) {
+            @$body['channel'] = $request->channel;
+        }
+
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
+        }
+
+        if (null !== $request->region) {
+            @$body['region'] = $request->region;
+        }
+
+        if (null !== $request->serviceName) {
+            @$body['serviceName'] = $request->serviceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StartAifgAnalysis',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/aifg/startAifgAnalysis',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StartAifgAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Triggers AI application diagnostics.
+     *
+     * @remarks
+     * Currently, only comparative analysis of the same PID across different steps within the same AI Infra analysis record is supported.
+     *
+     * @param request - StartAifgAnalysisRequest
+     *
+     * @returns StartAifgAnalysisResponse
+     *
+     * @param StartAifgAnalysisRequest $request
+     *
+     * @return StartAifgAnalysisResponse
+     */
+    public function startAifgAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startAifgAnalysisWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5927,15 +6552,6 @@ class SysOM extends OpenApiClient
     public function uninstallAgentWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->agentId) {
             @$body['agent_id'] = $request->agentId;
@@ -5951,7 +6567,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6009,15 +6624,6 @@ class SysOM extends OpenApiClient
     public function uninstallAgentForClusterWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->agentId) {
             @$body['agent_id'] = $request->agentId;
@@ -6033,7 +6639,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6074,7 +6679,7 @@ class SysOM extends OpenApiClient
      * Uninstalls a specified version of a component.
      *
      * @remarks
-     * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+     * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UninstallAgentWithTypeRequest
      * @param headers - map
@@ -6091,15 +6696,6 @@ class SysOM extends OpenApiClient
     public function uninstallAgentWithTypeWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->agentId) {
             @$body['agentId'] = $request->agentId;
@@ -6119,7 +6715,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6141,7 +6736,7 @@ class SysOM extends OpenApiClient
      * Uninstalls a specified version of a component.
      *
      * @remarks
-     * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+     * Calling this operation to uninstall an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UninstallAgentWithTypeRequest
      *
@@ -6157,6 +6752,152 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->uninstallAgentWithTypeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Asynchronously uninstalls CVE hotfixes from the specified instances.
+     *
+     * @remarks
+     * This operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+     *
+     * @param request - UninstallHotfixRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallHotfixResponse
+     *
+     * @param UninstallHotfixRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UninstallHotfixResponse
+     */
+    public function uninstallHotfixWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cveId) {
+            @$body['cveId'] = $request->cveId;
+        }
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UninstallHotfix',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/hotfix_manager/hotfix/uninstall',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UninstallHotfixResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Asynchronously uninstalls CVE hotfixes from the specified instances.
+     *
+     * @remarks
+     * This operation is asynchronous. After you call this operation, a task_id is returned. You can use this ID to call the GetHotfixTask operation to query the execution status of the task.
+     *
+     * @param request - UninstallHotfixRequest
+     *
+     * @returns UninstallHotfixResponse
+     *
+     * @param UninstallHotfixRequest $request
+     *
+     * @return UninstallHotfixResponse
+     */
+    public function uninstallHotfix($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->uninstallHotfixWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the component configuration.
+     *
+     * @remarks
+     * After the configuration is updated, the new configuration is delivered to all resources that use it.
+     *
+     * @param request - UpdateAgentConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentConfigResponse
+     *
+     * @param UpdateAgentConfigRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateAgentConfigResponse
+     */
+    public function updateAgentConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->configId) {
+            @$body['configId'] = $request->configId;
+        }
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgentConfig',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/updateAgentConfig',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the component configuration.
+     *
+     * @remarks
+     * After the configuration is updated, the new configuration is delivered to all resources that use it.
+     *
+     * @param request - UpdateAgentConfigRequest
+     *
+     * @returns UpdateAgentConfigResponse
+     *
+     * @param UpdateAgentConfigRequest $request
+     *
+     * @return UpdateAgentConfigResponse
+     */
+    public function updateAgentConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAgentConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6180,15 +6921,6 @@ class SysOM extends OpenApiClient
     public function updateAlertDestinationWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->appId) {
             @$body['app_id'] = $request->appId;
@@ -6228,7 +6960,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6286,15 +7017,6 @@ class SysOM extends OpenApiClient
     public function updateAlertEnabledWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->enabled) {
             @$body['enabled'] = $request->enabled;
@@ -6306,7 +7028,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6361,15 +7082,6 @@ class SysOM extends OpenApiClient
     public function updateAlertStrategyWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->enabled) {
             @$body['enabled'] = $request->enabled;
@@ -6393,7 +7105,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6431,6 +7142,75 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * Updates the configuration of a cluster component.
+     *
+     * @param request - UpdateClusterAgentConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateClusterAgentConfigResponse
+     *
+     * @param UpdateClusterAgentConfigRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateClusterAgentConfigResponse
+     */
+    public function updateClusterAgentConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['clusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->configId) {
+            @$body['configId'] = $request->configId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateClusterAgentConfig',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/updateClusterAgentConfig',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateClusterAgentConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the configuration of a cluster component.
+     *
+     * @param request - UpdateClusterAgentConfigRequest
+     *
+     * @returns UpdateClusterAgentConfigResponse
+     *
+     * @param UpdateClusterAgentConfigRequest $request
+     *
+     * @return UpdateClusterAgentConfigResponse
+     */
+    public function updateClusterAgentConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateClusterAgentConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Updates the attention level of an anomaly item. Adjusting the attention level affects the sensitivity of the anomaly detection algorithm.
      *
      * @param request - UpdateEventsAttentionRequest
@@ -6448,15 +7228,6 @@ class SysOM extends OpenApiClient
     public function updateEventsAttentionWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->mode) {
             @$body['mode'] = $request->mode;
@@ -6472,7 +7243,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6538,10 +7308,6 @@ class SysOM extends OpenApiClient
         }
 
         $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
         if (null !== $request->channel) {
             @$query['channel'] = $request->channel;
         }
@@ -6552,10 +7318,6 @@ class SysOM extends OpenApiClient
 
         if (null !== $request->serviceName) {
             @$query['service_name'] = $request->serviceName;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
         }
 
         $req = new OpenApiRequest([
@@ -6601,10 +7363,79 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Updates the version of an installed component to a specified version.
+     * Updates the component configuration of an instance.
+     *
+     * @param request - UpdateInstanceAgentConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceAgentConfigResponse
+     *
+     * @param UpdateInstanceAgentConfigRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateInstanceAgentConfigResponse
+     */
+    public function updateInstanceAgentConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->configId) {
+            @$body['configId'] = $request->configId;
+        }
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstanceAgentConfig',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/updateInstanceAgentConfig',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstanceAgentConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the component configuration of an instance.
+     *
+     * @param request - UpdateInstanceAgentConfigRequest
+     *
+     * @returns UpdateInstanceAgentConfigResponse
+     *
+     * @param UpdateInstanceAgentConfigRequest $request
+     *
+     * @return UpdateInstanceAgentConfigResponse
+     */
+    public function updateInstanceAgentConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateInstanceAgentConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Updates an installed component to a specified version.
      *
      * @remarks
-     * Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+     * Calling this operation to update an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UpgradeAgentRequest
      * @param headers - map
@@ -6621,15 +7452,6 @@ class SysOM extends OpenApiClient
     public function upgradeAgentWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->agentId) {
             @$body['agent_id'] = $request->agentId;
@@ -6645,7 +7467,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6664,10 +7485,10 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Updates the version of an installed component to a specified version.
+     * Updates an installed component to a specified version.
      *
      * @remarks
-     * Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+     * Calling this operation to update an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UpgradeAgentRequest
      *
@@ -6686,7 +7507,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Updates a component for an ACK cluster.
+     * Updates a component for a cluster.
      *
      * @param request - UpgradeAgentForClusterRequest
      * @param headers - map
@@ -6703,15 +7524,6 @@ class SysOM extends OpenApiClient
     public function upgradeAgentForClusterWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->agentId) {
             @$body['agent_id'] = $request->agentId;
@@ -6727,7 +7539,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6746,7 +7557,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Updates a component for an ACK cluster.
+     * Updates a component for a cluster.
      *
      * @param request - UpgradeAgentForClusterRequest
      *
@@ -6768,7 +7579,7 @@ class SysOM extends OpenApiClient
      * Updates the version of an installed component to a specified version.
      *
      * @remarks
-     * Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+     * Calling this operation to update an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UpgradeAgentWithTypeRequest
      * @param headers - map
@@ -6785,15 +7596,6 @@ class SysOM extends OpenApiClient
     public function upgradeAgentWithTypeWithOptions($request, $headers, $runtime)
     {
         $request->validate();
-        $query = [];
-        if (null !== $request->xDebugId) {
-            @$query['X-Debug-Id'] = $request->xDebugId;
-        }
-
-        if (null !== $request->xSysomInvokeSource) {
-            @$query['x-sysom-invoke-source'] = $request->xSysomInvokeSource;
-        }
-
         $body = [];
         if (null !== $request->agentId) {
             @$body['agentId'] = $request->agentId;
@@ -6813,7 +7615,6 @@ class SysOM extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -6835,7 +7636,7 @@ class SysOM extends OpenApiClient
      * Updates the version of an installed component to a specified version.
      *
      * @remarks
-     * Calling this operation to update the Agent is asynchronous. After the call, a task_id is returned. You can use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
+     * Calling this operation to update an Agent is asynchronous. After the call, a task_id is returned. Use this ID to call the GetAgentTask operation to retrieve the execution status of the task.
      *
      * @param request - UpgradeAgentWithTypeRequest
      *

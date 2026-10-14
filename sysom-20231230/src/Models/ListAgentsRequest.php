@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class ListAgentsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $xDebugId;
-
-    /**
      * @var int
      */
     public $current;
@@ -32,18 +27,11 @@ class ListAgentsRequest extends Model
      * @var string
      */
     public $type;
-
-    /**
-     * @var string
-     */
-    public $xSysomInvokeSource;
     protected $_name = [
-        'xDebugId' => 'X-Debug-Id',
         'current' => 'current',
         'name' => 'name',
         'pageSize' => 'pageSize',
         'type' => 'type',
-        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -54,10 +42,6 @@ class ListAgentsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->xDebugId) {
-            $res['X-Debug-Id'] = $this->xDebugId;
-        }
-
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
@@ -74,10 +58,6 @@ class ListAgentsRequest extends Model
             $res['type'] = $this->type;
         }
 
-        if (null !== $this->xSysomInvokeSource) {
-            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
-        }
-
         return $res;
     }
 
@@ -89,10 +69,6 @@ class ListAgentsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['X-Debug-Id'])) {
-            $model->xDebugId = $map['X-Debug-Id'];
-        }
-
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }
@@ -107,10 +83,6 @@ class ListAgentsRequest extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
-        }
-
-        if (isset($map['x-sysom-invoke-source'])) {
-            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

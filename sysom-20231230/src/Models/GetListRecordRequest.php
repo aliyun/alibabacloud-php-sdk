@@ -11,11 +11,6 @@ class GetListRecordRequest extends Model
     /**
      * @var string
      */
-    public $xDebugId;
-
-    /**
-     * @var string
-     */
     public $analysisId;
 
     /**
@@ -37,19 +32,12 @@ class GetListRecordRequest extends Model
      * @var string
      */
     public $region;
-
-    /**
-     * @var string
-     */
-    public $xSysomInvokeSource;
     protected $_name = [
-        'xDebugId' => 'X-Debug-Id',
         'analysisId' => 'analysisId',
         'current' => 'current',
         'customId' => 'customId',
         'pageSize' => 'pageSize',
         'region' => 'region',
-        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -60,10 +48,6 @@ class GetListRecordRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->xDebugId) {
-            $res['X-Debug-Id'] = $this->xDebugId;
-        }
-
         if (null !== $this->analysisId) {
             $res['analysisId'] = $this->analysisId;
         }
@@ -84,10 +68,6 @@ class GetListRecordRequest extends Model
             $res['region'] = $this->region;
         }
 
-        if (null !== $this->xSysomInvokeSource) {
-            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
-        }
-
         return $res;
     }
 
@@ -99,10 +79,6 @@ class GetListRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['X-Debug-Id'])) {
-            $model->xDebugId = $map['X-Debug-Id'];
-        }
-
         if (isset($map['analysisId'])) {
             $model->analysisId = $map['analysisId'];
         }
@@ -121,10 +97,6 @@ class GetListRecordRequest extends Model
 
         if (isset($map['region'])) {
             $model->region = $map['region'];
-        }
-
-        if (isset($map['x-sysom-invoke-source'])) {
-            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;

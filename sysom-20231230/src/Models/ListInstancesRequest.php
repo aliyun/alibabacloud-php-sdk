@@ -11,11 +11,6 @@ class ListInstancesRequest extends Model
     /**
      * @var string
      */
-    public $xDebugId;
-
-    /**
-     * @var string
-     */
     public $clusterId;
 
     /**
@@ -42,20 +37,13 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $xSysomInvokeSource;
     protected $_name = [
-        'xDebugId' => 'X-Debug-Id',
         'clusterId' => 'cluster_id',
         'current' => 'current',
         'instance' => 'instance',
         'pageSize' => 'pageSize',
         'region' => 'region',
         'status' => 'status',
-        'xSysomInvokeSource' => 'x-sysom-invoke-source',
     ];
 
     public function validate()
@@ -66,10 +54,6 @@ class ListInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->xDebugId) {
-            $res['X-Debug-Id'] = $this->xDebugId;
-        }
-
         if (null !== $this->clusterId) {
             $res['cluster_id'] = $this->clusterId;
         }
@@ -94,10 +78,6 @@ class ListInstancesRequest extends Model
             $res['status'] = $this->status;
         }
 
-        if (null !== $this->xSysomInvokeSource) {
-            $res['x-sysom-invoke-source'] = $this->xSysomInvokeSource;
-        }
-
         return $res;
     }
 
@@ -109,10 +89,6 @@ class ListInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['X-Debug-Id'])) {
-            $model->xDebugId = $map['X-Debug-Id'];
-        }
-
         if (isset($map['cluster_id'])) {
             $model->clusterId = $map['cluster_id'];
         }
@@ -135,10 +111,6 @@ class ListInstancesRequest extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
-        }
-
-        if (isset($map['x-sysom-invoke-source'])) {
-            $model->xSysomInvokeSource = $map['x-sysom-invoke-source'];
         }
 
         return $model;
