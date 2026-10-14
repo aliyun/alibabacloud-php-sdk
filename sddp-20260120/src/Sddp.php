@@ -99,12 +99,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 校验列加密实例权限.
+     * Checks the prerequisites for column encryption on an instance.
      *
      * @remarks
-     * 创建列加密前检查实例的权限、引擎及运行条件。应同时检查响应中的 ErrorCode 和 ErrorMessage；仅 ErrorCode=Success 表示检查通过，请求成功本身不表示实例满足全部加密条件。此检查不会创建列加密规则。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Checks the permissions, engine, and runtime conditions of an instance before creating column encryption rules. Check both ErrorCode and ErrorMessage in the response. Only ErrorCode=Success indicates that the check passed. A successful request alone does not mean the instance meets all encryption conditions. This check does not create column encryption rules.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained from your account.
+     * Use the service registration endpoint of the region where the target asset resides, and configure the common parameter RegionId to the corresponding value, such as cn-zhangjiakou. The product code and instance identifier must match the target asset.
      *
      * @param request - CheckDataMaskingInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -155,12 +155,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 校验列加密实例权限.
+     * Checks the prerequisites for column encryption on an instance.
      *
      * @remarks
-     * 创建列加密前检查实例的权限、引擎及运行条件。应同时检查响应中的 ErrorCode 和 ErrorMessage；仅 ErrorCode=Success 表示检查通过，请求成功本身不表示实例满足全部加密条件。此检查不会创建列加密规则。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Checks the permissions, engine, and runtime conditions of an instance before creating column encryption rules. Check both ErrorCode and ErrorMessage in the response. Only ErrorCode=Success indicates that the check passed. A successful request alone does not mean the instance meets all encryption conditions. This check does not create column encryption rules.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained from your account.
+     * Use the service registration endpoint of the region where the target asset resides, and configure the common parameter RegionId to the corresponding value, such as cn-zhangjiakou. The product code and instance identifier must match the target asset.
      *
      * @param request - CheckDataMaskingInstanceRequest
      *
@@ -178,13 +178,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 创建列加密策略.
+     * Creates a column encryption rule.
      *
      * @remarks
-     * 为同一实例下指定数据库、表和列创建列加密规则。调用前检查实例状态、支持算法、密钥、目标列和账号。SubRuleList 为按表分组的目标列表，Columns 是以英文逗号分隔的列名字符串；UserList 中的账号被授予 fullAccess 明文权限。请求成功仅表示已受理，必须回读 ListDataMaskingColumns 和 ListDataAssetAccounts 确认列状态、账号权限及期限。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Creates a column encryption rule for a specified database, table, and columns under the same instance. Before invoking this operation, verify the instance status, supported algorithms, key, target columns, and accounts. SubRuleList is a list of target columns grouped by table. Columns is a comma-separated string of column names. Accounts in UserList are granted fullAccess plaintext access permissions. A successful request indicates only that the request has been accepted. You must invoke [ListDataMaskingColumns](https://help.aliyun.com/document_detail/2859325.html) and [ListDataAssetAccounts](https://help.aliyun.com/document_detail/2859330.html) to confirm the column status, account access permissions, and expiration time.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
+     * This operation returns only RequestId. A successful request does not mean that the operation is complete. Read back the status as described in the operation description.
      *
      * @param tmpReq - CreateDataMaskingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -281,13 +281,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 创建列加密策略.
+     * Creates a column encryption rule.
      *
      * @remarks
-     * 为同一实例下指定数据库、表和列创建列加密规则。调用前检查实例状态、支持算法、密钥、目标列和账号。SubRuleList 为按表分组的目标列表，Columns 是以英文逗号分隔的列名字符串；UserList 中的账号被授予 fullAccess 明文权限。请求成功仅表示已受理，必须回读 ListDataMaskingColumns 和 ListDataAssetAccounts 确认列状态、账号权限及期限。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Creates a column encryption rule for a specified database, table, and columns under the same instance. Before invoking this operation, verify the instance status, supported algorithms, key, target columns, and accounts. SubRuleList is a list of target columns grouped by table. Columns is a comma-separated string of column names. Accounts in UserList are granted fullAccess plaintext access permissions. A successful request indicates only that the request has been accepted. You must invoke [ListDataMaskingColumns](https://help.aliyun.com/document_detail/2859325.html) and [ListDataAssetAccounts](https://help.aliyun.com/document_detail/2859330.html) to confirm the column status, account access permissions, and expiration time.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
+     * This operation returns only RequestId. A successful request does not mean that the operation is complete. Read back the status as described in the operation description.
      *
      * @param request - CreateDataMaskingRuleRequest
      *
@@ -305,7 +305,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 删除列加密策略.
+     * Disables encryption for specified columns.
+     *
+     * @remarks
+     * Disables column encryption rules for specified columns within the same instance. SubRuleList precisely specifies the database, table, and columns. If no matching rule is found, no new operation object is created. The disable request is processed asynchronously. Use ListDataMaskingColumns to verify that the column has recovered to NotEncrypted or that the target rule has been removed. DeleteFailed indicates that the shutdown failed.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained by querying your current account.
+     * Use the endpoint of the region where the target asset resides, and set the common parameter RegionId to the corresponding value, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
+     * This operation returns only RequestId. Request acceptance does not indicate that the business operation is complete. Poll the status as described in the operation description.
      *
      * @param tmpReq - DeleteDataMaskingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -370,7 +376,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 删除列加密策略.
+     * Disables encryption for specified columns.
+     *
+     * @remarks
+     * Disables column encryption rules for specified columns within the same instance. SubRuleList precisely specifies the database, table, and columns. If no matching rule is found, no new operation object is created. The disable request is processed asynchronously. Use ListDataMaskingColumns to verify that the column has recovered to NotEncrypted or that the target rule has been removed. DeleteFailed indicates that the shutdown failed.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained by querying your current account.
+     * Use the endpoint of the region where the target asset resides, and set the common parameter RegionId to the corresponding value, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
+     * This operation returns only RequestId. Request acceptance does not indicate that the business operation is complete. Poll the status as described in the operation description.
      *
      * @param request - DeleteDataMaskingRuleRequest
      *
@@ -388,12 +400,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 检查实例列加密状态
+     * Queries the permission statistics of column encryption accounts.
      *
      * @remarks
-     * 按产品范围查询当前地域数据库账号的权限统计。明文账号对应 FullAccessCount；限制访问和禁止解密账号分别计入 RestrictedAccessCount、NoneAccessCount。未配置权限账号数可由 TotalCount 减去上述三类账号数得到。本接口不接受实例、库、表、列等筛选条件。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries the permission statistics of database accounts in the current region by product scope. Plaintext accounts correspond to FullAccessCount. Restricted access and decryption-prohibited accounts are counted in RestrictedAccessCount and NoneAccessCount, respectively. The number of accounts without configured permissions can be obtained by subtracting the preceding three account types from TotalCount. This operation does not accept filter conditions such as instance, database, table, or column.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained by querying the current account.
+     * Use the endpoint of the region where the target asset resides, and set the common parameter RegionId to the corresponding value, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - GetDataMaskingAccountCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -436,12 +448,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 检查实例列加密状态
+     * Queries the permission statistics of column encryption accounts.
      *
      * @remarks
-     * 按产品范围查询当前地域数据库账号的权限统计。明文账号对应 FullAccessCount；限制访问和禁止解密账号分别计入 RestrictedAccessCount、NoneAccessCount。未配置权限账号数可由 TotalCount 减去上述三类账号数得到。本接口不接受实例、库、表、列等筛选条件。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries the permission statistics of database accounts in the current region by product scope. Plaintext accounts correspond to FullAccessCount. Restricted access and decryption-prohibited accounts are counted in RestrictedAccessCount and NoneAccessCount, respectively. The number of accounts without configured permissions can be obtained by subtracting the preceding three account types from TotalCount. This operation does not accept filter conditions such as instance, database, table, or column.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained by querying the current account.
+     * Use the endpoint of the region where the target asset resides, and set the common parameter RegionId to the corresponding value, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - GetDataMaskingAccountCountRequest
      *
@@ -459,13 +471,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取列加密统计信息.
+     * Queries column encryption statistics.
      *
      * @remarks
-     * 按地域、产品和分类分级模板查询总列数、敏感列数、已加密列数和加密失败列数。本接口返回统计卡片数据，不跟随列列表中的实例、库名、表名、列名或模型筛选。
-     * 为兼容历史识别结果，指定模板无首屏结果且未按敏感等级或识别模型过滤时，结果可能回退到内置通用识别结果。要求严格模板归属时，请同时使用该模板内的等级或模型条件核验。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries the total number of columns, the number of sensitive columns, the number of encrypted columns, and the number of columns that failed to be encrypted by region, product, and categorization template. This operation returns statistics card data and does not follow the instance, database name, table name, column name, or model filters in the column list.
+     * For compatible with historical detection results, if no initial results are found for the specified template and no filtering by sensitivity level or detection model is applied, the results may backoff to built-in general detection results. To enforce strict template ownership, verify the results by using the sensitivity level or model conditions within the template.
+     * The parameter examples are provided only to illustrate the format. Replace the values with the regions, resource identifiers, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - GetDataMaskingColumnCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -512,13 +524,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取列加密统计信息.
+     * Queries column encryption statistics.
      *
      * @remarks
-     * 按地域、产品和分类分级模板查询总列数、敏感列数、已加密列数和加密失败列数。本接口返回统计卡片数据，不跟随列列表中的实例、库名、表名、列名或模型筛选。
-     * 为兼容历史识别结果，指定模板无首屏结果且未按敏感等级或识别模型过滤时，结果可能回退到内置通用识别结果。要求严格模板归属时，请同时使用该模板内的等级或模型条件核验。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries the total number of columns, the number of sensitive columns, the number of encrypted columns, and the number of columns that failed to be encrypted by region, product, and categorization template. This operation returns statistics card data and does not follow the instance, database name, table name, column name, or model filters in the column list.
+     * For compatible with historical detection results, if no initial results are found for the specified template and no filtering by sensitivity level or detection model is applied, the results may backoff to built-in general detection results. To enforce strict template ownership, verify the results by using the sensitivity level or model conditions within the template.
+     * The parameter examples are provided only to illustrate the format. Replace the values with the regions, resource identifiers, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - GetDataMaskingColumnCountRequest
      *
@@ -536,7 +548,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取实例属性.
+     * Queries the engine and kernel properties of an instance.
+     *
+     * @remarks
+     * Queries the DPI engine, current kernel version, O&M window, and KMS encryption support of an instance. After a kernel upgrade, you can read back CurrentKernelVersion to verify the target version. If ErrorCode or ErrorMessage is present, handle the property query exception first.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides, and configure the common parameter RegionId in Settings, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - GetInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -587,7 +604,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取实例属性.
+     * Queries the engine and kernel properties of an instance.
+     *
+     * @remarks
+     * Queries the DPI engine, current kernel version, O&M window, and KMS encryption support of an instance. After a kernel upgrade, you can read back CurrentKernelVersion to verify the target version. If ErrorCode or ErrorMessage is present, handle the property query exception first.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides, and configure the common parameter RegionId in Settings, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - GetInstanceAttributeRequest
      *
@@ -605,7 +627,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据.
+     * Queries columns and detection results of a data table.
+     *
+     * @remarks
+     * Queries columns and detection results of a data table with paging. When both DataAssetSourceId and InstanceName are specified, DataAssetSourceId takes precedence. For PostgreSQL and Oracle scenarios, you can use the schema.table format for TableName and pass in the corresponding EngineType. To query the execute status of column encryption, invoke ListDataMaskingColumns.
+     * For compatible with historical detection results, if the specified template has no initial results and no filtering by sensitivity level or detection model is applied, the results may fall back to built-in general detection results. To strictly verify template ownership, use the sensitivity level or model conditions within the template for verification.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product code and instance identity must match the target asset.
      *
      * @param request - ListColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -692,7 +720,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询数据安全中心连接授权的MaxCompute、RDS等数据资产表中列的数据.
+     * Queries columns and detection results of a data table.
+     *
+     * @remarks
+     * Queries columns and detection results of a data table with paging. When both DataAssetSourceId and InstanceName are specified, DataAssetSourceId takes precedence. For PostgreSQL and Oracle scenarios, you can use the schema.table format for TableName and pass in the corresponding EngineType. To query the execute status of column encryption, invoke ListDataMaskingColumns.
+     * For compatible with historical detection results, if the specified template has no initial results and no filtering by sensitivity level or detection model is applied, the results may fall back to built-in general detection results. To strictly verify template ownership, use the sensitivity level or model conditions within the template for verification.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product code and instance identity must match the target asset.
      *
      * @param request - ListColumnsRequest
      *
@@ -710,7 +744,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询账号列表.
+     * Queries database accounts and column encryption permissions.
+     *
+     * @remarks
+     * Queries database accounts and their column encryption access permissions with paging. Use this operation to select plaintext accounts when creating rules, and to verify AuthRole, EncryptionKeyMode, and ExpireTime before and after modifying account permissions. AccountName filters by exact account name. The account identity is obtained from Items[].Id.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained from your current account query.
+     * Use the endpoint of the region where the target asset resides, and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListDataAssetAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -781,7 +820,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询账号列表.
+     * Queries database accounts and column encryption permissions.
+     *
+     * @remarks
+     * Queries database accounts and their column encryption access permissions with paging. Use this operation to select plaintext accounts when creating rules, and to verify AuthRole, EncryptionKeyMode, and ExpireTime before and after modifying account permissions. AccountName filters by exact account name. The account identity is obtained from Items[].Id.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained from your current account query.
+     * Use the endpoint of the region where the target asset resides, and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListDataAssetAccountsRequest
      *
@@ -799,14 +843,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取列加密列列表.
+     * Queries the encryption status and detection results of columns.
      *
      * @remarks
-     * 分页查询列及其加密状态、敏感等级和识别模型。支持模板、产品、实例、数据库、表、列名、模型和敏感等级组合筛选。创建或关闭规则后使用本接口回读；Processing、Deleting 为中间状态，Failed、DeleteFailed 表示操作失败。RiskLeveLId 的参数名大小写应原样保留。
-     * 按产品查询时使用单个 ProductId 或对应 ProductCode。当前列查询不能依赖 ProductIds 实现多产品筛选；多产品应分别查询。
-     * 为兼容历史识别结果，指定模板无首屏结果且未按敏感等级或识别模型过滤时，结果可能回退到内置通用识别结果。要求严格模板归属时，请同时使用该模板内的等级或模型条件核验。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Performs a paging query on columns and their encryption status, sensitivity levels, and detection models. You can filter results by combining template, product, instance, database, table, column name, model, and sensitivity level. Use this operation to read back results after creating or shutting down a rule. Processing and Deleting are intermediate states. Failed and DeleteFailed indicate operation failures. The casing of the parameter name RiskLeveLId must be preserved as-is.
+     * When querying by product, use a single ProductId or the corresponding ProductCode. Column queries do not support multi-product filtering through ProductIds. Query each product separately for multi-product scenarios.
+     * For compatibility with historical detection results, if no first-page results are found for the specified template and no sensitivity level or detection model filter is applied, the results may fall back to built-in general detection results. To enforce strict template ownership, also use a level or model condition from that template for verification.
+     * Parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, for example, cn-zhangjiakou. The product code and instance identifier must match the target asset.
      *
      * @param request - ListDataMaskingColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -905,14 +949,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取列加密列列表.
+     * Queries the encryption status and detection results of columns.
      *
      * @remarks
-     * 分页查询列及其加密状态、敏感等级和识别模型。支持模板、产品、实例、数据库、表、列名、模型和敏感等级组合筛选。创建或关闭规则后使用本接口回读；Processing、Deleting 为中间状态，Failed、DeleteFailed 表示操作失败。RiskLeveLId 的参数名大小写应原样保留。
-     * 按产品查询时使用单个 ProductId 或对应 ProductCode。当前列查询不能依赖 ProductIds 实现多产品筛选；多产品应分别查询。
-     * 为兼容历史识别结果，指定模板无首屏结果且未按敏感等级或识别模型过滤时，结果可能回退到内置通用识别结果。要求严格模板归属时，请同时使用该模板内的等级或模型条件核验。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Performs a paging query on columns and their encryption status, sensitivity levels, and detection models. You can filter results by combining template, product, instance, database, table, column name, model, and sensitivity level. Use this operation to read back results after creating or shutting down a rule. Processing and Deleting are intermediate states. Failed and DeleteFailed indicate operation failures. The casing of the parameter name RiskLeveLId must be preserved as-is.
+     * When querying by product, use a single ProductId or the corresponding ProductCode. Column queries do not support multi-product filtering through ProductIds. Query each product separately for multi-product scenarios.
+     * For compatibility with historical detection results, if no first-page results are found for the specified template and no sensitivity level or detection model filter is applied, the results may fall back to built-in general detection results. To enforce strict template ownership, also use a level or model condition from that template for verification.
+     * Parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, for example, cn-zhangjiakou. The product code and instance identifier must match the target asset.
      *
      * @param request - ListDataMaskingColumnsRequest
      *
@@ -930,12 +974,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询实例支持的列加密算法列表.
+     * Queries the column encryption algorithms supported by an instance.
      *
      * @remarks
-     * 查询指定实例可选的列加密算法及各算法的限制原因。选择算法前检查对应项的 ErrorCode 和 ErrorMessage；不要把所有实例都视为支持同一组算法。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries the available column encryption algorithms for a specified instance and the restriction reasons for each algorithm. Before selecting an algorithm, check the ErrorCode and ErrorMessage of the corresponding entry. Do not assume that all instances support the same set of algorithms.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your current account.
+     * Use the service registration endpoint of the region where the target asset resides, and set the common parameter RegionId, such as cn-zhangjiakou. The product code and instance identifier must match the target asset.
      *
      * @param request - ListDataMaskingEncryptionAlgorithmsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -986,12 +1030,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询实例支持的列加密算法列表.
+     * Queries the column encryption algorithms supported by an instance.
      *
      * @remarks
-     * 查询指定实例可选的列加密算法及各算法的限制原因。选择算法前检查对应项的 ErrorCode 和 ErrorMessage；不要把所有实例都视为支持同一组算法。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries the available column encryption algorithms for a specified instance and the restriction reasons for each algorithm. Before selecting an algorithm, check the ErrorCode and ErrorMessage of the corresponding entry. Do not assume that all instances support the same set of algorithms.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your current account.
+     * Use the service registration endpoint of the region where the target asset resides, and set the common parameter RegionId, such as cn-zhangjiakou. The product code and instance identifier must match the target asset.
      *
      * @param request - ListDataMaskingEncryptionAlgorithmsRequest
      *
@@ -1009,13 +1053,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取列加密实例列表.
+     * Queries column encryption instances.
      *
      * @remarks
-     * 分页查询列加密实例，并支持产品、识别模板及库表列等条件。实例级状态筛选与列级状态筛选范围不同：查找全部未加密敏感列时，先枚举目标产品的实例，再使用 ListDataMaskingColumns 按 NotEncrypted 筛选，避免遗漏已经部分加密的实例。
-     * 需要按 EngineType 精确筛选时，应完整分页读取候选后按返回值过滤；部分查询路径不应用此参数。InstanceId 的匹配语义随查询组合变化，精确定位时应核对返回的完整实例标识。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries column encryption instances by paging and supports filtering by product, detection template, and database/table/column. Instance-level status filtering differs from column-level status filtering in scope. To find all unencrypted sensitive columns, first enumerate the instances of the target product, and then use ListDataMaskingColumns to filter by NotEncrypted. This prevents you from missing instances that are partially encrypted.
+     * To filter precisely by EngineType, read all candidate pages and then filter by the returned values. Some query paths do not apply this parameter. The matching semantics of InstanceId vary depending on the query combination. To precisely locate an instance, verify the complete instance identity in the response.
+     * The parameter examples are provided only to illustrate the format. Replace the values with the region IDs, resource identities, and configuration values that you obtain from your account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListDataMaskingInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1118,13 +1162,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取列加密实例列表.
+     * Queries column encryption instances.
      *
      * @remarks
-     * 分页查询列加密实例，并支持产品、识别模板及库表列等条件。实例级状态筛选与列级状态筛选范围不同：查找全部未加密敏感列时，先枚举目标产品的实例，再使用 ListDataMaskingColumns 按 NotEncrypted 筛选，避免遗漏已经部分加密的实例。
-     * 需要按 EngineType 精确筛选时，应完整分页读取候选后按返回值过滤；部分查询路径不应用此参数。InstanceId 的匹配语义随查询组合变化，精确定位时应核对返回的完整实例标识。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries column encryption instances by paging and supports filtering by product, detection template, and database/table/column. Instance-level status filtering differs from column-level status filtering in scope. To find all unencrypted sensitive columns, first enumerate the instances of the target product, and then use ListDataMaskingColumns to filter by NotEncrypted. This prevents you from missing instances that are partially encrypted.
+     * To filter precisely by EngineType, read all candidate pages and then filter by the returned values. Some query paths do not apply this parameter. The matching semantics of InstanceId vary depending on the query combination. To precisely locate an instance, verify the complete instance identity in the response.
+     * The parameter examples are provided only to illustrate the format. Replace the values with the region IDs, resource identities, and configuration values that you obtain from your account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListDataMaskingInstancesRequest
      *
@@ -1142,12 +1186,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询数据源列表.
+     * Queries the databases of an instance.
      *
      * @remarks
-     * 分页查询已纳管的数据源。关系型数据库场景通过 ProductCode、InstanceId 定位实例，从 Items[].DbName 选择数据库。本接口查询数据库库存，不使用分类分级模板筛选。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Performs a paged query on managed data sources by using paging. In relational database scenarios, locate the instance by using ProductCode and InstanceId, and select a database from Items[].DbName. This operation queries the database inventory and does not filter by data categorization and classification templates.
+     * Parameter examples are for format illustration only. Replace them with the region, resource identity, and configuration values obtained from the current account when you invoke this operation.
+     * Use the service registration endpoint of the region where the target asset resides and configure the settings of the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1183,6 +1227,10 @@ class Sddp extends OpenApiClient
             @$query['DbName'] = $request->dbName;
         }
 
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
+        }
+
         if (null !== $request->identifyStatus) {
             @$query['IdentifyStatus'] = $request->identifyStatus;
         }
@@ -1205,6 +1253,10 @@ class Sddp extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
 
         if (null !== $request->productCode) {
@@ -1238,12 +1290,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询数据源列表.
+     * Queries the databases of an instance.
      *
      * @remarks
-     * 分页查询已纳管的数据源。关系型数据库场景通过 ProductCode、InstanceId 定位实例，从 Items[].DbName 选择数据库。本接口查询数据库库存，不使用分类分级模板筛选。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Performs a paged query on managed data sources by using paging. In relational database scenarios, locate the instance by using ProductCode and InstanceId, and select a database from Items[].DbName. This operation queries the database inventory and does not filter by data categorization and classification templates.
+     * Parameter examples are for format illustration only. Replace them with the region, resource identity, and configuration values obtained from the current account when you invoke this operation.
+     * Use the service registration endpoint of the region where the target asset resides and configure the settings of the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListDataSourcesRequest
      *
@@ -1261,11 +1313,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询模板的所有规则.
+     * Queries the sensitive data detection models of a template.
      *
      * @remarks
-     * 查询指定模板内有效的识别模型，返回 RuleList。未指定 TemplateId 时使用当前启用模板。模型标识取 RuleList[].Id，可用于 TemplateRuleIds 筛选。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
+     * Queries the valid sensitive data detection models within a specified template and returns RuleList. If TemplateId is not specified, the currently enabled template is used. Use RuleList[].Id to obtain model identifiers, which can be used for filtering with TemplateRuleIds.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your account.
      *
      * @param request - ListIdentifyModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1316,11 +1368,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询模板的所有规则.
+     * Queries the sensitive data detection models of a template.
      *
      * @remarks
-     * 查询指定模板内有效的识别模型，返回 RuleList。未指定 TemplateId 时使用当前启用模板。模型标识取 RuleList[].Id，可用于 TemplateRuleIds 筛选。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
+     * Queries the valid sensitive data detection models within a specified template and returns RuleList. If TemplateId is not specified, the currently enabled template is used. Use RuleList[].Id to obtain model identifiers, which can be used for filtering with TemplateRuleIds.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your account.
      *
      * @param request - ListIdentifyModelsRequest
      *
@@ -1338,7 +1390,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询可用的KMS主密钥.
+     * Queries the available KMS keys for column encryption.
+     *
+     * @remarks
+     * Queries the available KMS key identities and aliases for column encryption configuration of a specified instance. Before using a KMS key, verify the key status and usage conditions by invoking the DescribeKey operation of KMS. This operation does not return key plaintext.
+     * The parameter examples are provided only to illustrate the format. Replace them with the regions, resource identities, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListKmsKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1389,7 +1446,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询可用的KMS主密钥.
+     * Queries the available KMS keys for column encryption.
+     *
+     * @remarks
+     * Queries the available KMS key identities and aliases for column encryption configuration of a specified instance. Before using a KMS key, verify the key status and usage conditions by invoking the DescribeKey operation of KMS. This operation does not return key plaintext.
+     * The parameter examples are provided only to illustrate the format. Replace them with the regions, resource identities, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListKmsKeysRequest
      *
@@ -1407,12 +1469,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取实例内核版本列表.
+     * Queries the available kernel versions for upgrade.
      *
      * @remarks
-     * 查询实例可选择的内核版本。升级时从 KernelVersions[].KernelVersion 选择目标，不应手工构造版本号。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries the kernel versions available for an instance. When upgrading, select the target version from KernelVersions[].KernelVersion. Do not manually construct version numbers.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides, and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListMiniEngineVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1463,12 +1525,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 获取实例内核版本列表.
+     * Queries the available kernel versions for upgrade.
      *
      * @remarks
-     * 查询实例可选择的内核版本。升级时从 KernelVersions[].KernelVersion 选择目标，不应手工构造版本号。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Queries the kernel versions available for an instance. When upgrading, select the target version from KernelVersions[].KernelVersion. Do not manually construct version numbers.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides, and set the common parameter RegionId, such as cn-zhangjiakou. The product encoding and instance identity must match the target asset.
      *
      * @param request - ListMiniEngineVersionsRequest
      *
@@ -1486,11 +1548,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询区域列表.
+     * Queries the regions where assets reside.
      *
      * @remarks
-     * 查询当前账号拥有资产的地域列表，用于选择后续地域化接口的 RegionId。可按是否开启审计、是否开启识别筛选。返回的地域列表不等同于所有云产品支持地域清单。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
+     * Queries the list of regions where the current account has assets. You can use the returned region IDs as the RegionId parameter for subsequent region-specific API operations. You can filter regions by whether audit or detection is enabled. The returned region list is not equivalent to the full list of regions supported by all Alibaba Cloud services.
+     * The parameter examples are provided only to illustrate the format. Replace them with the actual region IDs, resource identifiers, and configuration values obtained from your account.
      *
      * @param request - ListRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1537,11 +1599,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询区域列表.
+     * Queries the regions where assets reside.
      *
      * @remarks
-     * 查询当前账号拥有资产的地域列表，用于选择后续地域化接口的 RegionId。可按是否开启审计、是否开启识别筛选。返回的地域列表不等同于所有云产品支持地域清单。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
+     * Queries the list of regions where the current account has assets. You can use the returned region IDs as the RegionId parameter for subsequent region-specific API operations. You can filter regions by whether audit or detection is enabled. The returned region list is not equivalent to the full list of regions supported by all Alibaba Cloud services.
+     * The parameter examples are provided only to illustrate the format. Replace them with the actual region IDs, resource identifiers, and configuration values obtained from your account.
      *
      * @param request - ListRegionsRequest
      *
@@ -1559,7 +1621,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询风险级别列表.
+     * Queries the sensitivity levels of a template.
+     *
+     * @remarks
+     * Queries the sensitivity levels in a data classification template. Use the returned level ID for subsequent queries. Do not use level names such as S1 or S2 directly as the RiskLevelId.
+     * The parameter examples are provided only to illustrate the format. Replace them with the regions, resource identifiers, and configuration values obtained from your account.
      *
      * @param request - ListRiskLevelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1606,7 +1672,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询风险级别列表.
+     * Queries the sensitivity levels of a template.
+     *
+     * @remarks
+     * Queries the sensitivity levels in a data classification template. Use the returned level ID for subsequent queries. Do not use level names such as S1 or S2 directly as the RiskLevelId.
+     * The parameter examples are provided only to illustrate the format. Replace them with the regions, resource identifiers, and configuration values obtained from your account.
      *
      * @param request - ListRiskLevelsRequest
      *
@@ -1624,13 +1694,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询表识别结果列表.
+     * Queries database tables.
      *
      * @remarks
-     * 分页查询数据库中的数据表及识别结果。关系型数据库场景传入 DataAssetSourceId=实例标识、DataSourceName=数据库名称。PostgreSQL 和 Oracle 的表名可能包含 schema 前缀，后续列查询应原样传递表名。
-     * 为兼容历史识别结果，指定模板无首屏结果且未按敏感等级或识别模型过滤时，结果可能回退到内置通用识别结果。要求严格模板归属时，请同时使用该模板内的等级或模型条件核验。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Performs a paging query on data tables and detection results in a database. For relational database scenarios, set DataAssetSourceId to the instance identity and DataSourceName to the database name. Table names in PostgreSQL and Oracle may include a schema prefix. Pass the table name as-is in subsequent column queries.
+     * For compatibility with historical detection results, if no results are found on the first page for the specified template and no filtering by sensitivity level or detection model is applied, the results may backoff to built-in general detection results. To strictly verify template ownership, also use the sensitivity level or model conditions within the template.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product code and instance identity must match the target asset.
      *
      * @param request - ListTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1713,13 +1783,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询表识别结果列表.
+     * Queries database tables.
      *
      * @remarks
-     * 分页查询数据库中的数据表及识别结果。关系型数据库场景传入 DataAssetSourceId=实例标识、DataSourceName=数据库名称。PostgreSQL 和 Oracle 的表名可能包含 schema 前缀，后续列查询应原样传递表名。
-     * 为兼容历史识别结果，指定模板无首屏结果且未按敏感等级或识别模型过滤时，结果可能回退到内置通用识别结果。要求严格模板归属时，请同时使用该模板内的等级或模型条件核验。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
+     * Performs a paging query on data tables and detection results in a database. For relational database scenarios, set DataAssetSourceId to the instance identity and DataSourceName to the database name. Table names in PostgreSQL and Oracle may include a schema prefix. Pass the table name as-is in subsequent column queries.
+     * For compatibility with historical detection results, if no results are found on the first page for the specified template and no filtering by sensitivity level or detection model is applied, the results may backoff to built-in general detection results. To strictly verify template ownership, also use the sensitivity level or model conditions within the template.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained from your current account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, such as cn-zhangjiakou. The product code and instance identity must match the target asset.
      *
      * @param request - ListTablesRequest
      *
@@ -1737,7 +1807,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询识别模版列表.
+     * Queries classification and grading templates.
+     *
+     * @remarks
+     * Queries the classification and grading templates available to the current account. Use Items[].Id as the TemplateId for subsequent API calls. Detection models and sensitivity levels must come from the same template.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your current account.
      *
      * @param request - ListTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1792,7 +1866,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 查询识别模版列表.
+     * Queries classification and grading templates.
+     *
+     * @remarks
+     * Queries the classification and grading templates available to the current account. Use Items[].Id as the TemplateId for subsequent API calls. Detection models and sensitivity levels must come from the same template.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identifiers, and configuration values obtained from your current account.
      *
      * @param request - ListTemplatesRequest
      *
@@ -1810,11 +1888,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 提供数据目录、总览页面的敏感数据汇总.
+     * Queries the summary of sensitive data.
      *
      * @remarks
-     * 查询总览、数据目录或按地域汇总的敏感数据统计。CountType=41 返回总览统计，42 返回指定产品的数据目录统计，43 返回按地域和模板聚合的数据。列加密控制台使用 CountType=43 与 ProductCodeList 获取地域和模板候选。统计数据可能来自已生成的汇总结果，不代表刚发起的同步或加密操作已经完成。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
+     * Queries the statistics of sensitive data from the overview, data catalog, or aggregated by region. CountType=41 returns overview statistics, 42 returns data catalog statistics for a specified product, and 43 returns data aggregated by region and template. The column encryption console uses CountType=43 with ProductCodeList to obtain region and template candidates. The statistics may come from pre-generated summary results and do not indicate that a recently initiated synchronization or encryption operation has completed.
+     * The parameter examples are provided only to illustrate the format. Replace them with the regions, resource identifiers, and configuration values obtained by querying your current account.
      *
      * @param request - ListTotalSensitiveInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1869,11 +1947,11 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 提供数据目录、总览页面的敏感数据汇总.
+     * Queries the summary of sensitive data.
      *
      * @remarks
-     * 查询总览、数据目录或按地域汇总的敏感数据统计。CountType=41 返回总览统计，42 返回指定产品的数据目录统计，43 返回按地域和模板聚合的数据。列加密控制台使用 CountType=43 与 ProductCodeList 获取地域和模板候选。统计数据可能来自已生成的汇总结果，不代表刚发起的同步或加密操作已经完成。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
+     * Queries the statistics of sensitive data from the overview, data catalog, or aggregated by region. CountType=41 returns overview statistics, 42 returns data catalog statistics for a specified product, and 43 returns data aggregated by region and template. The column encryption console uses CountType=43 with ProductCodeList to obtain region and template candidates. The statistics may come from pre-generated summary results and do not indicate that a recently initiated synchronization or encryption operation has completed.
+     * The parameter examples are provided only to illustrate the format. Replace them with the regions, resource identifiers, and configuration values obtained by querying your current account.
      *
      * @param request - ListTotalSensitiveInfoRequest
      *
@@ -1891,13 +1969,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 资产同步.
+     * Synchronizes the assets of a specified product in a region.
      *
      * @remarks
-     * 触发当前地域内指定产品的资产同步，作用范围是产品和地域，不限于某个实例。请求成功仅表示已受理；随后通过实例、数据库、表和列列表核对资产变化。该接口不返回可供轮询的公开任务标识。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Triggers asset synchronization for a specified product in the current region. The scope applies to the product and region, and is not limited to a specific instance. A successful request only indicates that the request is accepted. You can then verify asset changes by checking the lists of instances, databases, tables, and columns. This operation does not return a public node identifier for polling.
+     * Parameter examples are for format illustration only. When you invoke this operation, replace them with the region, resource identifiers, and configuration values obtained from the current account.
+     * Use the endpoint of the region where the target assets reside, and set the common parameter RegionId, such as cn-zhangjiakou. The product code and instance identity must match the target assets.
+     * This operation returns only RequestId. Request acceptance does not mean that the business operation is complete. You should check the status as described in the operation description.
      *
      * @param request - SyncDataAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1940,13 +2018,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 资产同步.
+     * Synchronizes the assets of a specified product in a region.
      *
      * @remarks
-     * 触发当前地域内指定产品的资产同步，作用范围是产品和地域，不限于某个实例。请求成功仅表示已受理；随后通过实例、数据库、表和列列表核对资产变化。该接口不返回可供轮询的公开任务标识。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Triggers asset synchronization for a specified product in the current region. The scope applies to the product and region, and is not limited to a specific instance. A successful request only indicates that the request is accepted. You can then verify asset changes by checking the lists of instances, databases, tables, and columns. This operation does not return a public node identifier for polling.
+     * Parameter examples are for format illustration only. When you invoke this operation, replace them with the region, resource identifiers, and configuration values obtained from the current account.
+     * Use the endpoint of the region where the target assets reside, and set the common parameter RegionId, such as cn-zhangjiakou. The product code and instance identity must match the target assets.
+     * This operation returns only RequestId. Request acceptance does not mean that the business operation is complete. You should check the status as described in the operation description.
      *
      * @param request - SyncDataAssetsRequest
      *
@@ -1964,13 +2042,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 更新列加密算法.
+     * Modifies the column encryption algorithm and key for an instance.
      *
      * @remarks
-     * 修改实例级列加密算法及密钥配置，影响该实例的列加密配置。当前实现支持 RDS MySQL 和 PolarDB-X 2.0；先查询实例支持算法和密钥。该接口没有 EncryptionKeyMode 参数，应按 EncryptionKeyId 的使用条件配置。请求成功后回读实例加密配置和列状态，不能仅凭 RequestId 判断完成。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Modifies the instance-level column encryption algorithm and key configuration, which affects the column encryption configuration of the instance. The current implementation supports ApsaraDB RDS for MySQL and PolarDB-X 2.0. Query the algorithms and keys supported by the instance before invoking this operation. This operation does not have an EncryptionKeyMode parameter. Configure the parameter based on the usage conditions of EncryptionKeyId. After a successful request, read back the instance encryption configuration and column status. Do not determine completion based solely on the RequestId.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained by querying your current account.
+     * Use the service registration endpoint of the region where the target asset resides, and set the common parameter RegionId, for example, cn-zhangjiakou. The product encoding and instance identity must match the target asset.
+     * This operation returns only the RequestId. A successful request does not indicate that the business operation is complete. Read back the status as described in the operation description.
      *
      * @param request - UpdateDataMaskingEncryptionAlgorithmRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2029,13 +2107,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 更新列加密算法.
+     * Modifies the column encryption algorithm and key for an instance.
      *
      * @remarks
-     * 修改实例级列加密算法及密钥配置，影响该实例的列加密配置。当前实现支持 RDS MySQL 和 PolarDB-X 2.0；先查询实例支持算法和密钥。该接口没有 EncryptionKeyMode 参数，应按 EncryptionKeyId 的使用条件配置。请求成功后回读实例加密配置和列状态，不能仅凭 RequestId 判断完成。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Modifies the instance-level column encryption algorithm and key configuration, which affects the column encryption configuration of the instance. The current implementation supports ApsaraDB RDS for MySQL and PolarDB-X 2.0. Query the algorithms and keys supported by the instance before invoking this operation. This operation does not have an EncryptionKeyMode parameter. Configure the parameter based on the usage conditions of EncryptionKeyId. After a successful request, read back the instance encryption configuration and column status. Do not determine completion based solely on the RequestId.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained by querying your current account.
+     * Use the service registration endpoint of the region where the target asset resides, and set the common parameter RegionId, for example, cn-zhangjiakou. The product encoding and instance identity must match the target asset.
+     * This operation returns only the RequestId. A successful request does not indicate that the business operation is complete. Read back the status as described in the operation description.
      *
      * @param request - UpdateDataMaskingEncryptionAlgorithmRequest
      *
@@ -2053,13 +2131,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 批量修改账号权限.
+     * Sets column encryption permissions for database accounts in batches.
      *
      * @remarks
-     * 为一批数据库账号设置同一种列加密访问权限。UserList 可包含同一产品、同一地域下不同实例的账号，每项必须携带 InstanceId 和 AccountId。fullAccess 允许明文访问，restrictedAccess 允许受限访问，noneAccess 禁止解密且仅支持特定引擎和密钥模式。仅 fullAccess 可配置有效期。请求成功后使用 ListDataAssetAccounts 回读。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Sets the same column encryption access permissions for a batch of database accounts. UserList can contain accounts from different instances under the same product and region. Each entry must include InstanceId and AccountId. fullAccess allows plaintext access, restrictedAccess allows restricted access, and noneAccess denies decryption and is supported only for specific DPI engines and key patterns. Only fullAccess supports configuring a validity period. After a successful request, invoke ListDataAssetAccounts to verify the results.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained from your account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, for example, cn-zhangjiakou. The product encoding and instance identity must match the target asset.
+     * This operation returns only RequestId. A successful request does not indicate that the operation is complete. Verify the status by invoking the corresponding query operation as described in the operation description.
      *
      * @param tmpReq - UpdateDataMaskingUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2128,13 +2206,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 批量修改账号权限.
+     * Sets column encryption permissions for database accounts in batches.
      *
      * @remarks
-     * 为一批数据库账号设置同一种列加密访问权限。UserList 可包含同一产品、同一地域下不同实例的账号，每项必须携带 InstanceId 和 AccountId。fullAccess 允许明文访问，restrictedAccess 允许受限访问，noneAccess 禁止解密且仅支持特定引擎和密钥模式。仅 fullAccess 可配置有效期。请求成功后使用 ListDataAssetAccounts 回读。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Sets the same column encryption access permissions for a batch of database accounts. UserList can contain accounts from different instances under the same product and region. Each entry must include InstanceId and AccountId. fullAccess allows plaintext access, restrictedAccess allows restricted access, and noneAccess denies decryption and is supported only for specific DPI engines and key patterns. Only fullAccess supports configuring a validity period. After a successful request, invoke ListDataAssetAccounts to verify the results.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identities, and configuration values obtained from your account.
+     * Use the endpoint of the region where the target asset resides and set the common parameter RegionId, for example, cn-zhangjiakou. The product encoding and instance identity must match the target asset.
+     * This operation returns only RequestId. A successful request does not indicate that the operation is complete. Verify the status by invoking the corresponding query operation as described in the operation description.
      *
      * @param request - UpdateDataMaskingUsersRequest
      *
@@ -2152,13 +2230,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 升级内核版本.
+     * Upgrades the database kernel of an instance.
      *
      * @remarks
-     * 按所选时间升级指定实例的数据库内核。先调用 ListMiniEngineVersions 选择版本，并检查实例当前状态和维护窗口。SpecifyTime 需要提供未来的 SwitchTime，PolarDB-X 2.0 不支持该时间选项。升级为异步操作，回读 GetInstanceAttribute 的 CurrentKernelVersion 核对结果。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Upgrades the database kernel of a specified instance at the selected time. Invoke ListMiniEngineVersions first to select a version, and check the current instance status and maintenance window. SpecifyTime requires a future SwitchTime value. PolarDB-X 2.0 does not support this time option. The upgrade is an asynchronous operation. Read back the CurrentKernelVersion field from GetInstanceAttribute to verify the result.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained from your current account.
+     * Use the service registration endpoint of the region where the target asset resides, and configure the common parameter RegionId to the corresponding value, for example, cn-zhangjiakou. The product code and instance identity must match the target asset.
+     * This operation returns only a RequestId. A successful request does not mean the operation is complete. Read back the status as described in the operation description.
      *
      * @param request - UpgradeKernelVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2221,13 +2299,13 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * 升级内核版本.
+     * Upgrades the database kernel of an instance.
      *
      * @remarks
-     * 按所选时间升级指定实例的数据库内核。先调用 ListMiniEngineVersions 选择版本，并检查实例当前状态和维护窗口。SpecifyTime 需要提供未来的 SwitchTime，PolarDB-X 2.0 不支持该时间选项。升级为异步操作，回读 GetInstanceAttribute 的 CurrentKernelVersion 核对结果。
-     * 参数示例仅用于说明格式。调用时请替换为当前账号查询得到的地域、资源标识和配置值。
-     * 使用目标资产所在地域的服务接入点，并设置公共参数 RegionId，例如 cn-zhangjiakou。产品编码和实例标识必须与目标资产一致。
-     * 本接口仅返回 RequestId。请求受理不等于业务操作完成，应按接口说明回读状态。
+     * Upgrades the database kernel of a specified instance at the selected time. Invoke ListMiniEngineVersions first to select a version, and check the current instance status and maintenance window. SpecifyTime requires a future SwitchTime value. PolarDB-X 2.0 does not support this time option. The upgrade is an asynchronous operation. Read back the CurrentKernelVersion field from GetInstanceAttribute to verify the result.
+     * The parameter examples are provided only to illustrate the format. Replace them with the region, resource identity, and configuration values obtained from your current account.
+     * Use the service registration endpoint of the region where the target asset resides, and configure the common parameter RegionId to the corresponding value, for example, cn-zhangjiakou. The product code and instance identity must match the target asset.
+     * This operation returns only a RequestId. A successful request does not mean the operation is complete. Read back the status as described in the operation description.
      *
      * @param request - UpgradeKernelVersionRequest
      *

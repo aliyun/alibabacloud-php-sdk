@@ -36,6 +36,11 @@ class ListDataSourcesRequest extends Model
     /**
      * @var string
      */
+    public $engineType;
+
+    /**
+     * @var string
+     */
     public $identifyStatus;
 
     /**
@@ -64,6 +69,11 @@ class ListDataSourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $port;
+
+    /**
      * @var string
      */
     public $productCode;
@@ -83,12 +93,14 @@ class ListDataSourcesRequest extends Model
         'dataAssetId' => 'DataAssetId',
         'dataSourceId' => 'DataSourceId',
         'dbName' => 'DbName',
+        'engineType' => 'EngineType',
         'identifyStatus' => 'IdentifyStatus',
         'instanceId' => 'InstanceId',
         'lang' => 'Lang',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
+        'port' => 'Port',
         'productCode' => 'ProductCode',
         'productId' => 'ProductId',
         'sourceIp' => 'SourceIp',
@@ -122,6 +134,10 @@ class ListDataSourcesRequest extends Model
             $res['DbName'] = $this->dbName;
         }
 
+        if (null !== $this->engineType) {
+            $res['EngineType'] = $this->engineType;
+        }
+
         if (null !== $this->identifyStatus) {
             $res['IdentifyStatus'] = $this->identifyStatus;
         }
@@ -144,6 +160,10 @@ class ListDataSourcesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
 
         if (null !== $this->productCode) {
@@ -189,6 +209,10 @@ class ListDataSourcesRequest extends Model
             $model->dbName = $map['DbName'];
         }
 
+        if (isset($map['EngineType'])) {
+            $model->engineType = $map['EngineType'];
+        }
+
         if (isset($map['IdentifyStatus'])) {
             $model->identifyStatus = $map['IdentifyStatus'];
         }
@@ -211,6 +235,10 @@ class ListDataSourcesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
 
         if (isset($map['ProductCode'])) {
