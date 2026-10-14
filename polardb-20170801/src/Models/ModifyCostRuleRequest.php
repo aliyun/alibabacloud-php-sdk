@@ -16,7 +16,17 @@ class ModifyCostRuleRequest extends Model
     /**
      * @var string
      */
+    public $cacheCreationCostPointsPerMillion;
+
+    /**
+     * @var string
+     */
     public $costRuleId;
+
+    /**
+     * @var string
+     */
+    public $explicitCacheCostPointsPerMillion;
 
     /**
      * @var string
@@ -26,7 +36,17 @@ class ModifyCostRuleRequest extends Model
     /**
      * @var string
      */
+    public $imageCostPointsPerCount;
+
+    /**
+     * @var string
+     */
     public $inputCostPointsPerMillion;
+
+    /**
+     * @var string
+     */
+    public $inputTokenTiers;
 
     /**
      * @var string
@@ -47,15 +67,25 @@ class ModifyCostRuleRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $videoCostPointsPerSecond;
     protected $_name = [
         'cacheCostPointsPerMillion' => 'CacheCostPointsPerMillion',
+        'cacheCreationCostPointsPerMillion' => 'CacheCreationCostPointsPerMillion',
         'costRuleId' => 'CostRuleId',
+        'explicitCacheCostPointsPerMillion' => 'ExplicitCacheCostPointsPerMillion',
         'gwClusterId' => 'GwClusterId',
+        'imageCostPointsPerCount' => 'ImageCostPointsPerCount',
         'inputCostPointsPerMillion' => 'InputCostPointsPerMillion',
+        'inputTokenTiers' => 'InputTokenTiers',
         'modelName' => 'ModelName',
         'modelServiceId' => 'ModelServiceId',
         'outputCostPointsPerMillion' => 'OutputCostPointsPerMillion',
         'regionId' => 'RegionId',
+        'videoCostPointsPerSecond' => 'VideoCostPointsPerSecond',
     ];
 
     public function validate()
@@ -70,16 +100,32 @@ class ModifyCostRuleRequest extends Model
             $res['CacheCostPointsPerMillion'] = $this->cacheCostPointsPerMillion;
         }
 
+        if (null !== $this->cacheCreationCostPointsPerMillion) {
+            $res['CacheCreationCostPointsPerMillion'] = $this->cacheCreationCostPointsPerMillion;
+        }
+
         if (null !== $this->costRuleId) {
             $res['CostRuleId'] = $this->costRuleId;
+        }
+
+        if (null !== $this->explicitCacheCostPointsPerMillion) {
+            $res['ExplicitCacheCostPointsPerMillion'] = $this->explicitCacheCostPointsPerMillion;
         }
 
         if (null !== $this->gwClusterId) {
             $res['GwClusterId'] = $this->gwClusterId;
         }
 
+        if (null !== $this->imageCostPointsPerCount) {
+            $res['ImageCostPointsPerCount'] = $this->imageCostPointsPerCount;
+        }
+
         if (null !== $this->inputCostPointsPerMillion) {
             $res['InputCostPointsPerMillion'] = $this->inputCostPointsPerMillion;
+        }
+
+        if (null !== $this->inputTokenTiers) {
+            $res['InputTokenTiers'] = $this->inputTokenTiers;
         }
 
         if (null !== $this->modelName) {
@@ -98,6 +144,10 @@ class ModifyCostRuleRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->videoCostPointsPerSecond) {
+            $res['VideoCostPointsPerSecond'] = $this->videoCostPointsPerSecond;
+        }
+
         return $res;
     }
 
@@ -113,16 +163,32 @@ class ModifyCostRuleRequest extends Model
             $model->cacheCostPointsPerMillion = $map['CacheCostPointsPerMillion'];
         }
 
+        if (isset($map['CacheCreationCostPointsPerMillion'])) {
+            $model->cacheCreationCostPointsPerMillion = $map['CacheCreationCostPointsPerMillion'];
+        }
+
         if (isset($map['CostRuleId'])) {
             $model->costRuleId = $map['CostRuleId'];
+        }
+
+        if (isset($map['ExplicitCacheCostPointsPerMillion'])) {
+            $model->explicitCacheCostPointsPerMillion = $map['ExplicitCacheCostPointsPerMillion'];
         }
 
         if (isset($map['GwClusterId'])) {
             $model->gwClusterId = $map['GwClusterId'];
         }
 
+        if (isset($map['ImageCostPointsPerCount'])) {
+            $model->imageCostPointsPerCount = $map['ImageCostPointsPerCount'];
+        }
+
         if (isset($map['InputCostPointsPerMillion'])) {
             $model->inputCostPointsPerMillion = $map['InputCostPointsPerMillion'];
+        }
+
+        if (isset($map['InputTokenTiers'])) {
+            $model->inputTokenTiers = $map['InputTokenTiers'];
         }
 
         if (isset($map['ModelName'])) {
@@ -139,6 +205,10 @@ class ModifyCostRuleRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['VideoCostPointsPerSecond'])) {
+            $model->videoCostPointsPerSecond = $map['VideoCostPointsPerSecond'];
         }
 
         return $model;

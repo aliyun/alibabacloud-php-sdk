@@ -16,6 +16,16 @@ class CreateCostRuleRequest extends Model
     /**
      * @var string
      */
+    public $cacheCreationCostPointsPerMillion;
+
+    /**
+     * @var string
+     */
+    public $effectiveStartTime;
+
+    /**
+     * @var string
+     */
     public $effectiveTargetType;
 
     /**
@@ -26,12 +36,27 @@ class CreateCostRuleRequest extends Model
     /**
      * @var string
      */
+    public $explicitCacheCostPointsPerMillion;
+
+    /**
+     * @var string
+     */
     public $gwClusterId;
 
     /**
      * @var string
      */
+    public $imageCostPointsPerCount;
+
+    /**
+     * @var string
+     */
     public $inputCostPointsPerMillion;
+
+    /**
+     * @var string
+     */
+    public $inputTokenTiers;
 
     /**
      * @var string
@@ -52,16 +77,27 @@ class CreateCostRuleRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $videoCostPointsPerSecond;
     protected $_name = [
         'cacheCostPointsPerMillion' => 'CacheCostPointsPerMillion',
+        'cacheCreationCostPointsPerMillion' => 'CacheCreationCostPointsPerMillion',
+        'effectiveStartTime' => 'EffectiveStartTime',
         'effectiveTargetType' => 'EffectiveTargetType',
         'effectiveTargetValue' => 'EffectiveTargetValue',
+        'explicitCacheCostPointsPerMillion' => 'ExplicitCacheCostPointsPerMillion',
         'gwClusterId' => 'GwClusterId',
+        'imageCostPointsPerCount' => 'ImageCostPointsPerCount',
         'inputCostPointsPerMillion' => 'InputCostPointsPerMillion',
+        'inputTokenTiers' => 'InputTokenTiers',
         'modelName' => 'ModelName',
         'modelServiceId' => 'ModelServiceId',
         'outputCostPointsPerMillion' => 'OutputCostPointsPerMillion',
         'regionId' => 'RegionId',
+        'videoCostPointsPerSecond' => 'VideoCostPointsPerSecond',
     ];
 
     public function validate()
@@ -76,6 +112,14 @@ class CreateCostRuleRequest extends Model
             $res['CacheCostPointsPerMillion'] = $this->cacheCostPointsPerMillion;
         }
 
+        if (null !== $this->cacheCreationCostPointsPerMillion) {
+            $res['CacheCreationCostPointsPerMillion'] = $this->cacheCreationCostPointsPerMillion;
+        }
+
+        if (null !== $this->effectiveStartTime) {
+            $res['EffectiveStartTime'] = $this->effectiveStartTime;
+        }
+
         if (null !== $this->effectiveTargetType) {
             $res['EffectiveTargetType'] = $this->effectiveTargetType;
         }
@@ -84,12 +128,24 @@ class CreateCostRuleRequest extends Model
             $res['EffectiveTargetValue'] = $this->effectiveTargetValue;
         }
 
+        if (null !== $this->explicitCacheCostPointsPerMillion) {
+            $res['ExplicitCacheCostPointsPerMillion'] = $this->explicitCacheCostPointsPerMillion;
+        }
+
         if (null !== $this->gwClusterId) {
             $res['GwClusterId'] = $this->gwClusterId;
         }
 
+        if (null !== $this->imageCostPointsPerCount) {
+            $res['ImageCostPointsPerCount'] = $this->imageCostPointsPerCount;
+        }
+
         if (null !== $this->inputCostPointsPerMillion) {
             $res['InputCostPointsPerMillion'] = $this->inputCostPointsPerMillion;
+        }
+
+        if (null !== $this->inputTokenTiers) {
+            $res['InputTokenTiers'] = $this->inputTokenTiers;
         }
 
         if (null !== $this->modelName) {
@@ -108,6 +164,10 @@ class CreateCostRuleRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->videoCostPointsPerSecond) {
+            $res['VideoCostPointsPerSecond'] = $this->videoCostPointsPerSecond;
+        }
+
         return $res;
     }
 
@@ -123,6 +183,14 @@ class CreateCostRuleRequest extends Model
             $model->cacheCostPointsPerMillion = $map['CacheCostPointsPerMillion'];
         }
 
+        if (isset($map['CacheCreationCostPointsPerMillion'])) {
+            $model->cacheCreationCostPointsPerMillion = $map['CacheCreationCostPointsPerMillion'];
+        }
+
+        if (isset($map['EffectiveStartTime'])) {
+            $model->effectiveStartTime = $map['EffectiveStartTime'];
+        }
+
         if (isset($map['EffectiveTargetType'])) {
             $model->effectiveTargetType = $map['EffectiveTargetType'];
         }
@@ -131,12 +199,24 @@ class CreateCostRuleRequest extends Model
             $model->effectiveTargetValue = $map['EffectiveTargetValue'];
         }
 
+        if (isset($map['ExplicitCacheCostPointsPerMillion'])) {
+            $model->explicitCacheCostPointsPerMillion = $map['ExplicitCacheCostPointsPerMillion'];
+        }
+
         if (isset($map['GwClusterId'])) {
             $model->gwClusterId = $map['GwClusterId'];
         }
 
+        if (isset($map['ImageCostPointsPerCount'])) {
+            $model->imageCostPointsPerCount = $map['ImageCostPointsPerCount'];
+        }
+
         if (isset($map['InputCostPointsPerMillion'])) {
             $model->inputCostPointsPerMillion = $map['InputCostPointsPerMillion'];
+        }
+
+        if (isset($map['InputTokenTiers'])) {
+            $model->inputTokenTiers = $map['InputTokenTiers'];
         }
 
         if (isset($map['ModelName'])) {
@@ -153,6 +233,10 @@ class CreateCostRuleRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['VideoCostPointsPerSecond'])) {
+            $model->videoCostPointsPerSecond = $map['VideoCostPointsPerSecond'];
         }
 
         return $model;

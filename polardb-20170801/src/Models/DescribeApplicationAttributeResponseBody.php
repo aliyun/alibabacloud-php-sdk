@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRespon
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\dnatMappings;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\endpoints;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\memApplicationAttribute;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\polarClawApplicationAttribute;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\polarClawSaaSApplicationAttribute;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\securityGroups;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponseBody\securityIPArrays;
@@ -127,6 +128,11 @@ class DescribeApplicationAttributeResponseBody extends Model
     public $payType;
 
     /**
+     * @var polarClawApplicationAttribute
+     */
+    public $polarClawApplicationAttribute;
+
+    /**
      * @var polarClawSaaSApplicationAttribute
      */
     public $polarClawSaaSApplicationAttribute;
@@ -228,6 +234,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'natGatewayId' => 'NatGatewayId',
         'natMappingSnatIpAddress' => 'NatMappingSnatIpAddress',
         'payType' => 'PayType',
+        'polarClawApplicationAttribute' => 'PolarClawApplicationAttribute',
         'polarClawSaaSApplicationAttribute' => 'PolarClawSaaSApplicationAttribute',
         'polarFSInstanceId' => 'PolarFSInstanceId',
         'regionId' => 'RegionId',
@@ -259,6 +266,9 @@ class DescribeApplicationAttributeResponseBody extends Model
         }
         if (null !== $this->memApplicationAttribute) {
             $this->memApplicationAttribute->validate();
+        }
+        if (null !== $this->polarClawApplicationAttribute) {
+            $this->polarClawApplicationAttribute->validate();
         }
         if (null !== $this->polarClawSaaSApplicationAttribute) {
             $this->polarClawSaaSApplicationAttribute->validate();
@@ -385,6 +395,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+
+        if (null !== $this->polarClawApplicationAttribute) {
+            $res['PolarClawApplicationAttribute'] = null !== $this->polarClawApplicationAttribute ? $this->polarClawApplicationAttribute->toArray($noStream) : $this->polarClawApplicationAttribute;
         }
 
         if (null !== $this->polarClawSaaSApplicationAttribute) {
@@ -590,6 +604,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['PolarClawApplicationAttribute'])) {
+            $model->polarClawApplicationAttribute = polarClawApplicationAttribute::fromMap($map['PolarClawApplicationAttribute']);
         }
 
         if (isset($map['PolarClawSaaSApplicationAttribute'])) {

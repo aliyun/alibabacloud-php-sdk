@@ -24,6 +24,11 @@ class CreateKBSyncLinkRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $feishuChatMemberStaleTtlSeconds;
+
+    /**
      * @var string
      */
     public $knowledgeBaseId;
@@ -77,10 +82,16 @@ class CreateKBSyncLinkRequest extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $userRefreshToken;
     protected $_name = [
         'clientId' => 'ClientId',
         'clientSecret' => 'ClientSecret',
         'description' => 'Description',
+        'feishuChatMemberStaleTtlSeconds' => 'FeishuChatMemberStaleTtlSeconds',
         'knowledgeBaseId' => 'KnowledgeBaseId',
         'linkName' => 'LinkName',
         'mcpEndpoint' => 'McpEndpoint',
@@ -92,6 +103,7 @@ class CreateKBSyncLinkRequest extends Model
         'tenantId' => 'TenantId',
         'userAccessToken' => 'UserAccessToken',
         'userId' => 'UserId',
+        'userRefreshToken' => 'UserRefreshToken',
     ];
 
     public function validate()
@@ -112,6 +124,10 @@ class CreateKBSyncLinkRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->feishuChatMemberStaleTtlSeconds) {
+            $res['FeishuChatMemberStaleTtlSeconds'] = $this->feishuChatMemberStaleTtlSeconds;
         }
 
         if (null !== $this->knowledgeBaseId) {
@@ -158,6 +174,10 @@ class CreateKBSyncLinkRequest extends Model
             $res['UserId'] = $this->userId;
         }
 
+        if (null !== $this->userRefreshToken) {
+            $res['UserRefreshToken'] = $this->userRefreshToken;
+        }
+
         return $res;
     }
 
@@ -179,6 +199,10 @@ class CreateKBSyncLinkRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['FeishuChatMemberStaleTtlSeconds'])) {
+            $model->feishuChatMemberStaleTtlSeconds = $map['FeishuChatMemberStaleTtlSeconds'];
         }
 
         if (isset($map['KnowledgeBaseId'])) {
@@ -223,6 +247,10 @@ class CreateKBSyncLinkRequest extends Model
 
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+
+        if (isset($map['UserRefreshToken'])) {
+            $model->userRefreshToken = $map['UserRefreshToken'];
         }
 
         return $model;

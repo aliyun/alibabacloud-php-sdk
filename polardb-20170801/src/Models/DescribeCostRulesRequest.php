@@ -11,6 +11,11 @@ class DescribeCostRulesRequest extends Model
     /**
      * @var string
      */
+    public $costRuleId;
+
+    /**
+     * @var string
+     */
     public $effectiveTargetType;
 
     /**
@@ -22,6 +27,11 @@ class DescribeCostRulesRequest extends Model
      * @var string
      */
     public $gwClusterId;
+
+    /**
+     * @var string
+     */
+    public $inputTokenTier;
 
     /**
      * @var string
@@ -48,9 +58,11 @@ class DescribeCostRulesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'costRuleId' => 'CostRuleId',
         'effectiveTargetType' => 'EffectiveTargetType',
         'effectiveTargetValue' => 'EffectiveTargetValue',
         'gwClusterId' => 'GwClusterId',
+        'inputTokenTier' => 'InputTokenTier',
         'modelName' => 'ModelName',
         'modelServiceId' => 'ModelServiceId',
         'pageNumber' => 'PageNumber',
@@ -66,6 +78,10 @@ class DescribeCostRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->costRuleId) {
+            $res['CostRuleId'] = $this->costRuleId;
+        }
+
         if (null !== $this->effectiveTargetType) {
             $res['EffectiveTargetType'] = $this->effectiveTargetType;
         }
@@ -76,6 +92,10 @@ class DescribeCostRulesRequest extends Model
 
         if (null !== $this->gwClusterId) {
             $res['GwClusterId'] = $this->gwClusterId;
+        }
+
+        if (null !== $this->inputTokenTier) {
+            $res['InputTokenTier'] = $this->inputTokenTier;
         }
 
         if (null !== $this->modelName) {
@@ -109,6 +129,10 @@ class DescribeCostRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CostRuleId'])) {
+            $model->costRuleId = $map['CostRuleId'];
+        }
+
         if (isset($map['EffectiveTargetType'])) {
             $model->effectiveTargetType = $map['EffectiveTargetType'];
         }
@@ -119,6 +143,10 @@ class DescribeCostRulesRequest extends Model
 
         if (isset($map['GwClusterId'])) {
             $model->gwClusterId = $map['GwClusterId'];
+        }
+
+        if (isset($map['InputTokenTier'])) {
+            $model->inputTokenTier = $map['InputTokenTier'];
         }
 
         if (isset($map['ModelName'])) {
