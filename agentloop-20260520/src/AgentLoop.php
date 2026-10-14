@@ -28,6 +28,10 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentPlanRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentPlanResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentRunRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateOptimizeRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateOptimizeRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateOptimizeTaskRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateOptimizeTaskResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteAgentSpaceRequest;
@@ -50,6 +54,8 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteExperimentPlanRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteExperimentPlanResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteExperimentRunRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteExperimentRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteOptimizeTaskRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteOptimizeTaskResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeletePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DescribeRegionsRequest;
@@ -76,6 +82,10 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetExperimentPlanRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetExperimentPlanResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetExperimentRunRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetExperimentRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetOptimizeRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetOptimizeRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetOptimizeTaskRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetOptimizeTaskResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRunRequest;
@@ -103,6 +113,10 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListExperimentPlansRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListExperimentPlansResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListExperimentRunsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListExperimentRunsResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListOptimizeRunsRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListOptimizeRunsResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListOptimizeTasksRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListOptimizeTasksResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelineRunsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesRequest;
@@ -137,6 +151,10 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentPlanRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentPlanResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentRunRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateOptimizeRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateOptimizeRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateOptimizeTaskRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateOptimizeTaskResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -394,7 +412,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Creates a context store.
+     * Creates a context library.
      *
      * @param request - CreateContextStoreRequest
      * @param headers - map
@@ -455,7 +473,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Creates a context store.
+     * Creates a context library.
      *
      * @param request - CreateContextStoreRequest
      *
@@ -1139,6 +1157,162 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->createExperimentRunWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a run for the specified optimization task and returns the run ID. When preview is set to true, an independent pre-run is executed to generate candidate results and evidence. The pre-run does not publish candidate artifacts or advance the formal run history.
+     *
+     * @param request - CreateOptimizeRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOptimizeRunResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $optimizeTaskName
+     * @param CreateOptimizeRunRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateOptimizeRunResponse
+     */
+    public function createOptimizeRunWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
+        }
+
+        if (null !== $request->preview) {
+            @$body['preview'] = $request->preview;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOptimizeRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/optimizetasks/' . Url::percentEncode($optimizeTaskName) . '/runs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOptimizeRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a run for the specified optimization task and returns the run ID. When preview is set to true, an independent pre-run is executed to generate candidate results and evidence. The pre-run does not publish candidate artifacts or advance the formal run history.
+     *
+     * @param request - CreateOptimizeRunRequest
+     *
+     * @returns CreateOptimizeRunResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $optimizeTaskName
+     * @param CreateOptimizeRunRequest $request
+     *
+     * @return CreateOptimizeRunResponse
+     */
+    public function createOptimizeRun($agentSpace, $optimizeTaskName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOptimizeRunWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an optimization task in a specified AgentSpace, and configures the task type, status, and type-specific parameters. Optional prompts only support inline Markdown.
+     *
+     * @param request - CreateOptimizeTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOptimizeTaskResponse
+     *
+     * @param string                    $agentSpace
+     * @param CreateOptimizeTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateOptimizeTaskResponse
+     */
+    public function createOptimizeTaskWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->optimizeTaskName) {
+            @$body['optimizeTaskName'] = $request->optimizeTaskName;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOptimizeTask',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/optimizetasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOptimizeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an optimization task in a specified AgentSpace, and configures the task type, status, and type-specific parameters. Optional prompts only support inline Markdown.
+     *
+     * @param request - CreateOptimizeTaskRequest
+     *
+     * @returns CreateOptimizeTaskResponse
+     *
+     * @param string                    $agentSpace
+     * @param CreateOptimizeTaskRequest $request
+     *
+     * @return CreateOptimizeTaskResponse
+     */
+    public function createOptimizeTask($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOptimizeTaskWithOptions($agentSpace, $request, $headers, $runtime);
     }
 
     /**
@@ -1867,6 +2041,71 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
+     * Deletes an optimization task in a specified AgentSpace.
+     *
+     * @param request - DeleteOptimizeTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOptimizeTaskResponse
+     *
+     * @param string                    $agentSpace
+     * @param string                    $optimizeTaskName
+     * @param DeleteOptimizeTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteOptimizeTaskResponse
+     */
+    public function deleteOptimizeTaskWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOptimizeTask',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/optimizetasks/' . Url::percentEncode($optimizeTaskName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOptimizeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an optimization task in a specified AgentSpace.
+     *
+     * @param request - DeleteOptimizeTaskRequest
+     *
+     * @returns DeleteOptimizeTaskResponse
+     *
+     * @param string                    $agentSpace
+     * @param string                    $optimizeTaskName
+     * @param DeleteOptimizeTaskRequest $request
+     *
+     * @return DeleteOptimizeTaskResponse
+     */
+    public function deleteOptimizeTask($agentSpace, $optimizeTaskName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteOptimizeTaskWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a pipeline.
      *
      * @param request - DeletePipelineRequest
@@ -2157,7 +2396,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a context store.
+     * Queries the context store.
      *
      * @param request - GetContextStoreRequest
      * @param headers - map
@@ -2195,7 +2434,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a context store.
+     * Queries the context store.
      *
      * @param request - GetContextStoreRequest
      *
@@ -2720,6 +2959,126 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
+     * 查询优化任务执行详情.
+     *
+     * @param request - GetOptimizeRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOptimizeRunResponse
+     *
+     * @param string                $agentSpace
+     * @param string                $optimizeTaskName
+     * @param string                $optimizeRunId
+     * @param GetOptimizeRunRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetOptimizeRunResponse
+     */
+    public function getOptimizeRunWithOptions($agentSpace, $optimizeTaskName, $optimizeRunId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetOptimizeRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/optimizetasks/' . Url::percentEncode($optimizeTaskName) . '/runs/' . Url::percentEncode($optimizeRunId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOptimizeRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询优化任务执行详情.
+     *
+     * @param request - GetOptimizeRunRequest
+     *
+     * @returns GetOptimizeRunResponse
+     *
+     * @param string                $agentSpace
+     * @param string                $optimizeTaskName
+     * @param string                $optimizeRunId
+     * @param GetOptimizeRunRequest $request
+     *
+     * @return GetOptimizeRunResponse
+     */
+    public function getOptimizeRun($agentSpace, $optimizeTaskName, $optimizeRunId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOptimizeRunWithOptions($agentSpace, $optimizeTaskName, $optimizeRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询优化任务
+     *
+     * @param request - GetOptimizeTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOptimizeTaskResponse
+     *
+     * @param string                 $agentSpace
+     * @param string                 $optimizeTaskName
+     * @param GetOptimizeTaskRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetOptimizeTaskResponse
+     */
+    public function getOptimizeTaskWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetOptimizeTask',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/optimizetasks/' . Url::percentEncode($optimizeTaskName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOptimizeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询优化任务
+     *
+     * @param request - GetOptimizeTaskRequest
+     *
+     * @returns GetOptimizeTaskResponse
+     *
+     * @param string                 $agentSpace
+     * @param string                 $optimizeTaskName
+     * @param GetOptimizeTaskRequest $request
+     *
+     * @return GetOptimizeTaskResponse
+     */
+    public function getOptimizeTask($agentSpace, $optimizeTaskName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOptimizeTaskWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a pipeline.
      *
      * @param request - GetPipelineRequest
@@ -3061,7 +3420,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of context stores.
+     * Queries the list of context stores.
      *
      * @param request - ListContextStoresRequest
      * @param headers - map
@@ -3120,7 +3479,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of context stores.
+     * Queries the list of context stores.
      *
      * @param request - ListContextStoresRequest
      *
@@ -3725,7 +4084,163 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the execution history list of a pipeline.
+     * Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+     *
+     * @param request - ListOptimizeRunsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOptimizeRunsResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $optimizeTaskName
+     * @param ListOptimizeRunsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListOptimizeRunsResponse
+     */
+    public function listOptimizeRunsWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->windowStartTimeBegin) {
+            @$query['windowStartTimeBegin'] = $request->windowStartTimeBegin;
+        }
+
+        if (null !== $request->windowStartTimeEnd) {
+            @$query['windowStartTimeEnd'] = $request->windowStartTimeEnd;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOptimizeRuns',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/optimizetasks/' . Url::percentEncode($optimizeTaskName) . '/runs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOptimizeRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+     *
+     * @param request - ListOptimizeRunsRequest
+     *
+     * @returns ListOptimizeRunsResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $optimizeTaskName
+     * @param ListOptimizeRunsRequest $request
+     *
+     * @return ListOptimizeRunsResponse
+     */
+    public function listOptimizeRuns($agentSpace, $optimizeTaskName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOptimizeRunsWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+     *
+     * @param request - ListOptimizeTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOptimizeTasksResponse
+     *
+     * @param string                   $agentSpace
+     * @param ListOptimizeTasksRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListOptimizeTasksResponse
+     */
+    public function listOptimizeTasksWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOptimizeTasks',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/optimizetasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOptimizeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+     *
+     * @param request - ListOptimizeTasksRequest
+     *
+     * @returns ListOptimizeTasksResponse
+     *
+     * @param string                   $agentSpace
+     * @param ListOptimizeTasksRequest $request
+     *
+     * @return ListOptimizeTasksResponse
+     */
+    public function listOptimizeTasks($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOptimizeTasksWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
      *
      * @param request - ListPipelineRunsRequest
      * @param headers - map
@@ -3789,7 +4304,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the execution history list of a pipeline.
+     * Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
      *
      * @param request - ListPipelineRunsRequest
      *
@@ -3810,7 +4325,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
+     * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
      *
      * @param request - ListPipelinesRequest
      * @param headers - map
@@ -3873,7 +4388,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
+     * Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status, and cursor-based pagination.
      *
      * @param request - ListPipelinesRequest
      *
@@ -4181,7 +4696,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Searches contexts.
+     * Searches the context.
      *
      * @param request - SearchContextRequest
      * @param headers - map
@@ -4253,7 +4768,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Searches contexts.
+     * Searches the context.
      *
      * @param request - SearchContextRequest
      *
@@ -4925,7 +5440,7 @@ class AgentLoop extends OpenApiClient
      * Updates an experiment plan.
      *
      * @remarks
-     * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
+     * Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
      *
      * @param request - UpdateExperimentPlanRequest
      * @param headers - map
@@ -5012,7 +5527,7 @@ class AgentLoop extends OpenApiClient
      * Updates an experiment plan.
      *
      * @remarks
-     * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not included in the request remain unchanged. You can update only plans created by the current account.
+     * Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
      *
      * @param request - UpdateExperimentPlanRequest
      *
@@ -5131,6 +5646,158 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->updateExperimentRunWithOptions($agentSpace, $recordId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Cancels a run or retries a failed artifact application. To cancel a run, set status to Cancelled. To retry a failed artifact application, set extra.application.action to retry and do not specify status.
+     *
+     * @param request - UpdateOptimizeRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOptimizeRunResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $optimizeTaskName
+     * @param string                   $optimizeRunId
+     * @param UpdateOptimizeRunRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateOptimizeRunResponse
+     */
+    public function updateOptimizeRunWithOptions($agentSpace, $optimizeTaskName, $optimizeRunId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->extra) {
+            @$body['extra'] = $request->extra;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOptimizeRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/optimizetasks/' . Url::percentEncode($optimizeTaskName) . '/runs/' . Url::percentEncode($optimizeRunId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOptimizeRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels a run or retries a failed artifact application. To cancel a run, set status to Cancelled. To retry a failed artifact application, set extra.application.action to retry and do not specify status.
+     *
+     * @param request - UpdateOptimizeRunRequest
+     *
+     * @returns UpdateOptimizeRunResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $optimizeTaskName
+     * @param string                   $optimizeRunId
+     * @param UpdateOptimizeRunRequest $request
+     *
+     * @return UpdateOptimizeRunResponse
+     */
+    public function updateOptimizeRun($agentSpace, $optimizeTaskName, $optimizeRunId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOptimizeRunWithOptions($agentSpace, $optimizeTaskName, $optimizeRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新优化任务
+     *
+     * @param request - UpdateOptimizeTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOptimizeTaskResponse
+     *
+     * @param string                    $agentSpace
+     * @param string                    $optimizeTaskName
+     * @param UpdateOptimizeTaskRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateOptimizeTaskResponse
+     */
+    public function updateOptimizeTaskWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOptimizeTask',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/optimizetasks/' . Url::percentEncode($optimizeTaskName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOptimizeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新优化任务
+     *
+     * @param request - UpdateOptimizeTaskRequest
+     *
+     * @returns UpdateOptimizeTaskResponse
+     *
+     * @param string                    $agentSpace
+     * @param string                    $optimizeTaskName
+     * @param UpdateOptimizeTaskRequest $request
+     *
+     * @return UpdateOptimizeTaskResponse
+     */
+    public function updateOptimizeTask($agentSpace, $optimizeTaskName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOptimizeTaskWithOptions($agentSpace, $optimizeTaskName, $request, $headers, $runtime);
     }
 
     /**
