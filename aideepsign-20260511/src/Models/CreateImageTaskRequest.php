@@ -47,11 +47,6 @@ class CreateImageTaskRequest extends Model
      * @var string
      */
     public $size;
-
-    /**
-     * @var bool
-     */
-    public $watermark;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'model' => 'Model',
@@ -61,7 +56,6 @@ class CreateImageTaskRequest extends Model
         'promptExtend' => 'PromptExtend',
         'seed' => 'Seed',
         'size' => 'Size',
-        'watermark' => 'Watermark',
     ];
 
     public function validate()
@@ -102,10 +96,6 @@ class CreateImageTaskRequest extends Model
 
         if (null !== $this->size) {
             $res['Size'] = $this->size;
-        }
-
-        if (null !== $this->watermark) {
-            $res['Watermark'] = $this->watermark;
         }
 
         return $res;
@@ -149,10 +139,6 @@ class CreateImageTaskRequest extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
-        }
-
-        if (isset($map['Watermark'])) {
-            $model->watermark = $map['Watermark'];
         }
 
         return $model;

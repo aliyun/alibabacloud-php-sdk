@@ -14,11 +14,17 @@ class aigc extends Model
     public $desc;
 
     /**
+     * @var string
+     */
+    public $risk;
+
+    /**
      * @var float
      */
     public $score;
     protected $_name = [
         'desc' => 'Desc',
+        'risk' => 'Risk',
         'score' => 'Score',
     ];
 
@@ -32,6 +38,10 @@ class aigc extends Model
         $res = [];
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
+        }
+
+        if (null !== $this->risk) {
+            $res['Risk'] = $this->risk;
         }
 
         if (null !== $this->score) {
@@ -51,6 +61,10 @@ class aigc extends Model
         $model = new self();
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
+        }
+
+        if (isset($map['Risk'])) {
+            $model->risk = $map['Risk'];
         }
 
         if (isset($map['Score'])) {

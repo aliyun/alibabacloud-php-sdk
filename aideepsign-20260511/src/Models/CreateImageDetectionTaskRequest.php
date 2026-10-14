@@ -16,11 +16,6 @@ class CreateImageDetectionTaskRequest extends Model
     /**
      * @var string
      */
-    public $credType;
-
-    /**
-     * @var string
-     */
     public $detectType;
 
     /**
@@ -29,15 +24,14 @@ class CreateImageDetectionTaskRequest extends Model
     public $imageUrl;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $objectKey;
+    public $useTamperSmallModel;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'credType' => 'CredType',
         'detectType' => 'DetectType',
         'imageUrl' => 'ImageUrl',
-        'objectKey' => 'ObjectKey',
+        'useTamperSmallModel' => 'UseTamperSmallModel',
     ];
 
     public function validate()
@@ -52,10 +46,6 @@ class CreateImageDetectionTaskRequest extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
-        if (null !== $this->credType) {
-            $res['CredType'] = $this->credType;
-        }
-
         if (null !== $this->detectType) {
             $res['DetectType'] = $this->detectType;
         }
@@ -64,8 +54,8 @@ class CreateImageDetectionTaskRequest extends Model
             $res['ImageUrl'] = $this->imageUrl;
         }
 
-        if (null !== $this->objectKey) {
-            $res['ObjectKey'] = $this->objectKey;
+        if (null !== $this->useTamperSmallModel) {
+            $res['UseTamperSmallModel'] = $this->useTamperSmallModel;
         }
 
         return $res;
@@ -83,10 +73,6 @@ class CreateImageDetectionTaskRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
-        if (isset($map['CredType'])) {
-            $model->credType = $map['CredType'];
-        }
-
         if (isset($map['DetectType'])) {
             $model->detectType = $map['DetectType'];
         }
@@ -95,8 +81,8 @@ class CreateImageDetectionTaskRequest extends Model
             $model->imageUrl = $map['ImageUrl'];
         }
 
-        if (isset($map['ObjectKey'])) {
-            $model->objectKey = $map['ObjectKey'];
+        if (isset($map['UseTamperSmallModel'])) {
+            $model->useTamperSmallModel = $map['UseTamperSmallModel'];
         }
 
         return $model;

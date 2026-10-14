@@ -17,15 +17,9 @@ class SignUserImageRequest extends Model
      * @var string
      */
     public $imageUrl;
-
-    /**
-     * @var string
-     */
-    public $objectKey;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'imageUrl' => 'ImageUrl',
-        'objectKey' => 'ObjectKey',
     ];
 
     public function validate()
@@ -42,10 +36,6 @@ class SignUserImageRequest extends Model
 
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
-        }
-
-        if (null !== $this->objectKey) {
-            $res['ObjectKey'] = $this->objectKey;
         }
 
         return $res;
@@ -65,10 +55,6 @@ class SignUserImageRequest extends Model
 
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
-        }
-
-        if (isset($map['ObjectKey'])) {
-            $model->objectKey = $map['ObjectKey'];
         }
 
         return $model;

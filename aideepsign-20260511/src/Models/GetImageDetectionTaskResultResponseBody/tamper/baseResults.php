@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetImageDetectionTaskResultResponseBody\tamper\baseResults\aigc;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetImageDetectionTaskResultResponseBody\tamper\baseResults\aips;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetImageDetectionTaskResultResponseBody\tamper\baseResults\psLoc;
+use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetImageDetectionTaskResultResponseBody\tamper\baseResults\recap;
 
 class baseResults extends Model
 {
@@ -30,11 +31,17 @@ class baseResults extends Model
      * @var psLoc
      */
     public $psLoc;
+
+    /**
+     * @var recap
+     */
+    public $recap;
     protected $_name = [
         'aigc' => 'Aigc',
         'aips' => 'Aips',
         'imgType' => 'ImgType',
         'psLoc' => 'PsLoc',
+        'recap' => 'Recap',
     ];
 
     public function validate()
@@ -47,6 +54,9 @@ class baseResults extends Model
         }
         if (null !== $this->psLoc) {
             $this->psLoc->validate();
+        }
+        if (null !== $this->recap) {
+            $this->recap->validate();
         }
         parent::validate();
     }
@@ -68,6 +78,10 @@ class baseResults extends Model
 
         if (null !== $this->psLoc) {
             $res['PsLoc'] = null !== $this->psLoc ? $this->psLoc->toArray($noStream) : $this->psLoc;
+        }
+
+        if (null !== $this->recap) {
+            $res['Recap'] = null !== $this->recap ? $this->recap->toArray($noStream) : $this->recap;
         }
 
         return $res;
@@ -95,6 +109,10 @@ class baseResults extends Model
 
         if (isset($map['PsLoc'])) {
             $model->psLoc = psLoc::fromMap($map['PsLoc']);
+        }
+
+        if (isset($map['Recap'])) {
+            $model->recap = recap::fromMap($map['Recap']);
         }
 
         return $model;

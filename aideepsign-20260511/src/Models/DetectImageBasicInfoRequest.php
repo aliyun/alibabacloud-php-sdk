@@ -12,14 +12,8 @@ class DetectImageBasicInfoRequest extends Model
      * @var string
      */
     public $imageUrl;
-
-    /**
-     * @var string
-     */
-    public $objectKey;
     protected $_name = [
         'imageUrl' => 'ImageUrl',
-        'objectKey' => 'ObjectKey',
     ];
 
     public function validate()
@@ -32,10 +26,6 @@ class DetectImageBasicInfoRequest extends Model
         $res = [];
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
-        }
-
-        if (null !== $this->objectKey) {
-            $res['ObjectKey'] = $this->objectKey;
         }
 
         return $res;
@@ -51,10 +41,6 @@ class DetectImageBasicInfoRequest extends Model
         $model = new self();
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
-        }
-
-        if (isset($map['ObjectKey'])) {
-            $model->objectKey = $map['ObjectKey'];
         }
 
         return $model;
