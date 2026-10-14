@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\organizationalUnitStatistics\binded;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\organizationalUnitStatistics\created;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\organizationalUnitStatistics\deleted;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\organizationalUnitStatistics\exported;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\organizationalUnitStatistics\pushed;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\organizationalUnitStatistics\same;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\organizationalUnitStatistics\updated;
@@ -30,6 +31,11 @@ class organizationalUnitStatistics extends Model
     public $deleted;
 
     /**
+     * @var exported
+     */
+    public $exported;
+
+    /**
      * @var pushed
      */
     public $pushed;
@@ -47,6 +53,7 @@ class organizationalUnitStatistics extends Model
         'binded' => 'Binded',
         'created' => 'Created',
         'deleted' => 'Deleted',
+        'exported' => 'Exported',
         'pushed' => 'Pushed',
         'same' => 'Same',
         'updated' => 'Updated',
@@ -62,6 +69,9 @@ class organizationalUnitStatistics extends Model
         }
         if (null !== $this->deleted) {
             $this->deleted->validate();
+        }
+        if (null !== $this->exported) {
+            $this->exported->validate();
         }
         if (null !== $this->pushed) {
             $this->pushed->validate();
@@ -88,6 +98,10 @@ class organizationalUnitStatistics extends Model
 
         if (null !== $this->deleted) {
             $res['Deleted'] = null !== $this->deleted ? $this->deleted->toArray($noStream) : $this->deleted;
+        }
+
+        if (null !== $this->exported) {
+            $res['Exported'] = null !== $this->exported ? $this->exported->toArray($noStream) : $this->exported;
         }
 
         if (null !== $this->pushed) {
@@ -123,6 +137,10 @@ class organizationalUnitStatistics extends Model
 
         if (isset($map['Deleted'])) {
             $model->deleted = deleted::fromMap($map['Deleted']);
+        }
+
+        if (isset($map['Exported'])) {
+            $model->exported = exported::fromMap($map['Exported']);
         }
 
         if (isset($map['Pushed'])) {

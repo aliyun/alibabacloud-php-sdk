@@ -15,6 +15,11 @@ class RunSynchronizationJobRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $fieldSelectionEnabled;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -23,6 +28,11 @@ class RunSynchronizationJobRequest extends Model
      * @var bool
      */
     public $passwordInitialization;
+
+    /**
+     * @var string[]
+     */
+    public $selectedFieldNames;
 
     /**
      * @var synchronizationScopeConfig
@@ -45,8 +55,10 @@ class RunSynchronizationJobRequest extends Model
     public $userIdentityTypes;
     protected $_name = [
         'description' => 'Description',
+        'fieldSelectionEnabled' => 'FieldSelectionEnabled',
         'instanceId' => 'InstanceId',
         'passwordInitialization' => 'PasswordInitialization',
+        'selectedFieldNames' => 'SelectedFieldNames',
         'synchronizationScopeConfig' => 'SynchronizationScopeConfig',
         'targetId' => 'TargetId',
         'targetType' => 'TargetType',
@@ -55,6 +67,9 @@ class RunSynchronizationJobRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->selectedFieldNames)) {
+            Model::validateArray($this->selectedFieldNames);
+        }
         if (null !== $this->synchronizationScopeConfig) {
             $this->synchronizationScopeConfig->validate();
         }
@@ -71,12 +86,27 @@ class RunSynchronizationJobRequest extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->fieldSelectionEnabled) {
+            $res['FieldSelectionEnabled'] = $this->fieldSelectionEnabled;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->passwordInitialization) {
             $res['PasswordInitialization'] = $this->passwordInitialization;
+        }
+
+        if (null !== $this->selectedFieldNames) {
+            if (\is_array($this->selectedFieldNames)) {
+                $res['SelectedFieldNames'] = [];
+                $n1 = 0;
+                foreach ($this->selectedFieldNames as $item1) {
+                    $res['SelectedFieldNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->synchronizationScopeConfig) {
@@ -117,12 +147,27 @@ class RunSynchronizationJobRequest extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['FieldSelectionEnabled'])) {
+            $model->fieldSelectionEnabled = $map['FieldSelectionEnabled'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['PasswordInitialization'])) {
             $model->passwordInitialization = $map['PasswordInitialization'];
+        }
+
+        if (isset($map['SelectedFieldNames'])) {
+            if (!empty($map['SelectedFieldNames'])) {
+                $model->selectedFieldNames = [];
+                $n1 = 0;
+                foreach ($map['SelectedFieldNames'] as $item1) {
+                    $model->selectedFieldNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SynchronizationScopeConfig'])) {
