@@ -16,12 +16,22 @@ class GetKnowledgeRecallRequest extends Model
     /**
      * @var string
      */
+    public $images;
+
+    /**
+     * @var string
+     */
     public $path;
 
     /**
      * @var string
      */
     public $question;
+
+    /**
+     * @var string
+     */
+    public $semanticRules;
 
     /**
      * @var string
@@ -39,8 +49,10 @@ class GetKnowledgeRecallRequest extends Model
     public $user;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'images' => 'Images',
         'path' => 'Path',
         'question' => 'Question',
+        'semanticRules' => 'SemanticRules',
         'tags' => 'Tags',
         'topk' => 'Topk',
         'user' => 'User',
@@ -58,12 +70,20 @@ class GetKnowledgeRecallRequest extends Model
             $res['DBClusterId'] = $this->DBClusterId;
         }
 
+        if (null !== $this->images) {
+            $res['Images'] = $this->images;
+        }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
 
         if (null !== $this->question) {
             $res['Question'] = $this->question;
+        }
+
+        if (null !== $this->semanticRules) {
+            $res['SemanticRules'] = $this->semanticRules;
         }
 
         if (null !== $this->tags) {
@@ -93,12 +113,20 @@ class GetKnowledgeRecallRequest extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
+        if (isset($map['Images'])) {
+            $model->images = $map['Images'];
+        }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
 
         if (isset($map['Question'])) {
             $model->question = $map['Question'];
+        }
+
+        if (isset($map['SemanticRules'])) {
+            $model->semanticRules = $map['SemanticRules'];
         }
 
         if (isset($map['Tags'])) {

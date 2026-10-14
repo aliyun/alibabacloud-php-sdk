@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CancelSparkReplStatementRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CancelSparkReplStatementResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CancelSparkWarehouseBatchSQLRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CancelSparkWarehouseBatchSQLResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CancelSqlPatternCompareReportRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CancelSqlPatternCompareReportResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckBindRamUserRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckBindRamUserResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckFormationSchemaExistsRequest;
@@ -85,6 +87,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSemanticViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSemanticViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSparkTemplateRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSparkTemplateResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSqlPatternCompareReportRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSqlPatternCompareReportResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsDatasoureRequest;
@@ -288,6 +292,10 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkSQLDiagnosisAttributeRequ
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkSQLDiagnosisAttributeResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkSQLDiagnosisListRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkSQLDiagnosisListResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternCompareReportRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternCompareReportResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternCompareReportsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternCompareReportsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSqlPatternResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSQLPatternsRequest;
@@ -1446,6 +1454,89 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelSparkWarehouseBatchSQLWithOptions($request, $runtime);
+    }
+
+    /**
+     * Cancels an SQL Pattern comparison report.
+     *
+     * @remarks
+     * Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
+     * - `PENDING`: Waiting to be generated.
+     * - `RUNNING`: Being generated.
+     * > - Only reports with `CancelAvailable` set to `true` can be canceled.
+     * > - Reports that are completed, failed, or expired cannot be canceled.
+     * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+     * > - Reports are isolated by instance and Alibaba Cloud account.
+     *
+     * @param request - CancelSqlPatternCompareReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelSqlPatternCompareReportResponse
+     *
+     * @param CancelSqlPatternCompareReportRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CancelSqlPatternCompareReportResponse
+     */
+    public function cancelSqlPatternCompareReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelSqlPatternCompareReport',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelSqlPatternCompareReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels an SQL Pattern comparison report.
+     *
+     * @remarks
+     * Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
+     * - `PENDING`: Waiting to be generated.
+     * - `RUNNING`: Being generated.
+     * > - Only reports with `CancelAvailable` set to `true` can be canceled.
+     * > - Reports that are completed, failed, or expired cannot be canceled.
+     * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+     * > - Reports are isolated by instance and Alibaba Cloud account.
+     *
+     * @param request - CancelSqlPatternCompareReportRequest
+     *
+     * @returns CancelSqlPatternCompareReportResponse
+     *
+     * @param CancelSqlPatternCompareReportRequest $request
+     *
+     * @return CancelSqlPatternCompareReportResponse
+     */
+    public function cancelSqlPatternCompareReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelSqlPatternCompareReportWithOptions($request, $runtime);
     }
 
     /**
@@ -3083,7 +3174,7 @@ class Adb extends OpenApiClient
      * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
      *
      * @remarks
-     * For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - CreateDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3239,7 +3330,7 @@ class Adb extends OpenApiClient
      * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
      *
      * @remarks
-     * For the endpoints of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateDBResourceGroupRequest
      *
@@ -3958,6 +4049,101 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSparkTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a SQL pattern comparison report.
+     *
+     * @remarks
+     * Compares two time windows and asynchronously generates a SQL pattern comparison report.
+     * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
+     * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+     * > - Only one report can be generated for an instance at a time.
+     * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+     *
+     * @param request - CreateSqlPatternCompareReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSqlPatternCompareReportResponse
+     *
+     * @param CreateSqlPatternCompareReportRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateSqlPatternCompareReportResponse
+     */
+    public function createSqlPatternCompareReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->compareEndTime) {
+            @$query['CompareEndTime'] = $request->compareEndTime;
+        }
+
+        if (null !== $request->compareStartTime) {
+            @$query['CompareStartTime'] = $request->compareStartTime;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->patternType) {
+            @$query['PatternType'] = $request->patternType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSqlPatternCompareReport',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSqlPatternCompareReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a SQL pattern comparison report.
+     *
+     * @remarks
+     * Compares two time windows and asynchronously generates a SQL pattern comparison report.
+     * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
+     * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+     * > - Only one report can be generated for an instance at a time.
+     * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+     *
+     * @param request - CreateSqlPatternCompareReportRequest
+     *
+     * @returns CreateSqlPatternCompareReportResponse
+     *
+     * @param CreateSqlPatternCompareReportRequest $request
+     *
+     * @return CreateSqlPatternCompareReportResponse
+     */
+    public function createSqlPatternCompareReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSqlPatternCompareReportWithOptions($request, $runtime);
     }
 
     /**
@@ -6334,7 +6520,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about an AnalyticDB Pipeline Service (APS) data source.
+     * Queries the details of an APS data source.
      *
      * @param request - DescribeApsDatasourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6381,7 +6567,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about an AnalyticDB Pipeline Service (APS) data source.
+     * Queries the details of an APS data source.
      *
      * @param request - DescribeApsDatasourceRequest
      *
@@ -6399,7 +6585,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AnalyticDB Pipeline Service (APS) data sources.
+     * Queries APS data sources.
      *
      * @param request - DescribeApsDatasourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6466,7 +6652,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AnalyticDB Pipeline Service (APS) data sources.
+     * Queries APS data sources.
      *
      * @param request - DescribeApsDatasourcesRequest
      *
@@ -6610,7 +6796,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AnalyticDB Pipeline Service (APS) jobs.
+     * Queries a list of APS tasks.
      *
      * @param request - DescribeApsJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6669,7 +6855,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AnalyticDB Pipeline Service (APS) jobs.
+     * Queries a list of APS tasks.
      *
      * @param request - DescribeApsJobsRequest
      *
@@ -6687,7 +6873,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the workloads of AnalyticDB Pipeline Service (APS) migration jobs.
+     * Queries the list of workloads for an APS migration task.
      *
      * @param request - DescribeApsMigrationWorkloadsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6750,7 +6936,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the workloads of AnalyticDB Pipeline Service (APS) migration jobs.
+     * Queries the list of workloads for an APS migration task.
      *
      * @param request - DescribeApsMigrationWorkloadsRequest
      *
@@ -9674,10 +9860,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieve historical task records.
+     * Retrieves historical task records.
      *
      * @remarks
-     * Only supports viewing tasks within the last 30 days.
+     * You can view only tasks from the last 30 days.
      *
      * @param request - DescribeHistoryTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9764,10 +9950,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieve historical task records.
+     * Retrieves historical task records.
      *
      * @remarks
-     * Only supports viewing tasks within the last 30 days.
+     * You can view only tasks from the last 30 days.
      *
      * @param request - DescribeHistoryTasksRequest
      *
@@ -9785,7 +9971,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries task statistics.
+     * Queries task statistics in the task center.
      *
      * @param request - DescribeHistoryTasksStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9864,7 +10050,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries task statistics.
+     * Queries task statistics in the task center.
      *
      * @param request - DescribeHistoryTasksStatRequest
      *
@@ -10536,7 +10722,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the service account permissions of an AnalyticDB for MySQL cluster.
+     * Queries the authorization status of a service account.
      *
      * @param request - DescribeOperatorPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10591,7 +10777,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the service account permissions of an AnalyticDB for MySQL cluster.
+     * Queries the authorization status of a service account.
      *
      * @param request - DescribeOperatorPermissionRequest
      *
@@ -12081,7 +12267,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the diagnostic information about Spark SQL queries.
+     * Queries the Spark SQL diagnostics list.
      *
      * @param request - DescribeSparkSQLDiagnosisListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12148,7 +12334,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the diagnostic information about Spark SQL queries.
+     * Queries the Spark SQL diagnostics list.
      *
      * @param request - DescribeSparkSQLDiagnosisListRequest
      *
@@ -12254,6 +12440,228 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSqlPatternWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of an SQL Pattern comparison report.
+     *
+     * @remarks
+     * Performs a paged query of SQL Pattern comparison report details based on `MetricType` by using paging. Report type descriptions:
+     * - NEW: Returns Patterns that are new in time window 2. `MetricValues` returns `Time2`.
+     * - CHANGED: Returns Patterns that exist in both time windows and have increased average values for the current metric. `MetricValues` returns `Avg`, `Sum`, and `Max`.
+     * Metric calculation methods:
+     * - `Sum`: The sum of metric values across valid query minute buckets.
+     * - `Avg`: The average of metric values across valid query minute buckets.
+     * - `Max`: The peak metric value within a single minute bucket.
+     * Metric units:
+     * - `QUERY_COUNT`: count.
+     * - `CPU_COST`: seconds.
+     * - `SHUFFLE_SIZE`, `PEAK_MEMORY`, `SCAN_SIZE`: GB.
+     * > - Only reports with `DetailEnabled` set to `true` can be queried for details. Reports that are incomplete, canceled, or expired cannot be queried.
+     * > - Fields ending with `Percent` are already expressed as percentages. When the time window 1 metric value is 0, `ChangeRatePercent` may not be returned and should not be treated as 0%.
+     * > - Reports are isolated by instance and Alibaba Cloud account.
+     *
+     * @param request - DescribeSqlPatternCompareReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSqlPatternCompareReportResponse
+     *
+     * @param DescribeSqlPatternCompareReportRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSqlPatternCompareReportResponse
+     */
+    public function describeSqlPatternCompareReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->changeRate) {
+            @$query['ChangeRate'] = $request->changeRate;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->includePattern) {
+            @$query['IncludePattern'] = $request->includePattern;
+        }
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSqlPatternCompareReport',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSqlPatternCompareReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an SQL Pattern comparison report.
+     *
+     * @remarks
+     * Performs a paged query of SQL Pattern comparison report details based on `MetricType` by using paging. Report type descriptions:
+     * - NEW: Returns Patterns that are new in time window 2. `MetricValues` returns `Time2`.
+     * - CHANGED: Returns Patterns that exist in both time windows and have increased average values for the current metric. `MetricValues` returns `Avg`, `Sum`, and `Max`.
+     * Metric calculation methods:
+     * - `Sum`: The sum of metric values across valid query minute buckets.
+     * - `Avg`: The average of metric values across valid query minute buckets.
+     * - `Max`: The peak metric value within a single minute bucket.
+     * Metric units:
+     * - `QUERY_COUNT`: count.
+     * - `CPU_COST`: seconds.
+     * - `SHUFFLE_SIZE`, `PEAK_MEMORY`, `SCAN_SIZE`: GB.
+     * > - Only reports with `DetailEnabled` set to `true` can be queried for details. Reports that are incomplete, canceled, or expired cannot be queried.
+     * > - Fields ending with `Percent` are already expressed as percentages. When the time window 1 metric value is 0, `ChangeRatePercent` may not be returned and should not be treated as 0%.
+     * > - Reports are isolated by instance and Alibaba Cloud account.
+     *
+     * @param request - DescribeSqlPatternCompareReportRequest
+     *
+     * @returns DescribeSqlPatternCompareReportResponse
+     *
+     * @param DescribeSqlPatternCompareReportRequest $request
+     *
+     * @return DescribeSqlPatternCompareReportResponse
+     */
+    public function describeSqlPatternCompareReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSqlPatternCompareReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of SQL Pattern comparison reports.
+     *
+     * @remarks
+     * Queries the SQL Pattern comparison reports created by the current Alibaba Cloud account for a specified instance. RAM users can query reports that belong to their parent Alibaba Cloud account.
+     * The following pagination methods are supported:
+     * - Page number-based pagination (recommended): Use `PageNumber` and `PageSize`.
+     * - Token-based pagination: Use `MaxResults` and `NextToken`.
+     * > - The two pagination methods cannot be used together. When you use page number-based pagination, the `MaxResults` parameter that is automatically included by the platform does not take effect.
+     * > - The list returns only unexpired reports in the `PENDING`, `RUNNING`, or `SUCCESS` state.
+     * > - Use `DetailEnabled` to determine whether report details can be queried. Use `CancelAvailable` to determine whether a report can be canceled.
+     * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+     *
+     * @param request - DescribeSqlPatternCompareReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSqlPatternCompareReportsResponse
+     *
+     * @param DescribeSqlPatternCompareReportsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeSqlPatternCompareReportsResponse
+     */
+    public function describeSqlPatternCompareReportsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSqlPatternCompareReports',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSqlPatternCompareReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of SQL Pattern comparison reports.
+     *
+     * @remarks
+     * Queries the SQL Pattern comparison reports created by the current Alibaba Cloud account for a specified instance. RAM users can query reports that belong to their parent Alibaba Cloud account.
+     * The following pagination methods are supported:
+     * - Page number-based pagination (recommended): Use `PageNumber` and `PageSize`.
+     * - Token-based pagination: Use `MaxResults` and `NextToken`.
+     * > - The two pagination methods cannot be used together. When you use page number-based pagination, the `MaxResults` parameter that is automatically included by the platform does not take effect.
+     * > - The list returns only unexpired reports in the `PENDING`, `RUNNING`, or `SUCCESS` state.
+     * > - Use `DetailEnabled` to determine whether report details can be queried. Use `CancelAvailable` to determine whether a report can be canceled.
+     * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+     *
+     * @param request - DescribeSqlPatternCompareReportsRequest
+     *
+     * @returns DescribeSqlPatternCompareReportsResponse
+     *
+     * @param DescribeSqlPatternCompareReportsRequest $request
+     *
+     * @return DescribeSqlPatternCompareReportsResponse
+     */
+    public function describeSqlPatternCompareReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSqlPatternCompareReportsWithOptions($request, $runtime);
     }
 
     /**
@@ -14070,7 +14478,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Performs knowledge base recall.
+     * Adds a knowledge base document.
      *
      * @param request - GetKnowledgeRecallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14098,6 +14506,10 @@ class Adb extends OpenApiClient
             @$query['Question'] = $request->question;
         }
 
+        if (null !== $request->semanticRules) {
+            @$query['SemanticRules'] = $request->semanticRules;
+        }
+
         if (null !== $request->tags) {
             @$query['Tags'] = $request->tags;
         }
@@ -14110,8 +14522,14 @@ class Adb extends OpenApiClient
             @$query['User'] = $request->user;
         }
 
+        $body = [];
+        if (null !== $request->images) {
+            @$body['Images'] = $request->images;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetKnowledgeRecall',
@@ -14129,7 +14547,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Performs knowledge base recall.
+     * Adds a knowledge base document.
      *
      * @param request - GetKnowledgeRecallRequest
      *
@@ -14354,12 +14772,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about the retry log of a Spark application.
+     * Queries the retry logs of a Spark application.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 error when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkAppAttemptLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14412,12 +14830,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about the retry log of a Spark application.
+     * Queries the retry logs of a Spark application.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 error when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkAppAttemptLogRequest
      *
@@ -16375,7 +16793,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询知识库文件.
+     * Queries knowledge base files.
      *
      * @param request - ListKnowledgeFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16434,7 +16852,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询知识库文件.
+     * Queries knowledge base files.
      *
      * @param request - ListKnowledgeFilesRequest
      *

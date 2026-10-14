@@ -13,6 +13,11 @@ class rayConfig extends Model
     /**
      * @var string
      */
+    public $authToken;
+
+    /**
+     * @var string
+     */
     public $category;
 
     /**
@@ -55,6 +60,7 @@ class rayConfig extends Model
      */
     public $workerGroups;
     protected $_name = [
+        'authToken' => 'AuthToken',
         'category' => 'Category',
         'enableUserEni' => 'EnableUserEni',
         'headAllocateUnit' => 'HeadAllocateUnit',
@@ -80,6 +86,10 @@ class rayConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authToken) {
+            $res['AuthToken'] = $this->authToken;
+        }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -141,6 +151,10 @@ class rayConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthToken'])) {
+            $model->authToken = $map['AuthToken'];
+        }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
