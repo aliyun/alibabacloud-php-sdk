@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBod
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\contextParamList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\customScheduleConfig;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\paramList;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\pythonModuleList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\sparkClientInfo;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\upStreamList;
 
@@ -235,6 +236,16 @@ class taskInfo extends Model
     public $published;
 
     /**
+     * @var pythonModuleList[]
+     */
+    public $pythonModuleList;
+
+    /**
+     * @var string
+     */
+    public $pythonVersion;
+
+    /**
      * @var string
      */
     public $remark;
@@ -343,6 +354,8 @@ class taskInfo extends Model
         'prodHttpPath' => 'ProdHttpPath',
         'projectId' => 'ProjectId',
         'published' => 'Published',
+        'pythonModuleList' => 'PythonModuleList',
+        'pythonVersion' => 'PythonVersion',
         'remark' => 'Remark',
         'rerunable' => 'Rerunable',
         'resourceGroupId' => 'ResourceGroupId',
@@ -386,6 +399,9 @@ class taskInfo extends Model
         }
         if (\is_array($this->paramList)) {
             Model::validateArray($this->paramList);
+        }
+        if (\is_array($this->pythonModuleList)) {
+            Model::validateArray($this->pythonModuleList);
         }
         if (null !== $this->sparkClientInfo) {
             $this->sparkClientInfo->validate();
@@ -632,6 +648,21 @@ class taskInfo extends Model
 
         if (null !== $this->published) {
             $res['Published'] = $this->published;
+        }
+
+        if (null !== $this->pythonModuleList) {
+            if (\is_array($this->pythonModuleList)) {
+                $res['PythonModuleList'] = [];
+                $n1 = 0;
+                foreach ($this->pythonModuleList as $item1) {
+                    $res['PythonModuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->pythonVersion) {
+            $res['PythonVersion'] = $this->pythonVersion;
         }
 
         if (null !== $this->remark) {
@@ -941,6 +972,21 @@ class taskInfo extends Model
 
         if (isset($map['Published'])) {
             $model->published = $map['Published'];
+        }
+
+        if (isset($map['PythonModuleList'])) {
+            if (!empty($map['PythonModuleList'])) {
+                $model->pythonModuleList = [];
+                $n1 = 0;
+                foreach ($map['PythonModuleList'] as $item1) {
+                    $model->pythonModuleList[$n1] = pythonModuleList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['PythonVersion'])) {
+            $model->pythonVersion = $map['PythonVersion'];
         }
 
         if (isset($map['Remark'])) {
