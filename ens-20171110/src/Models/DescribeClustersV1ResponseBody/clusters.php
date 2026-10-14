@@ -37,7 +37,17 @@ class clusters extends Model
     /**
      * @var string
      */
+    public $created;
+
+    /**
+     * @var string
+     */
     public $ensRegionId;
+
+    /**
+     * @var string
+     */
+    public $isp;
 
     /**
      * @var string
@@ -94,7 +104,9 @@ class clusters extends Model
         'config' => 'Config',
         'containerCidr' => 'ContainerCidr',
         'controlPlaneConfig' => 'ControlPlaneConfig',
+        'created' => 'Created',
         'ensRegionId' => 'EnsRegionId',
+        'isp' => 'Isp',
         'joinToken' => 'JoinToken',
         'kubernetesVersion' => 'KubernetesVersion',
         'loadBalancerId' => 'LoadBalancerId',
@@ -144,8 +156,16 @@ class clusters extends Model
             $res['ControlPlaneConfig'] = null !== $this->controlPlaneConfig ? $this->controlPlaneConfig->toArray($noStream) : $this->controlPlaneConfig;
         }
 
+        if (null !== $this->created) {
+            $res['Created'] = $this->created;
+        }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
         }
 
         if (null !== $this->joinToken) {
@@ -233,8 +253,16 @@ class clusters extends Model
             $model->controlPlaneConfig = controlPlaneConfig::fromMap($map['ControlPlaneConfig']);
         }
 
+        if (isset($map['Created'])) {
+            $model->created = $map['Created'];
+        }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
         }
 
         if (isset($map['JoinToken'])) {

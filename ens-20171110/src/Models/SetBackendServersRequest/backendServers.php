@@ -11,6 +11,11 @@ class backendServers extends Model
     /**
      * @var string
      */
+    public $ip;
+
+    /**
+     * @var string
+     */
     public $serverId;
 
     /**
@@ -23,6 +28,7 @@ class backendServers extends Model
      */
     public $weight;
     protected $_name = [
+        'ip' => 'Ip',
         'serverId' => 'ServerId',
         'type' => 'Type',
         'weight' => 'Weight',
@@ -36,6 +42,10 @@ class backendServers extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
+        }
+
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
         }
@@ -59,6 +69,10 @@ class backendServers extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
+        }
+
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];
         }

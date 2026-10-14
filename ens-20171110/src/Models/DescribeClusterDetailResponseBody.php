@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterDetailResponseBody\controlPlaneConfig;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterDetailResponseBody\controlPlaneMeta;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterDetailResponseBody\nodeCount;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterDetailResponseBody\podStatus;
 
 class DescribeClusterDetailResponseBody extends Model
 {
@@ -35,9 +38,24 @@ class DescribeClusterDetailResponseBody extends Model
     public $controlPlaneConfig;
 
     /**
+     * @var controlPlaneMeta
+     */
+    public $controlPlaneMeta;
+
+    /**
+     * @var string
+     */
+    public $created;
+
+    /**
      * @var string
      */
     public $ensRegionId;
+
+    /**
+     * @var string
+     */
+    public $isp;
 
     /**
      * @var string
@@ -58,6 +76,21 @@ class DescribeClusterDetailResponseBody extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $natGatewayId;
+
+    /**
+     * @var nodeCount
+     */
+    public $nodeCount;
+
+    /**
+     * @var podStatus
+     */
+    public $podStatus;
 
     /**
      * @var string[]
@@ -99,11 +132,17 @@ class DescribeClusterDetailResponseBody extends Model
         'config' => 'Config',
         'containerCidr' => 'ContainerCidr',
         'controlPlaneConfig' => 'ControlPlaneConfig',
+        'controlPlaneMeta' => 'ControlPlaneMeta',
+        'created' => 'Created',
         'ensRegionId' => 'EnsRegionId',
+        'isp' => 'Isp',
         'joinToken' => 'JoinToken',
         'kubernetesVersion' => 'KubernetesVersion',
         'loadBalancerId' => 'LoadBalancerId',
         'name' => 'Name',
+        'natGatewayId' => 'NatGatewayId',
+        'nodeCount' => 'NodeCount',
+        'podStatus' => 'PodStatus',
         'podVswitchIds' => 'PodVswitchIds',
         'publicAccess' => 'PublicAccess',
         'requestId' => 'RequestId',
@@ -117,6 +156,15 @@ class DescribeClusterDetailResponseBody extends Model
     {
         if (null !== $this->controlPlaneConfig) {
             $this->controlPlaneConfig->validate();
+        }
+        if (null !== $this->controlPlaneMeta) {
+            $this->controlPlaneMeta->validate();
+        }
+        if (null !== $this->nodeCount) {
+            $this->nodeCount->validate();
+        }
+        if (null !== $this->podStatus) {
+            $this->podStatus->validate();
         }
         if (\is_array($this->podVswitchIds)) {
             Model::validateArray($this->podVswitchIds);
@@ -150,8 +198,20 @@ class DescribeClusterDetailResponseBody extends Model
             $res['ControlPlaneConfig'] = null !== $this->controlPlaneConfig ? $this->controlPlaneConfig->toArray($noStream) : $this->controlPlaneConfig;
         }
 
+        if (null !== $this->controlPlaneMeta) {
+            $res['ControlPlaneMeta'] = null !== $this->controlPlaneMeta ? $this->controlPlaneMeta->toArray($noStream) : $this->controlPlaneMeta;
+        }
+
+        if (null !== $this->created) {
+            $res['Created'] = $this->created;
+        }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
         }
 
         if (null !== $this->joinToken) {
@@ -168,6 +228,18 @@ class DescribeClusterDetailResponseBody extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
+        }
+
+        if (null !== $this->nodeCount) {
+            $res['NodeCount'] = null !== $this->nodeCount ? $this->nodeCount->toArray($noStream) : $this->nodeCount;
+        }
+
+        if (null !== $this->podStatus) {
+            $res['PodStatus'] = null !== $this->podStatus ? $this->podStatus->toArray($noStream) : $this->podStatus;
         }
 
         if (null !== $this->podVswitchIds) {
@@ -243,8 +315,20 @@ class DescribeClusterDetailResponseBody extends Model
             $model->controlPlaneConfig = controlPlaneConfig::fromMap($map['ControlPlaneConfig']);
         }
 
+        if (isset($map['ControlPlaneMeta'])) {
+            $model->controlPlaneMeta = controlPlaneMeta::fromMap($map['ControlPlaneMeta']);
+        }
+
+        if (isset($map['Created'])) {
+            $model->created = $map['Created'];
+        }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
         }
 
         if (isset($map['JoinToken'])) {
@@ -261,6 +345,18 @@ class DescribeClusterDetailResponseBody extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
+        }
+
+        if (isset($map['NodeCount'])) {
+            $model->nodeCount = nodeCount::fromMap($map['NodeCount']);
+        }
+
+        if (isset($map['PodStatus'])) {
+            $model->podStatus = podStatus::fromMap($map['PodStatus']);
         }
 
         if (isset($map['PodVswitchIds'])) {

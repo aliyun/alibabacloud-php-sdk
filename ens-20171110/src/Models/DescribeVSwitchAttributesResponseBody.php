@@ -49,6 +49,11 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $instanceIds;
 
     /**
+     * @var string
+     */
+    public $ipv6CidrBlock;
+
+    /**
      * @var loadBalancerIds
      */
     public $loadBalancerIds;
@@ -95,6 +100,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
         'ensRegionId' => 'EnsRegionId',
         'haVipIds' => 'HaVipIds',
         'instanceIds' => 'InstanceIds',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
         'loadBalancerIds' => 'LoadBalancerIds',
         'natGatewayIds' => 'NatGatewayIds',
         'networkId' => 'NetworkId',
@@ -154,6 +160,10 @@ class DescribeVSwitchAttributesResponseBody extends Model
 
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toArray($noStream) : $this->instanceIds;
+        }
+
+        if (null !== $this->ipv6CidrBlock) {
+            $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
 
         if (null !== $this->loadBalancerIds) {
@@ -225,6 +235,10 @@ class DescribeVSwitchAttributesResponseBody extends Model
 
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
+        }
+
+        if (isset($map['Ipv6CidrBlock'])) {
+            $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
         }
 
         if (isset($map['LoadBalancerIds'])) {

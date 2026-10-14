@@ -37,6 +37,11 @@ class vSwitch extends Model
     /**
      * @var string
      */
+    public $ipv6CidrBlock;
+
+    /**
+     * @var string
+     */
     public $networkId;
 
     /**
@@ -64,6 +69,7 @@ class vSwitch extends Model
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
         'freeIpCount' => 'FreeIpCount',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
         'networkId' => 'NetworkId',
         'status' => 'Status',
         'tags' => 'Tags',
@@ -100,6 +106,10 @@ class vSwitch extends Model
 
         if (null !== $this->freeIpCount) {
             $res['FreeIpCount'] = $this->freeIpCount;
+        }
+
+        if (null !== $this->ipv6CidrBlock) {
+            $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
 
         if (null !== $this->networkId) {
@@ -151,6 +161,10 @@ class vSwitch extends Model
 
         if (isset($map['FreeIpCount'])) {
             $model->freeIpCount = $map['FreeIpCount'];
+        }
+
+        if (isset($map['Ipv6CidrBlock'])) {
+            $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
         }
 
         if (isset($map['NetworkId'])) {

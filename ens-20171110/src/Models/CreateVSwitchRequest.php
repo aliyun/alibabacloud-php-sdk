@@ -27,6 +27,11 @@ class CreateVSwitchRequest extends Model
     /**
      * @var string
      */
+    public $ipv6CidrBlock;
+
+    /**
+     * @var string
+     */
     public $networkId;
 
     /**
@@ -42,6 +47,7 @@ class CreateVSwitchRequest extends Model
         'cidrBlock' => 'CidrBlock',
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
         'networkId' => 'NetworkId',
         'tag' => 'Tag',
         'vSwitchName' => 'VSwitchName',
@@ -68,6 +74,10 @@ class CreateVSwitchRequest extends Model
 
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+
+        if (null !== $this->ipv6CidrBlock) {
+            $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
 
         if (null !== $this->networkId) {
@@ -110,6 +120,10 @@ class CreateVSwitchRequest extends Model
 
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+
+        if (isset($map['Ipv6CidrBlock'])) {
+            $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
         }
 
         if (isset($map['NetworkId'])) {

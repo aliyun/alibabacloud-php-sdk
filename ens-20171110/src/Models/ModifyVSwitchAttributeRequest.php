@@ -14,6 +14,16 @@ class ModifyVSwitchAttributeRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableIPv6;
+
+    /**
+     * @var string
+     */
+    public $ipv6CidrBlock;
+
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -24,6 +34,8 @@ class ModifyVSwitchAttributeRequest extends Model
     public $vSwitchName;
     protected $_name = [
         'description' => 'Description',
+        'enableIPv6' => 'EnableIPv6',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
         'vSwitchId' => 'VSwitchId',
         'vSwitchName' => 'VSwitchName',
     ];
@@ -38,6 +50,14 @@ class ModifyVSwitchAttributeRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableIPv6) {
+            $res['EnableIPv6'] = $this->enableIPv6;
+        }
+
+        if (null !== $this->ipv6CidrBlock) {
+            $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
 
         if (null !== $this->vSwitchId) {
@@ -61,6 +81,14 @@ class ModifyVSwitchAttributeRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableIPv6'])) {
+            $model->enableIPv6 = $map['EnableIPv6'];
+        }
+
+        if (isset($map['Ipv6CidrBlock'])) {
+            $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
         }
 
         if (isset($map['VSwitchId'])) {

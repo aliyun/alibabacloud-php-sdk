@@ -41,6 +41,11 @@ class snapshots extends Model
     /**
      * @var string
      */
+    public $snapshotType;
+
+    /**
+     * @var string
+     */
     public $sourceDiskCategory;
 
     /**
@@ -74,6 +79,7 @@ class snapshots extends Model
         'size' => 'Size',
         'snapshotId' => 'SnapshotId',
         'snapshotName' => 'SnapshotName',
+        'snapshotType' => 'SnapshotType',
         'sourceDiskCategory' => 'SourceDiskCategory',
         'sourceDiskId' => 'SourceDiskId',
         'sourceDiskType' => 'SourceDiskType',
@@ -112,6 +118,10 @@ class snapshots extends Model
 
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
+        }
+
+        if (null !== $this->snapshotType) {
+            $res['SnapshotType'] = $this->snapshotType;
         }
 
         if (null !== $this->sourceDiskCategory) {
@@ -171,6 +181,10 @@ class snapshots extends Model
 
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
+        }
+
+        if (isset($map['SnapshotType'])) {
+            $model->snapshotType = $map['SnapshotType'];
         }
 
         if (isset($map['SourceDiskCategory'])) {

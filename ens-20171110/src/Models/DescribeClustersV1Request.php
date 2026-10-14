@@ -16,16 +16,28 @@ class DescribeClustersV1Request extends Model
     /**
      * @var string
      */
+    public $clusterType;
+
+    /**
+     * @var string
+     */
     public $ensRegionId;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $profile;
     protected $_name = [
         'clusterId' => 'ClusterId',
+        'clusterType' => 'ClusterType',
         'ensRegionId' => 'EnsRegionId',
         'name' => 'Name',
+        'profile' => 'Profile',
     ];
 
     public function validate()
@@ -40,12 +52,20 @@ class DescribeClustersV1Request extends Model
             $res['ClusterId'] = $this->clusterId;
         }
 
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->profile) {
+            $res['Profile'] = $this->profile;
         }
 
         return $res;
@@ -63,12 +83,20 @@ class DescribeClustersV1Request extends Model
             $model->clusterId = $map['ClusterId'];
         }
 
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Profile'])) {
+            $model->profile = $map['Profile'];
         }
 
         return $model;

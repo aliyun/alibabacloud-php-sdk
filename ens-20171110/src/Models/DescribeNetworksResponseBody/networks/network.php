@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponseBody\networks;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponseBody\networks\network\ipv6CidrBlocks;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponseBody\networks\network\routeTableIds;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponseBody\networks\network\secondaryCidrBlocks;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworksResponseBody\networks\network\tags;
@@ -36,6 +37,11 @@ class network extends Model
      * @var string
      */
     public $gatewayRouteTableId;
+
+    /**
+     * @var ipv6CidrBlocks
+     */
+    public $ipv6CidrBlocks;
 
     /**
      * @var string
@@ -92,6 +98,7 @@ class network extends Model
         'description' => 'Description',
         'ensRegionId' => 'EnsRegionId',
         'gatewayRouteTableId' => 'GatewayRouteTableId',
+        'ipv6CidrBlocks' => 'Ipv6CidrBlocks',
         'networkAclId' => 'NetworkAclId',
         'networkId' => 'NetworkId',
         'networkName' => 'NetworkName',
@@ -106,6 +113,9 @@ class network extends Model
 
     public function validate()
     {
+        if (null !== $this->ipv6CidrBlocks) {
+            $this->ipv6CidrBlocks->validate();
+        }
         if (null !== $this->routeTableIds) {
             $this->routeTableIds->validate();
         }
@@ -142,6 +152,10 @@ class network extends Model
 
         if (null !== $this->gatewayRouteTableId) {
             $res['GatewayRouteTableId'] = $this->gatewayRouteTableId;
+        }
+
+        if (null !== $this->ipv6CidrBlocks) {
+            $res['Ipv6CidrBlocks'] = null !== $this->ipv6CidrBlocks ? $this->ipv6CidrBlocks->toArray($noStream) : $this->ipv6CidrBlocks;
         }
 
         if (null !== $this->networkAclId) {
@@ -213,6 +227,10 @@ class network extends Model
 
         if (isset($map['GatewayRouteTableId'])) {
             $model->gatewayRouteTableId = $map['GatewayRouteTableId'];
+        }
+
+        if (isset($map['Ipv6CidrBlocks'])) {
+            $model->ipv6CidrBlocks = ipv6CidrBlocks::fromMap($map['Ipv6CidrBlocks']);
         }
 
         if (isset($map['NetworkAclId'])) {

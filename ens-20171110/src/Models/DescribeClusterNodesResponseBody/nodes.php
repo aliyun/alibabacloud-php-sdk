@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterNodesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeClusterNodesResponseBody\nodes\nodeInfo;
 
 class nodes extends Model
 {
@@ -34,6 +35,11 @@ class nodes extends Model
     public $ipAddress;
 
     /**
+     * @var nodeInfo
+     */
+    public $nodeInfo;
+
+    /**
      * @var string
      */
     public $nodepoolId;
@@ -53,6 +59,7 @@ class nodes extends Model
         'imageId' => 'ImageId',
         'instanceId' => 'InstanceId',
         'ipAddress' => 'IpAddress',
+        'nodeInfo' => 'NodeInfo',
         'nodepoolId' => 'NodepoolId',
         'payType' => 'PayType',
         'state' => 'State',
@@ -62,6 +69,9 @@ class nodes extends Model
     {
         if (\is_array($this->ipAddress)) {
             Model::validateArray($this->ipAddress);
+        }
+        if (null !== $this->nodeInfo) {
+            $this->nodeInfo->validate();
         }
         parent::validate();
     }
@@ -94,6 +104,10 @@ class nodes extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->nodeInfo) {
+            $res['NodeInfo'] = null !== $this->nodeInfo ? $this->nodeInfo->toArray($noStream) : $this->nodeInfo;
         }
 
         if (null !== $this->nodepoolId) {
@@ -144,6 +158,10 @@ class nodes extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['NodeInfo'])) {
+            $model->nodeInfo = nodeInfo::fromMap($map['NodeInfo']);
         }
 
         if (isset($map['NodepoolId'])) {

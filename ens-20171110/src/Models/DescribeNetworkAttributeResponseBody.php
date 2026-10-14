@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponseBody\cloudResources;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponseBody\haVipIds;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponseBody\instanceIds;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponseBody\ipv6CidrBlocks;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponseBody\loadBalancerIds;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponseBody\natGatewayIds;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeNetworkAttributeResponseBody\networkInterfaceIds;
@@ -56,6 +57,11 @@ class DescribeNetworkAttributeResponseBody extends Model
      * @var instanceIds
      */
     public $instanceIds;
+
+    /**
+     * @var ipv6CidrBlocks
+     */
+    public $ipv6CidrBlocks;
 
     /**
      * @var loadBalancerIds
@@ -130,6 +136,7 @@ class DescribeNetworkAttributeResponseBody extends Model
         'gatewayRouteTableId' => 'GatewayRouteTableId',
         'haVipIds' => 'HaVipIds',
         'instanceIds' => 'InstanceIds',
+        'ipv6CidrBlocks' => 'Ipv6CidrBlocks',
         'loadBalancerIds' => 'LoadBalancerIds',
         'natGatewayIds' => 'NatGatewayIds',
         'networkAclId' => 'NetworkAclId',
@@ -155,6 +162,9 @@ class DescribeNetworkAttributeResponseBody extends Model
         }
         if (null !== $this->instanceIds) {
             $this->instanceIds->validate();
+        }
+        if (null !== $this->ipv6CidrBlocks) {
+            $this->ipv6CidrBlocks->validate();
         }
         if (null !== $this->loadBalancerIds) {
             $this->loadBalancerIds->validate();
@@ -210,6 +220,10 @@ class DescribeNetworkAttributeResponseBody extends Model
 
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toArray($noStream) : $this->instanceIds;
+        }
+
+        if (null !== $this->ipv6CidrBlocks) {
+            $res['Ipv6CidrBlocks'] = null !== $this->ipv6CidrBlocks ? $this->ipv6CidrBlocks->toArray($noStream) : $this->ipv6CidrBlocks;
         }
 
         if (null !== $this->loadBalancerIds) {
@@ -305,6 +319,10 @@ class DescribeNetworkAttributeResponseBody extends Model
 
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
+        }
+
+        if (isset($map['Ipv6CidrBlocks'])) {
+            $model->ipv6CidrBlocks = ipv6CidrBlocks::fromMap($map['Ipv6CidrBlocks']);
         }
 
         if (isset($map['LoadBalancerIds'])) {

@@ -32,6 +32,11 @@ class CreateClusterRequest extends Model
     /**
      * @var string
      */
+    public $isp;
+
+    /**
+     * @var string
+     */
     public $kubernetesVersion;
 
     /**
@@ -43,6 +48,11 @@ class CreateClusterRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $natGatewayId;
 
     /**
      * @var string[]
@@ -78,9 +88,11 @@ class CreateClusterRequest extends Model
         'containerCidr' => 'ContainerCidr',
         'controlPlaneConfig' => 'ControlPlaneConfig',
         'ensRegionId' => 'EnsRegionId',
+        'isp' => 'Isp',
         'kubernetesVersion' => 'KubernetesVersion',
         'loadBalancerId' => 'LoadBalancerId',
         'name' => 'Name',
+        'natGatewayId' => 'NatGatewayId',
         'podVswitchIds' => 'PodVswitchIds',
         'profile' => 'Profile',
         'publicAccess' => 'PublicAccess',
@@ -122,6 +134,10 @@ class CreateClusterRequest extends Model
             $res['EnsRegionId'] = $this->ensRegionId;
         }
 
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
+        }
+
         if (null !== $this->kubernetesVersion) {
             $res['KubernetesVersion'] = $this->kubernetesVersion;
         }
@@ -132,6 +148,10 @@ class CreateClusterRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
         }
 
         if (null !== $this->podVswitchIds) {
@@ -199,6 +219,10 @@ class CreateClusterRequest extends Model
             $model->ensRegionId = $map['EnsRegionId'];
         }
 
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
+        }
+
         if (isset($map['KubernetesVersion'])) {
             $model->kubernetesVersion = $map['KubernetesVersion'];
         }
@@ -209,6 +233,10 @@ class CreateClusterRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
         }
 
         if (isset($map['PodVswitchIds'])) {

@@ -20,9 +20,19 @@ class CreateNetworkRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableIpv6;
+
+    /**
      * @var string
      */
     public $ensRegionId;
+
+    /**
+     * @var string
+     */
+    public $ipv6Isp;
 
     /**
      * @var string
@@ -36,7 +46,9 @@ class CreateNetworkRequest extends Model
     protected $_name = [
         'cidrBlock' => 'CidrBlock',
         'description' => 'Description',
+        'enableIpv6' => 'EnableIpv6',
         'ensRegionId' => 'EnsRegionId',
+        'ipv6Isp' => 'Ipv6Isp',
         'networkName' => 'NetworkName',
         'tag' => 'Tag',
     ];
@@ -60,8 +72,16 @@ class CreateNetworkRequest extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->enableIpv6) {
+            $res['EnableIpv6'] = $this->enableIpv6;
+        }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
+        }
+
+        if (null !== $this->ipv6Isp) {
+            $res['Ipv6Isp'] = $this->ipv6Isp;
         }
 
         if (null !== $this->networkName) {
@@ -98,8 +118,16 @@ class CreateNetworkRequest extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['EnableIpv6'])) {
+            $model->enableIpv6 = $map['EnableIpv6'];
+        }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
+        }
+
+        if (isset($map['Ipv6Isp'])) {
+            $model->ipv6Isp = $map['Ipv6Isp'];
         }
 
         if (isset($map['NetworkName'])) {

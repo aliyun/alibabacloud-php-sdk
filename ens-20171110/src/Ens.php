@@ -349,6 +349,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceSpecResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceTypesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceTypesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceVncUrlRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceVncUrlResponse;
@@ -741,7 +742,16 @@ class Ens extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-beijing' => 'ens.aliyuncs.com',
+            'cn-chengdu' => 'ens.aliyuncs.com',
+            'cn-hangzhou' => 'ens.aliyuncs.com',
+            'cn-heyuan' => 'ens.aliyuncs.com',
+            'cn-shanghai' => 'ens.aliyuncs.com',
+            'cn-wulanchabu' => 'ens.aliyuncs.com',
+            'cn-zhangjiakou' => 'ens.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ens', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -771,7 +781,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Associates a network access control list (ACL) with a network.
+     * Calls the AccosicateNetworkAcl operation to attach a network ACL to a network.
      *
      * @param request - AccosicateNetworkAclRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -814,7 +824,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Associates a network access control list (ACL) with a network.
+     * Calls the AccosicateNetworkAcl operation to attach a network ACL to a network.
      *
      * @param request - AccosicateNetworkAclRequest
      *
@@ -835,8 +845,8 @@ class Ens extends OpenApiClient
      * Adds backend servers.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API call rate limit: 100 calls per second.
+     * - Per-user call rate limit: 10 calls per second.
      *
      * @param tmpReq - AddBackendServersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -888,8 +898,8 @@ class Ens extends OpenApiClient
      * Adds backend servers.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API call rate limit: 100 calls per second.
+     * - Per-user call rate limit: 10 calls per second.
      *
      * @param request - AddBackendServersRequest
      *
@@ -910,9 +920,9 @@ class Ens extends OpenApiClient
      * Adds an IPv6 network interface controller (NIC). A public IP address is automatically assigned at the same time.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 5 times per second per user.
-     * *   Internal networks and IPv4 addresses are not supported.
+     * - up to 100 times per second per account.
+     * - up to 5 times per second per user.
+     * - Internal networks and IPv4 addresses are not supported.
      *
      * @param request - AddNetworkInterfaceToInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -962,9 +972,9 @@ class Ens extends OpenApiClient
      * Adds an IPv6 network interface controller (NIC). A public IP address is automatically assigned at the same time.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 5 times per second per user.
-     * *   Internal networks and IPv4 addresses are not supported.
+     * - up to 100 times per second per account.
+     * - up to 5 times per second per user.
+     * - Internal networks and IPv4 addresses are not supported.
      *
      * @param request - AddNetworkInterfaceToInstanceRequest
      *
@@ -1104,7 +1114,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Associates an elastic IP address (EIP) with a cloud resource that is deployed in the same region.
+     * Associates an Elastic IP Address (EIP) with a cloud product instance on the same edge node.
      *
      * @param request - AssociateEnsEipAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1155,7 +1165,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Associates an elastic IP address (EIP) with a cloud resource that is deployed in the same region.
+     * Associates an Elastic IP Address (EIP) with a cloud product instance on the same edge node.
      *
      * @param request - AssociateEnsEipAddressRequest
      *
@@ -1176,15 +1186,15 @@ class Ens extends OpenApiClient
      * Associates a high-availability virtual IP address (HAVIP) with an Edge Node Service (ENS) instance or elastic network interface (ENI).
      *
      * @remarks
-     * When you call this operation to associate an HAVIP, take note of the following items:
-     * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ENS instance. However, you need to associate the HAVIP with the ENI of the ENS instance.
-     * *   The HAVIP and ENS instance must belong to the same vSwitch.
-     * *   The ENS instance must be in the Running or Stopped state.
-     * *   The HAVIP must be in the Available or InUse state.
-     * *   AssociateHaVip is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the DescribeHaVips operation to query the status of an HAVIP:
-     *     *   If the HAVIP is in the Associating state, the HAVIP is being associated.
-     *     <!---->
-     *     *   If the HAVIP is in the InUse state, the HAVIP is associated.
+     * When you To associate an HAVIP, take note of the following items:
+     * - An HAVIP immediately takes effect after it is associated. You do not need to restart the ENS instance. However, you need to associate the HAVIP with the ENI of the ENS instance.
+     * - The HAVIP and ENS instance must belong to the same vSwitch.
+     * - The ENS instance must be in the Running or Stopped state.
+     * - The HAVIP must be in the Available or InUse state.
+     * - AssociateHaVip is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the DescribeHaVips operation to query the status of an HAVIP:
+     *   - If the HAVIP is in the Associating state, the HAVIP is being associated.
+     *   <!---->
+     *   - If the HAVIP is in the InUse state, the HAVIP is associated.
      *
      * @param request - AssociateHaVipRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1234,15 +1244,15 @@ class Ens extends OpenApiClient
      * Associates a high-availability virtual IP address (HAVIP) with an Edge Node Service (ENS) instance or elastic network interface (ENI).
      *
      * @remarks
-     * When you call this operation to associate an HAVIP, take note of the following items:
-     * *   An HAVIP immediately takes effect after it is associated. You do not need to restart the ENS instance. However, you need to associate the HAVIP with the ENI of the ENS instance.
-     * *   The HAVIP and ENS instance must belong to the same vSwitch.
-     * *   The ENS instance must be in the Running or Stopped state.
-     * *   The HAVIP must be in the Available or InUse state.
-     * *   AssociateHaVip is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the DescribeHaVips operation to query the status of an HAVIP:
-     *     *   If the HAVIP is in the Associating state, the HAVIP is being associated.
-     *     <!---->
-     *     *   If the HAVIP is in the InUse state, the HAVIP is associated.
+     * When you To associate an HAVIP, take note of the following items:
+     * - An HAVIP immediately takes effect after it is associated. You do not need to restart the ENS instance. However, you need to associate the HAVIP with the ENI of the ENS instance.
+     * - The HAVIP and ENS instance must belong to the same vSwitch.
+     * - The ENS instance must be in the Running or Stopped state.
+     * - The HAVIP must be in the Available or InUse state.
+     * - AssociateHaVip is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the DescribeHaVips operation to query the status of an HAVIP:
+     *   - If the HAVIP is in the Associating state, the HAVIP is being associated.
+     *   <!---->
+     *   - If the HAVIP is in the InUse state, the HAVIP is associated.
      *
      * @param request - AssociateHaVipRequest
      *
@@ -1325,13 +1335,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Adds an Edge Node Service (ENS) instance to Container Service for Kubernetes (ACK).
+     * Add ENS instances to Container Service for Kubernetes.
      *
      * @remarks
-     * # [](#)Usage notes
-     * *   You can call this operation up to 10 times per second per account.
-     * *   After you execute the command, the instance restarts loading.
-     * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
+     * - Maximum request rate per user: 10 requests per second.
+     * - After the command script runs successfully, the instance restarts and loads automatically.
+     * - Instance requirements: minimum size of 2C4G and CentOS 7.4 or later image.
+     * <props="china">
+     * Before calling this operation, [activate Container Service for Kubernetes](https://cs.console.aliyun.com/#/k8s/overview).
      *
      * @param request - AttachEnsInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1374,13 +1385,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Adds an Edge Node Service (ENS) instance to Container Service for Kubernetes (ACK).
+     * Add ENS instances to Container Service for Kubernetes.
      *
      * @remarks
-     * # [](#)Usage notes
-     * *   You can call this operation up to 10 times per second per account.
-     * *   After you execute the command, the instance restarts loading.
-     * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
+     * - Maximum request rate per user: 10 requests per second.
+     * - After the command script runs successfully, the instance restarts and loads automatically.
+     * - Instance requirements: minimum size of 2C4G and CentOS 7.4 or later image.
+     * <props="china">
+     * Before calling this operation, [activate Container Service for Kubernetes](https://cs.console.aliyun.com/#/k8s/overview).
      *
      * @param request - AttachEnsInstancesRequest
      *
@@ -1398,7 +1410,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Attaches a shared data group (SDG) to the corresponding Android in Container (AIC) instance.
+     * Attaches an SDG to the corresponding AIC instance.
      *
      * @param tmpReq - AttachInstanceSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1463,7 +1475,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Attaches a shared data group (SDG) to the corresponding Android in Container (AIC) instance.
+     * Attaches an SDG to the corresponding AIC instance.
      *
      * @param request - AttachInstanceSDGRequest
      *
@@ -1481,7 +1493,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Adds existing nodes to a specific node pool. You can add existing ENS instances to an ECK cluster as worker nodes. You can also add removed worker nodes back to the node pool by invoking AttachInstancesToNodePool.
+     * Adds existing instances to a node pool. You can call this operation to add existing Edge Node Service (ENS) instances to an ECK cluster as worker nodes, or to re-add node instances to a node pool after they are removed.
      *
      * @param tmpReq - AttachInstancesToNodePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1534,7 +1546,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Adds existing nodes to a specific node pool. You can add existing ENS instances to an ECK cluster as worker nodes. You can also add removed worker nodes back to the node pool by invoking AttachInstancesToNodePool.
+     * Adds existing instances to a node pool. You can call this operation to add existing Edge Node Service (ENS) instances to an ECK cluster as worker nodes, or to re-add node instances to a node pool after they are removed.
      *
      * @param request - AttachInstancesToNodePoolRequest
      *
@@ -1552,14 +1564,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+     * Attaches an SSH key pair to up to 30 instances in a single call.
      *
      * @remarks
-     * ## [](#)
-     * This operation is used to bind a key pair to instances. Only disabled instances are supported.
-     * *   You can bind a maximum of 30 instances at a time.
-     * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
-     * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+     * You can only attach a key pair to stopped instances.
+     * - Specify up to 30 instances per call.
+     * - Specify either `KeyPairName` or `KeyPairId`.
+     * - We recommend using `KeyPairId`, as `KeyPairName` will be deprecated.
      *
      * @param tmpReq - AttachKeyPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1612,14 +1623,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+     * Attaches an SSH key pair to up to 30 instances in a single call.
      *
      * @remarks
-     * ## [](#)
-     * This operation is used to bind a key pair to instances. Only disabled instances are supported.
-     * *   You can bind a maximum of 30 instances at a time.
-     * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
-     * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+     * You can only attach a key pair to stopped instances.
+     * - Specify up to 30 instances per call.
+     * - Specify either `KeyPairName` or `KeyPairId`.
+     * - We recommend using `KeyPairId`, as `KeyPairName` will be deprecated.
      *
      * @param request - AttachKeyPairRequest
      *
@@ -1641,11 +1651,11 @@ class Ens extends OpenApiClient
      *
      * @remarks
      * When you call this operation, take note of the following limits:
-     * *   The ENI must be in the Available state.
-     * *   An ENI can be attached to only one instance that is the same zone and the same Virtual Private Cloud (VPC).
-     * *   The instance must be in the Stopped state.
-     * *   A maximum of 10 ENIs can be attached to an instance.
-     * *   This operation is an asynchronous operation. After you call this operation to attach an ENI, you can view the status of the ENI to check whether the ENI is attached.
+     * - The ENI must be in the Available state.
+     * - An ENI can be attached to only one instance that is the same zone and the same Virtual Private Cloud (VPC).
+     * - The instance must be in the Stopped state.
+     * - A maximum of 10 ENIs can be attached to an instance.
+     * - This operation is an asynchronous operation. After you To attach an ENI, you can view the status of the ENI to check whether the ENI is attached.
      *
      * @param request - AttachNetworkInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1692,11 +1702,11 @@ class Ens extends OpenApiClient
      *
      * @remarks
      * When you call this operation, take note of the following limits:
-     * *   The ENI must be in the Available state.
-     * *   An ENI can be attached to only one instance that is the same zone and the same Virtual Private Cloud (VPC).
-     * *   The instance must be in the Stopped state.
-     * *   A maximum of 10 ENIs can be attached to an instance.
-     * *   This operation is an asynchronous operation. After you call this operation to attach an ENI, you can view the status of the ENI to check whether the ENI is attached.
+     * - The ENI must be in the Available state.
+     * - An ENI can be attached to only one instance that is the same zone and the same Virtual Private Cloud (VPC).
+     * - The instance must be in the Stopped state.
+     * - A maximum of 10 ENIs can be attached to an instance.
+     * - This operation is an asynchronous operation. After you To attach an ENI, you can view the status of the ENI to check whether the ENI is attached.
      *
      * @param request - AttachNetworkInterfaceRequest
      *
@@ -1714,7 +1724,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an inbound security group rule. This operation allows or denies the inbound traffic from other devices to instances in the security group.
+     * Calls AuthorizeSecurityGroup to configure inbound access permissions for a security group, allowing or denying other devices from sending inbound traffic to instances in the security group.
      *
      * @param request - AuthorizeSecurityGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1777,7 +1787,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an inbound security group rule. This operation allows or denies the inbound traffic from other devices to instances in the security group.
+     * Calls AuthorizeSecurityGroup to configure inbound access permissions for a security group, allowing or denying other devices from sending inbound traffic to instances in the security group.
      *
      * @param request - AuthorizeSecurityGroupRequest
      *
@@ -1882,11 +1892,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Migrates multiple instances in a specified event at a time. You can execute the task immediately or schedule the task execution.
+     * Batch migrates instances under a specified event. Supports immediate or scheduled execution.
      *
      * @remarks
-     * ## [](#)Request description
-     * *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
+     * ## Operation description
+     * - This O&M operation currently supports only the following event type: Instance:SystemUpgrade.Migrate (migration required due to underlying infrastructure upgrade).
      *
      * @param tmpReq - BatchEventMigrateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1931,11 +1941,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Migrates multiple instances in a specified event at a time. You can execute the task immediately or schedule the task execution.
+     * Batch migrates instances under a specified event. Supports immediate or scheduled execution.
      *
      * @remarks
-     * ## [](#)Request description
-     * *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
+     * ## Operation description
+     * - This O&M operation currently supports only the following event type: Instance:SystemUpgrade.Migrate (migration required due to underlying infrastructure upgrade).
      *
      * @param request - BatchEventMigrateInstanceRequest
      *
@@ -1953,10 +1963,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * The event that is used to immediately redeploy specified resources in batches or by appointment.
+     * Batch restarts specified resources immediately or at a scheduled time.
      *
      * @remarks
-     *   This O\\&M operation supports only the following event types: Instance:SystemMaintenance.Reboot (instance reboot due to system problems)
+     * - This O&M operation currently supports only the following event type: Instance:SystemMaintenance.Reboot (instance restart due to system maintenance).
      *
      * @param tmpReq - BatchEventRebootInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2001,10 +2011,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * The event that is used to immediately redeploy specified resources in batches or by appointment.
+     * Batch restarts specified resources immediately or at a scheduled time.
      *
      * @remarks
-     *   This O\\&M operation supports only the following event types: Instance:SystemMaintenance.Reboot (instance reboot due to system problems)
+     * - This O&M operation currently supports only the following event type: Instance:SystemMaintenance.Reboot (instance restart due to system maintenance).
      *
      * @param request - BatchEventRebootInstanceRequest
      *
@@ -2022,10 +2032,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Batch redeployment.
+     * Batch redeploys specified resources immediately or at a scheduled time.
      *
      * @remarks
-     * - This operation currently only supports event types: Instance:SystemFailure.Redeploy (redeploy instance due to system issues), Instance:SystemMaintenance.Redeploy (redeploy instance due to system maintenance)
+     * - This O&M operation currently supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system failures) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
      *
      * @param tmpReq - BatchEventRedeployInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2070,10 +2080,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Batch redeployment.
+     * Batch redeploys specified resources immediately or at a scheduled time.
      *
      * @remarks
-     * - This operation currently only supports event types: Instance:SystemFailure.Redeploy (redeploy instance due to system issues), Instance:SystemMaintenance.Redeploy (redeploy instance due to system maintenance)
+     * - This O&M operation currently supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system failures) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
      *
      * @param request - BatchEventRedeployInstanceRequest
      *
@@ -2160,7 +2170,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Copies a shared data group (SDG) across nodes.
+     * Copies an SDG across edge zones by calling CopySDG.
      *
      * @param tmpReq - CopySDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2201,7 +2211,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Copies a shared data group (SDG) across nodes.
+     * Copies an SDG across edge zones by calling CopySDG.
      *
      * @param request - CopySDGRequest
      *
@@ -2219,7 +2229,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Copies a snapshot across nodes.
+     * Calls CopySnapshot to copy a snapshot across edge zones.
      *
      * @param tmpReq - CopySnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2280,7 +2290,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Copies a snapshot across nodes.
+     * Calls CopySnapshot to copy a snapshot across edge zones.
      *
      * @param request - CopySnapshotRequest
      *
@@ -2298,7 +2308,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an ARM server.
+     * Creates ARM board card servers by calling CreateARMServerInstances.
      *
      * @param request - CreateARMServerInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2409,7 +2419,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an ARM server.
+     * Creates ARM board card servers by calling CreateARMServerInstances.
      *
      * @param request - CreateARMServerInstancesRequest
      *
@@ -2557,11 +2567,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a Container Service for Kubernetes (ACK) edge cluster.
+     * Creates an edge container cluster.
      *
      * @remarks
-     *   You can call this operation up to 10 times per second per account.
-     * *   Creating a cluster is an asynchronous operation. After this operation returns the response, it takes 10 to 20 minutes to initialize the cluster. You can call the DescribeCluster operation to query the cluster status. After you create a cluster, you can call the DescribeClusterKubeConfig operation to obtain the cluster certificate.
+     * - Single-user call frequency: 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param tmpReq - CreateClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2607,6 +2617,10 @@ class Ens extends OpenApiClient
             @$query['EnsRegionId'] = $request->ensRegionId;
         }
 
+        if (null !== $request->isp) {
+            @$query['Isp'] = $request->isp;
+        }
+
         if (null !== $request->kubernetesVersion) {
             @$query['KubernetesVersion'] = $request->kubernetesVersion;
         }
@@ -2617,6 +2631,10 @@ class Ens extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->natGatewayId) {
+            @$query['NatGatewayId'] = $request->natGatewayId;
         }
 
         if (null !== $request->podVswitchIdsShrink) {
@@ -2662,11 +2680,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a Container Service for Kubernetes (ACK) edge cluster.
+     * Creates an edge container cluster.
      *
      * @remarks
-     *   You can call this operation up to 10 times per second per account.
-     * *   Creating a cluster is an asynchronous operation. After this operation returns the response, it takes 10 to 20 minutes to initialize the cluster. You can call the DescribeCluster operation to query the cluster status. After you create a cluster, you can call the DescribeClusterKubeConfig operation to obtain the cluster certificate.
+     * - Single-user call frequency: 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - CreateClusterRequest
      *
@@ -2684,7 +2702,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 创建集群节点池.
+     * A node pool is a logical collection of nodes with identical attributes that enables unified management and O&M operations such as node upgrades and elastic scaling. You can further leverage the automated O&M capabilities of node pools to reduce O&M costs through features such as automatic OS CVE vulnerability remediation, automatic recovery of faulty nodes, and automatic version upgrades for kubelet and containerd. You can call the CreateClusterNodePool operation to create a node pool for a cluster.
+     *
+     * @remarks
+     * - Rate limit per user: 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param tmpReq - CreateClusterNodePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2749,7 +2771,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 创建集群节点池.
+     * A node pool is a logical collection of nodes with identical attributes that enables unified management and O&M operations such as node upgrades and elastic scaling. You can further leverage the automated O&M capabilities of node pools to reduce O&M costs through features such as automatic OS CVE vulnerability remediation, automatic recovery of faulty nodes, and automatic version upgrades for kubelet and containerd. You can call the CreateClusterNodePool operation to create a node pool for a cluster.
+     *
+     * @remarks
+     * - Rate limit per user: 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - CreateClusterNodePoolRequest
      *
@@ -2767,7 +2793,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription data disk.
+     * Creates a pay-as-you-go or subscription data cloud disk by calling CreateDisk.
      *
      * @param request - CreateDiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2842,7 +2868,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription data disk.
+     * Creates a pay-as-you-go or subscription data cloud disk by calling CreateDisk.
      *
      * @param request - CreateDiskRequest
      *
@@ -2860,11 +2886,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Applies for an elastic IP address (EIP).
+     * Creates an elastic IP address (EIP) by calling the CreateEipInstance operation.
      *
      * @remarks
-     *   You can call this operation up to 5,000 times per second per account.
-     * *   You can call this operation up to 50 times per second per user.
+     * - API call frequency: 5000 calls per second.
+     * - Per-user call frequency: 50 calls per second.
      *
      * @param request - CreateEipInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2943,11 +2969,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Applies for an elastic IP address (EIP).
+     * Creates an elastic IP address (EIP) by calling the CreateEipInstance operation.
      *
      * @remarks
-     *   You can call this operation up to 5,000 times per second per account.
-     * *   You can call this operation up to 50 times per second per user.
+     * - API call frequency: 5000 calls per second.
+     * - Per-user call frequency: 50 calls per second.
      *
      * @param request - CreateEipInstanceRequest
      *
@@ -3255,7 +3281,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a NAS file system.
+     * Creates a NAS file system by calling the CreateFileSystem operation.
      *
      * @param tmpReq - CreateFileSystemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3296,7 +3322,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a NAS file system.
+     * Creates a NAS file system by calling the CreateFileSystem operation.
      *
      * @param request - CreateFileSystemRequest
      *
@@ -3314,7 +3340,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Adds a Destination Network Address Translation (DNAT) entry to a DNAT table.
+     * Adds a DNAT entry by calling CreateForwardEntry.
      *
      * @param request - CreateForwardEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3385,7 +3411,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Adds a Destination Network Address Translation (DNAT) entry to a DNAT table.
+     * Adds a DNAT entry by calling CreateForwardEntry.
      *
      * @param request - CreateForwardEntryRequest
      *
@@ -3476,7 +3502,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an image from an instance.
+     * Creates an image from a specified instance.
      *
      * @param request - CreateImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3535,7 +3561,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an image from an instance.
+     * Creates an image from a specified instance.
      *
      * @param request - CreateImageRequest
      *
@@ -3553,12 +3579,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an instance.
+     * Creates a subscription instance. This operation can be replaced by RunInstances. No new features will be added to CreateInstance.
      *
      * @remarks
-     *   You can call this operation up to 10 times per second per account.
-     * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
-     * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
+     * - Per-user call frequency: 10 calls per second.
+     * - Because instance creation is an asynchronous operation, increase the request timeout as needed. When the API returns Code=0, this only indicates that the request was successful, not that the instance was created successfully. An instance ID is returned upon a successful request. You can then query the instance by its ID to check whether the instance is created.
+     * - InvalidUserData.NotInWhiteList restriction: Only accounts that are added to the relevant whitelist with purchase permissions can create instances. Otherwise, an error is returned.
      *
      * @param request - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3685,12 +3711,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an instance.
+     * Creates a subscription instance. This operation can be replaced by RunInstances. No new features will be added to CreateInstance.
      *
      * @remarks
-     *   You can call this operation up to 10 times per second per account.
-     * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
-     * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
+     * - Per-user call frequency: 10 calls per second.
+     * - Because instance creation is an asynchronous operation, increase the request timeout as needed. When the API returns Code=0, this only indicates that the request was successful, not that the instance was created successfully. An instance ID is returned upon a successful request. You can then query the instance by its ID to check whether the instance is created.
+     * - InvalidUserData.NotInWhiteList restriction: Only accounts that are added to the relevant whitelist with purchase permissions can create instances. Otherwise, an error is returned.
      *
      * @param request - CreateInstanceRequest
      *
@@ -3834,11 +3860,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an Edge Load Balancer (ELB) instance.
+     * Creates a load balancing instance by calling the CreateLoadBalancer operation.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 5 times per second per user.
+     * - API call frequency: 100 times per second.
+     * - Per-user call frequency: 5 times per second.
      *
      * @param request - CreateLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3909,11 +3935,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an Edge Load Balancer (ELB) instance.
+     * Creates a load balancing instance by calling the CreateLoadBalancer operation.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 5 times per second per user.
+     * - API call frequency: 100 times per second.
+     * - Per-user call frequency: 5 times per second.
      *
      * @param request - CreateLoadBalancerRequest
      *
@@ -3934,8 +3960,8 @@ class Ens extends OpenApiClient
      * Creates an HTTP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - CreateLoadBalancerHTTPListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4053,8 +4079,8 @@ class Ens extends OpenApiClient
      * Creates an HTTP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - CreateLoadBalancerHTTPListenerRequest
      *
@@ -4075,8 +4101,8 @@ class Ens extends OpenApiClient
      * Creates an HTTPS listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - CreateLoadBalancerHTTPSListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4206,8 +4232,8 @@ class Ens extends OpenApiClient
      * Creates an HTTPS listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - CreateLoadBalancerHTTPSListenerRequest
      *
@@ -4225,11 +4251,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a Transmission Control Protocol (TCP) listener.
+     * To create a TCP listener, call `CreateLoadBalancerTCPListener`.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 requests per second.
+     * - Per-user call rate: 10 requests per second.
      *
      * @param request - CreateLoadBalancerTCPListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4332,11 +4358,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a Transmission Control Protocol (TCP) listener.
+     * To create a TCP listener, call `CreateLoadBalancerTCPListener`.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 requests per second.
+     * - Per-user call rate: 10 requests per second.
      *
      * @param request - CreateLoadBalancerTCPListenerRequest
      *
@@ -4354,11 +4380,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a User Datagram Protocol (UDP) listener.
+     * To create a UDP listener, call `CreateLoadBalancerUDPListener`.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 calls per second.
+     * - Per-user call rate: 10 calls per second.
      *
      * @param request - CreateLoadBalancerUDPListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4449,11 +4475,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a User Datagram Protocol (UDP) listener.
+     * To create a UDP listener, call `CreateLoadBalancerUDPListener`.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 calls per second.
+     * - Per-user call rate: 10 calls per second.
      *
      * @param request - CreateLoadBalancerUDPListenerRequest
      *
@@ -4548,7 +4574,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a network address translation (NAT) gateway.
+     * Creates a NAT gateway.
      *
      * @param request - CreateNatGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4611,7 +4637,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a network address translation (NAT) gateway.
+     * Creates a NAT gateway.
      *
      * @param request - CreateNatGatewayRequest
      *
@@ -4629,11 +4655,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC).
+     * Call CreateNetwork to create a virtual private cloud (VPC).
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 5 times per second per user.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 5 calls per second.
      *
      * @param request - CreateNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4657,8 +4683,16 @@ class Ens extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->enableIpv6) {
+            @$query['EnableIpv6'] = $request->enableIpv6;
+        }
+
         if (null !== $request->ensRegionId) {
             @$query['EnsRegionId'] = $request->ensRegionId;
+        }
+
+        if (null !== $request->ipv6Isp) {
+            @$query['Ipv6Isp'] = $request->ipv6Isp;
         }
 
         if (null !== $request->networkName) {
@@ -4688,11 +4722,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC).
+     * Call CreateNetwork to create a virtual private cloud (VPC).
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 5 times per second per user.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 5 calls per second.
      *
      * @param request - CreateNetworkRequest
      *
@@ -4771,7 +4805,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a network access control list (ACL) rule.
+     * You can invoke the CreateNetworkAclEntry API to create a network ACL rule.
      *
      * @param request - CreateNetworkAclEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4846,7 +4880,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a network access control list (ACL) rule.
+     * You can invoke the CreateNetworkAclEntry API to create a network ACL rule.
      *
      * @param request - CreateNetworkAclEntryRequest
      *
@@ -4939,14 +4973,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a shared data group (SDG) on an Android in Container (AIC) instance.
+     * Creates a Shared Data Group (SDG) on an Android in Container (AIC) instance.
      *
      * @remarks
-     * A SDG can be regarded as a data partition image of a virtual device. You can save a data partition of a virtual device as an SDG. A created SDG can be deployed in data partitions of other virtual devices to achieve rapid data distribution and application. The procedure for calling SDG-related API operations:
-     * *   Call the [CreateSDG](~~CreateSDG~~) operation to create an SDG, which is bound to AIC Instance A (InstanceId). After you create the SDG, a blank cloud disk (also known as an original cloud disk) is attached to Device A (InstanceId).
-     * *   Install applications on and deliver files to AIC Instance A (InstanceId).
-     * *   Call the [SaveSDG](~~SaveSDG~~) operation to save the data disk of AIC instance A as SDG A.
-     * *   Call the [DeploySDG](~~DeploySDG~~) operation to deploy SDG A to AIC Instance B. This operattion is executed asynchronously. You can call the [DescribeARMServerInstances](~~DescribeARMServerInstances~~) operation to query the status of AIC Instance B. If the status of AIC Instance B changes to success, AIC insance B is available, and AIC Instances A and B have the same applications running.
+     * A Shared Data Group (SDG) is a data partition image of a virtual device. You can save the data partition of a virtual device as an SDG. The SDG can then be deployed to the data partition of other virtual devices for fast data sharing and application deployment. The following describes the workflow of SDG-related operations:
+     * - Call the [CreateSDG](~~CreateSDG~~) operation to create an SDG. The SDG is bound to AIC instance A (InstanceId). After the SDG is created, a blank cloud disk (also called a raw cloud disk) is mounted to device A (InstanceId) for SDG creation.
+     * - Install applications, deliver files, and perform other required operations on AIC instance A (InstanceId).
+     * - Call the [SaveSDG](~~SaveSDG~~) operation to save the data cloud disk of AIC instance A as SDG A.
+     * - Call the [DeploySDG](~~DeploySDG~~) operation to deploy SDG A to AIC instance B. This process is asynchronous. You can call the [DescribeARMServerInstances](~~DescribeARMServerInstances~~) operation to query the status of AIC instance B. When the status changes back to success, AIC instance B is available and has the same applications as AIC instance A.
      *
      * @param request - CreateSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4981,14 +5015,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a shared data group (SDG) on an Android in Container (AIC) instance.
+     * Creates a Shared Data Group (SDG) on an Android in Container (AIC) instance.
      *
      * @remarks
-     * A SDG can be regarded as a data partition image of a virtual device. You can save a data partition of a virtual device as an SDG. A created SDG can be deployed in data partitions of other virtual devices to achieve rapid data distribution and application. The procedure for calling SDG-related API operations:
-     * *   Call the [CreateSDG](~~CreateSDG~~) operation to create an SDG, which is bound to AIC Instance A (InstanceId). After you create the SDG, a blank cloud disk (also known as an original cloud disk) is attached to Device A (InstanceId).
-     * *   Install applications on and deliver files to AIC Instance A (InstanceId).
-     * *   Call the [SaveSDG](~~SaveSDG~~) operation to save the data disk of AIC instance A as SDG A.
-     * *   Call the [DeploySDG](~~DeploySDG~~) operation to deploy SDG A to AIC Instance B. This operattion is executed asynchronously. You can call the [DescribeARMServerInstances](~~DescribeARMServerInstances~~) operation to query the status of AIC Instance B. If the status of AIC Instance B changes to success, AIC insance B is available, and AIC Instances A and B have the same applications running.
+     * A Shared Data Group (SDG) is a data partition image of a virtual device. You can save the data partition of a virtual device as an SDG. The SDG can then be deployed to the data partition of other virtual devices for fast data sharing and application deployment. The following describes the workflow of SDG-related operations:
+     * - Call the [CreateSDG](~~CreateSDG~~) operation to create an SDG. The SDG is bound to AIC instance A (InstanceId). After the SDG is created, a blank cloud disk (also called a raw cloud disk) is mounted to device A (InstanceId) for SDG creation.
+     * - Install applications, deliver files, and perform other required operations on AIC instance A (InstanceId).
+     * - Call the [SaveSDG](~~SaveSDG~~) operation to save the data cloud disk of AIC instance A as SDG A.
+     * - Call the [DeploySDG](~~DeploySDG~~) operation to deploy SDG A to AIC instance B. This process is asynchronous. You can call the [DescribeARMServerInstances](~~DescribeARMServerInstances~~) operation to query the status of AIC instance B. When the status changes back to success, AIC instance B is available and has the same applications as AIC instance A.
      *
      * @param request - CreateSDGRequest
      *
@@ -5077,7 +5111,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Create an ENS security group rule.
+     * Creates a security group rule for Edge Node Service (ENS).
      *
      * @param tmpReq - CreateSecurityGroupPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5126,7 +5160,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Create an ENS security group rule.
+     * Creates a security group rule for Edge Node Service (ENS).
      *
      * @param request - CreateSecurityGroupPermissionsRequest
      *
@@ -5144,7 +5178,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a snapshot.
+     * Creates a snapshot by calling CreateSnapshot.
      *
      * @param request - CreateSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5199,7 +5233,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a snapshot.
+     * Creates a snapshot by calling CreateSnapshot.
      *
      * @param request - CreateSnapshotRequest
      *
@@ -5466,7 +5500,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * A vSwitch is created.
+     * Creates a VSwitch.
      *
      * @param request - CreateVSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5492,6 +5526,10 @@ class Ens extends OpenApiClient
 
         if (null !== $request->ensRegionId) {
             @$query['EnsRegionId'] = $request->ensRegionId;
+        }
+
+        if (null !== $request->ipv6CidrBlock) {
+            @$query['Ipv6CidrBlock'] = $request->ipv6CidrBlock;
         }
 
         if (null !== $request->networkId) {
@@ -5525,7 +5563,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * A vSwitch is created.
+     * Creates a VSwitch.
      *
      * @param request - CreateVSwitchRequest
      *
@@ -5543,7 +5581,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes a specified AIC public key. You can delete a public key only if it is not associated with the public key.
+     * Deletes a specified AIC public key. The public key can be deleted only when it is not associated with any resource.
      *
      * @param request - DeleteAICPublicKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5582,7 +5620,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes a specified AIC public key. You can delete a public key only if it is not associated with the public key.
+     * Deletes a specified AIC public key. The public key can be deleted only when it is not associated with any resource.
      *
      * @param request - DeleteAICPublicKeyRequest
      *
@@ -5661,11 +5699,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes a bucket.
+     * You can call the DeleteBucket operation to delete a bucket.
      *
      * @remarks
-     *   Only the Alibaba Cloud Account ID owner of a bucket can delete the bucket from the account.
-     * *   You cannot delete buckets that store objects. You can only delete empty buckets.
+     * - Only the Alibaba Cloud account that owns the bucket can delete it.
+     * - A bucket must be empty before it can be deleted.
      *
      * @param request - DeleteBucketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5704,11 +5742,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes a bucket.
+     * You can call the DeleteBucket operation to delete a bucket.
      *
      * @remarks
-     *   Only the Alibaba Cloud Account ID owner of a bucket can delete the bucket from the account.
-     * *   You cannot delete buckets that store objects. You can only delete empty buckets.
+     * - Only the Alibaba Cloud account that owns the bucket can delete it.
+     * - A bucket must be empty before it can be deleted.
      *
      * @param request - DeleteBucketRequest
      *
@@ -5726,7 +5764,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes the lifecycle rules for objects in a bucket.
+     * Deletes the lifecycle rules of a bucket.
      *
      * @param request - DeleteBucketLifecycleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5769,7 +5807,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes the lifecycle rules for objects in a bucket.
+     * Deletes the lifecycle rules of a bucket.
      *
      * @param request - DeleteBucketLifecycleRequest
      *
@@ -5787,7 +5825,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 删除集群.
+     * Deletes a cluster.
+     *
+     * @remarks
+     * You can specify the RetainResources parameter when you delete a cluster. The default value is false. If you set this parameter to true, the Edge Node Service (ENS) compute instances on which worker nodes run are retained.
+     * When you delete a cluster, all nodes and node pools in the cluster are automatically deleted. ENS compute instances that you manually added by using scripts obtained from the DescribeAttachScript operation are retained.
+     * If a node pool in the cluster is being scaled out or in, wait until the scaling process is complete before you delete the cluster.
      *
      * @param request - DeleteClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5830,7 +5873,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 删除集群.
+     * Deletes a cluster.
+     *
+     * @remarks
+     * You can specify the RetainResources parameter when you delete a cluster. The default value is false. If you set this parameter to true, the Edge Node Service (ENS) compute instances on which worker nodes run are retained.
+     * When you delete a cluster, all nodes and node pools in the cluster are automatically deleted. ENS compute instances that you manually added by using scripts obtained from the DescribeAttachScript operation are retained.
+     * If a node pool in the cluster is being scaled out or in, wait until the scaling process is complete before you delete the cluster.
      *
      * @param request - DeleteClusterRequest
      *
@@ -5848,7 +5896,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 删除节点池.
+     * You can call the DeleteClusterNodePool operation to delete a node pool that you no longer need. When you delete a node pool, all pods on its nodes are also deleted. This action may trigger descheduling. If the pods cannot be rescheduled, your services may be affected. Before you delete the node pool, ensure that the cluster has sufficient resources for rescheduling.
+     *
+     * @remarks
+     * - Each user is limited to 10 calls per second.
+     * - Cluster creation is an asynchronous operation. After the API call is successful, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to check the cluster status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster\\"s kubeconfig file.
      *
      * @param request - DeleteClusterNodePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5891,7 +5943,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 删除节点池.
+     * You can call the DeleteClusterNodePool operation to delete a node pool that you no longer need. When you delete a node pool, all pods on its nodes are also deleted. This action may trigger descheduling. If the pods cannot be rescheduled, your services may be affected. Before you delete the node pool, ensure that the cluster has sufficient resources for rescheduling.
+     *
+     * @remarks
+     * - Each user is limited to 10 calls per second.
+     * - Cluster creation is an asynchronous operation. After the API call is successful, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to check the cluster status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster\\"s kubeconfig file.
      *
      * @param request - DeleteClusterNodePoolRequest
      *
@@ -5909,7 +5965,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 删除节点池指定节点.
+     * Removes nodes from a cluster when the nodes are no longer needed. The ReleaseNode parameter specifies whether to release the underlying Edge Node Service (ENS) compute instances. Default value: false. If the node to be removed is in the failed state, this parameter does not take effect and the corresponding compute instance is released by default. For ENS compute instances that you manually connect to the cluster by using the script obtained from the DescribeAttachScript operation, this parameter does not take effect and the corresponding compute instances are not released by default.
+     *
+     * @remarks
+     * If ReleaseNode is set to false, you must manually stop the kubelet process on the node before you call DeleteClusterNodes. Otherwise, the node may automatically rejoin the cluster.
      *
      * @param tmpReq - DeleteClusterNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5962,7 +6021,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 删除节点池指定节点.
+     * Removes nodes from a cluster when the nodes are no longer needed. The ReleaseNode parameter specifies whether to release the underlying Edge Node Service (ENS) compute instances. Default value: false. If the node to be removed is in the failed state, this parameter does not take effect and the corresponding compute instance is released by default. For ENS compute instances that you manually connect to the cluster by using the script obtained from the DescribeAttachScript operation, this parameter does not take effect and the corresponding compute instances are not released by default.
+     *
+     * @remarks
+     * If ReleaseNode is set to false, you must manually stop the kubelet process on the node before you call DeleteClusterNodes. Otherwise, the node may automatically rejoin the cluster.
      *
      * @param request - DeleteClusterNodesRequest
      *
@@ -6370,7 +6432,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes a File Storage NAS file system.
+     * Calls DeleteFileSystem to delete a NAS service.
+     *
+     * @remarks
+     * Deletes a NAS file system. Before deleting the file system, call DeleteMountTarget to delete all mount targets of the file system. After DeleteMountTarget succeeds, there is an eventual consistency window. Poll DescribeFileSystems to confirm that MountTargets is empty before calling this API operation.
      *
      * @param request - DeleteFileSystemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6405,7 +6470,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes a File Storage NAS file system.
+     * Calls DeleteFileSystem to delete a NAS service.
+     *
+     * @remarks
+     * Deletes a NAS file system. Before deleting the file system, call DeleteMountTarget to delete all mount targets of the file system. After DeleteMountTarget succeeds, there is an eventual consistency window. Poll DescribeFileSystems to confirm that MountTargets is empty before calling this API operation.
      *
      * @param request - DeleteFileSystemRequest
      *
@@ -6603,8 +6671,8 @@ class Ens extends OpenApiClient
      * Deletes SSH key pairs.
      *
      * @remarks
-     *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
-     * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
+     * - After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
+     * - If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
      *
      * @param request - DeleteKeyPairsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6650,8 +6718,8 @@ class Ens extends OpenApiClient
      * Deletes SSH key pairs.
      *
      * @remarks
-     *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
-     * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
+     * - After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
+     * - If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
      *
      * @param request - DeleteKeyPairsRequest
      *
@@ -6672,8 +6740,8 @@ class Ens extends OpenApiClient
      * Deletes a listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - DeleteLoadBalancerListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6723,8 +6791,8 @@ class Ens extends OpenApiClient
      * Deletes a listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - DeleteLoadBalancerListenerRequest
      *
@@ -7108,7 +7176,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Releases the VPC peering connection.
+     * Deletes a network peer connection.
      *
      * @param request - DeleteNetworkPeerConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7147,7 +7215,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Releases the VPC peering connection.
+     * Deletes a network peer connection.
      *
      * @param request - DeleteNetworkPeerConnectionRequest
      *
@@ -7226,10 +7294,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes a shared data group (SDG).
+     * Deletes an SDG by calling DeleteSDG.
      *
      * @remarks
-     * If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
+     * If all SDGs associated with the original cloud disk are deleted, the original cloud disk is automatically cleaned up.
      *
      * @param tmpReq - DeleteSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7274,10 +7342,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes a shared data group (SDG).
+     * Deletes an SDG by calling DeleteSDG.
      *
      * @remarks
-     * If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
+     * If all SDGs associated with the original cloud disk are deleted, the original cloud disk is automatically cleaned up.
      *
      * @param request - DeleteSDGRequest
      *
@@ -7777,7 +7845,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deploys a shared data group (SDG) to compute instances.
+     * Deploys an SDG to compute instances.
      *
      * @param tmpReq - DeployInstanceSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7838,7 +7906,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deploys a shared data group (SDG) to compute instances.
+     * Deploys an SDG to compute instances.
      *
      * @param request - DeployInstanceSDGRequest
      *
@@ -7856,7 +7924,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deploys shared data groups (SDGs).
+     * Deploys an SDG.
      *
      * @param tmpReq - DeploySDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7897,7 +7965,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deploys shared data groups (SDGs).
+     * Deploys an SDG.
      *
      * @param request - DeploySDGRequest
      *
@@ -7915,7 +7983,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about images of the Android in Container (AIC) instance.
+     * Retrieves image information.
      *
      * @param request - DescribeAICImagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7986,7 +8054,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about images of the Android in Container (AIC) instance.
+     * Retrieves image information.
      *
      * @param request - DescribeAICImagesRequest
      *
@@ -8004,7 +8072,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about ARM servers and Android in Container (AIC) instances.
+     * Retrieves information about ARM servers and AIC instances.
      *
      * @param tmpReq - DescribeARMServerInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8065,7 +8133,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about ARM servers and Android in Container (AIC) instances.
+     * Retrieves information about ARM servers and AIC instances.
      *
      * @param request - DescribeARMServerInstancesRequest
      *
@@ -8083,7 +8151,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询指定组件的信息.
+     * Queries the details of a specified add-on.
+     *
+     * @remarks
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeAddonRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8126,7 +8197,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询指定组件的信息.
+     * Queries the details of a specified add-on.
+     *
+     * @remarks
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeAddonRequest
      *
@@ -8217,7 +8291,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the resources that can be created.
+     * Queries the instance resources that can be created by calling DescribeAvailableResource.
+     *
+     * @remarks
+     * Queries available resources. A successful business response is indicated by Code=0 in the response body. Do not confuse the business code in the response body with the HTTP status code.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8246,7 +8323,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the resources that can be created.
+     * Queries the instance resources that can be created by calling DescribeAvailableResource.
+     *
+     * @remarks
+     * Queries available resources. A successful business response is indicated by Code=0 in the response body. Do not confuse the business code in the response body with the HTTP status code.
      *
      * @returns DescribeAvailableResourceResponse
      *
@@ -8260,7 +8340,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of resources that you can purchase when you create an instance.
+     * You can call DescribeAvailableResourceInfo to query the specifications of purchasable resources for instance creation.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8289,7 +8369,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of resources that you can purchase when you create an instance.
+     * You can call DescribeAvailableResourceInfo to query the specifications of purchasable resources for instance creation.
      *
      * @returns DescribeAvailableResourceInfoResponse
      *
@@ -8517,10 +8597,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries Container Service for Kubernetes (ACK) edge clusters.
+     * Queries edge container clusters.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
+     * - Single-user call frequency: 100 calls per second.
      *
      * @param request - DescribeClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8559,10 +8639,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries Container Service for Kubernetes (ACK) edge clusters.
+     * Queries edge container clusters.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
+     * - Single-user call frequency: 100 calls per second.
      *
      * @param request - DescribeClusterRequest
      *
@@ -8580,7 +8660,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * To add existing ENS instances to an ECK cluster as worker nodes, or to re-add node instances to a node pool after removing worker nodes, ECK supports manually adding existing nodes to a node pool. You can invoke the DescribeClusterAttachScripts interface to obtain the script for adding existing nodes.
+     * To add an existing ENS instance to an ECK cluster as a worker node or re-add a node to a node pool, call the DescribeClusterAttachScripts operation to get the required script.
      *
      * @param request - DescribeClusterAttachScriptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8627,7 +8707,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * To add existing ENS instances to an ECK cluster as worker nodes, or to re-add node instances to a node pool after removing worker nodes, ECK supports manually adding existing nodes to a node pool. You can invoke the DescribeClusterAttachScripts interface to obtain the script for adding existing nodes.
+     * To add an existing ENS instance to an ECK cluster as a worker node or re-add a node to a node pool, call the DescribeClusterAttachScripts operation to get the required script.
      *
      * @param request - DescribeClusterAttachScriptsRequest
      *
@@ -8645,7 +8725,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群详细信息.
+     * Queries the details of a cluster.
+     *
+     * @remarks
+     * - Per-user call frequency: 100 calls per second.
      *
      * @param request - DescribeClusterDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8684,7 +8767,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群详细信息.
+     * Queries the details of a cluster.
+     *
+     * @remarks
+     * - Per-user call frequency: 100 calls per second.
      *
      * @param request - DescribeClusterDetailRequest
      *
@@ -8702,10 +8788,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
+     * Queries the certificate of an edge container cluster.
      *
      * @remarks
-     *   The maximum number of times that each user can call this operation per second is 100.
+     * - Single-user call frequency: 100 calls per second.
      *
      * @param request - DescribeClusterKubeConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8744,10 +8830,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the certificate of a Container Service for Kubernetes (ACK) edge cluster.
+     * Queries the certificate of an edge container cluster.
      *
      * @remarks
-     *   The maximum number of times that each user can call this operation per second is 100.
+     * - Single-user call frequency: 100 calls per second.
      *
      * @param request - DescribeClusterKubeConfigRequest
      *
@@ -8765,7 +8851,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群节点池信息.
+     * Queries all node pools in a cluster.
+     *
+     * @remarks
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeClusterNodePoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8812,7 +8901,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群节点池信息.
+     * Queries all node pools in a cluster.
+     *
+     * @remarks
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeClusterNodePoolsRequest
      *
@@ -8830,7 +8922,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询节点池节点.
+     * Queries a list of nodes that meet specific conditions.
+     *
+     * @remarks
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeClusterNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8881,7 +8976,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询节点池节点.
+     * Queries a list of nodes that meet specific conditions.
+     *
+     * @remarks
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeClusterNodesRequest
      *
@@ -8899,7 +8997,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群KubeConfig.
+     * A kubeconfig file contains the credentials required for a client to access an Elastic Container instance on Kubernetes (ECK) cluster. The file includes identity and authentication data for accessing the destination cluster. To manage a cluster using kubectl, you must first connect to the cluster with its kubeconfig file. You can call the DescribeClusterUserKubeconfig operation to query the kubeconfig file for a specific cluster.
+     *
+     * @remarks
+     * - A single user is limited to 100 calls per second.
      *
      * @param request - DescribeClusterUserKubeconfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8942,7 +9043,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群KubeConfig.
+     * A kubeconfig file contains the credentials required for a client to access an Elastic Container instance on Kubernetes (ECK) cluster. The file includes identity and authentication data for accessing the destination cluster. To manage a cluster using kubectl, you must first connect to the cluster with its kubeconfig file. You can call the DescribeClusterUserKubeconfig operation to query the kubeconfig file for a specific cluster.
+     *
+     * @remarks
+     * - A single user is limited to 100 calls per second.
      *
      * @param request - DescribeClusterUserKubeconfigRequest
      *
@@ -8980,12 +9084,20 @@ class Ens extends OpenApiClient
             @$query['ClusterId'] = $request->clusterId;
         }
 
+        if (null !== $request->clusterType) {
+            @$query['ClusterType'] = $request->clusterType;
+        }
+
         if (null !== $request->ensRegionId) {
             @$query['EnsRegionId'] = $request->ensRegionId;
         }
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->profile) {
+            @$query['Profile'] = $request->profile;
         }
 
         $req = new OpenApiRequest([
@@ -9082,7 +9194,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the distribution status of data files on edge instances of an application.
+     * Retrieves the distribution status of data files across edge resource instances of an application by calling DescribeDataDistResult.
      *
      * @param tmpReq - DescribeDataDistResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9159,7 +9271,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the distribution status of data files on edge instances of an application.
+     * Retrieves the distribution status of data files across edge resource instances of an application by calling DescribeDataDistResult.
      *
      * @param request - DescribeDataDistResultRequest
      *
@@ -9177,7 +9289,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the download URLs of application data on file servers and returns the file servers on which data is pushed.
+     * Retrieves the download URL of application data from file servers and returns the list of file servers to which the data has been successfully pre-pushed.
      *
      * @param request - DescribeDataDownloadURLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9212,7 +9324,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the download URLs of application data on file servers and returns the file servers on which data is pushed.
+     * Retrieves the download URL of application data from file servers and returns the list of file servers to which the data has been successfully pre-pushed.
      *
      * @param request - DescribeDataDownloadURLRequest
      *
@@ -9230,7 +9342,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the push status of application data files on Edge Node Service (ENS) nodes.
+     * Queries the pre-push status of data files for an application on edge nodes.
+     *
+     * @remarks
+     * Queries the pre-push results of application data. Before calling this operation, make sure that your account has activated the Edge Node Service (ENS) edge application hosting service.
      *
      * @param request - DescribeDataPushResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9297,7 +9412,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the push status of application data files on Edge Node Service (ENS) nodes.
+     * Queries the pre-push status of data files for an application on edge nodes.
+     *
+     * @remarks
+     * Queries the pre-push results of application data. Before calling this operation, make sure that your account has activated the Edge Node Service (ENS) edge application hosting service.
      *
      * @param request - DescribeDataPushResultRequest
      *
@@ -9315,7 +9433,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the properties of instances and virtual devices in a specific edge application.
+     * Queries the list of basic property information such as instances and virtual device network status under an edge application.
      *
      * @param request - DescribeDeviceServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9350,7 +9468,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the properties of instances and virtual devices in a specific edge application.
+     * Queries the list of basic property information such as instances and virtual device network status under an edge application.
      *
      * @param request - DescribeDeviceServiceRequest
      *
@@ -9368,7 +9486,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the disk IOPS monitoring data.
+     * Queries disk IOPS monitoring data.
      *
      * @param request - DescribeDiskIopsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9403,7 +9521,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the disk IOPS monitoring data.
+     * Queries disk IOPS monitoring data.
      *
      * @param request - DescribeDiskIopsListRequest
      *
@@ -9421,7 +9539,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more disks.
+     * Queries information about one or more created disks.
      *
      * @param request - DescribeDisksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9516,7 +9634,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the information about one or more disks.
+     * Queries information about one or more created disks.
      *
      * @param request - DescribeDisksRequest
      *
@@ -9534,7 +9652,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of resources that you can purchase when you create an instance.
+     * Queries the specifications of available resources for purchase when you create an instance by calling DescribeElbAvailableResourceInfo.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9563,7 +9681,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of resources that you can purchase when you create an instance.
+     * Queries the specifications of available resources for purchase when you create an instance by calling DescribeElbAvailableResourceInfo.
      *
      * @returns DescribeElbAvailableResourceInfoResponse
      *
@@ -9695,7 +9813,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries elastic IP addresses (EIPs).
+     * Queries elastic IP addresses (EIPs) in Edge Node Service (ENS).
      *
      * @param request - DescribeEnsEipAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9782,7 +9900,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries elastic IP addresses (EIPs).
+     * Queries elastic IP addresses (EIPs) in Edge Node Service (ENS).
      *
      * @param request - DescribeEnsEipAddressesRequest
      *
@@ -9800,7 +9918,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries regions in which ENS resources can be created.
+     * Invoke DescribeEnsNetDistrict to query the regions where edge service resources can be created.
      *
      * @param request - DescribeEnsNetDistrictRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9847,7 +9965,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries regions in which ENS resources can be created.
+     * Invoke DescribeEnsNetDistrict to query the regions where edge service resources can be created.
      *
      * @param request - DescribeEnsNetDistrictRequest
      *
@@ -10026,7 +10144,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries node resources.
+     * Queries edge zone resource information by calling DescribeEnsRegionIdResource.
      *
      * @remarks
      *
@@ -10087,7 +10205,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries node resources.
+     * Queries edge zone resource information by calling DescribeEnsRegionIdResource.
      *
      * @remarks
      *
@@ -10107,7 +10225,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the Edge Node Service (ENS) nodes that you can use.
+     * Queries a list of available ENS nodes.
      *
      * @param request - DescribeEnsRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10146,7 +10264,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the Edge Node Service (ENS) nodes that you can use.
+     * Queries a list of available ENS nodes.
      *
      * @param request - DescribeEnsRegionsRequest
      *
@@ -10606,7 +10724,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the EPN bandwidth usage.
+     * Invokes DescribeEpnBandWidthData to query the network bandwidth usage of an edge-to-edge network.
      *
      * @param request - DescribeEpnBandWidthDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10673,7 +10791,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the EPN bandwidth usage.
+     * Invokes DescribeEpnBandWidthData to query the network bandwidth usage of an edge-to-edge network.
      *
      * @param request - DescribeEpnBandWidthDataRequest
      *
@@ -10960,9 +11078,9 @@ class Ens extends OpenApiClient
      * Queries the export result of an image.
      *
      * @remarks
-     *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
-     * *   Empty strings are returned for images that are not exported.
-     * *   The download links may become invalid if you delete objects in OSS.
+     * - to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
+     * - Empty strings are returned for images that are not exported.
+     * - The download links may become invalid if you delete objects in OSS.
      *
      * @param request - DescribeExportImageInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11016,9 +11134,9 @@ class Ens extends OpenApiClient
      * Queries the export result of an image.
      *
      * @remarks
-     *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
-     * *   Empty strings are returned for images that are not exported.
-     * *   The download links may become invalid if you delete objects in OSS.
+     * - to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
+     * - Empty strings are returned for images that are not exported.
+     * - The download links may become invalid if you delete objects in OSS.
      *
      * @param request - DescribeExportImageInfoRequest
      *
@@ -11093,7 +11211,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the information about Apsara File Storage NAS (NAS) file systems.
+     * Query NAS file system information.
      *
      * @param request - DescribeFileSystemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11128,7 +11246,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the information about Apsara File Storage NAS (NAS) file systems.
+     * Query NAS file system information.
      *
      * @param request - DescribeFileSystemsRequest
      *
@@ -11146,7 +11264,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeForwardEntryAttribute operation to query the details of a DNAT rule.
+     * Queries a DNAT rule.
      *
      * @param request - DescribeForwardEntryAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11185,7 +11303,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeForwardEntryAttribute operation to query the details of a DNAT rule.
+     * Queries a DNAT rule.
      *
      * @param request - DescribeForwardEntryAttributeRequest
      *
@@ -11288,7 +11406,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries high-availability virtual IP addresses (HAVIPs).
+     * Queries high-availability virtual IP addresses (HaVips).
      *
      * @param request - DescribeHaVipsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11323,7 +11441,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries high-availability virtual IP addresses (HAVIPs).
+     * Queries high-availability virtual IP addresses (HaVips).
      *
      * @param request - DescribeHaVipsRequest
      *
@@ -11341,10 +11459,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries instance system events.
+     * Queries system event information.
      *
      * @remarks
-     *   You must specify an event type to query. You can query multiple event types at the same time.
+     * - EventTypes must specify at least one event type for the query. Multiple event types can be queried at the same time.
      *
      * @param tmpReq - DescribeHistoryEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11421,10 +11539,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries instance system events.
+     * Queries system event information.
      *
      * @remarks
-     *   You must specify an event type to query. You can query multiple event types at the same time.
+     * - EventTypes must specify at least one event type for the query. Multiple event types can be queried at the same time.
      *
      * @param request - DescribeHistoryEventsRequest
      *
@@ -11442,7 +11560,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries available images.
+     * Queries available image resources.
      *
      * @param request - DescribeImageInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11481,7 +11599,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries available images.
+     * Queries available image resources.
      *
      * @param request - DescribeImageInfosRequest
      *
@@ -11649,7 +11767,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query whether auto-renewal is enabled for an instance.
+     * to query whether auto-renewal is enabled for an instance.
      *
      * @param request - DescribeInstanceAutoRenewAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11692,7 +11810,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query whether auto-renewal is enabled for an instance.
+     * to query whether auto-renewal is enabled for an instance.
      *
      * @param request - DescribeInstanceAutoRenewAttributeRequest
      *
@@ -11710,12 +11828,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the detailed bandwidth data of an instance, which is collected every 5 minutes.
+     * Queries the bandwidth details of an instance at a 5-minute granularity.
      *
      * @remarks
-     *   You can call this operation up to 800 times per second per account.
-     * *   You can call this operation up to 100 times per second per user.
-     * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
+     * - Request parameters act as filters. Filters are evaluated by using the logical AND operator. If a parameter is empty, the corresponding filter does not take effect. However, if InstanceIds is set to an empty JSON array, the filter is considered valid and an empty result is returned.
      *
      * @param request - DescribeInstanceBandwidthDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11750,12 +11866,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the detailed bandwidth data of an instance, which is collected every 5 minutes.
+     * Queries the bandwidth details of an instance at a 5-minute granularity.
      *
      * @remarks
-     *   You can call this operation up to 800 times per second per account.
-     * *   You can call this operation up to 100 times per second per user.
-     * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
+     * - Request parameters act as filters. Filters are evaluated by using the logical AND operator. If a parameter is empty, the corresponding filter does not take effect. However, if InstanceIds is set to an empty JSON array, the filter is considered valid and an empty result is returned.
      *
      * @param request - DescribeInstanceBandwidthDetailRequest
      *
@@ -11848,7 +11962,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the vCPU and memory usage of an instance.
+     * Queries the CPU and memory usage of an instance.
      *
      * @param request - DescribeInstanceMonitorDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11899,7 +12013,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the vCPU and memory usage of an instance.
+     * Queries the CPU and memory usage of an instance.
      *
      * @param request - DescribeInstanceMonitorDataRequest
      *
@@ -11917,7 +12031,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries shared data groups (SDGs) that are mounted to an Android in Container (AIC) instance.
+     * Queries the mount status of SDGs under a specified AIC instance.
      *
      * @param tmpReq - DescribeInstanceSDGStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11958,7 +12072,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries shared data groups (SDGs) that are mounted to an Android in Container (AIC) instance.
+     * Queries the mount status of SDGs under a specified AIC instance.
      *
      * @param request - DescribeInstanceSDGStatusRequest
      *
@@ -12019,19 +12133,29 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of instance types.
+     * Queries the list of instance types by calling DescribeInstanceTypes.
      *
+     * @param request - DescribeInstanceTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeInstanceTypesResponse
      *
-     * @param RuntimeOptions $runtime
+     * @param DescribeInstanceTypesRequest $request
+     * @param RuntimeOptions               $runtime
      *
      * @return DescribeInstanceTypesResponse
      */
-    public function describeInstanceTypesWithOptions($runtime)
+    public function describeInstanceTypesWithOptions($request, $runtime)
     {
-        $req = new OpenApiRequest([]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
         $params = new Params([
             'action' => 'DescribeInstanceTypes',
             'version' => '2017-11-10',
@@ -12048,21 +12172,25 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of instance types.
+     * Queries the list of instance types by calling DescribeInstanceTypes.
+     *
+     * @param request - DescribeInstanceTypesRequest
      *
      * @returns DescribeInstanceTypesResponse
      *
+     * @param DescribeInstanceTypesRequest $request
+     *
      * @return DescribeInstanceTypesResponse
      */
-    public function describeInstanceTypes()
+    public function describeInstanceTypes($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeInstanceTypesWithOptions($runtime);
+        return $this->describeInstanceTypesWithOptions($request, $runtime);
     }
 
     /**
-     * Queries the Virtual Network Computing (VNC) URL of an Edge Node Service (ENS) instance.
+     * Queries the web management terminal URL of an ENS instance.
      *
      * @param request - DescribeInstanceVncUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12101,7 +12229,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the Virtual Network Computing (VNC) URL of an Edge Node Service (ENS) instance.
+     * Queries the web management terminal URL of an ENS instance.
      *
      * @param request - DescribeInstanceVncUrlRequest
      *
@@ -12119,12 +12247,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call this operation to view the details of one or more instances.
+     * Queries the details of one or more instances.
      *
      * @remarks
-     *   You can call this operation up to 800 times per second per account.
-     * *   You can call this operation up to 100 times per second per user.
-     * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
+     * - API call frequency: 800 calls per second.
      *
      * @param tmpReq - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12265,12 +12391,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call this operation to view the details of one or more instances.
+     * Queries the details of one or more instances.
      *
      * @remarks
-     *   You can call this operation up to 800 times per second per account.
-     * *   You can call this operation up to 100 times per second per user.
-     * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
+     * - API call frequency: 800 calls per second.
      *
      * @param request - DescribeInstancesRequest
      *
@@ -12357,11 +12481,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about an Edge Load Balancer (ELB) instance.
+     * Queries the details of a specified load balancing instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API call rate: 100 calls per second.
+     * - Per-user call rate: 10 calls per second.
      *
      * @param request - DescribeLoadBalancerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12400,11 +12524,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about an Edge Load Balancer (ELB) instance.
+     * Queries the details of a specified load balancing instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API call rate: 100 calls per second.
+     * - Per-user call rate: 10 calls per second.
      *
      * @param request - DescribeLoadBalancerAttributeRequest
      *
@@ -12425,8 +12549,8 @@ class Ens extends OpenApiClient
      * Queries the configuration of an HTTP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - DescribeLoadBalancerHTTPListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12472,8 +12596,8 @@ class Ens extends OpenApiClient
      * Queries the configuration of an HTTP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - DescribeLoadBalancerHTTPListenerAttributeRequest
      *
@@ -12494,8 +12618,8 @@ class Ens extends OpenApiClient
      * Queries the configurations of an HTTPS listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - DescribeLoadBalancerHTTPSListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12541,8 +12665,8 @@ class Ens extends OpenApiClient
      * Queries the configurations of an HTTPS listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - DescribeLoadBalancerHTTPSListenerAttributeRequest
      *
@@ -12563,8 +12687,8 @@ class Ens extends OpenApiClient
      * Queries monitoring data of an edge load balancer (ELB) instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - DescribeLoadBalancerListenMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12602,8 +12726,8 @@ class Ens extends OpenApiClient
      * Queries monitoring data of an edge load balancer (ELB) instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - DescribeLoadBalancerListenMonitorRequest
      *
@@ -12747,11 +12871,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a Transmission Control Protocol (TCP) listener.
+     * Call the `DescribeLoadBalancerTCPListenerAttribute` operation to query the configuration of a TCP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 calls per second.
+     * - Per-user call rate: 10 calls per second.
      *
      * @param request - DescribeLoadBalancerTCPListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12794,11 +12918,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a Transmission Control Protocol (TCP) listener.
+     * Call the `DescribeLoadBalancerTCPListenerAttribute` operation to query the configuration of a TCP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 calls per second.
+     * - Per-user call rate: 10 calls per second.
      *
      * @param request - DescribeLoadBalancerTCPListenerAttributeRequest
      *
@@ -12816,11 +12940,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of a User Datagram Protocol (UDP) listener.
+     * Call `DescribeLoadBalancerUDPListenerAttribute` to get a UDP listener\\"s configuration.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API rate limit: 100 requests per second (RPS).
+     * - Per-user rate limit: 10 RPS.
      *
      * @param request - DescribeLoadBalancerUDPListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12863,11 +12987,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of a User Datagram Protocol (UDP) listener.
+     * Call `DescribeLoadBalancerUDPListenerAttribute` to get a UDP listener\\"s configuration.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API rate limit: 100 requests per second (RPS).
+     * - Per-user rate limit: 10 RPS.
      *
      * @param request - DescribeLoadBalancerUDPListenerAttributeRequest
      *
@@ -12885,11 +13009,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the Edge Load Balance (ELB) instances that you have created.
+     * Invokes the DescribeLoadBalancers operation to query the list of created load balancing instances.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 calls per second.
+     * - Call rate per user: 10 calls per second.
      *
      * @param request - DescribeLoadBalancersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12924,11 +13048,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the Edge Load Balance (ELB) instances that you have created.
+     * Invokes the DescribeLoadBalancers operation to query the list of created load balancing instances.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 calls per second.
+     * - Call rate per user: 10 calls per second.
      *
      * @param request - DescribeLoadBalancersRequest
      *
@@ -12946,7 +13070,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the metering data of the user.
+     * Retrieves user metering data.
      *
      * @param request - DescribeMeasurementDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12989,7 +13113,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the metering data of the user.
+     * Retrieves user metering data.
      *
      * @param request - DescribeMeasurementDataRequest
      *
@@ -13007,7 +13131,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the information about mount targets.
+     * Queries mount target information by calling DescribeMountTargets.
      *
      * @param request - DescribeMountTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13062,7 +13186,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the information about mount targets.
+     * Queries mount target information by calling DescribeMountTargets.
      *
      * @param request - DescribeMountTargetsRequest
      *
@@ -13080,7 +13204,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of resources that you can purchase when you create a NAS.
+     * Query the resources that you can purchase when creating a NAS file system.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13109,7 +13233,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of resources that you can purchase when you create a NAS.
+     * Query the resources that you can purchase when creating a NAS file system.
      *
      * @returns DescribeNASAvailableResourceInfoResponse
      *
@@ -13176,7 +13300,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries created Network Address Translation (NAT) gateways.
+     * Invoke DescribeNatGateways to query created NAT Gateways.
      *
      * @param request - DescribeNatGatewaysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13211,7 +13335,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries created Network Address Translation (NAT) gateways.
+     * Invoke DescribeNatGateways to query created NAT Gateways.
      *
      * @param request - DescribeNatGatewaysRequest
      *
@@ -13229,7 +13353,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries network access control lists (ACLs).
+     * You can invoke the DescribeNetworkAcls API to query created network ACLs.
      *
      * @param request - DescribeNetworkAclsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13284,7 +13408,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries network access control lists (ACLs).
+     * You can invoke the DescribeNetworkAcls API to query created network ACLs.
      *
      * @param request - DescribeNetworkAclsRequest
      *
@@ -13302,11 +13426,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of a specified network.
+     * Use DescribeNetworkAttribute to query the configuration of a specific network.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API rate limit: 100 calls/sec.
+     * - Per-user rate limit: 10 calls/sec.
      *
      * @param request - DescribeNetworkAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13345,11 +13469,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of a specified network.
+     * Use DescribeNetworkAttribute to query the configuration of a specific network.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API rate limit: 100 calls/sec.
+     * - Per-user rate limit: 10 calls/sec.
      *
      * @param request - DescribeNetworkAttributeRequest
      *
@@ -13367,7 +13491,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries Elastic Network Interfaces (ENIs).
+     * Queries a list of elastic network interfaces (ENIs).
      *
      * @param request - DescribeNetworkInterfacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13462,7 +13586,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries Elastic Network Interfaces (ENIs).
+     * Queries a list of elastic network interfaces (ENIs).
      *
      * @param request - DescribeNetworkInterfacesRequest
      *
@@ -13480,7 +13604,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries VPC peering connections.
+     * Call `DescribeNetworkPeerConnections` to query network peer connections.
      *
      * @param request - DescribeNetworkPeerConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13539,7 +13663,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries VPC peering connections.
+     * Call `DescribeNetworkPeerConnections` to query network peer connections.
      *
      * @param request - DescribeNetworkPeerConnectionsRequest
      *
@@ -13557,11 +13681,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Query the network list.
+     * Call DescribeNetworks to retrieve a list of networks.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 10 calls per second.
      *
      * @param request - DescribeNetworksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13624,11 +13748,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Query the network list.
+     * Call DescribeNetworks to retrieve a list of networks.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 10 calls per second.
      *
      * @param request - DescribeNetworksRequest
      *
@@ -13810,7 +13934,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about the Internet service providers (ISPs) of edge nodes.
+     * Queries the Internet Service Provider (ISP) information of an ENS edge node.
      *
      * @param request - DescribeRegionIspsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13845,7 +13969,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about the Internet service providers (ISPs) of edge nodes.
+     * Queries the Internet Service Provider (ISP) information of an ENS edge node.
      *
      * @param request - DescribeRegionIspsRequest
      *
@@ -14012,7 +14136,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries basic information about shared data groups (SDGs), including node preload information.
+     * Queries basic SDG information, including node preload information.
      *
      * @param tmpReq - DescribeSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14069,7 +14193,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries basic information about shared data groups (SDGs), including node preload information.
+     * Queries basic SDG information, including node preload information.
      *
      * @param request - DescribeSDGRequest
      *
@@ -14087,7 +14211,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the deployment status of the shared data group (SDG).
+     * Queries the deployment status of an SDG.
      *
      * @param tmpReq - DescribeSDGDeploymentStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14168,7 +14292,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the deployment status of the shared data group (SDG).
+     * Queries the deployment status of an SDG.
      *
      * @param request - DescribeSDGDeploymentStatusRequest
      *
@@ -14186,7 +14310,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can query the information of shared disks in a specified SDG.
+     * Queries the information about shared disks in a specified SDG.
      *
      * @param request - DescribeSDGSharedDisksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14241,7 +14365,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can query the information of shared disks in a specified SDG.
+     * Queries the information about shared disks in a specified SDG.
      *
      * @param request - DescribeSDGSharedDisksRequest
      *
@@ -14330,7 +14454,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries created secondary public IP addresses.
+     * Queries the secondary public IP addresses that have been created.
      *
      * @param request - DescribeSecondaryPublicIpAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14393,7 +14517,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries created secondary public IP addresses.
+     * Queries the secondary public IP addresses that have been created.
      *
      * @param request - DescribeSecondaryPublicIpAddressesRequest
      *
@@ -14411,7 +14535,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the rules of a security group.
+     * You can invoke DescribeSecurityGroupAttribute to query the security group rules of a security group.
      *
      * @param request - DescribeSecurityGroupAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14450,7 +14574,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the rules of a security group.
+     * You can invoke DescribeSecurityGroupAttribute to query the security group rules of a security group.
      *
      * @param request - DescribeSecurityGroupAttributeRequest
      *
@@ -14610,7 +14734,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeServcieSchedule to query the real-time status of the instance device or container that is being occupied by the UUID.
+     * Queries the real-time status of the instance devices or containers that are being scheduled and occupied by the specified UUID.
      *
      * @param request - DescribeServcieScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14657,7 +14781,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeServcieSchedule to query the real-time status of the instance device or container that is being occupied by the UUID.
+     * Queries the real-time status of the instance devices or containers that are being scheduled and occupied by the specified UUID.
      *
      * @param request - DescribeServcieScheduleRequest
      *
@@ -14675,11 +14799,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring data of an edge load balancer (ELB) instance based on the listener.
+     * Queries listener-level monitoring data for an ESLB instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 calls per second.
+     * - Per-user call rate: 10 calls per second.
      *
      * @param request - DescribeServerLoadBalancerListenMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14714,11 +14838,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring data of an edge load balancer (ELB) instance based on the listener.
+     * Queries listener-level monitoring data for an ESLB instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate: 100 calls per second.
+     * - Per-user call rate: 10 calls per second.
      *
      * @param request - DescribeServerLoadBalancerListenMonitorRequest
      *
@@ -14736,11 +14860,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the request monitoring data of an edge load balancer (ELB) instance.
+     * Queries request monitoring data of an ESLB instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 10 calls per second.
      *
      * @param request - DescribeServerLoadBalancerMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14775,11 +14899,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the request monitoring data of an edge load balancer (ELB) instance.
+     * Queries request monitoring data of an ESLB instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 10 calls per second.
      *
      * @param request - DescribeServerLoadBalancerMonitorRequest
      *
@@ -14797,7 +14921,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about snapshots.
+     * Queries snapshot information by calling DescribeSnapshots.
      *
      * @param request - DescribeSnapshotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14864,7 +14988,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about snapshots.
+     * Queries snapshot information by calling DescribeSnapshots.
      *
      * @param request - DescribeSnapshotsRequest
      *
@@ -14882,7 +15006,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specific source network address translation (SNAT) entry.
+     * Queries a specific source network address translation (SNAT) entry.
      *
      * @param request - DescribeSnatAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14921,7 +15045,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specific source network address translation (SNAT) entry.
+     * Queries a specific source network address translation (SNAT) entry.
      *
      * @param request - DescribeSnatAttributeRequest
      *
@@ -15227,7 +15351,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call the DescribeVSwitchAttributes interface to query the configuration of a specified VSwitch.
+     * Call the DescribeVSwitchAttributes operation to query the configuration of a specified vSwitch.
      *
      * @param request - DescribeVSwitchAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15266,7 +15390,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call the DescribeVSwitchAttributes interface to query the configuration of a specified VSwitch.
+     * Call the DescribeVSwitchAttributes operation to query the configuration of a specified vSwitch.
      *
      * @param request - DescribeVSwitchAttributesRequest
      *
@@ -15284,7 +15408,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about available vSwitches.
+     * Call the DescribeVSwitches operation to retrieve information about VSwitches. You use VSwitches to configure private networks.
      *
      * @param request - DescribeVSwitchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15300,6 +15424,10 @@ class Ens extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->enableIpv6) {
+            @$query['EnableIpv6'] = $request->enableIpv6;
+        }
+
         if (null !== $request->ensRegionId) {
             @$query['EnsRegionId'] = $request->ensRegionId;
         }
@@ -15351,7 +15479,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about available vSwitches.
+     * Call the DescribeVSwitches operation to retrieve information about VSwitches. You use VSwitches to configure private networks.
      *
      * @param request - DescribeVSwitchesRequest
      *
@@ -15369,7 +15497,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Detaches a pay-as-you-go disk from an Edge Node Service (ENS) instance. You cannot call this operation to detach a disk that is created together with an instance.
+     * Detaches a pay-as-you-go disk from an Edge Node Service (ENS) instance. You cannot To detach a disk that is created together with an instance.
      *
      * @param request - DetachDiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15412,7 +15540,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Detaches a pay-as-you-go disk from an Edge Node Service (ENS) instance. You cannot call this operation to detach a disk that is created together with an instance.
+     * Detaches a pay-as-you-go disk from an Edge Node Service (ENS) instance. You cannot To detach a disk that is created together with an instance.
      *
      * @param request - DetachDiskRequest
      *
@@ -15497,15 +15625,15 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+     * Detaches a key pair from up to 30 instances in a single request. You can specify the key pair by its key pair name or key pair ID.
      *
      * @remarks
-     * ## [](#)
-     * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
-     * *   You can unbind a maximum of 30 instances at a time.
-     * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
-     * *   At least one of key_pair_name and key_pair_id is not empty.
-     * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+     * ## Usage notes
+     * This operation detaches a key pair from multiple instances in a batch. The target instances must be in a stopped state.
+     * - You can detach a key pair from a maximum of 30 instances in a single request.
+     * - The operation returns an error if you specify the `KeyPairName` parameter and any of the specified instances are not associated with that key pair name.
+     * - You must specify either the `KeyPairName` or `KeyPairId` parameter.
+     * - We recommend using the `KeyPairId` parameter. The `KeyPairName` parameter will be deprecated in a future release.
      *
      * @param tmpReq - DetachKeyPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15558,15 +15686,15 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+     * Detaches a key pair from up to 30 instances in a single request. You can specify the key pair by its key pair name or key pair ID.
      *
      * @remarks
-     * ## [](#)
-     * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
-     * *   You can unbind a maximum of 30 instances at a time.
-     * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
-     * *   At least one of key_pair_name and key_pair_id is not empty.
-     * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+     * ## Usage notes
+     * This operation detaches a key pair from multiple instances in a batch. The target instances must be in a stopped state.
+     * - You can detach a key pair from a maximum of 30 instances in a single request.
+     * - The operation returns an error if you specify the `KeyPairName` parameter and any of the specified instances are not associated with that key pair name.
+     * - You must specify either the `KeyPairName` or `KeyPairId` parameter.
+     * - We recommend using the `KeyPairId` parameter. The `KeyPairName` parameter will be deprecated in a future release.
      *
      * @param request - DetachKeyPairRequest
      *
@@ -15588,10 +15716,10 @@ class Ens extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   You cannot detach a primary ENI from an instance.
-     * *   The ENI must be in the InUse state.
-     * *   The instances are in the Stopped state.
-     * *   This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state of the ENI to determine whether the ENI is detached.
+     * - You cannot detach a primary ENI from an instance.
+     * - The ENI must be in the InUse state.
+     * - The instances are in the Stopped state.
+     * - This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state of the ENI to determine whether the ENI is detached.
      *
      * @param request - DetachNetworkInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15634,10 +15762,10 @@ class Ens extends OpenApiClient
      *
      * @remarks
      * Before you call this operation, take note of the following items:
-     * *   You cannot detach a primary ENI from an instance.
-     * *   The ENI must be in the InUse state.
-     * *   The instances are in the Stopped state.
-     * *   This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state of the ENI to determine whether the ENI is detached.
+     * - You cannot detach a primary ENI from an instance.
+     * - The ENI must be in the InUse state.
+     * - The instances are in the Stopped state.
+     * - This operation is an asynchronous operation. After this operation is called to detach an ENI, you can check the state of the ENI to determine whether the ENI is detached.
      *
      * @param request - DetachNetworkInterfaceRequest
      *
@@ -15720,10 +15848,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Migrates the instance across nodes after an O\\\\\\&M event occurs on an instance.
+     * Migrates an instance across physical nodes in response to an O&M event.
      *
      * @remarks
-     *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
+     * - This O\\&M task currently supports only the `Instance:SystemUpgrade.Migrate` event type for migrations due to an underlying upgrade.
      *
      * @param request - EventMigrateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15786,10 +15914,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Migrates the instance across nodes after an O\\\\\\&M event occurs on an instance.
+     * Migrates an instance across physical nodes in response to an O&M event.
      *
      * @remarks
-     *   This O\\&M operation is supported only by the Instance:SystemUpgrade.Migrate event.
+     * - This O\\&M task currently supports only the `Instance:SystemUpgrade.Migrate` event type for migrations due to an underlying upgrade.
      *
      * @param request - EventMigrateInstanceRequest
      *
@@ -15807,10 +15935,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Restart the instance across nodes after an O\\\\\\&M event occurs on an instance.
+     * Reboots an Instance affected by an Operational Event.
      *
      * @remarks
-     *   This O\\&M operation supports only the Instance:SystemMaintenance.Reboot event
+     * - This operation currently supports only the following Event Type: Instance:SystemMaintenance.Reboot (an Instance Reboot due to System Maintenance).
      *
      * @param request - EventRebootInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15865,10 +15993,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Restart the instance across nodes after an O\\\\\\&M event occurs on an instance.
+     * Reboots an Instance affected by an Operational Event.
      *
      * @remarks
-     *   This O\\&M operation supports only the Instance:SystemMaintenance.Reboot event
+     * - This operation currently supports only the following Event Type: Instance:SystemMaintenance.Reboot (an Instance Reboot due to System Maintenance).
      *
      * @param request - EventRebootInstanceRequest
      *
@@ -15886,10 +16014,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * The event that is used to immediately redeploy a specified resource or by appointment.
+     * Redeploys a specified instance either immediately or at a scheduled time.
      *
      * @remarks
-     *   This O\\&M operation supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system problems) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
+     * - This O\\&M operation supports only the following event types: `Instance:SystemFailure.Redeploy` (redeployment due to a system failure) and `Instance:SystemMaintenance.Redeploy` (redeployment for system maintenance).
      *
      * @param request - EventRedeployInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15944,10 +16072,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * The event that is used to immediately redeploy a specified resource or by appointment.
+     * Redeploys a specified instance either immediately or at a scheduled time.
      *
      * @remarks
-     *   This O\\&M operation supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system problems) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
+     * - This O\\&M operation supports only the following event types: `Instance:SystemFailure.Redeploy` (redeployment due to a system failure) and `Instance:SystemMaintenance.Redeploy` (redeployment for system maintenance).
      *
      * @param request - EventRedeployInstanceRequest
      *
@@ -16217,7 +16345,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about a bucket.
+     * You can call GetBucketInfo to retrieve detailed Bucket information.
      *
      * @param request - GetBucketInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16256,7 +16384,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about a bucket.
+     * You can call GetBucketInfo to retrieve detailed Bucket information.
      *
      * @param request - GetBucketInfoRequest
      *
@@ -16274,7 +16402,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries lifecycle rules.
+     * Retrieves lifecycle rule information.
      *
      * @param request - GetBucketLifecycleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16317,7 +16445,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries lifecycle rules.
+     * Retrieves lifecycle rule information.
      *
      * @param request - GetBucketLifecycleRequest
      *
@@ -16335,7 +16463,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群内指定组件实例信息.
+     * Queries the details of a specified add-on in a cluster, including the version, parameter settings, and status of the add-on instance.
+     *
+     * @remarks
+     * It can be deleted only when the instance group information is empty.
      *
      * @param request - GetClusterAddonInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16378,7 +16509,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 查询集群内指定组件实例信息.
+     * Queries the details of a specified add-on in a cluster, including the version, parameter settings, and status of the add-on instance.
+     *
+     * @remarks
+     * It can be deleted only when the instance group information is empty.
      *
      * @param request - GetClusterAddonInstanceRequest
      *
@@ -16396,7 +16530,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
+     * Queries the storage usage of the previous billing cycle and the cumulative number of calls for the current month by bucket.
      *
      * @param request - GetOssStorageAndAccByBucketsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16431,7 +16565,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
+     * Queries the storage usage of the previous billing cycle and the cumulative number of calls for the current month by bucket.
      *
      * @param request - GetOssStorageAndAccByBucketsRequest
      *
@@ -16508,7 +16642,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call ImportImage to import your image file to the cloud server.
+     * Imports image information.
      *
      * @param tmpReq - ImportImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16601,7 +16735,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call ImportImage to import your image file to the cloud server.
+     * Imports image information.
      *
      * @param request - ImportImageRequest
      *
@@ -16622,8 +16756,8 @@ class Ens extends OpenApiClient
      * Imports the public key of a Rivest–Shamir–Adleman (RSA)-encrypted key pair that is generated by a third-party tool.
      *
      * @remarks
-     *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
-     * *   The key pair can be only in the ssh-rsa format.
+     * - After the key pair is imported, ENS stores the public key. You must securely store the private key.
+     * - The key pair can be only in the ssh-rsa format.
      *
      * @param request - ImportKeyPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16669,8 +16803,8 @@ class Ens extends OpenApiClient
      * Imports the public key of a Rivest–Shamir–Adleman (RSA)-encrypted key pair that is generated by a third-party tool.
      *
      * @remarks
-     *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
-     * *   The key pair can be only in the ssh-rsa format.
+     * - After the key pair is imported, ENS stores the public key. You must securely store the private key.
+     * - The key pair can be only in the ssh-rsa format.
      *
      * @param request - ImportKeyPairRequest
      *
@@ -16688,7 +16822,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Create a service-linked role (SLR) for ENS for the current user to manage resources.
+     * Creates a service-linked role (SLR) that grants ENS the permissions to manage your resources.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16717,7 +16851,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Create a service-linked role (SLR) for ENS for the current user to manage resources.
+     * Creates a service-linked role (SLR) that grants ENS the permissions to manage your resources.
      *
      * @returns InitializeENSECKServiceRoleResponse
      *
@@ -16731,7 +16865,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 安装集群组件.
+     * To enhance the capabilities of Kubernetes, Edge Kubernetes (ECK) clusters support a variety of components, such as managed core components, applications, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying their names and versions.
+     *
+     * @remarks
+     * - The call frequency for a single user is limited to 10 calls per second.
+     * - Cluster creation is an asynchronous operation. After the API call returns, the cluster requires 10 to 20 minutes to complete initialization. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param tmpReq - InstallClusterAddonsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16780,7 +16918,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 安装集群组件.
+     * To enhance the capabilities of Kubernetes, Edge Kubernetes (ECK) clusters support a variety of components, such as managed core components, applications, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying their names and versions.
+     *
+     * @remarks
+     * - The call frequency for a single user is limited to 10 calls per second.
+     * - Cluster creation is an asynchronous operation. After the API call returns, the cluster requires 10 to 20 minutes to complete initialization. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - InstallClusterAddonsRequest
      *
@@ -16862,7 +17004,7 @@ class Ens extends OpenApiClient
      * Adds an Edge Node Service (ENS) instance to a specified security group.
      *
      * @remarks
-     * Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
+     * Before you To add an instance to a security group, make sure that the instance is in the Stopped or Running state.
      *
      * @param request - JoinSecurityGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16912,7 +17054,7 @@ class Ens extends OpenApiClient
      * Adds an Edge Node Service (ENS) instance to a specified security group.
      *
      * @remarks
-     * Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
+     * Before you To add an instance to a security group, make sure that the instance is in the Stopped or Running state.
      *
      * @param request - JoinSecurityGroupRequest
      *
@@ -16930,10 +17072,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Performs networking.
+     * Joins vSwitches to an Edge Private Network (EPN) instance for networking.
      *
      * @remarks
-     * For the Internal Connection mode and the Intelligent Acceleration and Internal Connection mode, instances of the vSwitch take effect automatically. You do not need to manually add instances. For public connections such as intelligent acceleration, you need to call an operation to manually add the instances to Internet-facing instances.
+     * For the internal network connection and internal network connection with intelligent acceleration modes, instances in the vSwitch take effect automatically and do not require manual addition. For the intelligent acceleration public public mode, you only need to call the API operation to add instances to the public public mode instance information.
      *
      * @param request - JoinVSwitchesToEpnInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16976,10 +17118,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Performs networking.
+     * Joins vSwitches to an Edge Private Network (EPN) instance for networking.
      *
      * @remarks
-     * For the Internal Connection mode and the Intelligent Acceleration and Internal Connection mode, instances of the vSwitch take effect automatically. You do not need to manually add instances. For public connections such as intelligent acceleration, you need to call an operation to manually add the instances to Internet-facing instances.
+     * For the internal network connection and internal network connection with intelligent acceleration modes, instances in the vSwitch take effect automatically and do not require manual addition. For the intelligent acceleration public public mode, you only need to call the API operation to add instances to the public public mode instance information.
      *
      * @param request - JoinVSwitchesToEpnInstanceRequest
      *
@@ -17068,7 +17210,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the related information of AIC public keys. Paged query is supported.
+     * Queries the list of association information for AIC public keys. Paging is supported.
      *
      * @param request - ListAICPublicKeyDeliveriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17127,7 +17269,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the related information of AIC public keys. Paged query is supported.
+     * Queries the list of association information for AIC public keys. Paging is supported.
      *
      * @param request - ListAICPublicKeyDeliveriesRequest
      *
@@ -17145,7 +17287,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Query the list of AIC public keys that meet the conditions. Paged query is supported.
+     * Queries a list of AIC public key information that meets the specified conditions. Paging is supported.
      *
      * @param request - ListAICPublicKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17200,7 +17342,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Query the list of AIC public keys that meet the conditions. Paged query is supported.
+     * Queries a list of AIC public key information that meets the specified conditions. Paging is supported.
      *
      * @param request - ListAICPublicKeysRequest
      *
@@ -17218,7 +17360,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Querying the details of a cluster component.
+     * Retrieves details about cluster components.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17247,7 +17389,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Querying the details of a cluster component.
+     * Retrieves details about cluster components.
      *
      * @returns ListAddonsResponse
      *
@@ -17411,7 +17553,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * List of Installed Addon Instances in the Cluster.
+     * Retrieves a list of installed add-on instances in a specified cluster and queries related information about the add-on instances, such as the add-on version and status.
      *
      * @param request - ListClusterAddonInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17450,7 +17592,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * List of Installed Addon Instances in the Cluster.
+     * Retrieves a list of installed add-on instances in a specified cluster and queries related information about the add-on instances, such as the add-on version and status.
      *
      * @param request - ListClusterAddonInstancesRequest
      *
@@ -17592,7 +17734,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries tags that are added to Edge Node Service (ENS) instances.
+     * Queries the tags bound to one or more Edge Node Service (ENS) resources. Currently, only instance resources are supported.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17643,7 +17785,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries tags that are added to Edge Node Service (ENS) instances.
+     * Queries the tags bound to one or more Edge Node Service (ENS) resources. Currently, only instance resources are supported.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -17661,7 +17803,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Log on to the AIC instance. You can associate or disassociate an AIC instance based on the uploaded AIC public key.
+     * Manages the logon of AIC instances by associating or dissociating instances based on uploaded AIC public keys.
      *
      * @param request - ManageAICLoginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17712,7 +17854,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Log on to the AIC instance. You can associate or disassociate an AIC instance based on the uploaded AIC public key.
+     * Manages the logon of AIC instances by associating or dissociating instances based on uploaded AIC public keys.
      *
      * @param request - ManageAICLoginRequest
      *
@@ -17730,7 +17872,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * aic实例变配接口.
+     * Modifies the specifications of an Android in Container (AIC) instance.
      *
      * @param request - ModifyAICInstanceTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17789,7 +17931,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * aic实例变配接口.
+     * Modifies the specifications of an Android in Container (AIC) instance.
      *
      * @param request - ModifyAICInstanceTypeRequest
      *
@@ -17807,7 +17949,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 修改集群组件实例配置.
+     * Modifies the configuration of an installed cluster add-on instance. Modifying the configuration may affect your services. Evaluate the impact, perform this operation during off-peak hours, and back up your data in advance.
+     *
+     * @remarks
+     * Modifies an installed add-on in an ECK cluster. The target cluster must be in the running state, and ComponentName must reference an installed add-on.
      *
      * @param tmpReq - ModifyClusterAddonRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17860,7 +18005,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 修改集群组件实例配置.
+     * Modifies the configuration of an installed cluster add-on instance. Modifying the configuration may affect your services. Evaluate the impact, perform this operation during off-peak hours, and back up your data in advance.
+     *
+     * @remarks
+     * Modifies an installed add-on in an ECK cluster. The target cluster must be in the running state, and ComponentName must reference an installed add-on.
      *
      * @param request - ModifyClusterAddonRequest
      *
@@ -17878,7 +18026,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 更新集群节点池.
+     * Modifies the node configurations in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes node configurations and restarts kubelet in batches, which may affect node operations and workload execution. Perform this operation during off-peak hours.
+     *
+     * @remarks
+     * - Single-user call frequency: 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param tmpReq - ModifyClusterNodePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17943,7 +18095,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 更新集群节点池.
+     * Modifies the node configurations in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes node configurations and restarts kubelet in batches, which may affect node operations and workload execution. Perform this operation during off-peak hours.
+     *
+     * @remarks
+     * - Single-user call frequency: 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - ModifyClusterNodePoolRequest
      *
@@ -18501,12 +18657,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Changes the attributes of an instance, such as the name and the password.
+     * Calls ModifyInstanceAttribute to modify instance attributes, including the instance password and name.
      *
      * @remarks
-     *   If an instance is in the Starting state, you cannot reset the password of the instance.
-     * *   When the instance is in the Running state, you cannot change the password of the instance.
-     * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
+     * - You cannot reset the instance password when the instance status is Starting.
+     * - You cannot modify the instance password when the instance status is Running.
+     * - After resetting the password, restart the instance in the console or invoke the RebootInstance operation for the change to take effect. Restarting the instance from within the operating system does not take effect.
      *
      * @param request - ModifyInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18565,12 +18721,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Changes the attributes of an instance, such as the name and the password.
+     * Calls ModifyInstanceAttribute to modify instance attributes, including the instance password and name.
      *
      * @remarks
-     *   If an instance is in the Starting state, you cannot reset the password of the instance.
-     * *   When the instance is in the Running state, you cannot change the password of the instance.
-     * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
+     * - You cannot reset the instance password when the instance status is Starting.
+     * - You cannot modify the instance password when the instance status is Running.
+     * - After resetting the password, restart the instance in the console or invoke the RebootInstance operation for the change to take effect. Restarting the instance from within the operating system does not take effect.
      *
      * @param request - ModifyInstanceAttributeRequest
      *
@@ -18661,12 +18817,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the boot configuration of a heterogeneous PC Farm bare metal instance.
+     * Modifies the boot configuration of a heterogeneous instance (PCFarm bare metal instance).
      *
      * @remarks
-     *   If an instance is in the Starting state, you cannot reset the password of the instance.
-     * *   If the instance is in the Running state, you cannot change the password of the instance.
-     * *   After resetting the password, you must restart the instance in the ENS console or call the RebootInstance operation to apply the change. The restart operation within the instance does not apply the change.
+     * Modifies the boot configuration of a heterogeneous instance (PCFarm bare metal instance, where InstanceTypeFamily is pc_bmi). If the current state of the instance does not support this operation, the API returns IncorrectInstanceStatus.
      *
      * @param request - ModifyInstanceBootConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18701,12 +18855,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the boot configuration of a heterogeneous PC Farm bare metal instance.
+     * Modifies the boot configuration of a heterogeneous instance (PCFarm bare metal instance).
      *
      * @remarks
-     *   If an instance is in the Starting state, you cannot reset the password of the instance.
-     * *   If the instance is in the Running state, you cannot change the password of the instance.
-     * *   After resetting the password, you must restart the instance in the ENS console or call the RebootInstance operation to apply the change. The restart operation within the instance does not apply the change.
+     * Modifies the boot configuration of a heterogeneous instance (PCFarm bare metal instance, where InstanceTypeFamily is pc_bmi). If the current state of the instance does not support this operation, the API returns IncorrectInstanceStatus.
      *
      * @param request - ModifyInstanceBootConfigurationRequest
      *
@@ -18724,11 +18876,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of Edge Node Service (ENS) instances. You can switch between the pay-as-you-go and subscription billing methods for instances. You can also change the billing method for disks that you created with pay-as-you-go instances to subscription.
+     * Invokes ModifyInstanceChargeType to convert the billing method of one or more Edge Node Service (ENS) instances. You can convert between instance-level pay-as-you-go and subscription instances. For instance-level pay-as-you-go instances, you can also convert pay-as-you-go cloud disks created with the instances to subscription cloud disks.
      *
      * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and pricing of ENS.
-     * The instances must be in the Running or Stopped state, and you have no overdue payments for them.
+     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Edge Node Service (ENS).
+     * The target instance must be in the Running or Stopped state and must not have an overdue payment before you can change the billing method.
      *
      * @param tmpReq - ModifyInstanceChargeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18801,11 +18953,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of Edge Node Service (ENS) instances. You can switch between the pay-as-you-go and subscription billing methods for instances. You can also change the billing method for disks that you created with pay-as-you-go instances to subscription.
+     * Invokes ModifyInstanceChargeType to convert the billing method of one or more Edge Node Service (ENS) instances. You can convert between instance-level pay-as-you-go and subscription instances. For instance-level pay-as-you-go instances, you can also convert pay-as-you-go cloud disks created with the instances to subscription cloud disks.
      *
      * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and pricing of ENS.
-     * The instances must be in the Running or Stopped state, and you have no overdue payments for them.
+     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Edge Node Service (ENS).
+     * The target instance must be in the Running or Stopped state and must not have an overdue payment before you can change the billing method.
      *
      * @param request - ModifyInstanceChargeTypeRequest
      *
@@ -18827,14 +18979,14 @@ class Ens extends OpenApiClient
      *
      * @remarks
      * The instance that you want to manage must be in the Stopped state. When you modify the parameters of a scaling group, the following limits apply:
-     * *   Instance:
-     *     *   Instances that are associated with SLB are not supported.
-     * *   Network:
-     *     *   Instances that are associated with EIPs are not supported.
-     *     *   Instances that are associated with high-availability virtual IP addresses are not supported.
-     *     *   Instances that have been used as next hops in the routing table are not supported.
-     *     *   Secondary ENIs cannot be attached to the ECS instance.
-     *     *   Instances configured with secondary IP addresses are not supported.
+     * - Instance:
+     *   - Instances that are associated with SLB are not supported.
+     * - Network:
+     *   - Instances that are associated with EIPs are not supported.
+     *   - Instances that are associated with high-availability virtual IP addresses are not supported.
+     *   - Instances that have been used as next hops in the routing table are not supported.
+     *   - Secondary ENIs cannot be attached to the ECS instance.
+     *   - Instances configured with secondary IP addresses are not supported.
      *
      * @param request - ModifyInstanceNetworkAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18885,14 +19037,14 @@ class Ens extends OpenApiClient
      *
      * @remarks
      * The instance that you want to manage must be in the Stopped state. When you modify the parameters of a scaling group, the following limits apply:
-     * *   Instance:
-     *     *   Instances that are associated with SLB are not supported.
-     * *   Network:
-     *     *   Instances that are associated with EIPs are not supported.
-     *     *   Instances that are associated with high-availability virtual IP addresses are not supported.
-     *     *   Instances that have been used as next hops in the routing table are not supported.
-     *     *   Secondary ENIs cannot be attached to the ECS instance.
-     *     *   Instances configured with secondary IP addresses are not supported.
+     * - Instance:
+     *   - Instances that are associated with SLB are not supported.
+     * - Network:
+     *   - Instances that are associated with EIPs are not supported.
+     *   - Instances that are associated with high-availability virtual IP addresses are not supported.
+     *   - Instances that have been used as next hops in the routing table are not supported.
+     *   - Secondary ENIs cannot be attached to the ECS instance.
+     *   - Instances configured with secondary IP addresses are not supported.
      *
      * @param request - ModifyInstanceNetworkAttributeRequest
      *
@@ -18913,8 +19065,8 @@ class Ens extends OpenApiClient
      * Modifies the information about an Edge Load Balancer (ELB) instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - ModifyLoadBalancerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18960,8 +19112,8 @@ class Ens extends OpenApiClient
      * Modifies the information about an Edge Load Balancer (ELB) instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - ModifyLoadBalancerAttributeRequest
      *
@@ -18982,8 +19134,8 @@ class Ens extends OpenApiClient
      * Modifies the network information.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 5 times per second per user.
+     * - Rate limit: 100 requests per second.
+     * - up to 5 times per second per user.
      *
      * @param request - ModifyNetworkAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19033,8 +19185,8 @@ class Ens extends OpenApiClient
      * Modifies the network information.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 5 times per second per user.
+     * - Rate limit: 100 requests per second.
+     * - up to 5 times per second per user.
      *
      * @param request - ModifyNetworkAttributeRequest
      *
@@ -19117,7 +19269,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades the instance type of a subscription Edge Node Service (ENS) instance. The new instance type takes effect for the remaining lifecycle of the instance.
+     * Calls ModifyPrepayInstanceSpec to upgrade or downgrade the instance type of a subscription ENS instance. The new instance type takes effect for the entire lifecycle of the instance.
+     *
+     * @remarks
+     * Modifies the instance type of a subscription instance. Before calling this operation, stop the instance by calling StopInstance. After the specification change is complete, start the instance by calling StartInstance.
      *
      * @param request - ModifyPrepayInstanceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19160,7 +19315,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades the instance type of a subscription Edge Node Service (ENS) instance. The new instance type takes effect for the remaining lifecycle of the instance.
+     * Calls ModifyPrepayInstanceSpec to upgrade or downgrade the instance type of a subscription ENS instance. The new instance type takes effect for the entire lifecycle of the instance.
+     *
+     * @remarks
+     * Modifies the instance type of a subscription instance. Before calling this operation, stop the instance by calling StopInstance. After the specification change is complete, start the instance by calling StartInstance.
      *
      * @param request - ModifyPrepayInstanceSpecRequest
      *
@@ -19181,8 +19339,8 @@ class Ens extends OpenApiClient
      * Modifies the information about a security group.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 5 times per second per user.
+     * - Rate limit: 100 requests per second.
+     * - up to 5 times per second per user.
      *
      * @param request - ModifySecurityGroupAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19232,8 +19390,8 @@ class Ens extends OpenApiClient
      * Modifies the information about a security group.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 5 times per second per user.
+     * - Rate limit: 100 requests per second.
+     * - up to 5 times per second per user.
      *
      * @param request - ModifySecurityGroupAttributeRequest
      *
@@ -19316,7 +19474,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies a specified SNAT entry.
+     * Invoke the ModifySnatEntry API to modify an SNAT entry.
      *
      * @param request - ModifySnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19371,7 +19529,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies a specified SNAT entry.
+     * Invoke the ModifySnatEntry API to modify an SNAT entry.
      *
      * @param request - ModifySnatEntryRequest
      *
@@ -19389,11 +19547,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies information about a vSwitch.
+     * Call ModifyVSwitchAttribute to modify network information.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 5 times per second per user.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 5 calls per second.
      *
      * @param request - ModifyVSwitchAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19411,6 +19569,14 @@ class Ens extends OpenApiClient
         $query = [];
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableIPv6) {
+            @$query['EnableIPv6'] = $request->enableIPv6;
+        }
+
+        if (null !== $request->ipv6CidrBlock) {
+            @$query['Ipv6CidrBlock'] = $request->ipv6CidrBlock;
         }
 
         if (null !== $request->vSwitchId) {
@@ -19440,11 +19606,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies information about a vSwitch.
+     * Call ModifyVSwitchAttribute to modify network information.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 5 times per second per user.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 5 calls per second.
      *
      * @param request - ModifyVSwitchAttributeRequest
      *
@@ -19462,7 +19628,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deploys the SDG that has been attached to instances on the corresponding Android in Container (AIC) instance.
+     * Deploys an SDG that is already attached to an instance to the corresponding AIC.
      *
      * @param tmpReq - MountInstanceSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19511,7 +19677,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deploys the SDG that has been attached to instances on the corresponding Android in Container (AIC) instance.
+     * Deploys an SDG that is already attached to an instance to the corresponding AIC.
      *
      * @param request - MountInstanceSDGRequest
      *
@@ -19529,7 +19695,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Preloads a shared data group (SDG).
+     * Preloads an SDG.
      *
      * @param tmpReq - PreloadRegionSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19594,7 +19760,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Preloads a shared data group (SDG).
+     * Preloads an SDG.
      *
      * @param request - PreloadRegionSDGRequest
      *
@@ -19612,7 +19778,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Prepares the upload and obtains the location of the bucket.
+     * Prepares for an upload and retrieves information about the physical storage location.
      *
      * @param request - PrepareUploadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19655,7 +19821,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Prepares the upload and obtains the location of the bucket.
+     * Prepares for an upload and retrieves information about the physical storage location.
      *
      * @param request - PrepareUploadRequest
      *
@@ -19673,7 +19839,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Pushes the business or service data of an application to file servers.
+     * Pre-pushes the business or service data of an application to a file server.
      *
      * @param request - PushApplicationDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19724,7 +19890,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Pushes the business or service data of an application to file servers.
+     * Pre-pushes the business or service data of an application to a file server.
      *
      * @param request - PushApplicationDataRequest
      *
@@ -19742,7 +19908,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an Edge Object Storage (EOS) bucket.
+     * Create a bucket for collaborative storage.
      *
      * @param request - PutBucketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19801,7 +19967,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates an Edge Object Storage (EOS) bucket.
+     * Create a bucket for collaborative storage.
      *
      * @param request - PutBucketRequest
      *
@@ -19880,11 +20046,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Configures lifecycle rules for objects.
+     * You can call the PutBucketLifecycle operation to set lifecycle rules for a bucket.
      *
      * @remarks
-     *   You can configure up to 1,000 rules.
-     * *   If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+     * - You can configure up to 1,000 rules.
+     * - If an object matches multiple rules, the rule with the earliest expiration time applies.
      *
      * @param request - PutBucketLifecycleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19947,11 +20113,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Configures lifecycle rules for objects.
+     * You can call the PutBucketLifecycle operation to set lifecycle rules for a bucket.
      *
      * @remarks
-     *   You can configure up to 1,000 rules.
-     * *   If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+     * - You can configure up to 1,000 rules.
+     * - If an object matches multiple rules, the rule with the earliest expiration time applies.
      *
      * @param request - PutBucketLifecycleRequest
      *
@@ -20089,7 +20255,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Reboots an Android in Container (AIC) server.
+     * Restarts an AIC server.
      *
      * @param request - RebootARMServerInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20124,7 +20290,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Reboots an Android in Container (AIC) server.
+     * Restarts an AIC server.
      *
      * @param request - RebootARMServerInstanceRequest
      *
@@ -20145,8 +20311,8 @@ class Ens extends OpenApiClient
      * Reboots an instance.
      *
      * @remarks
-     *   Only instances that are in the Running state can be restarted.
-     * *   If the operation is successful, the status of the instance becomes Starting.
+     * - Only instances that are in the Running state can be restarted.
+     * - If the operation is successful, the status of the instance becomes Starting.
      *
      * @param request - RebootInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20192,8 +20358,8 @@ class Ens extends OpenApiClient
      * Reboots an instance.
      *
      * @remarks
-     *   Only instances that are in the Running state can be restarted.
-     * *   If the operation is successful, the status of the instance becomes Starting.
+     * - Only instances that are in the Running state can be restarted.
+     * - If the operation is successful, the status of the instance becomes Starting.
      *
      * @param request - RebootInstanceRequest
      *
@@ -20274,7 +20440,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Recovers an Android in Container (AIC) instance on the server.
+     * Resumes an AIC on a card by calling RecoverAICInstance.
      *
      * @param request - RecoverAICInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20309,7 +20475,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Recovers an Android in Container (AIC) instance on the server.
+     * Resumes an AIC on a card by calling RecoverAICInstance.
      *
      * @param request - RecoverAICInstanceRequest
      *
@@ -20463,7 +20629,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Releases an Android in Container (AIC) instance from the server.
+     * Releases an AIC on a card.
      *
      * @param request - ReleaseAICInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20502,7 +20668,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Releases an Android in Container (AIC) instance from the server.
+     * Releases an AIC on a card.
      *
      * @param request - ReleaseAICInstanceRequest
      *
@@ -20520,7 +20686,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Releases an ARM server.
+     * Releases a cloud application server.
      *
      * @param request - ReleaseARMServerInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20559,7 +20725,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Releases an ARM server.
+     * Releases a cloud application server.
      *
      * @param request - ReleaseARMServerInstanceRequest
      *
@@ -20577,11 +20743,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Releases an instance. You can call this operation to release only Elastic IP Addresses (EIPs), Edge Load Balancer (ELB) instances, and cloud disk-based instances. We recommend that you call service-specific operations to release or unsubscribe from instances.
+     * Releases an instance. to release only Elastic IP Addresses (EIPs), Edge Load Balancer (ELB) instances, and cloud disk-based instances. We recommend that you call service-specific operations to release or unsubscribe from instances.
      *
      * @remarks
-     *   You can call this operation up to 10,000 times per second per account.
-     * *   The maximum number of times that each user can call this operation per second is 50.
+     * - up to 10,000 times per second per account.
+     * - The maximum number of times that each user can call this operation per second is 50.
      *
      * @param request - ReleaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20620,11 +20786,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Releases an instance. You can call this operation to release only Elastic IP Addresses (EIPs), Edge Load Balancer (ELB) instances, and cloud disk-based instances. We recommend that you call service-specific operations to release or unsubscribe from instances.
+     * Releases an instance. to release only Elastic IP Addresses (EIPs), Edge Load Balancer (ELB) instances, and cloud disk-based instances. We recommend that you call service-specific operations to release or unsubscribe from instances.
      *
      * @remarks
-     *   You can call this operation up to 10,000 times per second per account.
-     * *   The maximum number of times that each user can call this operation per second is 50.
+     * - up to 10,000 times per second per account.
+     * - The maximum number of times that each user can call this operation per second is 50.
      *
      * @param request - ReleaseInstanceRequest
      *
@@ -20758,10 +20924,6 @@ class Ens extends OpenApiClient
     /**
      * Removes backend servers.
      *
-     * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
-     *
      * @param tmpReq - RemoveBackendServersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -20811,10 +20973,6 @@ class Ens extends OpenApiClient
     /**
      * Removes backend servers.
      *
-     * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
-     *
      * @param request - RemoveBackendServersRequest
      *
      * @returns RemoveBackendServersResponse
@@ -20831,7 +20989,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Removes a shared data group (SDG) that is attached to the compute instance.
+     * Unmounts an SDG from compute instances.
      *
      * @param tmpReq - RemoveInstanceSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20876,7 +21034,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Removes a shared data group (SDG) that is attached to the compute instance.
+     * Unmounts an SDG from compute instances.
      *
      * @param request - RemoveInstanceSDGRequest
      *
@@ -20955,7 +21113,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Removes a deployed shared data group (SDG) and restore local storage.
+     * Removes a deployed SDG and restores local storage.
      *
      * @param tmpReq - RemoveSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20996,7 +21154,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Removes a deployed shared data group (SDG) and restore local storage.
+     * Removes a deployed SDG and restores local storage.
      *
      * @param request - RemoveSDGRequest
      *
@@ -21014,7 +21172,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Removes all versions of SDG and restores the mount to the local disk.
+     * Removes all versions of SDGs and restores local disk mounting.
      *
      * @param tmpReq - RemoveSDGsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21067,7 +21225,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Removes all versions of SDG and restores the mount to the local disk.
+     * Removes all versions of SDGs and restores local disk mounting.
      *
      * @param request - RemoveSDGsRequest
      *
@@ -21085,7 +21243,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes the networking information. This operation is applicable only for instances that reside in the internal network.
+     * Removes networking information from an Edge Private Network (EPN) instance. This operation applies only to internal networks.
      *
      * @param request - RemoveVSwitchesFromEpnInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21128,7 +21286,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes the networking information. This operation is applicable only for instances that reside in the internal network.
+     * Removes networking information from an Edge Private Network (EPN) instance. This operation applies only to internal networks.
      *
      * @param request - RemoveVSwitchesFromEpnInstanceRequest
      *
@@ -21146,7 +21304,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Renews a subscription Android in Container (AIC) instance.
+     * Renews a subscription AIC instance.
+     *
+     * @remarks
+     * Renews a subscription AIC server instance. The instance State must be success. You can call DescribeARMServerInstances to query the instance status. Instances in intermediate states such as creating cannot be renewed.
      *
      * @param request - RenewARMServerInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21197,7 +21358,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Renews a subscription Android in Container (AIC) instance.
+     * Renews a subscription AIC instance.
+     *
+     * @remarks
+     * Renews a subscription AIC server instance. The instance State must be success. You can call DescribeARMServerInstances to query the instance status. Instances in intermediate states such as creating cannot be renewed.
      *
      * @param request - RenewARMServerInstanceRequest
      *
@@ -21268,7 +21432,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Scales resources in an asynchronous manner and deploys or releases the container.
+     * Calls the RescaleApplication operation to asynchronously scale resources in or out and complete container deployment or release operations.
      *
      * @param request - RescaleApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21327,7 +21491,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Scales resources in an asynchronous manner and deploys or releases the container.
+     * Calls the RescaleApplication operation to asynchronously scale resources in or out and complete container deployment or release operations.
      *
      * @param request - RescaleApplicationRequest
      *
@@ -21345,7 +21509,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Scales out a bare metal device.
+     * Rescales bare metal devices.
      *
      * @param request - RescaleDeviceServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21422,7 +21586,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Scales out a bare metal device.
+     * Rescales bare metal devices.
      *
      * @param request - RescaleDeviceServiceRequest
      *
@@ -21440,7 +21604,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Resets an Android in Container (AIC) instance.
+     * Resets an AIC instance.
      *
      * @param request - ResetAICInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21475,7 +21639,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Resets an Android in Container (AIC) instance.
+     * Resets an AIC instance.
      *
      * @param request - ResetAICInstanceRequest
      *
@@ -21497,10 +21661,10 @@ class Ens extends OpenApiClient
      *
      * @remarks
      * When you call this operation, take note of the following items:
-     * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-     * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstance](~~StopInstance~~) operation to stop an instance.
-     * *   The specified snapshot must be created from the disk specified by the DiskId parameter.
-     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ENS instance by calling the [DescribeInstances](~~DescribeInstances~~) operation, the instance is locked for security reasons and no operations are allowed on the instance.
+     * - The disk must be in the In Use (In_Use) or Unattached (Available) state.
+     * - The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstance](~~StopInstance~~) operation to stop an instance.
+     * - The specified snapshot must be created from the disk specified by the DiskId parameter.
+     * - If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ENS instance by calling the [DescribeInstances](~~DescribeInstances~~) operation, the instance is locked for security reasons and no operations are allowed on the instance.
      *
      * @param request - ResetDiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21547,10 +21711,10 @@ class Ens extends OpenApiClient
      *
      * @remarks
      * When you call this operation, take note of the following items:
-     * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-     * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstance](~~StopInstance~~) operation to stop an instance.
-     * *   The specified snapshot must be created from the disk specified by the DiskId parameter.
-     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ENS instance by calling the [DescribeInstances](~~DescribeInstances~~) operation, the instance is locked for security reasons and no operations are allowed on the instance.
+     * - The disk must be in the In Use (In_Use) or Unattached (Available) state.
+     * - The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstance](~~StopInstance~~) operation to stop an instance.
+     * - The specified snapshot must be created from the disk specified by the DiskId parameter.
+     * - If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an ENS instance by calling the [DescribeInstances](~~DescribeInstances~~) operation, the instance is locked for security reasons and no operations are allowed on the instance.
      *
      * @param request - ResetDiskRequest
      *
@@ -21629,12 +21793,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes an inbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+     * Revokes an inbound rule of a security group to remove the inbound access permission settings.
      *
      * @remarks
-     *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
-     * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
+     * - In security group API documentation, the traffic initiator is referred to as the source (Source), and the data transmission receiver is referred to as the destination (Dest).
+     * - Any one of the following sets of parameters can identify an inbound security group rule. Specifying only a single parameter cannot identify a security group rule.
+     * - Revoke permission settings for a specified IP address range: IpProtocol, PortRange, Policy, SourceCidrIp.
      *
      * @param request - RevokeSecurityGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21697,12 +21861,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes an inbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+     * Revokes an inbound rule of a security group to remove the inbound access permission settings.
      *
      * @remarks
-     *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
-     * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
+     * - In security group API documentation, the traffic initiator is referred to as the source (Source), and the data transmission receiver is referred to as the destination (Dest).
+     * - Any one of the following sets of parameters can identify an inbound security group rule. Specifying only a single parameter cannot identify a security group rule.
+     * - Revoke permission settings for a specified IP address range: IpProtocol, PortRange, Policy, SourceCidrIp.
      *
      * @param request - RevokeSecurityGroupRequest
      *
@@ -21720,10 +21884,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes an outbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+     * Calls RevokeSecurityGroupEgress to delete an outbound security group rule and revoke outbound access permissions of the security group.
      *
      * @remarks
-     * >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
+     * > In the API documentation for security groups, the end that initiates traffic is referred to as the source, and the end that receives data is referred to as the destination (Dest).
      *
      * @param request - RevokeSecurityGroupEgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21786,10 +21950,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes an outbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+     * Calls RevokeSecurityGroupEgress to delete an outbound security group rule and revoke outbound access permissions of the security group.
      *
      * @remarks
-     * >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
+     * > In the API documentation for security groups, the end that initiates traffic is referred to as the source, and the end that receives data is referred to as the destination (Dest).
      *
      * @param request - RevokeSecurityGroupEgressRequest
      *
@@ -21807,7 +21971,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Rolls back the container version of a specific application.
+     * Rolls back the container version of edge resources under an application to a historical version.
      *
      * @param request - RollbackApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21858,7 +22022,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Rolls back the container version of a specific application.
+     * Rolls back the container version of edge resources under an application to a historical version.
      *
      * @param request - RollbackApplicationRequest
      *
@@ -21876,7 +22040,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription ENS instance.
+     * Creates pay-as-you-go or subscription ENS compute instances.
      *
      * @param tmpReq - RunInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21910,6 +22074,10 @@ class Ens extends OpenApiClient
             @$query['Amount'] = $request->amount;
         }
 
+        if (null !== $request->autoInstallCloudAssistant) {
+            @$query['AutoInstallCloudAssistant'] = $request->autoInstallCloudAssistant;
+        }
+
         if (null !== $request->autoReleaseTime) {
             @$query['AutoReleaseTime'] = $request->autoReleaseTime;
         }
@@ -21928,6 +22096,10 @@ class Ens extends OpenApiClient
 
         if (null !== $request->carrier) {
             @$query['Carrier'] = $request->carrier;
+        }
+
+        if (null !== $request->cloudAssistantRegion) {
+            @$query['CloudAssistantRegion'] = $request->cloudAssistantRegion;
         }
 
         if (null !== $request->dataDiskShrink) {
@@ -22105,7 +22277,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription ENS instance.
+     * Creates pay-as-you-go or subscription ENS compute instances.
      *
      * @param request - RunInstancesRequest
      *
@@ -22212,7 +22384,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Saves the disk of a specific device as a shared data group (SDG).
+     * Saves the cloud disk of a specified device as a Shared Data Group (SDG).
+     *
+     * @remarks
+     * Saves a Shared Data Group (SDG). SDGs in the failed status cannot be saved. Before calling this operation, call DescribeSDGs to query the current status.
      *
      * @param request - SaveSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22247,7 +22422,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Saves the disk of a specific device as a shared data group (SDG).
+     * Saves the cloud disk of a specified device as a Shared Data Group (SDG).
+     *
+     * @remarks
+     * Saves a Shared Data Group (SDG). SDGs in the failed status cannot be saved. Before calling this operation, call DescribeSDGs to query the current status.
      *
      * @param request - SaveSDGRequest
      *
@@ -22265,7 +22443,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 调整节点池节点数.
+     * Scales out a node pool to ensure that the number of nodes is sufficient to support your workloads. The Count parameter must be greater than the current number of nodes in the node pool. If the node pool contains nodes that failed to scale out, you must call the DeleteClusterNodes operation to delete the failed nodes before you scale out the node pool. A scale-out task typically takes 5 to 10 minutes. If the task takes more than 1 hour, the scale-out fails. In this case, contact technical support.
+     *
+     * @remarks
+     * - Rate limit per user: 10 calls per second.
+     * - Scaling out a node pool is an asynchronous operation. After you call the operation, you must wait 5 to 10 minutes for the task to complete.
      *
      * @param tmpReq - ScaleClusterNodePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22318,7 +22500,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 调整节点池节点数.
+     * Scales out a node pool to ensure that the number of nodes is sufficient to support your workloads. The Count parameter must be greater than the current number of nodes in the node pool. If the node pool contains nodes that failed to scale out, you must call the DeleteClusterNodes operation to delete the failed nodes before you scale out the node pool. A scale-out task typically takes 5 to 10 minutes. If the task takes more than 1 hour, the scale-out fails. In this case, contact technical support.
+     *
+     * @remarks
+     * - Rate limit per user: 10 calls per second.
+     * - Scaling out a node pool is an asynchronous operation. After you call the operation, you must wait 5 to 10 minutes for the task to complete.
      *
      * @param request - ScaleClusterNodePoolRequest
      *
@@ -22336,11 +22522,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Sets the weights of backend servers.
-     *
-     * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * Sets the weights of backend servers by calling SetBackendServers.
      *
      * @param tmpReq - SetBackendServersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22389,11 +22571,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Sets the weights of backend servers.
-     *
-     * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * Sets the weights of backend servers by calling SetBackendServers.
      *
      * @param request - SetBackendServersRequest
      *
@@ -22411,11 +22589,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an HTTP listener.
+     * Modifies the configuration of an HTTP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 10 calls per second.
      *
      * @param request - SetLoadBalancerHTTPListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22518,11 +22696,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an HTTP listener.
+     * Modifies the configuration of an HTTP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call frequency: 100 calls per second.
+     * - Per-user call frequency: 10 calls per second.
      *
      * @param request - SetLoadBalancerHTTPListenerAttributeRequest
      *
@@ -22540,11 +22718,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an HTTPS listener.
+     * Modifies an HTTPS listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - SetLoadBalancerHTTPSListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22647,11 +22825,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an HTTPS listener.
+     * Modifies an HTTPS listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - SetLoadBalancerHTTPSListenerAttributeRequest
      *
@@ -22672,8 +22850,8 @@ class Ens extends OpenApiClient
      * Modifies the status of an Edge Load Balancer (ELB) instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - SetLoadBalancerStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22719,8 +22897,8 @@ class Ens extends OpenApiClient
      * Modifies the status of an Edge Load Balancer (ELB) instance.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - SetLoadBalancerStatusRequest
      *
@@ -22738,11 +22916,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a TCP listener.
+     * Modifies the configuration of a TCP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate limit: 100 calls per second.
+     * - Per-user call rate limit: 10 calls per second.
      *
      * @param request - SetLoadBalancerTCPListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22841,11 +23019,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a TCP listener.
+     * Modifies the configuration of a TCP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - API call rate limit: 100 calls per second.
+     * - Per-user call rate limit: 10 calls per second.
      *
      * @param request - SetLoadBalancerTCPListenerAttributeRequest
      *
@@ -22863,11 +23041,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a UDP listener.
+     * Call `SetLoadBalancerUDPListenerAttribute` to modify a UDP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API call rate limit: 100 requests/second.
+     * - Per-user rate limit: 10 requests/second.
      *
      * @param request - SetLoadBalancerUDPListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22954,11 +23132,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a UDP listener.
+     * Call `SetLoadBalancerUDPListenerAttribute` to modify a UDP listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second.
-     * *   You can call this operation up to 10 times per second per account.
+     * - API call rate limit: 100 requests/second.
+     * - Per-user rate limit: 10 requests/second.
      *
      * @param request - SetLoadBalancerUDPListenerAttributeRequest
      *
@@ -22976,7 +23154,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Share the specified AIC image to other users.
+     * Shares a specified AIC image with other users.
      *
      * @param tmpReq - ShareAICImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23025,7 +23203,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Share the specified AIC image to other users.
+     * Shares a specified AIC image with other users.
      *
      * @param request - ShareAICImageRequest
      *
@@ -23103,8 +23281,8 @@ class Ens extends OpenApiClient
      * Starts an instance.
      *
      * @remarks
-     *   You can call the operation only when the instance is in the Stopped state.
-     * *   If the operation is successful, the status of the instance becomes Starting.
+     * - You can call the operation only when the instance is in the Stopped state.
+     * - If the operation is successful, the status of the instance becomes Starting.
      *
      * @param request - StartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23146,8 +23324,8 @@ class Ens extends OpenApiClient
      * Starts an instance.
      *
      * @remarks
-     *   You can call the operation only when the instance is in the Stopped state.
-     * *   If the operation is successful, the status of the instance becomes Starting.
+     * - You can call the operation only when the instance is in the Stopped state.
+     * - If the operation is successful, the status of the instance becomes Starting.
      *
      * @param request - StartInstanceRequest
      *
@@ -23231,8 +23409,8 @@ class Ens extends OpenApiClient
      * Enables a listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - StartLoadBalancerListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23282,8 +23460,8 @@ class Ens extends OpenApiClient
      * Enables a listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - StartLoadBalancerListenerRequest
      *
@@ -23422,10 +23600,10 @@ class Ens extends OpenApiClient
      * Stops an instance.
      *
      * @remarks
-     *   You can call this operation to stop instances that are only in the Running state.
-     * *   If the call is successful, the state of the instance becomes Stopping.
-     * *   Once the instance is stopped, the state of the instance becomes Stopped.
-     * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
+     * - to stop instances that are only in the Running state.
+     * - If the call is successful, the state of the instance becomes Stopping.
+     * - Once the instance is stopped, the state of the instance becomes Stopped.
+     * - Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
      *
      * @param request - StopInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23471,10 +23649,10 @@ class Ens extends OpenApiClient
      * Stops an instance.
      *
      * @remarks
-     *   You can call this operation to stop instances that are only in the Running state.
-     * *   If the call is successful, the state of the instance becomes Stopping.
-     * *   Once the instance is stopped, the state of the instance becomes Stopped.
-     * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
+     * - to stop instances that are only in the Running state.
+     * - If the call is successful, the state of the instance becomes Stopping.
+     * - Once the instance is stopped, the state of the instance becomes Stopped.
+     * - Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
      *
      * @param request - StopInstanceRequest
      *
@@ -23558,8 +23736,8 @@ class Ens extends OpenApiClient
      * Disables a listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - StopLoadBalancerListenerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23609,8 +23787,8 @@ class Ens extends OpenApiClient
      * Disables a listener.
      *
      * @remarks
-     *   You can call this operation up to 100 times per second per account.
-     * *   You can call this operation up to 10 times per second per user.
+     * - up to 100 times per second per account.
+     * - up to 10 times per second per user.
      *
      * @param request - StopLoadBalancerListenerRequest
      *
@@ -23760,7 +23938,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Disassociates an elastic IP address (EIP) from an instance.
+     * Disassociates an elastic IP address (EIP) from the cloud resource to which it is bound.
      *
      * @param request - UnAssociateEnsEipAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23803,7 +23981,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Disassociates an elastic IP address (EIP) from an instance.
+     * Disassociates an elastic IP address (EIP) from the cloud resource to which it is bound.
      *
      * @param request - UnAssociateEnsEipAddressRequest
      *
@@ -23821,7 +23999,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 卸载集群组件.
+     * Uninstalls specified add-ons from a cluster.
+     *
+     * @remarks
+     * Uninstalls add-ons from an ECK cluster. The target cluster must be in the running state. You can call DescribeClustersV1 to query the cluster state and wait until the cluster initialization is complete before you call this operation.
      *
      * @param tmpReq - UnInstallClusterAddonsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23870,7 +24051,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 卸载集群组件.
+     * Uninstalls specified add-ons from a cluster.
+     *
+     * @remarks
+     * Uninstalls add-ons from an ECK cluster. The target cluster must be in the running state. You can call DescribeClustersV1 to query the cluster state and wait until the cluster initialization is complete before you call this operation.
      *
      * @param request - UnInstallClusterAddonsRequest
      *
@@ -24010,7 +24194,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Disassociates a network access control list (ACL) from a network.
+     * Invokes the UnassociateNetworkAcl operation to disassociate a network ACL from a network, which reverses the attach of the network ACL.
      *
      * @param request - UnassociateNetworkAclRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24053,7 +24237,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Disassociates a network access control list (ACL) from a network.
+     * Invokes the UnassociateNetworkAcl operation to disassociate a network ACL from a network, which reverses the attach of the network ACL.
      *
      * @param request - UnassociateNetworkAclRequest
      *
@@ -24071,7 +24255,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes preloaded data.
+     * Calls UnloadRegionSDG to delete preloaded data.
      *
      * @param tmpReq - UnloadRegionSDGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24128,7 +24312,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Deletes preloaded data.
+     * Calls UnloadRegionSDG to delete preloaded data.
      *
      * @param request - UnloadRegionSDGRequest
      *
@@ -24213,7 +24397,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * Removes user tags from a resource.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24264,7 +24448,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * Removes user tags from a resource.
      *
      * @param request - UntagResourcesRequest
      *
@@ -24282,7 +24466,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Update cluster certificates.
+     * Updates the cluster certificate.
+     *
+     * @remarks
+     * - Rate limit per user: 10 calls per second.
+     * - Updating the cluster certificate is an asynchronous operation. After you call the API operation, wait 5 to 10 minutes for the cluster certificate to be updated and the control components to restart. During this process, you can call the DescribeClustersV1 operation to query the update status of the cluster certificate. After the cluster certificate is updated, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - UpdateClusterCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24321,7 +24509,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Update cluster certificates.
+     * Updates the cluster certificate.
+     *
+     * @remarks
+     * - Rate limit per user: 10 calls per second.
+     * - Updating the cluster certificate is an asynchronous operation. After you call the API operation, wait 5 to 10 minutes for the cluster certificate to be updated and the control components to restart. During this process, you can call the DescribeClustersV1 operation to query the update status of the cluster certificate. After the cluster certificate is updated, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - UpdateClusterCertificateRequest
      *
@@ -24538,7 +24730,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 升级集群实例组件.
+     * Call the UpgradeClusterAddons operation to upgrade cluster component instances.
+     *
+     * @remarks
+     * - Each user can call this operation up to 10 times per second.
+     * - Creating a cluster is an asynchronous operation. After calling the operation, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param tmpReq - UpgradeClusterAddonsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24587,7 +24783,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * 升级集群实例组件.
+     * Call the UpgradeClusterAddons operation to upgrade cluster component instances.
+     *
+     * @remarks
+     * - Each user can call this operation up to 10 times per second.
+     * - Creating a cluster is an asynchronous operation. After calling the operation, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - UpgradeClusterAddonsRequest
      *
@@ -24605,7 +24805,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Upload a new AIC public key.
+     * Uploads a new AIC public key.
      *
      * @param request - UploadAICPublicKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24660,7 +24860,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Upload a new AIC public key.
+     * Uploads a new AIC public key.
      *
      * @param request - UploadAICPublicKeyRequest
      *

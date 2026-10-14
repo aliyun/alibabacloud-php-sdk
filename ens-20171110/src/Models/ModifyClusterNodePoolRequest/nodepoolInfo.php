@@ -11,8 +11,14 @@ class nodepoolInfo extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $nodepoolId;
     protected $_name = [
+        'name' => 'Name',
         'nodepoolId' => 'NodepoolId',
     ];
 
@@ -24,6 +30,10 @@ class nodepoolInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
         if (null !== $this->nodepoolId) {
             $res['NodepoolId'] = $this->nodepoolId;
         }
@@ -39,6 +49,10 @@ class nodepoolInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
         if (isset($map['NodepoolId'])) {
             $model->nodepoolId = $map['NodepoolId'];
         }

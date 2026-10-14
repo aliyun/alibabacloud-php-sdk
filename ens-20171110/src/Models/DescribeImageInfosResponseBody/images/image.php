@@ -32,6 +32,11 @@ class image extends Model
     /**
      * @var string
      */
+    public $imageOwnerAlias;
+
+    /**
+     * @var string
+     */
     public $imageSize;
 
     /**
@@ -58,6 +63,7 @@ class image extends Model
         'description' => 'Description',
         'diskDeviceMappings' => 'DiskDeviceMappings',
         'imageId' => 'ImageId',
+        'imageOwnerAlias' => 'ImageOwnerAlias',
         'imageSize' => 'ImageSize',
         'imageVersion' => 'ImageVersion',
         'OSName' => 'OSName',
@@ -90,6 +96,10 @@ class image extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->imageOwnerAlias) {
+            $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
         }
 
         if (null !== $this->imageSize) {
@@ -137,6 +147,10 @@ class image extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['ImageOwnerAlias'])) {
+            $model->imageOwnerAlias = $map['ImageOwnerAlias'];
         }
 
         if (isset($map['ImageSize'])) {

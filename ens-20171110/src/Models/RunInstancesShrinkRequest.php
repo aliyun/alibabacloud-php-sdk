@@ -15,6 +15,11 @@ class RunInstancesShrinkRequest extends Model
     public $amount;
 
     /**
+     * @var bool
+     */
+    public $autoInstallCloudAssistant;
+
+    /**
      * @var string
      */
     public $autoReleaseTime;
@@ -38,6 +43,11 @@ class RunInstancesShrinkRequest extends Model
      * @var string
      */
     public $carrier;
+
+    /**
+     * @var string
+     */
+    public $cloudAssistantRegion;
 
     /**
      * @var string
@@ -235,11 +245,13 @@ class RunInstancesShrinkRequest extends Model
     public $vpdVSwitchIdsShrink;
     protected $_name = [
         'amount' => 'Amount',
+        'autoInstallCloudAssistant' => 'AutoInstallCloudAssistant',
         'autoReleaseTime' => 'AutoReleaseTime',
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
         'billingCycle' => 'BillingCycle',
         'carrier' => 'Carrier',
+        'cloudAssistantRegion' => 'CloudAssistantRegion',
         'dataDiskShrink' => 'DataDisk',
         'deletionProtection' => 'DeletionProtection',
         'deploymentSetId' => 'DeploymentSetId',
@@ -296,6 +308,10 @@ class RunInstancesShrinkRequest extends Model
             $res['Amount'] = $this->amount;
         }
 
+        if (null !== $this->autoInstallCloudAssistant) {
+            $res['AutoInstallCloudAssistant'] = $this->autoInstallCloudAssistant;
+        }
+
         if (null !== $this->autoReleaseTime) {
             $res['AutoReleaseTime'] = $this->autoReleaseTime;
         }
@@ -314,6 +330,10 @@ class RunInstancesShrinkRequest extends Model
 
         if (null !== $this->carrier) {
             $res['Carrier'] = $this->carrier;
+        }
+
+        if (null !== $this->cloudAssistantRegion) {
+            $res['CloudAssistantRegion'] = $this->cloudAssistantRegion;
         }
 
         if (null !== $this->dataDiskShrink) {
@@ -494,6 +514,10 @@ class RunInstancesShrinkRequest extends Model
             $model->amount = $map['Amount'];
         }
 
+        if (isset($map['AutoInstallCloudAssistant'])) {
+            $model->autoInstallCloudAssistant = $map['AutoInstallCloudAssistant'];
+        }
+
         if (isset($map['AutoReleaseTime'])) {
             $model->autoReleaseTime = $map['AutoReleaseTime'];
         }
@@ -512,6 +536,10 @@ class RunInstancesShrinkRequest extends Model
 
         if (isset($map['Carrier'])) {
             $model->carrier = $map['Carrier'];
+        }
+
+        if (isset($map['CloudAssistantRegion'])) {
+            $model->cloudAssistantRegion = $map['CloudAssistantRegion'];
         }
 
         if (isset($map['DataDisk'])) {

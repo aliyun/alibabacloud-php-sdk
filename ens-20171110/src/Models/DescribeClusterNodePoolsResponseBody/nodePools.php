@@ -18,6 +18,11 @@ class nodePools extends Model
     public $clusterId;
 
     /**
+     * @var string
+     */
+    public $created;
+
+    /**
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
@@ -38,6 +43,7 @@ class nodePools extends Model
     public $status;
     protected $_name = [
         'clusterId' => 'ClusterId',
+        'created' => 'Created',
         'kubernetesConfig' => 'KubernetesConfig',
         'nodepoolInfo' => 'NodepoolInfo',
         'scalingGroup' => 'ScalingGroup',
@@ -66,6 +72,10 @@ class nodePools extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->created) {
+            $res['Created'] = $this->created;
         }
 
         if (null !== $this->kubernetesConfig) {
@@ -97,6 +107,10 @@ class nodePools extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['Created'])) {
+            $model->created = $map['Created'];
         }
 
         if (isset($map['KubernetesConfig'])) {

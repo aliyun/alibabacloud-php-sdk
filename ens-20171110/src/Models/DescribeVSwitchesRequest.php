@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableIpv6;
+
+    /**
      * @var string
      */
     public $ensRegionId;
@@ -48,6 +53,7 @@ class DescribeVSwitchesRequest extends Model
      */
     public $vSwitchName;
     protected $_name = [
+        'enableIpv6' => 'EnableIpv6',
         'ensRegionId' => 'EnsRegionId',
         'ensRegionIds' => 'EnsRegionIds',
         'networkId' => 'NetworkId',
@@ -72,6 +78,10 @@ class DescribeVSwitchesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableIpv6) {
+            $res['EnableIpv6'] = $this->enableIpv6;
+        }
+
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
@@ -129,6 +139,10 @@ class DescribeVSwitchesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableIpv6'])) {
+            $model->enableIpv6 = $map['EnableIpv6'];
+        }
+
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }

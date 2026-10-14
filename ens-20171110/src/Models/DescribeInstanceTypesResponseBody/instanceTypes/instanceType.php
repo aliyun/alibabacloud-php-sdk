@@ -14,6 +14,21 @@ class instanceType extends Model
     public $cpuCoreCount;
 
     /**
+     * @var int
+     */
+    public $instanceBandwidthRx;
+
+    /**
+     * @var int
+     */
+    public $instanceBandwidthTx;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @var string
      */
     public $instanceTypeId;
@@ -29,6 +44,9 @@ class instanceType extends Model
     public $memorySize;
     protected $_name = [
         'cpuCoreCount' => 'CpuCoreCount',
+        'instanceBandwidthRx' => 'InstanceBandwidthRx',
+        'instanceBandwidthTx' => 'InstanceBandwidthTx',
+        'instanceType' => 'InstanceType',
         'instanceTypeId' => 'InstanceTypeId',
         'instanceTypeName' => 'InstanceTypeName',
         'memorySize' => 'MemorySize',
@@ -44,6 +62,18 @@ class instanceType extends Model
         $res = [];
         if (null !== $this->cpuCoreCount) {
             $res['CpuCoreCount'] = $this->cpuCoreCount;
+        }
+
+        if (null !== $this->instanceBandwidthRx) {
+            $res['InstanceBandwidthRx'] = $this->instanceBandwidthRx;
+        }
+
+        if (null !== $this->instanceBandwidthTx) {
+            $res['InstanceBandwidthTx'] = $this->instanceBandwidthTx;
+        }
+
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         if (null !== $this->instanceTypeId) {
@@ -71,6 +101,18 @@ class instanceType extends Model
         $model = new self();
         if (isset($map['CpuCoreCount'])) {
             $model->cpuCoreCount = $map['CpuCoreCount'];
+        }
+
+        if (isset($map['InstanceBandwidthRx'])) {
+            $model->instanceBandwidthRx = $map['InstanceBandwidthRx'];
+        }
+
+        if (isset($map['InstanceBandwidthTx'])) {
+            $model->instanceBandwidthTx = $map['InstanceBandwidthTx'];
+        }
+
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         if (isset($map['InstanceTypeId'])) {
