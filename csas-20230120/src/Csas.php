@@ -153,6 +153,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVirusScanScheduledStrategiesReq
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVirusScanScheduledStrategiesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVulScanScheduledStrategyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteVulScanScheduledStrategyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DescribeApplicationHealthCheckReportsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DescribeApplicationHealthCheckReportsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorShrinkRequest;
@@ -1228,7 +1230,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an approval flow under the current Alibaba Cloud account.
+     * Creates an approval process under the current Alibaba Cloud account.
      *
      * @param tmpReq - CreateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1288,7 +1290,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an approval flow under the current Alibaba Cloud account.
+     * Creates an approval process under the current Alibaba Cloud account.
      *
      * @param request - CreateApprovalProcessRequest
      *
@@ -2174,10 +2176,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an internal-facing access application under the current Alibaba Cloud account.
+     * Creates a private access application within the current Alibaba Cloud account.
      *
      * @remarks
-     * You can create up to 500 internal-facing access applications by default.
+     * By default, you can create up to 500 private access applications.
      *
      * @param tmpReq - CreatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2194,6 +2196,10 @@ class Csas extends OpenApiClient
         $tmpReq->validate();
         $request = new CreatePrivateAccessApplicationShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->healthCheckConfig) {
+            $request->healthCheckConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->healthCheckConfig, 'HealthCheckConfig', 'json');
+        }
+
         if (null !== $tmpReq->l7Config) {
             $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
         }
@@ -2222,6 +2228,14 @@ class Csas extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->healthCheckConfigShrink) {
+            @$body['HealthCheckConfig'] = $request->healthCheckConfigShrink;
+        }
+
+        if (null !== $request->healthCheckMode) {
+            @$body['HealthCheckMode'] = $request->healthCheckMode;
         }
 
         if (null !== $request->l7ConfigShrink) {
@@ -2281,10 +2295,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates an internal-facing access application under the current Alibaba Cloud account.
+     * Creates a private access application within the current Alibaba Cloud account.
      *
      * @remarks
-     * You can create up to 500 internal-facing access applications by default.
+     * By default, you can create up to 500 private access applications.
      *
      * @param request - CreatePrivateAccessApplicationRequest
      *
@@ -5777,6 +5791,74 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * Queries the health check reports for specified internal-facing applications within a specified time range. The reports include the health check mode, latest status, success and failure counts, and failure details.
+     *
+     * @param request - DescribeApplicationHealthCheckReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationHealthCheckReportsResponse
+     *
+     * @param DescribeApplicationHealthCheckReportsRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeApplicationHealthCheckReportsResponse
+     */
+    public function describeApplicationHealthCheckReportsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->applicationIds) {
+            @$bodyFlat['ApplicationIds'] = $request->applicationIds;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationHealthCheckReports',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationHealthCheckReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the health check reports for specified internal-facing applications within a specified time range. The reports include the health check mode, latest status, success and failure counts, and failure details.
+     *
+     * @param request - DescribeApplicationHealthCheckReportsRequest
+     *
+     * @returns DescribeApplicationHealthCheckReportsResponse
+     *
+     * @param DescribeApplicationHealthCheckReportsRequest $request
+     *
+     * @return DescribeApplicationHealthCheckReportsResponse
+     */
+    public function describeApplicationHealthCheckReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationHealthCheckReportsWithOptions($request, $runtime);
+    }
+
+    /**
      * Detaches private network access applications from a Connector in your Alibaba Cloud account.
      *
      * @deprecated openAPI DetachApplication2Connector is deprecated, please use csas::2023-01-20::ModifyForwardStrategy instead
@@ -6396,7 +6478,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
+     * Queries the details of the auto-start and anti-uninstallation policies for the current Alibaba Cloud account.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6425,7 +6507,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of the auto-start and anti-uninstall policy under the current Alibaba Cloud account.
+     * Queries the details of the auto-start and anti-uninstallation policies for the current Alibaba Cloud account.
      *
      * @returns GetBootAndAntiUninstallPolicyResponse
      *
@@ -6994,7 +7076,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of an internal-facing access application under the current Alibaba Cloud account.
+     * Queries the details of a private access application under the current Alibaba Cloud account.
      *
      * @param request - GetPrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7029,7 +7111,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of an internal-facing access application under the current Alibaba Cloud account.
+     * Queries the details of a private access application under the current Alibaba Cloud account.
      *
      * @param request - GetPrivateAccessApplicationRequest
      *
@@ -7212,7 +7294,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a device registration policy within the current Alibaba Cloud account.
+     * Queries the details of a device registration policy for the current Alibaba Cloud account.
      *
      * @param request - GetRegistrationPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7247,7 +7329,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a device registration policy within the current Alibaba Cloud account.
+     * Queries the details of a device registration policy for the current Alibaba Cloud account.
      *
      * @param request - GetRegistrationPolicyRequest
      *
@@ -7322,7 +7404,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a user endpoint device under the current Alibaba Cloud account.
+     * Queries the details of user terminal devices under the current Alibaba Cloud account.
      *
      * @param request - GetUserDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7357,7 +7439,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a user endpoint device under the current Alibaba Cloud account.
+     * Queries the details of user terminal devices under the current Alibaba Cloud account.
      *
      * @param request - GetUserDeviceRequest
      *
@@ -8086,7 +8168,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of approval processes under the current Alibaba Cloud account.
+     * Queries the approval processes under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8121,7 +8203,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of approval processes under the current Alibaba Cloud account.
+     * Queries the approval processes under the current Alibaba Cloud account.
      *
      * @param request - ListApprovalProcessesRequest
      *
@@ -8404,7 +8486,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query connectors in batches.
+     * Queries connectors in batches.
      *
      * @param request - ListConnectorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8439,7 +8521,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Query connectors in batches.
+     * Queries connectors in batches.
      *
      * @param request - ListConnectorsRequest
      *
@@ -8579,7 +8661,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Lists DLP outbound file transfer logs.
+     * Lists Data Loss Prevention (DLP) outbound transfer logs.
      *
      * @param request - ListDlpOutboundLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8650,7 +8732,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Lists DLP outbound file transfer logs.
+     * Lists Data Loss Prevention (DLP) outbound transfer logs.
      *
      * @param request - ListDlpOutboundLogsRequest
      *
@@ -8668,10 +8750,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the Internet access logs of endpoints by using paging.
+     * Performs a paged query on the Internet access logs of endpoints by using paging.
      *
      * @remarks
-     * Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+     * Performs a paged query on the Internet access logs of endpoints for the current tenant by using paging, which include full records of the Internet access behavior.
      *
      * @param request - ListDomainAccessLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8706,10 +8788,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the Internet access logs of endpoints by using paging.
+     * Performs a paged query on the Internet access logs of endpoints by using paging.
      *
      * @remarks
-     * Queries the Internet access logs of endpoints under the current tenant by using paging. The logs contain full records of Internet access behavior.
+     * Performs a paged query on the Internet access logs of endpoints for the current tenant by using paging, which include full records of the Internet access behavior.
      *
      * @param request - ListDomainAccessLogsRequest
      *
@@ -8727,10 +8809,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries domain name entries in a domain name list by paging.
+     * Queries domain name entries in a domain name list by using paging.
      *
      * @remarks
-     * Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
+     * Queries domain name entries in a specified domain name list by using paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to page through the domain names in the list.
      *
      * @param request - ListDomainItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8785,10 +8867,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries domain name entries in a domain name list by paging.
+     * Queries domain name entries in a domain name list by using paging.
      *
      * @remarks
-     * Queries the details of domain name entries in a specified domain name list by paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to perform paging through the domain names in the list.
+     * Queries domain name entries in a specified domain name list by using paging. Use this operation together with ListDomainMetas: first obtain the `ListId`, and then use this operation to page through the domain names in the list.
      *
      * @param request - ListDomainItemsRequest
      *
@@ -9986,7 +10068,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries information about all internal-facing access applications under the current Alibaba Cloud account.
+     * Queries the details of all private access applications in the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10020,6 +10102,10 @@ class Csas extends OpenApiClient
 
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->healthCheckStatus) {
+            @$query['HealthCheckStatus'] = $request->healthCheckStatus;
         }
 
         if (null !== $request->name) {
@@ -10061,7 +10147,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries information about all internal-facing access applications under the current Alibaba Cloud account.
+     * Queries the details of all private access applications in the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessApplicationsRequest
      *
@@ -10132,7 +10218,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the information about all private access policies under the current Alibaba Cloud account.
+     * Queries the details of all private access policies within the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessPolicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10167,7 +10253,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the information about all private access policies under the current Alibaba Cloud account.
+     * Queries the details of all private access policies within the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessPolicesRequest
      *
@@ -10837,12 +10923,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries software in the software library in batches.
+     * Queries software in the software library.
      *
      * @remarks
      * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
      * - SoftwareName supports fuzzy match.
-     * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+     * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
      *
      * @param request - ListSoftwarelibSoftwareRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10909,12 +10995,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries software in the software library in batches.
+     * Queries software in the software library.
      *
      * @remarks
      * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
      * - SoftwareName supports fuzzy match.
-     * - The Versions field (software version list) is not returned in the response. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+     * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
      *
      * @param request - ListSoftwarelibSoftwareRequest
      *
@@ -11038,7 +11124,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
+     * Queries a list of uninstallation applications for the current Alibaba Cloud account in batches.
      *
      * @param request - ListUninstallApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11073,7 +11159,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of uninstall applications under the current Alibaba Cloud account in batches.
+     * Queries a list of uninstallation applications for the current Alibaba Cloud account in batches.
      *
      * @param request - ListUninstallApplicationsRequest
      *
@@ -11144,7 +11230,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of user endpoint devices under the current Alibaba Cloud account.
+     * Queries a list of user endpoint devices under the current Alibaba Cloud account.
      *
      * @param request - ListUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11279,7 +11365,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of user endpoint devices under the current Alibaba Cloud account.
+     * Queries a list of user endpoint devices under the current Alibaba Cloud account.
      *
      * @param request - ListUserDevicesRequest
      *
@@ -11615,7 +11701,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询病毒扫描额外名单.
+     * Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
      *
      * @param request - ListVirusScanAdditionalListsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11650,7 +11736,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 查询病毒扫描额外名单.
+     * Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
      *
      * @param request - ListVirusScanAdditionalListsRequest
      *
@@ -12852,7 +12938,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the instance status of an approval under the current Alibaba Cloud account.
+     * Updates the status of an approval instance under the current Alibaba Cloud account.
      *
      * @param request - UpdateApprovalStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12895,7 +12981,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the instance status of an approval under the current Alibaba Cloud account.
+     * Updates the status of an approval instance under the current Alibaba Cloud account.
      *
      * @param request - UpdateApprovalStatusRequest
      *
@@ -13198,7 +13284,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies a Connector instance under the current Alibaba Cloud account.
+     * Modifies a connector instance within the current Alibaba Cloud account.
      *
      * @param request - UpdateConnectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13253,7 +13339,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies a Connector instance under the current Alibaba Cloud account.
+     * Modifies a connector instance within the current Alibaba Cloud account.
      *
      * @param request - UpdateConnectorRequest
      *
@@ -13861,6 +13947,10 @@ class Csas extends OpenApiClient
         $tmpReq->validate();
         $request = new UpdatePrivateAccessApplicationShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->healthCheckConfig) {
+            $request->healthCheckConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->healthCheckConfig, 'HealthCheckConfig', 'json');
+        }
+
         if (null !== $tmpReq->l7Config) {
             $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
         }
@@ -13889,6 +13979,14 @@ class Csas extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->healthCheckConfigShrink) {
+            @$body['HealthCheckConfig'] = $request->healthCheckConfigShrink;
+        }
+
+        if (null !== $request->healthCheckMode) {
+            @$body['HealthCheckMode'] = $request->healthCheckMode;
         }
 
         if (null !== $request->l7ConfigShrink) {
@@ -14771,7 +14869,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
+     * Updates the status of multiple uninstallation applications under the current Alibaba Cloud account.
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14817,7 +14915,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the status of uninstall applications in batches under the current Alibaba Cloud account.
+     * Updates the status of multiple uninstallation applications under the current Alibaba Cloud account.
      *
      * @param request - UpdateUninstallApplicationsStatusRequest
      *

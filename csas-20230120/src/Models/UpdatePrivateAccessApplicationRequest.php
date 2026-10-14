@@ -35,6 +35,16 @@ class UpdatePrivateAccessApplicationRequest extends Model
     public $description;
 
     /**
+     * @var HealthCheckConfig
+     */
+    public $healthCheckConfig;
+
+    /**
+     * @var string
+     */
+    public $healthCheckMode;
+
+    /**
      * @var PAL7Config
      */
     public $l7Config;
@@ -94,6 +104,8 @@ class UpdatePrivateAccessApplicationRequest extends Model
         'applicationId' => 'ApplicationId',
         'configMode' => 'ConfigMode',
         'description' => 'Description',
+        'healthCheckConfig' => 'HealthCheckConfig',
+        'healthCheckMode' => 'HealthCheckMode',
         'l7Config' => 'L7Config',
         'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
         'l7ProxyDomainCustom' => 'L7ProxyDomainCustom',
@@ -114,6 +126,9 @@ class UpdatePrivateAccessApplicationRequest extends Model
         }
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
+        }
+        if (null !== $this->healthCheckConfig) {
+            $this->healthCheckConfig->validate();
         }
         if (null !== $this->l7Config) {
             $this->l7Config->validate();
@@ -165,6 +180,14 @@ class UpdatePrivateAccessApplicationRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->healthCheckConfig) {
+            $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toArray($noStream) : $this->healthCheckConfig;
+        }
+
+        if (null !== $this->healthCheckMode) {
+            $res['HealthCheckMode'] = $this->healthCheckMode;
         }
 
         if (null !== $this->l7Config) {
@@ -268,6 +291,14 @@ class UpdatePrivateAccessApplicationRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['HealthCheckConfig'])) {
+            $model->healthCheckConfig = HealthCheckConfig::fromMap($map['HealthCheckConfig']);
+        }
+
+        if (isset($map['HealthCheckMode'])) {
+            $model->healthCheckMode = $map['HealthCheckMode'];
         }
 
         if (isset($map['L7Config'])) {

@@ -36,6 +36,11 @@ class ListPrivateAccessApplicationsRequest extends Model
     /**
      * @var string
      */
+    public $healthCheckStatus;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -63,6 +68,7 @@ class ListPrivateAccessApplicationsRequest extends Model
         'applicationIds' => 'ApplicationIds',
         'connectorId' => 'ConnectorId',
         'currentPage' => 'CurrentPage',
+        'healthCheckStatus' => 'HealthCheckStatus',
         'name' => 'Name',
         'pageSize' => 'PageSize',
         'policyId' => 'PolicyId',
@@ -106,6 +112,10 @@ class ListPrivateAccessApplicationsRequest extends Model
 
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->healthCheckStatus) {
+            $res['HealthCheckStatus'] = $this->healthCheckStatus;
         }
 
         if (null !== $this->name) {
@@ -164,6 +174,10 @@ class ListPrivateAccessApplicationsRequest extends Model
 
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['HealthCheckStatus'])) {
+            $model->healthCheckStatus = $map['HealthCheckStatus'];
         }
 
         if (isset($map['Name'])) {

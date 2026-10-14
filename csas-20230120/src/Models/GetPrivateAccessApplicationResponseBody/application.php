@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResp
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AddressGroup;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResponseBody\application\portRanges;
+use AlibabaCloud\SDK\Csas\V20230120\Models\HealthCheckConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAApplicationUnauthorizedAccessConfig;
 use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config;
 
@@ -56,6 +57,16 @@ class application extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var HealthCheckConfig
+     */
+    public $healthCheckConfig;
+
+    /**
+     * @var string
+     */
+    public $healthCheckMode;
 
     /**
      * @var PAL7Config
@@ -116,6 +127,8 @@ class application extends Model
         'connectorIds' => 'ConnectorIds',
         'createTime' => 'CreateTime',
         'description' => 'Description',
+        'healthCheckConfig' => 'HealthCheckConfig',
+        'healthCheckMode' => 'HealthCheckMode',
         'l7Config' => 'L7Config',
         'l7ProxyDomainAutomatic' => 'L7ProxyDomainAutomatic',
         'l7ProxyDomainCustom' => 'L7ProxyDomainCustom',
@@ -138,6 +151,9 @@ class application extends Model
         }
         if (\is_array($this->connectorIds)) {
             Model::validateArray($this->connectorIds);
+        }
+        if (null !== $this->healthCheckConfig) {
+            $this->healthCheckConfig->validate();
         }
         if (null !== $this->l7Config) {
             $this->l7Config->validate();
@@ -215,6 +231,14 @@ class application extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->healthCheckConfig) {
+            $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toArray($noStream) : $this->healthCheckConfig;
+        }
+
+        if (null !== $this->healthCheckMode) {
+            $res['HealthCheckMode'] = $this->healthCheckMode;
         }
 
         if (null !== $this->l7Config) {
@@ -344,6 +368,14 @@ class application extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['HealthCheckConfig'])) {
+            $model->healthCheckConfig = HealthCheckConfig::fromMap($map['HealthCheckConfig']);
+        }
+
+        if (isset($map['HealthCheckMode'])) {
+            $model->healthCheckMode = $map['HealthCheckMode'];
         }
 
         if (isset($map['L7Config'])) {

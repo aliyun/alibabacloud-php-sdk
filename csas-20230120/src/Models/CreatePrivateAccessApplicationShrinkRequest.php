@@ -37,6 +37,16 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $healthCheckConfigShrink;
+
+    /**
+     * @var string
+     */
+    public $healthCheckMode;
+
+    /**
+     * @var string
+     */
     public $l7ConfigShrink;
 
     /**
@@ -84,6 +94,8 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
         'browserAccessStatus' => 'BrowserAccessStatus',
         'configMode' => 'ConfigMode',
         'description' => 'Description',
+        'healthCheckConfigShrink' => 'HealthCheckConfig',
+        'healthCheckMode' => 'HealthCheckMode',
         'l7ConfigShrink' => 'L7Config',
         'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
         'l7ProxyDomainCustom' => 'L7ProxyDomainCustom',
@@ -147,6 +159,14 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->healthCheckConfigShrink) {
+            $res['HealthCheckConfig'] = $this->healthCheckConfigShrink;
+        }
+
+        if (null !== $this->healthCheckMode) {
+            $res['HealthCheckMode'] = $this->healthCheckMode;
         }
 
         if (null !== $this->l7ConfigShrink) {
@@ -242,6 +262,14 @@ class CreatePrivateAccessApplicationShrinkRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['HealthCheckConfig'])) {
+            $model->healthCheckConfigShrink = $map['HealthCheckConfig'];
+        }
+
+        if (isset($map['HealthCheckMode'])) {
+            $model->healthCheckMode = $map['HealthCheckMode'];
         }
 
         if (isset($map['L7Config'])) {
