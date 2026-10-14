@@ -14,6 +14,11 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentRequest\scheduleTaskC
 class CreateCustomAgentRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $agentType;
+
+    /**
      * @var callbackConfig
      */
     public $callbackConfig;
@@ -64,6 +69,11 @@ class CreateCustomAgentRequest extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $recommendQuestionList;
+
+    /**
      * @var string
      */
     public $relatedSessionId;
@@ -98,6 +108,7 @@ class CreateCustomAgentRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'agentType' => 'AgentType',
         'callbackConfig' => 'CallbackConfig',
         'DMSUnit' => 'DMSUnit',
         'dataJson' => 'DataJson',
@@ -108,6 +119,7 @@ class CreateCustomAgentRequest extends Model
         'knowledgeConfigList' => 'KnowledgeConfigList',
         'knowledgeSemanticConfigList' => 'KnowledgeSemanticConfigList',
         'name' => 'Name',
+        'recommendQuestionList' => 'RecommendQuestionList',
         'relatedSessionId' => 'RelatedSessionId',
         'scheduleTaskConfig' => 'ScheduleTaskConfig',
         'textReportConfig' => 'TextReportConfig',
@@ -131,6 +143,9 @@ class CreateCustomAgentRequest extends Model
         if (\is_array($this->knowledgeSemanticConfigList)) {
             Model::validateArray($this->knowledgeSemanticConfigList);
         }
+        if (\is_array($this->recommendQuestionList)) {
+            Model::validateArray($this->recommendQuestionList);
+        }
         if (null !== $this->scheduleTaskConfig) {
             $this->scheduleTaskConfig->validate();
         }
@@ -143,6 +158,10 @@ class CreateCustomAgentRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->callbackConfig) {
             $res['CallbackConfig'] = null !== $this->callbackConfig ? $this->callbackConfig->toArray($noStream) : $this->callbackConfig;
         }
@@ -197,6 +216,17 @@ class CreateCustomAgentRequest extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->recommendQuestionList) {
+            if (\is_array($this->recommendQuestionList)) {
+                $res['RecommendQuestionList'] = [];
+                $n1 = 0;
+                foreach ($this->recommendQuestionList as $item1) {
+                    $res['RecommendQuestionList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->relatedSessionId) {
             $res['RelatedSessionId'] = $this->relatedSessionId;
         }
@@ -243,6 +273,10 @@ class CreateCustomAgentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['CallbackConfig'])) {
             $model->callbackConfig = callbackConfig::fromMap($map['CallbackConfig']);
         }
@@ -295,6 +329,17 @@ class CreateCustomAgentRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RecommendQuestionList'])) {
+            if (!empty($map['RecommendQuestionList'])) {
+                $model->recommendQuestionList = [];
+                $n1 = 0;
+                foreach ($map['RecommendQuestionList'] as $item1) {
+                    $model->recommendQuestionList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RelatedSessionId'])) {

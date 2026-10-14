@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Dms\V20250414;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Dms\V20250414\Models\AddAgenticDataSourceRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\AddAgenticDataSourceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddUserToDataAgentWorkspaceRequest;
@@ -16,6 +18,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigDataAgentMemoryResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAgenticSqlExecuteCredentialRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAgenticSqlExecuteCredentialResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenRequest;
@@ -43,6 +47,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateOneMetaSqlTemplateRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateOneMetaSqlTemplateResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAgenticDataSourceRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAgenticDataSourceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteCustomAgentRequest;
@@ -99,6 +105,16 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticAgentByInstallTokenRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticAgentByInstallTokenResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticCatalogRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticCatalogResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticDatabaseRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticDatabaseResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticDataSourceRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticDataSourceResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticTableColumnRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticTableColumnResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticTableIndexRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticTableIndexResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentRequest;
@@ -139,6 +155,14 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\InitWorkspaceSystemMcpServerRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\InitWorkspaceSystemMcpServerResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\InstallDataAgentMcpRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\InstallDataAgentMcpResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticCatalogRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticCatalogResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticDatabaseRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticDatabaseResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticDataSourcesRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticDataSourcesResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticTableBaseInfoRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticTableBaseInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowVersionsRequest;
@@ -204,6 +228,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\RetrieveKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RetrieveKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SaveWorkspaceCodeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SaveWorkspaceCodeResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SearchAgenticCatalogRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SearchAgenticCatalogResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SearchAgenticDatabaseRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SearchAgenticDatabaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageShrinkRequest;
@@ -217,6 +245,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\StartListMcpServerToolsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\StartListMcpServerToolsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\StopDataAgentAccuracyTestTaskRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\StopDataAgentAccuracyTestTaskResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\TestAgenticDataSourceConnectionRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\TestAgenticDataSourceConnectionResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAgenticDataSourceRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAgenticDataSourceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowShrinkRequest;
@@ -284,6 +316,157 @@ class Dms extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Creates a data source accessible by the Agent data gateway.
+     *
+     * @remarks
+     * Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
+     *
+     * @param request - AddAgenticDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddAgenticDataSourceResponse
+     *
+     * @param AddAgenticDataSourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddAgenticDataSourceResponse
+     */
+    public function addAgenticDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alias) {
+            @$query['Alias'] = $request->alias;
+        }
+
+        if (null !== $request->authAccount) {
+            @$query['AuthAccount'] = $request->authAccount;
+        }
+
+        if (null !== $request->authPassword) {
+            @$query['AuthPassword'] = $request->authPassword;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->createMode) {
+            @$query['CreateMode'] = $request->createMode;
+        }
+
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
+        }
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
+        }
+
+        if (null !== $request->instanceResourceId) {
+            @$query['InstanceResourceId'] = $request->instanceResourceId;
+        }
+
+        if (null !== $request->instanceSource) {
+            @$query['InstanceSource'] = $request->instanceSource;
+        }
+
+        if (null !== $request->kmsSecret) {
+            @$query['KmsSecret'] = $request->kmsSecret;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
+        }
+
+        if (null !== $request->schema) {
+            @$query['Schema'] = $request->schema;
+        }
+
+        if (null !== $request->snowflakeRole) {
+            @$query['SnowflakeRole'] = $request->snowflakeRole;
+        }
+
+        if (null !== $request->snowflakeWarehouse) {
+            @$query['SnowflakeWarehouse'] = $request->snowflakeWarehouse;
+        }
+
+        if (null !== $request->syncAlias) {
+            @$query['SyncAlias'] = $request->syncAlias;
+        }
+
+        if (null !== $request->useSsl) {
+            @$query['UseSsl'] = $request->useSsl;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddAgenticDataSource',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddAgenticDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a data source accessible by the Agent data gateway.
+     *
+     * @remarks
+     * Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
+     *
+     * @param request - AddAgenticDataSourceRequest
+     *
+     * @returns AddAgenticDataSourceResponse
+     *
+     * @param AddAgenticDataSourceRequest $request
+     *
+     * @return AddAgenticDataSourceResponse
+     */
+    public function addAgenticDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAgenticDataSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -701,6 +884,87 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Creates a temporary credential for an agent to execute SQL statements.
+     *
+     * @remarks
+     * The credential is used to execute SQL statements through the data gateway (OneQuery) and can be restricted to the instance level or the database level.
+     * Fixed properties of the credential:
+     * - Validity period: 10 minutes after creation.
+     * - Maximum number of connections: 500.
+     *
+     * @param request - CreateAgenticSqlExecuteCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgenticSqlExecuteCredentialResponse
+     *
+     * @param CreateAgenticSqlExecuteCredentialRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateAgenticSqlExecuteCredentialResponse
+     */
+    public function createAgenticSqlExecuteCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->qualifiedName) {
+            @$query['QualifiedName'] = $request->qualifiedName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgenticSqlExecuteCredential',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgenticSqlExecuteCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a temporary credential for an agent to execute SQL statements.
+     *
+     * @remarks
+     * The credential is used to execute SQL statements through the data gateway (OneQuery) and can be restricted to the instance level or the database level.
+     * Fixed properties of the credential:
+     * - Validity period: 10 minutes after creation.
+     * - Maximum number of connections: 500.
+     *
+     * @param request - CreateAgenticSqlExecuteCredentialRequest
+     *
+     * @returns CreateAgenticSqlExecuteCredentialResponse
+     *
+     * @param CreateAgenticSqlExecuteCredentialRequest $request
+     *
+     * @return CreateAgenticSqlExecuteCredentialResponse
+     */
+    public function createAgenticSqlExecuteCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgenticSqlExecuteCredentialWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an Airflow instance in a workspace.
      *
      * @remarks
@@ -903,7 +1167,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a custom agent in a personal space or workspace.
+     * Creates a custom agent in a personal or shared workspace.
      *
      * @param tmpReq - CreateCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -936,6 +1200,10 @@ class Dms extends OpenApiClient
             $request->knowledgeSemanticConfigListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeSemanticConfigList, 'KnowledgeSemanticConfigList', 'json');
         }
 
+        if (null !== $tmpReq->recommendQuestionList) {
+            $request->recommendQuestionListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recommendQuestionList, 'RecommendQuestionList', 'json');
+        }
+
         if (null !== $tmpReq->scheduleTaskConfig) {
             $request->scheduleTaskConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduleTaskConfig, 'ScheduleTaskConfig', 'json');
         }
@@ -945,6 +1213,10 @@ class Dms extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
         if (null !== $request->callbackConfigShrink) {
             @$query['CallbackConfig'] = $request->callbackConfigShrink;
         }
@@ -983,6 +1255,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->recommendQuestionListShrink) {
+            @$query['RecommendQuestionList'] = $request->recommendQuestionListShrink;
         }
 
         if (null !== $request->relatedSessionId) {
@@ -1032,7 +1308,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a custom agent in a personal space or workspace.
+     * Creates a custom agent in a personal or shared workspace.
      *
      * @param request - CreateCustomAgentRequest
      *
@@ -1697,6 +1973,69 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOneMetaSqlTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a data source and its associated metadata catalog.
+     *
+     * @remarks
+     * After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+     *
+     * @param request - DeleteAgenticDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgenticDataSourceResponse
+     *
+     * @param DeleteAgenticDataSourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAgenticDataSourceResponse
+     */
+    public function deleteAgenticDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dataSourceUuid) {
+            @$query['DataSourceUuid'] = $request->dataSourceUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgenticDataSource',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgenticDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a data source and its associated metadata catalog.
+     *
+     * @remarks
+     * After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+     *
+     * @param request - DeleteAgenticDataSourceRequest
+     *
+     * @returns DeleteAgenticDataSourceResponse
+     *
+     * @param DeleteAgenticDataSourceRequest $request
+     *
+     * @return DeleteAgenticDataSourceResponse
+     */
+    public function deleteAgenticDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgenticDataSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -2659,7 +2998,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom agent by custom agent ID.
+     * Retrieves the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2702,7 +3041,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom agent by custom agent ID.
+     * Retrieves the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      *
@@ -3420,6 +3759,305 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAgenticAgentByInstallTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of an Agentic DMS catalog based on the catalog UUID.
+     *
+     * @param request - GetAgenticCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgenticCatalogResponse
+     *
+     * @param GetAgenticCatalogRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetAgenticCatalogResponse
+     */
+    public function getAgenticCatalogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgenticCatalog',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgenticCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an Agentic DMS catalog based on the catalog UUID.
+     *
+     * @param request - GetAgenticCatalogRequest
+     *
+     * @returns GetAgenticCatalogResponse
+     *
+     * @param GetAgenticCatalogRequest $request
+     *
+     * @return GetAgenticCatalogResponse
+     */
+    public function getAgenticCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgenticCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a data source by its UUID.
+     *
+     * @remarks
+     * Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
+     *
+     * @param request - GetAgenticDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgenticDataSourceResponse
+     *
+     * @param GetAgenticDataSourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAgenticDataSourceResponse
+     */
+    public function getAgenticDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dataSourceUuid) {
+            @$query['DataSourceUuid'] = $request->dataSourceUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgenticDataSource',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgenticDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a data source by its UUID.
+     *
+     * @remarks
+     * Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
+     *
+     * @param request - GetAgenticDataSourceRequest
+     *
+     * @returns GetAgenticDataSourceResponse
+     *
+     * @param GetAgenticDataSourceRequest $request
+     *
+     * @return GetAgenticDataSourceResponse
+     */
+    public function getAgenticDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgenticDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a database in Agentic DMS based on the database UUID.
+     *
+     * @param request - GetAgenticDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgenticDatabaseResponse
+     *
+     * @param GetAgenticDatabaseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAgenticDatabaseResponse
+     */
+    public function getAgenticDatabaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgenticDatabase',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgenticDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a database in Agentic DMS based on the database UUID.
+     *
+     * @param request - GetAgenticDatabaseRequest
+     *
+     * @returns GetAgenticDatabaseResponse
+     *
+     * @param GetAgenticDatabaseRequest $request
+     *
+     * @return GetAgenticDatabaseResponse
+     */
+    public function getAgenticDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgenticDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the fields of a table based on the database UUID and the fully qualified name of the table.
+     *
+     * @param request - GetAgenticTableColumnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgenticTableColumnResponse
+     *
+     * @param GetAgenticTableColumnRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAgenticTableColumnResponse
+     */
+    public function getAgenticTableColumnWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->tableQualifiedName) {
+            @$query['TableQualifiedName'] = $request->tableQualifiedName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgenticTableColumn',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgenticTableColumnResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the fields of a table based on the database UUID and the fully qualified name of the table.
+     *
+     * @param request - GetAgenticTableColumnRequest
+     *
+     * @returns GetAgenticTableColumnResponse
+     *
+     * @param GetAgenticTableColumnRequest $request
+     *
+     * @return GetAgenticTableColumnResponse
+     */
+    public function getAgenticTableColumn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgenticTableColumnWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the indexes of a table based on the database UUID and the fully qualified name of the table.
+     *
+     * @param request - GetAgenticTableIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgenticTableIndexResponse
+     *
+     * @param GetAgenticTableIndexRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAgenticTableIndexResponse
+     */
+    public function getAgenticTableIndexWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->tableQualifiedName) {
+            @$query['TableQualifiedName'] = $request->tableQualifiedName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgenticTableIndex',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgenticTableIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the indexes of a table based on the database UUID and the fully qualified name of the table.
+     *
+     * @param request - GetAgenticTableIndexRequest
+     *
+     * @returns GetAgenticTableIndexResponse
+     *
+     * @param GetAgenticTableIndexRequest $request
+     *
+     * @return GetAgenticTableIndexResponse
+     */
+    public function getAgenticTableIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgenticTableIndexWithOptions($request, $runtime);
     }
 
     /**
@@ -4851,6 +5489,328 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Performs a paging query on the catalogs in Agentic DMS. You can filter the results by catalog type and name prefix.
+     *
+     * @param request - ListAgenticCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgenticCatalogResponse
+     *
+     * @param ListAgenticCatalogRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAgenticCatalogResponse
+     */
+    public function listAgenticCatalogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogType) {
+            @$query['CatalogType'] = $request->catalogType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgenticCatalog',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgenticCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query on the catalogs in Agentic DMS. You can filter the results by catalog type and name prefix.
+     *
+     * @param request - ListAgenticCatalogRequest
+     *
+     * @returns ListAgenticCatalogResponse
+     *
+     * @param ListAgenticCatalogRequest $request
+     *
+     * @return ListAgenticCatalogResponse
+     */
+    public function listAgenticCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgenticCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paged query on the data sources of the current account by using paging.
+     *
+     * @remarks
+     * You can filter data sources by type, status, endpoint, port, source, and connection target name. You can also perform a fuzzy search by name or endpoint. If multiple filter conditions are specified, the intersection of the conditions is used.
+     *
+     * @param request - ListAgenticDataSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgenticDataSourcesResponse
+     *
+     * @param ListAgenticDataSourcesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAgenticDataSourcesResponse
+     */
+    public function listAgenticDataSourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
+        }
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
+        }
+
+        if (null !== $request->instanceSource) {
+            @$query['InstanceSource'] = $request->instanceSource;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->schema) {
+            @$query['Schema'] = $request->schema;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgenticDataSources',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgenticDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on the data sources of the current account by using paging.
+     *
+     * @remarks
+     * You can filter data sources by type, status, endpoint, port, source, and connection target name. You can also perform a fuzzy search by name or endpoint. If multiple filter conditions are specified, the intersection of the conditions is used.
+     *
+     * @param request - ListAgenticDataSourcesRequest
+     *
+     * @returns ListAgenticDataSourcesResponse
+     *
+     * @param ListAgenticDataSourcesRequest $request
+     *
+     * @return ListAgenticDataSourcesResponse
+     */
+    public function listAgenticDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgenticDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paged query for the list of databases in a specified catalog, with options to filter by name prefix and specify the sorting method for paging.
+     *
+     * @param request - ListAgenticDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgenticDatabaseResponse
+     *
+     * @param ListAgenticDatabaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAgenticDatabaseResponse
+     */
+    public function listAgenticDatabaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->sortFieldName) {
+            @$query['SortFieldName'] = $request->sortFieldName;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgenticDatabase',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgenticDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query for the list of databases in a specified catalog, with options to filter by name prefix and specify the sorting method for paging.
+     *
+     * @param request - ListAgenticDatabaseRequest
+     *
+     * @returns ListAgenticDatabaseResponse
+     *
+     * @param ListAgenticDatabaseRequest $request
+     *
+     * @return ListAgenticDatabaseResponse
+     */
+    public function listAgenticDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgenticDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
+     *
+     * @param request - ListAgenticTableBaseInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgenticTableBaseInfoResponse
+     *
+     * @param ListAgenticTableBaseInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAgenticTableBaseInfoResponse
+     */
+    public function listAgenticTableBaseInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->sortFieldName) {
+            @$query['SortFieldName'] = $request->sortFieldName;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->tableType) {
+            @$query['TableType'] = $request->tableType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgenticTableBaseInfo',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgenticTableBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
+     *
+     * @param request - ListAgenticTableBaseInfoRequest
+     *
+     * @returns ListAgenticTableBaseInfoResponse
+     *
+     * @param ListAgenticTableBaseInfoRequest $request
+     *
+     * @return ListAgenticTableBaseInfoResponse
+     */
+    public function listAgenticTableBaseInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgenticTableBaseInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Lists the available Airflow versions.
      *
      * @remarks
@@ -4987,7 +5947,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists all custom agents in personal spaces and workspaces.
+     * Lists all custom agents in personal and shared workspaces.
      *
      * @param request - ListCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5003,6 +5963,10 @@ class Dms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['PageNumber'] = $request->pageNumber;
         }
@@ -5046,7 +6010,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists all custom agents in personal spaces and workspaces.
+     * Lists all custom agents in personal and shared workspaces.
      *
      * @param request - ListCustomAgentRequest
      *
@@ -6772,7 +7736,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Modifies a custom agent in a personal or shared workspace.
+     * Modifies a custom agent in a personal or team workspace.
      *
      * @param tmpReq - ModifyCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6803,6 +7767,10 @@ class Dms extends OpenApiClient
 
         if (null !== $tmpReq->knowledgeSemanticConfigList) {
             $request->knowledgeSemanticConfigListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->knowledgeSemanticConfigList, 'KnowledgeSemanticConfigList', 'json');
+        }
+
+        if (null !== $tmpReq->recommendQuestionList) {
+            $request->recommendQuestionListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recommendQuestionList, 'RecommendQuestionList', 'json');
         }
 
         if (null !== $tmpReq->scheduleTaskConfig) {
@@ -6858,6 +7826,10 @@ class Dms extends OpenApiClient
             @$query['Name'] = $request->name;
         }
 
+        if (null !== $request->recommendQuestionListShrink) {
+            @$query['RecommendQuestionList'] = $request->recommendQuestionListShrink;
+        }
+
         if (null !== $request->relatedSessionId) {
             @$query['RelatedSessionId'] = $request->relatedSessionId;
         }
@@ -6905,7 +7877,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Modifies a custom agent in a personal or shared workspace.
+     * Modifies a custom agent in a personal or team workspace.
      *
      * @param request - ModifyCustomAgentRequest
      *
@@ -7535,6 +8507,160 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Searches for catalogs in Agentic DMS by keyword, catalog type, database type, or a list of catalog UUIDs, and returns paginated results.
+     *
+     * @param request - SearchAgenticCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchAgenticCatalogResponse
+     *
+     * @param SearchAgenticCatalogRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchAgenticCatalogResponse
+     */
+    public function searchAgenticCatalogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogType) {
+            @$query['CatalogType'] = $request->catalogType;
+        }
+
+        if (null !== $request->catalogUuids) {
+            @$query['CatalogUuids'] = $request->catalogUuids;
+        }
+
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchAgenticCatalog',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchAgenticCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Searches for catalogs in Agentic DMS by keyword, catalog type, database type, or a list of catalog UUIDs, and returns paginated results.
+     *
+     * @param request - SearchAgenticCatalogRequest
+     *
+     * @returns SearchAgenticCatalogResponse
+     *
+     * @param SearchAgenticCatalogRequest $request
+     *
+     * @return SearchAgenticCatalogResponse
+     */
+    public function searchAgenticCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchAgenticCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * Searches for databases across catalogs by keyword. You can filter the results by catalog, database type, and environment type. The results are paginated.
+     *
+     * @param request - SearchAgenticDatabaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchAgenticDatabaseResponse
+     *
+     * @param SearchAgenticDatabaseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SearchAgenticDatabaseResponse
+     */
+    public function searchAgenticDatabaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
+        }
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchAgenticDatabase',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchAgenticDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Searches for databases across catalogs by keyword. You can filter the results by catalog, database type, and environment type. The results are paginated.
+     *
+     * @param request - SearchAgenticDatabaseRequest
+     *
+     * @returns SearchAgenticDatabaseResponse
+     *
+     * @param SearchAgenticDatabaseRequest $request
+     *
+     * @return SearchAgenticDatabaseResponse
+     */
+    public function searchAgenticDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchAgenticDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
      * Sends a user message to a specified session or cancels a session.
      *
      * @remarks
@@ -8040,6 +9166,292 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopDataAgentAccuracyTestTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Tests whether the network and authentication information of a data source are available.
+     *
+     * @remarks
+     * Validates only the connection information passed in the current request without creating or modifying a data source. When testing an existing data source, you can pass DataSourceUuid to reuse the saved password.
+     *
+     * @param request - TestAgenticDataSourceConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TestAgenticDataSourceConnectionResponse
+     *
+     * @param TestAgenticDataSourceConnectionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return TestAgenticDataSourceConnectionResponse
+     */
+    public function testAgenticDataSourceConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alias) {
+            @$query['Alias'] = $request->alias;
+        }
+
+        if (null !== $request->authAccount) {
+            @$query['AuthAccount'] = $request->authAccount;
+        }
+
+        if (null !== $request->authPassword) {
+            @$query['AuthPassword'] = $request->authPassword;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dataSourceUuid) {
+            @$query['DataSourceUuid'] = $request->dataSourceUuid;
+        }
+
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
+        }
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
+        }
+
+        if (null !== $request->instanceResourceId) {
+            @$query['InstanceResourceId'] = $request->instanceResourceId;
+        }
+
+        if (null !== $request->instanceSource) {
+            @$query['InstanceSource'] = $request->instanceSource;
+        }
+
+        if (null !== $request->kmsSecret) {
+            @$query['KmsSecret'] = $request->kmsSecret;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
+        }
+
+        if (null !== $request->schema) {
+            @$query['Schema'] = $request->schema;
+        }
+
+        if (null !== $request->snowflakeRole) {
+            @$query['SnowflakeRole'] = $request->snowflakeRole;
+        }
+
+        if (null !== $request->snowflakeWarehouse) {
+            @$query['SnowflakeWarehouse'] = $request->snowflakeWarehouse;
+        }
+
+        if (null !== $request->syncAlias) {
+            @$query['SyncAlias'] = $request->syncAlias;
+        }
+
+        if (null !== $request->useSsl) {
+            @$query['UseSsl'] = $request->useSsl;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TestAgenticDataSourceConnection',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TestAgenticDataSourceConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Tests whether the network and authentication information of a data source are available.
+     *
+     * @remarks
+     * Validates only the connection information passed in the current request without creating or modifying a data source. When testing an existing data source, you can pass DataSourceUuid to reuse the saved password.
+     *
+     * @param request - TestAgenticDataSourceConnectionRequest
+     *
+     * @returns TestAgenticDataSourceConnectionResponse
+     *
+     * @param TestAgenticDataSourceConnectionRequest $request
+     *
+     * @return TestAgenticDataSourceConnectionResponse
+     */
+    public function testAgenticDataSourceConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testAgenticDataSourceConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the connection, authentication, or display information of an existing data source.
+     *
+     * @remarks
+     * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+     *
+     * @param request - UpdateAgenticDataSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgenticDataSourceResponse
+     *
+     * @param UpdateAgenticDataSourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAgenticDataSourceResponse
+     */
+    public function updateAgenticDataSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alias) {
+            @$query['Alias'] = $request->alias;
+        }
+
+        if (null !== $request->authAccount) {
+            @$query['AuthAccount'] = $request->authAccount;
+        }
+
+        if (null !== $request->authPassword) {
+            @$query['AuthPassword'] = $request->authPassword;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->createMode) {
+            @$query['CreateMode'] = $request->createMode;
+        }
+
+        if (null !== $request->dataSourceUuid) {
+            @$query['DataSourceUuid'] = $request->dataSourceUuid;
+        }
+
+        if (null !== $request->dbType) {
+            @$query['DbType'] = $request->dbType;
+        }
+
+        if (null !== $request->envType) {
+            @$query['EnvType'] = $request->envType;
+        }
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
+        }
+
+        if (null !== $request->instanceResourceId) {
+            @$query['InstanceResourceId'] = $request->instanceResourceId;
+        }
+
+        if (null !== $request->kmsSecret) {
+            @$query['KmsSecret'] = $request->kmsSecret;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
+        }
+
+        if (null !== $request->schema) {
+            @$query['Schema'] = $request->schema;
+        }
+
+        if (null !== $request->snowflakeRole) {
+            @$query['SnowflakeRole'] = $request->snowflakeRole;
+        }
+
+        if (null !== $request->snowflakeWarehouse) {
+            @$query['SnowflakeWarehouse'] = $request->snowflakeWarehouse;
+        }
+
+        if (null !== $request->syncAlias) {
+            @$query['SyncAlias'] = $request->syncAlias;
+        }
+
+        if (null !== $request->useSsl) {
+            @$query['UseSsl'] = $request->useSsl;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgenticDataSource',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgenticDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the connection, authentication, or display information of an existing data source.
+     *
+     * @remarks
+     * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+     *
+     * @param request - UpdateAgenticDataSourceRequest
+     *
+     * @returns UpdateAgenticDataSourceResponse
+     *
+     * @param UpdateAgenticDataSourceRequest $request
+     *
+     * @return UpdateAgenticDataSourceResponse
+     */
+    public function updateAgenticDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAgenticDataSourceWithOptions($request, $runtime);
     }
 
     /**

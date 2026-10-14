@@ -16,6 +16,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $agentType;
+
+    /**
+     * @var string
+     */
     public $aliyunParentUid;
 
     /**
@@ -129,6 +134,11 @@ class data extends Model
     public $offlineTime;
 
     /**
+     * @var string[]
+     */
+    public $recommendQuestionList;
+
+    /**
      * @var string
      */
     public $region;
@@ -178,6 +188,7 @@ class data extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'agentType' => 'AgentType',
         'aliyunParentUid' => 'AliyunParentUid',
         'aliyunUid' => 'AliyunUid',
         'callbackConfig' => 'CallbackConfig',
@@ -201,6 +212,7 @@ class data extends Model
         'name' => 'Name',
         'nextRuntime' => 'NextRuntime',
         'offlineTime' => 'OfflineTime',
+        'recommendQuestionList' => 'RecommendQuestionList',
         'region' => 'Region',
         'relatedSessionId' => 'RelatedSessionId',
         'releaseTime' => 'ReleaseTime',
@@ -227,6 +239,9 @@ class data extends Model
         if (\is_array($this->knowledgeSemanticConfigList)) {
             Model::validateArray($this->knowledgeSemanticConfigList);
         }
+        if (\is_array($this->recommendQuestionList)) {
+            Model::validateArray($this->recommendQuestionList);
+        }
         if (null !== $this->scheduleTaskConfig) {
             $this->scheduleTaskConfig->validate();
         }
@@ -239,6 +254,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->aliyunParentUid) {
             $res['AliyunParentUid'] = $this->aliyunParentUid;
         }
@@ -345,6 +364,17 @@ class data extends Model
             $res['OfflineTime'] = $this->offlineTime;
         }
 
+        if (null !== $this->recommendQuestionList) {
+            if (\is_array($this->recommendQuestionList)) {
+                $res['RecommendQuestionList'] = [];
+                $n1 = 0;
+                foreach ($this->recommendQuestionList as $item1) {
+                    $res['RecommendQuestionList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -403,6 +433,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['AliyunParentUid'])) {
             $model->aliyunParentUid = $map['AliyunParentUid'];
         }
@@ -507,6 +541,17 @@ class data extends Model
 
         if (isset($map['OfflineTime'])) {
             $model->offlineTime = $map['OfflineTime'];
+        }
+
+        if (isset($map['RecommendQuestionList'])) {
+            if (!empty($map['RecommendQuestionList'])) {
+                $model->recommendQuestionList = [];
+                $n1 = 0;
+                foreach ($map['RecommendQuestionList'] as $item1) {
+                    $model->recommendQuestionList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Region'])) {

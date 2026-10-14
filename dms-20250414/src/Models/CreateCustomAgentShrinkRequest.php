@@ -11,6 +11,11 @@ class CreateCustomAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $agentType;
+
+    /**
+     * @var string
+     */
     public $callbackConfigShrink;
 
     /**
@@ -61,6 +66,11 @@ class CreateCustomAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $recommendQuestionListShrink;
+
+    /**
+     * @var string
+     */
     public $relatedSessionId;
 
     /**
@@ -93,6 +103,7 @@ class CreateCustomAgentShrinkRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'agentType' => 'AgentType',
         'callbackConfigShrink' => 'CallbackConfig',
         'DMSUnit' => 'DMSUnit',
         'dataJson' => 'DataJson',
@@ -103,6 +114,7 @@ class CreateCustomAgentShrinkRequest extends Model
         'knowledgeConfigListShrink' => 'KnowledgeConfigList',
         'knowledgeSemanticConfigListShrink' => 'KnowledgeSemanticConfigList',
         'name' => 'Name',
+        'recommendQuestionListShrink' => 'RecommendQuestionList',
         'relatedSessionId' => 'RelatedSessionId',
         'scheduleTaskConfigShrink' => 'ScheduleTaskConfig',
         'textReportConfig' => 'TextReportConfig',
@@ -120,6 +132,10 @@ class CreateCustomAgentShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->callbackConfigShrink) {
             $res['CallbackConfig'] = $this->callbackConfigShrink;
         }
@@ -158,6 +174,10 @@ class CreateCustomAgentShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->recommendQuestionListShrink) {
+            $res['RecommendQuestionList'] = $this->recommendQuestionListShrink;
         }
 
         if (null !== $this->relatedSessionId) {
@@ -199,6 +219,10 @@ class CreateCustomAgentShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['CallbackConfig'])) {
             $model->callbackConfigShrink = $map['CallbackConfig'];
         }
@@ -237,6 +261,10 @@ class CreateCustomAgentShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RecommendQuestionList'])) {
+            $model->recommendQuestionListShrink = $map['RecommendQuestionList'];
         }
 
         if (isset($map['RelatedSessionId'])) {

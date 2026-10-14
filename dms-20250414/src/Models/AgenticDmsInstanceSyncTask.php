@@ -24,6 +24,11 @@ class AgenticDmsInstanceSyncTask extends Model
     public $actorType;
 
     /**
+     * @var bool
+     */
+    public $authorizeAddVpcNatWhiteList;
+
+    /**
      * @var string
      */
     public $errorCode;
@@ -91,6 +96,7 @@ class AgenticDmsInstanceSyncTask extends Model
         'actorId' => 'ActorId',
         'actorName' => 'ActorName',
         'actorType' => 'ActorType',
+        'authorizeAddVpcNatWhiteList' => 'AuthorizeAddVpcNatWhiteList',
         'errorCode' => 'ErrorCode',
         'errorSummary' => 'ErrorSummary',
         'failedCount' => 'FailedCount',
@@ -124,6 +130,10 @@ class AgenticDmsInstanceSyncTask extends Model
 
         if (null !== $this->actorType) {
             $res['ActorType'] = $this->actorType;
+        }
+
+        if (null !== $this->authorizeAddVpcNatWhiteList) {
+            $res['AuthorizeAddVpcNatWhiteList'] = $this->authorizeAddVpcNatWhiteList;
         }
 
         if (null !== $this->errorCode) {
@@ -199,6 +209,10 @@ class AgenticDmsInstanceSyncTask extends Model
 
         if (isset($map['ActorType'])) {
             $model->actorType = $map['ActorType'];
+        }
+
+        if (isset($map['AuthorizeAddVpcNatWhiteList'])) {
+            $model->authorizeAddVpcNatWhiteList = $map['AuthorizeAddVpcNatWhiteList'];
         }
 
         if (isset($map['ErrorCode'])) {

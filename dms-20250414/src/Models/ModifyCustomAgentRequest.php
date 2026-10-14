@@ -69,6 +69,11 @@ class ModifyCustomAgentRequest extends Model
     public $name;
 
     /**
+     * @var string[]
+     */
+    public $recommendQuestionList;
+
+    /**
      * @var string
      */
     public $relatedSessionId;
@@ -114,6 +119,7 @@ class ModifyCustomAgentRequest extends Model
         'knowledgeConfigList' => 'KnowledgeConfigList',
         'knowledgeSemanticConfigList' => 'KnowledgeSemanticConfigList',
         'name' => 'Name',
+        'recommendQuestionList' => 'RecommendQuestionList',
         'relatedSessionId' => 'RelatedSessionId',
         'scheduleTaskConfig' => 'ScheduleTaskConfig',
         'textReportConfig' => 'TextReportConfig',
@@ -136,6 +142,9 @@ class ModifyCustomAgentRequest extends Model
         }
         if (\is_array($this->knowledgeSemanticConfigList)) {
             Model::validateArray($this->knowledgeSemanticConfigList);
+        }
+        if (\is_array($this->recommendQuestionList)) {
+            Model::validateArray($this->recommendQuestionList);
         }
         if (null !== $this->scheduleTaskConfig) {
             $this->scheduleTaskConfig->validate();
@@ -205,6 +214,17 @@ class ModifyCustomAgentRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->recommendQuestionList) {
+            if (\is_array($this->recommendQuestionList)) {
+                $res['RecommendQuestionList'] = [];
+                $n1 = 0;
+                foreach ($this->recommendQuestionList as $item1) {
+                    $res['RecommendQuestionList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->relatedSessionId) {
@@ -309,6 +329,17 @@ class ModifyCustomAgentRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RecommendQuestionList'])) {
+            if (!empty($map['RecommendQuestionList'])) {
+                $model->recommendQuestionList = [];
+                $n1 = 0;
+                foreach ($map['RecommendQuestionList'] as $item1) {
+                    $model->recommendQuestionList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RelatedSessionId'])) {
