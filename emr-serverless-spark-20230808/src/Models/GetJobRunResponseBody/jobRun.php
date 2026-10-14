@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponse
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponseBody\jobRun\configurationOverrides;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponseBody\jobRun\stateChangeReason;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponseBody\jobRun\tokenDetails;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\JobDriver;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\RunLog;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\Tag;
@@ -114,6 +115,11 @@ class jobRun extends Model
     public $tags;
 
     /**
+     * @var tokenDetails[]
+     */
+    public $tokenDetails;
+
+    /**
      * @var int
      */
     public $totalTokens;
@@ -148,6 +154,7 @@ class jobRun extends Model
         'stateChangeReason' => 'stateChangeReason',
         'submitTime' => 'submitTime',
         'tags' => 'tags',
+        'tokenDetails' => 'tokenDetails',
         'totalTokens' => 'totalTokens',
         'webUI' => 'webUI',
         'workspaceId' => 'workspaceId',
@@ -169,6 +176,9 @@ class jobRun extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (\is_array($this->tokenDetails)) {
+            Model::validateArray($this->tokenDetails);
         }
         parent::validate();
     }
@@ -258,6 +268,17 @@ class jobRun extends Model
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->tokenDetails) {
+            if (\is_array($this->tokenDetails)) {
+                $res['tokenDetails'] = [];
+                $n1 = 0;
+                foreach ($this->tokenDetails as $item1) {
+                    $res['tokenDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -368,6 +389,17 @@ class jobRun extends Model
                 $n1 = 0;
                 foreach ($map['tags'] as $item1) {
                     $model->tags[$n1] = Tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['tokenDetails'])) {
+            if (!empty($map['tokenDetails'])) {
+                $model->tokenDetails = [];
+                $n1 = 0;
+                foreach ($map['tokenDetails'] as $item1) {
+                    $model->tokenDetails[$n1] = tokenDetails::fromMap($item1);
                     ++$n1;
                 }
             }

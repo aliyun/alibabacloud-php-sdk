@@ -115,6 +115,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListMembersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListMembersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListNetworkServicesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListNetworkServicesResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListQueueTopJobsRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListQueueTopJobsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayJobRequest;
@@ -1326,7 +1328,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates a session cluster.
+     * Creates a session.
      *
      * @param request - CreateSessionClusterRequest
      * @param headers - map
@@ -1419,7 +1421,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates a session cluster.
+     * Creates a session.
      *
      * @param request - CreateSessionClusterRequest
      *
@@ -1439,7 +1441,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates an SQL statement.
+     * Creates an SQL query.
      *
      * @param request - CreateSqlStatementRequest
      * @param headers - map
@@ -1508,7 +1510,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates an SQL statement.
+     * Creates an SQL query.
      *
      * @param request - CreateSqlStatementRequest
      *
@@ -2294,7 +2296,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Gets the state of an AI center.
+     * Retrieves the status of AI Hub.
      *
      * @param request - GetAICenterStateRequest
      * @param headers - map
@@ -2331,7 +2333,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Gets the state of an AI center.
+     * Retrieves the status of AI Hub.
      *
      * @param request - GetAICenterStateRequest
      *
@@ -2483,7 +2485,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Obtains job analysis information on E-MapReduce (EMR) Doctor.
+     * Retrieves the diagnostic information for a Serverless Spark job.
      *
      * @param request - GetDoctorApplicationRequest
      * @param headers - map
@@ -2535,7 +2537,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Obtains job analysis information on E-MapReduce (EMR) Doctor.
+     * Retrieves the diagnostic information for a Serverless Spark job.
      *
      * @param request - GetDoctorApplicationRequest
      *
@@ -2556,7 +2558,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a job run by calling GetJobRun.
+     * Retrieves the details of a Spark job run by calling GetJobRun.
      *
      * @param request - GetJobRunRequest
      * @param headers - map
@@ -2600,7 +2602,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a job run by calling GetJobRun.
+     * Retrieves the details of a Spark job run by calling GetJobRun.
      *
      * @param request - GetJobRunRequest
      *
@@ -2621,7 +2623,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a Kyuubi Gateway.
+     * Retrieves a Kyuubi Gateway.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2656,7 +2658,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a Kyuubi Gateway.
+     * Retrieves a Kyuubi Gateway.
      *
      * @returns GetKyuubiServiceResponse
      *
@@ -2674,7 +2676,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Obtains an authentication token for Kyuubi Gateway.
+     * Retrieves the Kyuubi Gateway authentication token.
      *
      * @param request - GetKyuubiTokenRequest
      * @param headers - map
@@ -2719,7 +2721,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Obtains an authentication token for Kyuubi Gateway.
+     * Retrieves the Kyuubi Gateway authentication token.
      *
      * @param request - GetKyuubiTokenRequest
      *
@@ -2741,7 +2743,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a Livy Gateway.
+     * Retrieves the Livy Gateway information.
      *
      * @param request - GetLivyComputeRequest
      * @param headers - map
@@ -2785,7 +2787,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a Livy Gateway.
+     * Retrieves the Livy Gateway information.
      *
      * @param request - GetLivyComputeRequest
      *
@@ -2806,7 +2808,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves a token for a Livy Gateway.
+     * Retrieves the token for a Livy Gateway.
      *
      * @param request - GetLivyComputeTokenRequest
      * @param headers - map
@@ -2851,7 +2853,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves a token for a Livy Gateway.
+     * Retrieves the token for a Livy Gateway.
      *
      * @param request - GetLivyComputeTokenRequest
      *
@@ -3119,7 +3121,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves session details.
+     * Retrieves the details of a session.
      *
      * @param request - GetSessionClusterRequest
      * @param headers - map
@@ -3163,7 +3165,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves session details.
+     * Retrieves the details of a session.
      *
      * @param request - GetSessionClusterRequest
      *
@@ -3458,7 +3460,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists the log files for a job executor.
+     * Lists the log files of a job executor.
      *
      * @param request - ListExecutorLogsRequest
      * @param headers - map
@@ -3515,7 +3517,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists the log files for a job executor.
+     * Lists the log files of a job executor.
      *
      * @param request - ListExecutorLogsRequest
      *
@@ -3618,7 +3620,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries a list of Spark jobs.
+     * Lists Spark job runs.
      *
      * @param tmpReq - ListJobRunsRequest
      * @param headers - map
@@ -3743,7 +3745,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries a list of Spark jobs.
+     * Lists Spark job runs.
      *
      * @param request - ListJobRunsRequest
      *
@@ -3826,7 +3828,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists Kyuubi Spark applications.
+     * Queries the Spark applications submitted by Kyuubi.
      *
      * @param tmpReq - ListKyuubiSparkApplicationsRequest
      * @param headers - map
@@ -3928,7 +3930,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists Kyuubi Spark applications.
+     * Queries the Spark applications submitted by Kyuubi.
      *
      * @param request - ListKyuubiSparkApplicationsRequest
      *
@@ -3949,7 +3951,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists KyuubiServer authentication tokens.
+     * Lists the Kyuubi Server authentication tokens.
      *
      * @param request - ListKyuubiTokenRequest
      * @param headers - map
@@ -3993,7 +3995,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists KyuubiServer authentication tokens.
+     * Lists the Kyuubi Server authentication tokens.
      *
      * @param request - ListKyuubiTokenRequest
      *
@@ -4014,7 +4016,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists Livy Gateways.
+     * Lists Livy gateways.
      *
      * @param request - ListLivyComputeRequest
      * @param headers - map
@@ -4061,7 +4063,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists Livy Gateways.
+     * Lists Livy gateways.
      *
      * @param request - ListLivyComputeRequest
      *
@@ -4081,7 +4083,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists the historical sessions for a Livy Gateway.
+     * Retrieves the historical sessions of a Livy Gateway.
      *
      * @param request - ListLivyComputeSessionsRequest
      * @param headers - map
@@ -4133,7 +4135,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists the historical sessions for a Livy Gateway.
+     * Retrieves the historical sessions of a Livy Gateway.
      *
      * @param request - ListLivyComputeSessionsRequest
      *
@@ -4154,7 +4156,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists the tokens of a Livy Gateway.
+     * Lists the tokens of a Livy gateway.
      *
      * @param request - ListLivyComputeTokenRequest
      * @param headers - map
@@ -4198,7 +4200,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists the tokens of a Livy Gateway.
+     * Lists the tokens of a Livy gateway.
      *
      * @param request - ListLivyComputeTokenRequest
      *
@@ -4294,7 +4296,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of members in the workspace.
+     * Queries the list of members in a workspace.
      *
      * @param request - ListMembersRequest
      * @param headers - map
@@ -4345,7 +4347,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of members in the workspace.
+     * Queries the list of members in a workspace.
      *
      * @param request - ListMembersRequest
      *
@@ -4428,6 +4430,75 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * Queries the jobs with the highest CU usage in a queue.
+     *
+     * @param request - ListQueueTopJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQueueTopJobsResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $queueName
+     * @param ListQueueTopJobsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListQueueTopJobsResponse
+     */
+    public function listQueueTopJobsWithOptions($workspaceId, $queueName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->topN) {
+            @$query['topN'] = $request->topN;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListQueueTopJobs',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/queues/' . Url::percentEncode($queueName) . '/topJobs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListQueueTopJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the jobs with the highest CU usage in a queue.
+     *
+     * @param request - ListQueueTopJobsRequest
+     *
+     * @returns ListQueueTopJobsResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $queueName
+     * @param ListQueueTopJobsRequest $request
+     *
+     * @return ListQueueTopJobsResponse
+     */
+    public function listQueueTopJobs($workspaceId, $queueName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listQueueTopJobsWithOptions($workspaceId, $queueName, $request, $headers, $runtime);
+    }
+
+    /**
      * Lists Ray clusters.
      *
      * @param request - ListRayClusterRequest
@@ -4495,7 +4566,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists Ray Job information.
+     * Lists Ray job information.
      *
      * @param tmpReq - ListRayJobRequest
      * @param headers - map
@@ -4564,7 +4635,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Lists Ray Job information.
+     * Lists Ray job information.
      *
      * @param request - ListRayJobRequest
      *
@@ -4746,7 +4817,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of session clusters.
+     * Retrieves a list of sessions.
      *
      * @param request - ListSessionClustersRequest
      * @param headers - map
@@ -4809,7 +4880,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of session clusters.
+     * Retrieves a list of sessions.
      *
      * @param request - ListSessionClustersRequest
      *
@@ -4963,7 +5034,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the list of queues in a workspace.
+     * Queries the queues in a workspace.
      *
      * @param request - ListWorkspaceQueuesRequest
      * @param headers - map
@@ -5010,7 +5081,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the list of queues in a workspace.
+     * Queries the queues in a workspace.
      *
      * @param request - ListWorkspaceQueuesRequest
      *
@@ -5030,7 +5101,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries a list of workspaces.
+     * Retrieves a list of workspaces.
      *
      * @param tmpReq - ListWorkspacesRequest
      * @param headers - map
@@ -5102,7 +5173,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries a list of workspaces.
+     * Retrieves a list of workspaces.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -6704,7 +6775,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Updates a workflow definition and its timed scheduling.
+     * Updates the workflow definition and timed scheduling.
      *
      * @param tmpReq - UpdateProcessDefinitionWithScheduleRequest
      * @param headers - map
@@ -6838,7 +6909,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Updates a workflow definition and its timed scheduling.
+     * Updates the workflow definition and timed scheduling.
      *
      * @param request - UpdateProcessDefinitionWithScheduleRequest
      *
@@ -6952,7 +7023,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Updates the properties of a workspace.
+     * Updates the attributes of a workspace.
      *
      * @param request - UpdateWorkspaceRequest
      * @param headers - map
@@ -7032,7 +7103,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Updates the properties of a workspace.
+     * Updates the attributes of a workspace.
      *
      * @param request - UpdateWorkspaceRequest
      *
