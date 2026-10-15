@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetSubscriptionPriceRespo
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetSubscriptionPriceResponseBody\data\moduleDetails;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetSubscriptionPriceResponseBody\data\paymentScheme;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\GetSubscriptionPriceResponseBody\data\promotionDetails;
 
 class data extends Model
@@ -31,6 +32,11 @@ class data extends Model
     public $originalPrice;
 
     /**
+     * @var paymentScheme
+     */
+    public $paymentScheme;
+
+    /**
      * @var promotionDetails
      */
     public $promotionDetails;
@@ -49,6 +55,7 @@ class data extends Model
         'discountPrice' => 'DiscountPrice',
         'moduleDetails' => 'ModuleDetails',
         'originalPrice' => 'OriginalPrice',
+        'paymentScheme' => 'PaymentScheme',
         'promotionDetails' => 'PromotionDetails',
         'quantity' => 'Quantity',
         'tradePrice' => 'TradePrice',
@@ -58,6 +65,9 @@ class data extends Model
     {
         if (null !== $this->moduleDetails) {
             $this->moduleDetails->validate();
+        }
+        if (null !== $this->paymentScheme) {
+            $this->paymentScheme->validate();
         }
         if (null !== $this->promotionDetails) {
             $this->promotionDetails->validate();
@@ -82,6 +92,10 @@ class data extends Model
 
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
+        }
+
+        if (null !== $this->paymentScheme) {
+            $res['PaymentScheme'] = null !== $this->paymentScheme ? $this->paymentScheme->toArray($noStream) : $this->paymentScheme;
         }
 
         if (null !== $this->promotionDetails) {
@@ -121,6 +135,10 @@ class data extends Model
 
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
+        }
+
+        if (isset($map['PaymentScheme'])) {
+            $model->paymentScheme = paymentScheme::fromMap($map['PaymentScheme']);
         }
 
         if (isset($map['PromotionDetails'])) {
