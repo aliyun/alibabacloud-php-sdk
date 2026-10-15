@@ -24,6 +24,11 @@ class CheckResourceMeasureRequest extends Model
     public $bizType;
 
     /**
+     * @var int
+     */
+    public $desiredTotal;
+
+    /**
      * @var string
      */
     public $espBizId;
@@ -46,6 +51,7 @@ class CheckResourceMeasureRequest extends Model
         'belongId' => 'BelongId',
         'belongIdType' => 'BelongIdType',
         'bizType' => 'BizType',
+        'desiredTotal' => 'DesiredTotal',
         'espBizId' => 'EspBizId',
         'orderComponentParams' => 'OrderComponentParams',
         'resourceCode' => 'ResourceCode',
@@ -70,6 +76,10 @@ class CheckResourceMeasureRequest extends Model
 
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->desiredTotal) {
+            $res['DesiredTotal'] = $this->desiredTotal;
         }
 
         if (null !== $this->espBizId) {
@@ -109,6 +119,10 @@ class CheckResourceMeasureRequest extends Model
 
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['DesiredTotal'])) {
+            $model->desiredTotal = $map['DesiredTotal'];
         }
 
         if (isset($map['EspBizId'])) {

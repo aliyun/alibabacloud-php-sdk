@@ -1,3 +1,13 @@
+2026-10-15 Version: 2.38.5
+- Update API BatchCheckResourceMeasure: add response parameters Body.Module.Results.DesiredTotal.
+- Update API BatchCheckResourceMeasure: add response parameters Body.Module.Results.Limit.
+- Update API BatchCheckResourceMeasure: add response parameters Body.Module.Results.UpgradeAvailable.
+- Update API CheckResourceMeasure: add request parameters DesiredTotal.
+- Update API CheckResourceMeasure: add response parameters Body.Module.DesiredTotal.
+- Update API CheckResourceMeasure: add response parameters Body.Module.Limit.
+- Update API CheckResourceMeasure: add response parameters Body.Module.UpgradeAvailable.
+
+
 2026-09-18 Version: 2.38.4
 - Update API CreateAppNotificationScene: add request parameters ButlerChannelTypesJson.
 - Update API CreateAppNotificationScene: add request parameters ButlerFieldsJson.

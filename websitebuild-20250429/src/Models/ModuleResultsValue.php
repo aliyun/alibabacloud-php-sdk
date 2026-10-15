@@ -9,14 +9,9 @@ use AlibabaCloud\Dara\Model;
 class ModuleResultsValue extends Model
 {
     /**
-     * @var bool
+     * @var int
      */
-    public $passed;
-
-    /**
-     * @var string
-     */
-    public $resourceCode;
+    public $desiredTotal;
 
     /**
      * @var string
@@ -27,11 +22,34 @@ class ModuleResultsValue extends Model
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @var bool
+     */
+    public $passed;
+
+    /**
+     * @var string
+     */
+    public $resourceCode;
+
+    /**
+     * @var bool
+     */
+    public $upgradeAvailable;
     protected $_name = [
-        'passed' => 'Passed',
-        'resourceCode' => 'ResourceCode',
+        'desiredTotal' => 'DesiredTotal',
         'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
+        'limit' => 'Limit',
+        'passed' => 'Passed',
+        'resourceCode' => 'ResourceCode',
+        'upgradeAvailable' => 'UpgradeAvailable',
     ];
 
     public function validate()
@@ -42,12 +60,8 @@ class ModuleResultsValue extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->passed) {
-            $res['Passed'] = $this->passed;
-        }
-
-        if (null !== $this->resourceCode) {
-            $res['ResourceCode'] = $this->resourceCode;
+        if (null !== $this->desiredTotal) {
+            $res['DesiredTotal'] = $this->desiredTotal;
         }
 
         if (null !== $this->errorCode) {
@@ -56,6 +70,22 @@ class ModuleResultsValue extends Model
 
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
+        }
+
+        if (null !== $this->passed) {
+            $res['Passed'] = $this->passed;
+        }
+
+        if (null !== $this->resourceCode) {
+            $res['ResourceCode'] = $this->resourceCode;
+        }
+
+        if (null !== $this->upgradeAvailable) {
+            $res['UpgradeAvailable'] = $this->upgradeAvailable;
         }
 
         return $res;
@@ -69,12 +99,8 @@ class ModuleResultsValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Passed'])) {
-            $model->passed = $map['Passed'];
-        }
-
-        if (isset($map['ResourceCode'])) {
-            $model->resourceCode = $map['ResourceCode'];
+        if (isset($map['DesiredTotal'])) {
+            $model->desiredTotal = $map['DesiredTotal'];
         }
 
         if (isset($map['ErrorCode'])) {
@@ -83,6 +109,22 @@ class ModuleResultsValue extends Model
 
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
+        }
+
+        if (isset($map['Passed'])) {
+            $model->passed = $map['Passed'];
+        }
+
+        if (isset($map['ResourceCode'])) {
+            $model->resourceCode = $map['ResourceCode'];
+        }
+
+        if (isset($map['UpgradeAvailable'])) {
+            $model->upgradeAvailable = $map['UpgradeAvailable'];
         }
 
         return $model;

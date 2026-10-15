@@ -647,7 +647,7 @@ class WebsiteBuild extends OpenApiClient
      * Checks resource usage in batches.
      *
      * @remarks
-     * The Supabase instance information corresponding to the operated resources.
+     * Manages the Supabase instance information associated with the resources.
      *
      * @param request - BatchCheckResourceMeasureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -709,7 +709,7 @@ class WebsiteBuild extends OpenApiClient
      * Checks resource usage in batches.
      *
      * @remarks
-     * The Supabase instance information corresponding to the operated resources.
+     * Manages the Supabase instance information associated with the resources.
      *
      * @param request - BatchCheckResourceMeasureRequest
      *
@@ -908,6 +908,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->bizType) {
             @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->desiredTotal) {
+            @$query['DesiredTotal'] = $request->desiredTotal;
         }
 
         if (null !== $request->espBizId) {
@@ -1514,7 +1518,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Initiates an AI conversation with Wan Xiaozhi.
+     * Initiates an AI conversation with WanXiaoZhi.
      *
      * @param request - CreateAppChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1582,7 +1586,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Initiates an AI conversation with Wan Xiaozhi.
+     * Initiates an AI conversation with WanXiaoZhi.
      *
      * @param request - CreateAppChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1637,7 +1641,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Initiates an AI conversation with Wan Xiaozhi.
+     * Initiates an AI conversation with WanXiaoZhi.
      *
      * @param request - CreateAppChatRequest
      *
@@ -3948,7 +3952,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the details of a code workspace.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information of an application instance.
      *
      * @param request - GetAppCodeWorkspaceDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3990,7 +3994,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the details of a code workspace.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information of an application instance.
      *
      * @param request - GetAppCodeWorkspaceDetailRequest
      *
@@ -4011,7 +4015,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the details of a conversation.
      *
      * @remarks
-     * API for creating an AI conversation in Wanxiaozhi 2.0.
+     * The API operation for creating an AI conversation in Wanxiaozhi 2.0.
      *
      * @param request - GetAppConversationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4057,7 +4061,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the details of a conversation.
      *
      * @remarks
-     * API for creating an AI conversation in Wanxiaozhi 2.0.
+     * The API operation for creating an AI conversation in Wanxiaozhi 2.0.
      *
      * @param request - GetAppConversationRequest
      *
@@ -4465,7 +4469,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries instance details.
+     * Queries the details of an instance.
      *
      * @remarks
      * Retrieves the configuration information of the code generation plug-in.
@@ -4507,7 +4511,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries instance details.
+     * Queries the details of an instance.
      *
      * @remarks
      * Retrieves the configuration information of the code generation plug-in.
@@ -4528,10 +4532,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves a temporary short URL for an application.
+     * Retrieves the temporary short link for an application.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - GetAppInstanceTempShortUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4570,10 +4574,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves a temporary short URL for an application.
+     * Retrieves the temporary short link for an application.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - GetAppInstanceTempShortUrlRequest
      *
@@ -4795,7 +4799,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries recommended commodities.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - GetAppRecommendedCommoditiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4849,7 +4853,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries recommended commodities.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - GetAppRecommendedCommoditiesRequest
      *
@@ -6518,10 +6522,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves incremental SSE events for an AI agent conversation.
+     * Retrieves incremental Server-Sent Events (SSE) for AI agent conversations.
      *
      * @remarks
-     * Retrieves the streaming output results of an AI conversation.
+     * Wanxiaozhi 2.0 - Retrieves the streaming output results of AI conversations.
      *
      * @param request - ListAIStaffChatEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6574,10 +6578,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves incremental SSE events for an AI agent conversation.
+     * Retrieves incremental Server-Sent Events (SSE) for AI agent conversations.
      *
      * @remarks
-     * Retrieves the streaming output results of an AI conversation.
+     * Wanxiaozhi 2.0 - Retrieves the streaming output results of AI conversations.
      *
      * @param request - ListAIStaffChatEventsRequest
      *
@@ -6739,10 +6743,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the message list of a specified chat.
+     * Queries the messages in a specified chat.
      *
      * @remarks
-     * Wanxiaozhi 2.0 - API for querying AI conversation history.
+     * Wanxiaozhi 2.0 - AI conversation history query API.
      *
      * @param request - ListAppChatMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6797,10 +6801,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the message list of a specified chat.
+     * Queries the messages in a specified chat.
      *
      * @remarks
-     * Wanxiaozhi 2.0 - API for querying AI conversation history.
+     * Wanxiaozhi 2.0 - AI conversation history query API.
      *
      * @param request - ListAppChatMessagesRequest
      *
@@ -7179,7 +7183,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of domain names bound to a website.
+     * Queries the domain names bound to a website.
      *
      * @param request - ListAppInstanceDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7254,7 +7258,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of domain names bound to a website.
+     * Queries the domain names bound to a website.
      *
      * @param request - ListAppInstanceDomainsRequest
      *
@@ -7272,7 +7276,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of application instances.
+     * Queries application instances.
      *
      * @param tmpReq - ListAppInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7373,7 +7377,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of application instances.
+     * Queries application instances.
      *
      * @param request - ListAppInstancesRequest
      *
@@ -7600,10 +7604,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of application plug-ins.
+     * Lists application plugins.
      *
      * @remarks
-     * Retrieves the configuration information of code generation plug-ins.
+     * Retrieves the configuration information of code generation plugins.
      *
      * @param request - ListAppPluginsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7658,10 +7662,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of application plug-ins.
+     * Lists application plugins.
      *
      * @remarks
-     * Retrieves the configuration information of code generation plug-ins.
+     * Retrieves the configuration information of code generation plugins.
      *
      * @param request - ListAppPluginsRequest
      *
@@ -7679,10 +7683,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the publish history.
+     * Queries the release history.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information about application instances.
      *
      * @param request - ListAppPublishHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7765,10 +7769,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the publish history.
+     * Queries the release history.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information about application instances.
      *
      * @param request - ListAppPublishHistoryRequest
      *
@@ -7967,7 +7971,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the Alipay ISV plugin configuration.
      *
      * @remarks
-     * Retrieves the QR code generation plugin configuration information.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - ListIsvPaymentPluginConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8017,7 +8021,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the Alipay ISV plugin configuration.
      *
      * @remarks
-     * Retrieves the QR code generation plugin configuration information.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - ListIsvPaymentPluginConfigsRequest
      *
@@ -8035,10 +8039,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the application plugin marketplace list.
+     * Queries the list of application plug-ins in the marketplace.
      *
      * @remarks
-     * Retrieves the configuration information of code generation plugins.
+     * Retrieves the configuration information of code generation plug-ins.
      *
      * @param request - ListMarketplaceAppPluginsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8093,10 +8097,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the application plugin marketplace list.
+     * Queries the list of application plug-ins in the marketplace.
      *
      * @remarks
-     * Retrieves the configuration information of code generation plugins.
+     * Retrieves the configuration information of code generation plug-ins.
      *
      * @param request - ListMarketplaceAppPluginsRequest
      *
@@ -9213,7 +9217,7 @@ class WebsiteBuild extends OpenApiClient
      * Triggers a data change notification (for admin).
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - NotifyAppNotificationForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9267,7 +9271,7 @@ class WebsiteBuild extends OpenApiClient
      * Triggers a data change notification (for admin).
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - NotifyAppNotificationForAdminRequest
      *
@@ -9881,10 +9885,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the details of inspiration value acquisition (quota account list, including expiration flags).
+     * Queries the acquisition details of inspiration credits (the quota account list, including expiration marks).
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the Supabase instance information corresponding to the resource.
      *
      * @param request - QueryInspirationAccountDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9947,10 +9951,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the details of inspiration value acquisition (quota account list, including expiration flags).
+     * Queries the acquisition details of inspiration credits (the quota account list, including expiration marks).
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the Supabase instance information corresponding to the resource.
      *
      * @param request - QueryInspirationAccountDetailsRequest
      *
@@ -9968,10 +9972,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the overview of inspiration point balance.
+     * Queries the overview of the inspiration value balance.
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the Supabase instance information corresponding to the resource.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10000,10 +10004,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the overview of inspiration point balance.
+     * Queries the overview of the inspiration value balance.
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the Supabase instance information corresponding to the resource.
      *
      * @returns QueryInspirationBalanceResponse
      *
@@ -10078,10 +10082,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the details of inspiration point consumption.
+     * Queries the consumption details of inspiration points.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - QueryInspirationConsumeRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10144,10 +10148,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the details of inspiration point consumption.
+     * Queries the consumption details of inspiration points.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - QueryInspirationConsumeRecordsRequest
      *
@@ -11173,10 +11177,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Reconnects an AI conversation.
+     * Reconnects to an AI conversation.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - ReconnectAppChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11240,10 +11244,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Reconnects an AI conversation.
+     * Reconnects to an AI conversation.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - ReconnectAppChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11294,10 +11298,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Reconnects an AI conversation.
+     * Reconnects to an AI conversation.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - ReconnectAppChatRequest
      *
@@ -13124,10 +13128,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Updates message content.
+     * Updates the message content.
      *
      * @remarks
-     * Wanxiaozhi 2.0 - API for querying AI conversation history.
+     * Queries the AI conversation history for Wanxiaozhi 2.0.
      *
      * @param request - UpdateAppChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13178,10 +13182,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Updates message content.
+     * Updates the message content.
      *
      * @remarks
-     * Wanxiaozhi 2.0 - API for querying AI conversation history.
+     * Queries the AI conversation history for Wanxiaozhi 2.0.
      *
      * @param request - UpdateAppChatMessageRequest
      *
