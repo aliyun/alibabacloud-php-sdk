@@ -14,6 +14,11 @@ class VideoTranslationShrinkRequest extends Model
     public $capabilitiesShrink;
 
     /**
+     * @var bool
+     */
+    public $enableQualityCheck;
+
+    /**
      * @var string
      */
     public $sourceLanguage;
@@ -29,6 +34,7 @@ class VideoTranslationShrinkRequest extends Model
     public $videoUrl;
     protected $_name = [
         'capabilitiesShrink' => 'Capabilities',
+        'enableQualityCheck' => 'EnableQualityCheck',
         'sourceLanguage' => 'SourceLanguage',
         'targetLanguage' => 'TargetLanguage',
         'videoUrl' => 'VideoUrl',
@@ -44,6 +50,10 @@ class VideoTranslationShrinkRequest extends Model
         $res = [];
         if (null !== $this->capabilitiesShrink) {
             $res['Capabilities'] = $this->capabilitiesShrink;
+        }
+
+        if (null !== $this->enableQualityCheck) {
+            $res['EnableQualityCheck'] = $this->enableQualityCheck;
         }
 
         if (null !== $this->sourceLanguage) {
@@ -71,6 +81,10 @@ class VideoTranslationShrinkRequest extends Model
         $model = new self();
         if (isset($map['Capabilities'])) {
             $model->capabilitiesShrink = $map['Capabilities'];
+        }
+
+        if (isset($map['EnableQualityCheck'])) {
+            $model->enableQualityCheck = $map['EnableQualityCheck'];
         }
 
         if (isset($map['SourceLanguage'])) {

@@ -37,6 +37,11 @@ class input extends Model
     /**
      * @var string
      */
+    public $recreateMode;
+
+    /**
+     * @var string
+     */
     public $sourceVideoUrl;
     protected $_name = [
         'changeDescription' => 'ChangeDescription',
@@ -44,6 +49,7 @@ class input extends Model
         'personReferenceImageUrls' => 'PersonReferenceImageUrls',
         'productImageUrls' => 'ProductImageUrls',
         'productInfo' => 'ProductInfo',
+        'recreateMode' => 'RecreateMode',
         'sourceVideoUrl' => 'SourceVideoUrl',
     ];
 
@@ -98,6 +104,10 @@ class input extends Model
             $res['ProductInfo'] = null !== $this->productInfo ? $this->productInfo->toArray($noStream) : $this->productInfo;
         }
 
+        if (null !== $this->recreateMode) {
+            $res['RecreateMode'] = $this->recreateMode;
+        }
+
         if (null !== $this->sourceVideoUrl) {
             $res['SourceVideoUrl'] = $this->sourceVideoUrl;
         }
@@ -145,6 +155,10 @@ class input extends Model
 
         if (isset($map['ProductInfo'])) {
             $model->productInfo = productInfo::fromMap($map['ProductInfo']);
+        }
+
+        if (isset($map['RecreateMode'])) {
+            $model->recreateMode = $map['RecreateMode'];
         }
 
         if (isset($map['SourceVideoUrl'])) {

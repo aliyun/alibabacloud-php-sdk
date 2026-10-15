@@ -14,6 +14,11 @@ class VideoTranslationRequest extends Model
     public $capabilities;
 
     /**
+     * @var bool
+     */
+    public $enableQualityCheck;
+
+    /**
      * @var string
      */
     public $sourceLanguage;
@@ -29,6 +34,7 @@ class VideoTranslationRequest extends Model
     public $videoUrl;
     protected $_name = [
         'capabilities' => 'Capabilities',
+        'enableQualityCheck' => 'EnableQualityCheck',
         'sourceLanguage' => 'SourceLanguage',
         'targetLanguage' => 'TargetLanguage',
         'videoUrl' => 'VideoUrl',
@@ -54,6 +60,10 @@ class VideoTranslationRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->enableQualityCheck) {
+            $res['EnableQualityCheck'] = $this->enableQualityCheck;
         }
 
         if (null !== $this->sourceLanguage) {
@@ -88,6 +98,10 @@ class VideoTranslationRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EnableQualityCheck'])) {
+            $model->enableQualityCheck = $map['EnableQualityCheck'];
         }
 
         if (isset($map['SourceLanguage'])) {
