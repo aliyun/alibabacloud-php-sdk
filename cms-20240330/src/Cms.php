@@ -1193,7 +1193,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a cloud resource.
+     * Creates a cloud resource center.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1226,7 +1226,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a cloud resource.
+     * Creates a cloud resource center.
      *
      * @returns CreateCloudResourceResponse
      *
@@ -3026,7 +3026,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes one or more alert webhooks.
+     * Deletes a webhook.
      *
      * @param tmpReq - DeleteAlertWebhooksRequest
      * @param headers - map
@@ -3074,7 +3074,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes one or more alert webhooks.
+     * Deletes a webhook.
      *
      * @param request - DeleteAlertWebhooksRequest
      *
@@ -3150,7 +3150,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a cloud resource.
+     * Deletes the Cloud Resource Center.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3183,7 +3183,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a cloud resource.
+     * Deletes the Cloud Resource Center.
      *
      * @returns DeleteCloudResourceResponse
      *
@@ -5708,7 +5708,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves information about cloud resources.
+     * Queries the cloud resource center.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5741,7 +5741,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves information about cloud resources.
+     * Queries the cloud resource center.
      *
      * @returns GetCloudResourceResponse
      *
@@ -6362,7 +6362,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the policy information of the DDoS Access Center.
+     * Queries Access Center policy information.
      *
      * @param request - GetIntegrationPolicyRequest
      * @param headers - map
@@ -6399,7 +6399,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the policy information of the DDoS Access Center.
+     * Queries Access Center policy information.
      *
      * @param request - GetIntegrationPolicyRequest
      *
@@ -8032,10 +8032,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert robots.
+     * Queries chatbots.
      *
      * @remarks
-     * Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
+     * Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
      *
      * @param tmpReq - ListAlertRobotsRequest
      * @param headers - map
@@ -8107,10 +8107,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert robots.
+     * Queries chatbots.
      *
      * @remarks
-     * Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
+     * Queries the list of alert chatbots under the current account. Alert chatbots serve as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by chatbot ID, name, type, and workspace.
      *
      * @param request - ListAlertRobotsRequest
      *
@@ -8370,10 +8370,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert contacts.
+     * Queries contacts.
      *
      * @remarks
-     * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+     * This topic provides an example of creating an alert contact group named `ECS_Group`.
      *
      * @param tmpReq - ListContactsRequest
      * @param headers - map
@@ -8453,10 +8453,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert contacts.
+     * Queries contacts.
      *
      * @remarks
-     * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+     * This topic provides an example of creating an alert contact group named `ECS_Group`.
      *
      * @param request - ListContactsRequest
      *
@@ -8846,10 +8846,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of access center policies.
+     * Queries the list of integration center policies.
      *
      * @remarks
-     * Queries the integration list.
+     * Queries the list of integrations.
      *
      * @param tmpReq - ListIntegrationPoliciesRequest
      * @param headers - map
@@ -8949,10 +8949,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of access center policies.
+     * Queries the list of integration center policies.
      *
      * @remarks
-     * Queries the integration list.
+     * Queries the list of integrations.
      *
      * @param request - ListIntegrationPoliciesRequest
      *
@@ -10000,10 +10000,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of Prometheus view instances.
+     * Queries a list of Prometheus view instances.
      *
      * @remarks
-     * Queries the list of Prometheus view instances.
+     * Queries a list of Prometheus view instances.
      *
      * @param tmpReq - ListPrometheusViewsRequest
      * @param headers - map
@@ -10087,10 +10087,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of Prometheus view instances.
+     * Queries a list of Prometheus view instances.
      *
      * @remarks
-     * Queries the list of Prometheus view instances.
+     * Queries a list of Prometheus view instances.
      *
      * @param request - ListPrometheusViewsRequest
      *
@@ -10936,7 +10936,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param tmpReq - QueryAlertRulesRequest
      * @param headers - map
@@ -11005,7 +11005,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - QueryAlertRulesRequest
      *

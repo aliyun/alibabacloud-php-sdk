@@ -21,6 +21,11 @@ class bindResource extends Model
     /**
      * @var string
      */
+    public $entityUserId;
+
+    /**
+     * @var string
+     */
     public $vpcCidr;
 
     /**
@@ -30,6 +35,7 @@ class bindResource extends Model
     protected $_name = [
         'clusterId' => 'clusterId',
         'clusterType' => 'clusterType',
+        'entityUserId' => 'entityUserId',
         'vpcCidr' => 'vpcCidr',
         'vpcId' => 'vpcId',
     ];
@@ -48,6 +54,10 @@ class bindResource extends Model
 
         if (null !== $this->clusterType) {
             $res['clusterType'] = $this->clusterType;
+        }
+
+        if (null !== $this->entityUserId) {
+            $res['entityUserId'] = $this->entityUserId;
         }
 
         if (null !== $this->vpcCidr) {
@@ -75,6 +85,10 @@ class bindResource extends Model
 
         if (isset($map['clusterType'])) {
             $model->clusterType = $map['clusterType'];
+        }
+
+        if (isset($map['entityUserId'])) {
+            $model->entityUserId = $map['entityUserId'];
         }
 
         if (isset($map['vpcCidr'])) {

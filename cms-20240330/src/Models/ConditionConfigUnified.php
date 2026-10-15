@@ -119,6 +119,11 @@ class ConditionConfigUnified extends Model
     public $noDataAppendValue;
 
     /**
+     * @var int
+     */
+    public $noDataDurationSecs;
+
+    /**
      * @var string
      */
     public $noDataPolicy;
@@ -205,6 +210,7 @@ class ConditionConfigUnified extends Model
         'noDataAlertLevel' => 'noDataAlertLevel',
         'noDataAlertSeverity' => 'noDataAlertSeverity',
         'noDataAppendValue' => 'noDataAppendValue',
+        'noDataDurationSecs' => 'noDataDurationSecs',
         'noDataPolicy' => 'noDataPolicy',
         'operator' => 'operator',
         'prometheus' => 'prometheus',
@@ -342,6 +348,10 @@ class ConditionConfigUnified extends Model
 
         if (null !== $this->noDataAppendValue) {
             $res['noDataAppendValue'] = $this->noDataAppendValue;
+        }
+
+        if (null !== $this->noDataDurationSecs) {
+            $res['noDataDurationSecs'] = $this->noDataDurationSecs;
         }
 
         if (null !== $this->noDataPolicy) {
@@ -514,6 +524,10 @@ class ConditionConfigUnified extends Model
 
         if (isset($map['noDataAppendValue'])) {
             $model->noDataAppendValue = $map['noDataAppendValue'];
+        }
+
+        if (isset($map['noDataDurationSecs'])) {
+            $model->noDataDurationSecs = $map['noDataDurationSecs'];
         }
 
         if (isset($map['noDataPolicy'])) {
