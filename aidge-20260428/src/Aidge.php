@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageRemoveResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageRemoveShrinkRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationPlusRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationPlusResponse;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationProAsyncRequest;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationProAsyncResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationProRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationProResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationStandardRequest;
@@ -2397,6 +2399,119 @@ class Aidge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->imageTranslationProWithOptions($request, $runtime);
+    }
+
+    /**
+     * Translates images asynchronously by using the Image Translation Pro edition, which is designed for e-commerce images, integrates multimodal large language model technology for more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. This operation supports more than 400 language pairs, including pivot languages.
+     *
+     * @remarks
+     * ## Scenarios
+     * E-commerce product images, marketing images, and images in various other scenarios.
+     * ## Features
+     * *   Product subject information protection: You can specify whether to translate the text on the product subject. This helps you protect the subject information, such as the embedded product name, from being translated.
+     *
+     * *   Secondary editing after translation: You can specify whether to return layout information such as the position, font, and color of the text. This information can be used for secondary editing when you integrate an image editor. The SDK package for the editor is not yet available. Follow platform notifications for updates.
+     *
+     * *   Brand name protection: You can specify whether to translate brand names in the image. This helps you protect brand name information from being translated.
+     *
+     * *   Translation intervention: You can customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or omitting the translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+     * ## Preparations and call process
+     * Image Translation Pro supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API. For synchronous calls, see [Image Translation Pro](https://www.alibabacloud.com/help/en/aidge/image-translation-pro).
+     * Asynchronous APIs for text translation and other capabilities share the same result retrieval process, ApsaraMQ for RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.
+     * For the integration process, subscription rules, message formats and encryption protocols, and detailed integration solutions for asynchronous calls, see [Asynchronous API call instructions](https://www.alibabacloud.com/help/en/aidge/asynchronous-interface-call-instructions).
+     *
+     * @param request - ImageTranslationProAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImageTranslationProAsyncResponse
+     *
+     * @param ImageTranslationProAsyncRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ImageTranslationProAsyncResponse
+     */
+    public function imageTranslationProAsyncWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->glossary) {
+            @$query['Glossary'] = $request->glossary;
+        }
+
+        if (null !== $request->imageUrl) {
+            @$query['ImageUrl'] = $request->imageUrl;
+        }
+
+        if (null !== $request->includingProductArea) {
+            @$query['IncludingProductArea'] = $request->includingProductArea;
+        }
+
+        if (null !== $request->sourceLanguage) {
+            @$query['SourceLanguage'] = $request->sourceLanguage;
+        }
+
+        if (null !== $request->targetLanguage) {
+            @$query['TargetLanguage'] = $request->targetLanguage;
+        }
+
+        if (null !== $request->translatingBrandInTheProduct) {
+            @$query['TranslatingBrandInTheProduct'] = $request->translatingBrandInTheProduct;
+        }
+
+        if (null !== $request->useImageEditor) {
+            @$query['UseImageEditor'] = $request->useImageEditor;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ImageTranslationProAsync',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImageTranslationProAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Translates images asynchronously by using the Image Translation Pro edition, which is designed for e-commerce images, integrates multimodal large language model technology for more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. This operation supports more than 400 language pairs, including pivot languages.
+     *
+     * @remarks
+     * ## Scenarios
+     * E-commerce product images, marketing images, and images in various other scenarios.
+     * ## Features
+     * *   Product subject information protection: You can specify whether to translate the text on the product subject. This helps you protect the subject information, such as the embedded product name, from being translated.
+     *
+     * *   Secondary editing after translation: You can specify whether to return layout information such as the position, font, and color of the text. This information can be used for secondary editing when you integrate an image editor. The SDK package for the editor is not yet available. Follow platform notifications for updates.
+     *
+     * *   Brand name protection: You can specify whether to translate brand names in the image. This helps you protect brand name information from being translated.
+     *
+     * *   Translation intervention: You can customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or omitting the translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+     * ## Preparations and call process
+     * Image Translation Pro supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API. For synchronous calls, see [Image Translation Pro](https://www.alibabacloud.com/help/en/aidge/image-translation-pro).
+     * Asynchronous APIs for text translation and other capabilities share the same result retrieval process, ApsaraMQ for RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.
+     * For the integration process, subscription rules, message formats and encryption protocols, and detailed integration solutions for asynchronous calls, see [Asynchronous API call instructions](https://www.alibabacloud.com/help/en/aidge/asynchronous-interface-call-instructions).
+     *
+     * @param request - ImageTranslationProAsyncRequest
+     *
+     * @returns ImageTranslationProAsyncResponse
+     *
+     * @param ImageTranslationProAsyncRequest $request
+     *
+     * @return ImageTranslationProAsyncResponse
+     */
+    public function imageTranslationProAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imageTranslationProAsyncWithOptions($request, $runtime);
     }
 
     /**
