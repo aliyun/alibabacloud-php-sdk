@@ -1,0 +1,200 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Aidge\V20260428\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class ImageRemoveAsyncRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $imageUrl;
+
+    /**
+     * @var string
+     */
+    public $mask;
+
+    /**
+     * @var int[]
+     */
+    public $nonObjectRemoveElements;
+
+    /**
+     * @var int[]
+     */
+    public $objectRemoveElements;
+
+    /**
+     * @var string
+     */
+    public $position;
+
+    /**
+     * @var string[]
+     */
+    public $userImage;
+
+    /**
+     * @var string[]
+     */
+    public $userText;
+    protected $_name = [
+        'imageUrl' => 'ImageUrl',
+        'mask' => 'Mask',
+        'nonObjectRemoveElements' => 'NonObjectRemoveElements',
+        'objectRemoveElements' => 'ObjectRemoveElements',
+        'position' => 'Position',
+        'userImage' => 'UserImage',
+        'userText' => 'UserText',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->nonObjectRemoveElements)) {
+            Model::validateArray($this->nonObjectRemoveElements);
+        }
+        if (\is_array($this->objectRemoveElements)) {
+            Model::validateArray($this->objectRemoveElements);
+        }
+        if (\is_array($this->userImage)) {
+            Model::validateArray($this->userImage);
+        }
+        if (\is_array($this->userText)) {
+            Model::validateArray($this->userText);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->imageUrl) {
+            $res['ImageUrl'] = $this->imageUrl;
+        }
+
+        if (null !== $this->mask) {
+            $res['Mask'] = $this->mask;
+        }
+
+        if (null !== $this->nonObjectRemoveElements) {
+            if (\is_array($this->nonObjectRemoveElements)) {
+                $res['NonObjectRemoveElements'] = [];
+                $n1 = 0;
+                foreach ($this->nonObjectRemoveElements as $item1) {
+                    $res['NonObjectRemoveElements'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->objectRemoveElements) {
+            if (\is_array($this->objectRemoveElements)) {
+                $res['ObjectRemoveElements'] = [];
+                $n1 = 0;
+                foreach ($this->objectRemoveElements as $item1) {
+                    $res['ObjectRemoveElements'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->position) {
+            $res['Position'] = $this->position;
+        }
+
+        if (null !== $this->userImage) {
+            if (\is_array($this->userImage)) {
+                $res['UserImage'] = [];
+                $n1 = 0;
+                foreach ($this->userImage as $item1) {
+                    $res['UserImage'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->userText) {
+            if (\is_array($this->userText)) {
+                $res['UserText'] = [];
+                $n1 = 0;
+                foreach ($this->userText as $item1) {
+                    $res['UserText'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['ImageUrl'])) {
+            $model->imageUrl = $map['ImageUrl'];
+        }
+
+        if (isset($map['Mask'])) {
+            $model->mask = $map['Mask'];
+        }
+
+        if (isset($map['NonObjectRemoveElements'])) {
+            if (!empty($map['NonObjectRemoveElements'])) {
+                $model->nonObjectRemoveElements = [];
+                $n1 = 0;
+                foreach ($map['NonObjectRemoveElements'] as $item1) {
+                    $model->nonObjectRemoveElements[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ObjectRemoveElements'])) {
+            if (!empty($map['ObjectRemoveElements'])) {
+                $model->objectRemoveElements = [];
+                $n1 = 0;
+                foreach ($map['ObjectRemoveElements'] as $item1) {
+                    $model->objectRemoveElements[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Position'])) {
+            $model->position = $map['Position'];
+        }
+
+        if (isset($map['UserImage'])) {
+            if (!empty($map['UserImage'])) {
+                $model->userImage = [];
+                $n1 = 0;
+                foreach ($map['UserImage'] as $item1) {
+                    $model->userImage[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['UserText'])) {
+            if (!empty($map['UserText'])) {
+                $model->userText = [];
+                $n1 = 0;
+                foreach ($map['UserText'] as $item1) {
+                    $model->userText[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        return $model;
+    }
+}

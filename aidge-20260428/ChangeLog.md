@@ -1,3 +1,14 @@
+2026-10-15 Version: 5.9.0
+- Support API ImageMattingAsync.
+- Support API ImageRecognitionAsync.
+- Support API ImageRemovalProAsync.
+- Support API ImageRemoveAsync.
+- Support API ImageTranslationPlusAsync.
+- Support API ImageTranslationStandardAsync.
+- Support API SizeChartExtractAsync.
+- Support API TextTranslateAsync.
+
+
 2026-10-15 Version: 5.8.0
 - Support API DiduiAreaDeductionPro.
 - Support API GeneralRephotographyDetection.
