@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class reportDefinitions extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoTagFields;
+
+    /**
      * @var string
      */
     public $beginBillingCycle;
@@ -58,6 +63,7 @@ class reportDefinitions extends Model
      */
     public $subscribeCreateTime;
     protected $_name = [
+        'autoTagFields' => 'AutoTagFields',
         'beginBillingCycle' => 'BeginBillingCycle',
         'ossBucketName' => 'OssBucketName',
         'ossBucketOwnerAccountId' => 'OssBucketOwnerAccountId',
@@ -81,6 +87,10 @@ class reportDefinitions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoTagFields) {
+            $res['AutoTagFields'] = $this->autoTagFields;
+        }
+
         if (null !== $this->beginBillingCycle) {
             $res['BeginBillingCycle'] = $this->beginBillingCycle;
         }
@@ -139,6 +149,10 @@ class reportDefinitions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoTagFields'])) {
+            $model->autoTagFields = $map['AutoTagFields'];
+        }
+
         if (isset($map['BeginBillingCycle'])) {
             $model->beginBillingCycle = $map['BeginBillingCycle'];
         }
