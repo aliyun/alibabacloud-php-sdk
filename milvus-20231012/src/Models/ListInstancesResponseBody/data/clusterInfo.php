@@ -35,6 +35,11 @@ class clusterInfo extends Model
     public $proxyPort;
 
     /**
+     * @var string
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var int
      */
     public $totalCuNum;
@@ -49,6 +54,7 @@ class clusterInfo extends Model
         'intranetUrl' => 'IntranetUrl',
         'milvusResourceInfoList' => 'MilvusResourceInfoList',
         'proxyPort' => 'ProxyPort',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'totalCuNum' => 'TotalCuNum',
         'totalDiskSize' => 'TotalDiskSize',
     ];
@@ -89,6 +95,10 @@ class clusterInfo extends Model
 
         if (null !== $this->proxyPort) {
             $res['ProxyPort'] = $this->proxyPort;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         if (null !== $this->totalCuNum) {
@@ -135,6 +145,10 @@ class clusterInfo extends Model
 
         if (isset($map['ProxyPort'])) {
             $model->proxyPort = $map['ProxyPort'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         if (isset($map['TotalCuNum'])) {

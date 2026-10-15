@@ -1,3 +1,9 @@
+2026-10-15 Version: 1.3.4
+- Update API ListInstances: add response parameters Body.Data.$.ResourceOwnerId.
+- Update API ListInstances: add response parameters Body.Data.$.ClusterInfo.ResourceOwnerId.
+- Update API ModifyInstanceConfig: add request parameters body.
+
+
 2026-09-16 Version: 1.3.3
 - Update API CreateInstance: add request parameters body.nodeType.
 - Update API GetInstanceDetail: add response parameters Body.Data.ClusterInfo.CaCertUrl.

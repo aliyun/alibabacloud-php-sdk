@@ -81,6 +81,11 @@ class data extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var int
      */
     public $runningTime;
@@ -134,6 +139,7 @@ class data extends Model
         'productCode' => 'ProductCode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'runningTime' => 'RunningTime',
         'sgId' => 'SgId',
         'tags' => 'Tags',
@@ -212,6 +218,10 @@ class data extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         if (null !== $this->runningTime) {
@@ -318,6 +328,10 @@ class data extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         if (isset($map['RunningTime'])) {

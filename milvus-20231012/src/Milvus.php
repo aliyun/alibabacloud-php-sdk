@@ -32,6 +32,7 @@ use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesV2Response;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ListInstancesV2ShrinkRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ModifyInstanceConfigRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\ModifyInstanceConfigResponse;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ModifyInstanceConfigShrinkRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Milvus\V20231012\Models\UnTagResourcesRequest;
@@ -237,7 +238,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Creates the server role required by Milvus to access other cloud products.
+     * Creates the service role required by Milvus to access other cloud products.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -270,7 +271,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Creates the server role required by Milvus to access other cloud products.
+     * Creates the service role required by Milvus to access other cloud products.
      *
      * @returns CreateDefaultRoleResponse
      *
@@ -582,7 +583,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Get information about the custom configuration of each component of Milvus.
+     * Retrieves the custom configuration information of each Milvus component.
      *
      * @param request - DescribeInstanceConfigsRequest
      * @param headers - map
@@ -624,7 +625,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Get information about the custom configuration of each component of Milvus.
+     * Retrieves the custom configuration information of each Milvus component.
      *
      * @param request - DescribeInstanceConfigsRequest
      *
@@ -769,7 +770,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Retrieves one or more access control list (ACL) groups.
+     * Retrieves the group information and content for the current user.
      *
      * @param request - ListAclGroupsRequest
      * @param headers - map
@@ -815,7 +816,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Retrieves one or more access control list (ACL) groups.
+     * Retrieves the group information and content for the current user.
      *
      * @param request - ListAclGroupsRequest
      *
@@ -834,7 +835,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Milvus instances in the current account.
+     * Retrieves a list of Milvus instances under the current account.
      *
      * @param tmpReq - ListInstancesRequest
      * @param headers - map
@@ -906,7 +907,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Milvus instances in the current account.
+     * Retrieves a list of Milvus instances under the current account.
      *
      * @param request - ListInstancesRequest
      *
@@ -1024,23 +1025,29 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration parameters for Milvus components.
+     * Updates the configuration parameters of Milvus components.
      *
-     * @param request - ModifyInstanceConfigRequest
+     * @param tmpReq - ModifyInstanceConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyInstanceConfigResponse
      *
-     * @param ModifyInstanceConfigRequest $request
+     * @param ModifyInstanceConfigRequest $tmpReq
      * @param string[]                    $headers
      * @param RuntimeOptions              $runtime
      *
      * @return ModifyInstanceConfigResponse
      */
-    public function modifyInstanceConfigWithOptions($request, $headers, $runtime)
+    public function modifyInstanceConfigWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ModifyInstanceConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
@@ -1054,9 +1061,15 @@ class Milvus extends OpenApiClient
             @$query['UserConfig'] = $request->userConfig;
         }
 
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceConfig',
@@ -1066,7 +1079,7 @@ class Milvus extends OpenApiClient
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
 
@@ -1074,7 +1087,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration parameters for Milvus components.
+     * Updates the configuration parameters of Milvus components.
      *
      * @param request - ModifyInstanceConfigRequest
      *
@@ -1551,7 +1564,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Enables or disables public network access for a Milvus instance.
+     * Enables or disables public network access for a Milvus cluster.
      *
      * @param request - UpdatePublicNetworkStatusRequest
      * @param headers - map
@@ -1605,7 +1618,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Enables or disables public network access for a Milvus instance.
+     * Enables or disables public network access for a Milvus cluster.
      *
      * @param request - UpdatePublicNetworkStatusRequest
      *

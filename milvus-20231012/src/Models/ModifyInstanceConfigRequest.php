@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\ModifyInstanceConfigRequest\body;
 
 class ModifyInstanceConfigRequest extends Model
 {
@@ -22,14 +23,23 @@ class ModifyInstanceConfigRequest extends Model
      * @var string
      */
     public $userConfig;
+
+    /**
+     * @var body
+     */
+    public $body;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'reason' => 'Reason',
         'userConfig' => 'UserConfig',
+        'body' => 'body',
     ];
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
         parent::validate();
     }
 
@@ -46,6 +56,10 @@ class ModifyInstanceConfigRequest extends Model
 
         if (null !== $this->userConfig) {
             $res['UserConfig'] = $this->userConfig;
+        }
+
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
@@ -69,6 +83,10 @@ class ModifyInstanceConfigRequest extends Model
 
         if (isset($map['UserConfig'])) {
             $model->userConfig = $map['UserConfig'];
+        }
+
+        if (isset($map['body'])) {
+            $model->body = body::fromMap($map['body']);
         }
 
         return $model;
