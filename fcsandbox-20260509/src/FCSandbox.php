@@ -272,7 +272,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 创建模板缓存.
+     * Creates a template cache.
      *
      * @param request - CreateTemplateCacheRequest
      * @param headers - map
@@ -309,7 +309,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 创建模板缓存.
+     * Creates a template cache.
      *
      * @param request - CreateTemplateCacheRequest
      *
@@ -622,7 +622,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 删除模板缓存.
+     * Deletes the template cache.
      *
      * @param request - DeleteTemplateCacheRequest
      * @param headers - map
@@ -665,7 +665,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * 删除模板缓存.
+     * Deletes the template cache.
      *
      * @param request - DeleteTemplateCacheRequest
      *
@@ -748,7 +748,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * Queries an API key.
+     * Retrieves an API key.
      *
      * @param request - DescribeApiKeyRequest
      * @param headers - map
@@ -785,7 +785,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * Queries an API key.
+     * Retrieves an API key.
      *
      * @param request - DescribeApiKeyRequest
      *
@@ -1416,7 +1416,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * Queries a list of templates.
+     * Lists templates.
      *
      * @param request - ListTemplatesRequest
      * @param headers - map
@@ -1466,7 +1466,7 @@ class FCSandbox extends OpenApiClient
     }
 
     /**
-     * Queries a list of templates.
+     * Lists templates.
      *
      * @param request - ListTemplatesRequest
      *

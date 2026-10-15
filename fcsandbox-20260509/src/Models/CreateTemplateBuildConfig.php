@@ -17,9 +17,15 @@ class CreateTemplateBuildConfig extends Model
      * @var CreateTemplateEnvdInjectAction
      */
     public $envdInject;
+
+    /**
+     * @var bool
+     */
+    public $installStorageClients;
     protected $_name = [
         'copy' => 'copy',
         'envdInject' => 'envdInject',
+        'installStorageClients' => 'installStorageClients',
     ];
 
     public function validate()
@@ -44,6 +50,10 @@ class CreateTemplateBuildConfig extends Model
             $res['envdInject'] = null !== $this->envdInject ? $this->envdInject->toArray($noStream) : $this->envdInject;
         }
 
+        if (null !== $this->installStorageClients) {
+            $res['installStorageClients'] = $this->installStorageClients;
+        }
+
         return $res;
     }
 
@@ -61,6 +71,10 @@ class CreateTemplateBuildConfig extends Model
 
         if (isset($map['envdInject'])) {
             $model->envdInject = CreateTemplateEnvdInjectAction::fromMap($map['envdInject']);
+        }
+
+        if (isset($map['installStorageClients'])) {
+            $model->installStorageClients = $map['installStorageClients'];
         }
 
         return $model;
