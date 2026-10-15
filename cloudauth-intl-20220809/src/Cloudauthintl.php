@@ -3950,7 +3950,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Server-side API for the international Face Guard service.
+     * Provides the server-side API for international Face Guard.
      *
      * @param Request - FaceGuardRiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4005,7 +4005,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Server-side API for the international Face Guard service.
+     * Provides the server-side API for international Face Guard.
      *
      * @param Request - FaceGuardRiskRequest
      *
@@ -5140,6 +5140,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['Model'] = $request->model;
         }
 
+        if (null !== $request->needMultiFaceCheck) {
+            @$query['NeedMultiFaceCheck'] = $request->needMultiFaceCheck;
+        }
+
         if (null !== $request->ocr) {
             @$query['Ocr'] = $request->ocr;
         }
@@ -5439,6 +5443,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->model) {
             @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->needMultiFaceCheck) {
+            @$query['NeedMultiFaceCheck'] = $request->needMultiFaceCheck;
         }
 
         if (null !== $request->ocr) {

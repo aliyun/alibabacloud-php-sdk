@@ -197,6 +197,11 @@ class InitializeV2AdvanceRequest extends Model
     /**
      * @var string
      */
+    public $needMultiFaceCheck;
+
+    /**
+     * @var string
+     */
     public $ocr;
 
     /**
@@ -351,6 +356,7 @@ class InitializeV2AdvanceRequest extends Model
         'metaInfo' => 'MetaInfo',
         'mobile' => 'Mobile',
         'model' => 'Model',
+        'needMultiFaceCheck' => 'NeedMultiFaceCheck',
         'ocr' => 'Ocr',
         'ocrValueStandard' => 'OcrValueStandard',
         'pages' => 'Pages',
@@ -541,6 +547,10 @@ class InitializeV2AdvanceRequest extends Model
 
         if (null !== $this->model) {
             $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->needMultiFaceCheck) {
+            $res['NeedMultiFaceCheck'] = $this->needMultiFaceCheck;
         }
 
         if (null !== $this->ocr) {
@@ -803,6 +813,10 @@ class InitializeV2AdvanceRequest extends Model
 
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
+        }
+
+        if (isset($map['NeedMultiFaceCheck'])) {
+            $model->needMultiFaceCheck = $map['NeedMultiFaceCheck'];
         }
 
         if (isset($map['Ocr'])) {
