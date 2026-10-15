@@ -4645,7 +4645,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves keyword library information.
+     * Retrieves the information about a keyword library.
      *
      * @param request - GetKeywordLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4674,6 +4674,10 @@ class Green extends OpenApiClient
             @$body['LibId'] = $request->libId;
         }
 
+        if (null !== $request->serviceCode) {
+            @$body['ServiceCode'] = $request->serviceCode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
@@ -4694,7 +4698,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves keyword library information.
+     * Retrieves the information about a keyword library.
      *
      * @param request - GetKeywordLibRequest
      *
@@ -6905,7 +6909,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the list of keyword libraries.
+     * Queries a list of keyword libraries.
      *
      * @param request - ListKeywordLibsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6923,6 +6927,10 @@ class Green extends OpenApiClient
         $query = [];
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceCode) {
+            @$query['ServiceCode'] = $request->serviceCode;
         }
 
         if (null !== $request->tenantCode) {
@@ -6948,7 +6956,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the list of keyword libraries.
+     * Queries a list of keyword libraries.
      *
      * @param request - ListKeywordLibsRequest
      *
@@ -9420,6 +9428,10 @@ class Green extends OpenApiClient
 
         if (null !== $request->keywordHitLibs) {
             @$body['KeywordHitLibs'] = $request->keywordHitLibs;
+        }
+
+        if (null !== $request->keywordLibProcessConf) {
+            @$body['KeywordLibProcessConf'] = $request->keywordLibProcessConf;
         }
 
         if (null !== $request->manualMachineConfig) {

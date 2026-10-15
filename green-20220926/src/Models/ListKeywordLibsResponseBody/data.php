@@ -29,6 +29,11 @@ class data extends Model
     public $libName;
 
     /**
+     * @var string[]
+     */
+    public $preprocessList;
+
+    /**
      * @var string
      */
     public $serviceCodes;
@@ -42,12 +47,16 @@ class data extends Model
         'keywordCount' => 'KeywordCount',
         'libId' => 'LibId',
         'libName' => 'LibName',
+        'preprocessList' => 'PreprocessList',
         'serviceCodes' => 'ServiceCodes',
         'uid' => 'Uid',
     ];
 
     public function validate()
     {
+        if (\is_array($this->preprocessList)) {
+            Model::validateArray($this->preprocessList);
+        }
         parent::validate();
     }
 
@@ -68,6 +77,17 @@ class data extends Model
 
         if (null !== $this->libName) {
             $res['LibName'] = $this->libName;
+        }
+
+        if (null !== $this->preprocessList) {
+            if (\is_array($this->preprocessList)) {
+                $res['PreprocessList'] = [];
+                $n1 = 0;
+                foreach ($this->preprocessList as $item1) {
+                    $res['PreprocessList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->serviceCodes) {
@@ -103,6 +123,17 @@ class data extends Model
 
         if (isset($map['LibName'])) {
             $model->libName = $map['LibName'];
+        }
+
+        if (isset($map['PreprocessList'])) {
+            if (!empty($map['PreprocessList'])) {
+                $model->preprocessList = [];
+                $n1 = 0;
+                foreach ($map['PreprocessList'] as $item1) {
+                    $model->preprocessList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ServiceCodes'])) {

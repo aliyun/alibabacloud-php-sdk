@@ -16,9 +16,15 @@ class ListKeywordLibsRequest extends Model
     /**
      * @var string
      */
+    public $serviceCode;
+
+    /**
+     * @var string
+     */
     public $tenantCode;
     protected $_name = [
         'regionId' => 'RegionId',
+        'serviceCode' => 'ServiceCode',
         'tenantCode' => 'TenantCode',
     ];
 
@@ -32,6 +38,10 @@ class ListKeywordLibsRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->serviceCode) {
+            $res['ServiceCode'] = $this->serviceCode;
         }
 
         if (null !== $this->tenantCode) {
@@ -51,6 +61,10 @@ class ListKeywordLibsRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ServiceCode'])) {
+            $model->serviceCode = $map['ServiceCode'];
         }
 
         if (isset($map['TenantCode'])) {

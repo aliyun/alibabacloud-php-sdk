@@ -36,6 +36,11 @@ class UpdateServiceConfigRequest extends Model
     /**
      * @var string
      */
+    public $keywordLibProcessConf;
+
+    /**
+     * @var string
+     */
     public $manualMachineConfig;
 
     /**
@@ -78,6 +83,7 @@ class UpdateServiceConfigRequest extends Model
         'fileConfig' => 'FileConfig',
         'keywordFilterLibs' => 'KeywordFilterLibs',
         'keywordHitLibs' => 'KeywordHitLibs',
+        'keywordLibProcessConf' => 'KeywordLibProcessConf',
         'manualMachineConfig' => 'ManualMachineConfig',
         'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
@@ -114,6 +120,10 @@ class UpdateServiceConfigRequest extends Model
 
         if (null !== $this->keywordHitLibs) {
             $res['KeywordHitLibs'] = $this->keywordHitLibs;
+        }
+
+        if (null !== $this->keywordLibProcessConf) {
+            $res['KeywordLibProcessConf'] = $this->keywordLibProcessConf;
         }
 
         if (null !== $this->manualMachineConfig) {
@@ -177,6 +187,10 @@ class UpdateServiceConfigRequest extends Model
 
         if (isset($map['KeywordHitLibs'])) {
             $model->keywordHitLibs = $map['KeywordHitLibs'];
+        }
+
+        if (isset($map['KeywordLibProcessConf'])) {
+            $model->keywordLibProcessConf = $map['KeywordLibProcessConf'];
         }
 
         if (isset($map['ManualMachineConfig'])) {
