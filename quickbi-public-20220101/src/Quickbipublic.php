@@ -105,6 +105,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListAccelerationOfWorkspaceR
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListAccelerationOfWorkspaceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListAuthConfigByResourceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListAuthConfigByResourceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListByUserGroupIdRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListByUserGroupIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListCollectionsRequest;
@@ -254,6 +256,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\TransferUsergroupRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\TransferUsergroupResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateAuthorizationAttributesRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateAuthorizationAttributesResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateCubeBySqlRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateCubeBySqlResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataLevelPermissionStatusRequest;
@@ -289,18 +293,6 @@ class Quickbipublic extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'ap-northeast-1' => 'quickbi-public.ap-northeast-1.aliyuncs.com',
-            'ap-southeast-1' => 'quickbi-public.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3' => 'quickbi-public.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-5' => 'quickbi-public.ap-southeast-5.aliyuncs.com',
-            'cn-hangzhou' => 'quickbi-public.cn-hangzhou.aliyuncs.com',
-            'cn-hongkong' => 'quickbi-public.cn-hongkong.aliyuncs.com',
-            'us-east-1' => 'quickbi-public.us-east-1.aliyuncs.com',
-            'eu-central-1' => 'quickbi-public.eu-central-1.aliyuncs.com',
-            'me-central-1' => 'quickbi-public.me-central-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'quickbi-public.cn-shanghai-finance-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('quickbi-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -529,7 +521,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add a sharing configuration for data works.
+     * Adds a sharing configuration for a data work.
      *
      * @param request - AddShareReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -584,7 +576,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add a sharing configuration for data works.
+     * Adds a sharing configuration for a data work.
      *
      * @param request - AddShareReportRequest
      *
@@ -602,7 +594,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add organization members.
+     * Adds an organization member.
      *
      * @param request - AddUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -671,7 +663,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add organization members.
+     * Adds an organization member.
      *
      * @param request - AddUserRequest
      *
@@ -1014,7 +1006,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch add members to the workspace.
+     * Adds members to a workspace in batches.
      *
      * @param request - AddWorkspaceUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1061,7 +1053,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch add members to the workspace.
+     * Adds members to a workspace in batches.
      *
      * @param request - AddWorkspaceUsersRequest
      *
@@ -3316,7 +3308,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Search for user group information based on the keyword of the user group name.
+     * Searches for user group information by user group name keyword.
      *
      * @param request - GetUserGroupInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3355,7 +3347,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Search for user group information based on the keyword of the user group name.
+     * Searches for user group information by user group name keyword.
      *
      * @param request - GetUserGroupInfoRequest
      *
@@ -3373,7 +3365,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of embedded reports.
+     * Queries the list of embedded reports.
      *
      * @param request - GetWorksEmbedListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3428,7 +3420,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query the list of embedded reports.
+     * Queries the list of embedded reports.
      *
      * @param request - GetWorksEmbedListRequest
      *
@@ -3446,7 +3438,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Configures the IP address whitelist for data security.
+     * Configures the IP whitelist for data security.
      *
      * @param request - IpWhiteListConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3489,7 +3481,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Configures the IP address whitelist for data security.
+     * Configures the IP whitelist for data security.
      *
      * @param request - IpWhiteListConfigRequest
      *
@@ -3507,7 +3499,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieves information about acceleration tasks in a workspace.
+     * Retrieves acceleration engine task information from the management page of a workspace.
      *
      * @param request - ListAccelerationOfWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3562,7 +3554,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieves information about acceleration tasks in a workspace.
+     * Retrieves acceleration engine task information from the management page of a workspace.
      *
      * @param request - ListAccelerationOfWorkspaceRequest
      *
@@ -3580,10 +3572,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries API data sources.
+     * Queries the list of API data sources.
      *
      * @remarks
-     * For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+     * For more information about the parameter description, see [Create an API data source.](https://help.aliyun.com/document_detail/409330.html)
      *
      * @param request - ListApiDatasourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3634,10 +3626,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries API data sources.
+     * Queries the list of API data sources.
      *
      * @remarks
-     * For more information about the parameters, see [Create an API data source](https://help.aliyun.com/document_detail/409330.html).
+     * For more information about the parameter description, see [Create an API data source.](https://help.aliyun.com/document_detail/409330.html)
      *
      * @param request - ListApiDatasourceRequest
      *
@@ -3655,7 +3647,80 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries user group information at a time by user group ID.
+     * Queries the collaborative authorization records of a resource.
+     *
+     * @param request - ListAuthConfigByResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthConfigByResourceResponse
+     *
+     * @param ListAuthConfigByResourceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAuthConfigByResourceResponse
+     */
+    public function listAuthConfigByResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hasAuth) {
+            @$query['HasAuth'] = $request->hasAuth;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->shareToType) {
+            @$query['ShareToType'] = $request->shareToType;
+        }
+
+        if (null !== $request->worksType) {
+            @$query['WorksType'] = $request->worksType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthConfigByResource',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthConfigByResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the collaborative authorization records of a resource.
+     *
+     * @param request - ListAuthConfigByResourceRequest
+     *
+     * @returns ListAuthConfigByResourceResponse
+     *
+     * @param ListAuthConfigByResourceRequest $request
+     *
+     * @return ListAuthConfigByResourceResponse
+     */
+    public function listAuthConfigByResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthConfigByResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries information about user groups in batch by user group ID.
      *
      * @param request - ListByUserGroupIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3694,7 +3759,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries user group information at a time by user group ID.
+     * Queries information about user groups in batch by user group ID.
      *
      * @param request - ListByUserGroupIdRequest
      *
@@ -3836,10 +3901,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+     * Retrieves the whitelist of row-level or column-level permissions for a dataset based on the specified permission type.
      *
      * @remarks
-     * > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+     * >: This operation supports only the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, migrate to the new model before calling this operation. To migrate to the new row and column permission model: In Organization Management > Security Configuration > Row and Column Permission Upgrade, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - ListDataLevelPermissionWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3882,10 +3947,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the whitelist for dataset row and column permissions based on the type of permission.
+     * Retrieves the whitelist of row-level or column-level permissions for a dataset based on the specified permission type.
      *
      * @remarks
-     * > This API only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+     * >: This operation supports only the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, migrate to the new model before calling this operation. To migrate to the new row and column permission model: In Organization Management > Security Configuration > Row and Column Permission Upgrade, click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - ListDataLevelPermissionWhiteListRequest
      *
@@ -4313,7 +4378,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+     * Retrieves the frequently viewed items and footprint list displayed on the homepage dashboard for a specified user.
      *
      * @param request - ListRecentViewReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4372,7 +4437,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain a list of the most frequently viewed and footsteps displayed in the homepage dashboard for a specified user.
+     * Retrieves the frequently viewed items and footprint list displayed on the homepage dashboard for a specified user.
      *
      * @param request - ListRecentViewReportsRequest
      *
@@ -5018,7 +5083,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the run logs of acceleration tasks for a specified dataset.
+     * Retrieves the execution logs of acceleration tasks for a specified dataset.
      *
      * @param request - QueryAccelerationLogByCubeIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5073,7 +5138,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the run logs of acceleration tasks for a specified dataset.
+     * Retrieves the execution logs of acceleration tasks for a specified dataset.
      *
      * @param request - QueryAccelerationLogByCubeIdRequest
      *
@@ -6007,7 +6072,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
+     * Queries the list of datasets in a specified workspace, sorted by creation time in descending order.
      *
      * @param request - QueryDatasetListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6066,7 +6131,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the datasets in a specified workspace. The results are sorted in descending order by creation time.
+     * Queries the list of datasets in a specified workspace, sorted by creation time in descending order.
      *
      * @param request - QueryDatasetListRequest
      *
@@ -6475,7 +6540,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Lists the workspaces in the current organization.
+     * Retrieves the list of workspaces in the current organization.
      *
      * @param request - QueryOrganizationWorkspaceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6526,7 +6591,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Lists the workspaces in the current organization.
+     * Retrieves the list of workspaces in the current organization.
      *
      * @param request - QueryOrganizationWorkspaceListRequest
      *
@@ -7491,7 +7556,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries information about a specified data work.
+     * Queries the information of a specified data work.
      *
      * @param request - QueryWorksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7530,7 +7595,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries information about a specified data work.
+     * Queries the information of a specified data work.
      *
      * @param request - QueryWorksRequest
      *
@@ -7605,7 +7670,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query all works under the entire organization, with the option to specify the type of work.
+     * Queries all works in an organization. You can specify the work type.
      *
      * @param request - QueryWorksByOrganizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7660,7 +7725,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query all works under the entire organization, with the option to specify the type of work.
+     * Queries all works in an organization. You can specify the work type.
      *
      * @param request - QueryWorksByOrganizationRequest
      *
@@ -8348,10 +8413,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Runs an intelligent Q&A query.
+     * Queries data by using the Smart Q&A feature.
      *
      * @remarks
-     * Note: Authorized users can query data as another user by passing the userId of the target user.
+     * Note: When a user is authorized to call this API, the user can query data as a specified user by passing in the userId parameter.
      *
      * @param request - SmartqQueryAbilityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8402,10 +8467,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Runs an intelligent Q&A query.
+     * Queries data by using the Smart Q&A feature.
      *
      * @remarks
-     * Note: Authorized users can query data as another user by passing the userId of the target user.
+     * Note: When a user is authorized to call this API, the user can query data as a specified user by passing in the userId parameter.
      *
      * @param request - SmartqQueryAbilityRequest
      *
@@ -8481,6 +8546,75 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->transferUsergroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the permission attributes of resource collaborative authorization.
+     *
+     * @param request - UpdateAuthorizationAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthorizationAttributesResponse
+     *
+     * @param UpdateAuthorizationAttributesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateAuthorizationAttributesResponse
+     */
+    public function updateAuthorizationAttributesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->editPermissionType) {
+            @$query['EditPermissionType'] = $request->editPermissionType;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->usePermissionType) {
+            @$query['UsePermissionType'] = $request->usePermissionType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAuthorizationAttributes',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAuthorizationAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the permission attributes of resource collaborative authorization.
+     *
+     * @param request - UpdateAuthorizationAttributesRequest
+     *
+     * @returns UpdateAuthorizationAttributesResponse
+     *
+     * @param UpdateAuthorizationAttributesRequest $request
+     *
+     * @return UpdateAuthorizationAttributesResponse
+     */
+    public function updateAuthorizationAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthorizationAttributesWithOptions($request, $runtime);
     }
 
     /**
@@ -9091,7 +9225,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modify the role of a specified member under the workspace, existing roles will be overwritten.
+     * Modifies the role of a specified member in a workspace. The existing role is overwritten.
      *
      * @param request - UpdateWorkspaceUserRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9142,7 +9276,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modify the role of a specified member under the workspace, existing roles will be overwritten.
+     * Modifies the role of a specified member in a workspace. The existing role is overwritten.
      *
      * @param request - UpdateWorkspaceUserRoleRequest
      *
@@ -9160,7 +9294,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch update the role information of workspace members, existing roles will be overwritten.
+     * Updates the roles of workspace members in batches. Existing roles are overwritten.
      *
      * @param request - UpdateWorkspaceUsersRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9207,7 +9341,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch update the role information of workspace members, existing roles will be overwritten.
+     * Updates the roles of workspace members in batches. Existing roles are overwritten.
      *
      * @param request - UpdateWorkspaceUsersRoleRequest
      *
