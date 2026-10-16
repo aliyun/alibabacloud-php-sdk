@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesRequest\resou
 class ListResourcesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $count;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -49,6 +54,7 @@ class ListResourcesRequest extends Model
      */
     public $service;
     protected $_name = [
+        'count' => 'Count',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'region' => 'Region',
@@ -70,6 +76,10 @@ class ListResourcesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -120,6 +130,10 @@ class ListResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
