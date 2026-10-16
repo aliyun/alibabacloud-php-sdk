@@ -34,6 +34,11 @@ class CreateUserPoolClientShrinkRequest extends Model
     public $refreshTokenValidity;
 
     /**
+     * @var string
+     */
+    public $scopesShrink;
+
+    /**
      * @var bool
      */
     public $secretRequired;
@@ -48,6 +53,7 @@ class CreateUserPoolClientShrinkRequest extends Model
         'enforcePKCE' => 'EnforcePKCE',
         'redirectURIsShrink' => 'RedirectURIs',
         'refreshTokenValidity' => 'RefreshTokenValidity',
+        'scopesShrink' => 'Scopes',
         'secretRequired' => 'SecretRequired',
         'userPoolName' => 'UserPoolName',
     ];
@@ -78,6 +84,10 @@ class CreateUserPoolClientShrinkRequest extends Model
 
         if (null !== $this->refreshTokenValidity) {
             $res['RefreshTokenValidity'] = $this->refreshTokenValidity;
+        }
+
+        if (null !== $this->scopesShrink) {
+            $res['Scopes'] = $this->scopesShrink;
         }
 
         if (null !== $this->secretRequired) {
@@ -117,6 +127,10 @@ class CreateUserPoolClientShrinkRequest extends Model
 
         if (isset($map['RefreshTokenValidity'])) {
             $model->refreshTokenValidity = $map['RefreshTokenValidity'];
+        }
+
+        if (isset($map['Scopes'])) {
+            $model->scopesShrink = $map['Scopes'];
         }
 
         if (isset($map['SecretRequired'])) {

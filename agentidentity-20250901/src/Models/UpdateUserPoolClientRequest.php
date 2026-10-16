@@ -34,6 +34,11 @@ class UpdateUserPoolClientRequest extends Model
     public $refreshTokenValidity;
 
     /**
+     * @var string[]
+     */
+    public $scopes;
+
+    /**
      * @var bool
      */
     public $secretRequired;
@@ -48,6 +53,7 @@ class UpdateUserPoolClientRequest extends Model
         'enforcePKCE' => 'EnforcePKCE',
         'redirectURIs' => 'RedirectURIs',
         'refreshTokenValidity' => 'RefreshTokenValidity',
+        'scopes' => 'Scopes',
         'secretRequired' => 'SecretRequired',
         'userPoolName' => 'UserPoolName',
     ];
@@ -56,6 +62,9 @@ class UpdateUserPoolClientRequest extends Model
     {
         if (\is_array($this->redirectURIs)) {
             Model::validateArray($this->redirectURIs);
+        }
+        if (\is_array($this->scopes)) {
+            Model::validateArray($this->scopes);
         }
         parent::validate();
     }
@@ -88,6 +97,17 @@ class UpdateUserPoolClientRequest extends Model
 
         if (null !== $this->refreshTokenValidity) {
             $res['RefreshTokenValidity'] = $this->refreshTokenValidity;
+        }
+
+        if (null !== $this->scopes) {
+            if (\is_array($this->scopes)) {
+                $res['Scopes'] = [];
+                $n1 = 0;
+                foreach ($this->scopes as $item1) {
+                    $res['Scopes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->secretRequired) {
@@ -134,6 +154,17 @@ class UpdateUserPoolClientRequest extends Model
 
         if (isset($map['RefreshTokenValidity'])) {
             $model->refreshTokenValidity = $map['RefreshTokenValidity'];
+        }
+
+        if (isset($map['Scopes'])) {
+            if (!empty($map['Scopes'])) {
+                $model->scopes = [];
+                $n1 = 0;
+                foreach ($map['Scopes'] as $item1) {
+                    $model->scopes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SecretRequired'])) {

@@ -77,6 +77,8 @@ use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetGatewayPolicyConfigReques
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetGatewayPolicyConfigResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetIdentityProviderRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetIdentityProviderResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetIdentityProviderSyncScopeRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetIdentityProviderSyncScopeResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetLoginPreferenceRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetLoginPreferenceResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetOAuth2CredentialProviderRequest;
@@ -109,6 +111,8 @@ use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListAPIKeyCredentialProvider
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListAPIKeyCredentialProvidersResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListClientSecretsRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListClientSecretsResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListIdentityProviderDepartmentsRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListIdentityProviderDepartmentsResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListIdentityProvidersRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListIdentityProvidersResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListOAuth2CredentialProvidersRequest;
@@ -279,7 +283,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 策略集关联网关.
+     * Attaches a policy set to a gateway.
+     *
+     * @remarks
+     * Attaches a policy set to a target gateway.
+     * The attachment relationship is 1:1. A gateway can have only one policy set attached at a time. If you attach a policy set multiple times, the latest attachment takes effect. You can specify the policy enforcement mode by using the EnforcementMode parameter. Valid values: ENFORCE (blocks non-compliant requests) and LOG_ONLY (records non-compliant requests but allows them, which is commonly used for canary release observation).
      *
      * @param request - AttachPolicySetToGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -330,7 +338,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 策略集关联网关.
+     * Attaches a policy set to a gateway.
+     *
+     * @remarks
+     * Attaches a policy set to a target gateway.
+     * The attachment relationship is 1:1. A gateway can have only one policy set attached at a time. If you attach a policy set multiple times, the latest attachment takes effect. You can specify the policy enforcement mode by using the EnforcementMode parameter. Valid values: ENFORCE (blocks non-compliant requests) and LOG_ONLY (records non-compliant requests but allows them, which is commonly used for canary release observation).
      *
      * @param request - AttachPolicySetToGatewayRequest
      *
@@ -348,7 +360,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建一个 API 密钥凭证提供商.
+     * Creates an API key credential provider.
      *
      * @param request - CreateAPIKeyCredentialProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -399,7 +411,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建一个 API 密钥凭证提供商.
+     * Creates an API key credential provider.
      *
      * @param request - CreateAPIKeyCredentialProviderRequest
      *
@@ -417,7 +429,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建WorkloadIdentity.
+     * Creates a workload identity.
+     *
+     * @remarks
+     * The response includes the plaintext client secret (ClientSecretValue). For security reasons, the plaintext secret is returned only once upon creation and cannot be retrieved later. Store it securely.
      *
      * @param request - CreateClientSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -464,7 +479,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建WorkloadIdentity.
+     * Creates a workload identity.
+     *
+     * @remarks
+     * The response includes the plaintext client secret (ClientSecretValue). For security reasons, the plaintext secret is returned only once upon creation and cannot be retrieved later. Store it securely.
      *
      * @param request - CreateClientSecretRequest
      *
@@ -557,7 +575,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建 OAuth2 凭证提供商.
+     * Creates an OAuth 2.0 credential provider.
      *
      * @param tmpReq - CreateOAuth2CredentialProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -626,7 +644,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建 OAuth2 凭证提供商.
+     * Creates an OAuth 2.0 credential provider.
      *
      * @param request - CreateOAuth2CredentialProviderRequest
      *
@@ -644,7 +662,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建一个权限策略.
+     * Creates an access policy.
+     *
+     * @remarks
+     * Calls the CreatePolicy operation to add a policy to an existing policy set. The policy defines specific control rules, such as throttling thresholds, admission conditions, and allow or block actions, through the Definition field. After a policy set is mounted to a gateway, requests on the gateway are evaluated and controlled based on the merged results of all policies in the policy set.
      *
      * @param tmpReq - CreatePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -701,7 +722,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建一个权限策略.
+     * Creates an access policy.
+     *
+     * @remarks
+     * Calls the CreatePolicy operation to add a policy to an existing policy set. The policy defines specific control rules, such as throttling thresholds, admission conditions, and allow or block actions, through the Definition field. After a policy set is mounted to a gateway, requests on the gateway are evaluated and controlled based on the merged results of all policies in the policy set.
      *
      * @param request - CreatePolicyRequest
      *
@@ -719,7 +743,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建一个权限策略集合.
+     * Creates an access policy set.
+     *
+     * @remarks
+     * Calls CreatePolicySet to create a policy set in the current account. A policy set is a container for a group of policies. After a policy set is mounted to a gateway, all policies in the set evaluate requests to the gateway as a whole.
      *
      * @param request - CreatePolicySetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -743,6 +770,10 @@ class AgentIdentity extends OpenApiClient
             @$body['PolicySetName'] = $request->policySetName;
         }
 
+        if (null !== $request->sourcePlatform) {
+            @$body['SourcePlatform'] = $request->sourcePlatform;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -762,7 +793,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建一个权限策略集合.
+     * Creates an access policy set.
+     *
+     * @remarks
+     * Calls CreatePolicySet to create a policy set in the current account. A policy set is a container for a group of policies. After a policy set is mounted to a gateway, all policies in the set evaluate requests to the gateway as a whole.
      *
      * @param request - CreatePolicySetRequest
      *
@@ -780,7 +814,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建Role.
+     * Creates a role.
+     *
+     * @remarks
+     * Users in a user pool can be allocated roles to enable quick authorization. Administrators can specify permissions for roles in an access policy.
+     * When a user pool is created, the platform automatically provisions a default role, and newly created users are automatically allocated this default role. This operation creates a custom role of the Manual type, which must be explicitly allocated to users by calling CreateRoleAssignment.
      *
      * @param request - CreateRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -827,7 +865,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建Role.
+     * Creates a role.
+     *
+     * @remarks
+     * Users in a user pool can be allocated roles to enable quick authorization. Administrators can specify permissions for roles in an access policy.
+     * When a user pool is created, the platform automatically provisions a default role, and newly created users are automatically allocated this default role. This operation creates a custom role of the Manual type, which must be explicitly allocated to users by calling CreateRoleAssignment.
      *
      * @param request - CreateRoleRequest
      *
@@ -845,7 +887,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 策略集关联网关.
+     * Associates a policy set with a gateway.
+     *
+     * @remarks
+     * Users must be assigned roles to complete authorization. When a user is created through JIT, a default role is automatically assigned. Administrators can use this operation to assign additional custom roles to users.
+     * PrincipalType currently supports only User. A single identity can have multiple role assignments.
      *
      * @param request - CreateRoleAssignmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -896,7 +942,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 策略集关联网关.
+     * Associates a policy set with a gateway.
+     *
+     * @remarks
+     * Users must be assigned roles to complete authorization. When a user is created through JIT, a default role is automatically assigned. Administrators can use this operation to assign additional custom roles to users.
+     * PrincipalType currently supports only User. A single identity can have multiple role assignments.
      *
      * @param request - CreateRoleAssignmentRequest
      *
@@ -914,7 +964,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建一个凭证库.
+     * Creates a token vault.
+     *
+     * @remarks
+     * Calls the CreateTokenVault operation to create a token vault within the current Alibaba Cloud account. A token vault is a container used by the AgentIdentity service to securely store sensitive credentials such as OAuth2 tokens and API keys. Each token is encrypted when it is written to the vault.
+     * You can specify the encryption configuration when you create the vault. By default, a service-managed key (SERVICE_MANAGED_KEY) is used. For greater control over the key, you can use a customer-managed Key Management Service (KMS) key (CUSTOMER_MANAGED_KEY). To use a customer-managed key, specify the Alibaba Cloud Resource Name (ARN) of the KMS key and use the RoleArn parameter to authorize the AgentIdentity service to access the KMS key.
      *
      * @param tmpReq - CreateTokenVaultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -971,7 +1025,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建一个凭证库.
+     * Creates a token vault.
+     *
+     * @remarks
+     * Calls the CreateTokenVault operation to create a token vault within the current Alibaba Cloud account. A token vault is a container used by the AgentIdentity service to securely store sensitive credentials such as OAuth2 tokens and API keys. Each token is encrypted when it is written to the vault.
+     * You can specify the encryption configuration when you create the vault. By default, a service-managed key (SERVICE_MANAGED_KEY) is used. For greater control over the key, you can use a customer-managed Key Management Service (KMS) key (CUSTOMER_MANAGED_KEY). To use a customer-managed key, specify the Alibaba Cloud Resource Name (ARN) of the KMS key and use the RoleArn parameter to authorize the AgentIdentity service to access the KMS key.
      *
      * @param request - CreateTokenVaultRequest
      *
@@ -989,7 +1047,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建用户池用户.
+     * Creates a user in a user pool.
+     *
+     * @remarks
+     * Creates a user in a specified user pool. The type of the created user is Manual, and the default status is Enabled. The username must be unique within the user pool and can contain letters, digits, underscores (_), periods (.), and hyphens (-), and must be 3 to 128 characters in length. The email address must be unique within the user pool. After the user is created, you can call the SetUserPassword operation to set a logon password for the user and call the CreateRoleAssignment operation to assign a role to the user.
      *
      * @param request - CreateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1048,7 +1109,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建用户池用户.
+     * Creates a user in a user pool.
+     *
+     * @remarks
+     * Creates a user in a specified user pool. The type of the created user is Manual, and the default status is Enabled. The username must be unique within the user pool and can contain letters, digits, underscores (_), periods (.), and hyphens (-), and must be 3 to 128 characters in length. The email address must be unique within the user pool. After the user is created, you can call the SetUserPassword operation to set a logon password for the user and call the CreateRoleAssignment operation to assign a role to the user.
      *
      * @param request - CreateUserRequest
      *
@@ -1066,7 +1130,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建UserPool.
+     * Creates a user pool.
+     *
+     * @remarks
+     * A user pool is a secure and isolated user folder designed by the Agent Identity platform for the AI agent ecosystem. You can create multiple user pools under a single Alibaba Cloud account for the independent user identity management of different AI agents. When you create a user pool, you only need to specify the name (UserPoolName). The description is optional. After the user pool is created, the platform automatically generates a default role for the user pool. Users subsequently created through SAML SSO just-in-time (JIT) synchronization are automatically allocated this default role.
      *
      * @param request - CreateUserPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1109,7 +1176,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建UserPool.
+     * Creates a user pool.
+     *
+     * @remarks
+     * A user pool is a secure and isolated user folder designed by the Agent Identity platform for the AI agent ecosystem. You can create multiple user pools under a single Alibaba Cloud account for the independent user identity management of different AI agents. When you create a user pool, you only need to specify the name (UserPoolName). The description is optional. After the user pool is created, the platform automatically generates a default role for the user pool. Users subsequently created through SAML SSO just-in-time (JIT) synchronization are automatically allocated this default role.
      *
      * @param request - CreateUserPoolRequest
      *
@@ -1127,7 +1197,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建WorkloadIdentity.
+     * Creates a WorkloadIdentity.
+     *
+     * @remarks
+     * A client represents an application that is integrated with a user pool. When you create a client, you must specify the client name and redirect URIs. You can configure whether an application secret is required, whether to enforce Proof Key for Code Exchange (PKCE), the access token validity period, and the refresh token validity period. The application scopes are generated by the platform by default. If SecretRequired is set to true, you must call CreateClientSecret to create a client secret.
      *
      * @param tmpReq - CreateUserPoolClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1146,6 +1219,10 @@ class AgentIdentity extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->redirectURIs) {
             $request->redirectURIsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->redirectURIs, 'RedirectURIs', 'json');
+        }
+
+        if (null !== $tmpReq->scopes) {
+            $request->scopesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scopes, 'Scopes', 'json');
         }
 
         $body = [];
@@ -1167,6 +1244,10 @@ class AgentIdentity extends OpenApiClient
 
         if (null !== $request->refreshTokenValidity) {
             @$body['RefreshTokenValidity'] = $request->refreshTokenValidity;
+        }
+
+        if (null !== $request->scopesShrink) {
+            @$body['Scopes'] = $request->scopesShrink;
         }
 
         if (null !== $request->secretRequired) {
@@ -1196,7 +1277,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建WorkloadIdentity.
+     * Creates a WorkloadIdentity.
+     *
+     * @remarks
+     * A client represents an application that is integrated with a user pool. When you create a client, you must specify the client name and redirect URIs. You can configure whether an application secret is required, whether to enforce Proof Key for Code Exchange (PKCE), the access token validity period, and the refresh token validity period. The application scopes are generated by the platform by default. If SecretRequired is set to true, you must call CreateClientSecret to create a client secret.
      *
      * @param request - CreateUserPoolClientRequest
      *
@@ -1214,7 +1298,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建WorkloadIdentity.
+     * Create a workload identity for an AI Agent to uniquely identify it.
      *
      * @param tmpReq - CreateWorkloadIdentityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1299,7 +1383,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建WorkloadIdentity.
+     * Create a workload identity for an AI Agent to uniquely identify it.
      *
      * @param request - CreateWorkloadIdentityRequest
      *
@@ -1317,7 +1401,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除一个 API 密钥凭证提供商.
+     * Deletes a specified API key credential provider.
      *
      * @param request - DeleteAPIKeyCredentialProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1360,7 +1444,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除一个 API 密钥凭证提供商.
+     * Deletes a specified API key credential provider.
      *
      * @param request - DeleteAPIKeyCredentialProviderRequest
      *
@@ -1378,7 +1462,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除IdentityProvider.
+     * Deletes an identity provider.
+     *
+     * @remarks
+     * Deletes a specified client secret by client ID and key ID. The secret becomes invalid immediately after deletion, and all OAuth authentication flows that use this secret will fail.
      *
      * @param request - DeleteClientSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1429,7 +1516,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除IdentityProvider.
+     * Deletes an identity provider.
+     *
+     * @remarks
+     * Deletes a specified client secret by client ID and key ID. The secret becomes invalid immediately after deletion, and all OAuth authentication flows that use this secret will fail.
      *
      * @param request - DeleteClientSecretRequest
      *
@@ -1447,7 +1537,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除IdentityProvider.
+     * Deletes a specified identity provider.
      *
      * @param request - DeleteIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1486,7 +1576,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除IdentityProvider.
+     * Deletes a specified identity provider.
      *
      * @param request - DeleteIdentityProviderRequest
      *
@@ -1504,7 +1594,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除 OAuth2 凭证提供商.
+     * Deletes a specified OAuth 2.0 credential provider.
      *
      * @param request - DeleteOAuth2CredentialProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1547,7 +1637,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除 OAuth2 凭证提供商.
+     * Deletes a specified OAuth 2.0 credential provider.
      *
      * @param request - DeleteOAuth2CredentialProviderRequest
      *
@@ -1565,7 +1655,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除一个权限策略.
+     * Deletes an access policy.
+     *
+     * @remarks
+     * Calls DeletePolicy to remove a policy from a specified policy set. The policy becomes invalid immediately after deletion, and gateways that depend on the policy set do not need to be remounted.
      *
      * @param request - DeletePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1608,7 +1701,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除一个权限策略.
+     * Deletes an access policy.
+     *
+     * @remarks
+     * Calls DeletePolicy to remove a policy from a specified policy set. The policy becomes invalid immediately after deletion, and gateways that depend on the policy set do not need to be remounted.
      *
      * @param request - DeletePolicyRequest
      *
@@ -1626,7 +1722,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除一个权限策略集合.
+     * Deletes an access policy set.
+     *
+     * @remarks
+     * Calls DeletePolicySet to delete a policy set that is no longer in use.
+     * Before deleting the policy set, ensure that it is unmounted from all gateways (you can query this by calling ListPolicySetAttachedGateways) and contains no policies. Otherwise, the deletion fails.
      *
      * @param request - DeletePolicySetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1665,7 +1765,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除一个权限策略集合.
+     * Deletes an access policy set.
+     *
+     * @remarks
+     * Calls DeletePolicySet to delete a policy set that is no longer in use.
+     * Before deleting the policy set, ensure that it is unmounted from all gateways (you can query this by calling ListPolicySetAttachedGateways) and contains no policies. Otherwise, the deletion fails.
      *
      * @param request - DeletePolicySetRequest
      *
@@ -1683,7 +1787,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除Role.
+     * Deletes a role.
+     *
+     * @remarks
+     * Before deletion, the system checks whether the role has any bound users. If role assignments exist, the deletion is rejected. You must call DeleteRoleAssignment to remove the assignments before deleting the role. Default roles (Type=Default) cannot be deleted.
      *
      * @param request - DeleteRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1726,7 +1833,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除Role.
+     * Deletes a role.
+     *
+     * @remarks
+     * Before deletion, the system checks whether the role has any bound users. If role assignments exist, the deletion is rejected. You must call DeleteRoleAssignment to remove the assignments before deleting the role. Default roles (Type=Default) cannot be deleted.
      *
      * @param request - DeleteRoleRequest
      *
@@ -1744,7 +1854,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 网关取消关联策略集.
+     * Disassociates a policy set from a gateway.
+     *
+     * @remarks
+     * Removes the role assignment relationship between an identity and a role.
      *
      * @param request - DeleteRoleAssignmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1795,7 +1908,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 网关取消关联策略集.
+     * Disassociates a policy set from a gateway.
+     *
+     * @remarks
+     * Removes the role assignment relationship between an identity and a role.
      *
      * @param request - DeleteRoleAssignmentRequest
      *
@@ -1813,7 +1929,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除WorkloadIdentity.
+     * Deletes a workload identity.
+     *
+     * @remarks
+     * Cleans up expired or unused certificates after certificate rotation is complete. Before deleting the certificate, ensure that it is no longer used for SAML assertion signature verification. Otherwise, SSO logon may fail.
      *
      * @param request - DeleteSAMLIdentityProviderCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1856,7 +1975,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除WorkloadIdentity.
+     * Deletes a workload identity.
+     *
+     * @remarks
+     * Cleans up expired or unused certificates after certificate rotation is complete. Before deleting the certificate, ensure that it is no longer used for SAML assertion signature verification. Otherwise, SSO logon may fail.
      *
      * @param request - DeleteSAMLIdentityProviderCertificateRequest
      *
@@ -1874,7 +1996,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除一个指定的凭证库。
+     * Deletes a specified token vault.
+     *
+     * @remarks
+     * Call DeleteTokenVault to delete a token vault that is no longer in use.
+     * Before deletion, ensure that the token vault is not referenced by any credential provider. Otherwise, the deletion may cause credentials that depend on the token vault to become unavailable. This operation cannot be undone.
      *
      * @param request - DeleteTokenVaultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1913,7 +2039,11 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除一个指定的凭证库。
+     * Deletes a specified token vault.
+     *
+     * @remarks
+     * Call DeleteTokenVault to delete a token vault that is no longer in use.
+     * Before deletion, ensure that the token vault is not referenced by any credential provider. Otherwise, the deletion may cause credentials that depend on the token vault to become unavailable. This operation cannot be undone.
      *
      * @param request - DeleteTokenVaultRequest
      *
@@ -1931,7 +2061,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除User.
+     * Deletes a user.
+     *
+     * @remarks
+     * Deleting a user forcibly clears all role assignments of the user in the user pool. This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1974,7 +2107,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除User.
+     * Deletes a user.
+     *
+     * @remarks
+     * Deleting a user forcibly clears all role assignments of the user in the user pool. This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteUserRequest
      *
@@ -1992,7 +2128,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除UserPool.
+     * Deletes a user pool.
+     *
+     * @remarks
+     * Before deleting a user pool, you must clean up all resources in the user pool, including all users, roles, clients, SAML IdPs, and role assignments. Calls to this operation are rejected if the resources are not cleaned up. This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteUserPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2031,7 +2170,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除UserPool.
+     * Deletes a user pool.
+     *
+     * @remarks
+     * Before deleting a user pool, you must clean up all resources in the user pool, including all users, roles, clients, SAML IdPs, and role assignments. Calls to this operation are rejected if the resources are not cleaned up. This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteUserPoolRequest
      *
@@ -2049,7 +2191,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除WorkloadIdentity.
+     * Deletes a WorkloadIdentity.
+     *
+     * @remarks
+     * Deleting a client also removes all its associated client secrets. After deletion, the client can no longer be used for OAuth authentication and authorization flows. Proceed with caution.
      *
      * @param request - DeleteUserPoolClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2092,7 +2237,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除WorkloadIdentity.
+     * Deletes a WorkloadIdentity.
+     *
+     * @remarks
+     * Deleting a client also removes all its associated client secrets. After deletion, the client can no longer be used for OAuth authentication and authorization flows. Proceed with caution.
      *
      * @param request - DeleteUserPoolClientRequest
      *
@@ -2110,7 +2258,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除WorkloadIdentity.
+     * Deletes a specified workload identity.
      *
      * @param request - DeleteWorkloadIdentityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2149,7 +2297,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 删除WorkloadIdentity.
+     * Deletes a specified workload identity.
      *
      * @param request - DeleteWorkloadIdentityRequest
      *
@@ -2167,7 +2315,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 网关取消关联策略集.
+     * Detaches a policy set from a gateway.
+     *
+     * @remarks
+     * Detaches a policy set from a gateway. After the policy set is detached, requests on the gateway are no longer governed by the policies in the policy set.
      *
      * @param request - DetachPolicySetFromGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2214,7 +2365,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 网关取消关联策略集.
+     * Detaches a policy set from a gateway.
+     *
+     * @remarks
+     * Detaches a policy set from a gateway. After the policy set is detached, requests on the gateway are no longer governed by the policies in the policy set.
      *
      * @param request - DetachPolicySetFromGatewayRequest
      *
@@ -2232,7 +2386,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询一个 API 密钥凭证提供商.
+     * Retrieves the details of a specified API key credential provider.
      *
      * @param request - GetAPIKeyCredentialProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2275,7 +2429,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询一个 API 密钥凭证提供商.
+     * Retrieves the details of a specified API key credential provider.
      *
      * @param request - GetAPIKeyCredentialProviderRequest
      *
@@ -2293,7 +2447,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询网关策略配置.
+     * Queries the gateway policy configuration.
+     *
+     * @remarks
+     * Calls the GetGatewayPolicyConfig operation to query the currently effective policy configuration of a gateway, including the ARN of the mounted policy set and the enforcement mode.
      *
      * @param request - GetGatewayPolicyConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2336,7 +2493,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询网关策略配置.
+     * Queries the gateway policy configuration.
+     *
+     * @remarks
+     * Calls the GetGatewayPolicyConfig operation to query the currently effective policy configuration of a gateway, including the ARN of the mounted policy set and the enforcement mode.
      *
      * @param request - GetGatewayPolicyConfigRequest
      *
@@ -2411,7 +2571,83 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取用户池登录相关配置.
+     * 查询身份源同步范围与统计（已选部门有效性 + 展开部门数/预计人数）.
+     *
+     * @remarks
+     * 目标用户池需已配置指定类型的身份源。本接口使用已保存的身份源配置，无需传入钉钉或飞书应用密钥。
+     * 同步范围支持 AllAuthorized 和 SelectedDepartments。未显式配置范围时默认为 AllAuthorized，表示第三方应用授权可见范围内的全部用户。SelectedDepartments 包含选中部门及其全部后代部门；人员有任一当前所属部门命中展开集合，即命中同步范围。
+     * 本接口不修改范围、不创建人员同步任务。查询可能触发后台统计；EstimateStatus 表示范围统计状态，不是人员同步任务状态。统计结果可能复用缓存，也可能来自同一范围最近一次同步结果；跨部门重复用户可能重复计数，不应视为实时、精确去重人数。
+     * 对应身份源未配置时返回 EntityNotExists.IdpConfiguration；目录权限或通讯录可见范围不足时，返回 DingTalkApiPermissionDenied 或 FeishuApiPermissionDenied，不会将权限问题当作部门不存在。
+     *
+     * @param request - GetIdentityProviderSyncScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIdentityProviderSyncScopeResponse
+     *
+     * @param GetIdentityProviderSyncScopeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetIdentityProviderSyncScopeResponse
+     */
+    public function getIdentityProviderSyncScopeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->identityProviderType) {
+            @$body['IdentityProviderType'] = $request->identityProviderType;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetIdentityProviderSyncScope',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIdentityProviderSyncScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询身份源同步范围与统计（已选部门有效性 + 展开部门数/预计人数）.
+     *
+     * @remarks
+     * 目标用户池需已配置指定类型的身份源。本接口使用已保存的身份源配置，无需传入钉钉或飞书应用密钥。
+     * 同步范围支持 AllAuthorized 和 SelectedDepartments。未显式配置范围时默认为 AllAuthorized，表示第三方应用授权可见范围内的全部用户。SelectedDepartments 包含选中部门及其全部后代部门；人员有任一当前所属部门命中展开集合，即命中同步范围。
+     * 本接口不修改范围、不创建人员同步任务。查询可能触发后台统计；EstimateStatus 表示范围统计状态，不是人员同步任务状态。统计结果可能复用缓存，也可能来自同一范围最近一次同步结果；跨部门重复用户可能重复计数，不应视为实时、精确去重人数。
+     * 对应身份源未配置时返回 EntityNotExists.IdpConfiguration；目录权限或通讯录可见范围不足时，返回 DingTalkApiPermissionDenied 或 FeishuApiPermissionDenied，不会将权限问题当作部门不存在。
+     *
+     * @param request - GetIdentityProviderSyncScopeRequest
+     *
+     * @returns GetIdentityProviderSyncScopeResponse
+     *
+     * @param GetIdentityProviderSyncScopeRequest $request
+     *
+     * @return GetIdentityProviderSyncScopeResponse
+     */
+    public function getIdentityProviderSyncScope($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIdentityProviderSyncScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the logon-related configurations of a user pool.
+     *
+     * @remarks
+     * Retrieves the logon configuration and password policy of a specified user pool. The logon configuration includes preference settings such as whether to enable password logon. The password policy includes rules for password complexity, length limits, and logon failure lockouts. The password policy is read-only and does not support custom modifications.
      *
      * @param request - GetLoginPreferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2450,7 +2686,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取用户池登录相关配置.
+     * Retrieves the logon-related configurations of a user pool.
+     *
+     * @remarks
+     * Retrieves the logon configuration and password policy of a specified user pool. The logon configuration includes preference settings such as whether to enable password logon. The password policy includes rules for password complexity, length limits, and logon failure lockouts. The password policy is read-only and does not support custom modifications.
      *
      * @param request - GetLoginPreferenceRequest
      *
@@ -2468,7 +2707,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询 OAuth2 凭证提供商.
+     * Retrieves the details of a specified OAuth 2.0 credential provider.
      *
      * @param request - GetOAuth2CredentialProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2511,7 +2750,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询 OAuth2 凭证提供商.
+     * Retrieves the details of a specified OAuth 2.0 credential provider.
      *
      * @param request - GetOAuth2CredentialProviderRequest
      *
@@ -2529,7 +2768,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询一个 权限策略.
+     * Queries an access policy.
+     *
+     * @remarks
+     * Calls GetPolicy to retrieve the complete configuration of a single policy, including its definition, associated policy set, and creation and update times.
      *
      * @param request - GetPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2572,7 +2814,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询一个 权限策略.
+     * Queries an access policy.
+     *
+     * @remarks
+     * Calls GetPolicy to retrieve the complete configuration of a single policy, including its definition, associated policy set, and creation and update times.
      *
      * @param request - GetPolicyRequest
      *
@@ -2590,7 +2835,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询一个 权限策略集合.
+     * Queries an access policy set.
+     *
+     * @remarks
+     * Calls GetPolicySet to query the complete configuration of a single policy set, including the ARN, description, creation time, and update time.
      *
      * @param request - GetPolicySetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2629,7 +2877,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询一个 权限策略集合.
+     * Queries an access policy set.
+     *
+     * @remarks
+     * Calls GetPolicySet to query the complete configuration of a single policy set, including the ARN, description, creation time, and update time.
      *
      * @param request - GetPolicySetRequest
      *
@@ -2647,7 +2898,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取Role.
+     * Retrieves a role.
+     *
+     * @remarks
+     * Returns the complete information about a specified role, including the role ID, name, description, type (Default or Manual), and creation and update times.
      *
      * @param request - GetRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2690,7 +2944,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取Role.
+     * Retrieves a role.
+     *
+     * @remarks
+     * Returns the complete information about a specified role, including the role ID, name, description, type (Default or Manual), and creation and update times.
      *
      * @param request - GetRoleRequest
      *
@@ -2708,7 +2965,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates an application.
+     *
+     * @remarks
+     * Returns the complete configuration of the SAML IdP, including the EntityId, logon URL, X509 certificate list, and the enabling status of SSO and JIT synchronization.
      *
      * @param request - GetSAMLIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2747,7 +3007,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates an application.
+     *
+     * @remarks
+     * Returns the complete configuration of the SAML IdP, including the EntityId, logon URL, X509 certificate list, and the enabling status of SSO and JIT synchronization.
      *
      * @param request - GetSAMLIdentityProviderRequest
      *
@@ -2822,7 +3085,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取指定的身份提供商.
+     * Retrieves the specified identity provider.
+     *
+     * @remarks
+     * Queries the SSO configuration of a specific type of identity provider in a specified user pool. Returns information such as the enabling status, synchronization callback status, and metadata of the IdP. For security reasons, sensitive fields such as appSecret, encryptKey, and verificationToken are not returned in the response.
      *
      * @param request - GetSpecificIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2865,7 +3131,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取指定的身份提供商.
+     * Retrieves the specified identity provider.
+     *
+     * @remarks
+     * Queries the SSO configuration of a specific type of identity provider in a specified user pool. Returns information such as the enabling status, synchronization callback status, and metadata of the IdP. For security reasons, sensitive fields such as appSecret, encryptKey, and verificationToken are not returned in the response.
      *
      * @param request - GetSpecificIdentityProviderRequest
      *
@@ -2883,7 +3152,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取指定凭证库的详细配置。
+     * Retrieves the detailed configuration of a specified token vault.
+     *
+     * @remarks
+     * Calls GetTokenVault to retrieve the complete configuration of a single token vault, including the encryption method, associated RAM role ARN, creation time, and update time.
      *
      * @param request - GetTokenVaultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2922,7 +3194,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取指定凭证库的详细配置。
+     * Retrieves the detailed configuration of a specified token vault.
+     *
+     * @remarks
+     * Calls GetTokenVault to retrieve the complete configuration of a single token vault, including the encryption method, associated RAM role ARN, creation time, and update time.
      *
      * @param request - GetTokenVaultRequest
      *
@@ -2940,7 +3215,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取用户.
+     * Retrieves a user.
+     *
+     * @remarks
+     * Returns the complete information of a specified user, including the user ID, username, display name, description, and creation and update times.
      *
      * @param request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2991,7 +3269,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取用户.
+     * Retrieves a user.
+     *
+     * @remarks
+     * Returns the complete information of a specified user, including the user ID, username, display name, description, and creation and update times.
      *
      * @param request - GetUserRequest
      *
@@ -3009,7 +3290,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取UserPool.
+     * Retrieves a user pool.
+     *
+     * @remarks
+     * Returns the complete configuration information of a specified user pool, including the user pool ID, name, description, creation time, and update time.
      *
      * @param request - GetUserPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3048,7 +3332,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取UserPool.
+     * Retrieves a user pool.
+     *
+     * @remarks
+     * Returns the complete configuration information of a specified user pool, including the user pool ID, name, description, creation time, and update time.
      *
      * @param request - GetUserPoolRequest
      *
@@ -3066,7 +3353,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates an application.
+     *
+     * @remarks
+     * Returns the complete configuration information of a client, including the client ID, name, redirect URIs, token validity periods, SecretRequired and EnforcePKCE settings, and default client scopes.
      *
      * @param request - GetUserPoolClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3109,7 +3399,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates an application.
+     *
+     * @remarks
+     * Returns the complete configuration information of a client, including the client ID, name, redirect URIs, token validity periods, SecretRequired and EnforcePKCE settings, and default client scopes.
      *
      * @param request - GetUserPoolClientRequest
      *
@@ -3127,7 +3420,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取UserPool.
+     * Retrieves the details of a synchronization task in a user pool.
+     *
+     * @remarks
+     * Queries the execution details of a single synchronization task in a specified user pool, including the task status, start and end times, synchronization result statistics (the number of created, updated, deleted, and unchanged users), and error messages.
      *
      * @param request - GetUserPoolSyncJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3170,7 +3466,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 获取UserPool.
+     * Retrieves the details of a synchronization task in a user pool.
+     *
+     * @remarks
+     * Queries the execution details of a single synchronization task in a specified user pool, including the task status, start and end times, synchronization result statistics (the number of created, updated, deleted, and unchanged users), and error messages.
      *
      * @param request - GetUserPoolSyncJobRequest
      *
@@ -3188,7 +3487,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Queries the detailed configuration of a workload identity by name.
      *
      * @param request - GetWorkloadIdentityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3227,7 +3526,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Queries the detailed configuration of a workload identity by name.
      *
      * @param request - GetWorkloadIdentityRequest
      *
@@ -3245,7 +3544,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出 API 密钥凭证提供商.
+     * Lists all API key credential providers in the account.
      *
      * @param request - ListAPIKeyCredentialProvidersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3292,7 +3591,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出 API 密钥凭证提供商.
+     * Lists all API key credential providers in the account.
      *
      * @param request - ListAPIKeyCredentialProvidersRequest
      *
@@ -3310,7 +3609,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists identity providers.
+     *
+     * @remarks
+     * Returns summary information about all secrets of a client, including the client key ID and creation time. For security reasons, the plaintext secret (ClientSecretValue) is not returned in the list.
      *
      * @param request - ListClientSecretsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3353,7 +3655,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists identity providers.
+     *
+     * @remarks
+     * Returns summary information about all secrets of a client, including the client key ID and creation time. For security reasons, the plaintext secret (ClientSecretValue) is not returned in the list.
      *
      * @param request - ListClientSecretsRequest
      *
@@ -3368,6 +3673,89 @@ class AgentIdentity extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listClientSecretsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询身份源部门树（按层懒加载，供控制台勾选同步范围）.
+     *
+     * @remarks
+     * 用户池需已配置相应身份源，且应用具有目标部门的通讯录访问权限。本接口使用已保存的身份源配置，无需传入应用密钥。
+     * 本接口仅返回指定父部门的直属子部门，不包含父部门本身，不递归返回整棵部门树。未传父部门时，钉钉默认查询根部门1下的直属子部门，飞书默认查询根部门0下的直属子部门。部门浏览受应用授权可见范围限制，不受当前保存的同步范围限制。
+     * 本接口不修改同步范围，不触发人员同步。
+     *
+     * @param request - ListIdentityProviderDepartmentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIdentityProviderDepartmentsResponse
+     *
+     * @param ListIdentityProviderDepartmentsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListIdentityProviderDepartmentsResponse
+     */
+    public function listIdentityProviderDepartmentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->identityProviderType) {
+            @$body['IdentityProviderType'] = $request->identityProviderType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->parentDepartmentId) {
+            @$body['ParentDepartmentId'] = $request->parentDepartmentId;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListIdentityProviderDepartments',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIdentityProviderDepartmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询身份源部门树（按层懒加载，供控制台勾选同步范围）.
+     *
+     * @remarks
+     * 用户池需已配置相应身份源，且应用具有目标部门的通讯录访问权限。本接口使用已保存的身份源配置，无需传入应用密钥。
+     * 本接口仅返回指定父部门的直属子部门，不包含父部门本身，不递归返回整棵部门树。未传父部门时，钉钉默认查询根部门1下的直属子部门，飞书默认查询根部门0下的直属子部门。部门浏览受应用授权可见范围限制，不受当前保存的同步范围限制。
+     * 本接口不修改同步范围，不触发人员同步。
+     *
+     * @param request - ListIdentityProviderDepartmentsRequest
+     *
+     * @returns ListIdentityProviderDepartmentsResponse
+     *
+     * @param ListIdentityProviderDepartmentsRequest $request
+     *
+     * @return ListIdentityProviderDepartmentsResponse
+     */
+    public function listIdentityProviderDepartments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIdentityProviderDepartmentsWithOptions($request, $runtime);
     }
 
     /**
@@ -3432,7 +3820,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出 OAuth2 凭证提供商.
+     * Lists all OAuth 2.0 credential providers in the account.
      *
      * @param request - ListOAuth2CredentialProvidersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3479,7 +3867,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出 OAuth2 凭证提供商.
+     * Lists all OAuth 2.0 credential providers in the account.
      *
      * @param request - ListOAuth2CredentialProvidersRequest
      *
@@ -3562,7 +3950,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出网关策略配置.
+     * Lists gateway policy configurations.
+     *
+     * @remarks
+     * Calls ListPolicySetAttachedGateways to query the gateways to which a specific policy set is currently attached. Call this operation before deleting a policy set to verify that no residual attachments exist.
      *
      * @param request - ListPolicySetAttachedGatewaysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3613,7 +4004,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出网关策略配置.
+     * Lists gateway policy configurations.
+     *
+     * @remarks
+     * Calls ListPolicySetAttachedGateways to query the gateways to which a specific policy set is currently attached. Call this operation before deleting a policy set to verify that no residual attachments exist.
      *
      * @param request - ListPolicySetAttachedGatewaysRequest
      *
@@ -3769,7 +4163,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出Roles.
+     * Lists roles.
+     *
+     * @remarks
+     * Returns summary information about all roles in a user pool, including the default role Default and custom roles Manual. The information includes the role ID, name, description, creation time, update time, and role type.
      *
      * @param request - ListRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3816,7 +4213,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出Roles.
+     * Lists roles.
+     *
+     * @remarks
+     * Returns summary information about all roles in a user pool, including the default role Default and custom roles Manual. The information includes the role ID, name, description, creation time, update time, and role type.
      *
      * @param request - ListRolesRequest
      *
@@ -3834,7 +4234,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists identity providers.
+     *
+     * @remarks
+     * Returns a list of all X.509 certificates under the SAML IdP configuration of the user pool to help administrators manage the certificate lifecycle and perform certificate rotation.
      *
      * @param request - ListSAMLIdentityProviderCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3873,7 +4276,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists identity providers.
+     *
+     * @remarks
+     * Returns a list of all X.509 certificates under the SAML IdP configuration of the user pool to help administrators manage the certificate lifecycle and perform certificate rotation.
      *
      * @param request - ListSAMLIdentityProviderCertificatesRequest
      *
@@ -3952,7 +4358,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists identity providers.
+     *
+     * @remarks
+     * Returns summary information about all clients in a user pool, including the client ID, name, redirect URIs, creation time, and configurations such as PKCE, client secret, and token validity periods.
      *
      * @param request - ListUserPoolClientsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3999,7 +4408,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists identity providers.
+     *
+     * @remarks
+     * Returns summary information about all clients in a user pool, including the client ID, name, redirect URIs, creation time, and configurations such as PKCE, client secret, and token validity periods.
      *
      * @param request - ListUserPoolClientsRequest
      *
@@ -4082,7 +4494,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists identity providers.
+     *
+     * @remarks
+     * Returns summary information about all user pools within the current account, including the user pool ID, name, description, and creation and update times. Supports pagination by using NextToken.
      *
      * @param request - ListUserPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4125,7 +4540,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists identity providers.
+     *
+     * @remarks
+     * Returns summary information about all user pools within the current account, including the user pool ID, name, description, and creation and update times. Supports pagination by using NextToken.
      *
      * @param request - ListUserPoolsRequest
      *
@@ -4143,7 +4561,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出用户.
+     * Lists users.
+     *
+     * @remarks
+     * Returns the summary information of all users in a user pool, including the user ID, username, display name, description, creation time, and update time.
      *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4190,7 +4611,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出用户.
+     * Lists users.
+     *
+     * @remarks
+     * Returns the summary information of all users in a user pool, including the user ID, username, display name, description, creation time, and update time.
      *
      * @param request - ListUsersRequest
      *
@@ -4208,7 +4632,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists workload identities with pagination.
      *
      * @param request - ListWorkloadIdentitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4251,7 +4675,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 列出IdentityProvider.
+     * Lists workload identities with pagination.
      *
      * @param request - ListWorkloadIdentitiesRequest
      *
@@ -4269,7 +4693,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建UserPool.
+     * Triggers a user synchronization task in a user pool.
+     *
+     * @remarks
+     * Creates and immediately executes a user synchronization task in a specified user pool. The system pulls user data from the specified identity provider and synchronizes the data to the user pool. The task runs asynchronously. The operation completes after the task ID is returned. You can call GetUserPoolSyncJob to query the execution progress and results. Only one synchronization task can run in a user pool at a time.
      *
      * @param request - RunUserPoolSyncJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4316,7 +4743,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建UserPool.
+     * Triggers a user synchronization task in a user pool.
+     *
+     * @remarks
+     * Creates and immediately executes a user synchronization task in a specified user pool. The system pulls user data from the specified identity provider and synchronizes the data to the user pool. The task runs asynchronously. The operation completes after the task ID is returned. You can call GetUserPoolSyncJob to query the execution progress and results. Only one synchronization task can run in a user pool at a time.
      *
      * @param request - RunUserPoolSyncJobRequest
      *
@@ -4334,7 +4764,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建WorkloadIdentity.
+     * Creates a workload identity.
+     *
+     * @remarks
+     * This operation sets or updates the core configurations of a SAML identity provider (IdP), including the IdP identifier (EntityId), logon URL (LoginURL), X.509 certificates, single sign-on (SSO) status, and Just-In-Time (JIT) user provisioning and update settings. If you specify X509Certificates, all existing certificates in the user pool are replaced. To append certificates while retaining the existing ones, use AddSAMLIdentityProviderCertificate.
      *
      * @param tmpReq - SetSAMLIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4407,7 +4840,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建WorkloadIdentity.
+     * Creates a workload identity.
+     *
+     * @remarks
+     * This operation sets or updates the core configurations of a SAML identity provider (IdP), including the IdP identifier (EntityId), logon URL (LoginURL), X.509 certificates, single sign-on (SSO) status, and Just-In-Time (JIT) user provisioning and update settings. If you specify X509Certificates, all existing certificates in the user pool are replaced. To append certificates while retaining the existing ones, use AddSAMLIdentityProviderCertificate.
      *
      * @param request - SetSAMLIdentityProviderRequest
      *
@@ -4425,7 +4861,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 通用IdP配置.
+     * Configures the SSO settings for a specified type of identity provider in a user pool.
+     *
+     * @remarks
+     * Configures a specific type of identity provider for a specified user pool. This operation is used to configure SSO logon and address book synchronization for non-SAML IdPs such as DingTalk. A user pool does not support enabling multiple identity providers at the same time. You must disable other enabled IdPs before enabling a new IdP.
      *
      * @param request - SetSpecificIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4476,7 +4915,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 通用IdP配置.
+     * Configures the SSO settings for a specified type of identity provider in a user pool.
+     *
+     * @remarks
+     * Configures a specific type of identity provider for a specified user pool. This operation is used to configure SSO logon and address book synchronization for non-SAML IdPs such as DingTalk. A user pool does not support enabling multiple identity providers at the same time. You must disable other enabled IdPs before enabling a new IdP.
      *
      * @param request - SetSpecificIdentityProviderRequest
      *
@@ -4494,7 +4936,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 修改用户登录密码
+     * Modifies the logon password of a user.
+     *
+     * @remarks
+     * Sets or resets the logon password for a user in a specified user pool. Two methods are supported: specifying a password (Password) or generating a random password (GenerateRandomPassword). The two methods are mutually exclusive, and you must select exactly one. If you specify a password, it must meet the password policy requirements: a minimum length of 8 characters, containing at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters, and it must not contain the username. Passwords are managed independently of the user creation process and are not passed through CreateUser.
      *
      * @param request - SetUserPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4545,7 +4990,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 修改用户登录密码
+     * Modifies the logon password of a user.
+     *
+     * @remarks
+     * Sets or resets the logon password for a user in a specified user pool. Two methods are supported: specifying a password (Password) or generating a random password (GenerateRandomPassword). The two methods are mutually exclusive, and you must select exactly one. If you specify a password, it must meet the password policy requirements: a minimum length of 8 characters, containing at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters, and it must not contain the username. Passwords are managed independently of the user creation process and are not passed through CreateUser.
      *
      * @param request - SetUserPasswordRequest
      *
@@ -4563,7 +5011,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新一个 API 密钥凭证提供商.
+     * Updates an existing API key credential provider.
      *
      * @param request - UpdateAPIKeyCredentialProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4614,7 +5062,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新一个 API 密钥凭证提供商.
+     * Updates an existing API key credential provider.
      *
      * @param request - UpdateAPIKeyCredentialProviderRequest
      *
@@ -4632,7 +5080,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询网关策略配置.
+     * Queries the gateway policy configuration.
+     *
+     * @remarks
+     * Calls UpdateGatewayPolicyConfig to adjust the policy enforcement mode on a gateway. Common usage: Use LOG_ONLY for observation and verification during the initial rollout of a policy. After confirming that everything is correct, switch the gateway to ENFORCE to enforce interception. This operation does not modify the attached policy set itself. To replace the policy set, call AttachPolicySetToGateway.
      *
      * @param request - UpdateGatewayPolicyConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4679,7 +5130,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 查询网关策略配置.
+     * Queries the gateway policy configuration.
+     *
+     * @remarks
+     * Calls UpdateGatewayPolicyConfig to adjust the policy enforcement mode on a gateway. Common usage: Use LOG_ONLY for observation and verification during the initial rollout of a policy. After confirming that everything is correct, switch the gateway to ENFORCE to enforce interception. This operation does not modify the attached policy set itself. To replace the policy set, call AttachPolicySetToGateway.
      *
      * @param request - UpdateGatewayPolicyConfigRequest
      *
@@ -4697,7 +5151,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新IdentityProvider.
+     * Updates the specified identity provider.
      *
      * @param tmpReq - UpdateIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4754,7 +5208,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新IdentityProvider.
+     * Updates the specified identity provider.
      *
      * @param request - UpdateIdentityProviderRequest
      *
@@ -4772,7 +5226,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新用户池登录配置.
+     * Updates the logon configuration of a user pool.
+     *
+     * @remarks
+     * Updates the logon configuration of a specified user pool. Currently, only logon preferences, such as whether password logon is enabled, can be updated. The password policy cannot be modified. Specify only the fields to be updated. Unspecified fields remain unchanged.
      *
      * @param tmpReq - UpdateLoginPreferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4831,7 +5288,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新用户池登录配置.
+     * Updates the logon configuration of a user pool.
+     *
+     * @remarks
+     * Updates the logon configuration of a specified user pool. Currently, only logon preferences, such as whether password logon is enabled, can be updated. The password policy cannot be modified. Specify only the fields to be updated. Unspecified fields remain unchanged.
      *
      * @param request - UpdateLoginPreferenceRequest
      *
@@ -4849,7 +5309,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 修改 OAuth2 凭证提供商.
+     * Updates the configuration of an existing OAuth 2.0 credential provider.
      *
      * @param tmpReq - UpdateOAuth2CredentialProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4914,7 +5374,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 修改 OAuth2 凭证提供商.
+     * Updates the configuration of an existing OAuth 2.0 credential provider.
      *
      * @param request - UpdateOAuth2CredentialProviderRequest
      *
@@ -4932,7 +5392,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新一个权限策略.
+     * Updates an access policy.
+     *
+     * @remarks
+     * Calls the UpdatePolicy operation to update the description and definition of an existing policy. The updated definition takes effect immediately for all gateways to which the policy set is mounted.
      *
      * @param tmpReq - UpdatePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4989,7 +5452,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新一个权限策略.
+     * Updates an access policy.
+     *
+     * @remarks
+     * Calls the UpdatePolicy operation to update the description and definition of an existing policy. The updated definition takes effect immediately for all gateways to which the policy set is mounted.
      *
      * @param request - UpdatePolicyRequest
      *
@@ -5007,7 +5473,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新一个权限策略集合.
+     * Updates an access policy set.
+     *
+     * @remarks
+     * Calls UpdatePolicySet to update the description of an existing policy set. To modify specific policies in the policy set, use UpdatePolicy. To change the mount relationship, use AttachPolicySetToGateway or DetachPolicySetFromGateway.
      *
      * @param request - UpdatePolicySetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5050,7 +5519,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新一个权限策略集合.
+     * Updates an access policy set.
+     *
+     * @remarks
+     * Calls UpdatePolicySet to update the description of an existing policy set. To modify specific policies in the policy set, use UpdatePolicy. To change the mount relationship, use AttachPolicySetToGateway or DetachPolicySetFromGateway.
      *
      * @param request - UpdatePolicySetRequest
      *
@@ -5068,7 +5540,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新Role.
+     * Updates a role.
+     *
+     * @remarks
+     * Updates the Description field of a role. The RoleName field serves as a unique identifier and cannot be modified.
      *
      * @param request - UpdateRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5115,7 +5590,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新Role.
+     * Updates a role.
+     *
+     * @remarks
+     * Updates the Description field of a role. The RoleName field serves as a unique identifier and cannot be modified.
      *
      * @param request - UpdateRoleRequest
      *
@@ -5133,7 +5611,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新凭证库。
+     * Updates a token vault.
+     *
+     * @remarks
+     * Updates the description and role configuration of an existing token vault. Note: The encryption configuration (KeyType or KmsKeyArn) of a token vault cannot be changed after it is created.
      *
      * @param request - UpdateTokenVaultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5180,7 +5661,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新凭证库。
+     * Updates a token vault.
+     *
+     * @remarks
+     * Updates the description and role configuration of an existing token vault. Note: The encryption configuration (KeyType or KmsKeyArn) of a token vault cannot be changed after it is created.
      *
      * @param request - UpdateTokenVaultRequest
      *
@@ -5198,7 +5682,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新用户池用户.
+     * Updates a user in a user pool.
+     *
+     * @remarks
+     * Updates the attribute information of a user in a specified user pool. Specify only the fields that you want to update. Unspecified fields remain unchanged. UserName is the user identifier and cannot be modified. You can update the display name, description, email address, and status. Email addresses must be unique within the user pool.
      *
      * @param request - UpdateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5257,7 +5744,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 更新用户池用户.
+     * Updates a user in a user pool.
+     *
+     * @remarks
+     * Updates the attribute information of a user in a specified user pool. Specify only the fields that you want to update. Unspecified fields remain unchanged. UserName is the user identifier and cannot be modified. You can update the display name, description, email address, and status. Email addresses must be unique within the user pool.
      *
      * @param request - UpdateUserRequest
      *
@@ -5336,7 +5826,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates an application.
+     *
+     * @remarks
+     * Updates the callback URLs (RedirectURIs), whether an application secret is required (SecretRequired), whether Proof Key for Code Exchange (PKCE) is enforced (EnforcePKCE), and the validity periods of the access token and refresh token. The client name (ClientName) serves as a unique identifier and cannot be modified.
      *
      * @param tmpReq - UpdateUserPoolClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5355,6 +5848,10 @@ class AgentIdentity extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->redirectURIs) {
             $request->redirectURIsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->redirectURIs, 'RedirectURIs', 'json');
+        }
+
+        if (null !== $tmpReq->scopes) {
+            $request->scopesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scopes, 'Scopes', 'json');
         }
 
         $body = [];
@@ -5376,6 +5873,10 @@ class AgentIdentity extends OpenApiClient
 
         if (null !== $request->refreshTokenValidity) {
             @$body['RefreshTokenValidity'] = $request->refreshTokenValidity;
+        }
+
+        if (null !== $request->scopesShrink) {
+            @$body['Scopes'] = $request->scopesShrink;
         }
 
         if (null !== $request->secretRequired) {
@@ -5405,7 +5906,10 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates an application.
+     *
+     * @remarks
+     * Updates the callback URLs (RedirectURIs), whether an application secret is required (SecretRequired), whether Proof Key for Code Exchange (PKCE) is enforced (EnforcePKCE), and the validity periods of the access token and refresh token. The client name (ClientName) serves as a unique identifier and cannot be modified.
      *
      * @param request - UpdateUserPoolClientRequest
      *
@@ -5423,7 +5927,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Updates the specified workload identity.
      *
      * @param tmpReq - UpdateWorkloadIdentityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5496,7 +6000,7 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Updates the specified workload identity.
      *
      * @param request - UpdateWorkloadIdentityRequest
      *

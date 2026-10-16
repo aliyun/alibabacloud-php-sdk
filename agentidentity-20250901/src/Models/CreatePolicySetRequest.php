@@ -17,9 +17,15 @@ class CreatePolicySetRequest extends Model
      * @var string
      */
     public $policySetName;
+
+    /**
+     * @var string
+     */
+    public $sourcePlatform;
     protected $_name = [
         'description' => 'Description',
         'policySetName' => 'PolicySetName',
+        'sourcePlatform' => 'SourcePlatform',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class CreatePolicySetRequest extends Model
 
         if (null !== $this->policySetName) {
             $res['PolicySetName'] = $this->policySetName;
+        }
+
+        if (null !== $this->sourcePlatform) {
+            $res['SourcePlatform'] = $this->sourcePlatform;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class CreatePolicySetRequest extends Model
 
         if (isset($map['PolicySetName'])) {
             $model->policySetName = $map['PolicySetName'];
+        }
+
+        if (isset($map['SourcePlatform'])) {
+            $model->sourcePlatform = $map['SourcePlatform'];
         }
 
         return $model;
