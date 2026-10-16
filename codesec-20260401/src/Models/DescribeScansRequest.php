@@ -21,6 +21,11 @@ class DescribeScansRequest extends Model
     /**
      * @var string
      */
+    public $query;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -30,6 +35,7 @@ class DescribeScansRequest extends Model
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'query' => 'query',
         'status' => 'status',
         'taskName' => 'taskName',
     ];
@@ -48,6 +54,10 @@ class DescribeScansRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->query) {
+            $res['query'] = $this->query;
         }
 
         if (null !== $this->status) {
@@ -75,6 +85,10 @@ class DescribeScansRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['query'])) {
+            $model->query = $map['query'];
         }
 
         if (isset($map['status'])) {

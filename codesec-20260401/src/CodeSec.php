@@ -359,7 +359,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * 生成 SBOM / 许可证清单的短时下载链接.
+     * Generates a download link for an SBOM or license manifest that includes producer metadata.
      *
      * @param request - CreateScanSbomExportRequest
      * @param headers - map
@@ -407,7 +407,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * 生成 SBOM / 许可证清单的短时下载链接.
+     * Generates a download link for an SBOM or license manifest that includes producer metadata.
      *
      * @param request - CreateScanSbomExportRequest
      *
@@ -647,7 +647,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * Lists scan tasks under a specified project with pagination.
+     * Queries the scan tasks of a specific project in a paginated manner.
      *
      * @param request - DescribeScansRequest
      * @param headers - map
@@ -672,6 +672,10 @@ class CodeSec extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->query) {
+            @$query['query'] = $request->query;
         }
 
         if (null !== $request->status) {
@@ -702,7 +706,7 @@ class CodeSec extends OpenApiClient
     }
 
     /**
-     * Lists scan tasks under a specified project with pagination.
+     * Queries the scan tasks of a specific project in a paginated manner.
      *
      * @param request - DescribeScansRequest
      *
