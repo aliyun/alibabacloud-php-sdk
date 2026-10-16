@@ -19,9 +19,24 @@ class VideoTranslationShrinkRequest extends Model
     public $enableQualityCheck;
 
     /**
+     * @var bool
+     */
+    public $eraseOnly;
+
+    /**
+     * @var bool
+     */
+    public $removeLogo;
+
+    /**
      * @var string
      */
     public $sourceLanguage;
+
+    /**
+     * @var string
+     */
+    public $subtitleMode;
 
     /**
      * @var string
@@ -35,7 +50,10 @@ class VideoTranslationShrinkRequest extends Model
     protected $_name = [
         'capabilitiesShrink' => 'Capabilities',
         'enableQualityCheck' => 'EnableQualityCheck',
+        'eraseOnly' => 'EraseOnly',
+        'removeLogo' => 'RemoveLogo',
         'sourceLanguage' => 'SourceLanguage',
+        'subtitleMode' => 'SubtitleMode',
         'targetLanguage' => 'TargetLanguage',
         'videoUrl' => 'VideoUrl',
     ];
@@ -56,8 +74,20 @@ class VideoTranslationShrinkRequest extends Model
             $res['EnableQualityCheck'] = $this->enableQualityCheck;
         }
 
+        if (null !== $this->eraseOnly) {
+            $res['EraseOnly'] = $this->eraseOnly;
+        }
+
+        if (null !== $this->removeLogo) {
+            $res['RemoveLogo'] = $this->removeLogo;
+        }
+
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
+        }
+
+        if (null !== $this->subtitleMode) {
+            $res['SubtitleMode'] = $this->subtitleMode;
         }
 
         if (null !== $this->targetLanguage) {
@@ -87,8 +117,20 @@ class VideoTranslationShrinkRequest extends Model
             $model->enableQualityCheck = $map['EnableQualityCheck'];
         }
 
+        if (isset($map['EraseOnly'])) {
+            $model->eraseOnly = $map['EraseOnly'];
+        }
+
+        if (isset($map['RemoveLogo'])) {
+            $model->removeLogo = $map['RemoveLogo'];
+        }
+
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
+        }
+
+        if (isset($map['SubtitleMode'])) {
+            $model->subtitleMode = $map['SubtitleMode'];
         }
 
         if (isset($map['TargetLanguage'])) {
