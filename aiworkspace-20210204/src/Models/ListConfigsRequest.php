@@ -26,11 +26,17 @@ class ListConfigsRequest extends Model
     /**
      * @var string
      */
+    public $options;
+
+    /**
+     * @var string
+     */
     public $verbose;
     protected $_name = [
         'categoryName' => 'CategoryName',
         'configKeys' => 'ConfigKeys',
         'labels' => 'Labels',
+        'options' => 'Options',
         'verbose' => 'Verbose',
     ];
 
@@ -52,6 +58,10 @@ class ListConfigsRequest extends Model
 
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+
+        if (null !== $this->options) {
+            $res['Options'] = $this->options;
         }
 
         if (null !== $this->verbose) {
@@ -79,6 +89,10 @@ class ListConfigsRequest extends Model
 
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
+        }
+
+        if (isset($map['Options'])) {
+            $model->options = $map['Options'];
         }
 
         if (isset($map['Verbose'])) {

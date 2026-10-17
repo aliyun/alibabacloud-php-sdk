@@ -5622,6 +5622,10 @@ class AIWorkSpace extends OpenApiClient
             @$query['Labels'] = $request->labels;
         }
 
+        if (null !== $request->options) {
+            @$query['Options'] = $request->options;
+        }
+
         if (null !== $request->verbose) {
             @$query['Verbose'] = $request->verbose;
         }
