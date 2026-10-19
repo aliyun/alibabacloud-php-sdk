@@ -18,13 +18,32 @@ use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\AddUserGroupMembersRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\AddUserGroupMembersResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\AddUserGroupMembersShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\BatchCancelTodosRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\BatchCancelTodosResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\BatchCancelTodosShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\BatchOperateWorkItemsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\BatchOperateWorkItemsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\BatchOperateWorkItemsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\BatchRemoveOperatingObjectFavoritesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\BatchRemoveOperatingObjectFavoritesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\BatchRemoveOperatingObjectFavoritesShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CancelTodoRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CancelTodoResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckAppResourcePermissionRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckAppResourcePermissionResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckAppResourcePermissionsBatchRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckAppResourcePermissionsBatchResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckAppResourcePermissionsBatchShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckHealthRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckHealthResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ClearAutoMemoryRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ClearAutoMemoryResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ClearOperatingObjectFavoritesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ClearOperatingObjectFavoritesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CloseWorkflowTodosRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CloseWorkflowTodosResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CountTodosRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CountTodosResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateAnnouncementRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateAnnouncementResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateAnnouncementShrinkRequest;
@@ -111,6 +130,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateScheduledTaskResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateScheduledTaskShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTenantDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTenantDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTodoRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTodoResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTodoShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserGroupResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserRequest;
@@ -119,16 +141,39 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserWithGroupsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserWithGroupsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserWithGroupsShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowInstanceRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowInstanceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowInstanceShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowTemplateRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowTemplateResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowTemplateShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkItemRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkItemResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkItemShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteAppResourcePermissionsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteAppResourcePermissionsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteAppResourcePermissionsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteChatSessionRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteChatSessionResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteTenantDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteTenantDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkflowTemplateRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkflowTemplateResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkItemRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkItemResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DisableTokenRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DisableTokenResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableTokenRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableTokenResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ExportWorkflowTemplateRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ExportWorkflowTemplateResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GenerateWorkflowTemplateDraftRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GenerateWorkflowTemplateDraftResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GenerateWorkflowTemplateDraftShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetAgentWorkLogRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetAgentWorkLogResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetAliDingMinutesContentRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetAliDingMinutesContentResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetChatSessionRequest;
@@ -145,6 +190,12 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetInstanceExpireTimeRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetInstanceExpireTimeResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetKnowledgeBaseSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetKnowledgeBaseSourceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetMemoryAutoExtractionSwitchRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetMemoryAutoExtractionSwitchResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetMemoryDetailRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetMemoryDetailResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetNodeDetailRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetNodeDetailResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskExecutionDetailRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskExecutionDetailResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetScheduledTaskExecutionRecordsRequest;
@@ -162,6 +213,10 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetSourceUploadSignatureRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetSourceUploadSignatureResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTodoDetailRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTodoDetailResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTodoRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTodoResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTokenEnsureEnableRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTokenEnsureEnableResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetTokenInfoRequest;
@@ -174,9 +229,22 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserInfoRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserInfoResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowInstanceRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowInstanceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowTemplateRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowTemplateResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemArtifactAccessRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemArtifactAccessResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemAttachmentAccessRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemAttachmentAccessResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GrantAgentUsersRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GrantAgentUsersResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GrantAgentUsersShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ImportWorkflowTemplateRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ImportWorkflowTemplateResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ImportWorkflowTemplateShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListActiveAnnouncementsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListActiveAnnouncementsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAdminKnowledgeBasesRequest;
@@ -188,6 +256,12 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAliDingGroupMessagesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAliDingGroupMessagesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAliDingMinutesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAliDingMinutesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAppResourcePermissionRecordsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAppResourcePermissionRecordsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAppResourcePermissionRecordsShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAppResourceUserPermissionsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAppResourceUserPermissionsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAppResourceUserPermissionsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAuthorizedAgentsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAuthorizedAgentsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAuthorizedUsersRequest;
@@ -210,12 +284,15 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoriesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoryResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGroupDirectoryShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListInstanceNodesRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListInstanceNodesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListKnowledgeBaseDirectoriesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListKnowledgeBaseDirectoriesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOperatingObjectFavoritesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOperatingObjectFavoritesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOutputFilesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOutputFilesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOutputFilesShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListPersonalDirectoryContentsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListPersonalDirectoryContentsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListPersonalDirectoryContentsShrinkRequest;
@@ -229,6 +306,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListSkillsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListSkillsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListTenantDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListTenantDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListTodosRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListTodosResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListTodosShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListUsersRequest;
@@ -244,6 +324,18 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListVisibleKnowledgeBaseContentsSh
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListVisibleKnowledgeBasesHeaders;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListVisibleKnowledgeBasesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListVisibleKnowledgeBasesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowInstancesRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowInstancesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowTemplatesRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowTemplatesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkItemArtifactsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkItemArtifactsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkItemsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkItemsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkItemsShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\MarkTodosReadRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\MarkTodosReadResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\MarkTodosReadShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveGroupResourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveGroupResourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveKnowledgeBaseResourceRequest;
@@ -252,6 +344,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveResourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\MoveResourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\OfflineAnnouncementRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\OfflineAnnouncementResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\PauseWorkItemRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\PauseWorkItemResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewGroupSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewGroupSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewKnowledgeBaseSourceRequest;
@@ -265,8 +359,14 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\QuerySemanticKnowledgeRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\QuerySemanticKnowledgeResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\QuerySyncResultRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\QuerySyncResultResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\QueryWorkItemFeedRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\QueryWorkItemFeedResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\QueryWorkItemFeedShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RecommendNextActionsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RecommendNextActionsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RegisterAppResourcePermissionsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RegisterAppResourcePermissionsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RegisterAppResourcePermissionsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RemoveUserGroupMembersRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RemoveUserGroupMembersResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RemoveUserGroupMembersShrinkRequest;
@@ -284,15 +384,25 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceGroupSourceFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceGroupSourceFileResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseSourceFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseSourceFileResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceManualMemoryRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceManualMemoryResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceObjectBindingsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceObjectBindingsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceObjectBindingsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceSourceFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceSourceFileResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RerunNodeAIRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RerunNodeAIResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetPasswordRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetPasswordResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetTokenRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetTokenResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResolveWorkItemArtifactAccessRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResolveWorkItemArtifactAccessResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResolveWorkItemAttachmentAccessRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResolveWorkItemAttachmentAccessResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResumeWorkItemRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResumeWorkItemResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RetryDirectoryFailedSourcesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RetryDirectoryFailedSourcesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RetryKnowledgeBaseFailedSourcesRequest;
@@ -319,6 +429,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveGroupOutputFileToPersonalResou
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveOutputFileToResourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveOutputFileToResourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SaveOutputFileToResourceShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ScheduleWorkItemRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ScheduleWorkItemResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SearchAliDingGroupChatsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SearchAliDingGroupChatsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendAsyncChatMessageRequest;
@@ -327,19 +439,29 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendAsyncChatMessageShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkItemPinnedRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkItemPinnedResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\StopChatMessageRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\StopChatMessageResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\StreamChatMessageRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\StreamChatMessageResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SubmitTodoRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SubmitTodoResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SubmitTodoShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SyncOrgStructureRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SyncOrgStructureResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SyncOrgStructureShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\TerminateInstanceRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\TerminateInstanceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\TogglePrimaryObjectFavoriteRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\TogglePrimaryObjectFavoriteResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\TogglePrimaryObjectFavoriteShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\TranscribeChatVoiceAdvanceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\TranscribeChatVoiceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\TranscribeChatVoiceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\TransferTodoRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\TransferTodoResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\TransferTodoShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateAgentAuthModeRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateAgentAuthModeResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateChatSessionRequest;
@@ -358,6 +480,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSourceContentRe
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSourceContentResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSourceTagsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSourceTagsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateMemoryAutoExtractionSwitchRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateMemoryAutoExtractionSwitchResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateScheduledTaskRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateScheduledTaskResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateScheduledTaskShrinkRequest;
@@ -372,6 +496,12 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserInfoResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkflowTemplateRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkflowTemplateResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkflowTemplateShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkItemRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkItemResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkItemShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UploadChatFileAdvanceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UploadChatFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UploadChatFileResponse;
@@ -606,6 +736,176 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * BatchCancelTodos.
+     *
+     * @remarks
+     * 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+     *
+     * @param tmpReq - BatchCancelTodosRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCancelTodosResponse
+     *
+     * @param BatchCancelTodosRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BatchCancelTodosResponse
+     */
+    public function batchCancelTodosWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchCancelTodosShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->todoIds) {
+            $request->todoIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->todoIds, 'todoIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->todoIdsShrink) {
+            @$body['todoIds'] = $request->todoIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCancelTodos',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/batchCancelTodos',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCancelTodosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * BatchCancelTodos.
+     *
+     * @remarks
+     * 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+     *
+     * @param Request - BatchCancelTodosRequest
+     *
+     * @returns BatchCancelTodosResponse
+     *
+     * @param BatchCancelTodosRequest $request
+     *
+     * @return BatchCancelTodosResponse
+     */
+    public function batchCancelTodos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchCancelTodosWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * BatchOperateWorkItems.
+     *
+     * @remarks
+     * 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+     *
+     * @param tmpReq - BatchOperateWorkItemsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchOperateWorkItemsResponse
+     *
+     * @param BatchOperateWorkItemsRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchOperateWorkItemsResponse
+     */
+    public function batchOperateWorkItemsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchOperateWorkItemsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->workItemIds) {
+            $request->workItemIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workItemIds, 'workItemIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->action) {
+            @$body['action'] = $request->action;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->idempotencyKey) {
+            @$body['idempotencyKey'] = $request->idempotencyKey;
+        }
+
+        if (null !== $request->workItemIdsShrink) {
+            @$body['workItemIds'] = $request->workItemIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchOperateWorkItems',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/batchOperateWorkItems',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchOperateWorkItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * BatchOperateWorkItems.
+     *
+     * @remarks
+     * 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+     *
+     * @param Request - BatchOperateWorkItemsRequest
+     *
+     * @returns BatchOperateWorkItemsResponse
+     *
+     * @param BatchOperateWorkItemsRequest $request
+     *
+     * @return BatchOperateWorkItemsResponse
+     */
+    public function batchOperateWorkItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchOperateWorkItemsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Batch cancels digital employee precise object type subscriptions.
      *
      * @remarks
@@ -697,6 +997,267 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * CancelTodo.
+     *
+     * @remarks
+     * 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+     *
+     * @param Request - CancelTodoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelTodoResponse
+     *
+     * @param CancelTodoRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CancelTodoResponse
+     */
+    public function cancelTodoWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->todoId) {
+            @$body['todoId'] = $request->todoId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CancelTodo',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/cancelTodo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelTodoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CancelTodo.
+     *
+     * @remarks
+     * 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+     *
+     * @param Request - CancelTodoRequest
+     *
+     * @returns CancelTodoResponse
+     *
+     * @param CancelTodoRequest $request
+     *
+     * @return CancelTodoResponse
+     */
+    public function cancelTodo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelTodoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 检查应用内资源权限.
+     *
+     * @remarks
+     * 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+     *
+     * @param Request - CheckAppResourcePermissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckAppResourcePermissionResponse
+     *
+     * @param CheckAppResourcePermissionRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CheckAppResourcePermissionResponse
+     */
+    public function checkAppResourcePermissionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->permission) {
+            @$body['permission'] = $request->permission;
+        }
+
+        if (null !== $request->resourceKey) {
+            @$body['resourceKey'] = $request->resourceKey;
+        }
+
+        if (null !== $request->resourceTenantId) {
+            @$body['resourceTenantId'] = $request->resourceTenantId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->targetUserId) {
+            @$body['targetUserId'] = $request->targetUserId;
+        }
+
+        if (null !== $request->targetUserTenantId) {
+            @$body['targetUserTenantId'] = $request->targetUserTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckAppResourcePermission',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/checkAppResourcePermission',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckAppResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检查应用内资源权限.
+     *
+     * @remarks
+     * 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+     *
+     * @param Request - CheckAppResourcePermissionRequest
+     *
+     * @returns CheckAppResourcePermissionResponse
+     *
+     * @param CheckAppResourcePermissionRequest $request
+     *
+     * @return CheckAppResourcePermissionResponse
+     */
+    public function checkAppResourcePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkAppResourcePermissionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量检查应用内资源权限.
+     *
+     * @remarks
+     * 整批逐应用鉴权后，复用 service 的常数级查询。
+     *
+     * @param tmpReq - CheckAppResourcePermissionsBatchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckAppResourcePermissionsBatchResponse
+     *
+     * @param CheckAppResourcePermissionsBatchRequest $tmpReq
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CheckAppResourcePermissionsBatchResponse
+     */
+    public function checkAppResourcePermissionsBatchWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CheckAppResourcePermissionsBatchShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->checks) {
+            $request->checksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->checks, 'checks', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->checksShrink) {
+            @$body['checks'] = $request->checksShrink;
+        }
+
+        if (null !== $request->resourceTenantId) {
+            @$body['resourceTenantId'] = $request->resourceTenantId;
+        }
+
+        if (null !== $request->targetUserId) {
+            @$body['targetUserId'] = $request->targetUserId;
+        }
+
+        if (null !== $request->targetUserTenantId) {
+            @$body['targetUserTenantId'] = $request->targetUserTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckAppResourcePermissionsBatch',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/checkAppResourcePermissionsBatch',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckAppResourcePermissionsBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量检查应用内资源权限.
+     *
+     * @remarks
+     * 整批逐应用鉴权后，复用 service 的常数级查询。
+     *
+     * @param Request - CheckAppResourcePermissionsBatchRequest
+     *
+     * @returns CheckAppResourcePermissionsBatchResponse
+     *
+     * @param CheckAppResourcePermissionsBatchRequest $request
+     *
+     * @return CheckAppResourcePermissionsBatchResponse
+     */
+    public function checkAppResourcePermissionsBatch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkAppResourcePermissionsBatchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Performs a service health check.
      *
      * @param Request - CheckHealthRequest
@@ -755,6 +1316,87 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->checkHealthWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按类型或全部清空自动记忆.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - ClearAutoMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClearAutoMemoryResponse
+     *
+     * @param ClearAutoMemoryRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ClearAutoMemoryResponse
+     */
+    public function clearAutoMemoryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerType) {
+            @$body['ownerType'] = $request->ownerType;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ClearAutoMemory',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/clearAutoMemory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ClearAutoMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按类型或全部清空自动记忆.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - ClearAutoMemoryRequest
+     *
+     * @returns ClearAutoMemoryResponse
+     *
+     * @param ClearAutoMemoryRequest $request
+     *
+     * @return ClearAutoMemoryResponse
+     */
+    public function clearAutoMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->clearAutoMemoryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -836,6 +1478,156 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->clearOperatingObjectFavoritesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * CloseWorkflowTodos.
+     *
+     * @remarks
+     * 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+     *
+     * @param Request - CloseWorkflowTodosRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseWorkflowTodosResponse
+     *
+     * @param CloseWorkflowTodosRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CloseWorkflowTodosResponse
+     */
+    public function closeWorkflowTodosWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->sourceWorkflowId) {
+            @$body['sourceWorkflowId'] = $request->sourceWorkflowId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CloseWorkflowTodos',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/closeWorkflowTodos',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloseWorkflowTodosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CloseWorkflowTodos.
+     *
+     * @remarks
+     * 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+     *
+     * @param Request - CloseWorkflowTodosRequest
+     *
+     * @returns CloseWorkflowTodosResponse
+     *
+     * @param CloseWorkflowTodosRequest $request
+     *
+     * @return CloseWorkflowTodosResponse
+     */
+    public function closeWorkflowTodos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->closeWorkflowTodosWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * CountTodos.
+     *
+     * @remarks
+     * 统计当前用户的待办角标（待处理数与未读数）
+     *
+     * @param Request - CountTodosRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CountTodosResponse
+     *
+     * @param CountTodosRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CountTodosResponse
+     */
+    public function countTodosWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CountTodos',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/countTodos',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CountTodosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CountTodos.
+     *
+     * @remarks
+     * 统计当前用户的待办角标（待处理数与未读数）
+     *
+     * @param Request - CountTodosRequest
+     *
+     * @returns CountTodosResponse
+     *
+     * @param CountTodosRequest $request
+     *
+     * @return CountTodosResponse
+     */
+    public function countTodos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->countTodosWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4781,6 +5573,117 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * CreateTodo.
+     *
+     * @remarks
+     * 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+     *
+     * @param tmpReq - CreateTodoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTodoResponse
+     *
+     * @param CreateTodoRequest $tmpReq
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateTodoResponse
+     */
+    public function createTodoWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateTodoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assigneeUserIds) {
+            $request->assigneeUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assigneeUserIds, 'assigneeUserIds', 'json');
+        }
+
+        if (null !== $tmpReq->questions) {
+            $request->questionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->questions, 'questions', 'json');
+        }
+
+        if (null !== $tmpReq->sourceContext) {
+            $request->sourceContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceContext, 'sourceContext', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->assigneeUserIdsShrink) {
+            @$body['assigneeUserIds'] = $request->assigneeUserIdsShrink;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->priority) {
+            @$body['priority'] = $request->priority;
+        }
+
+        if (null !== $request->questionsShrink) {
+            @$body['questions'] = $request->questionsShrink;
+        }
+
+        if (null !== $request->sourceContextShrink) {
+            @$body['sourceContext'] = $request->sourceContextShrink;
+        }
+
+        if (null !== $request->sourceType) {
+            @$body['sourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTodo',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createTodo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTodoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateTodo.
+     *
+     * @remarks
+     * 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+     *
+     * @param Request - CreateTodoRequest
+     *
+     * @returns CreateTodoResponse
+     *
+     * @param CreateTodoRequest $request
+     *
+     * @return CreateTodoResponse
+     */
+    public function createTodo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTodoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a user and adds the user to a tenant.
      *
      * @remarks
@@ -5090,6 +5993,406 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * CreateWorkItem.
+     *
+     * @remarks
+     * 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+     *
+     * @param tmpReq - CreateWorkItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkItemResponse
+     *
+     * @param CreateWorkItemRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateWorkItemResponse
+     */
+    public function createWorkItemWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateWorkItemShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attachments) {
+            $request->attachmentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attachments, 'attachments', 'json');
+        }
+
+        if (null !== $tmpReq->collaboratorUserIds) {
+            $request->collaboratorUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->collaboratorUserIds, 'collaboratorUserIds', 'json');
+        }
+
+        if (null !== $tmpReq->workflowTemplateIds) {
+            $request->workflowTemplateIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workflowTemplateIds, 'workflowTemplateIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->acceptanceCriteria) {
+            @$body['acceptanceCriteria'] = $request->acceptanceCriteria;
+        }
+
+        if (null !== $request->attachmentsShrink) {
+            @$body['attachments'] = $request->attachmentsShrink;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->collaboratorUserIdsShrink) {
+            @$body['collaboratorUserIds'] = $request->collaboratorUserIdsShrink;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['conversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->itemType) {
+            @$body['itemType'] = $request->itemType;
+        }
+
+        if (null !== $request->ownerUserId) {
+            @$body['ownerUserId'] = $request->ownerUserId;
+        }
+
+        if (null !== $request->priority) {
+            @$body['priority'] = $request->priority;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        if (null !== $request->workflowTemplateIdsShrink) {
+            @$body['workflowTemplateIds'] = $request->workflowTemplateIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkItem',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createWorkItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateWorkItem.
+     *
+     * @remarks
+     * 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+     *
+     * @param Request - CreateWorkItemRequest
+     *
+     * @returns CreateWorkItemResponse
+     *
+     * @param CreateWorkItemRequest $request
+     *
+     * @return CreateWorkItemResponse
+     */
+    public function createWorkItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkItemWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 幂等创建工作流实例.
+     *
+     * @remarks
+     * 组合既有创建与排产，不旁路工作项权限或运行准入。
+     *
+     * @param tmpReq - CreateWorkflowInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkflowInstanceResponse
+     *
+     * @param CreateWorkflowInstanceRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateWorkflowInstanceResponse
+     */
+    public function createWorkflowInstanceWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateWorkflowInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->variables) {
+            $request->variablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->variables, 'variables', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->acceptanceCriteria) {
+            @$body['acceptanceCriteria'] = $request->acceptanceCriteria;
+        }
+
+        if (null !== $request->businessId) {
+            @$body['businessId'] = $request->businessId;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->initiator) {
+            @$body['initiator'] = $request->initiator;
+        }
+
+        if (null !== $request->priority) {
+            @$body['priority'] = $request->priority;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        if (null !== $request->variablesShrink) {
+            @$body['variables'] = $request->variablesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkflowInstance',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createWorkflowInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 幂等创建工作流实例.
+     *
+     * @remarks
+     * 组合既有创建与排产，不旁路工作项权限或运行准入。
+     *
+     * @param Request - CreateWorkflowInstanceRequest
+     *
+     * @returns CreateWorkflowInstanceResponse
+     *
+     * @param CreateWorkflowInstanceRequest $request
+     *
+     * @return CreateWorkflowInstanceResponse
+     */
+    public function createWorkflowInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkflowInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * CreateWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员保存全新工作流模板；同名模板不会覆盖
+     *
+     * @param tmpReq - CreateWorkflowTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkflowTemplateResponse
+     *
+     * @param CreateWorkflowTemplateRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateWorkflowTemplateResponse
+     */
+    public function createWorkflowTemplateWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateWorkflowTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->definition) {
+            $request->definitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->definition, 'definition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->definitionShrink) {
+            @$body['definition'] = $request->definitionShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkflowTemplate',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createWorkflowTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkflowTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员保存全新工作流模板；同名模板不会覆盖
+     *
+     * @param Request - CreateWorkflowTemplateRequest
+     *
+     * @returns CreateWorkflowTemplateResponse
+     *
+     * @param CreateWorkflowTemplateRequest $request
+     *
+     * @return CreateWorkflowTemplateResponse
+     */
+    public function createWorkflowTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkflowTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量删除应用内资源权限.
+     *
+     * @remarks
+     * 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+     *
+     * @param tmpReq - DeleteAppResourcePermissionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppResourcePermissionsResponse
+     *
+     * @param DeleteAppResourcePermissionsRequest $tmpReq
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteAppResourcePermissionsResponse
+     */
+    public function deleteAppResourcePermissionsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteAppResourcePermissionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->items) {
+            $request->itemsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->items, 'items', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->itemsShrink) {
+            @$body['items'] = $request->itemsShrink;
+        }
+
+        if (null !== $request->resourceTenantId) {
+            @$body['resourceTenantId'] = $request->resourceTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAppResourcePermissions',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/deleteAppResourcePermissions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppResourcePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除应用内资源权限.
+     *
+     * @remarks
+     * 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+     *
+     * @param Request - DeleteAppResourcePermissionsRequest
+     *
+     * @returns DeleteAppResourcePermissionsResponse
+     *
+     * @param DeleteAppResourcePermissionsRequest $request
+     *
+     * @return DeleteAppResourcePermissionsResponse
+     */
+    public function deleteAppResourcePermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAppResourcePermissionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a session.
      *
      * @remarks
@@ -5337,6 +6640,160 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * DeleteWorkItem.
+     *
+     * @remarks
+     * 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+     *
+     * @param Request - DeleteWorkItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWorkItemResponse
+     *
+     * @param DeleteWorkItemRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteWorkItemResponse
+     */
+    public function deleteWorkItemWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWorkItem',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/deleteWorkItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteWorkItem.
+     *
+     * @remarks
+     * 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+     *
+     * @param Request - DeleteWorkItemRequest
+     *
+     * @returns DeleteWorkItemResponse
+     *
+     * @param DeleteWorkItemRequest $request
+     *
+     * @return DeleteWorkItemResponse
+     */
+    public function deleteWorkItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkItemWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * DeleteWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+     *
+     * @param Request - DeleteWorkflowTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWorkflowTemplateResponse
+     *
+     * @param DeleteWorkflowTemplateRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteWorkflowTemplateResponse
+     */
+    public function deleteWorkflowTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWorkflowTemplate',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/deleteWorkflowTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWorkflowTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+     *
+     * @param Request - DeleteWorkflowTemplateRequest
+     *
+     * @returns DeleteWorkflowTemplateResponse
+     *
+     * @param DeleteWorkflowTemplateRequest $request
+     *
+     * @return DeleteWorkflowTemplateResponse
+     */
+    public function deleteWorkflowTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkflowTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Disables an API token.
      *
      * @remarks
@@ -5508,6 +6965,255 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->enableTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * ExportWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员导出可回流导入的精简模板定义
+     *
+     * @param Request - ExportWorkflowTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportWorkflowTemplateResponse
+     *
+     * @param ExportWorkflowTemplateRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ExportWorkflowTemplateResponse
+     */
+    public function exportWorkflowTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExportWorkflowTemplate',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/exportWorkflowTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportWorkflowTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ExportWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员导出可回流导入的精简模板定义
+     *
+     * @param Request - ExportWorkflowTemplateRequest
+     *
+     * @returns ExportWorkflowTemplateResponse
+     *
+     * @param ExportWorkflowTemplateRequest $request
+     *
+     * @return ExportWorkflowTemplateResponse
+     */
+    public function exportWorkflowTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportWorkflowTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * GenerateWorkflowTemplateDraft.
+     *
+     * @remarks
+     * 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+     *
+     * @param tmpReq - GenerateWorkflowTemplateDraftRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateWorkflowTemplateDraftResponse
+     *
+     * @param GenerateWorkflowTemplateDraftRequest $tmpReq
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GenerateWorkflowTemplateDraftResponse
+     */
+    public function generateWorkflowTemplateDraftWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GenerateWorkflowTemplateDraftShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->previousDraft) {
+            $request->previousDraftShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->previousDraft, 'previousDraft', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->previousDraftShrink) {
+            @$body['previousDraft'] = $request->previousDraftShrink;
+        }
+
+        if (null !== $request->requirement) {
+            @$body['requirement'] = $request->requirement;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateWorkflowTemplateDraft',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/generateWorkflowTemplateDraft',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateWorkflowTemplateDraftResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GenerateWorkflowTemplateDraft.
+     *
+     * @remarks
+     * 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+     *
+     * @param Request - GenerateWorkflowTemplateDraftRequest
+     *
+     * @returns GenerateWorkflowTemplateDraftResponse
+     *
+     * @param GenerateWorkflowTemplateDraftRequest $request
+     *
+     * @return GenerateWorkflowTemplateDraftResponse
+     */
+    public function generateWorkflowTemplateDraft($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateWorkflowTemplateDraftWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * GetAgentWorkLog.
+     *
+     * @remarks
+     * 查询工作流 Agent 工作日志
+     *
+     * @param Request - GetAgentWorkLogRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentWorkLogResponse
+     *
+     * @param GetAgentWorkLogRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAgentWorkLogResponse
+     */
+    public function getAgentWorkLogWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->nodeId) {
+            @$body['nodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentWorkLog',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getAgentWorkLog',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentWorkLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetAgentWorkLog.
+     *
+     * @remarks
+     * 查询工作流 Agent 工作日志
+     *
+     * @param Request - GetAgentWorkLogRequest
+     *
+     * @returns GetAgentWorkLogResponse
+     *
+     * @param GetAgentWorkLogRequest $request
+     *
+     * @return GetAgentWorkLogResponse
+     */
+    public function getAgentWorkLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAgentWorkLogWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6156,6 +7862,241 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->getKnowledgeBaseSourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询自动记忆拾取开关.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - GetMemoryAutoExtractionSwitchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryAutoExtractionSwitchResponse
+     *
+     * @param GetMemoryAutoExtractionSwitchRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetMemoryAutoExtractionSwitchResponse
+     */
+    public function getMemoryAutoExtractionSwitchWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerType) {
+            @$body['ownerType'] = $request->ownerType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryAutoExtractionSwitch',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getMemoryAutoExtractionSwitch',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryAutoExtractionSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自动记忆拾取开关.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - GetMemoryAutoExtractionSwitchRequest
+     *
+     * @returns GetMemoryAutoExtractionSwitchResponse
+     *
+     * @param GetMemoryAutoExtractionSwitchRequest $request
+     *
+     * @return GetMemoryAutoExtractionSwitchResponse
+     */
+    public function getMemoryAutoExtractionSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryAutoExtractionSwitchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询个人或协作空间记忆详情.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - GetMemoryDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryDetailResponse
+     *
+     * @param GetMemoryDetailRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetMemoryDetailResponse
+     */
+    public function getMemoryDetailWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerType) {
+            @$body['ownerType'] = $request->ownerType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryDetail',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getMemoryDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询个人或协作空间记忆详情.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - GetMemoryDetailRequest
+     *
+     * @returns GetMemoryDetailResponse
+     *
+     * @param GetMemoryDetailRequest $request
+     *
+     * @return GetMemoryDetailResponse
+     */
+    public function getMemoryDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * GetNodeDetail.
+     *
+     * @remarks
+     * 查询实例节点完整详情
+     *
+     * @param Request - GetNodeDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNodeDetailResponse
+     *
+     * @param GetNodeDetailRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetNodeDetailResponse
+     */
+    public function getNodeDetailWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['nodeId'] = $request->nodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetNodeDetail',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getNodeDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNodeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetNodeDetail.
+     *
+     * @remarks
+     * 查询实例节点完整详情
+     *
+     * @param Request - GetNodeDetailRequest
+     *
+     * @returns GetNodeDetailResponse
+     *
+     * @param GetNodeDetailRequest $request
+     *
+     * @return GetNodeDetailResponse
+     */
+    public function getNodeDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getNodeDetailWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6908,6 +8849,160 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * GetTodo.
+     *
+     * @remarks
+     * 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+     *
+     * @param Request - GetTodoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTodoResponse
+     *
+     * @param GetTodoRequest $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTodoResponse
+     */
+    public function getTodoWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->messageId) {
+            @$body['messageId'] = $request->messageId;
+        }
+
+        if (null !== $request->todoId) {
+            @$body['todoId'] = $request->todoId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTodo',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getTodo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTodoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetTodo.
+     *
+     * @remarks
+     * 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+     *
+     * @param Request - GetTodoRequest
+     *
+     * @returns GetTodoResponse
+     *
+     * @param GetTodoRequest $request
+     *
+     * @return GetTodoResponse
+     */
+    public function getTodo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTodoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * GetTodoDetail.
+     *
+     * @remarks
+     * 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+     *
+     * @param Request - GetTodoDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTodoDetailResponse
+     *
+     * @param GetTodoDetailRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetTodoDetailResponse
+     */
+    public function getTodoDetailWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->todoId) {
+            @$body['todoId'] = $request->todoId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTodoDetail',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getTodoDetail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTodoDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetTodoDetail.
+     *
+     * @remarks
+     * 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+     *
+     * @param Request - GetTodoDetailRequest
+     *
+     * @returns GetTodoDetailResponse
+     *
+     * @param GetTodoDetailRequest $request
+     *
+     * @return GetTodoDetailResponse
+     */
+    public function getTodoDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTodoDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves an API token and ensures that it is active.
      *
      * @remarks
@@ -7414,6 +9509,391 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * GetWorkItem.
+     *
+     * @remarks
+     * 有效成员读取当前空间可见工作项详情
+     *
+     * @param Request - GetWorkItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkItemResponse
+     *
+     * @param GetWorkItemRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetWorkItemResponse
+     */
+    public function getWorkItemWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkItem',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getWorkItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetWorkItem.
+     *
+     * @remarks
+     * 有效成员读取当前空间可见工作项详情
+     *
+     * @param Request - GetWorkItemRequest
+     *
+     * @returns GetWorkItemResponse
+     *
+     * @param GetWorkItemRequest $request
+     *
+     * @return GetWorkItemResponse
+     */
+    public function getWorkItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkItemWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * GetWorkItemArtifactAccess.
+     *
+     * @remarks
+     * 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+     *
+     * @param Request - GetWorkItemArtifactAccessRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkItemArtifactAccessResponse
+     *
+     * @param GetWorkItemArtifactAccessRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetWorkItemArtifactAccessResponse
+     */
+    public function getWorkItemArtifactAccessWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->artifactId) {
+            @$query['artifactId'] = $request->artifactId;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$query['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$query['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkItemArtifactAccess',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getWorkItemArtifactAccess',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkItemArtifactAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetWorkItemArtifactAccess.
+     *
+     * @remarks
+     * 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+     *
+     * @param Request - GetWorkItemArtifactAccessRequest
+     *
+     * @returns GetWorkItemArtifactAccessResponse
+     *
+     * @param GetWorkItemArtifactAccessRequest $request
+     *
+     * @return GetWorkItemArtifactAccessResponse
+     */
+    public function getWorkItemArtifactAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkItemArtifactAccessWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * GetWorkItemAttachmentAccess.
+     *
+     * @remarks
+     * 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+     *
+     * @param Request - GetWorkItemAttachmentAccessRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkItemAttachmentAccessResponse
+     *
+     * @param GetWorkItemAttachmentAccessRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetWorkItemAttachmentAccessResponse
+     */
+    public function getWorkItemAttachmentAccessWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->attachmentId) {
+            @$query['attachmentId'] = $request->attachmentId;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$query['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$query['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkItemAttachmentAccess',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getWorkItemAttachmentAccess',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkItemAttachmentAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetWorkItemAttachmentAccess.
+     *
+     * @remarks
+     * 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+     *
+     * @param Request - GetWorkItemAttachmentAccessRequest
+     *
+     * @returns GetWorkItemAttachmentAccessResponse
+     *
+     * @param GetWorkItemAttachmentAccessRequest $request
+     *
+     * @return GetWorkItemAttachmentAccessResponse
+     */
+    public function getWorkItemAttachmentAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkItemAttachmentAccessWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询工作流实例详情.
+     *
+     * @remarks
+     * 以当前成员和工作项可见性读取实例。
+     *
+     * @param Request - GetWorkflowInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkflowInstanceResponse
+     *
+     * @param GetWorkflowInstanceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetWorkflowInstanceResponse
+     */
+    public function getWorkflowInstanceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkflowInstance',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getWorkflowInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkflowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询工作流实例详情.
+     *
+     * @remarks
+     * 以当前成员和工作项可见性读取实例。
+     *
+     * @param Request - GetWorkflowInstanceRequest
+     *
+     * @returns GetWorkflowInstanceResponse
+     *
+     * @param GetWorkflowInstanceRequest $request
+     *
+     * @return GetWorkflowInstanceResponse
+     */
+    public function getWorkflowInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkflowInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * GetWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员读取协作空间工作流模板当前配置
+     *
+     * @param Request - GetWorkflowTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkflowTemplateResponse
+     *
+     * @param GetWorkflowTemplateRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetWorkflowTemplateResponse
+     */
+    public function getWorkflowTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkflowTemplate',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getWorkflowTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkflowTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员读取协作空间工作流模板当前配置
+     *
+     * @param Request - GetWorkflowTemplateRequest
+     *
+     * @returns GetWorkflowTemplateResponse
+     *
+     * @param GetWorkflowTemplateRequest $request
+     *
+     * @return GetWorkflowTemplateResponse
+     */
+    public function getWorkflowTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkflowTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Grants authorization to authorized users or user groups to use a digital human.
      *
      * @remarks
@@ -7526,6 +10006,89 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->grantAgentUsersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * ImportWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+     *
+     * @param tmpReq - ImportWorkflowTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportWorkflowTemplateResponse
+     *
+     * @param ImportWorkflowTemplateRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ImportWorkflowTemplateResponse
+     */
+    public function importWorkflowTemplateWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ImportWorkflowTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->template) {
+            $request->templateShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->template, 'template', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->templateShrink) {
+            @$body['template'] = $request->templateShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportWorkflowTemplate',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/importWorkflowTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportWorkflowTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ImportWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+     *
+     * @param Request - ImportWorkflowTemplateRequest
+     *
+     * @returns ImportWorkflowTemplateResponse
+     *
+     * @param ImportWorkflowTemplateRequest $request
+     *
+     * @return ImportWorkflowTemplateResponse
+     */
+    public function importWorkflowTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->importWorkflowTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7981,6 +10544,224 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->listAliDingMinutesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询应用内全部原始资源授权.
+     *
+     * @remarks
+     * APP/MANAGE 授权后按安全应用前缀分页。
+     *
+     * @param tmpReq - ListAppResourcePermissionRecordsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppResourcePermissionRecordsResponse
+     *
+     * @param ListAppResourcePermissionRecordsRequest $tmpReq
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListAppResourcePermissionRecordsResponse
+     */
+    public function listAppResourcePermissionRecordsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAppResourcePermissionRecordsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->permissions) {
+            $request->permissionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->permissions, 'permissions', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->granteeId) {
+            @$body['granteeId'] = $request->granteeId;
+        }
+
+        if (null !== $request->granteeTenantId) {
+            @$body['granteeTenantId'] = $request->granteeTenantId;
+        }
+
+        if (null !== $request->granteeType) {
+            @$body['granteeType'] = $request->granteeType;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->permissionsShrink) {
+            @$body['permissions'] = $request->permissionsShrink;
+        }
+
+        if (null !== $request->resourceKeyPrefix) {
+            @$body['resourceKeyPrefix'] = $request->resourceKeyPrefix;
+        }
+
+        if (null !== $request->resourceTenantId) {
+            @$body['resourceTenantId'] = $request->resourceTenantId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppResourcePermissionRecords',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listAppResourcePermissionRecords',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppResourcePermissionRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用内全部原始资源授权.
+     *
+     * @remarks
+     * APP/MANAGE 授权后按安全应用前缀分页。
+     *
+     * @param Request - ListAppResourcePermissionRecordsRequest
+     *
+     * @returns ListAppResourcePermissionRecordsResponse
+     *
+     * @param ListAppResourcePermissionRecordsRequest $request
+     *
+     * @return ListAppResourcePermissionRecordsResponse
+     */
+    public function listAppResourcePermissionRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAppResourcePermissionRecordsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询用户应用内有效资源权限.
+     *
+     * @remarks
+     * 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+     *
+     * @param tmpReq - ListAppResourceUserPermissionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppResourceUserPermissionsResponse
+     *
+     * @param ListAppResourceUserPermissionsRequest $tmpReq
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListAppResourceUserPermissionsResponse
+     */
+    public function listAppResourceUserPermissionsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAppResourceUserPermissionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->permissions) {
+            $request->permissionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->permissions, 'permissions', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->permissionsShrink) {
+            @$body['permissions'] = $request->permissionsShrink;
+        }
+
+        if (null !== $request->resourceKeyPrefix) {
+            @$body['resourceKeyPrefix'] = $request->resourceKeyPrefix;
+        }
+
+        if (null !== $request->resourceTenantId) {
+            @$body['resourceTenantId'] = $request->resourceTenantId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->targetUserId) {
+            @$body['targetUserId'] = $request->targetUserId;
+        }
+
+        if (null !== $request->targetUserTenantId) {
+            @$body['targetUserTenantId'] = $request->targetUserTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppResourceUserPermissions',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listAppResourceUserPermissions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppResourceUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户应用内有效资源权限.
+     *
+     * @remarks
+     * 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+     *
+     * @param Request - ListAppResourceUserPermissionsRequest
+     *
+     * @returns ListAppResourceUserPermissionsResponse
+     *
+     * @param ListAppResourceUserPermissionsRequest $request
+     *
+     * @return ListAppResourceUserPermissionsResponse
+     */
+    public function listAppResourceUserPermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAppResourceUserPermissionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8900,6 +11681,83 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * ListInstanceNodes.
+     *
+     * @remarks
+     * 查询实例节点列表
+     *
+     * @param Request - ListInstanceNodesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceNodesResponse
+     *
+     * @param ListInstanceNodesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListInstanceNodesResponse
+     */
+    public function listInstanceNodesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceNodes',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listInstanceNodes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListInstanceNodes.
+     *
+     * @remarks
+     * 查询实例节点列表
+     *
+     * @param Request - ListInstanceNodesRequest
+     *
+     * @returns ListInstanceNodesResponse
+     *
+     * @param ListInstanceNodesRequest $request
+     *
+     * @return ListInstanceNodesResponse
+     */
+    public function listInstanceNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstanceNodesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
      *
      * @remarks
@@ -9090,27 +11948,41 @@ class WinNexo extends OpenApiClient
      * - Results are sorted by update time in descending order by default.
      * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
      *
-     * @param Request - ListOutputFilesRequest
+     * @param tmpReq - ListOutputFilesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListOutputFilesResponse
      *
-     * @param ListOutputFilesRequest $request
+     * @param ListOutputFilesRequest $tmpReq
      * @param string[]               $headers
      * @param RuntimeOptions         $runtime
      *
      * @return ListOutputFilesResponse
      */
-    public function listOutputFilesWithOptions($request, $headers, $runtime)
+    public function listOutputFilesWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListOutputFilesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+
         $query = [];
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
 
         $body = [];
+        if (null !== $request->bizId) {
+            @$body['bizId'] = $request->bizId;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
         if (null !== $request->itemType) {
             @$body['itemType'] = $request->itemType;
         }
@@ -9131,8 +12003,16 @@ class WinNexo extends OpenApiClient
             @$body['pageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
         if (null !== $request->sharedOnly) {
             @$body['sharedOnly'] = $request->sharedOnly;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['tags'] = $request->tagsShrink;
         }
 
         $req = new OpenApiRequest([
@@ -9728,6 +12608,137 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * ListTodos.
+     *
+     * @remarks
+     * 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+     *
+     * @param tmpReq - ListTodosRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTodosResponse
+     *
+     * @param ListTodosRequest $tmpReq
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTodosResponse
+     */
+    public function listTodosWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListTodosShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->priorities) {
+            $request->prioritiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->priorities, 'priorities', 'json');
+        }
+
+        if (null !== $tmpReq->readStatus) {
+            $request->readStatusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->readStatus, 'readStatus', 'json');
+        }
+
+        if (null !== $tmpReq->sourceTypes) {
+            $request->sourceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceTypes, 'sourceTypes', 'json');
+        }
+
+        if (null !== $tmpReq->statuses) {
+            $request->statusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'statuses', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->prioritiesShrink) {
+            @$body['priorities'] = $request->prioritiesShrink;
+        }
+
+        if (null !== $request->readStatusShrink) {
+            @$body['readStatus'] = $request->readStatusShrink;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['sortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sourceTypesShrink) {
+            @$body['sourceTypes'] = $request->sourceTypesShrink;
+        }
+
+        if (null !== $request->statusesShrink) {
+            @$body['statuses'] = $request->statusesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListTodos',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listTodos',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTodosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListTodos.
+     *
+     * @remarks
+     * 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+     *
+     * @param Request - ListTodosRequest
+     *
+     * @returns ListTodosResponse
+     *
+     * @param ListTodosRequest $request
+     *
+     * @return ListTodosResponse
+     */
+    public function listTodos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTodosWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Returns the multi-level user group tree for the current tenant.
      *
      * @remarks
@@ -10299,6 +13310,487 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * ListWorkItemArtifacts.
+     *
+     * @remarks
+     * 有效成员列出有权访问工作项的全部历史产物
+     *
+     * @param Request - ListWorkItemArtifactsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkItemArtifactsResponse
+     *
+     * @param ListWorkItemArtifactsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListWorkItemArtifactsResponse
+     */
+    public function listWorkItemArtifactsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkItemArtifacts',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listWorkItemArtifacts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkItemArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListWorkItemArtifacts.
+     *
+     * @remarks
+     * 有效成员列出有权访问工作项的全部历史产物
+     *
+     * @param Request - ListWorkItemArtifactsRequest
+     *
+     * @returns ListWorkItemArtifactsResponse
+     *
+     * @param ListWorkItemArtifactsRequest $request
+     *
+     * @return ListWorkItemArtifactsResponse
+     */
+    public function listWorkItemArtifacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkItemArtifactsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * ListWorkItems.
+     *
+     * @remarks
+     * 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+     *
+     * @param tmpReq - ListWorkItemsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkItemsResponse
+     *
+     * @param ListWorkItemsRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWorkItemsResponse
+     */
+    public function listWorkItemsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListWorkItemsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->businessStatuses) {
+            $request->businessStatusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->businessStatuses, 'businessStatuses', 'json');
+        }
+
+        if (null !== $tmpReq->itemTypes) {
+            $request->itemTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->itemTypes, 'itemTypes', 'json');
+        }
+
+        if (null !== $tmpReq->priorities) {
+            $request->prioritiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->priorities, 'priorities', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->businessStatusesShrink) {
+            @$body['businessStatuses'] = $request->businessStatusesShrink;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->itemTypesShrink) {
+            @$body['itemTypes'] = $request->itemTypesShrink;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->prioritiesShrink) {
+            @$body['priorities'] = $request->prioritiesShrink;
+        }
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkItems',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listWorkItems',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListWorkItems.
+     *
+     * @remarks
+     * 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+     *
+     * @param Request - ListWorkItemsRequest
+     *
+     * @returns ListWorkItemsResponse
+     *
+     * @param ListWorkItemsRequest $request
+     *
+     * @return ListWorkItemsResponse
+     */
+    public function listWorkItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkItemsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 分页筛选工作流实例.
+     *
+     * @remarks
+     * 复用详情投影，避免工作项列表与实例状态混用。
+     *
+     * @param Request - ListWorkflowInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkflowInstancesResponse
+     *
+     * @param ListWorkflowInstancesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListWorkflowInstancesResponse
+     */
+    public function listWorkflowInstancesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->businessId) {
+            @$body['businessId'] = $request->businessId;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->initiator) {
+            @$body['initiator'] = $request->initiator;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['sortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$body['sortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkflowInstances',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listWorkflowInstances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkflowInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页筛选工作流实例.
+     *
+     * @remarks
+     * 复用详情投影，避免工作项列表与实例状态混用。
+     *
+     * @param Request - ListWorkflowInstancesRequest
+     *
+     * @returns ListWorkflowInstancesResponse
+     *
+     * @param ListWorkflowInstancesRequest $request
+     *
+     * @return ListWorkflowInstancesResponse
+     */
+    public function listWorkflowInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkflowInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * ListWorkflowTemplates.
+     *
+     * @remarks
+     * 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+     *
+     * @param Request - ListWorkflowTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkflowTemplatesResponse
+     *
+     * @param ListWorkflowTemplatesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListWorkflowTemplatesResponse
+     */
+    public function listWorkflowTemplatesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkflowTemplates',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listWorkflowTemplates',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkflowTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListWorkflowTemplates.
+     *
+     * @remarks
+     * 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+     *
+     * @param Request - ListWorkflowTemplatesRequest
+     *
+     * @returns ListWorkflowTemplatesResponse
+     *
+     * @param ListWorkflowTemplatesRequest $request
+     *
+     * @return ListWorkflowTemplatesResponse
+     */
+    public function listWorkflowTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkflowTemplatesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * MarkTodosRead.
+     *
+     * @remarks
+     * 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+     *
+     * @param tmpReq - MarkTodosReadRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MarkTodosReadResponse
+     *
+     * @param MarkTodosReadRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return MarkTodosReadResponse
+     */
+    public function markTodosReadWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MarkTodosReadShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->todoIds) {
+            $request->todoIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->todoIds, 'todoIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->markAllRead) {
+            @$body['markAllRead'] = $request->markAllRead;
+        }
+
+        if (null !== $request->todoIdsShrink) {
+            @$body['todoIds'] = $request->todoIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MarkTodosRead',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/markTodosRead',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MarkTodosReadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * MarkTodosRead.
+     *
+     * @remarks
+     * 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+     *
+     * @param Request - MarkTodosReadRequest
+     *
+     * @returns MarkTodosReadResponse
+     *
+     * @param MarkTodosReadRequest $request
+     *
+     * @return MarkTodosReadResponse
+     */
+    public function markTodosRead($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->markTodosReadWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Moves a resource within a collaboration space.
      *
      * @remarks
@@ -10660,6 +14152,83 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->offlineAnnouncementWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * PauseWorkItem.
+     *
+     * @remarks
+     * 有效成员暂停工作项绑定的整个 Workflow
+     *
+     * @param Request - PauseWorkItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseWorkItemResponse
+     *
+     * @param PauseWorkItemRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PauseWorkItemResponse
+     */
+    public function pauseWorkItemWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PauseWorkItem',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/pauseWorkItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PauseWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * PauseWorkItem.
+     *
+     * @remarks
+     * 有效成员暂停工作项绑定的整个 Workflow
+     *
+     * @param Request - PauseWorkItemRequest
+     *
+     * @returns PauseWorkItemResponse
+     *
+     * @param PauseWorkItemRequest $request
+     *
+     * @return PauseWorkItemResponse
+     */
+    public function pauseWorkItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->pauseWorkItemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -11180,6 +14749,129 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * QueryWorkItemFeed.
+     *
+     * @remarks
+     * 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+     *
+     * @param tmpReq - QueryWorkItemFeedRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryWorkItemFeedResponse
+     *
+     * @param QueryWorkItemFeedRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryWorkItemFeedResponse
+     */
+    public function queryWorkItemFeedWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryWorkItemFeedShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->businessStatuses) {
+            $request->businessStatusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->businessStatuses, 'businessStatuses', 'json');
+        }
+
+        if (null !== $tmpReq->itemTypes) {
+            $request->itemTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->itemTypes, 'itemTypes', 'json');
+        }
+
+        if (null !== $tmpReq->priorities) {
+            $request->prioritiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->priorities, 'priorities', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->businessStatusesShrink) {
+            @$body['businessStatuses'] = $request->businessStatusesShrink;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->cursor) {
+            @$body['cursor'] = $request->cursor;
+        }
+
+        if (null !== $request->itemTypesShrink) {
+            @$body['itemTypes'] = $request->itemTypesShrink;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->prioritiesShrink) {
+            @$body['priorities'] = $request->prioritiesShrink;
+        }
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
+        }
+
+        if (null !== $request->sourceTaskId) {
+            @$body['sourceTaskId'] = $request->sourceTaskId;
+        }
+
+        if (null !== $request->view) {
+            @$body['view'] = $request->view;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryWorkItemFeed',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/queryWorkItemFeed',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryWorkItemFeedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * QueryWorkItemFeed.
+     *
+     * @remarks
+     * 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+     *
+     * @param Request - QueryWorkItemFeedRequest
+     *
+     * @returns QueryWorkItemFeedResponse
+     *
+     * @param QueryWorkItemFeedRequest $request
+     *
+     * @return QueryWorkItemFeedResponse
+     */
+    public function queryWorkItemFeed($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryWorkItemFeedWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Generates next-step recommendations for a session.
      *
      * @remarks
@@ -11274,6 +14966,89 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->recommendNextActionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量注册应用内资源权限.
+     *
+     * @remarks
+     * 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+     *
+     * @param tmpReq - RegisterAppResourcePermissionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RegisterAppResourcePermissionsResponse
+     *
+     * @param RegisterAppResourcePermissionsRequest $tmpReq
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RegisterAppResourcePermissionsResponse
+     */
+    public function registerAppResourcePermissionsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RegisterAppResourcePermissionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->items) {
+            $request->itemsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->items, 'items', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->itemsShrink) {
+            @$body['items'] = $request->itemsShrink;
+        }
+
+        if (null !== $request->resourceTenantId) {
+            @$body['resourceTenantId'] = $request->resourceTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RegisterAppResourcePermissions',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/registerAppResourcePermissions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RegisterAppResourcePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量注册应用内资源权限.
+     *
+     * @remarks
+     * 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+     *
+     * @param Request - RegisterAppResourcePermissionsRequest
+     *
+     * @returns RegisterAppResourcePermissionsResponse
+     *
+     * @param RegisterAppResourcePermissionsRequest $request
+     *
+     * @return RegisterAppResourcePermissionsResponse
+     */
+    public function registerAppResourcePermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->registerAppResourcePermissionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -11999,6 +15774,87 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 覆盖或清空手动记忆.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - ReplaceManualMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplaceManualMemoryResponse
+     *
+     * @param ReplaceManualMemoryRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ReplaceManualMemoryResponse
+     */
+    public function replaceManualMemoryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerType) {
+            @$body['ownerType'] = $request->ownerType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReplaceManualMemory',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/replaceManualMemory',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReplaceManualMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 覆盖或清空手动记忆.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - ReplaceManualMemoryRequest
+     *
+     * @returns ReplaceManualMemoryResponse
+     *
+     * @param ReplaceManualMemoryRequest $request
+     *
+     * @return ReplaceManualMemoryResponse
+     */
+    public function replaceManualMemory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->replaceManualMemoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Replaces all object binding information under a specified data source.
      *
      * @remarks
@@ -12191,6 +16047,87 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * RerunNodeAI.
+     *
+     * @remarks
+     * 重跑失败的工作流节点
+     *
+     * @param Request - RerunNodeAIRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RerunNodeAIResponse
+     *
+     * @param RerunNodeAIRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RerunNodeAIResponse
+     */
+    public function rerunNodeAIWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['nodeId'] = $request->nodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RerunNodeAI',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/rerunNodeAI',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RerunNodeAIResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * RerunNodeAI.
+     *
+     * @remarks
+     * 重跑失败的工作流节点
+     *
+     * @param Request - RerunNodeAIRequest
+     *
+     * @returns RerunNodeAIResponse
+     *
+     * @param RerunNodeAIRequest $request
+     *
+     * @return RerunNodeAIResponse
+     */
+    public function rerunNodeAI($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->rerunNodeAIWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Resets the password of a user.
      *
      * @remarks
@@ -12370,6 +16307,245 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->resetTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * ResolveWorkItemArtifactAccess.
+     *
+     * @remarks
+     * 有效成员解析工作项产物短期签名下载地址
+     *
+     * @param Request - ResolveWorkItemArtifactAccessRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResolveWorkItemArtifactAccessResponse
+     *
+     * @param ResolveWorkItemArtifactAccessRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ResolveWorkItemArtifactAccessResponse
+     */
+    public function resolveWorkItemArtifactAccessWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->artifactId) {
+            @$body['artifactId'] = $request->artifactId;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResolveWorkItemArtifactAccess',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/resolveWorkItemArtifactAccess',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResolveWorkItemArtifactAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ResolveWorkItemArtifactAccess.
+     *
+     * @remarks
+     * 有效成员解析工作项产物短期签名下载地址
+     *
+     * @param Request - ResolveWorkItemArtifactAccessRequest
+     *
+     * @returns ResolveWorkItemArtifactAccessResponse
+     *
+     * @param ResolveWorkItemArtifactAccessRequest $request
+     *
+     * @return ResolveWorkItemArtifactAccessResponse
+     */
+    public function resolveWorkItemArtifactAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resolveWorkItemArtifactAccessWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * ResolveWorkItemAttachmentAccess.
+     *
+     * @remarks
+     * 有效成员解析工作项输入附件短期预览地址
+     *
+     * @param Request - ResolveWorkItemAttachmentAccessRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResolveWorkItemAttachmentAccessResponse
+     *
+     * @param ResolveWorkItemAttachmentAccessRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ResolveWorkItemAttachmentAccessResponse
+     */
+    public function resolveWorkItemAttachmentAccessWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->attachmentId) {
+            @$body['attachmentId'] = $request->attachmentId;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResolveWorkItemAttachmentAccess',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/resolveWorkItemAttachmentAccess',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResolveWorkItemAttachmentAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ResolveWorkItemAttachmentAccess.
+     *
+     * @remarks
+     * 有效成员解析工作项输入附件短期预览地址
+     *
+     * @param Request - ResolveWorkItemAttachmentAccessRequest
+     *
+     * @returns ResolveWorkItemAttachmentAccessResponse
+     *
+     * @param ResolveWorkItemAttachmentAccessRequest $request
+     *
+     * @return ResolveWorkItemAttachmentAccessResponse
+     */
+    public function resolveWorkItemAttachmentAccess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resolveWorkItemAttachmentAccessWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * ResumeWorkItem.
+     *
+     * @remarks
+     * 有效成员从当前 Plan 暂停点恢复工作项
+     *
+     * @param Request - ResumeWorkItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeWorkItemResponse
+     *
+     * @param ResumeWorkItemRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ResumeWorkItemResponse
+     */
+    public function resumeWorkItemWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeWorkItem',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/resumeWorkItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ResumeWorkItem.
+     *
+     * @remarks
+     * 有效成员从当前 Plan 暂停点恢复工作项
+     *
+     * @param Request - ResumeWorkItemRequest
+     *
+     * @returns ResumeWorkItemResponse
+     *
+     * @param ResumeWorkItemRequest $request
+     *
+     * @return ResumeWorkItemResponse
+     */
+    public function resumeWorkItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumeWorkItemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -13391,6 +17567,87 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * ScheduleWorkItem.
+     *
+     * @remarks
+     * 有效成员幂等排产工作项并物化固定 Plan
+     *
+     * @param Request - ScheduleWorkItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScheduleWorkItemResponse
+     *
+     * @param ScheduleWorkItemRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ScheduleWorkItemResponse
+     */
+    public function scheduleWorkItemWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->idempotencyKey) {
+            @$body['idempotencyKey'] = $request->idempotencyKey;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ScheduleWorkItem',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/scheduleWorkItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ScheduleWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ScheduleWorkItem.
+     *
+     * @remarks
+     * 有效成员幂等排产工作项并物化固定 Plan
+     *
+     * @param Request - ScheduleWorkItemRequest
+     *
+     * @returns ScheduleWorkItemResponse
+     *
+     * @param ScheduleWorkItemRequest $request
+     *
+     * @return ScheduleWorkItemResponse
+     */
+    public function scheduleWorkItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->scheduleWorkItemWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Winnexo 轻量工作台搜索阿里钉群聊。
      *
      * @remarks
@@ -13482,10 +17739,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Sends a session message asynchronously.
+     * Asynchronously sends a session message.
      *
      * @remarks
-     * Sends a session message asynchronously.
+     * Asynchronously sends a session message.
      *
      * @param tmpReq - SendAsyncChatMessageRequest
      * @param headers - map
@@ -13591,10 +17848,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Sends a session message asynchronously.
+     * Asynchronously sends a session message.
      *
      * @remarks
-     * Sends a session message asynchronously.
+     * Asynchronously sends a session message.
      *
      * @param Request - SendAsyncChatMessageRequest
      *
@@ -13884,6 +18141,87 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * SetWorkItemPinned.
+     *
+     * @remarks
+     * 有效成员设置工作项个人置顶
+     *
+     * @param Request - SetWorkItemPinnedRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetWorkItemPinnedResponse
+     *
+     * @param SetWorkItemPinnedRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SetWorkItemPinnedResponse
+     */
+    public function setWorkItemPinnedWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->pinned) {
+            @$body['pinned'] = $request->pinned;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetWorkItemPinned',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/setWorkItemPinned',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetWorkItemPinnedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SetWorkItemPinned.
+     *
+     * @remarks
+     * 有效成员设置工作项个人置顶
+     *
+     * @param Request - SetWorkItemPinnedRequest
+     *
+     * @returns SetWorkItemPinnedResponse
+     *
+     * @param SetWorkItemPinnedRequest $request
+     *
+     * @return SetWorkItemPinnedResponse
+     */
+    public function setWorkItemPinned($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->setWorkItemPinnedWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Stops conversation generation.
      *
      * @param Request - StopChatMessageRequest
@@ -14085,6 +18423,89 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * SubmitTodo.
+     *
+     * @remarks
+     * 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+     *
+     * @param tmpReq - SubmitTodoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitTodoResponse
+     *
+     * @param SubmitTodoRequest $tmpReq
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SubmitTodoResponse
+     */
+    public function submitTodoWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitTodoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->answers) {
+            $request->answersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->answers, 'answers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->answersShrink) {
+            @$body['answers'] = $request->answersShrink;
+        }
+
+        if (null !== $request->todoId) {
+            @$body['todoId'] = $request->todoId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitTodo',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/submitTodo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitTodoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SubmitTodo.
+     *
+     * @remarks
+     * 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+     *
+     * @param Request - SubmitTodoRequest
+     *
+     * @returns SubmitTodoResponse
+     *
+     * @param SubmitTodoRequest $request
+     *
+     * @return SubmitTodoResponse
+     */
+    public function submitTodo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitTodoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Pushes organizational structure synchronization.
      *
      * @remarks
@@ -14201,6 +18622,87 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->syncOrgStructureWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * TerminateInstance.
+     *
+     * @remarks
+     * 终止当前工作流实例
+     *
+     * @param Request - TerminateInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TerminateInstanceResponse
+     *
+     * @param TerminateInstanceRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TerminateInstanceResponse
+     */
+    public function terminateInstanceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TerminateInstance',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/terminateInstance',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TerminateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * TerminateInstance.
+     *
+     * @remarks
+     * 终止当前工作流实例
+     *
+     * @param Request - TerminateInstanceRequest
+     *
+     * @returns TerminateInstanceResponse
+     *
+     * @param TerminateInstanceRequest $request
+     *
+     * @return TerminateInstanceResponse
+     */
+    public function terminateInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->terminateInstanceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -14510,6 +19012,93 @@ class WinNexo extends OpenApiClient
         }
 
         return $this->transcribeChatVoiceWithOptions($transcribeChatVoiceReq, $headers, $runtime);
+    }
+
+    /**
+     * TransferTodo.
+     *
+     * @remarks
+     * 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+     *
+     * @param tmpReq - TransferTodoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TransferTodoResponse
+     *
+     * @param TransferTodoRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TransferTodoResponse
+     */
+    public function transferTodoWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new TransferTodoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->targetUserIds) {
+            $request->targetUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targetUserIds, 'targetUserIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['comment'] = $request->comment;
+        }
+
+        if (null !== $request->targetUserIdsShrink) {
+            @$body['targetUserIds'] = $request->targetUserIdsShrink;
+        }
+
+        if (null !== $request->todoId) {
+            @$body['todoId'] = $request->todoId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TransferTodo',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/transferTodo',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TransferTodoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * TransferTodo.
+     *
+     * @remarks
+     * 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+     *
+     * @param Request - TransferTodoRequest
+     *
+     * @returns TransferTodoResponse
+     *
+     * @param TransferTodoRequest $request
+     *
+     * @return TransferTodoResponse
+     */
+    public function transferTodo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->transferTodoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -15328,6 +19917,91 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 更新自动记忆拾取开关.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - UpdateMemoryAutoExtractionSwitchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryAutoExtractionSwitchResponse
+     *
+     * @param UpdateMemoryAutoExtractionSwitchRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateMemoryAutoExtractionSwitchResponse
+     */
+    public function updateMemoryAutoExtractionSwitchWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->clearExisting) {
+            @$body['clearExisting'] = $request->clearExisting;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['groupId'] = $request->groupId;
+        }
+
+        if (null !== $request->ownerType) {
+            @$body['ownerType'] = $request->ownerType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemoryAutoExtractionSwitch',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/updateMemoryAutoExtractionSwitch',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryAutoExtractionSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自动记忆拾取开关.
+     *
+     * @remarks
+     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     *
+     * @param Request - UpdateMemoryAutoExtractionSwitchRequest
+     *
+     * @returns UpdateMemoryAutoExtractionSwitchResponse
+     *
+     * @param UpdateMemoryAutoExtractionSwitchRequest $request
+     *
+     * @return UpdateMemoryAutoExtractionSwitchResponse
+     */
+    public function updateMemoryAutoExtractionSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryAutoExtractionSwitchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Updates a scheduled task.
      *
      * @remarks
@@ -15955,6 +20629,224 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->updateUserInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * UpdateWorkItem.
+     *
+     * @remarks
+     * 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+     *
+     * @param tmpReq - UpdateWorkItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWorkItemResponse
+     *
+     * @param UpdateWorkItemRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateWorkItemResponse
+     */
+    public function updateWorkItemWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateWorkItemShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attachments) {
+            $request->attachmentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attachments, 'attachments', 'json');
+        }
+
+        if (null !== $tmpReq->collaboratorUserIds) {
+            $request->collaboratorUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->collaboratorUserIds, 'collaboratorUserIds', 'json');
+        }
+
+        if (null !== $tmpReq->workflowTemplateIds) {
+            $request->workflowTemplateIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workflowTemplateIds, 'workflowTemplateIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->acceptanceCriteria) {
+            @$body['acceptanceCriteria'] = $request->acceptanceCriteria;
+        }
+
+        if (null !== $request->attachmentsShrink) {
+            @$body['attachments'] = $request->attachmentsShrink;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->collaboratorUserIdsShrink) {
+            @$body['collaboratorUserIds'] = $request->collaboratorUserIdsShrink;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['conversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->expectedVersion) {
+            @$body['expectedVersion'] = $request->expectedVersion;
+        }
+
+        if (null !== $request->ownerUserId) {
+            @$body['ownerUserId'] = $request->ownerUserId;
+        }
+
+        if (null !== $request->priority) {
+            @$body['priority'] = $request->priority;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        if (null !== $request->workflowTemplateIdsShrink) {
+            @$body['workflowTemplateIds'] = $request->workflowTemplateIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWorkItem',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/updateWorkItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpdateWorkItem.
+     *
+     * @remarks
+     * 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+     *
+     * @param Request - UpdateWorkItemRequest
+     *
+     * @returns UpdateWorkItemResponse
+     *
+     * @param UpdateWorkItemRequest $request
+     *
+     * @return UpdateWorkItemResponse
+     */
+    public function updateWorkItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkItemWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * UpdateWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员整体覆盖更新工作流模板；最后一次保存生效
+     *
+     * @param tmpReq - UpdateWorkflowTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWorkflowTemplateResponse
+     *
+     * @param UpdateWorkflowTemplateRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateWorkflowTemplateResponse
+     */
+    public function updateWorkflowTemplateWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateWorkflowTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->definition) {
+            $request->definitionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->definition, 'definition', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->definitionShrink) {
+            @$body['definition'] = $request->definitionShrink;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWorkflowTemplate',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/updateWorkflowTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWorkflowTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpdateWorkflowTemplate.
+     *
+     * @remarks
+     * 有效成员整体覆盖更新工作流模板；最后一次保存生效
+     *
+     * @param Request - UpdateWorkflowTemplateRequest
+     *
+     * @returns UpdateWorkflowTemplateResponse
+     *
+     * @param UpdateWorkflowTemplateRequest $request
+     *
+     * @return UpdateWorkflowTemplateResponse
+     */
+    public function updateWorkflowTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkflowTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**

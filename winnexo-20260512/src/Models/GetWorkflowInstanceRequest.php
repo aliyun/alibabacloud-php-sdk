@@ -1,0 +1,62 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class GetWorkflowInstanceRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
+    protected $_name = [
+        'instanceId' => 'instanceId',
+        'tenantId' => 'tenantId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['tenantId'] = $this->tenantId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
+        }
+
+        if (isset($map['tenantId'])) {
+            $model->tenantId = $map['tenantId'];
+        }
+
+        return $model;
+    }
+}
