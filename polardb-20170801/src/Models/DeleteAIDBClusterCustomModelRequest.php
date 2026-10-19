@@ -11,11 +11,6 @@ class DeleteAIDBClusterCustomModelRequest extends Model
     /**
      * @var string
      */
-    public $DBClusterId;
-
-    /**
-     * @var string
-     */
     public $modelName;
 
     /**
@@ -23,7 +18,6 @@ class DeleteAIDBClusterCustomModelRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'DBClusterId' => 'DBClusterId',
         'modelName' => 'ModelName',
         'regionId' => 'RegionId',
     ];
@@ -36,10 +30,6 @@ class DeleteAIDBClusterCustomModelRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
-        }
-
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
@@ -59,10 +49,6 @@ class DeleteAIDBClusterCustomModelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
-        }
-
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }

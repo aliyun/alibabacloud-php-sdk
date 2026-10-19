@@ -872,6 +872,7 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterAIDBClusterCustomModelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterAIDBClusterCustomModelResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterAIDBClusterCustomModelShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterKnowledgeBaseFileRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterKnowledgeBaseFileResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RejectPolarClawDevicePairRequest;
@@ -897,6 +898,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResizeAIDBClusterModelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResizeAIDBClusterModelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartAIDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartAIDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBLinkRequest;
@@ -3481,6 +3484,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->autoUseCoupon) {
             @$query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+
+        if (null !== $request->capacity) {
+            @$query['Capacity'] = $request->capacity;
         }
 
         if (null !== $request->clientToken) {
@@ -9425,7 +9432,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a custom model registration from an AI cluster.
+     * Deletes a custom model registration for an AI cluster.
      *
      * @param request - DeleteAIDBClusterCustomModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9441,10 +9448,6 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
-        }
-
         if (null !== $request->modelName) {
             @$query['ModelName'] = $request->modelName;
         }
@@ -9472,7 +9475,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a custom model registration from an AI cluster.
+     * Deletes a custom model registration for an AI cluster.
      *
      * @param request - DeleteAIDBClusterCustomModelRequest
      *
@@ -16438,7 +16441,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of models in an AI cluster.
+     * Retrieves a list of models in an AI cluster.
      *
      * @param request - DescribeAvailableModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16485,7 +16488,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of models in an AI cluster.
+     * Retrieves a list of models in an AI cluster.
      *
      * @param request - DescribeAvailableModelsRequest
      *
@@ -22659,7 +22662,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the result of a single-round knowledge base question answering task.
+     * Queries the single-turn Q&A results of a knowledge base.
      *
      * @param request - DescribeKnowledgeBaseAnswerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22706,7 +22709,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the result of a single-round knowledge base question answering task.
+     * Queries the single-turn Q&A results of a knowledge base.
      *
      * @param request - DescribeKnowledgeBaseAnswerRequest
      *
@@ -36988,20 +36991,34 @@ class Polardb extends OpenApiClient
     /**
      * Registers a custom model for an AI cluster.
      *
-     * @param request - RegisterAIDBClusterCustomModelRequest
+     * @param tmpReq - RegisterAIDBClusterCustomModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns RegisterAIDBClusterCustomModelResponse
      *
-     * @param RegisterAIDBClusterCustomModelRequest $request
+     * @param RegisterAIDBClusterCustomModelRequest $tmpReq
      * @param RuntimeOptions                        $runtime
      *
      * @return RegisterAIDBClusterCustomModelResponse
      */
-    public function registerAIDBClusterCustomModelWithOptions($request, $runtime)
+    public function registerAIDBClusterCustomModelWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new RegisterAIDBClusterCustomModelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->containerEnv) {
+            $request->containerEnvShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->containerEnv, 'ContainerEnv', 'json');
+        }
+
+        if (null !== $tmpReq->modelParams) {
+            $request->modelParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelParams, 'ModelParams', 'json');
+        }
+
         $query = [];
+        if (null !== $request->containerEnvShrink) {
+            @$query['ContainerEnv'] = $request->containerEnvShrink;
+        }
+
         if (null !== $request->customOssBucketName) {
             @$query['CustomOssBucketName'] = $request->customOssBucketName;
         }
@@ -37010,20 +37027,44 @@ class Polardb extends OpenApiClient
             @$query['CustomOssBucketPath'] = $request->customOssBucketPath;
         }
 
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBInstanceClass) {
+            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        }
+
+        if (null !== $request->directCommand) {
+            @$query['DirectCommand'] = $request->directCommand;
         }
 
         if (null !== $request->displayModelName) {
             @$query['DisplayModelName'] = $request->displayModelName;
         }
 
+        if (null !== $request->imageName) {
+            @$query['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->inferenceEngine) {
+            @$query['InferenceEngine'] = $request->inferenceEngine;
+        }
+
         if (null !== $request->modelName) {
             @$query['ModelName'] = $request->modelName;
         }
 
+        if (null !== $request->modelParamsShrink) {
+            @$query['ModelParams'] = $request->modelParamsShrink;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->registryPassword) {
+            @$query['RegistryPassword'] = $request->registryPassword;
+        }
+
+        if (null !== $request->registryUsername) {
+            @$query['RegistryUsername'] = $request->registryUsername;
         }
 
         $req = new OpenApiRequest([
@@ -37953,6 +37994,75 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Adjusts the model capacity of an AI cluster.
+     *
+     * @param request - ResizeAIDBClusterModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResizeAIDBClusterModelResponse
+     *
+     * @param ResizeAIDBClusterModelRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ResizeAIDBClusterModelResponse
+     */
+    public function resizeAIDBClusterModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->targetCapacity) {
+            @$query['TargetCapacity'] = $request->targetCapacity;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResizeAIDBClusterModel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResizeAIDBClusterModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adjusts the model capacity of an AI cluster.
+     *
+     * @param request - ResizeAIDBClusterModelRequest
+     *
+     * @returns ResizeAIDBClusterModelResponse
+     *
+     * @param ResizeAIDBClusterModelRequest $request
+     *
+     * @return ResizeAIDBClusterModelResponse
+     */
+    public function resizeAIDBClusterModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resizeAIDBClusterModelWithOptions($request, $runtime);
+    }
+
+    /**
      * Restarts an AI cluster.
      *
      * @param request - RestartAIDBClusterRequest
@@ -38407,7 +38517,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves information from a knowledge base.
+     * Searches a knowledge base.
      *
      * @param request - RetrievalKnowledgeBaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -38466,7 +38576,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves information from a knowledge base.
+     * Searches a knowledge base.
      *
      * @param request - RetrievalKnowledgeBaseRequest
      *

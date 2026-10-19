@@ -18,6 +18,11 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $command;
+
+    /**
+     * @var string
+     */
     public $cpuCores;
 
     /**
@@ -58,12 +63,22 @@ class DBNodes extends Model
     /**
      * @var string
      */
+    public $logIndex;
+
+    /**
+     * @var string
+     */
     public $memorySize;
 
     /**
      * @var string
      */
     public $modelName;
+
+    /**
+     * @var string
+     */
+    public $modelSpaceName;
 
     /**
      * @var string
@@ -96,6 +111,7 @@ class DBNodes extends Model
     public $zoneId;
     protected $_name = [
         'childVolumes' => 'ChildVolumes',
+        'command' => 'Command',
         'cpuCores' => 'CpuCores',
         'creationTime' => 'CreationTime',
         'DBNodeClass' => 'DBNodeClass',
@@ -104,8 +120,10 @@ class DBNodes extends Model
         'DBNodeStatus' => 'DBNodeStatus',
         'GPU' => 'GPU',
         'linkIP' => 'LinkIP',
+        'logIndex' => 'LogIndex',
         'memorySize' => 'MemorySize',
         'modelName' => 'ModelName',
+        'modelSpaceName' => 'ModelSpaceName',
         'publicIp' => 'PublicIp',
         'supportedApis' => 'SupportedApis',
         'VNodeId' => 'VNodeId',
@@ -137,6 +155,10 @@ class DBNodes extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->command) {
+            $res['Command'] = $this->command;
         }
 
         if (null !== $this->cpuCores) {
@@ -171,12 +193,20 @@ class DBNodes extends Model
             $res['LinkIP'] = $this->linkIP;
         }
 
+        if (null !== $this->logIndex) {
+            $res['LogIndex'] = $this->logIndex;
+        }
+
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
         }
 
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+
+        if (null !== $this->modelSpaceName) {
+            $res['ModelSpaceName'] = $this->modelSpaceName;
         }
 
         if (null !== $this->publicIp) {
@@ -232,6 +262,10 @@ class DBNodes extends Model
             }
         }
 
+        if (isset($map['Command'])) {
+            $model->command = $map['Command'];
+        }
+
         if (isset($map['CpuCores'])) {
             $model->cpuCores = $map['CpuCores'];
         }
@@ -264,12 +298,20 @@ class DBNodes extends Model
             $model->linkIP = $map['LinkIP'];
         }
 
+        if (isset($map['LogIndex'])) {
+            $model->logIndex = $map['LogIndex'];
+        }
+
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
         }
 
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+
+        if (isset($map['ModelSpaceName'])) {
+            $model->modelSpaceName = $map['ModelSpaceName'];
         }
 
         if (isset($map['PublicIp'])) {

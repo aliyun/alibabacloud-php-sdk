@@ -19,6 +19,11 @@ class RegisterAIDBClusterCustomModelResponseBody extends Model
     public $displayModelName;
 
     /**
+     * @var string
+     */
+    public $imageImportStatus;
+
+    /**
      * @var int
      */
     public $modelId;
@@ -45,6 +50,7 @@ class RegisterAIDBClusterCustomModelResponseBody extends Model
     protected $_name = [
         'created' => 'Created',
         'displayModelName' => 'DisplayModelName',
+        'imageImportStatus' => 'ImageImportStatus',
         'modelId' => 'ModelId',
         'modelName' => 'ModelName',
         'modelType' => 'ModelType',
@@ -66,6 +72,10 @@ class RegisterAIDBClusterCustomModelResponseBody extends Model
 
         if (null !== $this->displayModelName) {
             $res['DisplayModelName'] = $this->displayModelName;
+        }
+
+        if (null !== $this->imageImportStatus) {
+            $res['ImageImportStatus'] = $this->imageImportStatus;
         }
 
         if (null !== $this->modelId) {
@@ -105,6 +115,10 @@ class RegisterAIDBClusterCustomModelResponseBody extends Model
 
         if (isset($map['DisplayModelName'])) {
             $model->displayModelName = $map['DisplayModelName'];
+        }
+
+        if (isset($map['ImageImportStatus'])) {
+            $model->imageImportStatus = $map['ImageImportStatus'];
         }
 
         if (isset($map['ModelId'])) {

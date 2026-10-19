@@ -32,6 +32,16 @@ class memApplicationAttribute extends Model
     /**
      * @var string
      */
+    public $memoryType;
+
+    /**
+     * @var bool
+     */
+    public $multimodalEnabled;
+
+    /**
+     * @var string
+     */
     public $projectName;
 
     /**
@@ -48,21 +58,50 @@ class memApplicationAttribute extends Model
      * @var string
      */
     public $userName;
+
+    /**
+     * @var int
+     */
+    public $visualEmbedderDimensions;
+
+    /**
+     * @var string
+     */
+    public $visualEmbedderModelName;
+
+    /**
+     * @var string[]
+     */
+    public $visualLlmModalities;
+
+    /**
+     * @var string
+     */
+    public $visualLlmModelName;
     protected $_name = [
         'dbName' => 'DbName',
         'embedderModelName' => 'EmbedderModelName',
         'graphLlmModelName' => 'GraphLlmModelName',
         'llmModelName' => 'LlmModelName',
+        'memoryType' => 'MemoryType',
+        'multimodalEnabled' => 'MultimodalEnabled',
         'projectName' => 'ProjectName',
         'rerankerModelName' => 'RerankerModelName',
         'sessionStore' => 'SessionStore',
         'userName' => 'UserName',
+        'visualEmbedderDimensions' => 'VisualEmbedderDimensions',
+        'visualEmbedderModelName' => 'VisualEmbedderModelName',
+        'visualLlmModalities' => 'VisualLlmModalities',
+        'visualLlmModelName' => 'VisualLlmModelName',
     ];
 
     public function validate()
     {
         if (null !== $this->sessionStore) {
             $this->sessionStore->validate();
+        }
+        if (\is_array($this->visualLlmModalities)) {
+            Model::validateArray($this->visualLlmModalities);
         }
         parent::validate();
     }
@@ -86,6 +125,14 @@ class memApplicationAttribute extends Model
             $res['LlmModelName'] = $this->llmModelName;
         }
 
+        if (null !== $this->memoryType) {
+            $res['MemoryType'] = $this->memoryType;
+        }
+
+        if (null !== $this->multimodalEnabled) {
+            $res['MultimodalEnabled'] = $this->multimodalEnabled;
+        }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -100,6 +147,29 @@ class memApplicationAttribute extends Model
 
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
+        }
+
+        if (null !== $this->visualEmbedderDimensions) {
+            $res['VisualEmbedderDimensions'] = $this->visualEmbedderDimensions;
+        }
+
+        if (null !== $this->visualEmbedderModelName) {
+            $res['VisualEmbedderModelName'] = $this->visualEmbedderModelName;
+        }
+
+        if (null !== $this->visualLlmModalities) {
+            if (\is_array($this->visualLlmModalities)) {
+                $res['VisualLlmModalities'] = [];
+                $n1 = 0;
+                foreach ($this->visualLlmModalities as $item1) {
+                    $res['VisualLlmModalities'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->visualLlmModelName) {
+            $res['VisualLlmModelName'] = $this->visualLlmModelName;
         }
 
         return $res;
@@ -129,6 +199,14 @@ class memApplicationAttribute extends Model
             $model->llmModelName = $map['LlmModelName'];
         }
 
+        if (isset($map['MemoryType'])) {
+            $model->memoryType = $map['MemoryType'];
+        }
+
+        if (isset($map['MultimodalEnabled'])) {
+            $model->multimodalEnabled = $map['MultimodalEnabled'];
+        }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
@@ -143,6 +221,29 @@ class memApplicationAttribute extends Model
 
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+
+        if (isset($map['VisualEmbedderDimensions'])) {
+            $model->visualEmbedderDimensions = $map['VisualEmbedderDimensions'];
+        }
+
+        if (isset($map['VisualEmbedderModelName'])) {
+            $model->visualEmbedderModelName = $map['VisualEmbedderModelName'];
+        }
+
+        if (isset($map['VisualLlmModalities'])) {
+            if (!empty($map['VisualLlmModalities'])) {
+                $model->visualLlmModalities = [];
+                $n1 = 0;
+                foreach ($map['VisualLlmModalities'] as $item1) {
+                    $model->visualLlmModalities[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['VisualLlmModelName'])) {
+            $model->visualLlmModelName = $map['VisualLlmModelName'];
         }
 
         return $model;

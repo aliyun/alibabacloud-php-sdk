@@ -25,6 +25,11 @@ class CreateAIDBClusterRequest extends Model
     public $autoUseCoupon;
 
     /**
+     * @var int
+     */
+    public $capacity;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -187,6 +192,7 @@ class CreateAIDBClusterRequest extends Model
         'ackAdmin' => 'AckAdmin',
         'autoRenew' => 'AutoRenew',
         'autoUseCoupon' => 'AutoUseCoupon',
+        'capacity' => 'Capacity',
         'clientToken' => 'ClientToken',
         'createPublicEndpoint' => 'CreatePublicEndpoint',
         'DBClusterDescription' => 'DBClusterDescription',
@@ -242,6 +248,10 @@ class CreateAIDBClusterRequest extends Model
 
         if (null !== $this->autoUseCoupon) {
             $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
+
+        if (null !== $this->capacity) {
+            $res['Capacity'] = $this->capacity;
         }
 
         if (null !== $this->clientToken) {
@@ -400,6 +410,10 @@ class CreateAIDBClusterRequest extends Model
 
         if (isset($map['AutoUseCoupon'])) {
             $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
+
+        if (isset($map['Capacity'])) {
+            $model->capacity = $map['Capacity'];
         }
 
         if (isset($map['ClientToken'])) {

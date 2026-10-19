@@ -26,7 +26,17 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $command;
+
+    /**
+     * @var string
+     */
     public $creationTime;
+
+    /**
+     * @var int
+     */
+    public $currentCapacity;
 
     /**
      * @var string
@@ -220,7 +230,9 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     protected $_name = [
         'aiNodeType' => 'AiNodeType',
         'apiKey' => 'ApiKey',
+        'command' => 'Command',
         'creationTime' => 'CreationTime',
+        'currentCapacity' => 'CurrentCapacity',
         'customOssPath' => 'CustomOssPath',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId' => 'DBClusterId',
@@ -292,8 +304,16 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
             $res['ApiKey'] = $this->apiKey;
         }
 
+        if (null !== $this->command) {
+            $res['Command'] = $this->command;
+        }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->currentCapacity) {
+            $res['CurrentCapacity'] = $this->currentCapacity;
         }
 
         if (null !== $this->customOssPath) {
@@ -488,8 +508,16 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
             $model->apiKey = $map['ApiKey'];
         }
 
+        if (isset($map['Command'])) {
+            $model->command = $map['Command'];
+        }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['CurrentCapacity'])) {
+            $model->currentCapacity = $map['CurrentCapacity'];
         }
 
         if (isset($map['CustomOssPath'])) {

@@ -10,9 +10,29 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableModelsResponseBod
 class items extends Model
 {
     /**
+     * @var string[]
+     */
+    public $containerEnv;
+
+    /**
+     * @var string
+     */
+    public $customImageSource;
+
+    /**
      * @var string
      */
     public $customModelName;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceClass;
+
+    /**
+     * @var string
+     */
+    public $directCommand;
 
     /**
      * @var string
@@ -30,6 +50,21 @@ class items extends Model
     public $gpuRequired;
 
     /**
+     * @var string
+     */
+    public $imageImportStatus;
+
+    /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
+     * @var string
+     */
+    public $inferenceEngine;
+
+    /**
      * @var int
      */
     public $minimumCpu;
@@ -43,6 +78,11 @@ class items extends Model
      * @var string
      */
     public $modelName;
+
+    /**
+     * @var string[]
+     */
+    public $modelParams;
 
     /**
      * @var string
@@ -69,13 +109,21 @@ class items extends Model
      */
     public $tuneArch;
     protected $_name = [
+        'containerEnv' => 'ContainerEnv',
+        'customImageSource' => 'CustomImageSource',
         'customModelName' => 'CustomModelName',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'directCommand' => 'DirectCommand',
         'displayModelName' => 'DisplayModelName',
         'gmtModified' => 'GmtModified',
         'gpuRequired' => 'GpuRequired',
+        'imageImportStatus' => 'ImageImportStatus',
+        'imageName' => 'ImageName',
+        'inferenceEngine' => 'InferenceEngine',
         'minimumCpu' => 'MinimumCpu',
         'minimumMemory' => 'MinimumMemory',
         'modelName' => 'ModelName',
+        'modelParams' => 'ModelParams',
         'modelSeries' => 'ModelSeries',
         'modelType' => 'ModelType',
         'ossPath' => 'OssPath',
@@ -85,8 +133,14 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->containerEnv)) {
+            Model::validateArray($this->containerEnv);
+        }
         if (\is_array($this->gpuRequired)) {
             Model::validateArray($this->gpuRequired);
+        }
+        if (\is_array($this->modelParams)) {
+            Model::validateArray($this->modelParams);
         }
         if (\is_array($this->supportedGpuModels)) {
             Model::validateArray($this->supportedGpuModels);
@@ -97,8 +151,29 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->containerEnv) {
+            if (\is_array($this->containerEnv)) {
+                $res['ContainerEnv'] = [];
+                foreach ($this->containerEnv as $key1 => $value1) {
+                    $res['ContainerEnv'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->customImageSource) {
+            $res['CustomImageSource'] = $this->customImageSource;
+        }
+
         if (null !== $this->customModelName) {
             $res['CustomModelName'] = $this->customModelName;
+        }
+
+        if (null !== $this->DBInstanceClass) {
+            $res['DBInstanceClass'] = $this->DBInstanceClass;
+        }
+
+        if (null !== $this->directCommand) {
+            $res['DirectCommand'] = $this->directCommand;
         }
 
         if (null !== $this->displayModelName) {
@@ -120,6 +195,18 @@ class items extends Model
             }
         }
 
+        if (null !== $this->imageImportStatus) {
+            $res['ImageImportStatus'] = $this->imageImportStatus;
+        }
+
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
+        }
+
+        if (null !== $this->inferenceEngine) {
+            $res['InferenceEngine'] = $this->inferenceEngine;
+        }
+
         if (null !== $this->minimumCpu) {
             $res['MinimumCpu'] = $this->minimumCpu;
         }
@@ -130,6 +217,15 @@ class items extends Model
 
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
+        }
+
+        if (null !== $this->modelParams) {
+            if (\is_array($this->modelParams)) {
+                $res['ModelParams'] = [];
+                foreach ($this->modelParams as $key1 => $value1) {
+                    $res['ModelParams'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->modelSeries) {
@@ -170,8 +266,29 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContainerEnv'])) {
+            if (!empty($map['ContainerEnv'])) {
+                $model->containerEnv = [];
+                foreach ($map['ContainerEnv'] as $key1 => $value1) {
+                    $model->containerEnv[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['CustomImageSource'])) {
+            $model->customImageSource = $map['CustomImageSource'];
+        }
+
         if (isset($map['CustomModelName'])) {
             $model->customModelName = $map['CustomModelName'];
+        }
+
+        if (isset($map['DBInstanceClass'])) {
+            $model->DBInstanceClass = $map['DBInstanceClass'];
+        }
+
+        if (isset($map['DirectCommand'])) {
+            $model->directCommand = $map['DirectCommand'];
         }
 
         if (isset($map['DisplayModelName'])) {
@@ -193,6 +310,18 @@ class items extends Model
             }
         }
 
+        if (isset($map['ImageImportStatus'])) {
+            $model->imageImportStatus = $map['ImageImportStatus'];
+        }
+
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
+        }
+
+        if (isset($map['InferenceEngine'])) {
+            $model->inferenceEngine = $map['InferenceEngine'];
+        }
+
         if (isset($map['MinimumCpu'])) {
             $model->minimumCpu = $map['MinimumCpu'];
         }
@@ -203,6 +332,15 @@ class items extends Model
 
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
+        }
+
+        if (isset($map['ModelParams'])) {
+            if (!empty($map['ModelParams'])) {
+                $model->modelParams = [];
+                foreach ($map['ModelParams'] as $key1 => $value1) {
+                    $model->modelParams[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['ModelSeries'])) {
