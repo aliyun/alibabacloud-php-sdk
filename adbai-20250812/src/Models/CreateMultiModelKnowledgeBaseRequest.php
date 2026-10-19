@@ -26,6 +26,11 @@ class CreateMultiModelKnowledgeBaseRequest extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $lakeStorageBucketName;
 
     /**
@@ -61,6 +66,7 @@ class CreateMultiModelKnowledgeBaseRequest extends Model
         'adbInstanceName' => 'AdbInstanceName',
         'DBClusterId' => 'DBClusterId',
         'dbClusterAcu' => 'DbClusterAcu',
+        'description' => 'Description',
         'lakeStorageBucketName' => 'LakeStorageBucketName',
         'regionId' => 'RegionId',
         'resourceAcuMax' => 'ResourceAcuMax',
@@ -88,6 +94,10 @@ class CreateMultiModelKnowledgeBaseRequest extends Model
 
         if (null !== $this->dbClusterAcu) {
             $res['DbClusterAcu'] = $this->dbClusterAcu;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->lakeStorageBucketName) {
@@ -139,6 +149,10 @@ class CreateMultiModelKnowledgeBaseRequest extends Model
 
         if (isset($map['DbClusterAcu'])) {
             $model->dbClusterAcu = $map['DbClusterAcu'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['LakeStorageBucketName'])) {

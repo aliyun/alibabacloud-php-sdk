@@ -251,10 +251,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Creates an AnalyticDB multimodal knowledge base.
+     * Creates an AnalyticDB for MySQL multimodal knowledge base.
      *
      * @remarks
-     * Creates an AnalyticDB multimodal knowledge base.
+     * Creates an AnalyticDB for MySQL multimodal knowledge base.
      *
      * @param request - CreateMultiModelKnowledgeBaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -280,6 +280,10 @@ class ADBAI extends OpenApiClient
 
         if (null !== $request->dbClusterAcu) {
             @$query['DbClusterAcu'] = $request->dbClusterAcu;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
 
         if (null !== $request->lakeStorageBucketName) {
@@ -329,10 +333,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Creates an AnalyticDB multimodal knowledge base.
+     * Creates an AnalyticDB for MySQL multimodal knowledge base.
      *
      * @remarks
-     * Creates an AnalyticDB multimodal knowledge base.
+     * Creates an AnalyticDB for MySQL multimodal knowledge base.
      *
      * @param request - CreateMultiModelKnowledgeBaseRequest
      *
@@ -551,10 +555,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Queries multi-turn conversations for instance kernel diagnostics.
+     * Retrieves multi-turn conversations for instance kernel diagnostics.
      *
      * @remarks
-     * Queries multi-turn conversations for instance kernel diagnostics.
+     * Retrieves multi-turn conversations for instance kernel diagnostics.
      *
      * @param request - DescribeChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -622,10 +626,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Queries multi-turn conversations for instance kernel diagnostics.
+     * Retrieves multi-turn conversations for instance kernel diagnostics.
      *
      * @remarks
-     * Queries multi-turn conversations for instance kernel diagnostics.
+     * Retrieves multi-turn conversations for instance kernel diagnostics.
      *
      * @param request - DescribeChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -680,10 +684,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Queries multi-turn conversations for instance kernel diagnostics.
+     * Retrieves multi-turn conversations for instance kernel diagnostics.
      *
      * @remarks
-     * Queries multi-turn conversations for instance kernel diagnostics.
+     * Retrieves multi-turn conversations for instance kernel diagnostics.
      *
      * @param request - DescribeChatMessageRequest
      *
@@ -865,7 +869,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Queries the resource usage information of an embodied intelligence platform.
+     * Queries the resource usage information of the Embodied platform.
      *
      * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -920,7 +924,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Queries the resource usage information of an embodied intelligence platform.
+     * Queries the resource usage information of the Embodied platform.
      *
      * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
      *
@@ -1078,7 +1082,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Modifies the specifications of an embodied intelligence platform.
+     * Modifies the specifications of the embodied AI platform.
      *
      * @param tmpReq - ModifyEmbodiedAIPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1151,7 +1155,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * Modifies the specifications of an embodied intelligence platform.
+     * Modifies the specifications of the embodied AI platform.
      *
      * @param request - ModifyEmbodiedAIPlatformRequest
      *
