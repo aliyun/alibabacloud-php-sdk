@@ -22,10 +22,16 @@ class prices extends Model
      * @var string
      */
     public $priceUnit;
+
+    /**
+     * @var string
+     */
+    public $timeBand;
     protected $_name = [
         'price' => 'price',
         'priceName' => 'priceName',
         'priceUnit' => 'priceUnit',
+        'timeBand' => 'timeBand',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class prices extends Model
 
         if (null !== $this->priceUnit) {
             $res['priceUnit'] = $this->priceUnit;
+        }
+
+        if (null !== $this->timeBand) {
+            $res['timeBand'] = $this->timeBand;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class prices extends Model
 
         if (isset($map['priceUnit'])) {
             $model->priceUnit = $map['priceUnit'];
+        }
+
+        if (isset($map['timeBand'])) {
+            $model->timeBand = $map['timeBand'];
         }
 
         return $model;

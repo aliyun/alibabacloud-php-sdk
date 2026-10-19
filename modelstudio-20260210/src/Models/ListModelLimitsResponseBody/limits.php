@@ -26,6 +26,11 @@ class limits extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $workspaceId;
+
+    /**
      * @var workspaceLimit
      */
     public $workspaceLimit;
@@ -33,6 +38,7 @@ class limits extends Model
         'model' => 'model',
         'modelLimit' => 'modelLimit',
         'name' => 'name',
+        'workspaceId' => 'workspaceId',
         'workspaceLimit' => 'workspaceLimit',
     ];
 
@@ -62,6 +68,10 @@ class limits extends Model
             $res['name'] = $this->name;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
+        }
+
         if (null !== $this->workspaceLimit) {
             $res['workspaceLimit'] = null !== $this->workspaceLimit ? $this->workspaceLimit->toArray($noStream) : $this->workspaceLimit;
         }
@@ -87,6 +97,10 @@ class limits extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         if (isset($map['workspaceLimit'])) {

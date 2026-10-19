@@ -551,7 +551,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Creates a business workspace.
+     * Creates a workspace.
      *
      * @param request - CreateWorkspaceRequest
      * @param headers - map
@@ -597,7 +597,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Creates a business workspace.
+     * Creates a workspace.
      *
      * @param request - CreateWorkspaceRequest
      *
@@ -1546,7 +1546,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API key information for authentication credentials.
+     * Retrieves a list of API Key authentication credentials.
      *
      * @param request - ListApiKeysRequest
      * @param headers - map
@@ -1612,7 +1612,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API key information for authentication credentials.
+     * Retrieves a list of API Key authentication credentials.
      *
      * @param request - ListApiKeysRequest
      *
@@ -1631,7 +1631,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Queries model throttling configurations for a workspace.
+     * Queries model throttling for a workspace.
      *
      * @param request - ListModelLimitsRequest
      * @param headers - map
@@ -1689,7 +1689,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Queries model throttling configurations for a workspace.
+     * Queries model throttling for a workspace.
      *
      * @param request - ListModelLimitsRequest
      *
@@ -2060,7 +2060,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of business workspaces.
+     * Retrieves the list of workspaces.
      *
      * @param request - ListWorkspacesRequest
      * @param headers - map
@@ -2114,7 +2114,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of business workspaces.
+     * Retrieves the list of workspaces.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -2448,7 +2448,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Edits the information of an authentication credential API key.
+     * Edits the information of an API Key authentication credential.
      *
      * @param request - UpdateApiKeyRequest
      * @param headers - map
@@ -2497,7 +2497,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Edits the information of an authentication credential API key.
+     * Edits the information of an API Key authentication credential.
      *
      * @param request - UpdateApiKeyRequest
      *
