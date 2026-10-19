@@ -22,10 +22,16 @@ class ListRegionsRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var bool
+     */
+    public $loadAll;
     protected $_name = [
         'audited' => 'Audited',
         'identified' => 'Identified',
         'lang' => 'Lang',
+        'loadAll' => 'LoadAll',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ListRegionsRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->loadAll) {
+            $res['LoadAll'] = $this->loadAll;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ListRegionsRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['LoadAll'])) {
+            $model->loadAll = $map['LoadAll'];
         }
 
         return $model;
