@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEnsEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateHaVipRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateHaVipResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateNetworkCidrBlockRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateNetworkCidrBlockResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachEnsInstancesRequest;
@@ -706,6 +708,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateHaVipRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateHaVipResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkCidrBlockRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkCidrBlockResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnInstallClusterAddonsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnInstallClusterAddonsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnInstallClusterAddonsShrinkRequest;
@@ -1267,6 +1271,83 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->associateHaVipWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds a secondary CIDR block to a network.
+     *
+     * @remarks
+     * The maximum number of secondary CIDR blocks that you can add to a network is as follows:
+     * - A network supports up to five secondary IPv4 CIDR blocks.
+     *
+     * @param request - AssociateNetworkCidrBlockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateNetworkCidrBlockResponse
+     *
+     * @param AssociateNetworkCidrBlockRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AssociateNetworkCidrBlockResponse
+     */
+    public function associateNetworkCidrBlockWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
+        }
+
+        if (null !== $request->ipv6Isp) {
+            @$query['Ipv6Isp'] = $request->ipv6Isp;
+        }
+
+        if (null !== $request->networkId) {
+            @$query['NetworkId'] = $request->networkId;
+        }
+
+        if (null !== $request->secondaryCidrBlock) {
+            @$query['SecondaryCidrBlock'] = $request->secondaryCidrBlock;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AssociateNetworkCidrBlock',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssociateNetworkCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds a secondary CIDR block to a network.
+     *
+     * @remarks
+     * The maximum number of secondary CIDR blocks that you can add to a network is as follows:
+     * - A network supports up to five secondary IPv4 CIDR blocks.
+     *
+     * @param request - AssociateNetworkCidrBlockRequest
+     *
+     * @returns AssociateNetworkCidrBlockResponse
+     *
+     * @param AssociateNetworkCidrBlockRequest $request
+     *
+     * @return AssociateNetworkCidrBlockResponse
+     */
+    public function associateNetworkCidrBlock($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateNetworkCidrBlockWithOptions($request, $runtime);
     }
 
     /**
@@ -2570,8 +2651,8 @@ class Ens extends OpenApiClient
      * Creates an edge container cluster.
      *
      * @remarks
-     * - Single-user call frequency: 10 calls per second.
-     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+     * - Rate limit per user: 10 calls per second.
+     * - Cluster creation is an asynchronous operation. After you call this operation, you must wait 10 to 20 minutes for the cluster to be initialized. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param tmpReq - CreateClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2683,8 +2764,8 @@ class Ens extends OpenApiClient
      * Creates an edge container cluster.
      *
      * @remarks
-     * - Single-user call frequency: 10 calls per second.
-     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+     * - Rate limit per user: 10 calls per second.
+     * - Cluster creation is an asynchronous operation. After you call this operation, you must wait 10 to 20 minutes for the cluster to be initialized. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - CreateClusterRequest
      *
@@ -4655,11 +4736,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call CreateNetwork to create a virtual private cloud (VPC).
+     * Creates a VPC.
      *
      * @remarks
-     * - API call frequency: 100 calls per second.
-     * - Per-user call frequency: 5 calls per second.
+     * - API rate limit: 100 calls per second.
+     * - Rate limit per user: 5 calls per second.
      *
      * @param request - CreateNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4722,11 +4803,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call CreateNetwork to create a virtual private cloud (VPC).
+     * Creates a VPC.
      *
      * @remarks
-     * - API call frequency: 100 calls per second.
-     * - Per-user call frequency: 5 calls per second.
+     * - API rate limit: 100 calls per second.
+     * - Rate limit per user: 5 calls per second.
      *
      * @param request - CreateNetworkRequest
      *
@@ -5500,7 +5581,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a VSwitch.
+     * Creates a vSwitch.
      *
      * @param request - CreateVSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5563,7 +5644,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a VSwitch.
+     * Creates a vSwitch.
      *
      * @param request - CreateVSwitchRequest
      *
@@ -5896,11 +5977,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteClusterNodePool operation to delete a node pool that you no longer need. When you delete a node pool, all pods on its nodes are also deleted. This action may trigger descheduling. If the pods cannot be rescheduled, your services may be affected. Before you delete the node pool, ensure that the cluster has sufficient resources for rescheduling.
+     * Deletes an unused node pool. When a node pool is deleted, all pods on the nodes in the node pool are deleted. This may trigger rescheduling. If rescheduling fails, your services may be affected. Make sure that the cluster has sufficient resources for rescheduling.
      *
      * @remarks
-     * - Each user is limited to 10 calls per second.
-     * - Cluster creation is an asynchronous operation. After the API call is successful, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to check the cluster status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster\\"s kubeconfig file.
+     * - Call frequency per user: 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - DeleteClusterNodePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5943,11 +6024,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteClusterNodePool operation to delete a node pool that you no longer need. When you delete a node pool, all pods on its nodes are also deleted. This action may trigger descheduling. If the pods cannot be rescheduled, your services may be affected. Before you delete the node pool, ensure that the cluster has sufficient resources for rescheduling.
+     * Deletes an unused node pool. When a node pool is deleted, all pods on the nodes in the node pool are deleted. This may trigger rescheduling. If rescheduling fails, your services may be affected. Make sure that the cluster has sufficient resources for rescheduling.
      *
      * @remarks
-     * - Each user is limited to 10 calls per second.
-     * - Cluster creation is an asynchronous operation. After the API call is successful, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to check the cluster status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster\\"s kubeconfig file.
+     * - Call frequency per user: 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - DeleteClusterNodePoolRequest
      *
@@ -8728,7 +8809,7 @@ class Ens extends OpenApiClient
      * Queries the details of a cluster.
      *
      * @remarks
-     * - Per-user call frequency: 100 calls per second.
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeClusterDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8770,7 +8851,7 @@ class Ens extends OpenApiClient
      * Queries the details of a cluster.
      *
      * @remarks
-     * - Per-user call frequency: 100 calls per second.
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeClusterDetailRequest
      *
@@ -8997,10 +9078,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * A kubeconfig file contains the credentials required for a client to access an Elastic Container instance on Kubernetes (ECK) cluster. The file includes identity and authentication data for accessing the destination cluster. To manage a cluster using kubectl, you must first connect to the cluster with its kubeconfig file. You can call the DescribeClusterUserKubeconfig operation to query the kubeconfig file for a specific cluster.
+     * Retrieves the KubeConfig of a specified cluster. KubeConfig is used to configure access credentials for an ECK cluster on the client side, including identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must first connect to the cluster by using KubeConfig. You can invoke the DescribeClusterUserKubeconfig operation to query the KubeConfig of the specified cluster.
      *
      * @remarks
-     * - A single user is limited to 100 calls per second.
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeClusterUserKubeconfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9043,10 +9124,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * A kubeconfig file contains the credentials required for a client to access an Elastic Container instance on Kubernetes (ECK) cluster. The file includes identity and authentication data for accessing the destination cluster. To manage a cluster using kubectl, you must first connect to the cluster with its kubeconfig file. You can call the DescribeClusterUserKubeconfig operation to query the kubeconfig file for a specific cluster.
+     * Retrieves the KubeConfig of a specified cluster. KubeConfig is used to configure access credentials for an ECK cluster on the client side, including identity and authentication data for accessing the target cluster. When you use kubectl for cluster management, you must first connect to the cluster by using KubeConfig. You can invoke the DescribeClusterUserKubeconfig operation to query the KubeConfig of the specified cluster.
      *
      * @remarks
-     * - A single user is limited to 100 calls per second.
+     * - Rate limit per user: 100 calls per second.
      *
      * @param request - DescribeClusterUserKubeconfigRequest
      *
@@ -13426,11 +13507,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Use DescribeNetworkAttribute to query the configuration of a specific network.
+     * Queries the configuration information of a specified network.
      *
      * @remarks
-     * - API rate limit: 100 calls/sec.
-     * - Per-user rate limit: 10 calls/sec.
+     * - API call rate: 100 calls per second.
+     * - Call rate per user: 10 calls per second.
      *
      * @param request - DescribeNetworkAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13469,11 +13550,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Use DescribeNetworkAttribute to query the configuration of a specific network.
+     * Queries the configuration information of a specified network.
      *
      * @remarks
-     * - API rate limit: 100 calls/sec.
-     * - Per-user rate limit: 10 calls/sec.
+     * - API call rate: 100 calls per second.
+     * - Call rate per user: 10 calls per second.
      *
      * @param request - DescribeNetworkAttributeRequest
      *
@@ -13681,11 +13762,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call DescribeNetworks to retrieve a list of networks.
+     * Queries a list of networks.
      *
      * @remarks
-     * - API call frequency: 100 calls per second.
-     * - Per-user call frequency: 10 calls per second.
+     * - API call rate: 100 calls per second.
+     * - Call rate per user: 10 calls per second.
      *
      * @param request - DescribeNetworksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13748,11 +13829,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call DescribeNetworks to retrieve a list of networks.
+     * Queries a list of networks.
      *
      * @remarks
-     * - API call frequency: 100 calls per second.
-     * - Per-user call frequency: 10 calls per second.
+     * - API call rate: 100 calls per second.
+     * - Call rate per user: 10 calls per second.
      *
      * @param request - DescribeNetworksRequest
      *
@@ -15351,7 +15432,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call the DescribeVSwitchAttributes operation to query the configuration of a specified vSwitch.
+     * Queries the configuration information of a specified vSwitch.
      *
      * @param request - DescribeVSwitchAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15390,7 +15471,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call the DescribeVSwitchAttributes operation to query the configuration of a specified vSwitch.
+     * Queries the configuration information of a specified vSwitch.
      *
      * @param request - DescribeVSwitchAttributesRequest
      *
@@ -15408,7 +15489,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call the DescribeVSwitches operation to retrieve information about VSwitches. You use VSwitches to configure private networks.
+     * Queries information about vSwitches available for networking. Internal networks are organized by vSwitch.
      *
      * @param request - DescribeVSwitchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15479,7 +15560,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call the DescribeVSwitches operation to retrieve information about VSwitches. You use VSwitches to configure private networks.
+     * Queries information about vSwitches available for networking. Internal networks are organized by vSwitch.
      *
      * @param request - DescribeVSwitchesRequest
      *
@@ -16865,11 +16946,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * To enhance the capabilities of Kubernetes, Edge Kubernetes (ECK) clusters support a variety of components, such as managed core components, applications, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying their names and versions.
+     * Installs components in an ECK cluster to enhance Kubernetes capabilities. ECK clusters support various components, such as managed core components, as well as application, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
      *
      * @remarks
-     * - The call frequency for a single user is limited to 10 calls per second.
-     * - Cluster creation is an asynchronous operation. After the API call returns, the cluster requires 10 to 20 minutes to complete initialization. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+     * - The rate limit is 10 calls per second per user.
+     * - Cluster creation is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param tmpReq - InstallClusterAddonsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16918,11 +16999,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * To enhance the capabilities of Kubernetes, Edge Kubernetes (ECK) clusters support a variety of components, such as managed core components, applications, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying their names and versions.
+     * Installs components in an ECK cluster to enhance Kubernetes capabilities. ECK clusters support various components, such as managed core components, as well as application, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
      *
      * @remarks
-     * - The call frequency for a single user is limited to 10 calls per second.
-     * - Cluster creation is an asynchronous operation. After the API call returns, the cluster requires 10 to 20 minutes to complete initialization. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+     * - The rate limit is 10 calls per second per user.
+     * - Cluster creation is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - InstallClusterAddonsRequest
      *
@@ -17360,7 +17441,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Retrieves details about cluster components.
+     * Queries the details of cluster components.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -17389,7 +17470,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Retrieves details about cluster components.
+     * Queries the details of cluster components.
      *
      * @returns ListAddonsResponse
      *
@@ -18026,11 +18107,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the node configurations in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes node configurations and restarts kubelet in batches, which may affect node operations and workload execution. Perform this operation during off-peak hours.
+     * Modifies the node configuration in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes the configurations in batches and restarts kubelet, which may affect node and workload operations. Perform this operation during off-peak hours.
      *
      * @remarks
-     * - Single-user call frequency: 10 calls per second.
-     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+     * - Rate limit per user: 10 calls per second.
+     * - Cluster creation is an asynchronous operation. After you call the API operation, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param tmpReq - ModifyClusterNodePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18095,11 +18176,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the node configurations in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes node configurations and restarts kubelet in batches, which may affect node operations and workload execution. Perform this operation during off-peak hours.
+     * Modifies the node configuration in a cluster node pool, such as kubelet configurations and node rotation configurations. Modifying node configurations changes the configurations in batches and restarts kubelet, which may affect node and workload operations. Perform this operation during off-peak hours.
      *
      * @remarks
-     * - Single-user call frequency: 10 calls per second.
-     * - Creating a cluster is an asynchronous operation. After the API call returns, wait 10 to 20 minutes for the cluster to finish initialization. During this process, call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+     * - Rate limit per user: 10 calls per second.
+     * - Cluster creation is an asynchronous operation. After you call the API operation, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - ModifyClusterNodePoolRequest
      *
@@ -19547,11 +19628,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call ModifyVSwitchAttribute to modify network information.
+     * Modifies the attributes of a vSwitch.
      *
      * @remarks
-     * - API call frequency: 100 calls per second.
-     * - Per-user call frequency: 5 calls per second.
+     * - API rate limit: 100 calls per second.
+     * - Rate limit per user: 5 calls per second.
      *
      * @param request - ModifyVSwitchAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19606,11 +19687,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call ModifyVSwitchAttribute to modify network information.
+     * Modifies the attributes of a vSwitch.
      *
      * @remarks
-     * - API call frequency: 100 calls per second.
-     * - Per-user call frequency: 5 calls per second.
+     * - API rate limit: 100 calls per second.
+     * - Rate limit per user: 5 calls per second.
      *
      * @param request - ModifyVSwitchAttributeRequest
      *
@@ -24255,6 +24336,77 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * Deletes a secondary CIDR block from a network.
+     *
+     * @remarks
+     * Before deleting a secondary CIDR block from a network, delete the vSwitches created in the secondary CIDR block.
+     *
+     * @param request - UnassociateNetworkCidrBlockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnassociateNetworkCidrBlockResponse
+     *
+     * @param UnassociateNetworkCidrBlockRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UnassociateNetworkCidrBlockResponse
+     */
+    public function unassociateNetworkCidrBlockWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ipv6CidrBlock) {
+            @$query['Ipv6CidrBlock'] = $request->ipv6CidrBlock;
+        }
+
+        if (null !== $request->networkId) {
+            @$query['NetworkId'] = $request->networkId;
+        }
+
+        if (null !== $request->secondaryCidrBlock) {
+            @$query['SecondaryCidrBlock'] = $request->secondaryCidrBlock;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnassociateNetworkCidrBlock',
+            'version' => '2017-11-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnassociateNetworkCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a secondary CIDR block from a network.
+     *
+     * @remarks
+     * Before deleting a secondary CIDR block from a network, delete the vSwitches created in the secondary CIDR block.
+     *
+     * @param request - UnassociateNetworkCidrBlockRequest
+     *
+     * @returns UnassociateNetworkCidrBlockResponse
+     *
+     * @param UnassociateNetworkCidrBlockRequest $request
+     *
+     * @return UnassociateNetworkCidrBlockResponse
+     */
+    public function unassociateNetworkCidrBlock($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unassociateNetworkCidrBlockWithOptions($request, $runtime);
+    }
+
+    /**
      * Calls UnloadRegionSDG to delete preloaded data.
      *
      * @param tmpReq - UnloadRegionSDGRequest
@@ -24730,11 +24882,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call the UpgradeClusterAddons operation to upgrade cluster component instances.
+     * Upgrades the versions of cluster add-on instances.
      *
      * @remarks
-     * - Each user can call this operation up to 10 times per second.
-     * - Creating a cluster is an asynchronous operation. After calling the operation, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+     * - The maximum call frequency per user is 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param tmpReq - UpgradeClusterAddonsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24783,11 +24935,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Call the UpgradeClusterAddons operation to upgrade cluster component instances.
+     * Upgrades the versions of cluster add-on instances.
      *
      * @remarks
-     * - Each user can call this operation up to 10 times per second.
-     * - Creating a cluster is an asynchronous operation. After calling the operation, wait 10 to 20 minutes for the cluster to initialize. During this time, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
+     * - The maximum call frequency per user is 10 calls per second.
+     * - Creating a cluster is an asynchronous operation. After the API call returns, you must wait 10 to 20 minutes for the cluster initialization to complete. During this process, you can call the DescribeClustersV1 operation to query the cluster creation status. After the cluster is created, you can call the DescribeClusterUserKubeconfig operation to obtain the cluster certificate.
      *
      * @param request - UpgradeClusterAddonsRequest
      *
