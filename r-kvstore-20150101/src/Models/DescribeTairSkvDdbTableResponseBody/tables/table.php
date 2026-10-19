@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairSkvDdbTableResponseBody\tables;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairSkvDdbTableResponseBody\tables\table\globalSecondaryIndexList;
 
 class table extends Model
 {
@@ -19,6 +20,11 @@ class table extends Model
     public $connections;
 
     /**
+     * @var globalSecondaryIndexList
+     */
+    public $globalSecondaryIndexList;
+
+    /**
      * @var string
      */
     public $tableId;
@@ -30,12 +36,16 @@ class table extends Model
     protected $_name = [
         'bandwidth' => 'Bandwidth',
         'connections' => 'Connections',
+        'globalSecondaryIndexList' => 'GlobalSecondaryIndexList',
         'tableId' => 'TableId',
         'tableName' => 'TableName',
     ];
 
     public function validate()
     {
+        if (null !== $this->globalSecondaryIndexList) {
+            $this->globalSecondaryIndexList->validate();
+        }
         parent::validate();
     }
 
@@ -48,6 +58,10 @@ class table extends Model
 
         if (null !== $this->connections) {
             $res['Connections'] = $this->connections;
+        }
+
+        if (null !== $this->globalSecondaryIndexList) {
+            $res['GlobalSecondaryIndexList'] = null !== $this->globalSecondaryIndexList ? $this->globalSecondaryIndexList->toArray($noStream) : $this->globalSecondaryIndexList;
         }
 
         if (null !== $this->tableId) {
@@ -75,6 +89,10 @@ class table extends Model
 
         if (isset($map['Connections'])) {
             $model->connections = $map['Connections'];
+        }
+
+        if (isset($map['GlobalSecondaryIndexList'])) {
+            $model->globalSecondaryIndexList = globalSecondaryIndexList::fromMap($map['GlobalSecondaryIndexList']);
         }
 
         if (isset($map['TableId'])) {

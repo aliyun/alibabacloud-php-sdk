@@ -16,9 +16,15 @@ class DescribeHistoryMonitorValuesResponseBody extends Model
     /**
      * @var string
      */
+    public $monitorLegend;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'monitorHistory' => 'MonitorHistory',
+        'monitorLegend' => 'MonitorLegend',
         'requestId' => 'RequestId',
     ];
 
@@ -32,6 +38,10 @@ class DescribeHistoryMonitorValuesResponseBody extends Model
         $res = [];
         if (null !== $this->monitorHistory) {
             $res['MonitorHistory'] = $this->monitorHistory;
+        }
+
+        if (null !== $this->monitorLegend) {
+            $res['MonitorLegend'] = $this->monitorLegend;
         }
 
         if (null !== $this->requestId) {
@@ -51,6 +61,10 @@ class DescribeHistoryMonitorValuesResponseBody extends Model
         $model = new self();
         if (isset($map['MonitorHistory'])) {
             $model->monitorHistory = $map['MonitorHistory'];
+        }
+
+        if (isset($map['MonitorLegend'])) {
+            $model->monitorLegend = $map['MonitorLegend'];
         }
 
         if (isset($map['RequestId'])) {
