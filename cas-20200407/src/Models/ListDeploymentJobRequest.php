@@ -11,7 +11,17 @@ class ListDeploymentJobRequest extends Model
     /**
      * @var int
      */
+    public $certId;
+
+    /**
+     * @var int
+     */
     public $currentPage;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @var string
@@ -28,7 +38,9 @@ class ListDeploymentJobRequest extends Model
      */
     public $status;
     protected $_name = [
+        'certId' => 'CertId',
         'currentPage' => 'CurrentPage',
+        'instanceId' => 'InstanceId',
         'jobType' => 'JobType',
         'showSize' => 'ShowSize',
         'status' => 'Status',
@@ -42,8 +54,16 @@ class ListDeploymentJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->certId) {
+            $res['CertId'] = $this->certId;
+        }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->jobType) {
@@ -69,8 +89,16 @@ class ListDeploymentJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertId'])) {
+            $model->certId = $map['CertId'];
+        }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['JobType'])) {

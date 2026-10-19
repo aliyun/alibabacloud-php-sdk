@@ -19,6 +19,11 @@ class data extends Model
     public $certType;
 
     /**
+     * @var mixed
+     */
+    public $certificates;
+
+    /**
      * @var int
      */
     public $del;
@@ -90,6 +95,7 @@ class data extends Model
     protected $_name = [
         'certDomain' => 'CertDomain',
         'certType' => 'CertType',
+        'certificates' => 'Certificates',
         'del' => 'Del',
         'endTime' => 'EndTime',
         'gmtCreate' => 'GmtCreate',
@@ -120,6 +126,10 @@ class data extends Model
 
         if (null !== $this->certType) {
             $res['CertType'] = $this->certType;
+        }
+
+        if (null !== $this->certificates) {
+            $res['Certificates'] = $this->certificates;
         }
 
         if (null !== $this->del) {
@@ -195,6 +205,10 @@ class data extends Model
 
         if (isset($map['CertType'])) {
             $model->certType = $map['CertType'];
+        }
+
+        if (isset($map['Certificates'])) {
+            $model->certificates = $map['Certificates'];
         }
 
         if (isset($map['Del'])) {
