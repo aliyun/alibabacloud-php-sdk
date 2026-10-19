@@ -123,6 +123,11 @@ class list_ extends Model
      * @var int
      */
     public $talkTime;
+
+    /**
+     * @var int
+     */
+    public $talkTurns;
     protected $_name = [
         'attemptedCount' => 'AttemptedCount',
         'callerNumber' => 'CallerNumber',
@@ -147,6 +152,7 @@ class list_ extends Model
         'sessionId' => 'SessionId',
         'state' => 'State',
         'talkTime' => 'TalkTime',
+        'talkTurns' => 'TalkTurns',
     ];
 
     public function validate()
@@ -259,6 +265,10 @@ class list_ extends Model
             $res['TalkTime'] = $this->talkTime;
         }
 
+        if (null !== $this->talkTurns) {
+            $res['TalkTurns'] = $this->talkTurns;
+        }
+
         return $res;
     }
 
@@ -367,6 +377,10 @@ class list_ extends Model
 
         if (isset($map['TalkTime'])) {
             $model->talkTime = $map['TalkTime'];
+        }
+
+        if (isset($map['TalkTurns'])) {
+            $model->talkTurns = $map['TalkTurns'];
         }
 
         return $model;
