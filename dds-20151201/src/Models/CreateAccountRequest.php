@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CreateAccountRequest\roles;
 
 class CreateAccountRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $accountDescription;
+
     /**
      * @var string
      */
@@ -31,6 +37,11 @@ class CreateAccountRequest extends Model
     /**
      * @var string
      */
+    public $DBName;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -47,25 +58,40 @@ class CreateAccountRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var roles[]
+     */
+    public $roles;
     protected $_name = [
+        'accountDescription' => 'AccountDescription',
         'accountName' => 'AccountName',
         'accountPassword' => 'AccountPassword',
         'characterType' => 'CharacterType',
         'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'roles' => 'Roles',
     ];
 
     public function validate()
     {
+        if (\is_array($this->roles)) {
+            Model::validateArray($this->roles);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountDescription) {
+            $res['AccountDescription'] = $this->accountDescription;
+        }
+
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
@@ -80,6 +106,10 @@ class CreateAccountRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
         }
 
         if (null !== $this->ownerAccount) {
@@ -98,6 +128,17 @@ class CreateAccountRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
+        if (null !== $this->roles) {
+            if (\is_array($this->roles)) {
+                $res['Roles'] = [];
+                $n1 = 0;
+                foreach ($this->roles as $item1) {
+                    $res['Roles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         return $res;
     }
 
@@ -109,6 +150,10 @@ class CreateAccountRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountDescription'])) {
+            $model->accountDescription = $map['AccountDescription'];
+        }
+
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
@@ -125,6 +170,10 @@ class CreateAccountRequest extends Model
             $model->DBInstanceId = $map['DBInstanceId'];
         }
 
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -139,6 +188,17 @@ class CreateAccountRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['Roles'])) {
+            if (!empty($map['Roles'])) {
+                $model->roles = [];
+                $n1 = 0;
+                foreach ($map['Roles'] as $item1) {
+                    $model->roles[$n1] = roles::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

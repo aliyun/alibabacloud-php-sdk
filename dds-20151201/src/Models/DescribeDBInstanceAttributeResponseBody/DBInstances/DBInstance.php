@@ -105,6 +105,26 @@ class DBInstance extends Model
     public $disasterRecoveryInfo;
 
     /**
+     * @var int
+     */
+    public $ebsBandwidth;
+
+    /**
+     * @var int
+     */
+    public $ebsIOPS;
+
+    /**
+     * @var int
+     */
+    public $ecsBandwidth;
+
+    /**
+     * @var int
+     */
+    public $ecsIOPS;
+
+    /**
      * @var bool
      */
     public $encrypted;
@@ -327,6 +347,10 @@ class DBInstance extends Model
         'DBInstanceType' => 'DBInstanceType',
         'destroyTime' => 'DestroyTime',
         'disasterRecoveryInfo' => 'DisasterRecoveryInfo',
+        'ebsBandwidth' => 'EbsBandwidth',
+        'ebsIOPS' => 'EbsIOPS',
+        'ecsBandwidth' => 'EcsBandwidth',
+        'ecsIOPS' => 'EcsIOPS',
         'encrypted' => 'Encrypted',
         'encryptionKey' => 'EncryptionKey',
         'engine' => 'Engine',
@@ -466,6 +490,22 @@ class DBInstance extends Model
 
         if (null !== $this->disasterRecoveryInfo) {
             $res['DisasterRecoveryInfo'] = $this->disasterRecoveryInfo;
+        }
+
+        if (null !== $this->ebsBandwidth) {
+            $res['EbsBandwidth'] = $this->ebsBandwidth;
+        }
+
+        if (null !== $this->ebsIOPS) {
+            $res['EbsIOPS'] = $this->ebsIOPS;
+        }
+
+        if (null !== $this->ecsBandwidth) {
+            $res['EcsBandwidth'] = $this->ecsBandwidth;
+        }
+
+        if (null !== $this->ecsIOPS) {
+            $res['EcsIOPS'] = $this->ecsIOPS;
         }
 
         if (null !== $this->encrypted) {
@@ -713,6 +753,22 @@ class DBInstance extends Model
 
         if (isset($map['DisasterRecoveryInfo'])) {
             $model->disasterRecoveryInfo = $map['DisasterRecoveryInfo'];
+        }
+
+        if (isset($map['EbsBandwidth'])) {
+            $model->ebsBandwidth = $map['EbsBandwidth'];
+        }
+
+        if (isset($map['EbsIOPS'])) {
+            $model->ebsIOPS = $map['EbsIOPS'];
+        }
+
+        if (isset($map['EcsBandwidth'])) {
+            $model->ecsBandwidth = $map['EcsBandwidth'];
+        }
+
+        if (isset($map['EcsIOPS'])) {
+            $model->ecsIOPS = $map['EcsIOPS'];
         }
 
         if (isset($map['Encrypted'])) {

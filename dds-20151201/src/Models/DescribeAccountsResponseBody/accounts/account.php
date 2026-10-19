@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAccountsResponseBody\accounts;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAccountsResponseBody\accounts\account\roles;
 
 class account extends Model
 {
@@ -32,16 +33,31 @@ class account extends Model
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $DBName;
+
+    /**
+     * @var roles
+     */
+    public $roles;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName' => 'AccountName',
         'accountStatus' => 'AccountStatus',
         'characterType' => 'CharacterType',
         'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'roles' => 'Roles',
     ];
 
     public function validate()
     {
+        if (null !== $this->roles) {
+            $this->roles->validate();
+        }
         parent::validate();
     }
 
@@ -66,6 +82,14 @@ class account extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
+        }
+
+        if (null !== $this->roles) {
+            $res['Roles'] = null !== $this->roles ? $this->roles->toArray($noStream) : $this->roles;
         }
 
         return $res;
@@ -97,6 +121,14 @@ class account extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
+        }
+
+        if (isset($map['Roles'])) {
+            $model->roles = roles::fromMap($map['Roles']);
         }
 
         return $model;

@@ -21,6 +21,11 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
     /**
      * @var string
      */
+    public $encryptionType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -40,6 +45,7 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'encryptionKey' => 'EncryptionKey',
+        'encryptionType' => 'EncryptionType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -60,6 +66,10 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
 
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
+        }
+
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
 
         if (null !== $this->ownerAccount) {
@@ -95,6 +105,10 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
 
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];
+        }
+
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
 
         if (isset($map['OwnerAccount'])) {

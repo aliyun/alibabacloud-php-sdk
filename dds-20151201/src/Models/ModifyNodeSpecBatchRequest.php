@@ -11,6 +11,11 @@ class ModifyNodeSpecBatchRequest extends Model
     /**
      * @var bool
      */
+    public $alignPrimaryZone;
+
+    /**
+     * @var bool
+     */
     public $autoPay;
 
     /**
@@ -93,6 +98,7 @@ class ModifyNodeSpecBatchRequest extends Model
      */
     public $targetZoneId;
     protected $_name = [
+        'alignPrimaryZone' => 'AlignPrimaryZone',
         'autoPay' => 'AutoPay',
         'businessInfo' => 'BusinessInfo',
         'clientToken' => 'ClientToken',
@@ -120,6 +126,10 @@ class ModifyNodeSpecBatchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alignPrimaryZone) {
+            $res['AlignPrimaryZone'] = $this->alignPrimaryZone;
+        }
+
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
@@ -199,6 +209,10 @@ class ModifyNodeSpecBatchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlignPrimaryZone'])) {
+            $model->alignPrimaryZone = $map['AlignPrimaryZone'];
+        }
+
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }

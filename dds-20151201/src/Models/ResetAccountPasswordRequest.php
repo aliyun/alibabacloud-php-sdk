@@ -31,6 +31,11 @@ class ResetAccountPasswordRequest extends Model
     /**
      * @var string
      */
+    public $DBName;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -52,6 +57,7 @@ class ResetAccountPasswordRequest extends Model
         'accountPassword' => 'AccountPassword',
         'characterType' => 'CharacterType',
         'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -80,6 +86,10 @@ class ResetAccountPasswordRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
         }
 
         if (null !== $this->ownerAccount) {
@@ -123,6 +133,10 @@ class ResetAccountPasswordRequest extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
         }
 
         if (isset($map['OwnerAccount'])) {

@@ -11,7 +11,17 @@ class ModifySecurityIpsRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var string
@@ -53,7 +63,9 @@ class ModifySecurityIpsRequest extends Model
      */
     public $securityIps;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'DBInstanceId' => 'DBInstanceId',
+        'dryRun' => 'DryRun',
         'modifyMode' => 'ModifyMode',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -72,8 +84,16 @@ class ModifySecurityIpsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->modifyMode) {
@@ -119,8 +139,16 @@ class ModifySecurityIpsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['ModifyMode'])) {

@@ -16,7 +16,17 @@ class DescribeAccountsRequest extends Model
     /**
      * @var string
      */
+    public $characterType;
+
+    /**
+     * @var string
+     */
     public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $DBName;
 
     /**
      * @var string
@@ -39,7 +49,9 @@ class DescribeAccountsRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'accountName' => 'AccountName',
+        'characterType' => 'CharacterType',
         'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -58,8 +70,16 @@ class DescribeAccountsRequest extends Model
             $res['AccountName'] = $this->accountName;
         }
 
+        if (null !== $this->characterType) {
+            $res['CharacterType'] = $this->characterType;
+        }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->DBName) {
+            $res['DBName'] = $this->DBName;
         }
 
         if (null !== $this->ownerAccount) {
@@ -93,8 +113,16 @@ class DescribeAccountsRequest extends Model
             $model->accountName = $map['AccountName'];
         }
 
+        if (isset($map['CharacterType'])) {
+            $model->characterType = $map['CharacterType'];
+        }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['DBName'])) {
+            $model->DBName = $map['DBName'];
         }
 
         if (isset($map['OwnerAccount'])) {

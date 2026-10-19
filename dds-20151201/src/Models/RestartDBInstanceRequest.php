@@ -34,6 +34,11 @@ class RestartDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @var bool
+     */
+    public $parallelRestartMongos;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -53,6 +58,7 @@ class RestartDBInstanceRequest extends Model
         'nodeType' => 'NodeType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'parallelRestartMongos' => 'ParallelRestartMongos',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'switchMode' => 'SwitchMode',
@@ -84,6 +90,10 @@ class RestartDBInstanceRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->parallelRestartMongos) {
+            $res['ParallelRestartMongos'] = $this->parallelRestartMongos;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -127,6 +137,10 @@ class RestartDBInstanceRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['ParallelRestartMongos'])) {
+            $model->parallelRestartMongos = $map['ParallelRestartMongos'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

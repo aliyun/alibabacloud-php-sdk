@@ -19,6 +19,26 @@ class shardAttribute extends Model
     public $currentKernelVersion;
 
     /**
+     * @var int
+     */
+    public $ebsBandwidth;
+
+    /**
+     * @var int
+     */
+    public $ebsIOPS;
+
+    /**
+     * @var int
+     */
+    public $ecsBandwidth;
+
+    /**
+     * @var int
+     */
+    public $ecsIOPS;
+
+    /**
      * @var string
      */
     public $lockMode;
@@ -80,6 +100,10 @@ class shardAttribute extends Model
     protected $_name = [
         'connectString' => 'ConnectString',
         'currentKernelVersion' => 'CurrentKernelVersion',
+        'ebsBandwidth' => 'EbsBandwidth',
+        'ebsIOPS' => 'EbsIOPS',
+        'ecsBandwidth' => 'EcsBandwidth',
+        'ecsIOPS' => 'EcsIOPS',
         'lockMode' => 'LockMode',
         'maxConnections' => 'MaxConnections',
         'maxDiskMbps' => 'MaxDiskMbps',
@@ -108,6 +132,22 @@ class shardAttribute extends Model
 
         if (null !== $this->currentKernelVersion) {
             $res['CurrentKernelVersion'] = $this->currentKernelVersion;
+        }
+
+        if (null !== $this->ebsBandwidth) {
+            $res['EbsBandwidth'] = $this->ebsBandwidth;
+        }
+
+        if (null !== $this->ebsIOPS) {
+            $res['EbsIOPS'] = $this->ebsIOPS;
+        }
+
+        if (null !== $this->ecsBandwidth) {
+            $res['EcsBandwidth'] = $this->ecsBandwidth;
+        }
+
+        if (null !== $this->ecsIOPS) {
+            $res['EcsIOPS'] = $this->ecsIOPS;
         }
 
         if (null !== $this->lockMode) {
@@ -175,6 +215,22 @@ class shardAttribute extends Model
 
         if (isset($map['CurrentKernelVersion'])) {
             $model->currentKernelVersion = $map['CurrentKernelVersion'];
+        }
+
+        if (isset($map['EbsBandwidth'])) {
+            $model->ebsBandwidth = $map['EbsBandwidth'];
+        }
+
+        if (isset($map['EbsIOPS'])) {
+            $model->ebsIOPS = $map['EbsIOPS'];
+        }
+
+        if (isset($map['EcsBandwidth'])) {
+            $model->ecsBandwidth = $map['EcsBandwidth'];
+        }
+
+        if (isset($map['EcsIOPS'])) {
+            $model->ecsIOPS = $map['EcsIOPS'];
         }
 
         if (isset($map['LockMode'])) {
