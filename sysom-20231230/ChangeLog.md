@@ -1,3 +1,7 @@
+2026-10-20 Version: 2.1.0
+- Support API GetCveHotfix.
+
+
 2026-10-15 Version: 2.0.2
 - Generated php 2023-12-30 for SysOM.
 

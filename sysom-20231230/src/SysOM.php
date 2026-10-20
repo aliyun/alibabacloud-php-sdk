@@ -59,6 +59,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\GetConfigByNameRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetConfigByNameResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetCopilotHistoryRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetCopilotHistoryResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetCveHotfixRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetCveHotfixResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetDiagnosisResultRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetDiagnosisResultResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetGpuClusterArgsOptionsRequest;
@@ -2269,6 +2271,77 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->getCopilotHistoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the hotfixes and compatible packages for a CVE.
+     *
+     * @remarks
+     * Queries published hotfixes in batches by CVE ID. You can filter the results by full kernel version.
+     *
+     * @param request - GetCveHotfixRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCveHotfixResponse
+     *
+     * @param GetCveHotfixRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetCveHotfixResponse
+     */
+    public function getCveHotfixWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cveIds) {
+            @$body['cveIds'] = $request->cveIds;
+        }
+
+        if (null !== $request->kernelVersions) {
+            @$body['kernelVersions'] = $request->kernelVersions;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCveHotfix',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/hotfixManager/hotfixes/cve',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCveHotfixResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the hotfixes and compatible packages for a CVE.
+     *
+     * @remarks
+     * Queries published hotfixes in batches by CVE ID. You can filter the results by full kernel version.
+     *
+     * @param request - GetCveHotfixRequest
+     *
+     * @returns GetCveHotfixResponse
+     *
+     * @param GetCveHotfixRequest $request
+     *
+     * @return GetCveHotfixResponse
+     */
+    public function getCveHotfix($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCveHotfixWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5035,7 +5108,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of managed and unmanaged instances along with their instance information.
+     * Queries a list of managed and unmanaged instances along with their details.
      *
      * @param request - ListAllInstancesRequest
      * @param headers - map
@@ -5109,7 +5182,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of managed and unmanaged instances along with their instance information.
+     * Queries a list of managed and unmanaged instances along with their details.
      *
      * @param request - ListAllInstancesRequest
      *
