@@ -162,6 +162,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSliderCaptchaPageRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSliderCaptchaPageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSliderCaptchaPageShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSlrRoleForRealtimeLogResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateTransportLayerApplicationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateTransportLayerApplicationResponse;
@@ -285,6 +288,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteOriginClientCertificateReque
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteOriginClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSliderCaptchaPageRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSliderCaptchaPageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteTransportLayerApplicationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteTransportLayerApplicationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUrlObservationRequest;
@@ -567,6 +572,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteTrafficSequenceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteTrafficSequenceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteWafSettingsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteWafSettingsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSliderCaptchaPageRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSliderCaptchaPageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetTieredCacheRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetTieredCacheResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetTransportLayerApplicationRequest;
@@ -729,6 +736,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteRoutesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSliderCaptchaPagesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSliderCaptchaPagesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSliderCaptchaPagesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTraceTasksRequest;
@@ -988,6 +998,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSitePauseRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSitePauseResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSliderCaptchaPageRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSliderCaptchaPageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSliderCaptchaPageShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTieredCacheRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTieredCacheResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateTransportLayerApplicationRequest;
@@ -3434,7 +3447,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a user-level custom scene policy. After you associate the policy with one or more sites, the policy applies to those sites.
+     * Creates a user-level scenario-specific policy and executes the corresponding policy after the policy is associated with sites.
      *
      * @param Request - CreateCustomScenePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3493,7 +3506,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a user-level custom scene policy. After you associate the policy with one or more sites, the policy applies to those sites.
+     * Creates a user-level scenario-specific policy and executes the corresponding policy after the policy is associated with sites.
      *
      * @param Request - CreateCustomScenePolicyRequest
      *
@@ -5887,12 +5900,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a percentage-based canary deployment for a Routine code version in a specified environment.
+     * Deploys code versions of an Edge Routine to a specified environment by percentage for a canary release.
      *
      * @remarks
-     * ## Usage notes
-     * - When creating a Routine code version deployment, the `Env` parameter only supports `staging` for the staging environment or `production` for the production environment.
-     * - The `CodeVersions` parameter supports a maximum of two versions for canary release, and the total percentage of these versions must equal 100%.
+     * ## Request description
+     * - When you create an Edge Routine code version deployment, the `Env` parameter only supports the test environment `staging` or the production environment `production`.
+     * - The `CodeVersions` parameter supports publishing up to two versions in grayscale, and the sum of the percentages for these versions must be equal to 100%.
      *
      * @param tmpReq - CreateRoutineCodeDeploymentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5949,12 +5962,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a percentage-based canary deployment for a Routine code version in a specified environment.
+     * Deploys code versions of an Edge Routine to a specified environment by percentage for a canary release.
      *
      * @remarks
-     * ## Usage notes
-     * - When creating a Routine code version deployment, the `Env` parameter only supports `staging` for the staging environment or `production` for the production environment.
-     * - The `CodeVersions` parameter supports a maximum of two versions for canary release, and the total percentage of these versions must equal 100%.
+     * ## Request description
+     * - When you create an Edge Routine code version deployment, the `Env` parameter only supports the test environment `staging` or the production environment `production`.
+     * - The `CodeVersions` parameter supports publishing up to two versions in grayscale, and the sum of the percentages for these versions must be equal to 100%.
      *
      * @param Request - CreateRoutineCodeDeploymentRequest
      *
@@ -6278,7 +6291,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Adds a scheduled prefetch task.
+     * Creates a scheduled prefetch task.
      *
      * @param Request - CreateScheduledPreloadJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6333,7 +6346,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Adds a scheduled prefetch task.
+     * Creates a scheduled prefetch task.
      *
      * @param Request - CreateScheduledPreloadJobRequest
      *
@@ -6354,9 +6367,9 @@ class ESA extends OpenApiClient
      * Creates a site.
      *
      * @remarks
-     * - Before creating a site, you must have an active plan instance.
-     * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
-     * - Each user can invoke this operation up to 100 times per hour.
+     * - Before you create a site, you must have an available plan instance.
+     * - If the acceleration region is set to the Chinese mainland or global, the domain name of the site must have an ICP filing.
+     * - Each user can call this API operation up to 100 times per hour.
      *
      * @param Request - CreateSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6418,9 +6431,9 @@ class ESA extends OpenApiClient
      * Creates a site.
      *
      * @remarks
-     * - Before creating a site, you must have an active plan instance.
-     * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
-     * - Each user can invoke this operation up to 100 times per hour.
+     * - Before you create a site, you must have an available plan instance.
+     * - If the acceleration region is set to the Chinese mainland or global, the domain name of the site must have an ICP filing.
+     * - Each user can call this API operation up to 100 times per hour.
      *
      * @param Request - CreateSiteRequest
      *
@@ -6661,6 +6674,89 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSiteDeliveryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a slider CAPTCHA page.
+     *
+     * @param tmpReq - CreateSliderCaptchaPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSliderCaptchaPageResponse
+     *
+     * @param CreateSliderCaptchaPageRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateSliderCaptchaPageResponse
+     */
+    public function createSliderCaptchaPageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateSliderCaptchaPageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configs) {
+            $request->configsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configs, 'Configs', 'json');
+        }
+
+        if (null !== $tmpReq->siteIds) {
+            $request->siteIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->siteIds, 'SiteIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->configsShrink) {
+            @$body['Configs'] = $request->configsShrink;
+        }
+
+        if (null !== $request->customContent) {
+            @$body['CustomContent'] = $request->customContent;
+        }
+
+        if (null !== $request->forceLanguage) {
+            @$body['ForceLanguage'] = $request->forceLanguage;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->siteIdsShrink) {
+            @$body['SiteIds'] = $request->siteIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSliderCaptchaPage',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSliderCaptchaPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a slider CAPTCHA page.
+     *
+     * @param Request - CreateSliderCaptchaPageRequest
+     *
+     * @returns CreateSliderCaptchaPageResponse
+     *
+     * @param CreateSliderCaptchaPageRequest $request
+     *
+     * @return CreateSliderCaptchaPageResponse
+     */
+    public function createSliderCaptchaPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSliderCaptchaPageWithOptions($request, $runtime);
     }
 
     /**
@@ -7390,7 +7486,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a waiting room for a website.
+     * Creates a waiting room for a site.
      *
      * @param tmpReq - CreateWaitingRoomRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7499,7 +7595,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a waiting room for a website.
+     * Creates a waiting room for a site.
      *
      * @param Request - CreateWaitingRoomRequest
      *
@@ -7517,10 +7613,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a waiting room event. You can specify the queuing method and type.
+     * Creates a waiting room event and allows you to configure the queuing method and type.
      *
      * @remarks
-     * Your site plan must be Advanced or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
+     * To use this feature, the site plan must be the Premium Edition or higher. The number of configurations for this feature cannot exceed the quota allowed by your site plan.
      *
      * @param Request - CreateWaitingRoomEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7635,10 +7731,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a waiting room event. You can specify the queuing method and type.
+     * Creates a waiting room event and allows you to configure the queuing method and type.
      *
      * @remarks
-     * Your site plan must be Advanced or higher to use this feature. The number of configurations for this feature cannot exceed the quota included in your site plan.
+     * To use this feature, the site plan must be the Premium Edition or higher. The number of configurations for this feature cannot exceed the quota allowed by your site plan.
      *
      * @param Request - CreateWaitingRoomEventRequest
      *
@@ -7659,7 +7755,7 @@ class ESA extends OpenApiClient
      * Creates a waiting room bypass rule.
      *
      * @remarks
-     * Your site plan must be Enterprise Edition or higher to use this feature, and the site plan must support this feature.
+     * This feature is available only if your site is on the Enterprise plan and the plan supports this feature.
      *
      * @param Request - CreateWaitingRoomRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7717,7 +7813,7 @@ class ESA extends OpenApiClient
      * Creates a waiting room bypass rule.
      *
      * @remarks
-     * Your site plan must be Enterprise Edition or higher to use this feature, and the site plan must support this feature.
+     * This feature is available only if your site is on the Enterprise plan and the plan supports this feature.
      *
      * @param Request - CreateWaitingRoomRuleRequest
      *
@@ -10615,6 +10711,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Deletes the slider CAPTCHA page.
+     *
+     * @param Request - DeleteSliderCaptchaPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSliderCaptchaPageResponse
+     *
+     * @param DeleteSliderCaptchaPageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteSliderCaptchaPageResponse
+     */
+    public function deleteSliderCaptchaPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSliderCaptchaPage',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSliderCaptchaPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the slider CAPTCHA page.
+     *
+     * @param Request - DeleteSliderCaptchaPageRequest
+     *
+     * @returns DeleteSliderCaptchaPageResponse
+     *
+     * @param DeleteSliderCaptchaPageRequest $request
+     *
+     * @return DeleteSliderCaptchaPageResponse
+     */
+    public function deleteSliderCaptchaPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSliderCaptchaPageWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete Transport Layer Application.
      *
      * @param Request - DeleteTransportLayerApplicationRequest
@@ -11501,7 +11654,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+     * Queries the region information supported by the rule engine, including countries, regions, and ISPs.
      *
      * @param Request - DescribeConditionIPBInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11536,7 +11689,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+     * Queries the region information supported by the rule engine, including countries, regions, and ISPs.
      *
      * @param Request - DescribeConditionIPBInfoRequest
      *
@@ -11554,7 +11707,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the configurations of custom scene policies.
+     * Queries the configurations of scenario-specific policies.
      *
      * @param Request - DescribeCustomScenePoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11601,7 +11754,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the configurations of custom scene policies.
+     * Queries the configurations of scenario-specific policies.
      *
      * @param Request - DescribeCustomScenePoliciesRequest
      *
@@ -11619,7 +11772,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Gets a list of DDoS attack events.
+     * Queries a list of DDoS attack events.
      *
      * @param Request - DescribeDDoSAllEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11678,7 +11831,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Gets a list of DDoS attack events.
+     * Queries a list of DDoS attack events.
      *
      * @param Request - DescribeDDoSAllEventListRequest
      *
@@ -11867,7 +12020,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * DDoS Analysis Layer 7 QPS Trend Chart API.
+     * Invokes the DescribeDdosL7QpsList operation to query the DDoS application-layer time dimension aggregation statistics information.
      *
      * @param Request - DescribeDDoSL7QpsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11922,7 +12075,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * DDoS Analysis Layer 7 QPS Trend Chart API.
+     * Invokes the DescribeDdosL7QpsList operation to query the DDoS application-layer time dimension aggregation statistics information.
      *
      * @param Request - DescribeDDoSL7QpsListRequest
      *
@@ -12278,7 +12431,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries HTTP DDoS attack protection rules.
+     * Queries HTTP DDoS attack prevention rules.
      *
      * @param Request - DescribeHttpDDoSAttackRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12325,7 +12478,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries HTTP DDoS attack protection rules.
+     * Queries HTTP DDoS attack prevention rules.
      *
      * @param Request - DescribeHttpDDoSAttackRulesRequest
      *
@@ -12343,7 +12496,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Describes the accurate access control rules created by Deep Learning and Protection.
+     * Queries the accurate access control rules delivered by deep learning and mitigation.
      *
      * @param Request - DescribeHttpDDoSIntelligentAclRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12394,7 +12547,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Describes the accurate access control rules created by Deep Learning and Protection.
+     * Queries the accurate access control rules delivered by deep learning and mitigation.
      *
      * @param Request - DescribeHttpDDoSIntelligentAclRulesRequest
      *
@@ -12412,7 +12565,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the frequency control rules generated by Deep Learning and Protection.
+     * Queries the frequency control rules delivered by deep learning and protection.
      *
      * @param Request - DescribeHttpDDoSIntelligentRateLimitRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12463,7 +12616,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the frequency control rules generated by Deep Learning and Protection.
+     * Queries the frequency control rules delivered by deep learning and protection.
      *
      * @param Request - DescribeHttpDDoSIntelligentRateLimitRulesRequest
      *
@@ -12524,7 +12677,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the details of prefetch tasks. Supports paged query by time, task status, and prefetch URL.
+     * Queries the details of prefetch tasks and supports paginated queries by time, task status, and prefetch URL.
      *
      * @param Request - DescribePreloadTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12559,7 +12712,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the details of prefetch tasks. Supports paged query by time, task status, and prefetch URL.
+     * Queries the details of prefetch tasks and supports paginated queries by time, task status, and prefetch URL.
      *
      * @param Request - DescribePreloadTasksRequest
      *
@@ -18960,6 +19113,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Retrieves the slider CAPTCHA page.
+     *
+     * @param Request - GetSliderCaptchaPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSliderCaptchaPageResponse
+     *
+     * @param GetSliderCaptchaPageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSliderCaptchaPageResponse
+     */
+    public function getSliderCaptchaPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSliderCaptchaPage',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSliderCaptchaPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the slider CAPTCHA page.
+     *
+     * @param Request - GetSliderCaptchaPageRequest
+     *
+     * @returns GetSliderCaptchaPageResponse
+     *
+     * @param GetSliderCaptchaPageRequest $request
+     *
+     * @return GetSliderCaptchaPageResponse
+     */
+    public function getSliderCaptchaPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSliderCaptchaPageWithOptions($request, $runtime);
+    }
+
+    /**
      * Query Multi-level Cache Configuration for Site.
      *
      * @param Request - GetTieredCacheRequest
@@ -19239,10 +19449,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the maximum value of a numeric quota across all plans under a user account.
+     * Queries the maximum value of a numeric quota across all plans under a user.
      *
      * @remarks
-     * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+     * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType) of interest. The system returns the remaining quota for the specified business type to help you understand the current quota usage.
      *
      * @param Request - GetUserMaxPlanQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19281,10 +19491,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the maximum value of a numeric quota across all plans under a user account.
+     * Queries the maximum value of a numeric quota across all plans under a user.
      *
      * @remarks
-     * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+     * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType) of interest. The system returns the remaining quota for the specified business type to help you understand the current quota usage.
      *
      * @param Request - GetUserMaxPlanQuotaRequest
      *
@@ -19833,7 +20043,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of asynchronous tasks. You can use this operation to query the status of asynchronous tasks triggered by users, such as free certificate applications.
+     * Queries a list of asynchronous tasks. You can use this operation to query the status of user-triggered asynchronous tasks, such as free certificate applications.
      *
      * @param Request - ListAsyncTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19868,7 +20078,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of asynchronous tasks. You can use this operation to query the status of asynchronous tasks triggered by users, such as free certificate applications.
+     * Queries a list of asynchronous tasks. You can use this operation to query the status of user-triggered asynchronous tasks, such as free certificate applications.
      *
      * @param Request - ListAsyncTasksRequest
      *
@@ -19886,7 +20096,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of Bot security instances.
+     * Queries bot security instances.
      *
      * @param Request - ListBotInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19945,7 +20155,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of Bot security instances.
+     * Queries bot security instances.
      *
      * @param Request - ListBotInstancesRequest
      *
@@ -19963,7 +20173,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of cache reserve instances for the current user.
+     * Queries the cache reservation instances of the current user.
      *
      * @param Request - ListCacheReserveInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19998,7 +20208,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of cache reserve instances for the current user.
+     * Queries the cache reservation instances of the current user.
      *
      * @param Request - ListCacheReserveInstancesRequest
      *
@@ -20138,7 +20348,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the certificate list for a specific site.
+     * Queries a list of certificates for a specific site.
      *
      * @param Request - ListCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20197,7 +20407,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the certificate list for a specific site.
+     * Queries a list of certificates for a specific site.
      *
      * @param Request - ListCertificatesRequest
      *
@@ -20658,7 +20868,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of additionally purchased DDoS security instances.
+     * Queries the list of add-on DDoS security instances.
      *
      * @param Request - ListDDoSInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20721,7 +20931,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of additionally purchased DDoS security instances.
+     * Queries the list of add-on DDoS security instances.
      *
      * @param Request - ListDDoSInstancesRequest
      *
@@ -21193,7 +21403,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of environments for a site.
+     * Queries the list of site environments.
      *
      * @param Request - ListEnvironmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21228,7 +21438,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of environments for a site.
+     * Queries the list of site environments.
      *
      * @param Request - ListEnvironmentsRequest
      *
@@ -22480,7 +22690,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
+     * Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
      *
      * @param tmpReq - ListPagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22533,7 +22743,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
+     * Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
      *
      * @param Request - ListPagesRequest
      *
@@ -22551,10 +22761,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of pay-as-you-go plan instances.
+     * Queries pay-as-you-go plan instances.
      *
      * @remarks
-     * This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
+     * This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
      *
      * @param Request - ListPostpaidRatePlanInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22589,10 +22799,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of pay-as-you-go plan instances.
+     * Queries pay-as-you-go plan instances.
      *
      * @remarks
-     * This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
+     * This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
      *
      * @param Request - ListPostpaidRatePlanInstancesRequest
      *
@@ -22941,7 +23151,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of ER build tasks.
+     * Queries the list of Edge Routine (ER) build tasks.
      *
      * @param Request - ListRoutineBuildsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23000,7 +23210,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of ER build tasks.
+     * Queries the list of Edge Routine (ER) build tasks.
      *
      * @param Request - ListRoutineBuildsRequest
      *
@@ -23516,7 +23726,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+     * Queries the feature configurations of a site. You can query all feature configurations of a site or specify the FunctionName parameter to query a specific feature configuration.
      *
      * @param Request - ListSiteFunctionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23551,7 +23761,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+     * Queries the feature configurations of a site. You can query all feature configurations of a site or specify the FunctionName parameter to query a specific feature configuration.
      *
      * @param Request - ListSiteFunctionsRequest
      *
@@ -23699,7 +23909,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of sites under the current user, including site names, statuses, and configurations.
+     * Queries a list of sites for the current user, including information such as the site name, status, and configuration.
      *
      * @param tmpReq - ListSitesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23740,7 +23950,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of sites under the current user, including site names, statuses, and configurations.
+     * Queries a list of sites for the current user, including information such as the site name, status, and configuration.
      *
      * @param Request - ListSitesRequest
      *
@@ -23755,6 +23965,77 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSitesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists slider CAPTCHA pages.
+     *
+     * @param tmpReq - ListSliderCaptchaPagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSliderCaptchaPagesResponse
+     *
+     * @param ListSliderCaptchaPagesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListSliderCaptchaPagesResponse
+     */
+    public function listSliderCaptchaPagesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListSliderCaptchaPagesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queryArgs) {
+            $request->queryArgsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryArgsShrink) {
+            @$query['QueryArgs'] = $request->queryArgsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSliderCaptchaPages',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSliderCaptchaPagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists slider CAPTCHA pages.
+     *
+     * @param Request - ListSliderCaptchaPagesRequest
+     *
+     * @returns ListSliderCaptchaPagesResponse
+     *
+     * @param ListSliderCaptchaPagesRequest $request
+     *
+     * @return ListSliderCaptchaPagesResponse
+     */
+    public function listSliderCaptchaPages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSliderCaptchaPagesWithOptions($request, $runtime);
     }
 
     /**
@@ -23928,7 +24209,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query the list of Layer 4 applications for a site.
+     * Queries the Layer 4 applications associated with a site.
      *
      * @param Request - ListTransportLayerApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23963,7 +24244,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query the list of Layer 4 applications for a site.
+     * Queries the Layer 4 applications associated with a site.
      *
      * @param Request - ListTransportLayerApplicationsRequest
      *
@@ -24156,7 +24437,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the plan instances purchased by the user and their details.
+     * Queries the details of the plan instances purchased by the user.
      *
      * @param Request - ListUserRatePlanInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24191,7 +24472,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the plan instances purchased by the user and their details.
+     * Queries the details of the plan instances purchased by the user.
      *
      * @param Request - ListUserRatePlanInstancesRequest
      *
@@ -24375,7 +24656,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the version list of a site.
+     * Queries the list of versions for a site.
      *
      * @param Request - ListVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24410,7 +24691,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the version list of a site.
+     * Queries the list of versions for a site.
      *
      * @param Request - ListVersionsRequest
      *
@@ -26586,8 +26867,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Resets the progress of a scheduled prefetch task and restarts the prefetch from the beginning.
-     * Before calling this operation, you must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation for resetting.
+     * Resets the progress of a scheduled prefetch task to restart prefetching from the beginning. Prerequisite: You must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation to reset the task.
      *
      * @param Request - ResetScheduledPreloadJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26626,8 +26906,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Resets the progress of a scheduled prefetch task and restarts the prefetch from the beginning.
-     * Before calling this operation, you must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation for resetting.
+     * Resets the progress of a scheduled prefetch task to restart prefetching from the beginning. Prerequisite: You must first create a scheduled prefetch task by calling CreateScheduledPreloadJob to obtain a valid task ID, and then pass the ID to this operation to reset the task.
      *
      * @param Request - ResetScheduledPreloadJobRequest
      *
@@ -26834,7 +27113,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Configures the automatic frequency control threshold for a site.
+     * Sets the intelligent rate limiting threshold for a site.
      *
      * @param Request - SetAutomaticFrequencyControlConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26889,7 +27168,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Configures the automatic frequency control threshold for a site.
+     * Sets the intelligent rate limiting threshold for a site.
      *
      * @param Request - SetAutomaticFrequencyControlConfigRequest
      *
@@ -27209,7 +27488,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * This operation configures the intelligent HTTP DDoS protection settings for a site.
+     * Configures HTTP DDoS deep learning and protection settings.
      *
      * @param Request - SetHttpDDoSAttackIntelligentProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27256,7 +27535,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * This operation configures the intelligent HTTP DDoS protection settings for a site.
+     * Configures HTTP DDoS deep learning and protection settings.
      *
      * @param Request - SetHttpDDoSAttackIntelligentProtectionRequest
      *
@@ -27274,7 +27553,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Configures HTTP DDoS attack protection for a website.
+     * Configures the mode of the HTTP DDoS Attack prevention mitigation policies.
      *
      * @param Request - SetHttpDDoSAttackProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27317,7 +27596,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Configures HTTP DDoS attack protection for a website.
+     * Configures the mode of the HTTP DDoS Attack prevention mitigation policies.
      *
      * @param Request - SetHttpDDoSAttackProtectionRequest
      *
@@ -27335,7 +27614,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Set the Protection Action for Specified HTTP DDoS Attack Rules.
+     * Modifies the protection action Settings for a specified HTTP DDoS attack prevention rule.
      *
      * @param Request - SetHttpDDoSAttackRuleActionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27382,7 +27661,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Set the Protection Action for Specified HTTP DDoS Attack Rules.
+     * Modifies the protection action Settings for a specified HTTP DDoS attack prevention rule.
      *
      * @param Request - SetHttpDDoSAttackRuleActionRequest
      *
@@ -27400,7 +27679,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Set the Protection Status of Specified HTTP DDoS Attack Rules.
+     * Configures the settings for the protection status of specified rules for HTTP DDoS attack prevention.
      *
      * @param Request - SetHttpDDoSAttackRuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27447,7 +27726,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Set the Protection Status of Specified HTTP DDoS Attack Rules.
+     * Configures the settings for the protection status of specified rules for HTTP DDoS attack prevention.
      *
      * @param Request - SetHttpDDoSAttackRuleStatusRequest
      *
@@ -27627,15 +27906,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Sets environment variables for a Routine.
+     * Sets the environment variables for a routine.
      *
      * @remarks
-     * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
-     *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
-     *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
-     *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
-     *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+     * - If you do not specify StartTime and EndTime, this operation returns data for the last 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - The time granularity varies based on the time span between StartTime and EndTime:
+     *   * If the time span is 3 hours or less, data is returned at 1-minute granularity.
+     *   * If the time span is greater than 3 hours and less than or equal to 1 day, data is returned at 5-minute granularity.
+     *   * If the time span is greater than 1 day and less than or equal to 10 days, data is returned at 1-hour granularity.
+     *   * If the time span is greater than 10 days and less than or equal to 31 days, data is returned at 1-day granularity.
      *
      * @param tmpReq - SetRoutineEnvironmentVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27688,15 +27967,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Sets environment variables for a Routine.
+     * Sets the environment variables for a routine.
      *
      * @remarks
-     * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - The time granularity of returned data varies based on the time range specified by StartTime and EndTime.
-     *   * If the time range is less than or equal to 3 hours, data is returned at a 1-minute granularity.
-     *   * If the time range is greater than 3 hours and less than or equal to 1 day, data is returned at a 5-minute granularity.
-     *   * If the time range is greater than 1 day and less than or equal to 10 days, data is returned at an hourly granularity.
-     *   * If the time range is greater than 10 days and less than or equal to 31 days, data is returned at a daily granularity.
+     * - If you do not specify StartTime and EndTime, this operation returns data for the last 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - The time granularity varies based on the time span between StartTime and EndTime:
+     *   * If the time span is 3 hours or less, data is returned at 1-minute granularity.
+     *   * If the time span is greater than 3 hours and less than or equal to 1 day, data is returned at 5-minute granularity.
+     *   * If the time span is greater than 1 day and less than or equal to 10 days, data is returned at 1-hour granularity.
+     *   * If the time span is greater than 10 days and less than or equal to 31 days, data is returned at 1-day granularity.
      *
      * @param Request - SetRoutineEnvironmentVariablesRequest
      *
@@ -28689,7 +28968,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the CNAME flattening configuration of a site.
+     * Modifies the CNAME flattening configuration for a site.
      *
      * @param Request - UpdateCnameFlatteningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28732,7 +29011,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the CNAME flattening configuration of a site.
+     * Modifies the CNAME flattening configuration for a site.
      *
      * @param Request - UpdateCnameFlatteningRequest
      *
@@ -29147,7 +29426,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates a specified custom scene policy.
+     * Modifies the configuration of the specified scenario-specific policy.
      *
      * @param Request - UpdateCustomScenePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29210,7 +29489,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates a specified custom scene policy.
+     * Modifies the configuration of the specified scenario-specific policy.
      *
      * @param Request - UpdateCustomScenePolicyRequest
      *
@@ -32010,7 +32289,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the search engine crawler allowlisting configuration for a site.
+     * Modifies the configuration for allowing search engine crawlers on a site.
      *
      * @param Request - UpdateSeoBypassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32053,7 +32332,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the search engine crawler allowlisting configuration for a site.
+     * Modifies the configuration for allowing search engine crawlers on a site.
      *
      * @param Request - UpdateSeoBypassRequest
      *
@@ -32142,7 +32421,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
+     * Modifies the acceleration region for a single site. Updates the acceleration configuration of the site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
      *
      * @param Request - UpdateSiteCoverageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32185,7 +32464,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
+     * Modifies the acceleration region for a single site. Updates the acceleration configuration of the site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
      *
      * @param Request - UpdateSiteCoverageRequest
      *
@@ -32481,7 +32760,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the exclusive site name configuration. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
+     * Modifies the exclusive configuration of a site name. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
      *
      * @param Request - UpdateSiteNameExclusiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32524,7 +32803,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the exclusive site name configuration. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
+     * Modifies the exclusive configuration of a site name. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
      *
      * @param Request - UpdateSiteNameExclusiveRequest
      *
@@ -32676,7 +32955,94 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the multi-level cache configuration of a site.
+     * Updates a slider CAPTCHA page.
+     *
+     * @param tmpReq - UpdateSliderCaptchaPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSliderCaptchaPageResponse
+     *
+     * @param UpdateSliderCaptchaPageRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateSliderCaptchaPageResponse
+     */
+    public function updateSliderCaptchaPageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateSliderCaptchaPageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->configs) {
+            $request->configsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->configs, 'Configs', 'json');
+        }
+
+        if (null !== $tmpReq->siteIds) {
+            $request->siteIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->siteIds, 'SiteIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->configsShrink) {
+            @$body['Configs'] = $request->configsShrink;
+        }
+
+        if (null !== $request->customContent) {
+            @$body['CustomContent'] = $request->customContent;
+        }
+
+        if (null !== $request->forceLanguage) {
+            @$body['ForceLanguage'] = $request->forceLanguage;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->siteIdsShrink) {
+            @$body['SiteIds'] = $request->siteIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSliderCaptchaPage',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSliderCaptchaPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a slider CAPTCHA page.
+     *
+     * @param Request - UpdateSliderCaptchaPageRequest
+     *
+     * @returns UpdateSliderCaptchaPageResponse
+     *
+     * @param UpdateSliderCaptchaPageRequest $request
+     *
+     * @return UpdateSliderCaptchaPageResponse
+     */
+    public function updateSliderCaptchaPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSliderCaptchaPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the multi-tier cache configuration for a site.
      *
      * @param Request - UpdateTieredCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32719,7 +33085,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the multi-level cache configuration of a site.
+     * Modifies the multi-tier cache configuration for a site.
      *
      * @param Request - UpdateTieredCacheRequest
      *
@@ -33611,7 +33977,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a waiting room event.
+     * Updates the configurations of a waiting room event.
      *
      * @param Request - UpdateWaitingRoomEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33726,7 +34092,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a waiting room event.
+     * Updates the configurations of a waiting room event.
      *
      * @param Request - UpdateWaitingRoomEventRequest
      *
@@ -33747,7 +34113,7 @@ class ESA extends OpenApiClient
      * Updates the waiting room bypass rule configuration for a specified site.
      *
      * @remarks
-     * Modifies the rule settings of a specific waiting room for a site, including the rule name, enabled status, and rule content.
+     * You can call this operation to update the rule settings of a specific waiting room on a site, including the rule name, status, and rule content.
      *
      * @param Request - UpdateWaitingRoomRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33805,7 +34171,7 @@ class ESA extends OpenApiClient
      * Updates the waiting room bypass rule configuration for a specified site.
      *
      * @remarks
-     * Modifies the rule settings of a specific waiting room for a site, including the rule name, enabled status, and rule content.
+     * You can call this operation to update the rule settings of a specific waiting room on a site, including the rule name, status, and rule content.
      *
      * @param Request - UpdateWaitingRoomRuleRequest
      *
