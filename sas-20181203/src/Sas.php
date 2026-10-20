@@ -129,6 +129,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCycleTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateCycleTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateDynamicDictRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateDynamicDictResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDeepAnalyzeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDeepAnalyzeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlRequest;
@@ -1248,6 +1250,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRiskUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRiskUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessTaskShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetCleanConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetInfoPublishRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetInfoPublishResponse;
@@ -2401,7 +2404,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds multi-cloud asset configuration information.
+     * Creates multi-cloud asset configuration information.
      *
      * @param request - AddCloudVendorAccountAKRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2488,7 +2491,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds multi-cloud asset configuration information.
+     * Creates multi-cloud asset configuration information.
      *
      * @param request - AddCloudVendorAccountAKRequest
      *
@@ -3142,7 +3145,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds a self-managed image repository.
+     * Connects to a self-managed image registry.
+     *
+     * @remarks
+     * When you call this operation, the service connects to and verifies the target image registry. Make sure that the image registry address is accessible and that the username and password are valid.
      *
      * @param request - AddPrivateRegistryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3229,7 +3235,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds a self-managed image repository.
+     * Connects to a self-managed image registry.
+     *
+     * @remarks
+     * When you call this operation, the service connects to and verifies the target image registry. Make sure that the image registry address is accessible and that the username and password are valid.
      *
      * @param request - AddPrivateRegistryRequest
      *
@@ -3645,7 +3654,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds processes for intelligent behavior analytics.
+     * Adds a process to behavior analytics.
      *
      * @param request - AddUnknownThreatDetectProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3696,7 +3705,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds processes for intelligent behavior analytics.
+     * Adds a process to behavior analytics.
      *
      * @param request - AddUnknownThreatDetectProcessRequest
      *
@@ -6467,6 +6476,189 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * Initiates deep analysis for a malicious file.
+     *
+     * @remarks
+     * Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
+     * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+     * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+     * - accepted: The request is accepted.
+     * - authorized: The purchase verification for the source is passed.
+     * - alertResolved: The file hash is parsed from the alert or input parameters.
+     * - fileReady: The file download link is ready.
+     * - dispatched: The file is delivered to the detection engine, including the requestId.
+     * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
+     * - done: The current analysis process is completed.
+     * - error: A processing exception occurs, including the error code and message.
+     * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+     *
+     * @param request - CreateFileDeepAnalyzeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFileDeepAnalyzeResponse
+     *
+     * @param CreateFileDeepAnalyzeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateFileDeepAnalyzeResponse
+     */
+    public function createFileDeepAnalyzeWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->context) {
+            @$query['Context'] = $request->context;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->hash) {
+            @$query['Hash'] = $request->hash;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFileDeepAnalyze',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield CreateFileDeepAnalyzeResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Initiates deep analysis for a malicious file.
+     *
+     * @remarks
+     * Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
+     * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+     * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+     * - accepted: The request is accepted.
+     * - authorized: The purchase verification for the source is passed.
+     * - alertResolved: The file hash is parsed from the alert or input parameters.
+     * - fileReady: The file download link is ready.
+     * - dispatched: The file is delivered to the detection engine, including the requestId.
+     * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
+     * - done: The current analysis process is completed.
+     * - error: A processing exception occurs, including the error code and message.
+     * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+     *
+     * @param request - CreateFileDeepAnalyzeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFileDeepAnalyzeResponse
+     *
+     * @param CreateFileDeepAnalyzeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateFileDeepAnalyzeResponse
+     */
+    public function createFileDeepAnalyzeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->context) {
+            @$query['Context'] = $request->context;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->hash) {
+            @$query['Hash'] = $request->hash;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFileDeepAnalyze',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFileDeepAnalyzeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates deep analysis for a malicious file.
+     *
+     * @remarks
+     * Initiates deep analysis for a specified file and streams the progress of each analysis stage in real time by using Server-Sent Events (SSE).
+     * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+     * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing stages. Valid values for the event name (event):
+     * - accepted: The request is accepted.
+     * - authorized: The purchase verification for the source is passed.
+     * - alertResolved: The file hash is parsed from the alert or input parameters.
+     * - fileReady: The file download link is ready.
+     * - dispatched: The file is delivered to the detection engine, including the requestId.
+     * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
+     * - done: The current analysis process is completed.
+     * - error: A processing exception occurs, including the error code and message.
+     * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+     *
+     * @param request - CreateFileDeepAnalyzeRequest
+     *
+     * @returns CreateFileDeepAnalyzeResponse
+     *
+     * @param CreateFileDeepAnalyzeRequest $request
+     *
+     * @return CreateFileDeepAnalyzeResponse
+     */
+    public function createFileDeepAnalyze($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFileDeepAnalyzeWithOptions($request, $runtime);
+    }
+
+    /**
      * Pushes a file to the cloud for detection.
      *
      * @remarks
@@ -8790,7 +8982,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Starts a free trial of Security Center.
+     * Starts a Security Center trial.
+     *
+     * @remarks
+     * Starts a Security Center trial. Before calling this operation, call GetCanTrySas to check trial eligibility and retrieve the TryVersion and TryType values. You can start a trial only when TryType is not 0.
      *
      * @param tmpReq - CreateSasTrialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8861,7 +9056,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Starts a free trial of Security Center.
+     * Starts a Security Center trial.
+     *
+     * @remarks
+     * Starts a Security Center trial. Before calling this operation, call GetCanTrySas to check trial eligibility and retrieve the TryVersion and TryType values. You can start a trial only when TryType is not 0.
      *
      * @param request - CreateSasTrialRequest
      *
@@ -9100,10 +9298,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a task under My Policies in the task center.
+     * Creates a task under My Policies in Task Center.
      *
      * @remarks
-     * Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+     * Only the Enterprise and Ultimate editions of Security Center support this API operation.
      *
      * @param request - CreateSoarStrategyTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9158,10 +9356,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a task under My Policies in the task center.
+     * Creates a task under My Policies in Task Center.
      *
      * @remarks
-     * Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
+     * Only the Enterprise and Ultimate editions of Security Center support this API operation.
      *
      * @param request - CreateSoarStrategyTaskRequest
      *
@@ -16738,10 +16936,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
+     * Queries asset information that meets the conditional criteria through Settings, such as searching for specified assets by conditions like the asset instance name or the area to which the asset instance belongs. Currently, both paging and NextToken methods are provided for conditional query, and the NextToken method is recommended.
      *
      * @remarks
-     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
+     * You can search for assets by conditions such as instance ID, instance name, VPC ID, region, and public IP address. You can also set logical relationships between different search conditions to search for assets that meet multiple conditions.
      *
      * @param request - DescribeCloudCenterInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16828,10 +17026,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries asset information by settings conditional query criteria, such as asset instance name or asset instance region. Both paging and NextToken methods are supported. The NextToken method is recommended.
+     * Queries asset information that meets the conditional criteria through Settings, such as searching for specified assets by conditions like the asset instance name or the area to which the asset instance belongs. Currently, both paging and NextToken methods are provided for conditional query, and the NextToken method is recommended.
      *
      * @remarks
-     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple criteria.
+     * You can search for assets by conditions such as instance ID, instance name, VPC ID, region, and public IP address. You can also set logical relationships between different search conditions to search for assets that meet multiple conditions.
      *
      * @param request - DescribeCloudCenterInstancesRequest
      *
@@ -16898,7 +17096,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the multi-cloud assets added to Security Center.
+     * Queries the list of multi-cloud asset configurations.
      *
      * @param request - DescribeCloudVendorAccountAKListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16965,7 +17163,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the multi-cloud assets added to Security Center.
+     * Queries the list of multi-cloud asset configurations.
      *
      * @param request - DescribeCloudVendorAccountAKListRequest
      *
@@ -17454,7 +17652,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the scanner status information of a Kubernetes cluster.
+     * Queries the status information of Kubernetes cluster scanners.
      *
      * @param request - DescribeClusterScannerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17501,7 +17699,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the scanner status information of a Kubernetes cluster.
+     * Queries the status information of Kubernetes cluster scanners.
      *
      * @param request - DescribeClusterScannerListRequest
      *
@@ -21044,7 +21242,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the statistics information of servers in your assets.
+     * Queries the statistics information of servers in assets.
      *
      * @param request - DescribeFieldStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21091,7 +21289,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the statistics information of servers in your assets.
+     * Queries the statistics information of servers in assets.
      *
      * @param request - DescribeFieldStatisticsRequest
      *
@@ -21828,7 +22026,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries information about a baseline risk export, such as the file name and download link.
+     * Queries the file name, download URL, and other information about a baseline export.
      *
      * @param request - DescribeHcExportInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21867,7 +22065,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries information about a baseline risk export, such as the file name and download link.
+     * Queries the file name, download URL, and other information about a baseline export.
      *
      * @param request - DescribeHcExportInfoRequest
      *
@@ -23842,7 +24040,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries information about images affected by sensitive files.
+     * Queries the information about images affected by sensitive files.
      *
      * @param tmpReq - DescribeImageListBySensitiveFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23927,7 +24125,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries information about images affected by sensitive files.
+     * Queries the information about images affected by sensitive files.
      *
      * @param request - DescribeImageListBySensitiveFileRequest
      *
@@ -24464,7 +24662,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the sensitive files of an image.
+     * Queries sensitive files in an image.
      *
      * @param tmpReq - DescribeImageSensitiveFileByKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24529,7 +24727,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the sensitive files of an image.
+     * Queries sensitive files in an image.
      *
      * @param request - DescribeImageSensitiveFileByKeyRequest
      *
@@ -30321,7 +30519,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details about baseline check policies.
+     * Queries baseline check policies.
      *
      * @param request - DescribeStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30372,7 +30570,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details about baseline check policies.
+     * Queries baseline check policies.
      *
      * @param request - DescribeStrategyRequest
      *
@@ -30862,7 +31060,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the information about an export task of exceptions.
+     * Queries the export information of security alert events.
      *
      * @param request - DescribeSuspEventExportInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30901,7 +31099,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the information about an export task of exceptions.
+     * Queries the export information of security alert events.
      *
      * @param request - DescribeSuspEventExportInfoRequest
      *
@@ -30919,7 +31117,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries quarantined files in the file quarantine box by paging.
+     * Performs a paged query of quarantined files in the file quarantine box by using paging.
      *
      * @param request - DescribeSuspEventQuaraFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30986,7 +31184,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries quarantined files in the file quarantine box by paging.
+     * Performs a paged query of quarantined files in the file quarantine box by using paging.
      *
      * @param request - DescribeSuspEventQuaraFilesRequest
      *
@@ -31069,7 +31267,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries a list of security alert events that have not been aggregated.
+     * Queries a list of unaggregated security alert events.
      *
      * @param tmpReq - DescribeSuspEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31260,7 +31458,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries a list of security alert events that have not been aggregated.
+     * Queries a list of unaggregated security alert events.
      *
      * @param request - DescribeSuspEventsRequest
      *
@@ -31512,7 +31710,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of IDC scan tasks for asset synchronization.
+     * Queries the details of an IDC scan task for an asset synchronization task.
      *
      * @param request - DescribeSyncAssetTaskLogDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31571,7 +31769,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of IDC scan tasks for asset synchronization.
+     * Queries the details of an IDC scan task for an asset synchronization task.
      *
      * @param request - DescribeSyncAssetTaskLogDetailRequest
      *
@@ -32678,7 +32876,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the version details of a purchased Security Center instance.
+     * Queries the edition details of a purchased Security Center instance.
      *
      * @param request - DescribeVersionConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32721,7 +32919,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the version details of a purchased Security Center instance.
+     * Queries the edition details of a purchased Security Center instance.
      *
      * @param request - DescribeVersionConfigRequest
      *
@@ -33490,7 +33688,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the vulnerabilities that can be detected.
+     * Queries the list of vulnerabilities supported for detection.
      *
      * @param request - DescribeVulListPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33549,7 +33747,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the vulnerabilities that can be detected.
+     * Queries the list of vulnerabilities supported for detection.
      *
      * @param request - DescribeVulListPageRequest
      *
@@ -35900,10 +36098,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Exports detection results from various Cloud Security Center features, such as Asset Center, cloud platform configuration check, image security scan, attack analysis, and AK leakage detection, to an Excel file.
+     * Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
      *
      * @remarks
-     * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the export progress and retrieve the download URL for the exported Excel file.
+     * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
      *
      * @param request - ExportRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -35958,10 +36156,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Exports detection results from various Cloud Security Center features, such as Asset Center, cloud platform configuration check, image security scan, attack analysis, and AK leakage detection, to an Excel file.
+     * Exports the detection results of the Asset Center, cloud platform configuration check, image security scan, attack analysis, AccessKey leak detection, and baseline check to an Excel file.
      *
      * @remarks
-     * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the export progress and retrieve the download URL for the exported Excel file.
+     * After you call this operation, you can call the [DescribeExportInfo](~~DescribeExportInfo~~) operation to query the file export progress and obtain the download link for the exported Excel file.
      *
      * @param request - ExportRecordRequest
      *
@@ -36273,7 +36471,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Exports baseline check results.
+     * Exports the list of baseline check results. This operation is deprecated.
+     *
+     * @remarks
+     * Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
      *
      * @deprecated openAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead
      *
@@ -36375,7 +36576,10 @@ class Sas extends OpenApiClient
 
     // Deprecated
     /**
-     * Exports baseline check results.
+     * Exports the list of baseline check results. This operation is deprecated.
+     *
+     * @remarks
+     * Exports the list of baseline check results. This operation is deprecated. Use [ExportRecord](~~ExportRecord~~) instead.
      *
      * @deprecated openAPI ExportWarning is deprecated, please use Sas::2018-12-03::ExportRecord instead
      *
@@ -37174,10 +37378,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+     * Retrieves the agentless detection risk statistics for 1 to 100 resources in a single batch.
      *
      * @remarks
-     * Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+     * Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation. The UuidList parameter can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of their first appearance. The returned Data is keyed by UUID, and the results for multiple resources are not aggregated. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics, and the results for each resource in the same request remain consistent.
      *
      * @param request - GetAgentlessTaskCountBatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -37222,10 +37426,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+     * Retrieves the agentless detection risk statistics for 1 to 100 resources in a single batch.
      *
      * @remarks
-     * Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+     * Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for the agentless detection feature of Security Center can call this operation. The UuidList parameter can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of their first appearance. The returned Data is keyed by UUID, and the results for multiple resources are not aggregated. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics, and the results for each resource in the same request remain consistent.
      *
      * @param request - GetAgentlessTaskCountBatchRequest
      *
@@ -38340,7 +38544,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Checks whether the current user is qualified for the trial use of Security Center.
+     * Queries whether you have trial permissions for Security Center.
      *
      * @param request - GetCanTrySasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -38383,7 +38587,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Checks whether the current user is qualified for the trial use of Security Center.
+     * Queries whether you have trial permissions for Security Center.
      *
      * @param request - GetCanTrySasRequest
      *
@@ -38718,7 +38922,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the sales information of cloud service configuration check, including the number of authorized quotas and consumed quotas.
+     * Retrieves the sales information for cloud product configuration checks, including the number of authorized assets and consumed authorized assets.
      *
      * @param request - GetCheckSaleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -38757,7 +38961,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the sales information of cloud service configuration check, including the number of authorized quotas and consumed quotas.
+     * Retrieves the sales information for cloud product configuration checks, including the number of authorized assets and consumed authorized assets.
      *
      * @param request - GetCheckSaleRequest
      *
@@ -39840,7 +40044,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a non-image process defense rule.
+     * Retrieves the details of a non-image program defense rule.
      *
      * @param request - GetContainerDefenseRuleDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39883,7 +40087,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a non-image process defense rule.
+     * Retrieves the details of a non-image program defense rule.
      *
      * @param request - GetContainerDefenseRuleDetailRequest
      *
@@ -40379,7 +40583,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a file protection event.
+     * Retrieves file tamper-proofing events.
      *
      * @param request - GetFileProtectClientEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40414,7 +40618,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a file protection event.
+     * Retrieves file tamper-proofing events.
      *
      * @param request - GetFileProtectClientEventRequest
      *
@@ -41198,7 +41402,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+     * Queries the monitoring data of cloud honeypot management nodes.
      *
      * @param request - GetHoneypotNodeMetricListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41265,7 +41469,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring data of management nodes to which the cloud honeypot belongs.
+     * Queries the monitoring data of cloud honeypot management nodes.
      *
      * @param request - GetHoneypotNodeMetricListRequest
      *
@@ -41344,7 +41548,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a specified probe.
+     * Queries the details of a specified honeypot probe.
+     *
+     * @remarks
+     * Retrieves the details of a specified honeypot probe. Before calling this operation, call ListHoneypotProbe to query the probe status. Call this operation only for ready probes whose status is online or installed. Probes in the install_failed or initialing state are unavailable.
      *
      * @param request - GetHoneypotProbeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41387,7 +41594,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details about a specified probe.
+     * Queries the details of a specified honeypot probe.
+     *
+     * @remarks
+     * Retrieves the details of a specified honeypot probe. Before calling this operation, call ListHoneypotProbe to query the probe status. Call this operation only for ready probes whose status is online or installed. Probes in the install_failed or initialing state are unavailable.
      *
      * @param request - GetHoneypotProbeRequest
      *
@@ -41702,7 +41912,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the valid value ranges for instance authorization.
+     * Retrieves the valid value ranges for instance authorizations.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -41731,7 +41941,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the valid value ranges for instance authorization.
+     * Retrieves the valid value ranges for instance authorizations.
      *
      * @returns GetInstanceAuthRangeResponse
      *
@@ -42782,7 +42992,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of the rule that is used to block at-risk images.
+     * Queries the details of a risky image blocking policy.
      *
      * @param request - GetOpaStrategyDetailNewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -42821,7 +43031,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of the rule that is used to block at-risk images.
+     * Queries the details of a risky image blocking policy.
      *
      * @param request - GetOpaStrategyDetailNewRequest
      *
@@ -43300,7 +43510,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the application list for container file defense configurations.
+     * Retrieves the list of applications for container file defense configurations.
      *
      * @param request - GetSasContainerWebDefenseRuleApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -43339,7 +43549,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the application list for container file defense configurations.
+     * Retrieves the list of applications for container file defense configurations.
      *
      * @param request - GetSasContainerWebDefenseRuleApplicationRequest
      *
@@ -44014,7 +44224,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics information on intelligent behavior analytics.
+     * Retrieves behavior analytics statistics information.
      *
      * @param request - GetUnknownThreatDetectStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -44046,7 +44256,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics information on intelligent behavior analytics.
+     * Retrieves behavior analytics statistics information.
      *
      * @param request - GetUnknownThreatDetectStatisticRequest
      *
@@ -44868,7 +45078,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Handles alerting from intelligent behavior analytics.
+     * Handles alerts for behavior analytics.
      *
      * @param request - HandleUnknownThreatDetectEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -44915,7 +45125,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Handles alerting from intelligent behavior analytics.
+     * Handles alerts for behavior analytics.
      *
      * @param request - HandleUnknownThreatDetectEventRequest
      *
@@ -45809,7 +46019,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query agentless detection assets.
+     * Queries agentless scan assets.
+     *
+     * @remarks
+     * Queries the list of assets for agentless scanning.
      *
      * @param request - ListAgentlessAssetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -45880,7 +46093,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Query agentless detection assets.
+     * Queries agentless scan assets.
+     *
+     * @remarks
+     * Queries the list of assets for agentless scanning.
      *
      * @param request - ListAgentlessAssetRequest
      *
@@ -46208,21 +46424,27 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of agentless detection tasks.
+     * Retrieves a list of agentless detection tasks.
      *
-     * @param request - ListAgentlessTaskRequest
+     * @param tmpReq - ListAgentlessTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAgentlessTaskResponse
      *
-     * @param ListAgentlessTaskRequest $request
+     * @param ListAgentlessTaskRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return ListAgentlessTaskResponse
      */
-    public function listAgentlessTaskWithOptions($request, $runtime)
+    public function listAgentlessTaskWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListAgentlessTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIdList) {
+            $request->taskIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'TaskIdList', 'json');
+        }
+
         $query = [];
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
@@ -46280,6 +46502,10 @@ class Sas extends OpenApiClient
             @$query['TaskId'] = $request->taskId;
         }
 
+        if (null !== $request->taskIdListShrink) {
+            @$query['TaskIdList'] = $request->taskIdListShrink;
+        }
+
         if (null !== $request->uuid) {
             @$query['Uuid'] = $request->uuid;
         }
@@ -46303,7 +46529,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of agentless detection tasks.
+     * Retrieves a list of agentless detection tasks.
      *
      * @param request - ListAgentlessTaskRequest
      *
@@ -47311,7 +47537,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of check items that can be configured with custom settings.
+     * Retrieves the list of check items that support custom configuration.
      *
      * @param request - ListCheckItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -47362,7 +47588,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of check items that can be configured with custom settings.
+     * Retrieves the list of check items that support custom configuration.
      *
      * @param request - ListCheckItemRequest
      *
@@ -48270,7 +48496,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of cloud service assets.
+     * Retrieves the list of cloud product assets.
      *
      * @param request - ListCloudAssetInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -48341,7 +48567,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of cloud service assets.
+     * Retrieves the list of cloud product assets.
      *
      * @param request - ListCloudAssetInstancesRequest
      *
@@ -51495,10 +51721,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the multi-account authorization assignment list under multi-account authorization management.
+     * Queries the list of multi-account authorization assignments under multi-account authorization management.
      *
      * @remarks
-     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
+     * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address. You can also configure logical relationships between different search conditions to find assets that meet multiple conditions.
      *
      * @param request - ListMultiUserInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -51541,10 +51767,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the multi-account authorization assignment list under multi-account authorization management.
+     * Queries the list of multi-account authorization assignments under multi-account authorization management.
      *
      * @remarks
-     * You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. You can also set logical relationships between different search conditions to search for assets that meet multiple search conditions.
+     * You can search for assets by conditions such as the instance ID, instance name, VPC ID, region, and public IP address. You can also configure logical relationships between different search conditions to find assets that meet multiple conditions.
      *
      * @param request - ListMultiUserInstancesRequest
      *
@@ -53612,7 +53838,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the process list of intelligent behavior analytics.
+     * Queries the process list for intelligent behavior analytics.
      *
      * @param request - ListUnknownThreatDetectProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -53695,7 +53921,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the process list of intelligent behavior analytics.
+     * Queries the process list for intelligent behavior analytics.
      *
      * @param request - ListUnknownThreatDetectProcessRequest
      *
@@ -53843,7 +54069,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of Serverless instance UUIDs by application ID.
+     * Queries the UUIDs of Serverless instances by application ID.
      *
      * @param request - ListUuidsByAppIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -53902,7 +54128,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of Serverless instance UUIDs by application ID.
+     * Queries the UUIDs of Serverless instances by application ID.
      *
      * @param request - ListUuidsByAppIdRequest
      *
@@ -55641,7 +55867,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the authorization and authentication configuration of multi-cloud assets.
+     * Modifies the authorization and authentication configuration information of multi-cloud assets.
      *
      * @param request - ModifyCloudVendorAccountAKRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -55728,7 +55954,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the authorization and authentication configuration of multi-cloud assets.
+     * Modifies the authorization and authentication configuration information of multi-cloud assets.
      *
      * @param request - ModifyCloudVendorAccountAKRequest
      *
@@ -56541,7 +56767,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Performs emergency vulnerability detection.
+     * Runs an emergency vulnerability detection.
      *
      * @param request - ModifyEmgVulSubmitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -56600,7 +56826,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Performs emergency vulnerability detection.
+     * Runs an emergency vulnerability detection.
      *
      * @param request - ModifyEmgVulSubmitRequest
      *
@@ -57709,7 +57935,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
+     * Handles detected vulnerabilities. Supported operations include fixing, verifying, and ignoring vulnerabilities.
      *
      * @param request - ModifyOperateVulRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -57776,7 +58002,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Handles detected vulnerabilities. Supported operations include fix, verify, and ignore.
+     * Handles detected vulnerabilities. Supported operations include fixing, verifying, and ignoring vulnerabilities.
      *
      * @param request - ModifyOperateVulRequest
      *
@@ -57794,7 +58020,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Enables or disables pay-as-you-go billing for a specified feature.
+     * Enables or disables the pay-as-you-go billing method for specified features.
      *
      * @param tmpReq - ModifyPostPayModuleSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -57871,7 +58097,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Enables or disables pay-as-you-go billing for a specified feature.
+     * Enables or disables the pay-as-you-go billing method for specified features.
      *
      * @param request - ModifyPostPayModuleSwitchRequest
      *
@@ -58452,7 +58678,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Manages Serverless asset authorization.
+     * Manages Serverless asset authorizations.
      *
      * @param request - ModifyServerlessAuthToMachineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -58555,7 +58781,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Manages Serverless asset authorization.
+     * Manages Serverless asset authorizations.
      *
      * @param request - ModifyServerlessAuthToMachineRequest
      *
@@ -60470,7 +60696,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Configures a global switch based on the specified type.
+     * Sets the global switch based on the specified type.
      *
      * @param request - OperateCommonOverallConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -60529,7 +60755,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Configures a global switch based on the specified type.
+     * Sets the global switch based on the specified type.
      *
      * @param request - OperateCommonOverallConfigRequest
      *
@@ -65932,7 +66158,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the status of a file protection event.
+     * Updates the status of file tamper-proofing events.
      *
      * @param request - UpdateFileProtectClientEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -66039,7 +66265,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the status of a file protection event.
+     * Updates the status of file tamper-proofing events.
      *
      * @param request - UpdateFileProtectClientEventRequest
      *
@@ -67406,7 +67632,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Manages authorization assignments for member accounts in multi-account authorization management.
+     * Manages multi-account authorization by editing allocation assignments in the administrator account.
      *
      * @param request - UpdateMultiUserInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -67445,7 +67671,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Manages authorization assignments for member accounts in multi-account authorization management.
+     * Manages multi-account authorization by editing allocation assignments in the administrator account.
      *
      * @param request - UpdateMultiUserInstancesRequest
      *
@@ -67699,7 +67925,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
+     * Changes the protection edition bound to a server after you enable pay-as-you-go billing for Host and Container Security.
      *
      * @param request - UpdatePostPaidBindRelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -67762,7 +67988,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
+     * Changes the protection edition bound to a server after you enable pay-as-you-go billing for Host and Container Security.
      *
      * @param request - UpdatePostPaidBindRelRequest
      *
@@ -68038,7 +68264,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the key that corresponds to a specified type.
+     * Modifies the key corresponding to the specified type.
      *
      * @param request - UpdateSelectionKeyByTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -68089,7 +68315,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the key that corresponds to a specified type.
+     * Modifies the key corresponding to the specified type.
      *
      * @param request - UpdateSelectionKeyByTypeRequest
      *

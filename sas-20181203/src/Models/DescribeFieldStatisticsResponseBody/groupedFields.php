@@ -126,6 +126,11 @@ class groupedFields extends Model
     /**
      * @var int
      */
+    public $oracleInstanceCount;
+
+    /**
+     * @var int
+     */
     public $outMachineInstanceCount;
 
     /**
@@ -221,6 +226,7 @@ class groupedFields extends Model
         'notRunningStatusCoreCount' => 'NotRunningStatusCoreCount',
         'notRunningStatusCount' => 'NotRunningStatusCount',
         'offlineInstanceCount' => 'OfflineInstanceCount',
+        'oracleInstanceCount' => 'OracleInstanceCount',
         'outMachineInstanceCount' => 'OutMachineInstanceCount',
         'pauseInstanceCount' => 'PauseInstanceCount',
         'regionCount' => 'RegionCount',
@@ -336,6 +342,10 @@ class groupedFields extends Model
 
         if (null !== $this->offlineInstanceCount) {
             $res['OfflineInstanceCount'] = $this->offlineInstanceCount;
+        }
+
+        if (null !== $this->oracleInstanceCount) {
+            $res['OracleInstanceCount'] = $this->oracleInstanceCount;
         }
 
         if (null !== $this->outMachineInstanceCount) {
@@ -499,6 +509,10 @@ class groupedFields extends Model
 
         if (isset($map['OfflineInstanceCount'])) {
             $model->offlineInstanceCount = $map['OfflineInstanceCount'];
+        }
+
+        if (isset($map['OracleInstanceCount'])) {
+            $model->oracleInstanceCount = $map['OracleInstanceCount'];
         }
 
         if (isset($map['OutMachineInstanceCount'])) {

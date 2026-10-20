@@ -79,6 +79,11 @@ class ListAgentlessTaskRequest extends Model
     public $taskId;
 
     /**
+     * @var string[]
+     */
+    public $taskIdList;
+
+    /**
      * @var string
      */
     public $uuid;
@@ -97,11 +102,15 @@ class ListAgentlessTaskRequest extends Model
         'targetName' => 'TargetName',
         'targetType' => 'TargetType',
         'taskId' => 'TaskId',
+        'taskIdList' => 'TaskIdList',
         'uuid' => 'Uuid',
     ];
 
     public function validate()
     {
+        if (\is_array($this->taskIdList)) {
+            Model::validateArray($this->taskIdList);
+        }
         parent::validate();
     }
 
@@ -162,6 +171,17 @@ class ListAgentlessTaskRequest extends Model
 
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+
+        if (null !== $this->taskIdList) {
+            if (\is_array($this->taskIdList)) {
+                $res['TaskIdList'] = [];
+                $n1 = 0;
+                foreach ($this->taskIdList as $item1) {
+                    $res['TaskIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->uuid) {
@@ -233,6 +253,17 @@ class ListAgentlessTaskRequest extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['TaskIdList'])) {
+            if (!empty($map['TaskIdList'])) {
+                $model->taskIdList = [];
+                $n1 = 0;
+                foreach ($map['TaskIdList'] as $item1) {
+                    $model->taskIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Uuid'])) {

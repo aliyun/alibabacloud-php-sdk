@@ -19,12 +19,18 @@ class data extends Model
     public $canTryVersions;
 
     /**
+     * @var bool
+     */
+    public $postPaidCanTry;
+
+    /**
      * @var int
      */
     public $tryType;
     protected $_name = [
         'canTry' => 'CanTry',
         'canTryVersions' => 'CanTryVersions',
+        'postPaidCanTry' => 'PostPaidCanTry',
         'tryType' => 'TryType',
     ];
 
@@ -52,6 +58,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->postPaidCanTry) {
+            $res['PostPaidCanTry'] = $this->postPaidCanTry;
         }
 
         if (null !== $this->tryType) {
@@ -82,6 +92,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PostPaidCanTry'])) {
+            $model->postPaidCanTry = $map['PostPaidCanTry'];
         }
 
         if (isset($map['TryType'])) {

@@ -1,3 +1,13 @@
+2026-10-20 Version: 10.3.0
+- Support API CreateFileDeepAnalyze.
+- Update API DescribeFieldStatistics: add response parameters Body.GroupedFields.OracleInstanceCount.
+- Update API DescribeVersionConfig: add response parameters Body.PostPaidFirstTrialTime.
+- Update API DescribeVersionConfig: add response parameters Body.PostPaidLastTrialTime.
+- Update API DescribeVersionConfig: add response parameters Body.PostPaidTrialExpiredTime.
+- Update API GetCanTrySas: add response parameters Body.Data.PostPaidCanTry.
+- Update API ListAgentlessTask: add request parameters TaskIdList.
+
+
 2026-09-21 Version: 10.2.0
 - Support API GetAgentlessTaskCountBatch.
 

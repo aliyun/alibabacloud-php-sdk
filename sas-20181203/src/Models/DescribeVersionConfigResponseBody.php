@@ -187,6 +187,21 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $postPaidFirstTrialTime;
+
+    /**
+     * @var int
+     */
+    public $postPaidLastTrialTime;
+
+    /**
+     * @var int
+     */
+    public $postPaidTrialExpiredTime;
+
+    /**
+     * @var int
+     */
     public $postPayHostVersion;
 
     /**
@@ -359,6 +374,9 @@ class DescribeVersionConfigResponseBody extends Model
         'newThreatAnalysis' => 'NewThreatAnalysis',
         'onboardedAssets' => 'OnboardedAssets',
         'openTime' => 'OpenTime',
+        'postPaidFirstTrialTime' => 'PostPaidFirstTrialTime',
+        'postPaidLastTrialTime' => 'PostPaidLastTrialTime',
+        'postPaidTrialExpiredTime' => 'PostPaidTrialExpiredTime',
         'postPayHostVersion' => 'PostPayHostVersion',
         'postPayInstanceId' => 'PostPayInstanceId',
         'postPayModuleSwitch' => 'PostPayModuleSwitch',
@@ -538,6 +556,18 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (null !== $this->openTime) {
             $res['OpenTime'] = $this->openTime;
+        }
+
+        if (null !== $this->postPaidFirstTrialTime) {
+            $res['PostPaidFirstTrialTime'] = $this->postPaidFirstTrialTime;
+        }
+
+        if (null !== $this->postPaidLastTrialTime) {
+            $res['PostPaidLastTrialTime'] = $this->postPaidLastTrialTime;
+        }
+
+        if (null !== $this->postPaidTrialExpiredTime) {
+            $res['PostPaidTrialExpiredTime'] = $this->postPaidTrialExpiredTime;
         }
 
         if (null !== $this->postPayHostVersion) {
@@ -808,6 +838,18 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (isset($map['OpenTime'])) {
             $model->openTime = $map['OpenTime'];
+        }
+
+        if (isset($map['PostPaidFirstTrialTime'])) {
+            $model->postPaidFirstTrialTime = $map['PostPaidFirstTrialTime'];
+        }
+
+        if (isset($map['PostPaidLastTrialTime'])) {
+            $model->postPaidLastTrialTime = $map['PostPaidLastTrialTime'];
+        }
+
+        if (isset($map['PostPaidTrialExpiredTime'])) {
+            $model->postPaidTrialExpiredTime = $map['PostPaidTrialExpiredTime'];
         }
 
         if (isset($map['PostPayHostVersion'])) {
