@@ -36,6 +36,11 @@ class TableSummary extends Model
     /**
      * @var int
      */
+    public $latestSnapshotDataSizeInBytes;
+
+    /**
+     * @var int
+     */
     public $objTypeArchiveSize;
 
     /**
@@ -143,6 +148,7 @@ class TableSummary extends Model
         'generatedDate' => 'generatedDate',
         'lastAccessTime' => 'lastAccessTime',
         'lastRequester' => 'lastRequester',
+        'latestSnapshotDataSizeInBytes' => 'latestSnapshotDataSizeInBytes',
         'objTypeArchiveSize' => 'objTypeArchiveSize',
         'objTypeColdArchiveSize' => 'objTypeColdArchiveSize',
         'objTypeIaSize' => 'objTypeIaSize',
@@ -195,6 +201,10 @@ class TableSummary extends Model
 
         if (null !== $this->lastRequester) {
             $res['lastRequester'] = $this->lastRequester;
+        }
+
+        if (null !== $this->latestSnapshotDataSizeInBytes) {
+            $res['latestSnapshotDataSizeInBytes'] = $this->latestSnapshotDataSizeInBytes;
         }
 
         if (null !== $this->objTypeArchiveSize) {
@@ -315,6 +325,10 @@ class TableSummary extends Model
 
         if (isset($map['lastRequester'])) {
             $model->lastRequester = $map['lastRequester'];
+        }
+
+        if (isset($map['latestSnapshotDataSizeInBytes'])) {
+            $model->latestSnapshotDataSizeInBytes = $map['latestSnapshotDataSizeInBytes'];
         }
 
         if (isset($map['objTypeArchiveSize'])) {
