@@ -16,9 +16,15 @@ class GetResourceAPIKeyRequest extends Model
     /**
      * @var string
      */
+    public $tokenVaultName;
+
+    /**
+     * @var string
+     */
     public $workloadAccessToken;
     protected $_name = [
         'resourceCredentialProviderName' => 'ResourceCredentialProviderName',
+        'tokenVaultName' => 'TokenVaultName',
         'workloadAccessToken' => 'WorkloadAccessToken',
     ];
 
@@ -32,6 +38,10 @@ class GetResourceAPIKeyRequest extends Model
         $res = [];
         if (null !== $this->resourceCredentialProviderName) {
             $res['ResourceCredentialProviderName'] = $this->resourceCredentialProviderName;
+        }
+
+        if (null !== $this->tokenVaultName) {
+            $res['TokenVaultName'] = $this->tokenVaultName;
         }
 
         if (null !== $this->workloadAccessToken) {
@@ -51,6 +61,10 @@ class GetResourceAPIKeyRequest extends Model
         $model = new self();
         if (isset($map['ResourceCredentialProviderName'])) {
             $model->resourceCredentialProviderName = $map['ResourceCredentialProviderName'];
+        }
+
+        if (isset($map['TokenVaultName'])) {
+            $model->tokenVaultName = $map['TokenVaultName'];
         }
 
         if (isset($map['WorkloadAccessToken'])) {

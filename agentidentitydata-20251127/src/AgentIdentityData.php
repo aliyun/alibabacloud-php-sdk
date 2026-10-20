@@ -217,6 +217,10 @@ class AgentIdentityData extends OpenApiClient
             @$body['ResourceCredentialProviderName'] = $request->resourceCredentialProviderName;
         }
 
+        if (null !== $request->tokenVaultName) {
+            @$body['TokenVaultName'] = $request->tokenVaultName;
+        }
+
         if (null !== $request->workloadAccessToken) {
             @$body['WorkloadAccessToken'] = $request->workloadAccessToken;
         }
@@ -284,6 +288,10 @@ class AgentIdentityData extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->audience) {
+            @$body['Audience'] = $request->audience;
+        }
+
         if (null !== $request->customParametersShrink) {
             @$body['CustomParameters'] = $request->customParametersShrink;
         }
@@ -314,6 +322,10 @@ class AgentIdentityData extends OpenApiClient
 
         if (null !== $request->sessionURI) {
             @$body['SessionURI'] = $request->sessionURI;
+        }
+
+        if (null !== $request->tokenVaultName) {
+            @$body['TokenVaultName'] = $request->tokenVaultName;
         }
 
         if (null !== $request->workloadAccessToken) {

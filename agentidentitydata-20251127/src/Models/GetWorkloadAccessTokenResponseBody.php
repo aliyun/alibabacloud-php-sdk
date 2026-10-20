@@ -17,9 +17,15 @@ class GetWorkloadAccessTokenResponseBody extends Model
      * @var string
      */
     public $workloadAccessToken;
+
+    /**
+     * @var string
+     */
+    public $workloadIdentityArn;
     protected $_name = [
         'requestId' => 'RequestId',
         'workloadAccessToken' => 'WorkloadAccessToken',
+        'workloadIdentityArn' => 'WorkloadIdentityArn',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class GetWorkloadAccessTokenResponseBody extends Model
 
         if (null !== $this->workloadAccessToken) {
             $res['WorkloadAccessToken'] = $this->workloadAccessToken;
+        }
+
+        if (null !== $this->workloadIdentityArn) {
+            $res['WorkloadIdentityArn'] = $this->workloadIdentityArn;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class GetWorkloadAccessTokenResponseBody extends Model
 
         if (isset($map['WorkloadAccessToken'])) {
             $model->workloadAccessToken = $map['WorkloadAccessToken'];
+        }
+
+        if (isset($map['WorkloadIdentityArn'])) {
+            $model->workloadIdentityArn = $map['WorkloadIdentityArn'];
         }
 
         return $model;

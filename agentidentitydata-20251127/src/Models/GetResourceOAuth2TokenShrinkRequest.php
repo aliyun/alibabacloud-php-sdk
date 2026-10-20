@@ -11,6 +11,11 @@ class GetResourceOAuth2TokenShrinkRequest extends Model
     /**
      * @var string
      */
+    public $audience;
+
+    /**
+     * @var string
+     */
     public $customParametersShrink;
 
     /**
@@ -51,8 +56,14 @@ class GetResourceOAuth2TokenShrinkRequest extends Model
     /**
      * @var string
      */
+    public $tokenVaultName;
+
+    /**
+     * @var string
+     */
     public $workloadAccessToken;
     protected $_name = [
+        'audience' => 'Audience',
         'customParametersShrink' => 'CustomParameters',
         'customState' => 'CustomState',
         'forceAuthentication' => 'ForceAuthentication',
@@ -61,6 +72,7 @@ class GetResourceOAuth2TokenShrinkRequest extends Model
         'resourceOAuth2ReturnURL' => 'ResourceOAuth2ReturnURL',
         'scopesShrink' => 'Scopes',
         'sessionURI' => 'SessionURI',
+        'tokenVaultName' => 'TokenVaultName',
         'workloadAccessToken' => 'WorkloadAccessToken',
     ];
 
@@ -72,6 +84,10 @@ class GetResourceOAuth2TokenShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->audience) {
+            $res['Audience'] = $this->audience;
+        }
+
         if (null !== $this->customParametersShrink) {
             $res['CustomParameters'] = $this->customParametersShrink;
         }
@@ -104,6 +120,10 @@ class GetResourceOAuth2TokenShrinkRequest extends Model
             $res['SessionURI'] = $this->sessionURI;
         }
 
+        if (null !== $this->tokenVaultName) {
+            $res['TokenVaultName'] = $this->tokenVaultName;
+        }
+
         if (null !== $this->workloadAccessToken) {
             $res['WorkloadAccessToken'] = $this->workloadAccessToken;
         }
@@ -119,6 +139,10 @@ class GetResourceOAuth2TokenShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Audience'])) {
+            $model->audience = $map['Audience'];
+        }
+
         if (isset($map['CustomParameters'])) {
             $model->customParametersShrink = $map['CustomParameters'];
         }
@@ -149,6 +173,10 @@ class GetResourceOAuth2TokenShrinkRequest extends Model
 
         if (isset($map['SessionURI'])) {
             $model->sessionURI = $map['SessionURI'];
+        }
+
+        if (isset($map['TokenVaultName'])) {
+            $model->tokenVaultName = $map['TokenVaultName'];
         }
 
         if (isset($map['WorkloadAccessToken'])) {

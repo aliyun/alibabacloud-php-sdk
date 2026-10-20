@@ -19,6 +19,11 @@ class GetResourceOAuth2TokenResponseBody extends Model
     public $authorizationURL;
 
     /**
+     * @var int
+     */
+    public $expiresIn;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -35,6 +40,7 @@ class GetResourceOAuth2TokenResponseBody extends Model
     protected $_name = [
         'accessToken' => 'AccessToken',
         'authorizationURL' => 'AuthorizationURL',
+        'expiresIn' => 'ExpiresIn',
         'requestId' => 'RequestId',
         'sessionStatus' => 'SessionStatus',
         'sessionURI' => 'SessionURI',
@@ -54,6 +60,10 @@ class GetResourceOAuth2TokenResponseBody extends Model
 
         if (null !== $this->authorizationURL) {
             $res['AuthorizationURL'] = $this->authorizationURL;
+        }
+
+        if (null !== $this->expiresIn) {
+            $res['ExpiresIn'] = $this->expiresIn;
         }
 
         if (null !== $this->requestId) {
@@ -85,6 +95,10 @@ class GetResourceOAuth2TokenResponseBody extends Model
 
         if (isset($map['AuthorizationURL'])) {
             $model->authorizationURL = $map['AuthorizationURL'];
+        }
+
+        if (isset($map['ExpiresIn'])) {
+            $model->expiresIn = $map['ExpiresIn'];
         }
 
         if (isset($map['RequestId'])) {

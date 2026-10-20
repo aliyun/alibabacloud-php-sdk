@@ -21,10 +21,16 @@ class jwtClaims extends Model
     /**
      * @var string
      */
+    public $JTI;
+
+    /**
+     * @var string
+     */
     public $subject;
     protected $_name = [
         'audiences' => 'Audiences',
         'issuer' => 'Issuer',
+        'JTI' => 'JTI',
         'subject' => 'Subject',
     ];
 
@@ -42,6 +48,10 @@ class jwtClaims extends Model
 
         if (null !== $this->issuer) {
             $res['Issuer'] = $this->issuer;
+        }
+
+        if (null !== $this->JTI) {
+            $res['JTI'] = $this->JTI;
         }
 
         if (null !== $this->subject) {
@@ -65,6 +75,10 @@ class jwtClaims extends Model
 
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
+        }
+
+        if (isset($map['JTI'])) {
+            $model->JTI = $map['JTI'];
         }
 
         if (isset($map['Subject'])) {
