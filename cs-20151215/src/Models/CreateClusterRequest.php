@@ -61,6 +61,11 @@ class CreateClusterRequest extends Model
     public $cisEnabled;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $cloudMonitorFlags;
@@ -539,6 +544,7 @@ class CreateClusterRequest extends Model
         'autoRenewPeriod' => 'auto_renew_period',
         'chargeType' => 'charge_type',
         'cisEnabled' => 'cis_enabled',
+        'clientToken' => 'client_token',
         'cloudMonitorFlags' => 'cloud_monitor_flags',
         'clusterDomain' => 'cluster_domain',
         'clusterSpec' => 'cluster_spec',
@@ -769,6 +775,10 @@ class CreateClusterRequest extends Model
 
         if (null !== $this->cisEnabled) {
             $res['cis_enabled'] = $this->cisEnabled;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['client_token'] = $this->clientToken;
         }
 
         if (null !== $this->cloudMonitorFlags) {
@@ -1318,6 +1328,10 @@ class CreateClusterRequest extends Model
 
         if (isset($map['cis_enabled'])) {
             $model->cisEnabled = $map['cis_enabled'];
+        }
+
+        if (isset($map['client_token'])) {
+            $model->clientToken = $map['client_token'];
         }
 
         if (isset($map['cloud_monitor_flags'])) {

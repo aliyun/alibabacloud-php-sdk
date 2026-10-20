@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\CS\V20151215\Models\MaintenanceWindow\exclusions;
 
 class MaintenanceWindow extends Model
 {
@@ -17,6 +18,11 @@ class MaintenanceWindow extends Model
      * @var bool
      */
     public $enable;
+
+    /**
+     * @var exclusions[]
+     */
+    public $exclusions;
 
     /**
      * @var string
@@ -35,6 +41,7 @@ class MaintenanceWindow extends Model
     protected $_name = [
         'duration' => 'duration',
         'enable' => 'enable',
+        'exclusions' => 'exclusions',
         'maintenanceTime' => 'maintenance_time',
         'recurrence' => 'recurrence',
         'weeklyPeriod' => 'weekly_period',
@@ -42,6 +49,9 @@ class MaintenanceWindow extends Model
 
     public function validate()
     {
+        if (\is_array($this->exclusions)) {
+            Model::validateArray($this->exclusions);
+        }
         parent::validate();
     }
 
@@ -54,6 +64,17 @@ class MaintenanceWindow extends Model
 
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
+        }
+
+        if (null !== $this->exclusions) {
+            if (\is_array($this->exclusions)) {
+                $res['exclusions'] = [];
+                $n1 = 0;
+                foreach ($this->exclusions as $item1) {
+                    $res['exclusions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->maintenanceTime) {
@@ -85,6 +106,17 @@ class MaintenanceWindow extends Model
 
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
+        }
+
+        if (isset($map['exclusions'])) {
+            if (!empty($map['exclusions'])) {
+                $model->exclusions = [];
+                $n1 = 0;
+                foreach ($map['exclusions'] as $item1) {
+                    $model->exclusions[$n1] = exclusions::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['maintenance_time'])) {
