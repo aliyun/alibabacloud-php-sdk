@@ -36,6 +36,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $originFileDownloadUrl;
+
+    /**
+     * @var string
+     */
     public $parseErrorMessage;
 
     /**
@@ -68,6 +73,7 @@ class data extends Model
         'fileId' => 'FileId',
         'fileName' => 'FileName',
         'fileType' => 'FileType',
+        'originFileDownloadUrl' => 'OriginFileDownloadUrl',
         'parseErrorMessage' => 'ParseErrorMessage',
         'parseResultDownloadUrl' => 'ParseResultDownloadUrl',
         'parser' => 'Parser',
@@ -105,6 +111,10 @@ class data extends Model
 
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+
+        if (null !== $this->originFileDownloadUrl) {
+            $res['OriginFileDownloadUrl'] = $this->originFileDownloadUrl;
         }
 
         if (null !== $this->parseErrorMessage) {
@@ -167,6 +177,10 @@ class data extends Model
 
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+
+        if (isset($map['OriginFileDownloadUrl'])) {
+            $model->originFileDownloadUrl = $map['OriginFileDownloadUrl'];
         }
 
         if (isset($map['ParseErrorMessage'])) {

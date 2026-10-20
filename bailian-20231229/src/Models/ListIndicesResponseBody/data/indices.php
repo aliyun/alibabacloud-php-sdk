@@ -55,6 +55,21 @@ class indices extends Model
     public $overlapSize;
 
     /**
+     * @var int
+     */
+    public $pipelineCommercialCu;
+
+    /**
+     * @var string
+     */
+    public $pipelineCommercialType;
+
+    /**
+     * @var float
+     */
+    public $pipelineStorageUsage;
+
+    /**
      * @var string
      */
     public $rerankMinScore;
@@ -108,6 +123,9 @@ class indices extends Model
         'id' => 'Id',
         'name' => 'Name',
         'overlapSize' => 'OverlapSize',
+        'pipelineCommercialCu' => 'PipelineCommercialCu',
+        'pipelineCommercialType' => 'PipelineCommercialType',
+        'pipelineStorageUsage' => 'PipelineStorageUsage',
         'rerankMinScore' => 'RerankMinScore',
         'rerankModelName' => 'RerankModelName',
         'separator' => 'Separator',
@@ -174,6 +192,18 @@ class indices extends Model
 
         if (null !== $this->overlapSize) {
             $res['OverlapSize'] = $this->overlapSize;
+        }
+
+        if (null !== $this->pipelineCommercialCu) {
+            $res['PipelineCommercialCu'] = $this->pipelineCommercialCu;
+        }
+
+        if (null !== $this->pipelineCommercialType) {
+            $res['PipelineCommercialType'] = $this->pipelineCommercialType;
+        }
+
+        if (null !== $this->pipelineStorageUsage) {
+            $res['PipelineStorageUsage'] = $this->pipelineStorageUsage;
         }
 
         if (null !== $this->rerankMinScore) {
@@ -271,6 +301,18 @@ class indices extends Model
 
         if (isset($map['OverlapSize'])) {
             $model->overlapSize = $map['OverlapSize'];
+        }
+
+        if (isset($map['PipelineCommercialCu'])) {
+            $model->pipelineCommercialCu = $map['PipelineCommercialCu'];
+        }
+
+        if (isset($map['PipelineCommercialType'])) {
+            $model->pipelineCommercialType = $map['PipelineCommercialType'];
+        }
+
+        if (isset($map['PipelineStorageUsage'])) {
+            $model->pipelineStorageUsage = $map['PipelineStorageUsage'];
         }
 
         if (isset($map['RerankMinScore'])) {
