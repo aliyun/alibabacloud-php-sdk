@@ -14,9 +14,19 @@ class sourceStatus extends Model
     public $checkpoint;
 
     /**
+     * @var string[]
+     */
+    public $currentWindow;
+
+    /**
      * @var string
      */
     public $lastError;
+
+    /**
+     * @var string
+     */
+    public $lastRunId;
 
     /**
      * @var string
@@ -34,7 +44,9 @@ class sourceStatus extends Model
     public $state;
     protected $_name = [
         'checkpoint' => 'checkpoint',
+        'currentWindow' => 'currentWindow',
         'lastError' => 'lastError',
+        'lastRunId' => 'lastRunId',
         'lastWindowAt' => 'lastWindowAt',
         'retryCount' => 'retryCount',
         'state' => 'state',
@@ -44,6 +56,9 @@ class sourceStatus extends Model
     {
         if (\is_array($this->checkpoint)) {
             Model::validateArray($this->checkpoint);
+        }
+        if (\is_array($this->currentWindow)) {
+            Model::validateArray($this->currentWindow);
         }
         parent::validate();
     }
@@ -60,8 +75,21 @@ class sourceStatus extends Model
             }
         }
 
+        if (null !== $this->currentWindow) {
+            if (\is_array($this->currentWindow)) {
+                $res['currentWindow'] = [];
+                foreach ($this->currentWindow as $key1 => $value1) {
+                    $res['currentWindow'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->lastError) {
             $res['lastError'] = $this->lastError;
+        }
+
+        if (null !== $this->lastRunId) {
+            $res['lastRunId'] = $this->lastRunId;
         }
 
         if (null !== $this->lastWindowAt) {
@@ -96,8 +124,21 @@ class sourceStatus extends Model
             }
         }
 
+        if (isset($map['currentWindow'])) {
+            if (!empty($map['currentWindow'])) {
+                $model->currentWindow = [];
+                foreach ($map['currentWindow'] as $key1 => $value1) {
+                    $model->currentWindow[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['lastError'])) {
             $model->lastError = $map['lastError'];
+        }
+
+        if (isset($map['lastRunId'])) {
+            $model->lastRunId = $map['lastRunId'];
         }
 
         if (isset($map['lastWindowAt'])) {

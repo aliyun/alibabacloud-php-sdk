@@ -2959,7 +2959,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询优化任务执行详情.
+     * Queries the status, errors, execution progress, type-related results, and artifact references of a specified run.
      *
      * @param request - GetOptimizeRunRequest
      * @param headers - map
@@ -2998,7 +2998,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询优化任务执行详情.
+     * Queries the status, errors, execution progress, type-related results, and artifact references of a specified run.
      *
      * @param request - GetOptimizeRunRequest
      *
@@ -3020,7 +3020,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询优化任务
+     * Queries the type, status, configuration, and scheduling checkpoint of a specified optimization task.
      *
      * @param request - GetOptimizeTaskRequest
      * @param headers - map
@@ -3058,7 +3058,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询优化任务
+     * Queries the type, status, configuration, and scheduling checkpoint of a specified optimization task.
      *
      * @param request - GetOptimizeTaskRequest
      *
@@ -3199,7 +3199,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries pipeline run statistics.
+     * Queries the pipeline run statistics.
      *
      * @param request - GetPipelineStatsRequest
      * @param headers - map
@@ -3251,7 +3251,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries pipeline run statistics.
+     * Queries the pipeline run statistics.
      *
      * @param request - GetPipelineStatsRequest
      *
@@ -4789,7 +4789,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Stops a pipeline.
+     * Terminates a pipeline.
      *
      * @param request - TerminatePipelineRequest
      * @param headers - map
@@ -4833,7 +4833,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Stops a pipeline.
+     * Terminates a pipeline.
      *
      * @param request - TerminatePipelineRequest
      *
@@ -5726,7 +5726,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 更新优化任务
+     * Updates the status and type-related configurations of a specified optimization task.
      *
      * @param request - UpdateOptimizeTaskRequest
      * @param headers - map
@@ -5780,7 +5780,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 更新优化任务
+     * Updates the status and type-related configurations of a specified optimization task.
      *
      * @param request - UpdateOptimizeTaskRequest
      *

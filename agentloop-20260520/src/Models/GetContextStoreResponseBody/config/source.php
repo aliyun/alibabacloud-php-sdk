@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBod
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBody\config\source\dataset;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBody\config\source\trajectory;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBody\config\source\versionPolicy;
 
 class source extends Model
 {
@@ -16,9 +17,29 @@ class source extends Model
     public $agentSpace;
 
     /**
+     * @var mixed[]
+     */
+    public $binding;
+
+    /**
      * @var dataset
      */
     public $dataset;
+
+    /**
+     * @var string
+     */
+    public $datasetName;
+
+    /**
+     * @var string
+     */
+    public $format;
+
+    /**
+     * @var int
+     */
+    public $maxRecords;
 
     /**
      * @var string
@@ -34,21 +55,37 @@ class source extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var versionPolicy
+     */
+    public $versionPolicy;
     protected $_name = [
         'agentSpace' => 'agentSpace',
+        'binding' => 'binding',
         'dataset' => 'dataset',
+        'datasetName' => 'datasetName',
+        'format' => 'format',
+        'maxRecords' => 'maxRecords',
         'startTime' => 'startTime',
         'trajectory' => 'trajectory',
         'type' => 'type',
+        'versionPolicy' => 'versionPolicy',
     ];
 
     public function validate()
     {
+        if (\is_array($this->binding)) {
+            Model::validateArray($this->binding);
+        }
         if (null !== $this->dataset) {
             $this->dataset->validate();
         }
         if (null !== $this->trajectory) {
             $this->trajectory->validate();
+        }
+        if (null !== $this->versionPolicy) {
+            $this->versionPolicy->validate();
         }
         parent::validate();
     }
@@ -60,8 +97,29 @@ class source extends Model
             $res['agentSpace'] = $this->agentSpace;
         }
 
+        if (null !== $this->binding) {
+            if (\is_array($this->binding)) {
+                $res['binding'] = [];
+                foreach ($this->binding as $key1 => $value1) {
+                    $res['binding'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->dataset) {
             $res['dataset'] = null !== $this->dataset ? $this->dataset->toArray($noStream) : $this->dataset;
+        }
+
+        if (null !== $this->datasetName) {
+            $res['datasetName'] = $this->datasetName;
+        }
+
+        if (null !== $this->format) {
+            $res['format'] = $this->format;
+        }
+
+        if (null !== $this->maxRecords) {
+            $res['maxRecords'] = $this->maxRecords;
         }
 
         if (null !== $this->startTime) {
@@ -74,6 +132,10 @@ class source extends Model
 
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+
+        if (null !== $this->versionPolicy) {
+            $res['versionPolicy'] = null !== $this->versionPolicy ? $this->versionPolicy->toArray($noStream) : $this->versionPolicy;
         }
 
         return $res;
@@ -91,8 +153,29 @@ class source extends Model
             $model->agentSpace = $map['agentSpace'];
         }
 
+        if (isset($map['binding'])) {
+            if (!empty($map['binding'])) {
+                $model->binding = [];
+                foreach ($map['binding'] as $key1 => $value1) {
+                    $model->binding[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['dataset'])) {
             $model->dataset = dataset::fromMap($map['dataset']);
+        }
+
+        if (isset($map['datasetName'])) {
+            $model->datasetName = $map['datasetName'];
+        }
+
+        if (isset($map['format'])) {
+            $model->format = $map['format'];
+        }
+
+        if (isset($map['maxRecords'])) {
+            $model->maxRecords = $map['maxRecords'];
         }
 
         if (isset($map['startTime'])) {
@@ -105,6 +188,10 @@ class source extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['versionPolicy'])) {
+            $model->versionPolicy = versionPolicy::fromMap($map['versionPolicy']);
         }
 
         return $model;

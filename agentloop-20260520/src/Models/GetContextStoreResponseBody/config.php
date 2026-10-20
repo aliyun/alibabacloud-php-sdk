@@ -43,6 +43,11 @@ class config extends Model
     public $miningInterval;
 
     /**
+     * @var string
+     */
+    public $miningTaskName;
+
+    /**
      * @var observability
      */
     public $observability;
@@ -87,6 +92,7 @@ class config extends Model
         'innerSource' => 'innerSource',
         'metadataField' => 'metadataField',
         'miningInterval' => 'miningInterval',
+        'miningTaskName' => 'miningTaskName',
         'observability' => 'observability',
         'outputDataset' => 'outputDataset',
         'scopePolicy' => 'scopePolicy',
@@ -163,6 +169,10 @@ class config extends Model
             $res['miningInterval'] = $this->miningInterval;
         }
 
+        if (null !== $this->miningTaskName) {
+            $res['miningTaskName'] = $this->miningTaskName;
+        }
+
         if (null !== $this->observability) {
             $res['observability'] = null !== $this->observability ? $this->observability->toArray($noStream) : $this->observability;
         }
@@ -236,6 +246,10 @@ class config extends Model
 
         if (isset($map['miningInterval'])) {
             $model->miningInterval = $map['miningInterval'];
+        }
+
+        if (isset($map['miningTaskName'])) {
+            $model->miningTaskName = $map['miningTaskName'];
         }
 
         if (isset($map['observability'])) {
