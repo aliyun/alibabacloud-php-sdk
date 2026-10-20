@@ -1,3 +1,13 @@
+2026-10-20 Version: 8.7.0
+- Support API CreateCalendar.
+- Support API DeleteCalendar.
+- Support API GetCalendar.
+- Support API ListCalendarVersions.
+- Support API ListCalendars.
+- Support API UpdateCalendar.
+- Update API CreateWorkflowInstances: add request parameters DefaultRunProperties.DataSourceNameMappings.
+
+
 2026-10-12 Version: 8.6.3
 - Generated php 2024-05-18 for dataworks-public.
 

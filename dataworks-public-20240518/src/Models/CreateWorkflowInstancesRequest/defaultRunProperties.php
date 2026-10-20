@@ -22,6 +22,11 @@ class defaultRunProperties extends Model
     public $analysis;
 
     /**
+     * @var string[]
+     */
+    public $dataSourceNameMappings;
+
+    /**
      * @var int[]
      */
     public $excludeProjectIds;
@@ -83,6 +88,7 @@ class defaultRunProperties extends Model
     protected $_name = [
         'alert' => 'Alert',
         'analysis' => 'Analysis',
+        'dataSourceNameMappings' => 'DataSourceNameMappings',
         'excludeProjectIds' => 'ExcludeProjectIds',
         'excludeTaskIds' => 'ExcludeTaskIds',
         'includeProjectIds' => 'IncludeProjectIds',
@@ -104,6 +110,9 @@ class defaultRunProperties extends Model
         }
         if (null !== $this->analysis) {
             $this->analysis->validate();
+        }
+        if (\is_array($this->dataSourceNameMappings)) {
+            Model::validateArray($this->dataSourceNameMappings);
         }
         if (\is_array($this->excludeProjectIds)) {
             Model::validateArray($this->excludeProjectIds);
@@ -135,6 +144,15 @@ class defaultRunProperties extends Model
 
         if (null !== $this->analysis) {
             $res['Analysis'] = null !== $this->analysis ? $this->analysis->toArray($noStream) : $this->analysis;
+        }
+
+        if (null !== $this->dataSourceNameMappings) {
+            if (\is_array($this->dataSourceNameMappings)) {
+                $res['DataSourceNameMappings'] = [];
+                foreach ($this->dataSourceNameMappings as $key1 => $value1) {
+                    $res['DataSourceNameMappings'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->excludeProjectIds) {
@@ -237,6 +255,15 @@ class defaultRunProperties extends Model
 
         if (isset($map['Analysis'])) {
             $model->analysis = analysis::fromMap($map['Analysis']);
+        }
+
+        if (isset($map['DataSourceNameMappings'])) {
+            if (!empty($map['DataSourceNameMappings'])) {
+                $model->dataSourceNameMappings = [];
+                foreach ($map['DataSourceNameMappings'] as $key1 => $value1) {
+                    $model->dataSourceNameMappings[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['ExcludeProjectIds'])) {

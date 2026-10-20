@@ -61,6 +61,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateBusinessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCalendarRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCalendarResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCalendarShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComponentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComputeResourceRequest;
@@ -197,6 +200,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteBusinessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCalendarRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCalendarResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCertificateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCertificateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteComponentRequest;
@@ -330,6 +335,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBatchChangeTableOwnerSt
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBatchChangeTableOwnerStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBusinessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCalendarRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCalendarResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCertificateRequest;
@@ -492,6 +499,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAlertRulesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListBusinessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCalendarsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCalendarsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCalendarVersionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCalendarVersionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsShrinkRequest;
@@ -809,6 +820,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateBusinessResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCalendarRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCalendarResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCalendarShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataShrinkRequest;
@@ -2635,10 +2649,128 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a scheduling calendar.
+     *
+     * @remarks
+     * You must purchase DataWorks Enterprise Edition to use this feature.
+     *
+     * @param tmpReq - CreateCalendarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCalendarResponse
+     *
+     * @param CreateCalendarRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCalendarResponse
+     */
+    public function createCalendarWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCalendarShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->projectIds) {
+            $request->projectIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->projectIds, 'ProjectIds', 'json');
+        }
+
+        if (null !== $tmpReq->schedulePolicy) {
+            $request->schedulePolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->schedulePolicy, 'SchedulePolicy', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->allProjects) {
+            @$body['AllProjects'] = $request->allProjects;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->expirationReminder) {
+            @$body['ExpirationReminder'] = $request->expirationReminder;
+        }
+
+        if (null !== $request->fallbackPolicy) {
+            @$body['FallbackPolicy'] = $request->fallbackPolicy;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->overduePolicy) {
+            @$body['OverduePolicy'] = $request->overduePolicy;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->projectIdsShrink) {
+            @$body['ProjectIds'] = $request->projectIdsShrink;
+        }
+
+        if (null !== $request->schedulePolicyShrink) {
+            @$body['SchedulePolicy'] = $request->schedulePolicyShrink;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCalendar',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a scheduling calendar.
+     *
+     * @remarks
+     * You must purchase DataWorks Enterprise Edition to use this feature.
+     *
+     * @param Request - CreateCalendarRequest
+     *
+     * @returns CreateCalendarResponse
+     *
+     * @param CreateCalendarRequest $request
+     *
+     * @return CreateCalendarResponse
+     */
+    public function createCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCalendarWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a component.
      *
      * @remarks
      * >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
+     * This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If the new data development feature is not used, use the corresponding operation of the 2020-05-18 version.
      *
      * @param Request - CreateComponentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2689,6 +2821,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      * >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
+     * This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If the new data development feature is not used, use the corresponding operation of the 2020-05-18 version.
      *
      * @param Request - CreateComponentRequest
      *
@@ -7205,10 +7338,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow in a specified folder in Data Studio.
+     * Creates a workflow in a specified directory in DataStudio.
      *
      * @remarks
-     * >Notice: This operation does not support batch operations. If more than one workflow is defined in FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also ignored. Call the CreateNode operation to create internal nodes one by one.
+     * >Notice: This operation does not support batch operations. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also directly ignored. Call the CreateNode operation to create internal nodes one by one.</notice>
+     * This operation is part of the new DataStudio capabilities and applies only to workspaces that use the new DataStudio. If you do not use the new DataStudio, use the corresponding operation of the 2020-05-18 version.
      *
      * @param Request - CreateWorkflowDefinitionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7251,10 +7385,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow in a specified folder in Data Studio.
+     * Creates a workflow in a specified directory in DataStudio.
      *
      * @remarks
-     * >Notice: This operation does not support batch operations. If more than one workflow is defined in FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also ignored. Call the CreateNode operation to create internal nodes one by one.
+     * >Notice: This operation does not support batch operations. If more than one workflow is defined in the FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also directly ignored. Call the CreateNode operation to create internal nodes one by one.</notice>
+     * This operation is part of the new DataStudio capabilities and applies only to workspaces that use the new DataStudio. If you do not use the new DataStudio, use the corresponding operation of the 2020-05-18 version.
      *
      * @param Request - CreateWorkflowDefinitionRequest
      *
@@ -7272,10 +7407,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
+     * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
      *
      * @remarks
-     * DataWorks Basic Edition or later is required.
+     * You must purchase DataWorks Basic Edition or a later edition to use this feature.
      *
      * @param tmpReq - CreateWorkflowInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7376,10 +7511,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a workflow instance based on the specified configurations, such as a data backfill workflow instance.
+     * Creates a workflow instance based on configurations, such as a data backfill workflow instance.
      *
      * @remarks
-     * DataWorks Basic Edition or later is required.
+     * You must purchase DataWorks Basic Edition or a later edition to use this feature.
      *
      * @param Request - CreateWorkflowInstancesRequest
      *
@@ -7584,6 +7719,71 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Deletes a scheduling calendar.
+     *
+     * @remarks
+     * DataWorks Enterprise Edition is required.
+     * You cannot delete a scheduling calendar that is referenced by nodes. Remove the node references first.
+     *
+     * @param Request - DeleteCalendarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCalendarResponse
+     *
+     * @param DeleteCalendarRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteCalendarResponse
+     */
+    public function deleteCalendarWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCalendar',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a scheduling calendar.
+     *
+     * @remarks
+     * DataWorks Enterprise Edition is required.
+     * You cannot delete a scheduling calendar that is referenced by nodes. Remove the node references first.
+     *
+     * @param Request - DeleteCalendarRequest
+     *
+     * @returns DeleteCalendarResponse
+     *
+     * @param DeleteCalendarRequest $request
+     *
+     * @return DeleteCalendarResponse
+     */
+    public function deleteCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCalendarWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a certificate file.
      *
      * @remarks
@@ -7656,7 +7856,8 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a component.
      *
      * @remarks
-     * > &lt;notice&gt;After a UDF function is published, it cannot be deleted. You must undeploy the function before deleting it.&gt;&lt;/notice&gt;
+     * <notice>After a UDF function is published, it cannot be deleted. You must take it offline before deleting it.</notice>
+     * This API operation belongs to the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding API operation of the 2020-05-18 version.
      *
      * @param Request - DeleteComponentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7702,7 +7903,8 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a component.
      *
      * @remarks
-     * > &lt;notice&gt;After a UDF function is published, it cannot be deleted. You must undeploy the function before deleting it.&gt;&lt;/notice&gt;
+     * <notice>After a UDF function is published, it cannot be deleted. You must take it offline before deleting it.</notice>
+     * This API operation belongs to the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding API operation of the 2020-05-18 version.
      *
      * @param Request - DeleteComponentRequest
      *
@@ -11389,11 +11591,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Find the security policy that best matches the given conditions.
+     * Queries the best-matching security policy based on specified conditions.
      *
      * @remarks
-     * ## Request Description
-     * This API is used to find the most suitable security policy based on the provided control module, sub-module, and workspace ID. If a workspace ID is provided, the policy at the specified workspace level is matched first; otherwise, the tenant-level policy is returned. Note that system policies cannot be deleted or modified.
+     * ## Operation description
+     * This API operation queries the most suitable security policy based on the provided control module, submodule, and workspace ID. If a workspace ID is provided, the system preferentially matches policies at the specified workspace level. Otherwise, tenant-level policies are returned. Note that system policies cannot be deleted or modified.
      *
      * @param Request - FindBestMatchSecurityStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11440,11 +11642,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Find the security policy that best matches the given conditions.
+     * Queries the best-matching security policy based on specified conditions.
      *
      * @remarks
-     * ## Request Description
-     * This API is used to find the most suitable security policy based on the provided control module, sub-module, and workspace ID. If a workspace ID is provided, the policy at the specified workspace level is matched first; otherwise, the tenant-level policy is returned. Note that system policies cannot be deleted or modified.
+     * ## Operation description
+     * This API operation queries the most suitable security policy based on the provided control module, submodule, and workspace ID. If a workspace ID is provided, the system preferentially matches policies at the specified workspace level. Otherwise, tenant-level policies are returned. Note that system policies cannot be deleted or modified.
      *
      * @param Request - FindBestMatchSecurityStrategyRequest
      *
@@ -11930,6 +12132,69 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBusinessWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the current configuration of a specified scheduling calendar.
+     *
+     * @remarks
+     * DataWorks Enterprise Edition is required to use this API.
+     *
+     * @param Request - GetCalendarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCalendarResponse
+     *
+     * @param GetCalendarRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetCalendarResponse
+     */
+    public function getCalendarWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCalendar',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the current configuration of a specified scheduling calendar.
+     *
+     * @remarks
+     * DataWorks Enterprise Edition is required to use this API.
+     *
+     * @param Request - GetCalendarRequest
+     *
+     * @returns GetCalendarResponse
+     *
+     * @param GetCalendarRequest $request
+     *
+     * @return GetCalendarResponse
+     */
+    public function getCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCalendarWithOptions($request, $runtime);
     }
 
     /**
@@ -15373,14 +15638,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a security policy by its ID. This operation requires both DataWorks tenant administrator and security administrator permissions.
+     * Retrieves the details of a security policy based on the provided security policy ID.
      *
      * @remarks
-     * ## Request
-     * - This API retrieves the complete configuration information for a security policy by its ID.
-     * - The API returns an error message if the provided `Id` is invalid or does not exist.
-     * - The response includes basic policy information, such as its name and description, and policy details, such as control items and their settings.
-     * - Note: Some fields in a system default policy cannot be modified or deleted.
+     * ## Request description
+     * - This API retrieves all configuration information of a specific security policy by using the specified security policy ID.
+     * - Ensure that the provided `Id` parameter value is valid and exists. Otherwise, an error message is returned.
+     * - The returned data structure includes the basic information of the policy, such as the name and description, and the detailed policy content, such as control items and their settings.
+     * - Note: Some fields of system default policies may be protected from modification or deletion.
      *
      * @param Request - GetSecurityStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15419,14 +15684,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a security policy by its ID. This operation requires both DataWorks tenant administrator and security administrator permissions.
+     * Retrieves the details of a security policy based on the provided security policy ID.
      *
      * @remarks
-     * ## Request
-     * - This API retrieves the complete configuration information for a security policy by its ID.
-     * - The API returns an error message if the provided `Id` is invalid or does not exist.
-     * - The response includes basic policy information, such as its name and description, and policy details, such as control items and their settings.
-     * - Note: Some fields in a system default policy cannot be modified or deleted.
+     * ## Request description
+     * - This API retrieves all configuration information of a specific security policy by using the specified security policy ID.
+     * - Ensure that the provided `Id` parameter value is valid and exists. Otherwise, an error message is returned.
+     * - The returned data structure includes the basic information of the policy, such as the name and description, and the detailed policy content, such as control items and their settings.
+     * - Note: Some fields of system default policies may be protected from modification or deletion.
      *
      * @param Request - GetSecurityStrategyRequest
      *
@@ -17083,6 +17348,160 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBusinessWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the versions of a specified scheduling calendar.
+     *
+     * @remarks
+     * DataWorks Enterprise Edition is required.
+     *
+     * @param Request - ListCalendarVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCalendarVersionsResponse
+     *
+     * @param ListCalendarVersionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCalendarVersionsResponse
+     */
+    public function listCalendarVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCalendarVersions',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCalendarVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the versions of a specified scheduling calendar.
+     *
+     * @remarks
+     * DataWorks Enterprise Edition is required.
+     *
+     * @param Request - ListCalendarVersionsRequest
+     *
+     * @returns ListCalendarVersionsResponse
+     *
+     * @param ListCalendarVersionsRequest $request
+     *
+     * @return ListCalendarVersionsResponse
+     */
+    public function listCalendarVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCalendarVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of scheduling calendars.
+     *
+     * @remarks
+     * DataWorks Enterprise Edition is required.
+     *
+     * @param Request - ListCalendarsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCalendarsResponse
+     *
+     * @param ListCalendarsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListCalendarsResponse
+     */
+    public function listCalendarsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCalendars',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCalendarsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of scheduling calendars.
+     *
+     * @remarks
+     * DataWorks Enterprise Edition is required.
+     *
+     * @param Request - ListCalendarsRequest
+     *
+     * @returns ListCalendarsResponse
+     *
+     * @param ListCalendarsRequest $request
+     *
+     * @return ListCalendarsResponse
+     */
+    public function listCalendars($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCalendarsWithOptions($request, $runtime);
     }
 
     /**
@@ -22244,10 +22663,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of workspace roles with pagination.
+     * Queries the details of workspace roles by paging.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param tmpReq - ListProjectRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22316,10 +22735,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of workspace roles with pagination.
+     * Queries the details of workspace roles by paging.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param Request - ListProjectRolesRequest
      *
@@ -22860,14 +23279,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of security policies based on specified conditions. This operation requires DataWorks tenant administrator or security administrator permissions.
+     * Retrieves a paginated list of security policies in the system based on specified conditions. This operation requires DataWorks tenant administrator and security administrator permissions.
      *
      * @remarks
-     * ## Request
-     * - This API retrieves a paginated list of configured security policies.
-     * - The `ControlModule` and `ControlSubModule` parameters filter policies by a specific module or submodule.
-     * - The `PageNum` and `PageSize` parameters control pagination. `PageNum` specifies the page number to retrieve (default: 1), and `PageSize` specifies the number of policies to return per page (default: 20).
-     * - Use the `MaxResults` and `NextToken` private parameters for advanced pagination.
+     * ## Request description
+     * - This operation retrieves the configured security policies in the system in pages.
+     * - You can use the `ControlModule` and `ControlSubModule` parameters to filter policies under specific modules or submodules.
+     * - The pagination parameters include `PageNum` and `PageSize`, which indicate the page number and the number of entries per page. The default values are 1 and 20.
+     * - If you need further pagination control, you can use the `MaxResults` and `NextToken` parameters (private parameters).
      *
      * @param Request - ListSecurityStrategiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22918,14 +23337,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of security policies based on specified conditions. This operation requires DataWorks tenant administrator or security administrator permissions.
+     * Retrieves a paginated list of security policies in the system based on specified conditions. This operation requires DataWorks tenant administrator and security administrator permissions.
      *
      * @remarks
-     * ## Request
-     * - This API retrieves a paginated list of configured security policies.
-     * - The `ControlModule` and `ControlSubModule` parameters filter policies by a specific module or submodule.
-     * - The `PageNum` and `PageSize` parameters control pagination. `PageNum` specifies the page number to retrieve (default: 1), and `PageSize` specifies the number of policies to return per page (default: 20).
-     * - Use the `MaxResults` and `NextToken` private parameters for advanced pagination.
+     * ## Request description
+     * - This operation retrieves the configured security policies in the system in pages.
+     * - You can use the `ControlModule` and `ControlSubModule` parameters to filter policies under specific modules or submodules.
+     * - The pagination parameters include `PageNum` and `PageSize`, which indicate the page number and the number of entries per page. The default values are 1 and 20.
+     * - If you need further pagination control, you can use the `MaxResults` and `NextToken` parameters (private parameters).
      *
      * @param Request - ListSecurityStrategiesRequest
      *
@@ -23528,10 +23947,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
+     * Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 1. You must purchase DataWorks Basic Edition or later to use this API.
      *
      * @param tmpReq - ListTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23572,10 +23991,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of data tables in DataWorks Data Map. For types that do not support the schema level, you can query data tables under a specified database. For types that support the schema level, you can query data tables under a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical metadata or business metadata.
+     * Queries the tables in Data Map. For types that do not support the schema level, this operation queries the tables in a specified database. For types that support the schema level, this operation queries the tables in a specified database, MaxCompute project, or schema. The response contains only basic table information and does not include technical or business metadata. For non-MaxCompute types, the response is not real-time and may be delayed by up to 1 hour compared to the metadata collection results.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+     * 1. You must purchase DataWorks Basic Edition or later to use this API.
      *
      * @param Request - ListTablesRequest
      *
@@ -24685,7 +25104,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Moves a file resource to a path in Data Studio.
+     * Moves a specified data development file resource to a specified data development folder.
+     *
+     * @remarks
+     * This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding operation in the 2020-05-18 version.
      *
      * @param Request - MoveResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24732,7 +25154,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Moves a file resource to a path in Data Studio.
+     * Moves a specified data development file resource to a specified data development folder.
+     *
+     * @remarks
+     * This operation is part of the new data development capabilities and applies only to workspaces that use the new data development feature. If you do not use the new data development feature, use the corresponding operation in the 2020-05-18 version.
      *
      * @param Request - MoveResourceRequest
      *
@@ -27719,6 +28144,125 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBusinessWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a scheduling calendar. This is a full update that requires you to submit the complete editable configuration.
+     *
+     * @remarks
+     * You must purchase DataWorks Enterprise Edition to use this feature.
+     * The calendar name cannot be modified. Unsubmitted dates are not retained.
+     *
+     * @param tmpReq - UpdateCalendarRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCalendarResponse
+     *
+     * @param UpdateCalendarRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCalendarResponse
+     */
+    public function updateCalendarWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateCalendarShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->projectIds) {
+            $request->projectIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->projectIds, 'ProjectIds', 'json');
+        }
+
+        if (null !== $tmpReq->schedulePolicy) {
+            $request->schedulePolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->schedulePolicy, 'SchedulePolicy', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->allProjects) {
+            @$body['AllProjects'] = $request->allProjects;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->expirationReminder) {
+            @$body['ExpirationReminder'] = $request->expirationReminder;
+        }
+
+        if (null !== $request->fallbackPolicy) {
+            @$body['FallbackPolicy'] = $request->fallbackPolicy;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->overduePolicy) {
+            @$body['OverduePolicy'] = $request->overduePolicy;
+        }
+
+        if (null !== $request->owner) {
+            @$body['Owner'] = $request->owner;
+        }
+
+        if (null !== $request->projectIdsShrink) {
+            @$body['ProjectIds'] = $request->projectIdsShrink;
+        }
+
+        if (null !== $request->schedulePolicyShrink) {
+            @$body['SchedulePolicy'] = $request->schedulePolicyShrink;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCalendar',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCalendarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a scheduling calendar. This is a full update that requires you to submit the complete editable configuration.
+     *
+     * @remarks
+     * You must purchase DataWorks Enterprise Edition to use this feature.
+     * The calendar name cannot be modified. Unsubmitted dates are not retained.
+     *
+     * @param Request - UpdateCalendarRequest
+     *
+     * @returns UpdateCalendarResponse
+     *
+     * @param UpdateCalendarRequest $request
+     *
+     * @return UpdateCalendarResponse
+     */
+    public function updateCalendar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCalendarWithOptions($request, $runtime);
     }
 
     /**
