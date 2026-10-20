@@ -85,6 +85,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetTemplateResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetWorkspaceRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListCatalogsRequest;
@@ -3319,6 +3321,69 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getTemplateWithOptions($workspaceBizId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a workspace.
+     *
+     * @param request - GetWorkspaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceResponse
+     *
+     * @param string              $workspaceId
+     * @param GetWorkspaceRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetWorkspaceResponse
+     */
+    public function getWorkspaceWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspace',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a workspace.
+     *
+     * @param request - GetWorkspaceRequest
+     *
+     * @returns GetWorkspaceResponse
+     *
+     * @param string              $workspaceId
+     * @param GetWorkspaceRequest $request
+     *
+     * @return GetWorkspaceResponse
+     */
+    public function getWorkspace($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkspaceWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
