@@ -13,22 +13,12 @@ class PriceComponentsValue extends Model
     /**
      * @var string
      */
+    public $chargeComposition;
+
+    /**
+     * @var string
+     */
     public $currency;
-
-    /**
-     * @var float
-     */
-    public $tradePrice;
-
-    /**
-     * @var float
-     */
-    public $originalPrice;
-
-    /**
-     * @var float
-     */
-    public $moduleSum;
 
     /**
      * @var float
@@ -38,12 +28,7 @@ class PriceComponentsValue extends Model
     /**
      * @var float
      */
-    public $quantity;
-
-    /**
-     * @var string
-     */
-    public $pricingUnit;
+    public $moduleSum;
 
     /**
      * @var modules[]
@@ -51,25 +36,40 @@ class PriceComponentsValue extends Model
     public $modules;
 
     /**
-     * @var usageCharges[]
+     * @var float
      */
-    public $usageCharges;
+    public $originalPrice;
 
     /**
      * @var string
      */
-    public $chargeComposition;
+    public $pricingUnit;
+
+    /**
+     * @var float
+     */
+    public $quantity;
+
+    /**
+     * @var float
+     */
+    public $tradePrice;
+
+    /**
+     * @var usageCharges[]
+     */
+    public $usageCharges;
     protected $_name = [
-        'currency' => 'currency',
-        'tradePrice' => 'tradePrice',
-        'originalPrice' => 'originalPrice',
-        'moduleSum' => 'moduleSum',
-        'effectiveModuleSum' => 'effectiveModuleSum',
-        'quantity' => 'quantity',
-        'pricingUnit' => 'pricingUnit',
-        'modules' => 'modules',
-        'usageCharges' => 'usageCharges',
         'chargeComposition' => 'chargeComposition',
+        'currency' => 'currency',
+        'effectiveModuleSum' => 'effectiveModuleSum',
+        'moduleSum' => 'moduleSum',
+        'modules' => 'modules',
+        'originalPrice' => 'originalPrice',
+        'pricingUnit' => 'pricingUnit',
+        'quantity' => 'quantity',
+        'tradePrice' => 'tradePrice',
+        'usageCharges' => 'usageCharges',
     ];
 
     public function validate()
@@ -86,32 +86,20 @@ class PriceComponentsValue extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeComposition) {
+            $res['chargeComposition'] = $this->chargeComposition;
+        }
+
         if (null !== $this->currency) {
             $res['currency'] = $this->currency;
-        }
-
-        if (null !== $this->tradePrice) {
-            $res['tradePrice'] = $this->tradePrice;
-        }
-
-        if (null !== $this->originalPrice) {
-            $res['originalPrice'] = $this->originalPrice;
-        }
-
-        if (null !== $this->moduleSum) {
-            $res['moduleSum'] = $this->moduleSum;
         }
 
         if (null !== $this->effectiveModuleSum) {
             $res['effectiveModuleSum'] = $this->effectiveModuleSum;
         }
 
-        if (null !== $this->quantity) {
-            $res['quantity'] = $this->quantity;
-        }
-
-        if (null !== $this->pricingUnit) {
-            $res['pricingUnit'] = $this->pricingUnit;
+        if (null !== $this->moduleSum) {
+            $res['moduleSum'] = $this->moduleSum;
         }
 
         if (null !== $this->modules) {
@@ -125,6 +113,22 @@ class PriceComponentsValue extends Model
             }
         }
 
+        if (null !== $this->originalPrice) {
+            $res['originalPrice'] = $this->originalPrice;
+        }
+
+        if (null !== $this->pricingUnit) {
+            $res['pricingUnit'] = $this->pricingUnit;
+        }
+
+        if (null !== $this->quantity) {
+            $res['quantity'] = $this->quantity;
+        }
+
+        if (null !== $this->tradePrice) {
+            $res['tradePrice'] = $this->tradePrice;
+        }
+
         if (null !== $this->usageCharges) {
             if (\is_array($this->usageCharges)) {
                 $res['usageCharges'] = [];
@@ -134,10 +138,6 @@ class PriceComponentsValue extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->chargeComposition) {
-            $res['chargeComposition'] = $this->chargeComposition;
         }
 
         return $res;
@@ -151,32 +151,20 @@ class PriceComponentsValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['chargeComposition'])) {
+            $model->chargeComposition = $map['chargeComposition'];
+        }
+
         if (isset($map['currency'])) {
             $model->currency = $map['currency'];
-        }
-
-        if (isset($map['tradePrice'])) {
-            $model->tradePrice = $map['tradePrice'];
-        }
-
-        if (isset($map['originalPrice'])) {
-            $model->originalPrice = $map['originalPrice'];
-        }
-
-        if (isset($map['moduleSum'])) {
-            $model->moduleSum = $map['moduleSum'];
         }
 
         if (isset($map['effectiveModuleSum'])) {
             $model->effectiveModuleSum = $map['effectiveModuleSum'];
         }
 
-        if (isset($map['quantity'])) {
-            $model->quantity = $map['quantity'];
-        }
-
-        if (isset($map['pricingUnit'])) {
-            $model->pricingUnit = $map['pricingUnit'];
+        if (isset($map['moduleSum'])) {
+            $model->moduleSum = $map['moduleSum'];
         }
 
         if (isset($map['modules'])) {
@@ -190,6 +178,22 @@ class PriceComponentsValue extends Model
             }
         }
 
+        if (isset($map['originalPrice'])) {
+            $model->originalPrice = $map['originalPrice'];
+        }
+
+        if (isset($map['pricingUnit'])) {
+            $model->pricingUnit = $map['pricingUnit'];
+        }
+
+        if (isset($map['quantity'])) {
+            $model->quantity = $map['quantity'];
+        }
+
+        if (isset($map['tradePrice'])) {
+            $model->tradePrice = $map['tradePrice'];
+        }
+
         if (isset($map['usageCharges'])) {
             if (!empty($map['usageCharges'])) {
                 $model->usageCharges = [];
@@ -199,10 +203,6 @@ class PriceComponentsValue extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['chargeComposition'])) {
-            $model->chargeComposition = $map['chargeComposition'];
         }
 
         return $model;

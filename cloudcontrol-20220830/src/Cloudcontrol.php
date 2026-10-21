@@ -329,7 +329,7 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * Queries pricing based on an OpenAPI triplet and input parameters.
+     * Queries pricing based on the OpenAPI triplet and request parameters.
      *
      * @param request - GetApiPriceRequest
      * @param headers - map
@@ -366,7 +366,7 @@ class Cloudcontrol extends OpenApiClient
     }
 
     /**
-     * Queries pricing based on an OpenAPI triplet and input parameters.
+     * Queries pricing based on the OpenAPI triplet and request parameters.
      *
      * @param request - GetApiPriceRequest
      *

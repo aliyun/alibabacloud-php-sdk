@@ -11,7 +11,7 @@ class modules extends Model
     /**
      * @var string
      */
-    public $moduleCode;
+    public $billingMode;
 
     /**
      * @var float
@@ -21,12 +21,22 @@ class modules extends Model
     /**
      * @var float
      */
+    public $invoiceDiscount;
+
+    /**
+     * @var string
+     */
+    public $moduleCode;
+
+    /**
+     * @var float
+     */
     public $originalCost;
 
     /**
      * @var float
      */
-    public $invoiceDiscount;
+    public $quantityUsedForQuote;
 
     /**
      * @var float
@@ -36,26 +46,16 @@ class modules extends Model
     /**
      * @var string
      */
-    public $billingMode;
-
-    /**
-     * @var string
-     */
     public $usageUnit;
-
-    /**
-     * @var float
-     */
-    public $quantityUsedForQuote;
     protected $_name = [
-        'moduleCode' => 'moduleCode',
-        'costAfterDiscount' => 'costAfterDiscount',
-        'originalCost' => 'originalCost',
-        'invoiceDiscount' => 'invoiceDiscount',
-        'unitPrice' => 'unitPrice',
         'billingMode' => 'billingMode',
-        'usageUnit' => 'usageUnit',
+        'costAfterDiscount' => 'costAfterDiscount',
+        'invoiceDiscount' => 'invoiceDiscount',
+        'moduleCode' => 'moduleCode',
+        'originalCost' => 'originalCost',
         'quantityUsedForQuote' => 'quantityUsedForQuote',
+        'unitPrice' => 'unitPrice',
+        'usageUnit' => 'usageUnit',
     ];
 
     public function validate()
@@ -66,36 +66,36 @@ class modules extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->moduleCode) {
-            $res['moduleCode'] = $this->moduleCode;
+        if (null !== $this->billingMode) {
+            $res['billingMode'] = $this->billingMode;
         }
 
         if (null !== $this->costAfterDiscount) {
             $res['costAfterDiscount'] = $this->costAfterDiscount;
         }
 
+        if (null !== $this->invoiceDiscount) {
+            $res['invoiceDiscount'] = $this->invoiceDiscount;
+        }
+
+        if (null !== $this->moduleCode) {
+            $res['moduleCode'] = $this->moduleCode;
+        }
+
         if (null !== $this->originalCost) {
             $res['originalCost'] = $this->originalCost;
         }
 
-        if (null !== $this->invoiceDiscount) {
-            $res['invoiceDiscount'] = $this->invoiceDiscount;
+        if (null !== $this->quantityUsedForQuote) {
+            $res['quantityUsedForQuote'] = $this->quantityUsedForQuote;
         }
 
         if (null !== $this->unitPrice) {
             $res['unitPrice'] = $this->unitPrice;
         }
 
-        if (null !== $this->billingMode) {
-            $res['billingMode'] = $this->billingMode;
-        }
-
         if (null !== $this->usageUnit) {
             $res['usageUnit'] = $this->usageUnit;
-        }
-
-        if (null !== $this->quantityUsedForQuote) {
-            $res['quantityUsedForQuote'] = $this->quantityUsedForQuote;
         }
 
         return $res;
@@ -109,36 +109,36 @@ class modules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['moduleCode'])) {
-            $model->moduleCode = $map['moduleCode'];
+        if (isset($map['billingMode'])) {
+            $model->billingMode = $map['billingMode'];
         }
 
         if (isset($map['costAfterDiscount'])) {
             $model->costAfterDiscount = $map['costAfterDiscount'];
         }
 
+        if (isset($map['invoiceDiscount'])) {
+            $model->invoiceDiscount = $map['invoiceDiscount'];
+        }
+
+        if (isset($map['moduleCode'])) {
+            $model->moduleCode = $map['moduleCode'];
+        }
+
         if (isset($map['originalCost'])) {
             $model->originalCost = $map['originalCost'];
         }
 
-        if (isset($map['invoiceDiscount'])) {
-            $model->invoiceDiscount = $map['invoiceDiscount'];
+        if (isset($map['quantityUsedForQuote'])) {
+            $model->quantityUsedForQuote = $map['quantityUsedForQuote'];
         }
 
         if (isset($map['unitPrice'])) {
             $model->unitPrice = $map['unitPrice'];
         }
 
-        if (isset($map['billingMode'])) {
-            $model->billingMode = $map['billingMode'];
-        }
-
         if (isset($map['usageUnit'])) {
             $model->usageUnit = $map['usageUnit'];
-        }
-
-        if (isset($map['quantityUsedForQuote'])) {
-            $model->quantityUsedForQuote = $map['quantityUsedForQuote'];
         }
 
         return $model;

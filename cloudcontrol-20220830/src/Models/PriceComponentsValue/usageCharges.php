@@ -9,19 +9,19 @@ use AlibabaCloud\Dara\Model;
 class usageCharges extends Model
 {
     /**
-     * @var string
+     * @var float
      */
-    public $moduleCode;
-
-    /**
-     * @var string
-     */
-    public $unit;
+    public $assumedQuantity;
 
     /**
      * @var float
      */
-    public $pricePerUnit;
+    public $assumedQuantityCost;
+
+    /**
+     * @var string
+     */
+    public $moduleCode;
 
     /**
      * @var float
@@ -31,19 +31,19 @@ class usageCharges extends Model
     /**
      * @var float
      */
-    public $assumedQuantity;
+    public $pricePerUnit;
 
     /**
-     * @var float
+     * @var string
      */
-    public $assumedQuantityCost;
+    public $unit;
     protected $_name = [
-        'moduleCode' => 'moduleCode',
-        'unit' => 'unit',
-        'pricePerUnit' => 'pricePerUnit',
-        'originalPricePerUnit' => 'originalPricePerUnit',
         'assumedQuantity' => 'assumedQuantity',
         'assumedQuantityCost' => 'assumedQuantityCost',
+        'moduleCode' => 'moduleCode',
+        'originalPricePerUnit' => 'originalPricePerUnit',
+        'pricePerUnit' => 'pricePerUnit',
+        'unit' => 'unit',
     ];
 
     public function validate()
@@ -54,28 +54,28 @@ class usageCharges extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->moduleCode) {
-            $res['moduleCode'] = $this->moduleCode;
-        }
-
-        if (null !== $this->unit) {
-            $res['unit'] = $this->unit;
-        }
-
-        if (null !== $this->pricePerUnit) {
-            $res['pricePerUnit'] = $this->pricePerUnit;
-        }
-
-        if (null !== $this->originalPricePerUnit) {
-            $res['originalPricePerUnit'] = $this->originalPricePerUnit;
-        }
-
         if (null !== $this->assumedQuantity) {
             $res['assumedQuantity'] = $this->assumedQuantity;
         }
 
         if (null !== $this->assumedQuantityCost) {
             $res['assumedQuantityCost'] = $this->assumedQuantityCost;
+        }
+
+        if (null !== $this->moduleCode) {
+            $res['moduleCode'] = $this->moduleCode;
+        }
+
+        if (null !== $this->originalPricePerUnit) {
+            $res['originalPricePerUnit'] = $this->originalPricePerUnit;
+        }
+
+        if (null !== $this->pricePerUnit) {
+            $res['pricePerUnit'] = $this->pricePerUnit;
+        }
+
+        if (null !== $this->unit) {
+            $res['unit'] = $this->unit;
         }
 
         return $res;
@@ -89,28 +89,28 @@ class usageCharges extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['moduleCode'])) {
-            $model->moduleCode = $map['moduleCode'];
-        }
-
-        if (isset($map['unit'])) {
-            $model->unit = $map['unit'];
-        }
-
-        if (isset($map['pricePerUnit'])) {
-            $model->pricePerUnit = $map['pricePerUnit'];
-        }
-
-        if (isset($map['originalPricePerUnit'])) {
-            $model->originalPricePerUnit = $map['originalPricePerUnit'];
-        }
-
         if (isset($map['assumedQuantity'])) {
             $model->assumedQuantity = $map['assumedQuantity'];
         }
 
         if (isset($map['assumedQuantityCost'])) {
             $model->assumedQuantityCost = $map['assumedQuantityCost'];
+        }
+
+        if (isset($map['moduleCode'])) {
+            $model->moduleCode = $map['moduleCode'];
+        }
+
+        if (isset($map['originalPricePerUnit'])) {
+            $model->originalPricePerUnit = $map['originalPricePerUnit'];
+        }
+
+        if (isset($map['pricePerUnit'])) {
+            $model->pricePerUnit = $map['pricePerUnit'];
+        }
+
+        if (isset($map['unit'])) {
+            $model->unit = $map['unit'];
         }
 
         return $model;
