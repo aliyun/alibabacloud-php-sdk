@@ -73,6 +73,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyInfoInRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyInfoInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyLastUsedRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyLastUsedResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyPolicyForAccountRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyPolicyForAccountResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyPolicyRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyPolicyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountMFAInfoResponse;
@@ -164,6 +166,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreAccessKeyFromRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreAccessKeyFromRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreUserFromRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreUserFromRecycleBinResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\SetAccessKeyPolicyForAccountRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\SetAccessKeyPolicyForAccountResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetAccessKeyPolicyRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetAccessKeyPolicyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetDefaultDomainRequest;
@@ -1727,7 +1731,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a passkey of a RAM user.
+     * Deletes the passkey of a user.
      *
      * @param request - DeletePasskeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1770,7 +1774,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes a passkey of a RAM user.
+     * Deletes the passkey of a user.
      *
      * @param request - DeletePasskeyRequest
      *
@@ -2533,6 +2537,56 @@ class Ims extends OpenApiClient
     }
 
     /**
+     * Queries the account-level AccessKey network access control policy.
+     *
+     * @param request - GetAccessKeyPolicyForAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccessKeyPolicyForAccountResponse
+     *
+     * @param GetAccessKeyPolicyForAccountRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAccessKeyPolicyForAccountResponse
+     */
+    public function getAccessKeyPolicyForAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetAccessKeyPolicyForAccount',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAccessKeyPolicyForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the account-level AccessKey network access control policy.
+     *
+     * @param request - GetAccessKeyPolicyForAccountRequest
+     *
+     * @returns GetAccessKeyPolicyForAccountResponse
+     *
+     * @param GetAccessKeyPolicyForAccountRequest $request
+     *
+     * @return GetAccessKeyPolicyForAccountResponse
+     */
+    public function getAccessKeyPolicyForAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessKeyPolicyForAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
      *
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2786,10 +2840,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries installation information about a specified installed application.
+     * Queries the installation information of a specified installed application.
      *
      * @remarks
-     * 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+     * Before you call this operation, the target application must be installed. You can call ProvisionApplication to install the application and use the AppId of the installed application. Calling this operation with an application ID returned by CreateApplication for an application that has not been installed will fail.
      *
      * @param request - GetApplicationProvisionInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2828,10 +2882,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries installation information about a specified installed application.
+     * Queries the installation information of a specified installed application.
      *
      * @remarks
-     * 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+     * Before you call this operation, the target application must be installed. You can call ProvisionApplication to install the application and use the AppId of the installed application. Calling this operation with an application ID returned by CreateApplication for an application that has not been installed will fail.
      *
      * @param request - GetApplicationProvisionInfoRequest
      *
@@ -3352,7 +3406,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * Queries the details of a specified role-based SSO identity provider.
      *
      * @param request - GetSAMLProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3391,7 +3445,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * Queries the details of a specified role-based SSO identity provider.
      *
      * @param request - GetSAMLProviderRequest
      *
@@ -3739,7 +3793,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+     * Queries the status of the secure phone or security email address of a Resource Access Management (RAM) user.
      *
      * @param request - GetVerificationInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3778,7 +3832,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
+     * Queries the status of the secure phone or security email address of a Resource Access Management (RAM) user.
      *
      * @param request - GetVerificationInfoRequest
      *
@@ -5162,7 +5216,7 @@ class Ims extends OpenApiClient
      *
      * @remarks
      * ### Usage notes
-     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     * This topic provides an example on how to remove the client ID `498469743454717****` from an OIDC IdP named `TestOIDCProvider`.
      *
      * @param request - RemoveClientIdFromOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5209,7 +5263,7 @@ class Ims extends OpenApiClient
      *
      * @remarks
      * ### Usage notes
-     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     * This topic provides an example on how to remove the client ID `498469743454717****` from an OIDC IdP named `TestOIDCProvider`.
      *
      * @param request - RemoveClientIdFromOIDCProviderRequest
      *
@@ -5537,6 +5591,63 @@ class Ims extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setAccessKeyPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sets the account-level AccessKey network access control policy.
+     *
+     * @param request - SetAccessKeyPolicyForAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAccessKeyPolicyForAccountResponse
+     *
+     * @param SetAccessKeyPolicyForAccountRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SetAccessKeyPolicyForAccountResponse
+     */
+    public function setAccessKeyPolicyForAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessKeyPolicy) {
+            @$query['AccessKeyPolicy'] = $request->accessKeyPolicy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetAccessKeyPolicyForAccount',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetAccessKeyPolicyForAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets the account-level AccessKey network access control policy.
+     *
+     * @param request - SetAccessKeyPolicyForAccountRequest
+     *
+     * @returns SetAccessKeyPolicyForAccountResponse
+     *
+     * @param SetAccessKeyPolicyForAccountRequest $request
+     *
+     * @return SetAccessKeyPolicyForAccountResponse
+     */
+    public function setAccessKeyPolicyForAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAccessKeyPolicyForAccountWithOptions($request, $runtime);
     }
 
     /**
