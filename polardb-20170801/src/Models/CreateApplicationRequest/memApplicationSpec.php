@@ -51,6 +51,26 @@ class memApplicationSpec extends Model
     /**
      * @var string
      */
+    public $polarAIEmbedderInstanceId;
+
+    /**
+     * @var string
+     */
+    public $polarAIGraphLlmInstanceId;
+
+    /**
+     * @var string
+     */
+    public $polarAILlmInstanceId;
+
+    /**
+     * @var string
+     */
+    public $polarAIRerankerInstanceId;
+
+    /**
+     * @var string
+     */
     public $projectName;
 
     /**
@@ -91,6 +111,10 @@ class memApplicationSpec extends Model
         'graphLlmModel' => 'GraphLlmModel',
         'llmModel' => 'LlmModel',
         'memoryType' => 'MemoryType',
+        'polarAIEmbedderInstanceId' => 'PolarAIEmbedderInstanceId',
+        'polarAIGraphLlmInstanceId' => 'PolarAIGraphLlmInstanceId',
+        'polarAILlmInstanceId' => 'PolarAILlmInstanceId',
+        'polarAIRerankerInstanceId' => 'PolarAIRerankerInstanceId',
         'projectName' => 'ProjectName',
         'rerankerModel' => 'RerankerModel',
         'shard' => 'Shard',
@@ -141,6 +165,22 @@ class memApplicationSpec extends Model
 
         if (null !== $this->memoryType) {
             $res['MemoryType'] = $this->memoryType;
+        }
+
+        if (null !== $this->polarAIEmbedderInstanceId) {
+            $res['PolarAIEmbedderInstanceId'] = $this->polarAIEmbedderInstanceId;
+        }
+
+        if (null !== $this->polarAIGraphLlmInstanceId) {
+            $res['PolarAIGraphLlmInstanceId'] = $this->polarAIGraphLlmInstanceId;
+        }
+
+        if (null !== $this->polarAILlmInstanceId) {
+            $res['PolarAILlmInstanceId'] = $this->polarAILlmInstanceId;
+        }
+
+        if (null !== $this->polarAIRerankerInstanceId) {
+            $res['PolarAIRerankerInstanceId'] = $this->polarAIRerankerInstanceId;
         }
 
         if (null !== $this->projectName) {
@@ -219,6 +259,22 @@ class memApplicationSpec extends Model
 
         if (isset($map['MemoryType'])) {
             $model->memoryType = $map['MemoryType'];
+        }
+
+        if (isset($map['PolarAIEmbedderInstanceId'])) {
+            $model->polarAIEmbedderInstanceId = $map['PolarAIEmbedderInstanceId'];
+        }
+
+        if (isset($map['PolarAIGraphLlmInstanceId'])) {
+            $model->polarAIGraphLlmInstanceId = $map['PolarAIGraphLlmInstanceId'];
+        }
+
+        if (isset($map['PolarAILlmInstanceId'])) {
+            $model->polarAILlmInstanceId = $map['PolarAILlmInstanceId'];
+        }
+
+        if (isset($map['PolarAIRerankerInstanceId'])) {
+            $model->polarAIRerankerInstanceId = $map['PolarAIRerankerInstanceId'];
         }
 
         if (isset($map['ProjectName'])) {

@@ -63,6 +63,11 @@ class sources extends Model
      * @var int
      */
     public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceUri;
     protected $_name = [
         'chunkMetadata' => 'ChunkMetadata',
         'fileId' => 'FileId',
@@ -75,6 +80,7 @@ class sources extends Model
         'shardIndex' => 'ShardIndex',
         'similarityScore' => 'SimilarityScore',
         'sourceId' => 'SourceId',
+        'sourceUri' => 'SourceUri',
     ];
 
     public function validate()
@@ -165,6 +171,10 @@ class sources extends Model
             $res['SourceId'] = $this->sourceId;
         }
 
+        if (null !== $this->sourceUri) {
+            $res['SourceUri'] = $this->sourceUri;
+        }
+
         return $res;
     }
 
@@ -242,6 +252,10 @@ class sources extends Model
 
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
+        }
+
+        if (isset($map['SourceUri'])) {
+            $model->sourceUri = $map['SourceUri'];
         }
 
         return $model;

@@ -63,6 +63,11 @@ class results extends Model
      * @var float
      */
     public $similarityScore;
+
+    /**
+     * @var string
+     */
+    public $sourceUri;
     protected $_name = [
         'captions' => 'Captions',
         'docItems' => 'DocItems',
@@ -75,6 +80,7 @@ class results extends Model
         'shardContent' => 'ShardContent',
         'shardIndex' => 'ShardIndex',
         'similarityScore' => 'SimilarityScore',
+        'sourceUri' => 'SourceUri',
     ];
 
     public function validate()
@@ -179,6 +185,10 @@ class results extends Model
             $res['SimilarityScore'] = $this->similarityScore;
         }
 
+        if (null !== $this->sourceUri) {
+            $res['SourceUri'] = $this->sourceUri;
+        }
+
         return $res;
     }
 
@@ -267,6 +277,10 @@ class results extends Model
 
         if (isset($map['SimilarityScore'])) {
             $model->similarityScore = $map['SimilarityScore'];
+        }
+
+        if (isset($map['SourceUri'])) {
+            $model->sourceUri = $map['SourceUri'];
         }
 
         return $model;

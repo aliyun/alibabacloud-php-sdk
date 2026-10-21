@@ -30051,7 +30051,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the model or the client-facing invocation name of an AI cluster.
+     * Modifies the AI cluster model or the customer-facing invocation name.
      *
      * @param request - ModifyAIDBClusterModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30114,7 +30114,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the model or the client-facing invocation name of an AI cluster.
+     * Modifies the AI cluster model or the customer-facing invocation name.
      *
      * @param request - ModifyAIDBClusterModelRequest
      *

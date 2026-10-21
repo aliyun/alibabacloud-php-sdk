@@ -43,6 +43,11 @@ class shards extends Model
      * @var int
      */
     public $shardIndex;
+
+    /**
+     * @var string
+     */
+    public $sourceUri;
     protected $_name = [
         'captions' => 'Captions',
         'docItems' => 'DocItems',
@@ -51,6 +56,7 @@ class shards extends Model
         'pageNumbers' => 'PageNumbers',
         'shardContent' => 'ShardContent',
         'shardIndex' => 'ShardIndex',
+        'sourceUri' => 'SourceUri',
     ];
 
     public function validate()
@@ -139,6 +145,10 @@ class shards extends Model
             $res['ShardIndex'] = $this->shardIndex;
         }
 
+        if (null !== $this->sourceUri) {
+            $res['SourceUri'] = $this->sourceUri;
+        }
+
         return $res;
     }
 
@@ -211,6 +221,10 @@ class shards extends Model
 
         if (isset($map['ShardIndex'])) {
             $model->shardIndex = $map['ShardIndex'];
+        }
+
+        if (isset($map['SourceUri'])) {
+            $model->sourceUri = $map['SourceUri'];
         }
 
         return $model;
