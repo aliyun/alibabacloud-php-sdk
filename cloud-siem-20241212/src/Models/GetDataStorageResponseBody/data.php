@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\deliverySettings;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\normalizationLogStores;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\normalizationLogViews;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\recordLogStores;
@@ -42,6 +43,16 @@ class data extends Model
      * @var string
      */
     public $dataStorageUsedCapacityDetail;
+
+    /**
+     * @var deliverySettings
+     */
+    public $deliverySettings;
+
+    /**
+     * @var string
+     */
+    public $deliverySettingsError;
 
     /**
      * @var string
@@ -94,6 +105,8 @@ class data extends Model
         'dataStorageTotalCapacity' => 'DataStorageTotalCapacity',
         'dataStorageUsedCapacity' => 'DataStorageUsedCapacity',
         'dataStorageUsedCapacityDetail' => 'DataStorageUsedCapacityDetail',
+        'deliverySettings' => 'DeliverySettings',
+        'deliverySettingsError' => 'DeliverySettingsError',
         'logProject' => 'LogProject',
         'logProjectState' => 'LogProjectState',
         'logProjectStateChangeAllowed' => 'LogProjectStateChangeAllowed',
@@ -107,6 +120,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->deliverySettings) {
+            $this->deliverySettings->validate();
+        }
         if (\is_array($this->normalizationLogStores)) {
             Model::validateArray($this->normalizationLogStores);
         }
@@ -150,6 +166,14 @@ class data extends Model
 
         if (null !== $this->dataStorageUsedCapacityDetail) {
             $res['DataStorageUsedCapacityDetail'] = $this->dataStorageUsedCapacityDetail;
+        }
+
+        if (null !== $this->deliverySettings) {
+            $res['DeliverySettings'] = null !== $this->deliverySettings ? $this->deliverySettings->toArray($noStream) : $this->deliverySettings;
+        }
+
+        if (null !== $this->deliverySettingsError) {
+            $res['DeliverySettingsError'] = $this->deliverySettingsError;
         }
 
         if (null !== $this->logProject) {
@@ -256,6 +280,14 @@ class data extends Model
 
         if (isset($map['DataStorageUsedCapacityDetail'])) {
             $model->dataStorageUsedCapacityDetail = $map['DataStorageUsedCapacityDetail'];
+        }
+
+        if (isset($map['DeliverySettings'])) {
+            $model->deliverySettings = deliverySettings::fromMap($map['DeliverySettings']);
+        }
+
+        if (isset($map['DeliverySettingsError'])) {
+            $model->deliverySettingsError = $map['DeliverySettingsError'];
         }
 
         if (isset($map['LogProject'])) {

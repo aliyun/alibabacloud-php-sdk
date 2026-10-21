@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\sasLogStores\accountDeliveries;
 
 class sasLogStores extends Model
 {
+    /**
+     * @var accountDeliveries[]
+     */
+    public $accountDeliveries;
+
     /**
      * @var string
      */
@@ -63,6 +69,7 @@ class sasLogStores extends Model
      */
     public $usedCapacity;
     protected $_name = [
+        'accountDeliveries' => 'AccountDeliveries',
         'logCode' => 'LogCode',
         'logDeliveryGroup' => 'LogDeliveryGroup',
         'logDeliveryPermission' => 'LogDeliveryPermission',
@@ -78,12 +85,26 @@ class sasLogStores extends Model
 
     public function validate()
     {
+        if (\is_array($this->accountDeliveries)) {
+            Model::validateArray($this->accountDeliveries);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountDeliveries) {
+            if (\is_array($this->accountDeliveries)) {
+                $res['AccountDeliveries'] = [];
+                $n1 = 0;
+                foreach ($this->accountDeliveries as $item1) {
+                    $res['AccountDeliveries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->logCode) {
             $res['LogCode'] = $this->logCode;
         }
@@ -139,6 +160,17 @@ class sasLogStores extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountDeliveries'])) {
+            if (!empty($map['AccountDeliveries'])) {
+                $model->accountDeliveries = [];
+                $n1 = 0;
+                foreach ($map['AccountDeliveries'] as $item1) {
+                    $model->accountDeliveries[$n1] = accountDeliveries::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['LogCode'])) {
             $model->logCode = $map['LogCode'];
         }
