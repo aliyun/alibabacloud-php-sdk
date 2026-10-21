@@ -11,6 +11,11 @@ class SizeChartExtractAsyncShrinkRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $columnNameListShrink;
 
     /**
@@ -23,6 +28,7 @@ class SizeChartExtractAsyncShrinkRequest extends Model
      */
     public $languageModel;
     protected $_name = [
+        'bizId' => 'BizId',
         'columnNameListShrink' => 'ColumnNameList',
         'imageUrl' => 'ImageUrl',
         'languageModel' => 'LanguageModel',
@@ -36,6 +42,10 @@ class SizeChartExtractAsyncShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+
         if (null !== $this->columnNameListShrink) {
             $res['ColumnNameList'] = $this->columnNameListShrink;
         }
@@ -59,6 +69,10 @@ class SizeChartExtractAsyncShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+
         if (isset($map['ColumnNameList'])) {
             $model->columnNameListShrink = $map['ColumnNameList'];
         }

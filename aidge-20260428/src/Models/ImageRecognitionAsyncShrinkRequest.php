@@ -11,6 +11,11 @@ class ImageRecognitionAsyncShrinkRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $imageUrl;
 
     /**
@@ -48,6 +53,7 @@ class ImageRecognitionAsyncShrinkRequest extends Model
      */
     public $returnProductProp;
     protected $_name = [
+        'bizId' => 'BizId',
         'imageUrl' => 'ImageUrl',
         'nonObjectDetectElementsShrink' => 'NonObjectDetectElements',
         'objectDetectElementsShrink' => 'ObjectDetectElements',
@@ -66,6 +72,10 @@ class ImageRecognitionAsyncShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
@@ -109,6 +119,10 @@ class ImageRecognitionAsyncShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }

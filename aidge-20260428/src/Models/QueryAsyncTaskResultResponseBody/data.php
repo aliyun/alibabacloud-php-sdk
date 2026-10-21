@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $result;
 
     /**
@@ -28,6 +33,7 @@ class data extends Model
      */
     public $usageMap;
     protected $_name = [
+        'bizId' => 'BizId',
         'result' => 'Result',
         'status' => 'Status',
         'taskId' => 'TaskId',
@@ -45,6 +51,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -77,6 +87,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

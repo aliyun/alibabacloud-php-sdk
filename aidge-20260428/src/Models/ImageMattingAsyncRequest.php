@@ -21,6 +21,11 @@ class ImageMattingAsyncRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $imageUrl;
 
     /**
@@ -35,6 +40,7 @@ class ImageMattingAsyncRequest extends Model
     protected $_name = [
         'backGroundType' => 'BackGroundType',
         'bgColor' => 'BgColor',
+        'bizId' => 'BizId',
         'imageUrl' => 'ImageUrl',
         'targetHeight' => 'TargetHeight',
         'targetWidth' => 'TargetWidth',
@@ -54,6 +60,10 @@ class ImageMattingAsyncRequest extends Model
 
         if (null !== $this->bgColor) {
             $res['BgColor'] = $this->bgColor;
+        }
+
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
 
         if (null !== $this->imageUrl) {
@@ -85,6 +95,10 @@ class ImageMattingAsyncRequest extends Model
 
         if (isset($map['BgColor'])) {
             $model->bgColor = $map['BgColor'];
+        }
+
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
 
         if (isset($map['ImageUrl'])) {

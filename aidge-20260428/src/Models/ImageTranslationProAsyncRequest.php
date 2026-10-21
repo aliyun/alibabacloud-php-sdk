@@ -11,6 +11,11 @@ class ImageTranslationProAsyncRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $glossary;
 
     /**
@@ -43,6 +48,7 @@ class ImageTranslationProAsyncRequest extends Model
      */
     public $useImageEditor;
     protected $_name = [
+        'bizId' => 'BizId',
         'glossary' => 'Glossary',
         'imageUrl' => 'ImageUrl',
         'includingProductArea' => 'IncludingProductArea',
@@ -60,6 +66,10 @@ class ImageTranslationProAsyncRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+
         if (null !== $this->glossary) {
             $res['Glossary'] = $this->glossary;
         }
@@ -99,6 +109,10 @@ class ImageTranslationProAsyncRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+
         if (isset($map['Glossary'])) {
             $model->glossary = $map['Glossary'];
         }

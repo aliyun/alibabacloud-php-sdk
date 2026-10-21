@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SizeChartExtractAsyncRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizId;
+
+    /**
      * @var string[]
      */
     public $columnNameList;
@@ -23,6 +28,7 @@ class SizeChartExtractAsyncRequest extends Model
      */
     public $languageModel;
     protected $_name = [
+        'bizId' => 'BizId',
         'columnNameList' => 'ColumnNameList',
         'imageUrl' => 'ImageUrl',
         'languageModel' => 'LanguageModel',
@@ -39,6 +45,10 @@ class SizeChartExtractAsyncRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+
         if (null !== $this->columnNameList) {
             if (\is_array($this->columnNameList)) {
                 $res['ColumnNameList'] = [];
@@ -69,6 +79,10 @@ class SizeChartExtractAsyncRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+
         if (isset($map['ColumnNameList'])) {
             if (!empty($map['ColumnNameList'])) {
                 $model->columnNameList = [];

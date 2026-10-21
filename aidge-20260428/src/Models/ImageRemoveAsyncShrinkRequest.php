@@ -11,6 +11,11 @@ class ImageRemoveAsyncShrinkRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $imageUrl;
 
     /**
@@ -43,6 +48,7 @@ class ImageRemoveAsyncShrinkRequest extends Model
      */
     public $userTextShrink;
     protected $_name = [
+        'bizId' => 'BizId',
         'imageUrl' => 'ImageUrl',
         'mask' => 'Mask',
         'nonObjectRemoveElementsShrink' => 'NonObjectRemoveElements',
@@ -60,6 +66,10 @@ class ImageRemoveAsyncShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
@@ -99,6 +109,10 @@ class ImageRemoveAsyncShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }

@@ -11,6 +11,11 @@ class ImageRemoveAsyncRequest extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $imageUrl;
 
     /**
@@ -43,6 +48,7 @@ class ImageRemoveAsyncRequest extends Model
      */
     public $userText;
     protected $_name = [
+        'bizId' => 'BizId',
         'imageUrl' => 'ImageUrl',
         'mask' => 'Mask',
         'nonObjectRemoveElements' => 'NonObjectRemoveElements',
@@ -72,6 +78,10 @@ class ImageRemoveAsyncRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
@@ -139,6 +149,10 @@ class ImageRemoveAsyncRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
