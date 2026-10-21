@@ -161,6 +161,10 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticDatabaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticDatabaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticDataSourcesRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticDataSourcesResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticGlobalSqlExecutionHistoriesRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticGlobalSqlExecutionHistoriesResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticSqlExecutionHistoriesRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticSqlExecutionHistoriesResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticTableBaseInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAgenticTableBaseInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
@@ -1167,7 +1171,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a custom agent in a personal or shared workspace.
+     * Creates a custom agent in a personal space or workspace.
      *
      * @param tmpReq - CreateCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1308,7 +1312,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a custom agent in a personal or shared workspace.
+     * Creates a custom agent in a personal space or workspace.
      *
      * @param request - CreateCustomAgentRequest
      *
@@ -2998,7 +3002,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a custom agent by custom agent ID.
+     * Retrieves the detailed description of a custom agent based on the custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3041,7 +3045,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a custom agent by custom agent ID.
+     * Retrieves the detailed description of a custom agent based on the custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      *
@@ -3624,7 +3628,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Calls back after a file is uploaded.
+     * Processes the file upload callback.
      *
      * @param request - FileUploadCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3687,7 +3691,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Calls back after a file is uploaded.
+     * Processes the file upload callback.
      *
      * @param request - FileUploadCallbackRequest
      *
@@ -3705,7 +3709,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries agent information by install token.
+     * Queries the agent associated with an install token after redemption. Data is empty if the token has not been redeemed.
+     *
+     * @remarks
+     * Specify the install token issued by IssueAgenticInstallToken to query the agent generated or reused after the token is redeemed. The request fails if the install token does not exist. If the token has not been redeemed, or the associated credential or agent does not exist, the API call succeeds but Data is empty.
      *
      * @param request - GetAgenticAgentByInstallTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3744,7 +3751,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries agent information by install token.
+     * Queries the agent associated with an install token after redemption. Data is empty if the token has not been redeemed.
+     *
+     * @remarks
+     * Specify the install token issued by IssueAgenticInstallToken to query the agent generated or reused after the token is redeemed. The request fails if the install token does not exist. If the token has not been redeemed, or the associated credential or agent does not exist, the API call succeeds but Data is empty.
      *
      * @param request - GetAgenticAgentByInstallTokenRequest
      *
@@ -4392,10 +4402,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
      *
      * @remarks
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
      *
      * @param tmpReq - GetDataAgentTaskModelUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4460,10 +4470,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total call count, total tokens consumed, and peak TPM.
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
      *
      * @remarks
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total model call count, total tokens consumed, and peak TPM. This operation is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
      *
      * @param request - GetDataAgentTaskModelUsageRequest
      *
@@ -4481,10 +4491,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
      *
      * @remarks
-     * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
      *
      * @param tmpReq - GetDataAgentTaskModelUsageMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4549,10 +4559,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range, returning token consumption at each time point with minute-level granularity.
+     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
      *
      * @remarks
-     * Queries the TPM time series metrics of DataAgent analysis task model usage within a specified time range. The metrics are returned at minute-level granularity, showing the number of tokens consumed in each statistical interval for analyzing model usage trends over time.
+     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
      *
      * @param request - GetDataAgentTaskModelUsageMetricsRequest
      *
@@ -4629,7 +4639,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a collaborative workspace.
+     * Queries the details of a workspace.
      *
      * @param request - GetDataAgentWorkspaceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4672,7 +4682,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a collaborative workspace.
+     * Queries the details of a workspace.
      *
      * @param request - GetDataAgentWorkspaceInfoRequest
      *
@@ -5730,6 +5740,208 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+     *
+     * @param request - ListAgenticGlobalSqlExecutionHistoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgenticGlobalSqlExecutionHistoriesResponse
+     *
+     * @param ListAgenticGlobalSqlExecutionHistoriesRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListAgenticGlobalSqlExecutionHistoriesResponse
+     */
+    public function listAgenticGlobalSqlExecutionHistoriesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actorId) {
+            @$query['ActorId'] = $request->actorId;
+        }
+
+        if (null !== $request->actorName) {
+            @$query['ActorName'] = $request->actorName;
+        }
+
+        if (null !== $request->actorType) {
+            @$query['ActorType'] = $request->actorType;
+        }
+
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->scenario) {
+            @$query['Scenario'] = $request->scenario;
+        }
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->sqlKeyword) {
+            @$query['SqlKeyword'] = $request->sqlKeyword;
+        }
+
+        if (null !== $request->sqlType) {
+            @$query['SqlType'] = $request->sqlType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgenticGlobalSqlExecutionHistories',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgenticGlobalSqlExecutionHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+     *
+     * @param request - ListAgenticGlobalSqlExecutionHistoriesRequest
+     *
+     * @returns ListAgenticGlobalSqlExecutionHistoriesResponse
+     *
+     * @param ListAgenticGlobalSqlExecutionHistoriesRequest $request
+     *
+     * @return ListAgenticGlobalSqlExecutionHistoriesResponse
+     */
+    public function listAgenticGlobalSqlExecutionHistories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgenticGlobalSqlExecutionHistoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+     *
+     * @param request - ListAgenticSqlExecutionHistoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgenticSqlExecutionHistoriesResponse
+     *
+     * @param ListAgenticSqlExecutionHistoriesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListAgenticSqlExecutionHistoriesResponse
+     */
+    public function listAgenticSqlExecutionHistoriesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actorId) {
+            @$query['ActorId'] = $request->actorId;
+        }
+
+        if (null !== $request->actorName) {
+            @$query['ActorName'] = $request->actorName;
+        }
+
+        if (null !== $request->actorType) {
+            @$query['ActorType'] = $request->actorType;
+        }
+
+        if (null !== $request->catalogUuid) {
+            @$query['CatalogUuid'] = $request->catalogUuid;
+        }
+
+        if (null !== $request->databaseUuid) {
+            @$query['DatabaseUuid'] = $request->databaseUuid;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->scenario) {
+            @$query['Scenario'] = $request->scenario;
+        }
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->sqlKeyword) {
+            @$query['SqlKeyword'] = $request->sqlKeyword;
+        }
+
+        if (null !== $request->sqlType) {
+            @$query['SqlType'] = $request->sqlType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgenticSqlExecutionHistories',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgenticSqlExecutionHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+     *
+     * @param request - ListAgenticSqlExecutionHistoriesRequest
+     *
+     * @returns ListAgenticSqlExecutionHistoriesResponse
+     *
+     * @param ListAgenticSqlExecutionHistoriesRequest $request
+     *
+     * @return ListAgenticSqlExecutionHistoriesResponse
+     */
+    public function listAgenticSqlExecutionHistories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgenticSqlExecutionHistoriesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the basic information and engine metadata of tables in a specified database by using paging. You can filter the results by keyword and table type, and specify the sorting method.
      *
      * @param request - ListAgenticTableBaseInfoRequest
@@ -5947,7 +6159,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists all custom agents in personal and shared workspaces.
+     * Lists all custom agents in personal and team workspaces.
      *
      * @param request - ListCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6010,7 +6222,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists all custom agents in personal and shared workspaces.
+     * Lists all custom agents in personal and team workspaces.
      *
      * @param request - ListCustomAgentRequest
      *
@@ -9455,7 +9667,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Updates the properties of an Airflow instance.
+     * Updates the information of an Airflow instance.
+     *
+     * @remarks
+     * Creates an Airflow instance in a workspace.
      *
      * @param tmpReq - UpdateAirflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9552,7 +9767,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Updates the properties of an Airflow instance.
+     * Updates the information of an Airflow instance.
+     *
+     * @remarks
+     * Creates an Airflow instance in a workspace.
      *
      * @param request - UpdateAirflowRequest
      *
@@ -9573,7 +9791,7 @@ class Dms extends OpenApiClient
      * Updates the content of an accuracy test item.
      *
      * @remarks
-     * Updates the content of an accuracy test item.
+     * Updates the accuracy test item.
      *
      * @param request - UpdateDataAgentAccuracyTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9667,7 +9885,7 @@ class Dms extends OpenApiClient
      * Updates the content of an accuracy test item.
      *
      * @remarks
-     * Updates the content of an accuracy test item.
+     * Updates the accuracy test item.
      *
      * @param request - UpdateDataAgentAccuracyTestRequest
      *
