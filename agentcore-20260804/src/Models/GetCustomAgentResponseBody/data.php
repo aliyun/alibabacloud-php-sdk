@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\latestExecutionError;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\logging;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\network;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\observability;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\ossMounts;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\protocol;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\runtime;
@@ -54,6 +55,11 @@ class data extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $effectiveSpecVersion;
+
+    /**
      * @var environment
      */
     public $environment;
@@ -62,6 +68,11 @@ class data extends Model
      * @var healthCheck
      */
     public $healthCheck;
+
+    /**
+     * @var string
+     */
+    public $imageCacheId;
 
     /**
      * @var latestExecutionError
@@ -92,6 +103,11 @@ class data extends Model
      * @var network
      */
     public $network;
+
+    /**
+     * @var observability
+     */
+    public $observability;
 
     /**
      * @var ossMounts[]
@@ -134,6 +150,11 @@ class data extends Model
     public $updatedAt;
 
     /**
+     * @var bool
+     */
+    public $useImageCache;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -145,14 +166,17 @@ class data extends Model
         'createdAt' => 'createdAt',
         'deployType' => 'deployType',
         'description' => 'description',
+        'effectiveSpecVersion' => 'effectiveSpecVersion',
         'environment' => 'environment',
         'healthCheck' => 'healthCheck',
+        'imageCacheId' => 'imageCacheId',
         'latestExecutionError' => 'latestExecutionError',
         'latestSpecVersion' => 'latestSpecVersion',
         'latestVersionStatus' => 'latestVersionStatus',
         'logging' => 'logging',
         'name' => 'name',
         'network' => 'network',
+        'observability' => 'observability',
         'ossMounts' => 'ossMounts',
         'protocol' => 'protocol',
         'regionId' => 'regionId',
@@ -161,6 +185,7 @@ class data extends Model
         'sandboxPhaseCounts' => 'sandboxPhaseCounts',
         'status' => 'status',
         'updatedAt' => 'updatedAt',
+        'useImageCache' => 'useImageCache',
         'workspaceId' => 'workspaceId',
     ];
 
@@ -186,6 +211,9 @@ class data extends Model
         }
         if (null !== $this->network) {
             $this->network->validate();
+        }
+        if (null !== $this->observability) {
+            $this->observability->validate();
         }
         if (\is_array($this->ossMounts)) {
             Model::validateArray($this->ossMounts);
@@ -240,12 +268,20 @@ class data extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->effectiveSpecVersion) {
+            $res['effectiveSpecVersion'] = $this->effectiveSpecVersion;
+        }
+
         if (null !== $this->environment) {
             $res['environment'] = null !== $this->environment ? $this->environment->toArray($noStream) : $this->environment;
         }
 
         if (null !== $this->healthCheck) {
             $res['healthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toArray($noStream) : $this->healthCheck;
+        }
+
+        if (null !== $this->imageCacheId) {
+            $res['imageCacheId'] = $this->imageCacheId;
         }
 
         if (null !== $this->latestExecutionError) {
@@ -270,6 +306,10 @@ class data extends Model
 
         if (null !== $this->network) {
             $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
+        }
+
+        if (null !== $this->observability) {
+            $res['observability'] = null !== $this->observability ? $this->observability->toArray($noStream) : $this->observability;
         }
 
         if (null !== $this->ossMounts) {
@@ -323,6 +363,10 @@ class data extends Model
             $res['updatedAt'] = $this->updatedAt;
         }
 
+        if (null !== $this->useImageCache) {
+            $res['useImageCache'] = $this->useImageCache;
+        }
+
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
         }
@@ -373,12 +417,20 @@ class data extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['effectiveSpecVersion'])) {
+            $model->effectiveSpecVersion = $map['effectiveSpecVersion'];
+        }
+
         if (isset($map['environment'])) {
             $model->environment = environment::fromMap($map['environment']);
         }
 
         if (isset($map['healthCheck'])) {
             $model->healthCheck = healthCheck::fromMap($map['healthCheck']);
+        }
+
+        if (isset($map['imageCacheId'])) {
+            $model->imageCacheId = $map['imageCacheId'];
         }
 
         if (isset($map['latestExecutionError'])) {
@@ -403,6 +455,10 @@ class data extends Model
 
         if (isset($map['network'])) {
             $model->network = network::fromMap($map['network']);
+        }
+
+        if (isset($map['observability'])) {
+            $model->observability = observability::fromMap($map['observability']);
         }
 
         if (isset($map['ossMounts'])) {
@@ -454,6 +510,10 @@ class data extends Model
 
         if (isset($map['updatedAt'])) {
             $model->updatedAt = $map['updatedAt'];
+        }
+
+        if (isset($map['useImageCache'])) {
+            $model->useImageCache = $map['useImageCache'];
         }
 
         if (isset($map['workspaceId'])) {

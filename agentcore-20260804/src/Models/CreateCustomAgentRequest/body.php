@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\en
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\healthCheck;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\logging;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\network;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\observability;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\ossMounts;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\protocol;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\runtime;
@@ -58,6 +59,11 @@ class body extends Model
     public $network;
 
     /**
+     * @var observability
+     */
+    public $observability;
+
+    /**
      * @var ossMounts[]
      */
     public $ossMounts;
@@ -76,6 +82,11 @@ class body extends Model
      * @var runtime
      */
     public $runtime;
+
+    /**
+     * @var bool
+     */
+    public $useImageCache;
     protected $_name = [
         'agenticFsMounts' => 'agenticFsMounts',
         'artifact' => 'artifact',
@@ -85,10 +96,12 @@ class body extends Model
         'logging' => 'logging',
         'name' => 'name',
         'network' => 'network',
+        'observability' => 'observability',
         'ossMounts' => 'ossMounts',
         'protocol' => 'protocol',
         'roleArn' => 'roleArn',
         'runtime' => 'runtime',
+        'useImageCache' => 'useImageCache',
     ];
 
     public function validate()
@@ -110,6 +123,9 @@ class body extends Model
         }
         if (null !== $this->network) {
             $this->network->validate();
+        }
+        if (null !== $this->observability) {
+            $this->observability->validate();
         }
         if (\is_array($this->ossMounts)) {
             Model::validateArray($this->ossMounts);
@@ -165,6 +181,10 @@ class body extends Model
             $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
 
+        if (null !== $this->observability) {
+            $res['observability'] = null !== $this->observability ? $this->observability->toArray($noStream) : $this->observability;
+        }
+
         if (null !== $this->ossMounts) {
             if (\is_array($this->ossMounts)) {
                 $res['ossMounts'] = [];
@@ -193,6 +213,10 @@ class body extends Model
 
         if (null !== $this->runtime) {
             $res['runtime'] = null !== $this->runtime ? $this->runtime->toArray($noStream) : $this->runtime;
+        }
+
+        if (null !== $this->useImageCache) {
+            $res['useImageCache'] = $this->useImageCache;
         }
 
         return $res;
@@ -245,6 +269,10 @@ class body extends Model
             $model->network = network::fromMap($map['network']);
         }
 
+        if (isset($map['observability'])) {
+            $model->observability = observability::fromMap($map['observability']);
+        }
+
         if (isset($map['ossMounts'])) {
             if (!empty($map['ossMounts'])) {
                 $model->ossMounts = [];
@@ -273,6 +301,10 @@ class body extends Model
 
         if (isset($map['runtime'])) {
             $model->runtime = runtime::fromMap($map['runtime']);
+        }
+
+        if (isset($map['useImageCache'])) {
+            $model->useImageCache = $map['useImageCache'];
         }
 
         return $model;
