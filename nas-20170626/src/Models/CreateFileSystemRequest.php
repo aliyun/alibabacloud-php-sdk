@@ -57,6 +57,11 @@ class CreateFileSystemRequest extends Model
     /**
      * @var string
      */
+    public $hpnZone;
+
+    /**
+     * @var string
+     */
     public $kmsKeyId;
 
     /**
@@ -118,6 +123,7 @@ class CreateFileSystemRequest extends Model
         'duration' => 'Duration',
         'encryptType' => 'EncryptType',
         'fileSystemType' => 'FileSystemType',
+        'hpnZone' => 'HpnZone',
         'kmsKeyId' => 'KmsKeyId',
         'protocolType' => 'ProtocolType',
         'redundancyType' => 'RedundancyType',
@@ -179,6 +185,10 @@ class CreateFileSystemRequest extends Model
 
         if (null !== $this->fileSystemType) {
             $res['FileSystemType'] = $this->fileSystemType;
+        }
+
+        if (null !== $this->hpnZone) {
+            $res['HpnZone'] = $this->hpnZone;
         }
 
         if (null !== $this->kmsKeyId) {
@@ -284,6 +294,10 @@ class CreateFileSystemRequest extends Model
 
         if (isset($map['FileSystemType'])) {
             $model->fileSystemType = $map['FileSystemType'];
+        }
+
+        if (isset($map['HpnZone'])) {
+            $model->hpnZone = $map['HpnZone'];
         }
 
         if (isset($map['KmsKeyId'])) {
