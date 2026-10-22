@@ -2203,7 +2203,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 解封申请列表及分页信息.
+     * Queries the list of port unblocking applications and pagination information.
      *
      * @param request - QueryForOperationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2278,7 +2278,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 解封申请列表及分页信息.
+     * Queries the list of port unblocking applications and pagination information.
      *
      * @param request - QueryForOperationRequest
      *
@@ -2907,7 +2907,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 提交 TCP25端口免审解封申请.
+     * Claims privileges.
      *
      * @param request - SubmitAutoAuditUnblockRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2970,7 +2970,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 提交 TCP25端口免审解封申请.
+     * Claims privileges.
      *
      * @param request - SubmitAutoAuditUnblockRequest
      *
