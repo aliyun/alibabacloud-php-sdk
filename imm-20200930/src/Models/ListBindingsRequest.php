@@ -32,12 +32,18 @@ class ListBindingsRequest extends Model
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $URI;
     protected $_name = [
         'datasetName' => 'DatasetName',
         'maxResults' => 'MaxResults',
         'name' => 'Name',
         'nextToken' => 'NextToken',
         'projectName' => 'ProjectName',
+        'URI' => 'URI',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ListBindingsRequest extends Model
 
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+
+        if (null !== $this->URI) {
+            $res['URI'] = $this->URI;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ListBindingsRequest extends Model
 
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+
+        if (isset($map['URI'])) {
+            $model->URI = $map['URI'];
         }
 
         return $model;
