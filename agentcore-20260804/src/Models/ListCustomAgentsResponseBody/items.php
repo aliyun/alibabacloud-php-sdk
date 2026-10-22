@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCustomAgentsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCustomAgentsResponseBody\items\artifact;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCustomAgentsResponseBody\items\codePackageInfo;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCustomAgentsResponseBody\items\protocol;
 
 class items extends Model
@@ -13,6 +15,16 @@ class items extends Model
      * @var string
      */
     public $agentId;
+
+    /**
+     * @var artifact
+     */
+    public $artifact;
+
+    /**
+     * @var codePackageInfo
+     */
+    public $codePackageInfo;
 
     /**
      * @var string
@@ -70,6 +82,8 @@ class items extends Model
     public $workspaceId;
     protected $_name = [
         'agentId' => 'agentId',
+        'artifact' => 'artifact',
+        'codePackageInfo' => 'codePackageInfo',
         'createMode' => 'createMode',
         'createdAt' => 'createdAt',
         'deployType' => 'deployType',
@@ -85,6 +99,12 @@ class items extends Model
 
     public function validate()
     {
+        if (null !== $this->artifact) {
+            $this->artifact->validate();
+        }
+        if (null !== $this->codePackageInfo) {
+            $this->codePackageInfo->validate();
+        }
         if (\is_array($this->protocol)) {
             Model::validateArray($this->protocol);
         }
@@ -96,6 +116,14 @@ class items extends Model
         $res = [];
         if (null !== $this->agentId) {
             $res['agentId'] = $this->agentId;
+        }
+
+        if (null !== $this->artifact) {
+            $res['artifact'] = null !== $this->artifact ? $this->artifact->toArray($noStream) : $this->artifact;
+        }
+
+        if (null !== $this->codePackageInfo) {
+            $res['codePackageInfo'] = null !== $this->codePackageInfo ? $this->codePackageInfo->toArray($noStream) : $this->codePackageInfo;
         }
 
         if (null !== $this->createMode) {
@@ -162,6 +190,14 @@ class items extends Model
         $model = new self();
         if (isset($map['agentId'])) {
             $model->agentId = $map['agentId'];
+        }
+
+        if (isset($map['artifact'])) {
+            $model->artifact = artifact::fromMap($map['artifact']);
+        }
+
+        if (isset($map['codePackageInfo'])) {
+            $model->codePackageInfo = codePackageInfo::fromMap($map['codePackageInfo']);
         }
 
         if (isset($map['createMode'])) {

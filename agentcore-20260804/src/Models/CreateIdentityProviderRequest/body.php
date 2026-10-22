@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateIdentityProviderRequ
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateIdentityProviderRequest\body\metadata;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateIdentityProviderRequest\body\syncScope;
 
 class body extends Model
 {
@@ -28,17 +29,32 @@ class body extends Model
      * @var bool
      */
     public $syncEnabled;
+
+    /**
+     * @var bool
+     */
+    public $syncOnBind;
+
+    /**
+     * @var syncScope
+     */
+    public $syncScope;
     protected $_name = [
         'identityProviderType' => 'identityProviderType',
         'loginEnabled' => 'loginEnabled',
         'metadata' => 'metadata',
         'syncEnabled' => 'syncEnabled',
+        'syncOnBind' => 'syncOnBind',
+        'syncScope' => 'syncScope',
     ];
 
     public function validate()
     {
         if (null !== $this->metadata) {
             $this->metadata->validate();
+        }
+        if (null !== $this->syncScope) {
+            $this->syncScope->validate();
         }
         parent::validate();
     }
@@ -60,6 +76,14 @@ class body extends Model
 
         if (null !== $this->syncEnabled) {
             $res['syncEnabled'] = $this->syncEnabled;
+        }
+
+        if (null !== $this->syncOnBind) {
+            $res['syncOnBind'] = $this->syncOnBind;
+        }
+
+        if (null !== $this->syncScope) {
+            $res['syncScope'] = null !== $this->syncScope ? $this->syncScope->toArray($noStream) : $this->syncScope;
         }
 
         return $res;
@@ -87,6 +111,14 @@ class body extends Model
 
         if (isset($map['syncEnabled'])) {
             $model->syncEnabled = $map['syncEnabled'];
+        }
+
+        if (isset($map['syncOnBind'])) {
+            $model->syncOnBind = $map['syncOnBind'];
+        }
+
+        if (isset($map['syncScope'])) {
+            $model->syncScope = syncScope::fromMap($map['syncScope']);
         }
 
         return $model;

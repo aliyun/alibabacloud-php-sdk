@@ -21,11 +21,35 @@ class metadata extends Model
     /**
      * @var string
      */
+    public $binding;
+
+    /**
+     * @var string
+     */
+    public $certificates;
+
+    /**
+     * @var string
+     */
     public $corpId;
+
+    /**
+     * @var string
+     */
+    public $entityId;
+
+    /**
+     * @var string
+     */
+    public $loginUrl;
     protected $_name = [
         'appId' => 'appId',
         'appKey' => 'appKey',
+        'binding' => 'binding',
+        'certificates' => 'certificates',
         'corpId' => 'corpId',
+        'entityId' => 'entityId',
+        'loginUrl' => 'loginUrl',
     ];
 
     public function validate()
@@ -44,8 +68,24 @@ class metadata extends Model
             $res['appKey'] = $this->appKey;
         }
 
+        if (null !== $this->binding) {
+            $res['binding'] = $this->binding;
+        }
+
+        if (null !== $this->certificates) {
+            $res['certificates'] = $this->certificates;
+        }
+
         if (null !== $this->corpId) {
             $res['corpId'] = $this->corpId;
+        }
+
+        if (null !== $this->entityId) {
+            $res['entityId'] = $this->entityId;
+        }
+
+        if (null !== $this->loginUrl) {
+            $res['loginUrl'] = $this->loginUrl;
         }
 
         return $res;
@@ -67,8 +107,24 @@ class metadata extends Model
             $model->appKey = $map['appKey'];
         }
 
+        if (isset($map['binding'])) {
+            $model->binding = $map['binding'];
+        }
+
+        if (isset($map['certificates'])) {
+            $model->certificates = $map['certificates'];
+        }
+
         if (isset($map['corpId'])) {
             $model->corpId = $map['corpId'];
+        }
+
+        if (isset($map['entityId'])) {
+            $model->entityId = $map['entityId'];
+        }
+
+        if (isset($map['loginUrl'])) {
+            $model->loginUrl = $map['loginUrl'];
         }
 
         return $model;

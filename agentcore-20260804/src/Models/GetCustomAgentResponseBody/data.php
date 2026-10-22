@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\agenticFsMounts;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\artifact;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\codePackageInfo;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\environment;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\healthCheck;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\latestExecutionError;
@@ -33,6 +34,11 @@ class data extends Model
      * @var artifact
      */
     public $artifact;
+
+    /**
+     * @var codePackageInfo
+     */
+    public $codePackageInfo;
 
     /**
      * @var string
@@ -162,6 +168,7 @@ class data extends Model
         'agentId' => 'agentId',
         'agenticFsMounts' => 'agenticFsMounts',
         'artifact' => 'artifact',
+        'codePackageInfo' => 'codePackageInfo',
         'createMode' => 'createMode',
         'createdAt' => 'createdAt',
         'deployType' => 'deployType',
@@ -196,6 +203,9 @@ class data extends Model
         }
         if (null !== $this->artifact) {
             $this->artifact->validate();
+        }
+        if (null !== $this->codePackageInfo) {
+            $this->codePackageInfo->validate();
         }
         if (null !== $this->environment) {
             $this->environment->validate();
@@ -250,6 +260,10 @@ class data extends Model
 
         if (null !== $this->artifact) {
             $res['artifact'] = null !== $this->artifact ? $this->artifact->toArray($noStream) : $this->artifact;
+        }
+
+        if (null !== $this->codePackageInfo) {
+            $res['codePackageInfo'] = null !== $this->codePackageInfo ? $this->codePackageInfo->toArray($noStream) : $this->codePackageInfo;
         }
 
         if (null !== $this->createMode) {
@@ -399,6 +413,10 @@ class data extends Model
 
         if (isset($map['artifact'])) {
             $model->artifact = artifact::fromMap($map['artifact']);
+        }
+
+        if (isset($map['codePackageInfo'])) {
+            $model->codePackageInfo = codePackageInfo::fromMap($map['codePackageInfo']);
         }
 
         if (isset($map['createMode'])) {

@@ -5,10 +5,18 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody\items\configuration;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody\items\metadata;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody\items\saml;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody\items\syncScope;
 
 class items extends Model
 {
+    /**
+     * @var configuration
+     */
+    public $configuration;
+
     /**
      * @var string
      */
@@ -42,12 +50,27 @@ class items extends Model
     /**
      * @var string
      */
+    public $protocol;
+
+    /**
+     * @var saml
+     */
+    public $saml;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
      * @var bool
      */
     public $syncEnabled;
+
+    /**
+     * @var syncScope
+     */
+    public $syncScope;
 
     /**
      * @var string
@@ -59,22 +82,35 @@ class items extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'configuration' => 'configuration',
         'createdAt' => 'createdAt',
         'eventSubscriptionCallbackUrl' => 'eventSubscriptionCallbackUrl',
         'identityProviderType' => 'identityProviderType',
         'loginCallbackUrl' => 'loginCallbackUrl',
         'loginEnabled' => 'loginEnabled',
         'metadata' => 'metadata',
+        'protocol' => 'protocol',
+        'saml' => 'saml',
         'status' => 'status',
         'syncEnabled' => 'syncEnabled',
+        'syncScope' => 'syncScope',
         'updatedAt' => 'updatedAt',
         'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
     {
+        if (null !== $this->configuration) {
+            $this->configuration->validate();
+        }
         if (null !== $this->metadata) {
             $this->metadata->validate();
+        }
+        if (null !== $this->saml) {
+            $this->saml->validate();
+        }
+        if (null !== $this->syncScope) {
+            $this->syncScope->validate();
         }
         parent::validate();
     }
@@ -82,6 +118,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->configuration) {
+            $res['configuration'] = null !== $this->configuration ? $this->configuration->toArray($noStream) : $this->configuration;
+        }
+
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
@@ -106,12 +146,24 @@ class items extends Model
             $res['metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
         }
 
+        if (null !== $this->protocol) {
+            $res['protocol'] = $this->protocol;
+        }
+
+        if (null !== $this->saml) {
+            $res['saml'] = null !== $this->saml ? $this->saml->toArray($noStream) : $this->saml;
+        }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
 
         if (null !== $this->syncEnabled) {
             $res['syncEnabled'] = $this->syncEnabled;
+        }
+
+        if (null !== $this->syncScope) {
+            $res['syncScope'] = null !== $this->syncScope ? $this->syncScope->toArray($noStream) : $this->syncScope;
         }
 
         if (null !== $this->updatedAt) {
@@ -133,6 +185,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['configuration'])) {
+            $model->configuration = configuration::fromMap($map['configuration']);
+        }
+
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
@@ -157,12 +213,24 @@ class items extends Model
             $model->metadata = metadata::fromMap($map['metadata']);
         }
 
+        if (isset($map['protocol'])) {
+            $model->protocol = $map['protocol'];
+        }
+
+        if (isset($map['saml'])) {
+            $model->saml = saml::fromMap($map['saml']);
+        }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
 
         if (isset($map['syncEnabled'])) {
             $model->syncEnabled = $map['syncEnabled'];
+        }
+
+        if (isset($map['syncScope'])) {
+            $model->syncScope = syncScope::fromMap($map['syncScope']);
         }
 
         if (isset($map['updatedAt'])) {
