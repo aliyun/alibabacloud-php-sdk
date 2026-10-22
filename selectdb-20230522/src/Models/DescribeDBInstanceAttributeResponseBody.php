@@ -196,6 +196,21 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $tdeAlgorithm;
+
+    /**
+     * @var bool
+     */
+    public $tdeEnabled;
+
+    /**
+     * @var string
+     */
+    public $tdeMode;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -249,6 +264,9 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'storageSize' => 'StorageSize',
         'subDomain' => 'SubDomain',
         'tags' => 'Tags',
+        'tdeAlgorithm' => 'TdeAlgorithm',
+        'tdeEnabled' => 'TdeEnabled',
+        'tdeMode' => 'TdeMode',
         'vSwitchId' => 'VSwitchId',
         'virtualClusterList' => 'VirtualClusterList',
         'vpcId' => 'VpcId',
@@ -478,6 +496,18 @@ class DescribeDBInstanceAttributeResponseBody extends Model
             }
         }
 
+        if (null !== $this->tdeAlgorithm) {
+            $res['TdeAlgorithm'] = $this->tdeAlgorithm;
+        }
+
+        if (null !== $this->tdeEnabled) {
+            $res['TdeEnabled'] = $this->tdeEnabled;
+        }
+
+        if (null !== $this->tdeMode) {
+            $res['TdeMode'] = $this->tdeMode;
+        }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -701,6 +731,18 @@ class DescribeDBInstanceAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TdeAlgorithm'])) {
+            $model->tdeAlgorithm = $map['TdeAlgorithm'];
+        }
+
+        if (isset($map['TdeEnabled'])) {
+            $model->tdeEnabled = $map['TdeEnabled'];
+        }
+
+        if (isset($map['TdeMode'])) {
+            $model->tdeMode = $map['TdeMode'];
         }
 
         if (isset($map['VSwitchId'])) {

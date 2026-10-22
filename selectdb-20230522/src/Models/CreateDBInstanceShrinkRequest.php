@@ -129,6 +129,16 @@ class CreateDBInstanceShrinkRequest extends Model
     public $tagShrink;
 
     /**
+     * @var string
+     */
+    public $tdeEnabled;
+
+    /**
+     * @var string
+     */
+    public $tdeMode;
+
+    /**
      * @var int
      */
     public $usedTime;
@@ -172,6 +182,8 @@ class CreateDBInstanceShrinkRequest extends Model
         'scaleMin' => 'ScaleMin',
         'securityIPList' => 'SecurityIPList',
         'tagShrink' => 'Tag',
+        'tdeEnabled' => 'TdeEnabled',
+        'tdeMode' => 'TdeMode',
         'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -280,6 +292,14 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (null !== $this->tagShrink) {
             $res['Tag'] = $this->tagShrink;
+        }
+
+        if (null !== $this->tdeEnabled) {
+            $res['TdeEnabled'] = $this->tdeEnabled;
+        }
+
+        if (null !== $this->tdeMode) {
+            $res['TdeMode'] = $this->tdeMode;
         }
 
         if (null !== $this->usedTime) {
@@ -403,6 +423,14 @@ class CreateDBInstanceShrinkRequest extends Model
 
         if (isset($map['Tag'])) {
             $model->tagShrink = $map['Tag'];
+        }
+
+        if (isset($map['TdeEnabled'])) {
+            $model->tdeEnabled = $map['TdeEnabled'];
+        }
+
+        if (isset($map['TdeMode'])) {
+            $model->tdeMode = $map['TdeMode'];
         }
 
         if (isset($map['UsedTime'])) {

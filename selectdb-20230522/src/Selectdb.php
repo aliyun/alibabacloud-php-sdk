@@ -122,31 +122,11 @@ class Selectdb extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'ap-northeast-2' => 'selectdb.aliyuncs.com',
             'ap-southeast-3' => 'selectdb.aliyuncs.com',
             'ap-southeast-7' => 'selectdb.aliyuncs.com',
             'cn-heyuan' => 'selectdb.aliyuncs.com',
-            'cn-shenzhen' => 'selectdb.cn-shenzhen.aliyuncs.com',
-            'cn-wulanchabu' => 'selectdb.cn-wulanchabu.aliyuncs.com',
-            'cn-beijing' => 'selectdb.cn-beijing.aliyuncs.com',
-            'ap-northeast-1' => 'selectdb.ap-northeast-1.aliyuncs.com',
-            'cn-chengdu' => 'selectdb.cn-chengdu.aliyuncs.com',
-            'cn-qingdao' => 'selectdb.cn-qingdao.aliyuncs.com',
-            'cn-shanghai' => 'selectdb.cn-shanghai.aliyuncs.com',
-            'cn-guangzhou' => 'selectdb.cn-guangzhou.aliyuncs.com',
-            'cn-hongkong' => 'selectdb.cn-hongkong.aliyuncs.com',
-            'ap-southeast-1' => 'selectdb.ap-southeast-1.aliyuncs.com',
-            'cn-huhehaote' => 'selectdb.cn-huhehaote.aliyuncs.com',
-            'ap-southeast-5' => 'selectdb.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-6' => 'selectdb.ap-southeast-6.aliyuncs.com',
-            'cn-zhangjiakou' => 'selectdb.cn-zhangjiakou.aliyuncs.com',
+            'ap-northeast-2' => 'selectdb.aliyuncs.com',
             'cn-hangzhou' => 'selectdb.aliyuncs.com',
-            'us-west-1' => 'selectdb.us-west-1.aliyuncs.com',
-            'us-east-1' => 'selectdb.us-east-1.aliyuncs.com',
-            'eu-central-1' => 'selectdb.eu-central-1.aliyuncs.com',
-            'eu-west-1' => 'selectdb.eu-west-1.aliyuncs.com',
-            'na-south-1' => 'selectdb.na-south-1.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'selectdb.cn-shanghai-finance-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('selectdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -177,7 +157,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Applies for a public endpoint for an ApsaraDB for SelectDB instance.
+     * Applies for a public endpoint for a specified ApsaraDB for SelectDB instance.
      *
      * @param request - AllocateInstancePublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -232,7 +212,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Applies for a public endpoint for an ApsaraDB for SelectDB instance.
+     * Applies for a public endpoint for a specified ApsaraDB for SelectDB instance.
      *
      * @param request - AllocateInstancePublicConnectionRequest
      *
@@ -250,7 +230,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Moves a specified database instance to a different resource group.
+     * Moves an instance to a different resource group.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -301,7 +281,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Moves a specified database instance to a different resource group.
+     * Moves an instance to a different resource group.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -319,7 +299,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Performs a precheck on the resources required to create an ApsaraDB for SelectDB instance.
+     * Performs a precheck before you create an ApsaraDB for SelectDB instance.
      *
      * @param request - CheckCreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -422,7 +402,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Performs a precheck on the resources required to create an ApsaraDB for SelectDB instance.
+     * Performs a precheck before you create an ApsaraDB for SelectDB instance.
      *
      * @param request - CheckCreateDBInstanceRequest
      *
@@ -557,8 +537,7 @@ class Selectdb extends OpenApiClient
      * Creates a cluster for a specified ApsaraDB for SelectDB instance.
      *
      * @remarks
-     * >Warning:
-     * Pay-as-you-go instances support only pay-as-you-go clusters. Subscription instances support both pay-as-you-go and subscription clusters.
+     * >Warning: You can only create pay-as-you-go clusters for pay-as-you-go instances. You can create clusters of either billing method for subscription instances.
      *
      * @param request - CreateDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -670,8 +649,7 @@ class Selectdb extends OpenApiClient
      * Creates a cluster for a specified ApsaraDB for SelectDB instance.
      *
      * @remarks
-     * >Warning:
-     * Pay-as-you-go instances support only pay-as-you-go clusters. Subscription instances support both pay-as-you-go and subscription clusters.
+     * >Warning: You can only create pay-as-you-go clusters for pay-as-you-go instances. You can create clusters of either billing method for subscription instances.
      *
      * @param request - CreateDBClusterRequest
      *
@@ -689,12 +667,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Creates a binding relationship for clusters. If the zone-redundant storage (ZRS) deployment method is used, you can create a binding relationship between two clusters.
+     * Creates a binding relationship between two clusters for an instance deployed in cross-zone redundancy mode.
      *
      * @remarks
-     * This operation is supported only for instances that use the zone-redundant storage (ZRS) feature and meet the following requirements:
-     * - The instance clusters reside in different zones.
-     * - The billing method of the instance clusters is consistent.
+     * Only instances deployed in cross-zone redundancy mode support this operation. The following conditions must also be met:
+     * - The two clusters are in different zones.
+     * - The billing methods of the clusters must be the same.
      *
      * @param request - CreateDBClusterBindingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -745,12 +723,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Creates a binding relationship for clusters. If the zone-redundant storage (ZRS) deployment method is used, you can create a binding relationship between two clusters.
+     * Creates a binding relationship between two clusters for an instance deployed in cross-zone redundancy mode.
      *
      * @remarks
-     * This operation is supported only for instances that use the zone-redundant storage (ZRS) feature and meet the following requirements:
-     * - The instance clusters reside in different zones.
-     * - The billing method of the instance clusters is consistent.
+     * Only instances deployed in cross-zone redundancy mode support this operation. The following conditions must also be met:
+     * - The two clusters are in different zones.
+     * - The billing methods of the clusters must be the same.
      *
      * @param request - CreateDBClusterBindingRequest
      *
@@ -889,6 +867,14 @@ class Selectdb extends OpenApiClient
             @$query['Tag'] = $request->tagShrink;
         }
 
+        if (null !== $request->tdeEnabled) {
+            @$query['TdeEnabled'] = $request->tdeEnabled;
+        }
+
+        if (null !== $request->tdeMode) {
+            @$query['TdeMode'] = $request->tdeMode;
+        }
+
         if (null !== $request->usedTime) {
             @$query['UsedTime'] = $request->usedTime;
         }
@@ -951,7 +937,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Creates a time-based elastic scaling rule.
+     * Creates a time-based elastic rule.
      *
      * @param request - CreateElasticRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1014,7 +1000,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Creates a time-based elastic scaling rule.
+     * Creates a time-based elastic rule.
      *
      * @param request - CreateElasticRuleRequest
      *
@@ -1251,7 +1237,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Deletes the binding relationship between two clusters for mutual backup.
+     * Deletes the mutual backup binding relationship between two clusters.
      *
      * @param request - DeleteDBClusterBindingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1302,7 +1288,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Deletes the binding relationship between two clusters for mutual backup.
+     * Deletes the mutual backup binding relationship between two clusters.
      *
      * @param request - DeleteDBClusterBindingRequest
      *
@@ -1393,7 +1379,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Deletes a scheduled scaling rule.
+     * Deletes a time-based elastic scaling rule.
      *
      * @param request - DeleteElasticRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1452,7 +1438,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Deletes a scheduled scaling rule.
+     * Deletes a time-based elastic scaling rule.
      *
      * @param request - DeleteElasticRuleRequest
      *
@@ -1543,7 +1529,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves information about all instance specifications.
+     * Retrieves information about all instance types.
      *
      * @param request - DescribeAllDBInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1590,7 +1576,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves information about all instance specifications.
+     * Retrieves information about all instance types.
      *
      * @param request - DescribeAllDBInstanceClassRequest
      *
@@ -1754,7 +1740,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the cache limits for each cluster specification.
+     * Retrieves the cache limits for each specification of a cluster.
      *
      * @param request - DescribeDBClusterStorageLimitationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1801,7 +1787,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the cache limits for each cluster specification.
+     * Retrieves the cache limits for each specification of a cluster.
      *
      * @param request - DescribeDBClusterStorageLimitationRequest
      *
@@ -1820,6 +1806,9 @@ class Selectdb extends OpenApiClient
 
     /**
      * Queries the details of an instance.
+     *
+     * @remarks
+     * Subscription instances cannot be deleted.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1867,6 +1856,9 @@ class Selectdb extends OpenApiClient
 
     /**
      * Queries the details of an instance.
+     *
+     * @remarks
+     * Subscription instances cannot be deleted.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      *
@@ -1949,7 +1941,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries instances.
+     * Queries the list of instances.
      *
      * @param tmpReq - DescribeDBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2026,7 +2018,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries instances.
+     * Queries the list of instances.
      *
      * @param request - DescribeDBInstancesRequest
      *
@@ -2044,7 +2036,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries scheduled scaling rules.
+     * Queries the time-based elastic rules.
      *
      * @param request - DescribeElasticRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2079,7 +2071,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries scheduled scaling rules.
+     * Queries the time-based elastic rules.
      *
      * @param request - DescribeElasticRulesRequest
      *
@@ -2176,7 +2168,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the execution plan (Explain) for a query.
+     * Retrieves the EXPLAIN plan for a query.
      *
      * @param request - DescribeQueryExplainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2227,7 +2219,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the execution plan (Explain) for a query.
+     * Retrieves the EXPLAIN plan for a query.
      *
      * @param request - DescribeQueryExplainRequest
      *
@@ -2245,7 +2237,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries available regions and zones.
+     * Retrieves information about available regions and zones.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2280,7 +2272,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries available regions and zones.
+     * Retrieves information about available regions and zones.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -2298,7 +2290,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
+     * Queries the IP address whitelist of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - DescribeSecurityIPListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2345,7 +2337,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
+     * Queries the IP address whitelist of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - DescribeSecurityIPListRequest
      *
@@ -2363,7 +2355,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieve slow query statistics for a time range.
+     * Retrieves slow query statistics within a specified time period.
      *
      * @param request - DescribeSlowQueryStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2422,7 +2414,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieve slow query statistics for a time range.
+     * Retrieves slow query statistics within a specified time period.
      *
      * @param request - DescribeSlowQueryStatsRequest
      *
@@ -2590,7 +2582,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Describes the available zones.
+     * Lists available zones for sale.
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2637,7 +2629,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Describes the available zones.
+     * Lists available zones for sale.
      *
      * @param request - DescribeZonesRequest
      *
@@ -2655,7 +2647,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Uses the scheduled scaling policy.
+     * Enables or disables a time-based elastic policy.
      *
      * @param request - EnDisableScalingRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2714,7 +2706,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Uses the scheduled scaling policy.
+     * Enables or disables a time-based elastic policy.
      *
      * @param request - EnDisableScalingRulesRequest
      *
@@ -2732,7 +2724,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves pricing information for creating a new cluster under a specified ApsaraDB for SelectDB instance.
+     * Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
      *
      * @param request - GetCreateBEClusterInquiryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2767,7 +2759,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Retrieves pricing information for creating a new cluster under a specified ApsaraDB for SelectDB instance.
+     * Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
      *
      * @param request - GetCreateBEClusterInquiryRequest
      *
@@ -2915,7 +2907,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Scales a cluster of a specified ApsaraDB for SelectDB instance.
+     * Scales the cluster of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ModifyDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2994,7 +2986,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Scales a cluster of a specified ApsaraDB for SelectDB instance.
+     * Scales the cluster of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ModifyDBClusterRequest
      *
@@ -3093,7 +3085,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window or description of an ApsaraDB for SelectDB instance.
+     * Modifies the O&M time or description of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ModifyDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3148,7 +3140,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window or description of an ApsaraDB for SelectDB instance.
+     * Modifies the O&M time or description of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ModifyDBInstanceAttributeRequest
      *
@@ -3166,7 +3158,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies a scheduled scaling rule.
+     * Modifies a time-based elastic rule.
      *
      * @param request - ModifyElasticRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3237,7 +3229,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies a scheduled scaling rule.
+     * Modifies a time-based elastic rule.
      *
      * @param request - ModifyElasticRuleRequest
      *
@@ -3255,7 +3247,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies the IP addresses in a whitelist of an ApsaraDB for SelectDB instance.
+     * Modifies the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ModifySecurityIPListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3314,7 +3306,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Modifies the IP addresses in a whitelist of an ApsaraDB for SelectDB instance.
+     * Modifies the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
      *
      * @param request - ModifySecurityIPListRequest
      *
@@ -3618,7 +3610,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Starts a specified ApsaraDB SelectDB cluster.
+     * Starts a specified ApsaraDB for SelectDB cluster.
      *
      * @param request - StartBEClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3669,7 +3661,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Starts a specified ApsaraDB SelectDB cluster.
+     * Starts a specified ApsaraDB for SelectDB cluster.
      *
      * @param request - StartBEClusterRequest
      *
@@ -3756,7 +3748,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Adds tags to one or more instances.
+     * Adds tags to instances.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3807,7 +3799,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Adds tags to one or more instances.
+     * Adds tags to instances.
      *
      * @param request - TagResourcesRequest
      *
@@ -3825,7 +3817,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Removes tags from instances.
+     * Removes tags from an instance.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3880,7 +3872,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Removes tags from instances.
+     * Removes tags from an instance.
      *
      * @param request - UntagResourcesRequest
      *
@@ -3898,13 +3890,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Upgrades a locally redundant instance to a zone-redundant instance.
+     * Upgrades a locally redundant instance to zone-redundant deployment.
      *
      * @remarks
-     * When an instance is upgraded to a zone-redundant architecture, its storage is also upgraded to be zone-redundant. The unit price for storage changes. For more information, see [Billing items and pricing](https://help.aliyun.com/zh/selectdb/product-overview/billing-item-new-version).
-     * > Version requirements
-     * >
-     * > - The minor version of the instance must be 4.0.4 or later.
+     * After the instance is upgraded to zone-redundant architecture, the storage is upgraded to zone-redundant specifications, and the unit storage cost changes. For pricing details, see [Billing items and pricing](https://www.alibabacloud.com/help/en/selectdb/product-overview/billing-item-new-version).
+     * > Version limits
+     * > - The minor engine version of the instance must be 4.0.4 or later.
      *
      * @param tmpReq - UpgradeDBInstanceDeploySchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3961,13 +3952,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * Upgrades a locally redundant instance to a zone-redundant instance.
+     * Upgrades a locally redundant instance to zone-redundant deployment.
      *
      * @remarks
-     * When an instance is upgraded to a zone-redundant architecture, its storage is also upgraded to be zone-redundant. The unit price for storage changes. For more information, see [Billing items and pricing](https://help.aliyun.com/zh/selectdb/product-overview/billing-item-new-version).
-     * > Version requirements
-     * >
-     * > - The minor version of the instance must be 4.0.4 or later.
+     * After the instance is upgraded to zone-redundant architecture, the storage is upgraded to zone-redundant specifications, and the unit storage cost changes. For pricing details, see [Billing items and pricing](https://www.alibabacloud.com/help/en/selectdb/product-overview/billing-item-new-version).
+     * > Version limits
+     * > - The minor engine version of the instance must be 4.0.4 or later.
      *
      * @param request - UpgradeDBInstanceDeploySchemeRequest
      *

@@ -131,6 +131,16 @@ class CreateDBInstanceRequest extends Model
     public $tag;
 
     /**
+     * @var string
+     */
+    public $tdeEnabled;
+
+    /**
+     * @var string
+     */
+    public $tdeMode;
+
+    /**
      * @var int
      */
     public $usedTime;
@@ -174,6 +184,8 @@ class CreateDBInstanceRequest extends Model
         'scaleMin' => 'ScaleMin',
         'securityIPList' => 'SecurityIPList',
         'tag' => 'Tag',
+        'tdeEnabled' => 'TdeEnabled',
+        'tdeMode' => 'TdeMode',
         'usedTime' => 'UsedTime',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -302,6 +314,14 @@ class CreateDBInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->tdeEnabled) {
+            $res['TdeEnabled'] = $this->tdeEnabled;
+        }
+
+        if (null !== $this->tdeMode) {
+            $res['TdeMode'] = $this->tdeMode;
         }
 
         if (null !== $this->usedTime) {
@@ -439,6 +459,14 @@ class CreateDBInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TdeEnabled'])) {
+            $model->tdeEnabled = $map['TdeEnabled'];
+        }
+
+        if (isset($map['TdeMode'])) {
+            $model->tdeMode = $map['TdeMode'];
         }
 
         if (isset($map['UsedTime'])) {
