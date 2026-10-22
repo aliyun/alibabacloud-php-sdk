@@ -1353,10 +1353,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
+     * Queries the asynchronous detection results of AI security guardrails for multimodal content, supporting audio and video modalities.
      *
      * @remarks
-     * If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
+     * If the API operation incurs fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX product before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
      *
      * @param request - MultiModalGuardAsyncResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1399,10 +1399,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the asynchronous results of AI safety guardrail multimodal content moderation, supporting audio and video modalities.
+     * Queries the asynchronous detection results of AI security guardrails for multimodal content, supporting audio and video modalities.
      *
      * @remarks
-     * If the API incurs fees, add the following bold statement as the first sentence: **Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of XXX.**
+     * If the API operation incurs fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX product before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
      *
      * @param request - MultiModalGuardAsyncResultRequest
      *

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResultResp
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResultResponseBody\data\audioResult;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResultResponseBody\data\frameResult;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResultResponseBody\data\redactResult;
 
 class data extends Model
 {
@@ -31,6 +32,11 @@ class data extends Model
     public $liveId;
 
     /**
+     * @var redactResult
+     */
+    public $redactResult;
+
+    /**
      * @var string
      */
     public $suggestion;
@@ -44,6 +50,7 @@ class data extends Model
         'dataId' => 'DataId',
         'frameResult' => 'FrameResult',
         'liveId' => 'LiveId',
+        'redactResult' => 'RedactResult',
         'suggestion' => 'Suggestion',
         'taskId' => 'TaskId',
     ];
@@ -55,6 +62,9 @@ class data extends Model
         }
         if (null !== $this->frameResult) {
             $this->frameResult->validate();
+        }
+        if (null !== $this->redactResult) {
+            $this->redactResult->validate();
         }
         parent::validate();
     }
@@ -76,6 +86,10 @@ class data extends Model
 
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
+        }
+
+        if (null !== $this->redactResult) {
+            $res['RedactResult'] = null !== $this->redactResult ? $this->redactResult->toArray($noStream) : $this->redactResult;
         }
 
         if (null !== $this->suggestion) {
@@ -111,6 +125,10 @@ class data extends Model
 
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
+        }
+
+        if (isset($map['RedactResult'])) {
+            $model->redactResult = redactResult::fromMap($map['RedactResult']);
         }
 
         if (isset($map['Suggestion'])) {
