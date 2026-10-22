@@ -82,6 +82,11 @@ class GetDigitalEmployeeResponseBody extends Model
     public $sandboxNetworkPolicy;
 
     /**
+     * @var int
+     */
+    public $status;
+
+    /**
      * @var Tag[]
      */
     public $tags;
@@ -110,6 +115,7 @@ class GetDigitalEmployeeResponseBody extends Model
         'resourceGroupId' => 'resourceGroupId',
         'roleArn' => 'roleArn',
         'sandboxNetworkPolicy' => 'sandboxNetworkPolicy',
+        'status' => 'status',
         'tags' => 'tags',
         'toolPolicy' => 'toolPolicy',
         'updateTime' => 'updateTime',
@@ -197,6 +203,10 @@ class GetDigitalEmployeeResponseBody extends Model
 
         if (null !== $this->sandboxNetworkPolicy) {
             $res['sandboxNetworkPolicy'] = null !== $this->sandboxNetworkPolicy ? $this->sandboxNetworkPolicy->toArray($noStream) : $this->sandboxNetworkPolicy;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->tags) {
@@ -288,6 +298,10 @@ class GetDigitalEmployeeResponseBody extends Model
 
         if (isset($map['sandboxNetworkPolicy'])) {
             $model->sandboxNetworkPolicy = sandboxNetworkPolicy::fromMap($map['sandboxNetworkPolicy']);
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['tags'])) {

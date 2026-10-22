@@ -66,6 +66,11 @@ class digitalEmployees extends Model
     public $roleArn;
 
     /**
+     * @var int
+     */
+    public $status;
+
+    /**
      * @var Tag[]
      */
     public $tags;
@@ -86,6 +91,7 @@ class digitalEmployees extends Model
         'name' => 'name',
         'resourceGroupId' => 'resourceGroupId',
         'roleArn' => 'roleArn',
+        'status' => 'status',
         'tags' => 'tags',
         'updateTime' => 'updateTime',
     ];
@@ -154,6 +160,10 @@ class digitalEmployees extends Model
 
         if (null !== $this->roleArn) {
             $res['roleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->tags) {
@@ -229,6 +239,10 @@ class digitalEmployees extends Model
 
         if (isset($map['roleArn'])) {
             $model->roleArn = $map['roleArn'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['tags'])) {

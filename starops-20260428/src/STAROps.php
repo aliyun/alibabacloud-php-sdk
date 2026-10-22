@@ -343,7 +343,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Creates a DigitalEmployee.
+     * Creates a digital employee.
      *
      * @remarks
      * Creates a digital employee.
@@ -432,7 +432,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Creates a DigitalEmployee.
+     * Creates a digital employee.
      *
      * @remarks
      * Creates a digital employee.
@@ -1089,7 +1089,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Retrieves the tool list from a remote MCP server.
+     * Retrieves the tool list from a remote MCP service.
+     *
+     * @remarks
+     * Retrieves the tool list from a remote MCP service.
      *
      * @param request - FetchRemoteMcpToolsRequest
      * @param headers - map
@@ -1135,7 +1138,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Retrieves the tool list from a remote MCP server.
+     * Retrieves the tool list from a remote MCP service.
+     *
+     * @remarks
+     * Retrieves the tool list from a remote MCP service.
      *
      * @param request - FetchRemoteMcpToolsRequest
      *
@@ -1371,7 +1377,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Queries the entity data of a digital employee.
+     * Queries the entity data of a digital human.
+     *
+     * @remarks
+     * Queries the entity data of a digital human.
      *
      * @param request - GetDigitalEmployeeEntityDataRequest
      * @param headers - map
@@ -1422,7 +1431,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Queries the entity data of a digital employee.
+     * Queries the entity data of a digital human.
+     *
+     * @remarks
+     * Queries the entity data of a digital human.
      *
      * @param request - GetDigitalEmployeeEntityDataRequest
      *
@@ -1442,10 +1454,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific skill.
+     * Retrieves the details of a skill.
      *
      * @remarks
-     * Retrieves the details of a specified skill for a digital employee.
+     * Retrieves the details of a skill.
      *
      * @param request - GetDigitalEmployeeSkillRequest
      * @param headers - map
@@ -1489,10 +1501,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific skill.
+     * Retrieves the details of a skill.
      *
      * @remarks
-     * Retrieves the details of a specified skill for a digital employee.
+     * Retrieves the details of a skill.
      *
      * @param request - GetDigitalEmployeeSkillRequest
      *
@@ -1572,6 +1584,9 @@ class STAROps extends OpenApiClient
     /**
      * Queries an MCP service.
      *
+     * @remarks
+     * Queries the configuration of an MCP service.
+     *
      * @param request - GetMcpServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1610,6 +1625,9 @@ class STAROps extends OpenApiClient
     /**
      * Queries an MCP service.
      *
+     * @remarks
+     * Queries the configuration of an MCP service.
+     *
      * @param request - GetMcpServiceRequest
      *
      * @returns GetMcpServiceResponse
@@ -1629,10 +1647,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Retrieves a thread.
+     * Retrieves a session.
      *
      * @remarks
-     * Retrieves the details of a thread.
+     * Retrieves a session.
      *
      * @param request - GetThreadRequest
      * @param headers - map
@@ -1670,10 +1688,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Retrieves a thread.
+     * Retrieves a session.
      *
      * @remarks
-     * Retrieves the details of a thread.
+     * Retrieves a session.
      *
      * @param request - GetThreadRequest
      *
@@ -1846,10 +1864,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Lists the versions of a skill.
+     * Lists skill versions.
      *
      * @remarks
-     * Lists the previous versions of a skill.
+     * Lists historical versions of a skill.
      *
      * @param request - ListDigitalEmployeeSkillVersionsRequest
      * @param headers - map
@@ -1887,10 +1905,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Lists the versions of a skill.
+     * Lists skill versions.
      *
      * @remarks
-     * Lists the previous versions of a skill.
+     * Lists historical versions of a skill.
      *
      * @param request - ListDigitalEmployeeSkillVersionsRequest
      *
@@ -1911,10 +1929,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Lists the skills of a digital employee.
+     * Lists skills.
      *
      * @remarks
-     * Lists the skills of a specified digital employee.
+     * Lists skills.
      *
      * @param request - ListDigitalEmployeeSkillsRequest
      * @param headers - map
@@ -1965,10 +1983,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Lists the skills of a digital employee.
+     * Lists skills.
      *
      * @remarks
-     * Lists the skills of a specified digital employee.
+     * Lists skills.
      *
      * @param request - ListDigitalEmployeeSkillsRequest
      *
@@ -2091,6 +2109,9 @@ class STAROps extends OpenApiClient
     /**
      * Queries the list of MCP services.
      *
+     * @remarks
+     * Queries the list of MCP services.
+     *
      * @param request - ListMcpServicesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2138,6 +2159,9 @@ class STAROps extends OpenApiClient
     /**
      * Queries the list of MCP services.
      *
+     * @remarks
+     * Queries the list of MCP services.
+     *
      * @param request - ListMcpServicesRequest
      *
      * @returns ListMcpServicesResponse
@@ -2156,10 +2180,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * List sessions.
+     * Lists sessions.
      *
      * @remarks
-     * List sessions
+     * Lists sessions.
      *
      * @param tmpReq - ListThreadsRequest
      * @param headers - map
@@ -2228,10 +2252,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * List sessions.
+     * Lists sessions.
      *
      * @remarks
-     * List sessions
+     * Lists sessions.
      *
      * @param request - ListThreadsRequest
      *
@@ -2500,6 +2524,9 @@ class STAROps extends OpenApiClient
     /**
      * Updates an MCP service.
      *
+     * @remarks
+     * Updates the configuration of an MCP service.
+     *
      * @param request - UpdateMcpServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2564,6 +2591,9 @@ class STAROps extends OpenApiClient
     /**
      * Updates an MCP service.
      *
+     * @remarks
+     * Updates the configuration of an MCP service.
+     *
      * @param request - UpdateMcpServiceRequest
      *
      * @returns UpdateMcpServiceResponse
@@ -2583,10 +2613,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Updates a thread.
+     * Updates a session.
      *
      * @remarks
-     * Updates a thread.
+     * Updates a session.
      *
      * @param request - UpdateThreadRequest
      * @param headers - map
@@ -2638,10 +2668,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * Updates a thread.
+     * Updates a session.
      *
      * @remarks
-     * Updates a thread.
+     * Updates a session.
      *
      * @param request - UpdateThreadRequest
      *
