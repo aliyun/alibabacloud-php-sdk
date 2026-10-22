@@ -79,6 +79,8 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\OpenTrialPackageResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryForOperationRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryForOperationResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryGuideSubStatusRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryGuideSubStatusResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryPenetrationTestDetailRequest;
@@ -97,6 +99,8 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\StartSecurityCheckServiceRe
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitApplyRecordRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitApplyRecordResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitApplyRecordShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitAutoAuditUnblockRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitAutoAuditUnblockResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitPenetrationTestRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitPenetrationTestResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\UpdatePostPaidBindRelRequest;
@@ -868,7 +872,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * Immediately ends a penetration test.
+     * Immediately terminates a penetration test.
      *
      * @param request - EndPenetrationTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -907,7 +911,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * Immediately ends a penetration test.
+     * Immediately terminates a penetration test.
      *
      * @param request - EndPenetrationTestRequest
      *
@@ -2199,6 +2203,99 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
+     * 解封申请列表及分页信息.
+     *
+     * @param request - QueryForOperationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryForOperationResponse
+     *
+     * @param QueryForOperationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryForOperationResponse
+     */
+    public function queryForOperationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applyTimeEnd) {
+            @$query['ApplyTimeEnd'] = $request->applyTimeEnd;
+        }
+
+        if (null !== $request->applyTimeStart) {
+            @$query['ApplyTimeStart'] = $request->applyTimeStart;
+        }
+
+        if (null !== $request->assetType) {
+            @$query['AssetType'] = $request->assetType;
+        }
+
+        if (null !== $request->auditTimeEnd) {
+            @$query['AuditTimeEnd'] = $request->auditTimeEnd;
+        }
+
+        if (null !== $request->auditTimeStart) {
+            @$query['AuditTimeStart'] = $request->auditTimeStart;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->customerUid) {
+            @$query['CustomerUid'] = $request->customerUid;
+        }
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryForOperation',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryForOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解封申请列表及分页信息.
+     *
+     * @param request - QueryForOperationRequest
+     *
+     * @returns QueryForOperationResponse
+     *
+     * @param QueryForOperationRequest $request
+     *
+     * @return QueryForOperationResponse
+     */
+    public function queryForOperation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryForOperationWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the subscription status of the cloud security guide.
      *
      * @param request - QueryGuideSubStatusRequest
@@ -2306,7 +2403,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询渗透测试申请列表.
+     * Queries the list of penetration test applications.
      *
      * @param request - QueryPenetrationTestListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2349,7 +2446,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * 查询渗透测试申请列表.
+     * Queries the list of penetration test applications.
      *
      * @param request - QueryPenetrationTestListRequest
      *
@@ -2807,6 +2904,87 @@ class RiskManagement extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitApplyRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交 TCP25端口免审解封申请.
+     *
+     * @param request - SubmitAutoAuditUnblockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAutoAuditUnblockResponse
+     *
+     * @param SubmitAutoAuditUnblockRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitAutoAuditUnblockResponse
+     */
+    public function submitAutoAuditUnblockWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetList) {
+            @$query['AssetList'] = $request->assetList;
+        }
+
+        if (null !== $request->auditor) {
+            @$query['Auditor'] = $request->auditor;
+        }
+
+        if (null !== $request->customerUid) {
+            @$query['CustomerUid'] = $request->customerUid;
+        }
+
+        if (null !== $request->emailType) {
+            @$query['EmailType'] = $request->emailType;
+        }
+
+        if (null !== $request->hasUnsubscribe) {
+            @$query['HasUnsubscribe'] = $request->hasUnsubscribe;
+        }
+
+        if (null !== $request->sendCount) {
+            @$query['SendCount'] = $request->sendCount;
+        }
+
+        if (null !== $request->useDesc) {
+            @$query['UseDesc'] = $request->useDesc;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAutoAuditUnblock',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAutoAuditUnblockResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交 TCP25端口免审解封申请.
+     *
+     * @param request - SubmitAutoAuditUnblockRequest
+     *
+     * @returns SubmitAutoAuditUnblockResponse
+     *
+     * @param SubmitAutoAuditUnblockRequest $request
+     *
+     * @return SubmitAutoAuditUnblockResponse
+     */
+    public function submitAutoAuditUnblock($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAutoAuditUnblockWithOptions($request, $runtime);
     }
 
     /**

@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetResourceControlEventResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetResourceControlEventResponseBody\data\applyRecordList\anomalyHours;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetResourceControlEventResponseBody\data\applyRecordList\eventTimeRecord;
 
 class applyRecordList extends Model
 {
+    /**
+     * @var anomalyHours[]
+     */
+    public $anomalyHours;
+
     /**
      * @var string
      */
@@ -34,6 +40,7 @@ class applyRecordList extends Model
      */
     public $status;
     protected $_name = [
+        'anomalyHours' => 'AnomalyHours',
         'approvalReason' => 'ApprovalReason',
         'eventTimeRecord' => 'EventTimeRecord',
         'rejectReason' => 'RejectReason',
@@ -43,6 +50,9 @@ class applyRecordList extends Model
 
     public function validate()
     {
+        if (\is_array($this->anomalyHours)) {
+            Model::validateArray($this->anomalyHours);
+        }
         if (null !== $this->eventTimeRecord) {
             $this->eventTimeRecord->validate();
         }
@@ -52,6 +62,17 @@ class applyRecordList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->anomalyHours) {
+            if (\is_array($this->anomalyHours)) {
+                $res['AnomalyHours'] = [];
+                $n1 = 0;
+                foreach ($this->anomalyHours as $item1) {
+                    $res['AnomalyHours'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->approvalReason) {
             $res['ApprovalReason'] = $this->approvalReason;
         }
@@ -83,6 +104,17 @@ class applyRecordList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnomalyHours'])) {
+            if (!empty($map['AnomalyHours'])) {
+                $model->anomalyHours = [];
+                $n1 = 0;
+                foreach ($map['AnomalyHours'] as $item1) {
+                    $model->anomalyHours[$n1] = anomalyHours::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ApprovalReason'])) {
             $model->approvalReason = $map['ApprovalReason'];
         }
