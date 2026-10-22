@@ -16,6 +16,21 @@ class instanceAttribute extends Model
     public $aiCreditStatus;
 
     /**
+     * @var int
+     */
+    public $aiCreditsTotal;
+
+    /**
+     * @var int
+     */
+    public $aiCreditsUs;
+
+    /**
+     * @var string
+     */
+    public $aiOpsAuditStatus;
+
+    /**
      * @var string
      */
     public $aiOpsModule;
@@ -211,6 +226,9 @@ class instanceAttribute extends Model
     public $whiteListPolicies;
     protected $_name = [
         'aiCreditStatus' => 'AiCreditStatus',
+        'aiCreditsTotal' => 'AiCreditsTotal',
+        'aiCreditsUs' => 'AiCreditsUs',
+        'aiOpsAuditStatus' => 'AiOpsAuditStatus',
         'aiOpsModule' => 'AiOpsModule',
         'appOperationModule' => 'AppOperationModule',
         'authorizedSecurityGroups' => 'AuthorizedSecurityGroups',
@@ -292,6 +310,18 @@ class instanceAttribute extends Model
         $res = [];
         if (null !== $this->aiCreditStatus) {
             $res['AiCreditStatus'] = $this->aiCreditStatus;
+        }
+
+        if (null !== $this->aiCreditsTotal) {
+            $res['AiCreditsTotal'] = $this->aiCreditsTotal;
+        }
+
+        if (null !== $this->aiCreditsUs) {
+            $res['AiCreditsUs'] = $this->aiCreditsUs;
+        }
+
+        if (null !== $this->aiOpsAuditStatus) {
+            $res['AiOpsAuditStatus'] = $this->aiOpsAuditStatus;
         }
 
         if (null !== $this->aiOpsModule) {
@@ -533,6 +563,18 @@ class instanceAttribute extends Model
         $model = new self();
         if (isset($map['AiCreditStatus'])) {
             $model->aiCreditStatus = $map['AiCreditStatus'];
+        }
+
+        if (isset($map['AiCreditsTotal'])) {
+            $model->aiCreditsTotal = $map['AiCreditsTotal'];
+        }
+
+        if (isset($map['AiCreditsUs'])) {
+            $model->aiCreditsUs = $map['AiCreditsUs'];
+        }
+
+        if (isset($map['AiOpsAuditStatus'])) {
+            $model->aiOpsAuditStatus = $map['AiOpsAuditStatus'];
         }
 
         if (isset($map['AiOpsModule'])) {

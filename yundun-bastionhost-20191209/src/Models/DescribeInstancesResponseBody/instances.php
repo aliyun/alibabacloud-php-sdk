@@ -11,6 +11,21 @@ class instances extends Model
     /**
      * @var int
      */
+    public $aiCreditsTotal;
+
+    /**
+     * @var int
+     */
+    public $aiCreditsUs;
+
+    /**
+     * @var string
+     */
+    public $aiOpsAuditStatus;
+
+    /**
+     * @var int
+     */
     public $bandWidth;
 
     /**
@@ -98,6 +113,9 @@ class instances extends Model
      */
     public $vswitchId;
     protected $_name = [
+        'aiCreditsTotal' => 'AiCreditsTotal',
+        'aiCreditsUs' => 'AiCreditsUs',
+        'aiOpsAuditStatus' => 'AiOpsAuditStatus',
         'bandWidth' => 'BandWidth',
         'description' => 'Description',
         'expireTime' => 'ExpireTime',
@@ -126,6 +144,18 @@ class instances extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiCreditsTotal) {
+            $res['AiCreditsTotal'] = $this->aiCreditsTotal;
+        }
+
+        if (null !== $this->aiCreditsUs) {
+            $res['AiCreditsUs'] = $this->aiCreditsUs;
+        }
+
+        if (null !== $this->aiOpsAuditStatus) {
+            $res['AiOpsAuditStatus'] = $this->aiOpsAuditStatus;
+        }
+
         if (null !== $this->bandWidth) {
             $res['BandWidth'] = $this->bandWidth;
         }
@@ -209,6 +239,18 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiCreditsTotal'])) {
+            $model->aiCreditsTotal = $map['AiCreditsTotal'];
+        }
+
+        if (isset($map['AiCreditsUs'])) {
+            $model->aiCreditsUs = $map['AiCreditsUs'];
+        }
+
+        if (isset($map['AiOpsAuditStatus'])) {
+            $model->aiOpsAuditStatus = $map['AiOpsAuditStatus'];
+        }
+
         if (isset($map['BandWidth'])) {
             $model->bandWidth = $map['BandWidth'];
         }
