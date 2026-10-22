@@ -45,6 +45,11 @@ class SearchContextRequest extends Model
     public $scope;
 
     /**
+     * @var string[]
+     */
+    public $strategyIds;
+
+    /**
      * @var float
      */
     public $threshold;
@@ -56,6 +61,7 @@ class SearchContextRequest extends Model
         'query' => 'query',
         'retrievalOption' => 'retrievalOption',
         'scope' => 'scope',
+        'strategyIds' => 'strategyIds',
         'threshold' => 'threshold',
     ];
 
@@ -66,6 +72,9 @@ class SearchContextRequest extends Model
         }
         if (null !== $this->scope) {
             $this->scope->validate();
+        }
+        if (\is_array($this->strategyIds)) {
+            Model::validateArray($this->strategyIds);
         }
         parent::validate();
     }
@@ -104,6 +113,17 @@ class SearchContextRequest extends Model
 
         if (null !== $this->scope) {
             $res['scope'] = null !== $this->scope ? $this->scope->toArray($noStream) : $this->scope;
+        }
+
+        if (null !== $this->strategyIds) {
+            if (\is_array($this->strategyIds)) {
+                $res['strategyIds'] = [];
+                $n1 = 0;
+                foreach ($this->strategyIds as $item1) {
+                    $res['strategyIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->threshold) {
@@ -152,6 +172,17 @@ class SearchContextRequest extends Model
 
         if (isset($map['scope'])) {
             $model->scope = scope::fromMap($map['scope']);
+        }
+
+        if (isset($map['strategyIds'])) {
+            if (!empty($map['strategyIds'])) {
+                $model->strategyIds = [];
+                $n1 = 0;
+                foreach ($map['strategyIds'] as $item1) {
+                    $model->strategyIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['threshold'])) {

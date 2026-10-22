@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\config\audit;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\config\extractionPolicies;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\config\extractionPolicy;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\config\scopePolicy;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\config\source;
@@ -17,6 +18,11 @@ class config extends Model
      * @var audit
      */
     public $audit;
+
+    /**
+     * @var extractionPolicies[]
+     */
+    public $extractionPolicies;
 
     /**
      * @var extractionPolicy
@@ -44,6 +50,7 @@ class config extends Model
     public $storagePolicy;
     protected $_name = [
         'audit' => 'audit',
+        'extractionPolicies' => 'extractionPolicies',
         'extractionPolicy' => 'extractionPolicy',
         'metadataField' => 'metadataField',
         'scopePolicy' => 'scopePolicy',
@@ -55,6 +62,9 @@ class config extends Model
     {
         if (null !== $this->audit) {
             $this->audit->validate();
+        }
+        if (\is_array($this->extractionPolicies)) {
+            Model::validateArray($this->extractionPolicies);
         }
         if (null !== $this->extractionPolicy) {
             $this->extractionPolicy->validate();
@@ -79,6 +89,17 @@ class config extends Model
         $res = [];
         if (null !== $this->audit) {
             $res['audit'] = null !== $this->audit ? $this->audit->toArray($noStream) : $this->audit;
+        }
+
+        if (null !== $this->extractionPolicies) {
+            if (\is_array($this->extractionPolicies)) {
+                $res['extractionPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->extractionPolicies as $item1) {
+                    $res['extractionPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->extractionPolicy) {
@@ -119,6 +140,17 @@ class config extends Model
         $model = new self();
         if (isset($map['audit'])) {
             $model->audit = audit::fromMap($map['audit']);
+        }
+
+        if (isset($map['extractionPolicies'])) {
+            if (!empty($map['extractionPolicies'])) {
+                $model->extractionPolicies = [];
+                $n1 = 0;
+                foreach ($map['extractionPolicies'] as $item1) {
+                    $model->extractionPolicies[$n1] = extractionPolicies::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['extractionPolicy'])) {

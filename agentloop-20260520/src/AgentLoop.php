@@ -2339,7 +2339,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries an AgentSpace.
+     * Queries the AgentSpace.
      *
      * @param request - GetAgentSpaceRequest
      * @param headers - map
@@ -2376,7 +2376,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries an AgentSpace.
+     * Queries the AgentSpace.
      *
      * @param request - GetAgentSpaceRequest
      *
@@ -2396,7 +2396,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the context store.
+     * Queries a context store.
      *
      * @param request - GetContextStoreRequest
      * @param headers - map
@@ -2434,7 +2434,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the context store.
+     * Queries a context store.
      *
      * @param request - GetContextStoreRequest
      *
@@ -4742,6 +4742,10 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->scope) {
             @$body['scope'] = $request->scope;
+        }
+
+        if (null !== $request->strategyIds) {
+            @$body['strategyIds'] = $request->strategyIds;
         }
 
         if (null !== $request->threshold) {
