@@ -68,6 +68,11 @@ class dataSources extends Model
      * @var string[]
      */
     public $tables;
+
+    /**
+     * @var string
+     */
+    public $uri;
     protected $_name = [
         'dataSourceId' => 'DataSourceId',
         'dataSourceType' => 'DataSourceType',
@@ -81,6 +86,7 @@ class dataSources extends Model
         'permission' => 'Permission',
         'regionId' => 'RegionId',
         'tables' => 'Tables',
+        'uri' => 'Uri',
     ];
 
     public function validate()
@@ -152,6 +158,10 @@ class dataSources extends Model
             }
         }
 
+        if (null !== $this->uri) {
+            $res['Uri'] = $this->uri;
+        }
+
         return $res;
     }
 
@@ -216,6 +226,10 @@ class dataSources extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Uri'])) {
+            $model->uri = $map['Uri'];
         }
 
         return $model;
