@@ -24,6 +24,11 @@ class CreateAgenticDBProjectRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $historyRetentionSeconds;
+
+    /**
      * @var string
      */
     public $projectName;
@@ -41,6 +46,7 @@ class CreateAgenticDBProjectRequest extends Model
         'DBClusterId' => 'DBClusterId',
         'defaultBranchName' => 'DefaultBranchName',
         'description' => 'Description',
+        'historyRetentionSeconds' => 'HistoryRetentionSeconds',
         'projectName' => 'ProjectName',
         'regionId' => 'RegionId',
         'tenantId' => 'TenantId',
@@ -64,6 +70,10 @@ class CreateAgenticDBProjectRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->historyRetentionSeconds) {
+            $res['HistoryRetentionSeconds'] = $this->historyRetentionSeconds;
         }
 
         if (null !== $this->projectName) {
@@ -99,6 +109,10 @@ class CreateAgenticDBProjectRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['HistoryRetentionSeconds'])) {
+            $model->historyRetentionSeconds = $map['HistoryRetentionSeconds'];
         }
 
         if (isset($map['ProjectName'])) {

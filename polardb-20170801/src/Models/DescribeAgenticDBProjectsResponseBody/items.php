@@ -34,6 +34,11 @@ class items extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $historyRetentionSeconds;
+
+    /**
      * @var string
      */
     public $projectId;
@@ -58,6 +63,7 @@ class items extends Model
         'defaultBranchId' => 'DefaultBranchId',
         'defaultBranchName' => 'DefaultBranchName',
         'description' => 'Description',
+        'historyRetentionSeconds' => 'HistoryRetentionSeconds',
         'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
         'status' => 'Status',
@@ -90,6 +96,10 @@ class items extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->historyRetentionSeconds) {
+            $res['HistoryRetentionSeconds'] = $this->historyRetentionSeconds;
         }
 
         if (null !== $this->projectId) {
@@ -137,6 +147,10 @@ class items extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['HistoryRetentionSeconds'])) {
+            $model->historyRetentionSeconds = $map['HistoryRetentionSeconds'];
         }
 
         if (isset($map['ProjectId'])) {

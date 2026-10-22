@@ -31,6 +31,11 @@ class CreateAgenticDBBranchRequest extends Model
     /**
      * @var string
      */
+    public $parentTimestamp;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -47,6 +52,7 @@ class CreateAgenticDBBranchRequest extends Model
         'DBClusterId' => 'DBClusterId',
         'description' => 'Description',
         'parentBranchId' => 'ParentBranchId',
+        'parentTimestamp' => 'ParentTimestamp',
         'projectId' => 'ProjectId',
         'regionId' => 'RegionId',
         'tenantId' => 'TenantId',
@@ -74,6 +80,10 @@ class CreateAgenticDBBranchRequest extends Model
 
         if (null !== $this->parentBranchId) {
             $res['ParentBranchId'] = $this->parentBranchId;
+        }
+
+        if (null !== $this->parentTimestamp) {
+            $res['ParentTimestamp'] = $this->parentTimestamp;
         }
 
         if (null !== $this->projectId) {
@@ -113,6 +123,10 @@ class CreateAgenticDBBranchRequest extends Model
 
         if (isset($map['ParentBranchId'])) {
             $model->parentBranchId = $map['ParentBranchId'];
+        }
+
+        if (isset($map['ParentTimestamp'])) {
+            $model->parentTimestamp = $map['ParentTimestamp'];
         }
 
         if (isset($map['ProjectId'])) {

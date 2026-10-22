@@ -29,6 +29,11 @@ class CreateAgenticDBProjectResponseBody extends Model
     public $defaultBranchName;
 
     /**
+     * @var int
+     */
+    public $historyRetentionSeconds;
+
+    /**
      * @var string
      */
     public $projectId;
@@ -52,6 +57,7 @@ class CreateAgenticDBProjectResponseBody extends Model
         'createTime' => 'CreateTime',
         'defaultBranchId' => 'DefaultBranchId',
         'defaultBranchName' => 'DefaultBranchName',
+        'historyRetentionSeconds' => 'HistoryRetentionSeconds',
         'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
         'requestId' => 'RequestId',
@@ -80,6 +86,10 @@ class CreateAgenticDBProjectResponseBody extends Model
 
         if (null !== $this->defaultBranchName) {
             $res['DefaultBranchName'] = $this->defaultBranchName;
+        }
+
+        if (null !== $this->historyRetentionSeconds) {
+            $res['HistoryRetentionSeconds'] = $this->historyRetentionSeconds;
         }
 
         if (null !== $this->projectId) {
@@ -123,6 +133,10 @@ class CreateAgenticDBProjectResponseBody extends Model
 
         if (isset($map['DefaultBranchName'])) {
             $model->defaultBranchName = $map['DefaultBranchName'];
+        }
+
+        if (isset($map['HistoryRetentionSeconds'])) {
+            $model->historyRetentionSeconds = $map['HistoryRetentionSeconds'];
         }
 
         if (isset($map['ProjectId'])) {
