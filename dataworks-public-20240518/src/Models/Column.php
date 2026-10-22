@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\Column\businessMetadata;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\Column\technicalMetadata;
 
 class Column extends Model
 {
@@ -60,6 +61,11 @@ class Column extends Model
     public $tableId;
 
     /**
+     * @var technicalMetadata
+     */
+    public $technicalMetadata;
+
+    /**
      * @var string
      */
     public $type;
@@ -74,6 +80,7 @@ class Column extends Model
         'primaryKey' => 'PrimaryKey',
         'statisticsInfos' => 'StatisticsInfos',
         'tableId' => 'TableId',
+        'technicalMetadata' => 'TechnicalMetadata',
         'type' => 'Type',
     ];
 
@@ -84,6 +91,9 @@ class Column extends Model
         }
         if (\is_array($this->statisticsInfos)) {
             Model::validateArray($this->statisticsInfos);
+        }
+        if (null !== $this->technicalMetadata) {
+            $this->technicalMetadata->validate();
         }
         parent::validate();
     }
@@ -134,6 +144,10 @@ class Column extends Model
 
         if (null !== $this->tableId) {
             $res['TableId'] = $this->tableId;
+        }
+
+        if (null !== $this->technicalMetadata) {
+            $res['TechnicalMetadata'] = null !== $this->technicalMetadata ? $this->technicalMetadata->toArray($noStream) : $this->technicalMetadata;
         }
 
         if (null !== $this->type) {
@@ -194,6 +208,10 @@ class Column extends Model
 
         if (isset($map['TableId'])) {
             $model->tableId = $map['TableId'];
+        }
+
+        if (isset($map['TechnicalMetadata'])) {
+            $model->technicalMetadata = technicalMetadata::fromMap($map['TechnicalMetadata']);
         }
 
         if (isset($map['Type'])) {

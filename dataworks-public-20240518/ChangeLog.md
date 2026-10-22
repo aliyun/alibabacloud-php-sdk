@@ -1,3 +1,6 @@
+2026-10-22 Version: 8.7.2
+- Generated php 2024-05-18 for dataworks-public.
+
 2026-10-20 Version: 8.7.1
 - Generated php 2024-05-18 for dataworks-public.
 
