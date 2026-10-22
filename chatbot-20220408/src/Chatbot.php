@@ -1904,7 +1904,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签创建.
+     * Creates a label.
      *
      * @param request - CreateTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1957,7 +1957,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签创建.
+     * Creates a label.
      *
      * @param request - CreateTagRequest
      *
@@ -1975,7 +1975,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组创建.
+     * Creates a tag group.
      *
      * @param request - CreateTagGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2024,7 +2024,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组创建.
+     * Creates a tag group.
      *
      * @param request - CreateTagGroupRequest
      *
@@ -2879,7 +2879,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签删除.
+     * Deletes a tag.
      *
      * @param request - DeleteTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2932,7 +2932,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签删除.
+     * Deletes a tag.
      *
      * @param request - DeleteTagRequest
      *
@@ -2950,7 +2950,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组删除.
+     * Deletes a tag group.
      *
      * @param request - DeleteTagGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2999,7 +2999,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组删除.
+     * Deletes a tag group.
      *
      * @param request - DeleteTagGroupRequest
      *
@@ -3531,7 +3531,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签详情.
+     * Retrieves the details of a tag.
      *
      * @param request - DescribeTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3584,7 +3584,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签详情.
+     * Retrieves the details of a tag.
      *
      * @param request - DescribeTagRequest
      *
@@ -3602,7 +3602,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组详情.
+     * Retrieves the details of a tag group.
      *
      * @param request - DescribeTagGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3651,7 +3651,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组详情.
+     * Retrieves the details of a tag group.
      *
      * @param request - DescribeTagGroupRequest
      *
@@ -5132,7 +5132,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签查询.
+     * Queries tags.
      *
      * @param request - ListTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5193,7 +5193,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签查询.
+     * Queries tags.
      *
      * @param request - ListTagRequest
      *
@@ -5211,7 +5211,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组查询.
+     * Queries tag groups.
      *
      * @param request - ListTagGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5268,7 +5268,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组查询.
+     * Queries tag groups.
      *
      * @param request - ListTagGroupRequest
      *
@@ -6961,7 +6961,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签编辑.
+     * Updates a tag.
      *
      * @param request - UpdateTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7018,7 +7018,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签编辑.
+     * Updates a tag.
      *
      * @param request - UpdateTagRequest
      *
@@ -7036,7 +7036,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组编辑.
+     * Updates a label group.
      *
      * @param request - UpdateTagGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7089,7 +7089,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 标签组编辑.
+     * Updates a label group.
      *
      * @param request - UpdateTagGroupRequest
      *
