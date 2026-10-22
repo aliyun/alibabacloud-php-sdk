@@ -433,10 +433,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Allocates a Supabase instance for resource allocation.
+     * Performs resource allocation for a Supabase instance.
      *
      * @remarks
-     * Queries the Supabase instance information associated with a resource.
+     * Queries the information about the Supabase instance associated with a resource.
      *
      * @param request - AllocateSupabaseForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -499,10 +499,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Allocates a Supabase instance for resource allocation.
+     * Performs resource allocation for a Supabase instance.
      *
      * @remarks
-     * Queries the Supabase instance information associated with a resource.
+     * Queries the information about the Supabase instance associated with a resource.
      *
      * @param request - AllocateSupabaseForAdminRequest
      *
@@ -882,7 +882,7 @@ class WebsiteBuild extends OpenApiClient
      * Checks resource usage.
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the Supabase instance information corresponding to the resource.
      *
      * @param request - CheckResourceMeasureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -952,7 +952,7 @@ class WebsiteBuild extends OpenApiClient
      * Checks resource usage.
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the Supabase instance information corresponding to the resource.
      *
      * @param request - CheckResourceMeasureRequest
      *
@@ -970,10 +970,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Checks user resource metering.
+     * Validates user resource metering.
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the Supabase instance information corresponding to the resource.
      *
      * @param request - CheckUserResourceMeasureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -999,6 +999,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->bizType) {
             @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->desiredTotal) {
+            @$query['DesiredTotal'] = $request->desiredTotal;
         }
 
         if (null !== $request->espBizId) {
@@ -1036,10 +1040,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Checks user resource metering.
+     * Validates user resource metering.
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the Supabase instance information corresponding to the resource.
      *
      * @param request - CheckUserResourceMeasureRequest
      *
@@ -1447,10 +1451,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Generates an SSO logon-free URL for an application assistant agent.
+     * Generates an SSO logon-free URL for the application assistant.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - CreateAppAssistantAgentSsoLoginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1497,10 +1501,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Generates an SSO logon-free URL for an application assistant agent.
+     * Generates an SSO logon-free URL for the application assistant.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - CreateAppAssistantAgentSsoLoginRequest
      *
@@ -1784,7 +1788,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates a passwordless login ticket.
+     * Creates a logon-free ticket.
      *
      * @param request - CreateAppInstanceTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1831,7 +1835,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates a passwordless login ticket.
+     * Creates a logon-free ticket.
      *
      * @param request - CreateAppInstanceTicketRequest
      *
@@ -2042,7 +2046,7 @@ class WebsiteBuild extends OpenApiClient
      * Creates an application plug-in.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - CreateAppPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2124,7 +2128,7 @@ class WebsiteBuild extends OpenApiClient
      * Creates an application plug-in.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - CreateAppPluginRequest
      *
@@ -2359,7 +2363,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Submits a task to create a logo.
+     * Submits a logo creation task.
      *
      * @param request - CreateLogoTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2410,7 +2414,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Submits a task to create a logo.
+     * Submits a logo creation task.
      *
      * @param request - CreateLogoTaskRequest
      *
@@ -2428,7 +2432,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates a subfolder under a parent folder.
+     * Creates a subfolder in a parent folder.
      *
      * @param request - CreateMaterialDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2475,7 +2479,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates a subfolder under a parent folder.
+     * Creates a subfolder in a parent folder.
      *
      * @param request - CreateMaterialDirectoryRequest
      *
@@ -2694,7 +2698,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Deletes and unbinds the SSL certificate that is bound to a website.
+     * Deletes and unbinds the SSL certificate associated with a website.
      *
      * @param request - DeleteAppDomainCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2737,7 +2741,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Deletes and unbinds the SSL certificate that is bound to a website.
+     * Deletes and unbinds the SSL certificate associated with a website.
      *
      * @param request - DeleteAppDomainCertificateRequest
      *
@@ -3021,7 +3025,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Deletes an application plug-in.
+     * Deletes an application plugin.
      *
      * @param request - DeleteAppPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3060,7 +3064,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Deletes an application plug-in.
+     * Deletes an application plugin.
      *
      * @param request - DeleteAppPluginRequest
      *
@@ -3606,7 +3610,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Calls a general-purpose API operation.
+     * Calls a general API operation.
      *
      * @param request - DispatchConsoleAPIForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3661,7 +3665,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Calls a general-purpose API operation.
+     * Calls a general API operation.
      *
      * @param request - DispatchConsoleAPIForPartnerRequest
      *
@@ -3752,7 +3756,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Exports a material file.
+     * Exports material files.
      *
      * @param tmpReq - ExportMaterialFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3801,7 +3805,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Exports a material file.
+     * Exports material files.
      *
      * @param request - ExportMaterialFileRequest
      *
@@ -3952,7 +3956,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the details of a code workspace.
      *
      * @remarks
-     * Queries the information of an application instance.
+     * Queries application instance information.
      *
      * @param request - GetAppCodeWorkspaceDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3994,7 +3998,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the details of a code workspace.
      *
      * @remarks
-     * Queries the information of an application instance.
+     * Queries application instance information.
      *
      * @param request - GetAppCodeWorkspaceDetailRequest
      *
@@ -4015,7 +4019,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the details of a conversation.
      *
      * @remarks
-     * The API operation for creating an AI conversation in Wanxiaozhi 2.0.
+     * The Wanxiaozhi 2.0 API operation for creating AI conversations.
      *
      * @param request - GetAppConversationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4061,7 +4065,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the details of a conversation.
      *
      * @remarks
-     * The API operation for creating an AI conversation in Wanxiaozhi 2.0.
+     * The Wanxiaozhi 2.0 API operation for creating AI conversations.
      *
      * @param request - GetAppConversationRequest
      *
@@ -4079,10 +4083,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves the session lock status.
+     * Retrieves the lock status of a session.
      *
      * @remarks
-     * Creates an AI session through the WanXiaoZhi 2.0 interface.
+     * The API operation for creating an AI session in Wanxiaozhi 2.0.
      *
      * @param request - GetAppConversationLockStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4121,10 +4125,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves the session lock status.
+     * Retrieves the lock status of a session.
      *
      * @remarks
-     * Creates an AI session through the WanXiaoZhi 2.0 interface.
+     * The API operation for creating an AI session in Wanxiaozhi 2.0.
      *
      * @param request - GetAppConversationLockStatusRequest
      *
@@ -4209,10 +4213,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves file content and modification time.
+     * Retrieves a file and its modification time.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - GetAppFileContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4255,10 +4259,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves file content and modification time.
+     * Retrieves a file and its modification time.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - GetAppFileContentRequest
      *
@@ -4472,7 +4476,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the details of an instance.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - GetAppInstanceForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4514,7 +4518,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the details of an instance.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - GetAppInstanceForPartnerRequest
      *
@@ -4595,10 +4599,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the details of an application plug-in.
+     * Queries the details of an application plugin.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of a code generation plugin.
      *
      * @param request - GetAppPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4637,10 +4641,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the details of an application plug-in.
+     * Queries the details of an application plugin.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of a code generation plugin.
      *
      * @param request - GetAppPluginRequest
      *
@@ -5526,7 +5530,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the directory structure of a workspace.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information of an application instance.
      *
      * @param request - GetAppWorkspaceDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5576,7 +5580,7 @@ class WebsiteBuild extends OpenApiClient
      * Retrieves the directory structure of a workspace.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information of an application instance.
      *
      * @param request - GetAppWorkspaceDirectoryRequest
      *
@@ -5909,10 +5913,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the mini programs associated with a site.
+     * Queries the mini programs bound to a site.
      *
      * @remarks
-     * Retrieves the configuration information of the QR code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param tmpReq - GetMiniAppBindingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5965,10 +5969,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the mini programs associated with a site.
+     * Queries the mini programs bound to a site.
      *
      * @remarks
-     * Retrieves the configuration information of the QR code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - GetMiniAppBindingRequest
      *
@@ -5986,7 +5990,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Performs a conditional query for mini programs attached to an application instance.
+     * Queries the mini programs attached to an application instance by using a conditional query.
      *
      * @param request - GetMiniAppBindingForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6033,7 +6037,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Performs a conditional query for mini programs attached to an application instance.
+     * Queries the mini programs attached to an application instance by using a conditional query.
      *
      * @param request - GetMiniAppBindingForAdminRequest
      *
@@ -6054,7 +6058,7 @@ class WebsiteBuild extends OpenApiClient
      * Generates a file upload policy.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - GetOssUploadPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6096,7 +6100,7 @@ class WebsiteBuild extends OpenApiClient
      * Generates a file upload policy.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - GetOssUploadPolicyRequest
      *
@@ -6177,7 +6181,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Exchanges a temporary AccessKey pair for an access token.
+     * Exchanges a temporary AccessKey for an access token.
      *
      * @param request - GetUserAccessTokenForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6220,7 +6224,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Exchanges a temporary AccessKey pair for an access token.
+     * Exchanges a temporary AccessKey for an access token.
      *
      * @param request - GetUserAccessTokenForPartnerRequest
      *
@@ -6311,10 +6315,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Distributes promotional benefits from a partner.
+     * Grants promotional benefits to partners.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information for the code generation plugin.
      *
      * @param request - GrantPromotionOfferForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6373,10 +6377,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Distributes promotional benefits from a partner.
+     * Grants promotional benefits to partners.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information for the code generation plugin.
      *
      * @param request - GrantPromotionOfferForPartnerRequest
      *
@@ -6394,10 +6398,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Installs an application plug-in to the current user account.
+     * Installs an application plugin to the current user account.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - InstallAppPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6440,10 +6444,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Installs an application plug-in to the current user account.
+     * Installs an application plugin to the current user account.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - InstallAppPluginRequest
      *
@@ -6599,10 +6603,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the conversation message list of an AI employee by paging.
+     * Performs a paging query on the list of conversation messages for an AI agent.
      *
      * @remarks
-     * Queries the AI session history for WanXiaoZhi 2.0.
+     * Queries the AI conversation history for Wanxiaozhi 2.0.
      *
      * @param request - ListAIStaffChatMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6655,10 +6659,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the conversation message list of an AI employee by paging.
+     * Performs a paging query on the list of conversation messages for an AI agent.
      *
      * @remarks
-     * Queries the AI session history for WanXiaoZhi 2.0.
+     * Queries the AI conversation history for Wanxiaozhi 2.0.
      *
      * @param request - ListAIStaffChatMessagesRequest
      *
@@ -7027,10 +7031,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Searches the conversation list.
+     * Queries the conversation list.
      *
      * @remarks
-     * Creates an AI conversation through the Wanxiaozhi 2.0 interface.
+     * Creates an AI conversation in Wanxiaozhi 2.0.
      *
      * @param request - ListAppConversationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7097,10 +7101,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Searches the conversation list.
+     * Queries the conversation list.
      *
      * @remarks
-     * Creates an AI conversation through the Wanxiaozhi 2.0 interface.
+     * Creates an AI conversation in Wanxiaozhi 2.0.
      *
      * @param request - ListAppConversationsRequest
      *
@@ -7118,7 +7122,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of HTTP 301 status code redirects for a website.
+     * Queries the list of HTTP 301 status codes for a website.
      *
      * @param request - ListAppDomainRedirectRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7165,7 +7169,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of HTTP 301 status code redirects for a website.
+     * Queries the list of HTTP 301 status codes for a website.
      *
      * @param request - ListAppDomainRedirectRecordsRequest
      *
@@ -7276,7 +7280,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries application instances.
+     * Queries a list of application instances.
      *
      * @param tmpReq - ListAppInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7377,7 +7381,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries application instances.
+     * Queries a list of application instances.
      *
      * @param request - ListAppInstancesRequest
      *
@@ -7466,10 +7470,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of application plug-in files.
+     * Queries the list of application plugin files.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - ListAppPluginFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7512,10 +7516,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of application plug-in files.
+     * Queries the list of application plugin files.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - ListAppPluginFilesRequest
      *
@@ -7533,10 +7537,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of application plug-in versions.
+     * Queries the application plug-in versions.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - ListAppPluginVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7583,10 +7587,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of application plug-in versions.
+     * Queries the application plug-in versions.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - ListAppPluginVersionsRequest
      *
@@ -8118,10 +8122,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of my application plug-ins.
+     * Queries the list of application plugins.
      *
      * @remarks
-     * Retrieves the configuration information of code generation plug-ins.
+     * Retrieves the configuration information of code generation plugins.
      *
      * @param request - ListMyAppPluginsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8176,10 +8180,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of my application plug-ins.
+     * Queries the list of application plugins.
      *
      * @remarks
-     * Retrieves the configuration information of code generation plug-ins.
+     * Retrieves the configuration information of code generation plugins.
      *
      * @param request - ListMyAppPluginsRequest
      *
@@ -8873,7 +8877,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Modifies a material folder.
+     * Updates a material folder.
      *
      * @param request - ModifyMaterialDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8920,7 +8924,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Modifies a material folder.
+     * Updates a material folder.
      *
      * @param request - ModifyMaterialDirectoryRequest
      *
@@ -8938,7 +8942,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Modifies a material file.
+     * Updates a material file.
      *
      * @param request - ModifyMaterialFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8985,7 +8989,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Modifies a material file.
+     * Updates a material file.
      *
      * @param request - ModifyMaterialFileRequest
      *
@@ -9003,7 +9007,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Modifies the status of a material file.
+     * Updates the status of material files.
      *
      * @param tmpReq - ModifyMaterialFileStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9056,7 +9060,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Modifies the status of a material file.
+     * Updates the status of material files.
      *
      * @param request - ModifyMaterialFileStatusRequest
      *
@@ -9074,7 +9078,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Moves a material file folder.
+     * Moves an asset folder.
      *
      * @param request - MoveMaterialDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9125,7 +9129,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Moves a material file folder.
+     * Moves an asset folder.
      *
      * @param request - MoveMaterialDirectoryRequest
      *
@@ -9143,7 +9147,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Moves media asset files.
+     * Moves asset files.
      *
      * @param tmpReq - MoveMaterialFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9196,7 +9200,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Moves media asset files.
+     * Moves asset files.
      *
      * @param request - MoveMaterialFileRequest
      *
@@ -9214,10 +9218,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Triggers a data change notification (for admin).
+     * Triggers a data change notification for administrators.
      *
      * @remarks
-     * Queries the application instance information.
+     * Queries application instance information.
      *
      * @param request - NotifyAppNotificationForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9268,10 +9272,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Triggers a data change notification (for admin).
+     * Triggers a data change notification for administrators.
      *
      * @remarks
-     * Queries the application instance information.
+     * Queries application instance information.
      *
      * @param request - NotifyAppNotificationForAdminRequest
      *
@@ -9289,7 +9293,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+     * Takes a website offline by switching the CDN back-to-origin requests for all domain names under the site to an offline page.
      *
      * @param request - OfflineAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9328,7 +9332,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+     * Takes a website offline by switching the CDN back-to-origin requests for all domain names under the site to an offline page.
      *
      * @param request - OfflineAppInstanceRequest
      *
@@ -9346,7 +9350,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+     * Restores a website to online status by reverting the CDN back-to-origin configuration for all domain names under the site to the normal path rewrite rules.
      *
      * @param request - OnlineAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9385,7 +9389,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+     * Restores a website to online status by reverting the CDN back-to-origin configuration for all domain names under the site to the normal path rewrite rules.
      *
      * @param request - OnlineAppInstanceRequest
      *
@@ -9600,10 +9604,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Operates on the Supabase instance information corresponding to a resource.
+     * Retrieves the Supabase instance information for the operated resource.
      *
      * @remarks
-     * Operates on the Supabase instance information corresponding to a resource.
+     * The Supabase instance information for the operated resource.
      *
      * @param request - OperateSupabaseForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9686,10 +9690,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Operates on the Supabase instance information corresponding to a resource.
+     * Retrieves the Supabase instance information for the operated resource.
      *
      * @remarks
-     * Operates on the Supabase instance information corresponding to a resource.
+     * The Supabase instance information for the operated resource.
      *
      * @param request - OperateSupabaseForAdminRequest
      *
@@ -9710,7 +9714,7 @@ class WebsiteBuild extends OpenApiClient
      * Publishes an application instance.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - PublishAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9772,7 +9776,7 @@ class WebsiteBuild extends OpenApiClient
      * Publishes an application instance.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - PublishAppInstanceRequest
      *
@@ -9885,7 +9889,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the acquisition details of inspiration credits (the quota account list, including expiration marks).
+     * Queries the acquisition details of inspiration points, including the list of quota accounts and their expiration status.
      *
      * @remarks
      * Queries the Supabase instance information corresponding to the resource.
@@ -9951,7 +9955,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the acquisition details of inspiration credits (the quota account list, including expiration marks).
+     * Queries the acquisition details of inspiration points, including the list of quota accounts and their expiration status.
      *
      * @remarks
      * Queries the Supabase instance information corresponding to the resource.
@@ -10169,7 +10173,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the material folder tree.
+     * Queries the asset folder tree.
      *
      * @param request - QueryMaterialDirectoryTreeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10216,7 +10220,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the material folder tree.
+     * Queries the asset folder tree.
      *
      * @param request - QueryMaterialDirectoryTreeRequest
      *
@@ -10234,7 +10238,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the details of a material file.
+     * Queries the details of an asset file.
      *
      * @param request - QueryMaterialFileDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10277,7 +10281,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the details of a material file.
+     * Queries the details of an asset file.
      *
      * @param request - QueryMaterialFileDetailRequest
      *
@@ -10295,7 +10299,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of material files.
+     * Queries a list of asset files.
      *
      * @param tmpReq - QueryMaterialFileListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10400,7 +10404,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of material files.
+     * Queries a list of asset files.
      *
      * @param request - QueryMaterialFileListRequest
      *
@@ -10912,10 +10916,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the auth configuration of a Supabase instance associated with a resource.
+     * Queries the authentication configuration of the Supabase instance associated with the resource.
      *
      * @remarks
-     * Queries the auth configuration of a Supabase instance associated with a resource.
+     * Queries the authentication configuration of the Supabase instance associated with the resource.
      *
      * @param request - QuerySupabaseAuthConfigsForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10982,10 +10986,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the auth configuration of a Supabase instance associated with a resource.
+     * Queries the authentication configuration of the Supabase instance associated with the resource.
      *
      * @remarks
-     * Queries the auth configuration of a Supabase instance associated with a resource.
+     * Queries the authentication configuration of the Supabase instance associated with the resource.
      *
      * @param request - QuerySupabaseAuthConfigsForAdminRequest
      *
@@ -11003,10 +11007,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the Supabase instance configuration information corresponding to a resource.
+     * Queries the configuration information of the Supabase instance associated with a resource.
      *
      * @remarks
-     * Queries the Supabase instance configuration information corresponding to a resource.
+     * Queries the configuration information of the Supabase instance associated with a resource.
      *
      * @param request - QuerySupabaseConfigsForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11069,10 +11073,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the Supabase instance configuration information corresponding to a resource.
+     * Queries the configuration information of the Supabase instance associated with a resource.
      *
      * @remarks
-     * Queries the Supabase instance configuration information corresponding to a resource.
+     * Queries the configuration information of the Supabase instance associated with a resource.
      *
      * @param request - QuerySupabaseConfigsForAdminRequest
      *
@@ -11090,10 +11094,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the information of the Supabase instance associated with a resource.
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the information of the Supabase instance associated with a resource.
      *
      * @param request - QuerySupabaseInstanceInfoForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11156,10 +11160,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the information of the Supabase instance associated with a resource.
      *
      * @remarks
-     * Queries the Supabase instance information corresponding to a resource.
+     * Queries the information of the Supabase instance associated with a resource.
      *
      * @param request - QuerySupabaseInstanceInfoForAdminRequest
      *
@@ -11947,7 +11951,7 @@ class WebsiteBuild extends OpenApiClient
      * Rolls back a code snapshot.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - RollbackAppCodeSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11993,7 +11997,7 @@ class WebsiteBuild extends OpenApiClient
      * Rolls back a code snapshot.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - RollbackAppCodeSnapshotRequest
      *
@@ -12014,7 +12018,7 @@ class WebsiteBuild extends OpenApiClient
      * Rolls back the release of an application instance.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the details of an application instance.
      *
      * @param request - RollbackAppInstancePublishRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12068,7 +12072,7 @@ class WebsiteBuild extends OpenApiClient
      * Rolls back the release of an application instance.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the details of an application instance.
      *
      * @param request - RollbackAppInstancePublishRequest
      *
@@ -12086,10 +12090,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Rolls back the version of an application plug-in.
+     * Rolls back the version of an application plugin.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - RollbackAppPluginVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12132,10 +12136,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Rolls back the version of an application plug-in.
+     * Rolls back the version of an application plugin.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - RollbackAppPluginVersionRequest
      *
@@ -13004,7 +13008,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Unbinds a domain name from a website and deletes the related DNS records.
+     * Unbinds a domain name from a website and deletes the associated DNS records.
      *
      * @param request - UnbindAppDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13047,7 +13051,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Unbinds a domain name from a website and deletes the related DNS records.
+     * Unbinds a domain name from a website and deletes the associated DNS records.
      *
      * @param request - UnbindAppDomainRequest
      *
@@ -13065,10 +13069,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Uninstalls an application plugin from the current user account.
+     * Uninstalls an application plug-in from the current user account.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - UninstallAppPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13107,10 +13111,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Uninstalls an application plugin from the current user account.
+     * Uninstalls an application plug-in from the current user account.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - UninstallAppPluginRequest
      *
@@ -13460,10 +13464,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Updates an application plug-in.
+     * Updates an application plugin.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - UpdateAppPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13546,10 +13550,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Updates an application plug-in.
+     * Updates an application plugin.
      *
      * @remarks
-     * Retrieves the configuration information of a code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - UpdateAppPluginRequest
      *
@@ -13792,7 +13796,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Updates the binding information of a mini program.
+     * Updates the binding information for a mini program.
      *
      * @param request - UpdateMiniAppBindingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13843,7 +13847,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Updates the binding information of a mini program.
+     * Updates the binding information for a mini program.
      *
      * @param request - UpdateMiniAppBindingRequest
      *
@@ -14003,10 +14007,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Uploads a new version of an application plug-in.
+     * Uploads an application plugin version.
      *
      * @remarks
-     * Retrieves the code generation plug-in configuration information.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - UploadAppPluginVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14069,10 +14073,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Uploads a new version of an application plug-in.
+     * Uploads an application plugin version.
      *
      * @remarks
-     * Retrieves the code generation plug-in configuration information.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - UploadAppPluginVersionRequest
      *
@@ -14173,10 +14177,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Uploads a material file.
+     * Uploads an asset file.
      *
      * @remarks
-     * The Supabase instance information corresponding to the operation resource.
+     * The Supabase instance information corresponding to the resource.
      *
      * @param request - UploadMaterialFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14231,10 +14235,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Uploads a material file.
+     * Uploads an asset file.
      *
      * @remarks
-     * The Supabase instance information corresponding to the operation resource.
+     * The Supabase instance information corresponding to the resource.
      *
      * @param request - UploadMaterialFileRequest
      *
