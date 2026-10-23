@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\AnswerKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyApplicationPromptsShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyLakebaseMountParameterGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ApplyLakebaseMountParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApprovePolarClawDevicePairRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ApprovePolarClawDevicePairResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSRequest;
@@ -382,6 +384,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableCrossRegionsReque
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableCrossRegionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableModelsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableModelsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogDownloadLinksRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogDownloadLinksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupLogsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBackupPolicyRequest;
@@ -1722,7 +1726,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a single-turn knowledge base question answering.
+     * Answers a single-turn question based on a knowledge base.
      *
      * @param request - AnswerKnowledgeBaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1801,7 +1805,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a single-turn knowledge base question answering.
+     * Answers a single-turn question based on a knowledge base.
      *
      * @param request - AnswerKnowledgeBaseRequest
      *
@@ -1899,6 +1903,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->applyApplicationPromptsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 应用Lakebase挂载参数模板
+     *
+     * @param request - ApplyLakebaseMountParameterGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyLakebaseMountParameterGroupResponse
+     *
+     * @param ApplyLakebaseMountParameterGroupRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ApplyLakebaseMountParameterGroupResponse
+     */
+    public function applyLakebaseMountParameterGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->parameterGroupId) {
+            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ApplyLakebaseMountParameterGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ApplyLakebaseMountParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用Lakebase挂载参数模板
+     *
+     * @param request - ApplyLakebaseMountParameterGroupRequest
+     *
+     * @returns ApplyLakebaseMountParameterGroupResponse
+     *
+     * @param ApplyLakebaseMountParameterGroupRequest $request
+     *
+     * @return ApplyLakebaseMountParameterGroupResponse
+     */
+    public function applyLakebaseMountParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyLakebaseMountParameterGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2032,11 +2101,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Binds a PolarClaw Agent to a channel.
+     * Associates a specified channel with a specific PolarClaw agent.
      *
      * @remarks
-     * ## Request
-     * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
+     * ## Request description
+     * This API operation associates a PolarClaw agent (specified by AgentId) of a PolarClaw application (identified by ApplicationId) with a given communication channel (Channel). If necessary, you can also specify the account ID (ChannelAccountId) within the channel.
      *
      * @param request - BindPolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2087,11 +2156,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Binds a PolarClaw Agent to a channel.
+     * Associates a specified channel with a specific PolarClaw agent.
      *
      * @remarks
-     * ## Request
-     * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
+     * ## Request description
+     * This API operation associates a PolarClaw agent (specified by AgentId) of a PolarClaw application (identified by ApplicationId) with a given communication channel (Channel). If necessary, you can also specify the account ID (ChannelAccountId) within the channel.
      *
      * @param request - BindPolarClawAgentRequest
      *
@@ -4243,7 +4312,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Generates activation codes for the lightweight version.
+     * Generates an activation code for the lightweight edition.
      *
      * @param request - CreateActivationCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4314,7 +4383,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Generates activation codes for the lightweight version.
+     * Generates an activation code for the lightweight edition.
      *
      * @param request - CreateActivationCodeRequest
      *
@@ -10614,7 +10683,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a cost budget policy.
+     * Deletes a budget policy.
      *
      * @param request - DeleteBudgetPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10661,7 +10730,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a cost budget policy.
+     * Deletes a budget policy.
      *
      * @param request - DeleteBudgetPolicyRequest
      *
@@ -12716,12 +12785,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * This operation removes an agent and its associated bindings from a specified PolarClaw.
+     * Removes an agent and its associated bindings from a specified PolarClaw.
      *
      * @remarks
-     * ## Usage notes
-     * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
-     * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
+     * ## Request description
+     * - After this API is executed, it returns the ID of the successfully removed agent and the number of removed bindings.
+     * - Ensure that you know the target `AgentId` before calling this API. Otherwise, the operation may fail or affect unexpected agents.
      *
      * @param request - DeletePolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12768,12 +12837,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * This operation removes an agent and its associated bindings from a specified PolarClaw.
+     * Removes an agent and its associated bindings from a specified PolarClaw.
      *
      * @remarks
-     * ## Usage notes
-     * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
-     * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
+     * ## Request description
+     * - After this API is executed, it returns the ID of the successfully removed agent and the number of removed bindings.
+     * - Ensure that you know the target `AgentId` before calling this API. Otherwise, the operation may fail or affect unexpected agents.
      *
      * @param request - DeletePolarClawAgentRequest
      *
@@ -15118,7 +15187,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询 AgenticDB 分支最早可恢复时间.
+     * Queries the earliest restorable time for an AgenticDB branch.
      *
      * @param request - DescribeAgenticDBBranchRestoreWindowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15173,7 +15242,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询 AgenticDB 分支最早可恢复时间.
+     * Queries the earliest restorable time for an AgenticDB branch.
      *
      * @param request - DescribeAgenticDBBranchRestoreWindowRequest
      *
@@ -15529,7 +15598,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询 AgenticDB 项目实际历史保留窗口.
+     * Queries the actual history retention window of an AgenticDB project.
      *
      * @param request - DescribeAgenticDBProjectHistoryRetentionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15580,7 +15649,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询 AgenticDB 项目实际历史保留窗口.
+     * Queries the actual history retention window of an AgenticDB project.
      *
      * @param request - DescribeAgenticDBProjectHistoryRetentionRequest
      *
@@ -16809,6 +16878,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAvailableModelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the download links for redo log backups.
+     *
+     * @param request - DescribeBackupLogDownloadLinksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupLogDownloadLinksResponse
+     *
+     * @param DescribeBackupLogDownloadLinksRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeBackupLogDownloadLinksResponse
+     */
+    public function describeBackupLogDownloadLinksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupLogIds) {
+            @$query['BackupLogIds'] = $request->backupLogIds;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->expireHours) {
+            @$query['ExpireHours'] = $request->expireHours;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBackupLogDownloadLinks',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBackupLogDownloadLinksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the download links for redo log backups.
+     *
+     * @param request - DescribeBackupLogDownloadLinksRequest
+     *
+     * @returns DescribeBackupLogDownloadLinksResponse
+     *
+     * @param DescribeBackupLogDownloadLinksRequest $request
+     *
+     * @return DescribeBackupLogDownloadLinksResponse
+     */
+    public function describeBackupLogDownloadLinks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupLogDownloadLinksWithOptions($request, $runtime);
     }
 
     /**
@@ -21853,7 +21987,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Viewing gateway instance details.
+     * Queries the details of a gateway instance.
      *
      * @param request - DescribeGatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21896,7 +22030,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Viewing gateway instance details.
+     * Queries the details of a gateway instance.
      *
      * @param request - DescribeGatewayAttributeRequest
      *
@@ -30519,7 +30653,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an account in a PolarDB on ENS cluster.
+     * Modifies the description of a PolarDB on ENS account.
      *
      * @param request - ModifyAccountDescriptionZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30586,7 +30720,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an account in a PolarDB on ENS cluster.
+     * Modifies the description of a PolarDB on ENS account.
      *
      * @param request - ModifyAccountDescriptionZonalRequest
      *
@@ -36557,7 +36691,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies a rate limit policy.
+     * Modifies a throttling policy.
      *
      * @param request - ModifyRateLimitPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36612,7 +36746,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies a rate limit policy.
+     * Modifies a throttling policy.
      *
      * @param request - ModifyRateLimitPolicyRequest
      *
@@ -37483,7 +37617,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Registers an OSS file in a knowledge base.
+     * Registers an OSS file for a knowledge base.
      *
      * @param request - RegisterKnowledgeBaseFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -37530,7 +37664,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Registers an OSS file in a knowledge base.
+     * Registers an OSS file for a knowledge base.
      *
      * @param request - RegisterKnowledgeBaseFileRequest
      *
@@ -37775,7 +37909,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unpairs a PolarClaw device.
+     * Removes a paired PolarClaw device.
      *
      * @param request - RemovePolarClawDevicePairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -37818,7 +37952,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unpairs a PolarClaw device.
+     * Removes a paired PolarClaw device.
      *
      * @param request - RemovePolarClawDevicePairRequest
      *
@@ -39273,10 +39407,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves memories from a specified application.
+     * Retrieves memories.
      *
      * @remarks
-     * Retrieves memory data from a specified application.
+     * Retrieves memory data in a specified application.
      *
      * @param request - SearchMemoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39347,10 +39481,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves memories from a specified application.
+     * Retrieves memories.
      *
      * @remarks
-     * Retrieves memory data from a specified application.
+     * Retrieves memory data in a specified application.
      *
      * @param request - SearchMemoriesRequest
      *
@@ -39973,6 +40107,10 @@ class Polardb extends OpenApiClient
     /**
      * Unbinds a PolarClaw Agent.
      *
+     * @remarks
+     * ## 请求说明
+     * 调用前，先通过 BindPolarClawAgent 为指定应用、Agent 和通道建立绑定。本接口使用同一组 ApplicationId、AgentId 和 Channel 解除绑定。
+     *
      * @param request - UnbindPolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -40023,6 +40161,10 @@ class Polardb extends OpenApiClient
 
     /**
      * Unbinds a PolarClaw Agent.
+     *
+     * @remarks
+     * ## 请求说明
+     * 调用前，先通过 BindPolarClawAgent 为指定应用、Agent 和通道建立绑定。本接口使用同一组 ApplicationId、AgentId 和 Channel 解除绑定。
      *
      * @param request - UnbindPolarClawAgentRequest
      *
@@ -40127,7 +40269,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Uninstalls a PolarClaw plugin.
+     * Uninstalls the PolarClaw plugin.
      *
      * @param request - UninstallPolarClawPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40174,7 +40316,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Uninstalls a PolarClaw plugin.
+     * Uninstalls the PolarClaw plugin.
      *
      * @param request - UninstallPolarClawPluginRequest
      *
