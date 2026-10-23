@@ -26,6 +26,11 @@ class backupPlanStatistics extends Model
     /**
      * @var int
      */
+    public $cpfs;
+
+    /**
+     * @var int
+     */
     public $csg;
 
     /**
@@ -86,6 +91,7 @@ class backupPlanStatistics extends Model
         'archive' => 'Archive',
         'commonFileSystem' => 'CommonFileSystem',
         'commonNas' => 'CommonNas',
+        'cpfs' => 'Cpfs',
         'csg' => 'Csg',
         'ecsFile' => 'EcsFile',
         'ecsHana' => 'EcsHana',
@@ -118,6 +124,10 @@ class backupPlanStatistics extends Model
 
         if (null !== $this->commonNas) {
             $res['CommonNas'] = $this->commonNas;
+        }
+
+        if (null !== $this->cpfs) {
+            $res['Cpfs'] = $this->cpfs;
         }
 
         if (null !== $this->csg) {
@@ -189,6 +199,10 @@ class backupPlanStatistics extends Model
 
         if (isset($map['CommonNas'])) {
             $model->commonNas = $map['CommonNas'];
+        }
+
+        if (isset($map['Cpfs'])) {
+            $model->cpfs = $map['Cpfs'];
         }
 
         if (isset($map['Csg'])) {

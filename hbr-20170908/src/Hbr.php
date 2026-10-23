@@ -5453,7 +5453,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Retrieves information about one or more backup vaults that meet the specified conditions.
+     * Queries the information of one or more backup vaults that meet the specified conditions.
      *
      * @param request - DescribeVaultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5534,7 +5534,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Retrieves information about one or more backup vaults that meet the specified conditions.
+     * Queries the information of one or more backup vaults that meet the specified conditions.
      *
      * @param request - DescribeVaultsRequest
      *
@@ -6495,7 +6495,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries a list of backup points.
+     * Queries backup points.
      *
      * @param request - ListSnapshotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6566,7 +6566,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * Queries a list of backup points.
+     * Queries backup points.
      *
      * @param request - ListSnapshotsRequest
      *
