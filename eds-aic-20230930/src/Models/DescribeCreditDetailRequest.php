@@ -52,6 +52,11 @@ class DescribeCreditDetailRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string[]
+     */
+    public $taskIds;
     protected $_name = [
         'agentTypes' => 'AgentTypes',
         'endTime' => 'EndTime',
@@ -62,6 +67,7 @@ class DescribeCreditDetailRequest extends Model
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'startTime' => 'StartTime',
+        'taskIds' => 'TaskIds',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class DescribeCreditDetailRequest extends Model
         }
         if (\is_array($this->packageIds)) {
             Model::validateArray($this->packageIds);
+        }
+        if (\is_array($this->taskIds)) {
+            Model::validateArray($this->taskIds);
         }
         parent::validate();
     }
@@ -136,6 +145,17 @@ class DescribeCreditDetailRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->taskIds) {
+            if (\is_array($this->taskIds)) {
+                $res['TaskIds'] = [];
+                $n1 = 0;
+                foreach ($this->taskIds as $item1) {
+                    $res['TaskIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -204,6 +224,17 @@ class DescribeCreditDetailRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['TaskIds'])) {
+            if (!empty($map['TaskIds'])) {
+                $model->taskIds = [];
+                $n1 = 0;
+                foreach ($map['TaskIds'] as $item1) {
+                    $model->taskIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

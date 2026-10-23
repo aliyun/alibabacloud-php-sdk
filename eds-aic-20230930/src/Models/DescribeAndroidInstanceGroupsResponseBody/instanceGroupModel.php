@@ -192,6 +192,11 @@ class instanceGroupModel extends Model
     public $saleMode;
 
     /**
+     * @var bool
+     */
+    public $singleInstanceMode;
+
+    /**
      * @var string
      */
     public $systemVersion;
@@ -247,6 +252,7 @@ class instanceGroupModel extends Model
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionWidth' => 'ResolutionWidth',
         'saleMode' => 'SaleMode',
+        'singleInstanceMode' => 'SingleInstanceMode',
         'systemVersion' => 'SystemVersion',
         'tags' => 'Tags',
         'vSwitchId' => 'VSwitchId',
@@ -419,6 +425,10 @@ class instanceGroupModel extends Model
 
         if (null !== $this->saleMode) {
             $res['SaleMode'] = $this->saleMode;
+        }
+
+        if (null !== $this->singleInstanceMode) {
+            $res['SingleInstanceMode'] = $this->singleInstanceMode;
         }
 
         if (null !== $this->systemVersion) {
@@ -604,6 +614,10 @@ class instanceGroupModel extends Model
 
         if (isset($map['SaleMode'])) {
             $model->saleMode = $map['SaleMode'];
+        }
+
+        if (isset($map['SingleInstanceMode'])) {
+            $model->singleInstanceMode = $map['SingleInstanceMode'];
         }
 
         if (isset($map['SystemVersion'])) {

@@ -27,6 +27,11 @@ class CreateMobileAgentPackageRequest extends Model
     /**
      * @var string
      */
+    public $bandwidthPackageId;
+
+    /**
+     * @var string
+     */
     public $bizRegionId;
 
     /**
@@ -92,6 +97,7 @@ class CreateMobileAgentPackageRequest extends Model
         'amount' => 'Amount',
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
+        'bandwidthPackageId' => 'BandwidthPackageId',
         'bizRegionId' => 'BizRegionId',
         'channelCookie' => 'ChannelCookie',
         'creditAmount' => 'CreditAmount',
@@ -128,6 +134,10 @@ class CreateMobileAgentPackageRequest extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->bandwidthPackageId) {
+            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
 
         if (null !== $this->bizRegionId) {
@@ -210,6 +220,10 @@ class CreateMobileAgentPackageRequest extends Model
 
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+
+        if (isset($map['BandwidthPackageId'])) {
+            $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
 
         if (isset($map['BizRegionId'])) {
