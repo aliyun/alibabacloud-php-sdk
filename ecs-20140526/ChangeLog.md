@@ -1,3 +1,7 @@
+2026-10-23 Version: 7.11.5
+- Update API DescribeDisks: add request parameters PerformanceLevel.
+
+
 2026-09-14 Version: 7.11.4
 - Update API CreateSimulatedSystemEvents: add request parameters TriggerRealOps.
 

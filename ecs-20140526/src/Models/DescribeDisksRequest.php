@@ -136,6 +136,11 @@ class DescribeDisksRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $performanceLevel;
+
+    /**
      * @var bool
      */
     public $portable;
@@ -205,6 +210,7 @@ class DescribeDisksRequest extends Model
         'ownerId' => 'OwnerId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'performanceLevel' => 'PerformanceLevel',
         'portable' => 'Portable',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -345,6 +351,10 @@ class DescribeDisksRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->performanceLevel) {
+            $res['PerformanceLevel'] = $this->performanceLevel;
         }
 
         if (null !== $this->portable) {
@@ -513,6 +523,10 @@ class DescribeDisksRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['PerformanceLevel'])) {
+            $model->performanceLevel = $map['PerformanceLevel'];
         }
 
         if (isset($map['Portable'])) {
