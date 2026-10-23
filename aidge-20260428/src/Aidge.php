@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Aidge\V20260428\Models\EcomVideoRecreationResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\EcomVideoRecreationShrinkRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\GeneralRephotographyDetectionRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\GeneralRephotographyDetectionResponse;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\GenerateProductContentRequest;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\GenerateProductContentResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageCroppingRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageCroppingResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageMattingAsyncRequest;
@@ -1488,6 +1490,107 @@ class Aidge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generalRephotographyDetectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 商品文案生成改写.
+     *
+     * @param request - GenerateProductContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateProductContentResponse
+     *
+     * @param GenerateProductContentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GenerateProductContentResponse
+     */
+    public function generateProductContentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bulletPointCount) {
+            @$query['BulletPointCount'] = $request->bulletPointCount;
+        }
+
+        if (null !== $request->contentType) {
+            @$query['ContentType'] = $request->contentType;
+        }
+
+        if (null !== $request->enableTranslation) {
+            @$query['EnableTranslation'] = $request->enableTranslation;
+        }
+
+        if (null !== $request->maxLength) {
+            @$query['MaxLength'] = $request->maxLength;
+        }
+
+        if (null !== $request->minLength) {
+            @$query['MinLength'] = $request->minLength;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->productAttributes) {
+            @$query['ProductAttributes'] = $request->productAttributes;
+        }
+
+        if (null !== $request->productCategory) {
+            @$query['ProductCategory'] = $request->productCategory;
+        }
+
+        if (null !== $request->sourceLanguage) {
+            @$query['SourceLanguage'] = $request->sourceLanguage;
+        }
+
+        if (null !== $request->sourceText) {
+            @$query['SourceText'] = $request->sourceText;
+        }
+
+        if (null !== $request->targetLanguage) {
+            @$query['TargetLanguage'] = $request->targetLanguage;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateProductContent',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateProductContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 商品文案生成改写.
+     *
+     * @param request - GenerateProductContentRequest
+     *
+     * @returns GenerateProductContentResponse
+     *
+     * @param GenerateProductContentRequest $request
+     *
+     * @return GenerateProductContentResponse
+     */
+    public function generateProductContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateProductContentWithOptions($request, $runtime);
     }
 
     /**
