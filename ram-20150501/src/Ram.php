@@ -64,6 +64,8 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\DetachPolicyFromRoleRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DetachPolicyFromRoleResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DetachPolicyFromUserRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\DetachPolicyFromUserResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\GenerateServiceLastAccessedDetailsRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\GenerateServiceLastAccessedDetailsResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetAccessKeyLastUsedRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetAccessKeyLastUsedResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetAccountAliasResponse;
@@ -79,6 +81,8 @@ use AlibabaCloud\SDK\Ram\V20150501\Models\GetPolicyVersionResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetRoleRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetRoleResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetSecurityPreferenceResponse;
+use AlibabaCloud\SDK\Ram\V20150501\Models\GetServiceLastAccessedDetailsRequest;
+use AlibabaCloud\SDK\Ram\V20150501\Models\GetServiceLastAccessedDetailsResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetServiceLinkedRoleTemplateRequest;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetServiceLinkedRoleTemplateResponse;
 use AlibabaCloud\SDK\Ram\V20150501\Models\GetUserMFAInfoRequest;
@@ -155,31 +159,7 @@ class Ram extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-beijing' => 'ram.aliyuncs.com',
-            'cn-qingdao' => 'ram.aliyuncs.com',
-            'cn-shanghai' => 'ram.aliyuncs.com',
-            'cn-hongkong' => 'ram.aliyuncs.com',
-            'cn-zhangjiakou' => 'ram.aliyuncs.com',
-            'cn-shenzhen' => 'ram.aliyuncs.com',
-            'ap-northeast-1' => 'ram.aliyuncs.com',
-            'cn-chengdu' => 'ram.aliyuncs.com',
-            'ap-southeast-1' => 'ram.aliyuncs.com',
-            'ap-southeast-3' => 'ram.aliyuncs.com',
-            'cn-huhehaote' => 'ram.aliyuncs.com',
-            'ap-southeast-5' => 'ram.aliyuncs.com',
-            'cn-hangzhou' => 'ram.aliyuncs.com',
-            'us-east-1' => 'ram.aliyuncs.com',
-            'eu-west-1' => 'ram.aliyuncs.com',
-            'us-west-1' => 'ram.aliyuncs.com',
-            'eu-central-1' => 'ram.aliyuncs.com',
-            'me-east-1' => 'ram.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'ram.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'ram.aliyuncs.com',
-            'cn-beijing-finance-1' => 'ram.aliyuncs.com',
-            'cn-hangzhou-finance' => 'ram.aliyuncs.com',
-        ];
+        $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ram', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1006,7 +986,7 @@ class Ram extends OpenApiClient
      * Creates a RAM role.
      *
      * @remarks
-     * ### Operation description
+     * ### Usage notes
      * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
      *
      * @param tmpReq - CreateRoleRequest
@@ -1075,7 +1055,7 @@ class Ram extends OpenApiClient
      * Creates a RAM role.
      *
      * @remarks
-     * ### Operation description
+     * ### Usage notes
      * For more information about RAM roles, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
      *
      * @param request - CreateRoleRequest
@@ -1295,7 +1275,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
+     * Decodes the diagnostic information from the response body of a request that is denied due to insufficient RAM permissions.
      *
      * @param request - DecodeDiagnosticMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1334,7 +1314,7 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Decodes the permission diagnostic information from the response body of a request that was denied due to missing RAM permissions.
+     * Decodes the diagnostic information from the response body of a request that is denied due to insufficient RAM permissions.
      *
      * @param request - DecodeDiagnosticMessageRequest
      *
@@ -2104,6 +2084,67 @@ class Ram extends OpenApiClient
     }
 
     /**
+     * 产生最近访问信息.
+     *
+     * @param request - GenerateServiceLastAccessedDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateServiceLastAccessedDetailsResponse
+     *
+     * @param GenerateServiceLastAccessedDetailsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GenerateServiceLastAccessedDetailsResponse
+     */
+    public function generateServiceLastAccessedDetailsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->arn) {
+            @$query['Arn'] = $request->arn;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['Granularity'] = $request->granularity;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateServiceLastAccessedDetails',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateServiceLastAccessedDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 产生最近访问信息.
+     *
+     * @param request - GenerateServiceLastAccessedDetailsRequest
+     *
+     * @returns GenerateServiceLastAccessedDetailsResponse
+     *
+     * @param GenerateServiceLastAccessedDetailsRequest $request
+     *
+     * @return GenerateServiceLastAccessedDetailsResponse
+     */
+    public function generateServiceLastAccessedDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateServiceLastAccessedDetailsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the last time when an AccessKey pair was used.
      *
      * @param request - GetAccessKeyLastUsedRequest
@@ -2588,6 +2629,71 @@ class Ram extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSecurityPreferenceWithOptions($runtime);
+    }
+
+    /**
+     * 查询最后访问信息.
+     *
+     * @param request - GetServiceLastAccessedDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceLastAccessedDetailsResponse
+     *
+     * @param GetServiceLastAccessedDetailsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetServiceLastAccessedDetailsResponse
+     */
+    public function getServiceLastAccessedDetailsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->marker) {
+            @$query['Marker'] = $request->marker;
+        }
+
+        if (null !== $request->maxItems) {
+            @$query['MaxItems'] = $request->maxItems;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceLastAccessedDetails',
+            'version' => '2015-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceLastAccessedDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询最后访问信息.
+     *
+     * @param request - GetServiceLastAccessedDetailsRequest
+     *
+     * @returns GetServiceLastAccessedDetailsResponse
+     *
+     * @param GetServiceLastAccessedDetailsRequest $request
+     *
+     * @return GetServiceLastAccessedDetailsResponse
+     */
+    public function getServiceLastAccessedDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceLastAccessedDetailsWithOptions($request, $runtime);
     }
 
     /**
@@ -4476,10 +4582,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Calls the UpdateRole operation to update the information of a RAM role.
+     * Updates the information of a RAM role.
      *
      * @remarks
-     * This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
+     * This topic provides an example of updating the description of the RAM role `ECSAdmin` to `ECS administrator`.
      *
      * @param request - UpdateRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4534,10 +4640,10 @@ class Ram extends OpenApiClient
     }
 
     /**
-     * Calls the UpdateRole operation to update the information of a RAM role.
+     * Updates the information of a RAM role.
      *
      * @remarks
-     * This topic provides an example on how to update the description of the RAM role `ECSAdmin` to `ECS administrator`.
+     * This topic provides an example of updating the description of the RAM role `ECSAdmin` to `ECS administrator`.
      *
      * @param request - UpdateRoleRequest
      *
