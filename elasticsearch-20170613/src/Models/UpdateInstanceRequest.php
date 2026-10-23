@@ -19,6 +19,11 @@ class UpdateInstanceRequest extends Model
     public $elasticDataNodeConfiguration;
 
     /**
+     * @var IndexNodeConfiguration
+     */
+    public $indexNodeConfiguration;
+
+    /**
      * @var string
      */
     public $instanceCategory;
@@ -42,6 +47,11 @@ class UpdateInstanceRequest extends Model
      * @var NodeSpec
      */
     public $nodeSpec;
+
+    /**
+     * @var SearchNodeConfiguration
+     */
+    public $searchNodeConfiguration;
 
     /**
      * @var string
@@ -70,11 +80,13 @@ class UpdateInstanceRequest extends Model
     protected $_name = [
         'clientNodeConfiguration' => 'clientNodeConfiguration',
         'elasticDataNodeConfiguration' => 'elasticDataNodeConfiguration',
+        'indexNodeConfiguration' => 'indexNodeConfiguration',
         'instanceCategory' => 'instanceCategory',
         'kibanaConfiguration' => 'kibanaConfiguration',
         'masterConfiguration' => 'masterConfiguration',
         'nodeAmount' => 'nodeAmount',
         'nodeSpec' => 'nodeSpec',
+        'searchNodeConfiguration' => 'searchNodeConfiguration',
         'updateType' => 'updateType',
         'warmNodeConfiguration' => 'warmNodeConfiguration',
         'clientToken' => 'clientToken',
@@ -90,6 +102,9 @@ class UpdateInstanceRequest extends Model
         if (null !== $this->elasticDataNodeConfiguration) {
             $this->elasticDataNodeConfiguration->validate();
         }
+        if (null !== $this->indexNodeConfiguration) {
+            $this->indexNodeConfiguration->validate();
+        }
         if (null !== $this->kibanaConfiguration) {
             $this->kibanaConfiguration->validate();
         }
@@ -98,6 +113,9 @@ class UpdateInstanceRequest extends Model
         }
         if (null !== $this->nodeSpec) {
             $this->nodeSpec->validate();
+        }
+        if (null !== $this->searchNodeConfiguration) {
+            $this->searchNodeConfiguration->validate();
         }
         if (null !== $this->warmNodeConfiguration) {
             $this->warmNodeConfiguration->validate();
@@ -114,6 +132,10 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->elasticDataNodeConfiguration) {
             $res['elasticDataNodeConfiguration'] = null !== $this->elasticDataNodeConfiguration ? $this->elasticDataNodeConfiguration->toArray($noStream) : $this->elasticDataNodeConfiguration;
+        }
+
+        if (null !== $this->indexNodeConfiguration) {
+            $res['indexNodeConfiguration'] = null !== $this->indexNodeConfiguration ? $this->indexNodeConfiguration->toArray($noStream) : $this->indexNodeConfiguration;
         }
 
         if (null !== $this->instanceCategory) {
@@ -134,6 +156,10 @@ class UpdateInstanceRequest extends Model
 
         if (null !== $this->nodeSpec) {
             $res['nodeSpec'] = null !== $this->nodeSpec ? $this->nodeSpec->toArray($noStream) : $this->nodeSpec;
+        }
+
+        if (null !== $this->searchNodeConfiguration) {
+            $res['searchNodeConfiguration'] = null !== $this->searchNodeConfiguration ? $this->searchNodeConfiguration->toArray($noStream) : $this->searchNodeConfiguration;
         }
 
         if (null !== $this->updateType) {
@@ -175,6 +201,10 @@ class UpdateInstanceRequest extends Model
             $model->elasticDataNodeConfiguration = ElasticDataNodeConfiguration::fromMap($map['elasticDataNodeConfiguration']);
         }
 
+        if (isset($map['indexNodeConfiguration'])) {
+            $model->indexNodeConfiguration = IndexNodeConfiguration::fromMap($map['indexNodeConfiguration']);
+        }
+
         if (isset($map['instanceCategory'])) {
             $model->instanceCategory = $map['instanceCategory'];
         }
@@ -193,6 +223,10 @@ class UpdateInstanceRequest extends Model
 
         if (isset($map['nodeSpec'])) {
             $model->nodeSpec = NodeSpec::fromMap($map['nodeSpec']);
+        }
+
+        if (isset($map['searchNodeConfiguration'])) {
+            $model->searchNodeConfiguration = SearchNodeConfiguration::fromMap($map['searchNodeConfiguration']);
         }
 
         if (isset($map['updateType'])) {

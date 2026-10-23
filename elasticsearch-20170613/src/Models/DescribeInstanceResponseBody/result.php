@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\tags;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\warmNodeConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\DescribeInstanceResponseBody\result\zoneInfos;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\IndexNodeConfiguration;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\SearchNodeConfiguration;
 
 class result extends Model
 {
@@ -144,6 +146,11 @@ class result extends Model
     public $ikHotDicts;
 
     /**
+     * @var IndexNodeConfiguration
+     */
+    public $indexNodeConfiguration;
+
+    /**
      * @var bool
      */
     public $inited;
@@ -264,6 +271,11 @@ class result extends Model
     public $resourceGroupId;
 
     /**
+     * @var SearchNodeConfiguration
+     */
+    public $searchNodeConfiguration;
+
+    /**
      * @var bool
      */
     public $serviceVpc;
@@ -337,6 +349,7 @@ class result extends Model
         'haveClientNode' => 'haveClientNode',
         'haveKibana' => 'haveKibana',
         'ikHotDicts' => 'ikHotDicts',
+        'indexNodeConfiguration' => 'indexNodeConfiguration',
         'inited' => 'inited',
         'instanceCategory' => 'instanceCategory',
         'instanceId' => 'instanceId',
@@ -361,6 +374,7 @@ class result extends Model
         'publicIpWhitelist' => 'publicIpWhitelist',
         'publicPort' => 'publicPort',
         'resourceGroupId' => 'resourceGroupId',
+        'searchNodeConfiguration' => 'searchNodeConfiguration',
         'serviceVpc' => 'serviceVpc',
         'status' => 'status',
         'synonymsDicts' => 'synonymsDicts',
@@ -408,6 +422,9 @@ class result extends Model
         if (\is_array($this->ikHotDicts)) {
             Model::validateArray($this->ikHotDicts);
         }
+        if (null !== $this->indexNodeConfiguration) {
+            $this->indexNodeConfiguration->validate();
+        }
         if (null !== $this->kibanaConfiguration) {
             $this->kibanaConfiguration->validate();
         }
@@ -431,6 +448,9 @@ class result extends Model
         }
         if (\is_array($this->publicIpWhitelist)) {
             Model::validateArray($this->publicIpWhitelist);
+        }
+        if (null !== $this->searchNodeConfiguration) {
+            $this->searchNodeConfiguration->validate();
         }
         if (\is_array($this->synonymsDicts)) {
             Model::validateArray($this->synonymsDicts);
@@ -605,6 +625,10 @@ class result extends Model
             }
         }
 
+        if (null !== $this->indexNodeConfiguration) {
+            $res['indexNodeConfiguration'] = null !== $this->indexNodeConfiguration ? $this->indexNodeConfiguration->toArray($noStream) : $this->indexNodeConfiguration;
+        }
+
         if (null !== $this->inited) {
             $res['inited'] = $this->inited;
         }
@@ -727,6 +751,10 @@ class result extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->searchNodeConfiguration) {
+            $res['searchNodeConfiguration'] = null !== $this->searchNodeConfiguration ? $this->searchNodeConfiguration->toArray($noStream) : $this->searchNodeConfiguration;
         }
 
         if (null !== $this->serviceVpc) {
@@ -956,6 +984,10 @@ class result extends Model
             }
         }
 
+        if (isset($map['indexNodeConfiguration'])) {
+            $model->indexNodeConfiguration = IndexNodeConfiguration::fromMap($map['indexNodeConfiguration']);
+        }
+
         if (isset($map['inited'])) {
             $model->inited = $map['inited'];
         }
@@ -1078,6 +1110,10 @@ class result extends Model
 
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
+        if (isset($map['searchNodeConfiguration'])) {
+            $model->searchNodeConfiguration = SearchNodeConfiguration::fromMap($map['searchNodeConfiguration']);
         }
 
         if (isset($map['serviceVpc'])) {

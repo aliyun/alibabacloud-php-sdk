@@ -5,9 +5,11 @@
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\indexNodeConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\kibanaConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\masterConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\nodeSpec;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\UpdateInstanceResponseBody\result\searchNodeConfiguration;
 
 class result extends Model
 {
@@ -30,6 +32,11 @@ class result extends Model
      * @var string
      */
     public $esVersion;
+
+    /**
+     * @var indexNodeConfiguration
+     */
+    public $indexNodeConfiguration;
 
     /**
      * @var string
@@ -62,6 +69,11 @@ class result extends Model
     public $paymentType;
 
     /**
+     * @var searchNodeConfiguration
+     */
+    public $searchNodeConfiguration;
+
+    /**
      * @var string
      */
     public $status;
@@ -70,17 +82,22 @@ class result extends Model
         'description' => 'description',
         'domain' => 'domain',
         'esVersion' => 'esVersion',
+        'indexNodeConfiguration' => 'indexNodeConfiguration',
         'instanceId' => 'instanceId',
         'kibanaConfiguration' => 'kibanaConfiguration',
         'masterConfiguration' => 'masterConfiguration',
         'nodeAmount' => 'nodeAmount',
         'nodeSpec' => 'nodeSpec',
         'paymentType' => 'paymentType',
+        'searchNodeConfiguration' => 'searchNodeConfiguration',
         'status' => 'status',
     ];
 
     public function validate()
     {
+        if (null !== $this->indexNodeConfiguration) {
+            $this->indexNodeConfiguration->validate();
+        }
         if (null !== $this->kibanaConfiguration) {
             $this->kibanaConfiguration->validate();
         }
@@ -89,6 +106,9 @@ class result extends Model
         }
         if (null !== $this->nodeSpec) {
             $this->nodeSpec->validate();
+        }
+        if (null !== $this->searchNodeConfiguration) {
+            $this->searchNodeConfiguration->validate();
         }
         parent::validate();
     }
@@ -110,6 +130,10 @@ class result extends Model
 
         if (null !== $this->esVersion) {
             $res['esVersion'] = $this->esVersion;
+        }
+
+        if (null !== $this->indexNodeConfiguration) {
+            $res['indexNodeConfiguration'] = null !== $this->indexNodeConfiguration ? $this->indexNodeConfiguration->toArray($noStream) : $this->indexNodeConfiguration;
         }
 
         if (null !== $this->instanceId) {
@@ -134,6 +158,10 @@ class result extends Model
 
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
+        }
+
+        if (null !== $this->searchNodeConfiguration) {
+            $res['searchNodeConfiguration'] = null !== $this->searchNodeConfiguration ? $this->searchNodeConfiguration->toArray($noStream) : $this->searchNodeConfiguration;
         }
 
         if (null !== $this->status) {
@@ -167,6 +195,10 @@ class result extends Model
             $model->esVersion = $map['esVersion'];
         }
 
+        if (isset($map['indexNodeConfiguration'])) {
+            $model->indexNodeConfiguration = indexNodeConfiguration::fromMap($map['indexNodeConfiguration']);
+        }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
@@ -189,6 +221,10 @@ class result extends Model
 
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
+        }
+
+        if (isset($map['searchNodeConfiguration'])) {
+            $model->searchNodeConfiguration = searchNodeConfiguration::fromMap($map['searchNodeConfiguration']);
         }
 
         if (isset($map['status'])) {

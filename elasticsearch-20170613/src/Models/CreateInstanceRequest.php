@@ -35,6 +35,11 @@ class CreateInstanceRequest extends Model
     public $esVersion;
 
     /**
+     * @var IndexNodeConfiguration
+     */
+    public $indexNodeConfiguration;
+
+    /**
      * @var string
      */
     public $instanceCategory;
@@ -80,6 +85,11 @@ class CreateInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var SearchNodeConfiguration
+     */
+    public $searchNodeConfiguration;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -104,6 +114,7 @@ class CreateInstanceRequest extends Model
         'elasticDataNodeConfiguration' => 'elasticDataNodeConfiguration',
         'esAdminPassword' => 'esAdminPassword',
         'esVersion' => 'esVersion',
+        'indexNodeConfiguration' => 'indexNodeConfiguration',
         'instanceCategory' => 'instanceCategory',
         'kibanaConfiguration' => 'kibanaConfiguration',
         'masterConfiguration' => 'masterConfiguration',
@@ -113,6 +124,7 @@ class CreateInstanceRequest extends Model
         'paymentInfo' => 'paymentInfo',
         'paymentType' => 'paymentType',
         'resourceGroupId' => 'resourceGroupId',
+        'searchNodeConfiguration' => 'searchNodeConfiguration',
         'tags' => 'tags',
         'warmNodeConfiguration' => 'warmNodeConfiguration',
         'zoneCount' => 'zoneCount',
@@ -126,6 +138,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->elasticDataNodeConfiguration) {
             $this->elasticDataNodeConfiguration->validate();
+        }
+        if (null !== $this->indexNodeConfiguration) {
+            $this->indexNodeConfiguration->validate();
         }
         if (null !== $this->kibanaConfiguration) {
             $this->kibanaConfiguration->validate();
@@ -141,6 +156,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->paymentInfo) {
             $this->paymentInfo->validate();
+        }
+        if (null !== $this->searchNodeConfiguration) {
+            $this->searchNodeConfiguration->validate();
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -172,6 +190,10 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->esVersion) {
             $res['esVersion'] = $this->esVersion;
+        }
+
+        if (null !== $this->indexNodeConfiguration) {
+            $res['indexNodeConfiguration'] = null !== $this->indexNodeConfiguration ? $this->indexNodeConfiguration->toArray($noStream) : $this->indexNodeConfiguration;
         }
 
         if (null !== $this->instanceCategory) {
@@ -208,6 +230,10 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->searchNodeConfiguration) {
+            $res['searchNodeConfiguration'] = null !== $this->searchNodeConfiguration ? $this->searchNodeConfiguration->toArray($noStream) : $this->searchNodeConfiguration;
         }
 
         if (null !== $this->tags) {
@@ -264,6 +290,10 @@ class CreateInstanceRequest extends Model
             $model->esVersion = $map['esVersion'];
         }
 
+        if (isset($map['indexNodeConfiguration'])) {
+            $model->indexNodeConfiguration = IndexNodeConfiguration::fromMap($map['indexNodeConfiguration']);
+        }
+
         if (isset($map['instanceCategory'])) {
             $model->instanceCategory = $map['instanceCategory'];
         }
@@ -298,6 +328,10 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
+        if (isset($map['searchNodeConfiguration'])) {
+            $model->searchNodeConfiguration = SearchNodeConfiguration::fromMap($map['searchNodeConfiguration']);
         }
 
         if (isset($map['tags'])) {

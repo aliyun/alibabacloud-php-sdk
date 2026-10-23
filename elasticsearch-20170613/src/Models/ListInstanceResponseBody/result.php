@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\IndexNodeConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\clientNodeConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\elasticDataNodeConfiguration;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\kibanaConfiguration;
@@ -13,6 +14,7 @@ use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\res
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\nodeSpec;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\tags;
 use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\ListInstanceResponseBody\result\zoneInfos;
+use AlibabaCloud\SDK\Elasticsearch\V20170613\Models\SearchNodeConfiguration;
 
 class result extends Model
 {
@@ -70,6 +72,11 @@ class result extends Model
      * @var mixed[][]
      */
     public $extendConfigs;
+
+    /**
+     * @var IndexNodeConfiguration
+     */
+    public $indexNodeConfiguration;
 
     /**
      * @var string
@@ -152,6 +159,11 @@ class result extends Model
     public $resourceGroupId;
 
     /**
+     * @var SearchNodeConfiguration
+     */
+    public $searchNodeConfiguration;
+
+    /**
      * @var bool
      */
     public $serviceVpc;
@@ -197,6 +209,7 @@ class result extends Model
         'endTime' => 'endTime',
         'esVersion' => 'esVersion',
         'extendConfigs' => 'extendConfigs',
+        'indexNodeConfiguration' => 'indexNodeConfiguration',
         'instanceId' => 'instanceId',
         'isNewDeployment' => 'isNewDeployment',
         'kibanaConfiguration' => 'kibanaConfiguration',
@@ -213,6 +226,7 @@ class result extends Model
         'protocol' => 'protocol',
         'publicIpWhitelist' => 'publicIpWhitelist',
         'resourceGroupId' => 'resourceGroupId',
+        'searchNodeConfiguration' => 'searchNodeConfiguration',
         'serviceVpc' => 'serviceVpc',
         'status' => 'status',
         'tags' => 'tags',
@@ -232,6 +246,9 @@ class result extends Model
         }
         if (\is_array($this->extendConfigs)) {
             Model::validateArray($this->extendConfigs);
+        }
+        if (null !== $this->indexNodeConfiguration) {
+            $this->indexNodeConfiguration->validate();
         }
         if (null !== $this->kibanaConfiguration) {
             $this->kibanaConfiguration->validate();
@@ -256,6 +273,9 @@ class result extends Model
         }
         if (\is_array($this->publicIpWhitelist)) {
             Model::validateArray($this->publicIpWhitelist);
+        }
+        if (null !== $this->searchNodeConfiguration) {
+            $this->searchNodeConfiguration->validate();
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -323,6 +343,10 @@ class result extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->indexNodeConfiguration) {
+            $res['indexNodeConfiguration'] = null !== $this->indexNodeConfiguration ? $this->indexNodeConfiguration->toArray($noStream) : $this->indexNodeConfiguration;
         }
 
         if (null !== $this->instanceId) {
@@ -415,6 +439,10 @@ class result extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->searchNodeConfiguration) {
+            $res['searchNodeConfiguration'] = null !== $this->searchNodeConfiguration ? $this->searchNodeConfiguration->toArray($noStream) : $this->searchNodeConfiguration;
         }
 
         if (null !== $this->serviceVpc) {
@@ -526,6 +554,10 @@ class result extends Model
             }
         }
 
+        if (isset($map['indexNodeConfiguration'])) {
+            $model->indexNodeConfiguration = IndexNodeConfiguration::fromMap($map['indexNodeConfiguration']);
+        }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
@@ -616,6 +648,10 @@ class result extends Model
 
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
+        if (isset($map['searchNodeConfiguration'])) {
+            $model->searchNodeConfiguration = SearchNodeConfiguration::fromMap($map['searchNodeConfiguration']);
         }
 
         if (isset($map['serviceVpc'])) {
