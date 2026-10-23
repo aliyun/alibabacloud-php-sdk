@@ -49,6 +49,11 @@ class steps extends Model
     public $specification;
 
     /**
+     * @var mixed[][]
+     */
+    public $specificationJson;
+
+    /**
      * @var string
      */
     public $stepId;
@@ -61,6 +66,7 @@ class steps extends Model
         'reviewerUserIds' => 'reviewerUserIds',
         'sortOrder' => 'sortOrder',
         'specification' => 'specification',
+        'specificationJson' => 'specificationJson',
         'stepId' => 'stepId',
     ];
 
@@ -68,6 +74,9 @@ class steps extends Model
     {
         if (\is_array($this->reviewerUserIds)) {
             Model::validateArray($this->reviewerUserIds);
+        }
+        if (\is_array($this->specificationJson)) {
+            Model::validateArray($this->specificationJson);
         }
         parent::validate();
     }
@@ -112,6 +121,22 @@ class steps extends Model
 
         if (null !== $this->specification) {
             $res['specification'] = $this->specification;
+        }
+
+        if (null !== $this->specificationJson) {
+            if (\is_array($this->specificationJson)) {
+                $res['specificationJson'] = [];
+                $n1 = 0;
+                foreach ($this->specificationJson as $item1) {
+                    if (\is_array($item1)) {
+                        $res['specificationJson'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['specificationJson'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->stepId) {
@@ -166,6 +191,22 @@ class steps extends Model
 
         if (isset($map['specification'])) {
             $model->specification = $map['specification'];
+        }
+
+        if (isset($map['specificationJson'])) {
+            if (!empty($map['specificationJson'])) {
+                $model->specificationJson = [];
+                $n1 = 0;
+                foreach ($map['specificationJson'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->specificationJson[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->specificationJson[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['stepId'])) {

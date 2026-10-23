@@ -16,7 +16,22 @@ class items extends Model
     /**
      * @var string
      */
+    public $effectiveVersion;
+
+    /**
+     * @var string
+     */
     public $gmtModified;
+
+    /**
+     * @var string
+     */
+    public $latestVersion;
+
+    /**
+     * @var string
+     */
+    public $latestVersionStatus;
 
     /**
      * @var string
@@ -44,7 +59,10 @@ class items extends Model
     public $templateId;
     protected $_name = [
         'description' => 'description',
+        'effectiveVersion' => 'effectiveVersion',
         'gmtModified' => 'gmtModified',
+        'latestVersion' => 'latestVersion',
+        'latestVersionStatus' => 'latestVersionStatus',
         'name' => 'name',
         'ownerCount' => 'ownerCount',
         'reviewStepCount' => 'reviewStepCount',
@@ -64,8 +82,20 @@ class items extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->effectiveVersion) {
+            $res['effectiveVersion'] = $this->effectiveVersion;
+        }
+
         if (null !== $this->gmtModified) {
             $res['gmtModified'] = $this->gmtModified;
+        }
+
+        if (null !== $this->latestVersion) {
+            $res['latestVersion'] = $this->latestVersion;
+        }
+
+        if (null !== $this->latestVersionStatus) {
+            $res['latestVersionStatus'] = $this->latestVersionStatus;
         }
 
         if (null !== $this->name) {
@@ -103,8 +133,20 @@ class items extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['effectiveVersion'])) {
+            $model->effectiveVersion = $map['effectiveVersion'];
+        }
+
         if (isset($map['gmtModified'])) {
             $model->gmtModified = $map['gmtModified'];
+        }
+
+        if (isset($map['latestVersion'])) {
+            $model->latestVersion = $map['latestVersion'];
+        }
+
+        if (isset($map['latestVersionStatus'])) {
+            $model->latestVersionStatus = $map['latestVersionStatus'];
         }
 
         if (isset($map['name'])) {

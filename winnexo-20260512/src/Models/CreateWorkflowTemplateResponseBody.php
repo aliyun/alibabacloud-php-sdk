@@ -27,6 +27,11 @@ class CreateWorkflowTemplateResponseBody extends Model
     /**
      * @var string
      */
+    public $effectiveVersion;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
@@ -58,10 +63,26 @@ class CreateWorkflowTemplateResponseBody extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $version;
+
+    /**
+     * @var string
+     */
+    public $versionDescription;
+
+    /**
+     * @var string
+     */
+    public $versionStatus;
     protected $_name = [
         'code' => 'code',
         'createdByUserId' => 'createdByUserId',
         'description' => 'description',
+        'effectiveVersion' => 'effectiveVersion',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
         'message' => 'message',
@@ -69,6 +90,9 @@ class CreateWorkflowTemplateResponseBody extends Model
         'requestId' => 'requestId',
         'steps' => 'steps',
         'templateId' => 'templateId',
+        'version' => 'version',
+        'versionDescription' => 'versionDescription',
+        'versionStatus' => 'versionStatus',
     ];
 
     public function validate()
@@ -92,6 +116,10 @@ class CreateWorkflowTemplateResponseBody extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->effectiveVersion) {
+            $res['effectiveVersion'] = $this->effectiveVersion;
         }
 
         if (null !== $this->gmtCreate) {
@@ -129,6 +157,18 @@ class CreateWorkflowTemplateResponseBody extends Model
             $res['templateId'] = $this->templateId;
         }
 
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
+        }
+
+        if (null !== $this->versionDescription) {
+            $res['versionDescription'] = $this->versionDescription;
+        }
+
+        if (null !== $this->versionStatus) {
+            $res['versionStatus'] = $this->versionStatus;
+        }
+
         return $res;
     }
 
@@ -150,6 +190,10 @@ class CreateWorkflowTemplateResponseBody extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['effectiveVersion'])) {
+            $model->effectiveVersion = $map['effectiveVersion'];
         }
 
         if (isset($map['gmtCreate'])) {
@@ -185,6 +229,18 @@ class CreateWorkflowTemplateResponseBody extends Model
 
         if (isset($map['templateId'])) {
             $model->templateId = $map['templateId'];
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
+        }
+
+        if (isset($map['versionDescription'])) {
+            $model->versionDescription = $map['versionDescription'];
+        }
+
+        if (isset($map['versionStatus'])) {
+            $model->versionStatus = $map['versionStatus'];
         }
 
         return $model;

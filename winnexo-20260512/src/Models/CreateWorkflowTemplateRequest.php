@@ -11,6 +11,11 @@ class CreateWorkflowTemplateRequest extends Model
     /**
      * @var string
      */
+    public $action;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
@@ -23,6 +28,7 @@ class CreateWorkflowTemplateRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'action' => 'action',
         'collaborationGroupId' => 'collaborationGroupId',
         'definition' => 'definition',
         'tenantId' => 'tenantId',
@@ -39,6 +45,10 @@ class CreateWorkflowTemplateRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->action) {
+            $res['action'] = $this->action;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
@@ -67,6 +77,10 @@ class CreateWorkflowTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['action'])) {
+            $model->action = $map['action'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }

@@ -22,10 +22,16 @@ class GetWorkflowTemplateRequest extends Model
      * @var string
      */
     public $tenantId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'collaborationGroupId' => 'collaborationGroupId',
         'templateId' => 'templateId',
         'tenantId' => 'tenantId',
+        'version' => 'version',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class GetWorkflowTemplateRequest extends Model
 
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class GetWorkflowTemplateRequest extends Model
 
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

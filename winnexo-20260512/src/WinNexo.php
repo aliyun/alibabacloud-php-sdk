@@ -144,6 +144,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateUserWithGroupsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowInstanceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowInstanceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowInstanceShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowTemplateDraftVersionRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowTemplateDraftVersionResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowTemplateRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowTemplateResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateWorkflowTemplateShrinkRequest;
@@ -161,6 +163,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteTenantDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteTenantDirectoryResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkflowTemplateRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkflowTemplateResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkflowTemplateVersionRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkflowTemplateVersionResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkItemRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkItemResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DisableTokenRequest;
@@ -328,6 +332,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowInstancesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowInstancesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowTemplatesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowTemplatesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowTemplateVersionsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkflowTemplateVersionsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkItemArtifactsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkItemArtifactsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListWorkItemsRequest;
@@ -439,6 +445,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendAsyncChatMessageShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkflowTemplateEffectiveVersionRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkflowTemplateEffectiveVersionResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkItemPinnedRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkItemPinnedResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\StopChatMessageRequest;
@@ -736,10 +744,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * BatchCancelTodos.
+     * Cancels to-do items in batches.
      *
      * @remarks
-     * 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+     * Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
      *
      * @param tmpReq - BatchCancelTodosRequest
      * @param headers - map
@@ -793,10 +801,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * BatchCancelTodos.
+     * Cancels to-do items in batches.
      *
      * @remarks
-     * 按待办ID集合批量作废；已完结/不存在不报错（幂等）
+     * Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
      *
      * @param Request - BatchCancelTodosRequest
      *
@@ -815,10 +823,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * BatchOperateWorkItems.
+     * Performs batch operations to schedule, pause, resume, or delete work items for valid members. A failure in a single item does not roll back other items.
      *
      * @remarks
-     * 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+     * Performs batch operations to schedule, pause, resume, or delete work items for valid members. A failure in a single item does not roll back other items.
      *
      * @param tmpReq - BatchOperateWorkItemsRequest
      * @param headers - map
@@ -884,10 +892,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * BatchOperateWorkItems.
+     * Performs batch operations to schedule, pause, resume, or delete work items for valid members. A failure in a single item does not roll back other items.
      *
      * @remarks
-     * 有效成员批量排产、暂停、恢复或删除工作项；单项失败不回滚其他项
+     * Performs batch operations to schedule, pause, resume, or delete work items for valid members. A failure in a single item does not roll back other items.
      *
      * @param Request - BatchOperateWorkItemsRequest
      *
@@ -997,10 +1005,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CancelTodo.
+     * Cancels a to-do item.
      *
      * @remarks
-     * 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+     * Cancels a to-do item. If the to-do item specified by todoId is not found, a 404 error is returned. If workItemId is used, the system makes a best-effort attempt to cancel to-do items in batches.
      *
      * @param Request - CancelTodoRequest
      * @param headers - map
@@ -1052,10 +1060,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CancelTodo.
+     * Cancels a to-do item.
      *
      * @remarks
-     * 作废待办；todoId 定位不存在返回 404，按 workItemId 批量尽力而为
+     * Cancels a to-do item. If the to-do item specified by todoId is not found, a 404 error is returned. If workItemId is used, the system makes a best-effort attempt to cancel to-do items in batches.
      *
      * @param Request - CancelTodoRequest
      *
@@ -1074,10 +1082,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 检查应用内资源权限.
+     * Checks resource permissions within an application.
      *
      * @remarks
-     * 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+     * Requires the APP/VIEW permission to check your own permissions and the APP/MANAGE permission to check permissions on behalf of others.
      *
      * @param Request - CheckAppResourcePermissionRequest
      * @param headers - map
@@ -1145,10 +1153,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 检查应用内资源权限.
+     * Checks resource permissions within an application.
      *
      * @remarks
-     * 本人需 APP/VIEW，代查他人需 APP/MANAGE。
+     * Requires the APP/VIEW permission to check your own permissions and the APP/MANAGE permission to check permissions on behalf of others.
      *
      * @param Request - CheckAppResourcePermissionRequest
      *
@@ -1167,10 +1175,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 批量检查应用内资源权限.
+     * Checks resource permissions within applications in batches.
      *
      * @remarks
-     * 整批逐应用鉴权后，复用 service 的常数级查询。
+     * After authenticating each application in the batch, reuses the constant-time query of the service.
      *
      * @param tmpReq - CheckAppResourcePermissionsBatchRequest
      * @param headers - map
@@ -1236,10 +1244,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 批量检查应用内资源权限.
+     * Checks resource permissions within applications in batches.
      *
      * @remarks
-     * 整批逐应用鉴权后，复用 service 的常数级查询。
+     * After authenticating each application in the batch, reuses the constant-time query of the service.
      *
      * @param Request - CheckAppResourcePermissionsBatchRequest
      *
@@ -1319,10 +1327,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 按类型或全部清空自动记忆.
+     * Clears automatic memory.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal or specified writing workspace memory based on the authenticated user. The workspace mode inherits the permissions of active members.
      *
      * @param Request - ClearAutoMemoryRequest
      * @param headers - map
@@ -1378,10 +1386,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 按类型或全部清空自动记忆.
+     * Clears automatic memory.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal or specified writing workspace memory based on the authenticated user. The workspace mode inherits the permissions of active members.
      *
      * @param Request - ClearAutoMemoryRequest
      *
@@ -1481,10 +1489,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CloseWorkflowTodos.
+     * Closes workflow to-do items in batches.
      *
      * @remarks
-     * 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+     * Closes to-do items in batches by workflow. This operation matches all PENDING to-do items for the specified workflow run in the workspace and is idempotent.
      *
      * @param Request - CloseWorkflowTodosRequest
      * @param headers - map
@@ -1536,10 +1544,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CloseWorkflowTodos.
+     * Closes workflow to-do items in batches.
      *
      * @remarks
-     * 按工作流批量关闭待办；命中该空间该工作流 run 的全部 PENDING 待办（幂等）
+     * Closes to-do items in batches by workflow. This operation matches all PENDING to-do items for the specified workflow run in the workspace and is idempotent.
      *
      * @param Request - CloseWorkflowTodosRequest
      *
@@ -1558,10 +1566,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CountTodos.
+     * Retrieves the to-do badge statistics.
      *
      * @remarks
-     * 统计当前用户的待办角标（待处理数与未读数）
+     * Retrieves the to-do badge statistics for the current user, including the number of pending and unread items.
      *
      * @param Request - CountTodosRequest
      * @param headers - map
@@ -1609,10 +1617,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CountTodos.
+     * Retrieves the to-do badge statistics.
      *
      * @remarks
-     * 统计当前用户的待办角标（待处理数与未读数）
+     * Retrieves the to-do badge statistics for the current user, including the number of pending and unread items.
      *
      * @param Request - CountTodosRequest
      *
@@ -1936,21 +1944,20 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 创建语义图谱并绑定数据源.
+     * Creates a semantic graph and associates a data source.
      *
      * @remarks
-     * OpenAPI 创建语义图谱（同步快建占位记录 0.0.0）并在创建时绑定数据源。
-     *     内容编辑走个人草稿接口，正式发布走产品控制台。
-     *     业务编排：
-     *     1. 权限校验（个人 Token 校验语义管理权限；部署/系统级 Token 放行）
-     *     2. 同步落库 active 占位记录（schemaVersion 固定 0.0.0）并绑定数据源；
-     *        不写 history、不触发 runtime 重建
-     *     3. 图谱内容后续经个人草稿编辑，在控制台正式发布
-     *     错误码：
-     *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
-     *     - ERR.GraphSchema.GraphNameDuplicated: 图谱名称已存在
-     *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
-     *     - ERR.GraphDataSource.*: 数据源不存在 / 非 RDB 类不可绑定
+     * Creates a semantic graph through OpenAPI by synchronously creating a placeholder record with version 0.0.0 and associates a data source during creation.
+     * You can edit content through the personal draft API and officially publish it through the product console.
+     * Workflow:
+     * 1. Verifies permissions. Personal tokens verify semantic management permissions. Deployment or system-level tokens are also allowed.
+     * 2. Synchronously writes an active placeholder record to the database with schemaVersion fixed to 0.0.0 and associates the data source. History is not recorded, and runtime reconstruction is not triggered.
+     * 3. You can subsequently edit the graph content through personal drafts and officially publish it in the console.
+     * Error codes:
+     * - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
+     * - ERR.GraphSchema.GraphNameDuplicated: The graph name already exists.
+     * - ERR.GraphSchema.DisplayNameInvalid: The display name is invalid or duplicated.
+     * - ERR.GraphDataSource.*: The data source does not exist or is not an RDB type and cannot be associated.
      *
      * @param Request - CreateGraphRequest
      * @param headers - map
@@ -2010,21 +2017,20 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 创建语义图谱并绑定数据源.
+     * Creates a semantic graph and associates a data source.
      *
      * @remarks
-     * OpenAPI 创建语义图谱（同步快建占位记录 0.0.0）并在创建时绑定数据源。
-     *     内容编辑走个人草稿接口，正式发布走产品控制台。
-     *     业务编排：
-     *     1. 权限校验（个人 Token 校验语义管理权限；部署/系统级 Token 放行）
-     *     2. 同步落库 active 占位记录（schemaVersion 固定 0.0.0）并绑定数据源；
-     *        不写 history、不触发 runtime 重建
-     *     3. 图谱内容后续经个人草稿编辑，在控制台正式发布
-     *     错误码：
-     *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
-     *     - ERR.GraphSchema.GraphNameDuplicated: 图谱名称已存在
-     *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
-     *     - ERR.GraphDataSource.*: 数据源不存在 / 非 RDB 类不可绑定
+     * Creates a semantic graph through OpenAPI by synchronously creating a placeholder record with version 0.0.0 and associates a data source during creation.
+     * You can edit content through the personal draft API and officially publish it through the product console.
+     * Workflow:
+     * 1. Verifies permissions. Personal tokens verify semantic management permissions. Deployment or system-level tokens are also allowed.
+     * 2. Synchronously writes an active placeholder record to the database with schemaVersion fixed to 0.0.0 and associates the data source. History is not recorded, and runtime reconstruction is not triggered.
+     * 3. You can subsequently edit the graph content through personal drafts and officially publish it in the console.
+     * Error codes:
+     * - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
+     * - ERR.GraphSchema.GraphNameDuplicated: The graph name already exists.
+     * - ERR.GraphSchema.DisplayNameInvalid: The display name is invalid or duplicated.
+     * - ERR.GraphDataSource.*: The data source does not exist or is not an RDB type and cannot be associated.
      *
      * @param Request - CreateGraphRequest
      *
@@ -5573,10 +5579,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CreateTodo.
+     * Creates a to-do item.
      *
      * @remarks
-     * 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+     * Creates a to-do item. The sourceType parameter only accepts OPEN_API. The existence of assignees is not verified, and the caller must ensure the correct mapping.
      *
      * @param tmpReq - CreateTodoRequest
      * @param headers - map
@@ -5662,10 +5668,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CreateTodo.
+     * Creates a to-do item.
      *
      * @remarks
-     * 创建待办（sourceType 仅接受 OPEN_API）；处理人不校验存在性，由调用方保证映射正确
+     * Creates a to-do item. The sourceType parameter only accepts OPEN_API. The existence of assignees is not verified, and the caller must ensure the correct mapping.
      *
      * @param Request - CreateTodoRequest
      *
@@ -5993,10 +5999,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CreateWorkItem.
+     * Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
      *
      * @remarks
-     * 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+     * Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
      *
      * @param tmpReq - CreateWorkItemRequest
      * @param headers - map
@@ -6098,10 +6104,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CreateWorkItem.
+     * Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
      *
      * @remarks
-     * 有效成员创建 Workflow 工作项并复制模板执行快照；仅接受 WORKFLOW 类型
+     * Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
      *
      * @param Request - CreateWorkItemRequest
      *
@@ -6120,10 +6126,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 幂等创建工作流实例.
+     * Creates a work item idempotently by business ID in a specified collaboration workspace, starts an actual run based on a workflow template, and returns the logical instance and the current execution view.
      *
      * @remarks
-     * 组合既有创建与排产，不旁路工作项权限或运行准入。
+     * Combines creation and scheduling without bypassing work item permissions or run admission.
      *
      * @param tmpReq - CreateWorkflowInstanceRequest
      * @param headers - map
@@ -6205,10 +6211,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 幂等创建工作流实例.
+     * Creates a work item idempotently by business ID in a specified collaboration workspace, starts an actual run based on a workflow template, and returns the logical instance and the current execution view.
      *
      * @remarks
-     * 组合既有创建与排产，不旁路工作项权限或运行准入。
+     * Combines creation and scheduling without bypassing work item permissions or run admission.
      *
      * @param Request - CreateWorkflowInstanceRequest
      *
@@ -6227,10 +6233,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CreateWorkflowTemplate.
+     * Creates a new workflow template. Templates with the same name are not overwritten.
      *
      * @remarks
-     * 有效成员保存全新工作流模板；同名模板不会覆盖
+     * Creates a new workflow template. Templates with the same name are not overwritten.
      *
      * @param tmpReq - CreateWorkflowTemplateRequest
      * @param headers - map
@@ -6259,6 +6265,10 @@ class WinNexo extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->action) {
+            @$body['action'] = $request->action;
+        }
+
         if (null !== $request->collaborationGroupId) {
             @$body['collaborationGroupId'] = $request->collaborationGroupId;
         }
@@ -6288,10 +6298,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * CreateWorkflowTemplate.
+     * Creates a new workflow template. Templates with the same name are not overwritten.
      *
      * @remarks
-     * 有效成员保存全新工作流模板；同名模板不会覆盖
+     * Creates a new workflow template. Templates with the same name are not overwritten.
      *
      * @param Request - CreateWorkflowTemplateRequest
      *
@@ -6310,10 +6320,91 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 批量删除应用内资源权限.
+     * Creates a draft of a workflow template.
      *
      * @remarks
-     * 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+     * Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+     *
+     * @param Request - CreateWorkflowTemplateDraftVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkflowTemplateDraftVersionResponse
+     *
+     * @param CreateWorkflowTemplateDraftVersionRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateWorkflowTemplateDraftVersionResponse
+     */
+    public function createWorkflowTemplateDraftVersionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkflowTemplateDraftVersion',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createWorkflowTemplateDraftVersion',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkflowTemplateDraftVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a draft of a workflow template.
+     *
+     * @remarks
+     * Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+     *
+     * @param Request - CreateWorkflowTemplateDraftVersionRequest
+     *
+     * @returns CreateWorkflowTemplateDraftVersionResponse
+     *
+     * @param CreateWorkflowTemplateDraftVersionRequest $request
+     *
+     * @return CreateWorkflowTemplateDraftVersionResponse
+     */
+    public function createWorkflowTemplateDraftVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkflowTemplateDraftVersionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes multiple resource permissions within an application.
+     *
+     * @remarks
+     * Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
      *
      * @param tmpReq - DeleteAppResourcePermissionsRequest
      * @param headers - map
@@ -6371,10 +6462,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 批量删除应用内资源权限.
+     * Deletes multiple resource permissions within an application.
      *
      * @remarks
-     * 逐应用通过 MANAGE 校验后，调用原有原子删除能力。
+     * Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
      *
      * @param Request - DeleteAppResourcePermissionsRequest
      *
@@ -6640,10 +6731,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * DeleteWorkItem.
+     * Deletes a non-processing work item by a valid member and cascades the cleanup of to-do items, node topics, and runtimes.
      *
      * @remarks
-     * 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+     * Deletes a non-processing work item by a valid member and cascades the cleanup of to-do items, node topics, and runtimes.
      *
      * @param Request - DeleteWorkItemRequest
      * @param headers - map
@@ -6695,10 +6786,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * DeleteWorkItem.
+     * Deletes a non-processing work item by a valid member and cascades the cleanup of to-do items, node topics, and runtimes.
      *
      * @remarks
-     * 有效成员删除非处理中工作项；级联清理待办、节点话题与运行时
+     * Deletes a non-processing work item by a valid member and cascades the cleanup of to-do items, node topics, and runtimes.
      *
      * @param Request - DeleteWorkItemRequest
      *
@@ -6717,10 +6808,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * DeleteWorkflowTemplate.
+     * Physically deletes a workflow template and its steps for valid members without performing work item dependency checks.
      *
      * @remarks
-     * 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+     * Physically deletes a workflow template and its steps for valid members without performing work item dependency checks.
      *
      * @param Request - DeleteWorkflowTemplateRequest
      * @param headers - map
@@ -6772,10 +6863,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * DeleteWorkflowTemplate.
+     * Physically deletes a workflow template and its steps for valid members without performing work item dependency checks.
      *
      * @remarks
-     * 有效成员物理删除工作流模板及其步骤；不执行工作项依赖校验
+     * Physically deletes a workflow template and its steps for valid members without performing work item dependency checks.
      *
      * @param Request - DeleteWorkflowTemplateRequest
      *
@@ -6791,6 +6882,87 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->deleteWorkflowTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a specified version of a workflow template.
+     *
+     * @remarks
+     * Deletes a specified version of a workflow template as a workspace administrator. Only inactive versions can be deleted. The system denies requests to delete the active version or the last version of the template with a 409 error. After deletion, the list of remaining versions is returned.
+     *
+     * @param Request - DeleteWorkflowTemplateVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWorkflowTemplateVersionResponse
+     *
+     * @param DeleteWorkflowTemplateVersionRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteWorkflowTemplateVersionResponse
+     */
+    public function deleteWorkflowTemplateVersionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWorkflowTemplateVersion',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/deleteWorkflowTemplateVersion',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWorkflowTemplateVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified version of a workflow template.
+     *
+     * @remarks
+     * Deletes a specified version of a workflow template as a workspace administrator. Only inactive versions can be deleted. The system denies requests to delete the active version or the last version of the template with a 409 error. After deletion, the list of remaining versions is returned.
+     *
+     * @param Request - DeleteWorkflowTemplateVersionRequest
+     *
+     * @returns DeleteWorkflowTemplateVersionResponse
+     *
+     * @param DeleteWorkflowTemplateVersionRequest $request
+     *
+     * @return DeleteWorkflowTemplateVersionResponse
+     */
+    public function deleteWorkflowTemplateVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkflowTemplateVersionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6968,10 +7140,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ExportWorkflowTemplate.
+     * Exports a simplified template definition that can be re-imported by valid members.
      *
      * @remarks
-     * 有效成员导出可回流导入的精简模板定义
+     * Exports a simplified template definition that can be re-imported by valid members.
      *
      * @param Request - ExportWorkflowTemplateRequest
      * @param headers - map
@@ -7002,6 +7174,10 @@ class WinNexo extends OpenApiClient
             @$body['templateId'] = $request->templateId;
         }
 
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -7023,10 +7199,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ExportWorkflowTemplate.
+     * Exports a simplified template definition that can be re-imported by valid members.
      *
      * @remarks
-     * 有效成员导出可回流导入的精简模板定义
+     * Exports a simplified template definition that can be re-imported by valid members.
      *
      * @param Request - ExportWorkflowTemplateRequest
      *
@@ -7045,10 +7221,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GenerateWorkflowTemplateDraft.
+     * Generates a non-persistent template draft by calling a large language model (LLM) and consumes the LLM quota of the tenant.
      *
      * @remarks
-     * 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+     * Generates a non-persistent template draft by calling a large language model (LLM) and consumes the LLM quota of the tenant.
      *
      * @param tmpReq - GenerateWorkflowTemplateDraftRequest
      * @param headers - map
@@ -7110,10 +7286,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GenerateWorkflowTemplateDraft.
+     * Generates a non-persistent template draft by calling a large language model (LLM) and consumes the LLM quota of the tenant.
      *
      * @remarks
-     * 有效成员调用 LLM 生成非持久化模板草稿；消耗租户 LLM 配额
+     * Generates a non-persistent template draft by calling a large language model (LLM) and consumes the LLM quota of the tenant.
      *
      * @param Request - GenerateWorkflowTemplateDraftRequest
      *
@@ -7132,10 +7308,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetAgentWorkLog.
+     * Queries the operation logs of a workflow agent.
      *
      * @remarks
-     * 查询工作流 Agent 工作日志
+     * Queries the operation logs of a workflow agent.
      *
      * @param Request - GetAgentWorkLogRequest
      * @param headers - map
@@ -7195,10 +7371,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetAgentWorkLog.
+     * Queries the operation logs of a workflow agent.
      *
      * @remarks
-     * 查询工作流 Agent 工作日志
+     * Queries the operation logs of a workflow agent.
      *
      * @param Request - GetAgentWorkLogRequest
      *
@@ -7865,10 +8041,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询自动记忆拾取开关.
+     * Queries the automatic memory collection switch.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal or specified collaborative writing workspace memories based on the authenticated user. The workspace mode follows the permissions of active members.
      *
      * @param Request - GetMemoryAutoExtractionSwitchRequest
      * @param headers - map
@@ -7920,10 +8096,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询自动记忆拾取开关.
+     * Queries the automatic memory collection switch.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal or specified collaborative writing workspace memories based on the authenticated user. The workspace mode follows the permissions of active members.
      *
      * @param Request - GetMemoryAutoExtractionSwitchRequest
      *
@@ -7942,10 +8118,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询个人或协作空间记忆详情.
+     * Queries the details of a memory.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal memories or memories of a specified writing workspace based on the authenticated user. The workspace mode inherits the permissions of active members.
      *
      * @param Request - GetMemoryDetailRequest
      * @param headers - map
@@ -7997,10 +8173,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询个人或协作空间记忆详情.
+     * Queries the details of a memory.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal memories or memories of a specified writing workspace based on the authenticated user. The workspace mode inherits the permissions of active members.
      *
      * @param Request - GetMemoryDetailRequest
      *
@@ -8019,10 +8195,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetNodeDetail.
+     * Queries the details of an instance node.
      *
      * @remarks
-     * 查询实例节点完整详情
+     * Queries the complete details of an instance node.
      *
      * @param Request - GetNodeDetailRequest
      * @param headers - map
@@ -8078,10 +8254,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetNodeDetail.
+     * Queries the details of an instance node.
      *
      * @remarks
-     * 查询实例节点完整详情
+     * Queries the complete details of an instance node.
      *
      * @param Request - GetNodeDetailRequest
      *
@@ -8849,10 +9025,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetTodo.
+     * Queries to-do items.
      *
      * @remarks
-     * 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+     * Queries to-do items without triggering the read status side effect. You must specify one of the following parameters: todoId, workItemId, or messageId. The priority order is todoId > workItemId > messageId.
      *
      * @param Request - GetTodoRequest
      * @param headers - map
@@ -8908,10 +9084,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetTodo.
+     * Queries to-do items.
      *
      * @remarks
-     * 查询待办（无已读副作用）；todoId/workItemId/messageId 三选一，优先级 todoId > workItemId > messageId
+     * Queries to-do items without triggering the read status side effect. You must specify one of the following parameters: todoId, workItemId, or messageId. The priority order is todoId > workItemId > messageId.
      *
      * @param Request - GetTodoRequest
      *
@@ -8930,10 +9106,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetTodoDetail.
+     * Queries the processing details of a to-do item.
      *
      * @remarks
-     * 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+     * Queries the details of a to-do item. If the current caller is a PENDING assignee, the readAt field is automatically populated to mark the item as read.
      *
      * @param Request - GetTodoDetailRequest
      * @param headers - map
@@ -8981,10 +9157,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetTodoDetail.
+     * Queries the processing details of a to-do item.
      *
      * @remarks
-     * 查询待办详情；当前调用者为 PENDING 处理人时自动填充 readAt（已读副作用）
+     * Queries the details of a to-do item. If the current caller is a PENDING assignee, the readAt field is automatically populated to mark the item as read.
      *
      * @param Request - GetTodoDetailRequest
      *
@@ -9509,10 +9685,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetWorkItem.
+     * Retrieves the details of a work item visible to valid members in the current collaboration space.
      *
      * @remarks
-     * 有效成员读取当前空间可见工作项详情
+     * Retrieves the details of a work item visible to valid members in the current collaboration space.
      *
      * @param Request - GetWorkItemRequest
      * @param headers - map
@@ -9564,10 +9740,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetWorkItem.
+     * Retrieves the details of a work item visible to valid members in the current collaboration space.
      *
      * @remarks
-     * 有效成员读取当前空间可见工作项详情
+     * Retrieves the details of a work item visible to valid members in the current collaboration space.
      *
      * @param Request - GetWorkItemRequest
      *
@@ -9586,10 +9762,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetWorkItemArtifactAccess.
+     * Redirects to the short-term signed download URL of the artifact with an HTTP 302 status code after validating the caller\\"s permissions for the work item.
      *
      * @remarks
-     * 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+     * Redirects to the short-term signed download URL of the artifact with an HTTP 302 status code after validating the caller\\"s permissions for the work item.
      *
      * @param Request - GetWorkItemArtifactAccessRequest
      * @param headers - map
@@ -9643,10 +9819,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetWorkItemArtifactAccess.
+     * Redirects to the short-term signed download URL of the artifact with an HTTP 302 status code after validating the caller\\"s permissions for the work item.
      *
      * @remarks
-     * 校验调用者工作项权限后 302 跳转到产物短期签名下载地址
+     * Redirects to the short-term signed download URL of the artifact with an HTTP 302 status code after validating the caller\\"s permissions for the work item.
      *
      * @param Request - GetWorkItemArtifactAccessRequest
      *
@@ -9665,10 +9841,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetWorkItemAttachmentAccess.
+     * Redirects to the short-term preview URL of the specified attachment with a 302 status code after validating the caller\\"s work item permissions.
      *
      * @remarks
-     * 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+     * Redirects to the short-term preview URL of the specified attachment with a 302 status code after validating the caller\\"s work item permissions.
      *
      * @param Request - GetWorkItemAttachmentAccessRequest
      * @param headers - map
@@ -9722,10 +9898,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetWorkItemAttachmentAccess.
+     * Redirects to the short-term preview URL of the specified attachment with a 302 status code after validating the caller\\"s work item permissions.
      *
      * @remarks
-     * 校验调用者工作项权限后 302 跳转到输入附件短期预览地址
+     * Redirects to the short-term preview URL of the specified attachment with a 302 status code after validating the caller\\"s work item permissions.
      *
      * @param Request - GetWorkItemAttachmentAccessRequest
      *
@@ -9744,10 +9920,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询工作流实例详情.
+     * Queries the current running, review, and pause statuses of a work item, along with the actual active nodes and execution progress, by using a stable logical instance ID.
      *
      * @remarks
-     * 以当前成员和工作项可见性读取实例。
+     * Retrieves the instance based on the current member and work item visibility.
      *
      * @param Request - GetWorkflowInstanceRequest
      * @param headers - map
@@ -9795,10 +9971,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询工作流实例详情.
+     * Queries the current running, review, and pause statuses of a work item, along with the actual active nodes and execution progress, by using a stable logical instance ID.
      *
      * @remarks
-     * 以当前成员和工作项可见性读取实例。
+     * Retrieves the instance based on the current member and work item visibility.
      *
      * @param Request - GetWorkflowInstanceRequest
      *
@@ -9817,10 +9993,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetWorkflowTemplate.
+     * Retrieves the current configuration of a workflow template in a collaboration workspace.
      *
      * @remarks
-     * 有效成员读取协作空间工作流模板当前配置
+     * Retrieves the current configuration of a workflow template in a collaboration workspace.
      *
      * @param Request - GetWorkflowTemplateRequest
      * @param headers - map
@@ -9851,6 +10027,10 @@ class WinNexo extends OpenApiClient
             @$body['templateId'] = $request->templateId;
         }
 
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -9872,10 +10052,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * GetWorkflowTemplate.
+     * Retrieves the current configuration of a workflow template in a collaboration workspace.
      *
      * @remarks
-     * 有效成员读取协作空间工作流模板当前配置
+     * Retrieves the current configuration of a workflow template in a collaboration workspace.
      *
      * @param Request - GetWorkflowTemplateRequest
      *
@@ -10009,10 +10189,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ImportWorkflowTemplate.
+     * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
      *
      * @remarks
-     * 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+     * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
      *
      * @param tmpReq - ImportWorkflowTemplateRequest
      * @param headers - map
@@ -10070,10 +10250,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ImportWorkflowTemplate.
+     * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
      *
      * @remarks
-     * 有效成员导入可移植模板 JSON 并创建新模板；无论名称是否相同都新建
+     * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
      *
      * @param Request - ImportWorkflowTemplateRequest
      *
@@ -10547,10 +10727,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询应用内全部原始资源授权.
+     * Queries the resource authorization records within an application.
      *
      * @remarks
-     * APP/MANAGE 授权后按安全应用前缀分页。
+     * Pages results by secure application prefix after APP/MANAGE authorization.
      *
      * @param tmpReq - ListAppResourcePermissionRecordsRequest
      * @param headers - map
@@ -10636,10 +10816,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询应用内全部原始资源授权.
+     * Queries the resource authorization records within an application.
      *
      * @remarks
-     * APP/MANAGE 授权后按安全应用前缀分页。
+     * Pages results by secure application prefix after APP/MANAGE authorization.
      *
      * @param Request - ListAppResourcePermissionRecordsRequest
      *
@@ -10658,10 +10838,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询用户应用内有效资源权限.
+     * Queries the valid resource permissions of a user within an application.
      *
      * @remarks
-     * 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+     * An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
      *
      * @param tmpReq - ListAppResourceUserPermissionsRequest
      * @param headers - map
@@ -10743,10 +10923,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 查询用户应用内有效资源权限.
+     * Queries the valid resource permissions of a user within an application.
      *
      * @remarks
-     * 强制应用前缀，本人需 VIEW，代查他人需 MANAGE。
+     * An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
      *
      * @param Request - ListAppResourceUserPermissionsRequest
      *
@@ -11681,10 +11861,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListInstanceNodes.
+     * Queries the node list of an instance.
      *
      * @remarks
-     * 查询实例节点列表
+     * Queries the node list of an instance.
      *
      * @param Request - ListInstanceNodesRequest
      * @param headers - map
@@ -11736,10 +11916,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListInstanceNodes.
+     * Queries the node list of an instance.
      *
      * @remarks
-     * 查询实例节点列表
+     * Queries the node list of an instance.
      *
      * @param Request - ListInstanceNodesRequest
      *
@@ -11936,17 +12116,12 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the output list of the current user. Filtering by conditions and pagination are supported.
+     * Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
      *
      * @remarks
-     * ## Operation description
-     * - This API operation queries the output list of the current logged-in user.
-     * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
-     * - Filtering is supported through parameters such as `operatingObjectName`, `itemType`, and `keyword`.
-     * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
-     * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, the first page is returned with 20 records per page.
-     * - Results are sorted by update time in descending order by default.
-     * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
+     * If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
+     * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
+     * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
      *
      * @param tmpReq - ListOutputFilesRequest
      * @param headers - map
@@ -12036,17 +12211,12 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the output list of the current user. Filtering by conditions and pagination are supported.
+     * Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
      *
      * @remarks
-     * ## Operation description
-     * - This API operation queries the output list of the current logged-in user.
-     * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
-     * - Filtering is supported through parameters such as `operatingObjectName`, `itemType`, and `keyword`.
-     * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
-     * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, the first page is returned with 20 records per page.
-     * - Results are sorted by update time in descending order by default.
-     * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
+     * If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
+     * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
+     * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
      *
      * @param Request - ListOutputFilesRequest
      *
@@ -12608,10 +12778,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListTodos.
+     * Performs a paging query on the to-do list.
      *
      * @remarks
-     * 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+     * Performs a paging query on the to-do list for the current user. For paging, filters within a group use a union, and filters across groups use an intersection. If no filters are specified, all items are returned.
      *
      * @param tmpReq - ListTodosRequest
      * @param headers - map
@@ -12717,10 +12887,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListTodos.
+     * Performs a paging query on the to-do list.
      *
      * @remarks
-     * 分页查询当前用户的待办列表；筛选组内并集、组间交集，全不传 = 全部
+     * Performs a paging query on the to-do list for the current user. For paging, filters within a group use a union, and filters across groups use an intersection. If no filters are specified, all items are returned.
      *
      * @param Request - ListTodosRequest
      *
@@ -13310,10 +13480,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListWorkItemArtifacts.
+     * Lists all historical artifacts of a work item accessible to authorized members.
      *
      * @remarks
-     * 有效成员列出有权访问工作项的全部历史产物
+     * Lists all historical artifacts of a work item accessible to authorized members.
      *
      * @param Request - ListWorkItemArtifactsRequest
      * @param headers - map
@@ -13365,10 +13535,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListWorkItemArtifacts.
+     * Lists all historical artifacts of a work item accessible to authorized members.
      *
      * @remarks
-     * 有效成员列出有权访问工作项的全部历史产物
+     * Lists all historical artifacts of a work item accessible to authorized members.
      *
      * @param Request - ListWorkItemArtifactsRequest
      *
@@ -13387,10 +13557,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListWorkItems.
+     * Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
      *
      * @remarks
-     * 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+     * Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
      *
      * @param tmpReq - ListWorkItemsRequest
      * @param headers - map
@@ -13488,10 +13658,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListWorkItems.
+     * Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
      *
      * @remarks
-     * 有效成员分页筛选当前空间可见工作项；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+     * Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
      *
      * @param Request - ListWorkItemsRequest
      *
@@ -13510,10 +13680,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 分页筛选工作流实例.
+     * Queries workflow instances visible to the current invoker in a specified collaboration space through a paged query, and supports paging and filtering by status, external requirement ID, initiator, keyword, and sorting conditions.
      *
      * @remarks
-     * 复用详情投影，避免工作项列表与实例状态混用。
+     * Reuses detail projections to avoid mixing work item lists with instance statuses.
      *
      * @param Request - ListWorkflowInstancesRequest
      * @param headers - map
@@ -13593,10 +13763,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 分页筛选工作流实例.
+     * Queries workflow instances visible to the current invoker in a specified collaboration space through a paged query, and supports paging and filtering by status, external requirement ID, initiator, keyword, and sorting conditions.
      *
      * @remarks
-     * 复用详情投影，避免工作项列表与实例状态混用。
+     * Reuses detail projections to avoid mixing work item lists with instance statuses.
      *
      * @param Request - ListWorkflowInstancesRequest
      *
@@ -13615,10 +13785,87 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListWorkflowTemplates.
+     * Queries the versions of a workflow template.
      *
      * @remarks
-     * 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+     * Queries all versions of a workflow template for active members. Returns draft and submitted versions in descending order by version number, and marks the unique effective version.
+     *
+     * @param Request - ListWorkflowTemplateVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkflowTemplateVersionsResponse
+     *
+     * @param ListWorkflowTemplateVersionsRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListWorkflowTemplateVersionsResponse
+     */
+    public function listWorkflowTemplateVersionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkflowTemplateVersions',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listWorkflowTemplateVersions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkflowTemplateVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the versions of a workflow template.
+     *
+     * @remarks
+     * Queries all versions of a workflow template for active members. Returns draft and submitted versions in descending order by version number, and marks the unique effective version.
+     *
+     * @param Request - ListWorkflowTemplateVersionsRequest
+     *
+     * @returns ListWorkflowTemplateVersionsResponse
+     *
+     * @param ListWorkflowTemplateVersionsRequest $request
+     *
+     * @return ListWorkflowTemplateVersionsResponse
+     */
+    public function listWorkflowTemplateVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkflowTemplateVersionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+     *
+     * @remarks
+     * Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
      *
      * @param Request - ListWorkflowTemplatesRequest
      * @param headers - map
@@ -13686,10 +13933,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ListWorkflowTemplates.
+     * Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
      *
      * @remarks
-     * 有效成员分页搜索当前协作空间的有效模板；page/pageSize 与 nextToken/maxResults 并存，令牌优先
+     * Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
      *
      * @param Request - ListWorkflowTemplatesRequest
      *
@@ -13708,10 +13955,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * MarkTodosRead.
+     * Marks to-do items as read.
      *
      * @remarks
-     * 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+     * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
      *
      * @param tmpReq - MarkTodosReadRequest
      * @param headers - map
@@ -13769,10 +14016,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * MarkTodosRead.
+     * Marks to-do items as read.
      *
      * @remarks
-     * 标记当前用户的待办已读；markAllRead 优先于 todoIds，两者皆空不报错
+     * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
      *
      * @param Request - MarkTodosReadRequest
      *
@@ -14155,10 +14402,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * PauseWorkItem.
+     * Pauses the entire workflow bound to a work item for active members.
      *
      * @remarks
-     * 有效成员暂停工作项绑定的整个 Workflow
+     * Pauses the entire workflow bound to a work item for active members.
      *
      * @param Request - PauseWorkItemRequest
      * @param headers - map
@@ -14210,10 +14457,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * PauseWorkItem.
+     * Pauses the entire workflow bound to a work item for active members.
      *
      * @remarks
-     * 有效成员暂停工作项绑定的整个 Workflow
+     * Pauses the entire workflow bound to a work item for active members.
      *
      * @param Request - PauseWorkItemRequest
      *
@@ -14749,10 +14996,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * QueryWorkItemFeed.
+     * Queries the grouped view of the work item feed for active members with server-side cursor pagination.
      *
      * @remarks
-     * 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+     * Queries the grouped view of the work item feed for active members with server-side cursor pagination.
      *
      * @param tmpReq - QueryWorkItemFeedRequest
      * @param headers - map
@@ -14850,10 +15097,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * QueryWorkItemFeed.
+     * Queries the grouped view of the work item feed for active members with server-side cursor pagination.
      *
      * @remarks
-     * 有效成员查询工作项 feed 分组视图；服务端游标分页（cursor/pageSize）
+     * Queries the grouped view of the work item feed for active members with server-side cursor pagination.
      *
      * @param Request - QueryWorkItemFeedRequest
      *
@@ -14969,10 +15216,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 批量注册应用内资源权限.
+     * Registers in-app resource permissions in bulk.
      *
      * @remarks
-     * 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+     * Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
      *
      * @param tmpReq - RegisterAppResourcePermissionsRequest
      * @param headers - map
@@ -15030,10 +15277,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 批量注册应用内资源权限.
+     * Registers in-app resource permissions in bulk.
      *
      * @remarks
-     * 先检查全部应用的 MANAGE 权限，再执行一次原子批量注册。
+     * Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
      *
      * @param Request - RegisterAppResourcePermissionsRequest
      *
@@ -15774,10 +16021,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 覆盖或清空手动记忆.
+     * Overwrites or clears manual memory.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal memory or the memory of a specified writing workspace based on the authenticated user. Workspace mode inherits the permissions of active members.
      *
      * @param Request - ReplaceManualMemoryRequest
      * @param headers - map
@@ -15833,10 +16080,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 覆盖或清空手动记忆.
+     * Overwrites or clears manual memory.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal memory or the memory of a specified writing workspace based on the authenticated user. Workspace mode inherits the permissions of active members.
      *
      * @param Request - ReplaceManualMemoryRequest
      *
@@ -16047,10 +16294,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * RerunNodeAI.
+     * Reruns a workflow node.
      *
      * @remarks
-     * 重跑失败的工作流节点
+     * Reruns a failed workflow node.
      *
      * @param Request - RerunNodeAIRequest
      * @param headers - map
@@ -16106,10 +16353,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * RerunNodeAI.
+     * Reruns a workflow node.
      *
      * @remarks
-     * 重跑失败的工作流节点
+     * Reruns a failed workflow node.
      *
      * @param Request - RerunNodeAIRequest
      *
@@ -16310,10 +16557,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ResolveWorkItemArtifactAccess.
+     * Retrieves the short-term signed download URL for a work item artifact.
      *
      * @remarks
-     * 有效成员解析工作项产物短期签名下载地址
+     * Retrieves the short-term signed download URL for a work item artifact.
      *
      * @param Request - ResolveWorkItemArtifactAccessRequest
      * @param headers - map
@@ -16369,10 +16616,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ResolveWorkItemArtifactAccess.
+     * Retrieves the short-term signed download URL for a work item artifact.
      *
      * @remarks
-     * 有效成员解析工作项产物短期签名下载地址
+     * Retrieves the short-term signed download URL for a work item artifact.
      *
      * @param Request - ResolveWorkItemArtifactAccessRequest
      *
@@ -16391,10 +16638,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ResolveWorkItemAttachmentAccess.
+     * Retrieves the short-term preview URL for an input attachment of a valid member parsing work item.
      *
      * @remarks
-     * 有效成员解析工作项输入附件短期预览地址
+     * Retrieves the short-term preview URL for an input attachment of a valid member parsing work item.
      *
      * @param Request - ResolveWorkItemAttachmentAccessRequest
      * @param headers - map
@@ -16450,10 +16697,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ResolveWorkItemAttachmentAccess.
+     * Retrieves the short-term preview URL for an input attachment of a valid member parsing work item.
      *
      * @remarks
-     * 有效成员解析工作项输入附件短期预览地址
+     * Retrieves the short-term preview URL for an input attachment of a valid member parsing work item.
      *
      * @param Request - ResolveWorkItemAttachmentAccessRequest
      *
@@ -16472,10 +16719,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ResumeWorkItem.
+     * Resumes work items from the current plan pause point as an effective member.
      *
      * @remarks
-     * 有效成员从当前 Plan 暂停点恢复工作项
+     * Resumes work items from the current plan pause point as an effective member.
      *
      * @param Request - ResumeWorkItemRequest
      * @param headers - map
@@ -16527,10 +16774,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ResumeWorkItem.
+     * Resumes work items from the current plan pause point as an effective member.
      *
      * @remarks
-     * 有效成员从当前 Plan 暂停点恢复工作项
+     * Resumes work items from the current plan pause point as an effective member.
      *
      * @param Request - ResumeWorkItemRequest
      *
@@ -17567,10 +17814,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ScheduleWorkItem.
+     * Idempotently schedules work items for valid members and materializes a fixed plan.
      *
      * @remarks
-     * 有效成员幂等排产工作项并物化固定 Plan
+     * Idempotently schedules work items for valid members and materializes a fixed plan.
      *
      * @param Request - ScheduleWorkItemRequest
      * @param headers - map
@@ -17626,10 +17873,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * ScheduleWorkItem.
+     * Idempotently schedules work items for valid members and materializes a fixed plan.
      *
      * @remarks
-     * 有效成员幂等排产工作项并物化固定 Plan
+     * Idempotently schedules work items for valid members and materializes a fixed plan.
      *
      * @param Request - ScheduleWorkItemRequest
      *
@@ -17648,13 +17895,13 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Winnexo 轻量工作台搜索阿里钉群聊。
+     * Searches for DingTalk group chats in the Winnexo lightweight workspace.
      *
      * @remarks
-     * ## 请求说明
-     * - 仅供 Winnexo 轻量工作台使用。
-     * - 按关键词分页搜索当前平台用户可见的阿里钉群聊。
-     * - 响应不包含 DWS 原始对象。
+     * ## Request description
+     * - Available only for the Winnexo lightweight workspace.
+     * - Searches for DingTalk group chats visible to the current platform user by keyword in a paginated manner.
+     * - The response does not include DWS raw objects.
      *
      * @param Request - SearchAliDingGroupChatsRequest
      * @param headers - map
@@ -17714,13 +17961,13 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Winnexo 轻量工作台搜索阿里钉群聊。
+     * Searches for DingTalk group chats in the Winnexo lightweight workspace.
      *
      * @remarks
-     * ## 请求说明
-     * - 仅供 Winnexo 轻量工作台使用。
-     * - 按关键词分页搜索当前平台用户可见的阿里钉群聊。
-     * - 响应不包含 DWS 原始对象。
+     * ## Request description
+     * - Available only for the Winnexo lightweight workspace.
+     * - Searches for DingTalk group chats visible to the current platform user by keyword in a paginated manner.
+     * - The response does not include DWS raw objects.
      *
      * @param Request - SearchAliDingGroupChatsRequest
      *
@@ -18141,10 +18388,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * SetWorkItemPinned.
+     * Sets the personal pin status of a work item for a valid member.
      *
      * @remarks
-     * 有效成员设置工作项个人置顶
+     * Sets the personal pin status of a work item for a valid member.
      *
      * @param Request - SetWorkItemPinnedRequest
      * @param headers - map
@@ -18200,10 +18447,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * SetWorkItemPinned.
+     * Sets the personal pin status of a work item for a valid member.
      *
      * @remarks
-     * 有效成员设置工作项个人置顶
+     * Sets the personal pin status of a work item for a valid member.
      *
      * @param Request - SetWorkItemPinnedRequest
      *
@@ -18219,6 +18466,87 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->setWorkItemPinnedWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Sets the effective version of a workflow.
+     *
+     * @remarks
+     * The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+     *
+     * @param Request - SetWorkflowTemplateEffectiveVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetWorkflowTemplateEffectiveVersionResponse
+     *
+     * @param SetWorkflowTemplateEffectiveVersionRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return SetWorkflowTemplateEffectiveVersionResponse
+     */
+    public function setWorkflowTemplateEffectiveVersionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['templateId'] = $request->templateId;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetWorkflowTemplateEffectiveVersion',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/setWorkflowTemplateEffectiveVersion',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetWorkflowTemplateEffectiveVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets the effective version of a workflow.
+     *
+     * @remarks
+     * The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+     *
+     * @param Request - SetWorkflowTemplateEffectiveVersionRequest
+     *
+     * @returns SetWorkflowTemplateEffectiveVersionResponse
+     *
+     * @param SetWorkflowTemplateEffectiveVersionRequest $request
+     *
+     * @return SetWorkflowTemplateEffectiveVersionResponse
+     */
+    public function setWorkflowTemplateEffectiveVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->setWorkflowTemplateEffectiveVersionWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -18423,10 +18751,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * SubmitTodo.
+     * Submits answers for a to-do item.
      *
      * @remarks
-     * 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+     * Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
      *
      * @param tmpReq - SubmitTodoRequest
      * @param headers - map
@@ -18484,10 +18812,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * SubmitTodo.
+     * Submits answers for a to-do item.
      *
      * @remarks
-     * 提交待办作答结果；本人重复提交幂等返回首次结果，他人抢先返回 409 AlreadyCompleted
+     * Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
      *
      * @param Request - SubmitTodoRequest
      *
@@ -18625,10 +18953,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * TerminateInstance.
+     * Terminates a workflow instance.
      *
      * @remarks
-     * 终止当前工作流实例
+     * Terminates the current workflow instance.
      *
      * @param Request - TerminateInstanceRequest
      * @param headers - map
@@ -18684,10 +19012,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * TerminateInstance.
+     * Terminates a workflow instance.
      *
      * @remarks
-     * 终止当前工作流实例
+     * Terminates the current workflow instance.
      *
      * @param Request - TerminateInstanceRequest
      *
@@ -19015,10 +19343,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * TransferTodo.
+     * Reassigns a to-do task.
      *
      * @remarks
-     * 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+     * Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
      *
      * @param tmpReq - TransferTodoRequest
      * @param headers - map
@@ -19080,10 +19408,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * TransferTodo.
+     * Reassigns a to-do task.
      *
      * @remarks
-     * 转办待办给指定用户；目标剔除操作人本人，整单原子校验
+     * Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
      *
      * @param Request - TransferTodoRequest
      *
@@ -19917,10 +20245,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 更新自动记忆拾取开关.
+     * Updates the automatic memory collection toggle.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal memories or memories of a specified collaborative writing workspace based on the authenticated user. In workspace mode, the permissions of active members are applied.
      *
      * @param Request - UpdateMemoryAutoExtractionSwitchRequest
      * @param headers - map
@@ -19980,10 +20308,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * 更新自动记忆拾取开关.
+     * Updates the automatic memory collection toggle.
      *
      * @remarks
-     * 基于鉴权用户管理个人或指定写作协作空间记忆；空间模式沿用活跃成员权限。
+     * Manages personal memories or memories of a specified collaborative writing workspace based on the authenticated user. In workspace mode, the permissions of active members are applied.
      *
      * @param Request - UpdateMemoryAutoExtractionSwitchRequest
      *
@@ -20632,10 +20960,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * UpdateWorkItem.
+     * Updates a work item using optimistic locking. If workflowTemplateIds is not specified, the existing bindings are retained.
      *
      * @remarks
-     * 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+     * Updates a work item using optimistic locking. If workflowTemplateIds is not specified, the existing bindings are retained.
      *
      * @param tmpReq - UpdateWorkItemRequest
      * @param headers - map
@@ -20741,10 +21069,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * UpdateWorkItem.
+     * Updates a work item using optimistic locking. If workflowTemplateIds is not specified, the existing bindings are retained.
      *
      * @remarks
-     * 有效成员按乐观版本编辑工作项；workflowTemplateIds 未传保持绑定
+     * Updates a work item using optimistic locking. If workflowTemplateIds is not specified, the existing bindings are retained.
      *
      * @param Request - UpdateWorkItemRequest
      *
@@ -20763,10 +21091,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * UpdateWorkflowTemplate.
+     * Overwrites and updates a workflow template. The last save takes effect.
      *
      * @remarks
-     * 有效成员整体覆盖更新工作流模板；最后一次保存生效
+     * Overwrites and updates a workflow template. The last save takes effect.
      *
      * @param tmpReq - UpdateWorkflowTemplateRequest
      * @param headers - map
@@ -20795,6 +21123,10 @@ class WinNexo extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->action) {
+            @$body['action'] = $request->action;
+        }
+
         if (null !== $request->collaborationGroupId) {
             @$body['collaborationGroupId'] = $request->collaborationGroupId;
         }
@@ -20803,8 +21135,20 @@ class WinNexo extends OpenApiClient
             @$body['definition'] = $request->definitionShrink;
         }
 
+        if (null !== $request->sourceVersion) {
+            @$body['sourceVersion'] = $request->sourceVersion;
+        }
+
         if (null !== $request->templateId) {
             @$body['templateId'] = $request->templateId;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        if (null !== $request->versionDescription) {
+            @$body['versionDescription'] = $request->versionDescription;
         }
 
         $req = new OpenApiRequest([
@@ -20828,10 +21172,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * UpdateWorkflowTemplate.
+     * Overwrites and updates a workflow template. The last save takes effect.
      *
      * @remarks
-     * 有效成员整体覆盖更新工作流模板；最后一次保存生效
+     * Overwrites and updates a workflow template. The last save takes effect.
      *
      * @param Request - UpdateWorkflowTemplateRequest
      *
