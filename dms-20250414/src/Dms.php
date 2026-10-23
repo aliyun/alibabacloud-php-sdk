@@ -1696,6 +1696,10 @@ class Dms extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
         if (null !== $request->skillName) {
             @$query['SkillName'] = $request->skillName;
         }
@@ -9531,7 +9535,7 @@ class Dms extends OpenApiClient
      * Updates the connection, authentication, or display information of an existing data source.
      *
      * @remarks
-     * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+     * Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
      *
      * @param request - UpdateAgenticDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9649,7 +9653,7 @@ class Dms extends OpenApiClient
      * Updates the connection, authentication, or display information of an existing data source.
      *
      * @remarks
-     * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
+     * Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
      *
      * @param request - UpdateAgenticDataSourceRequest
      *

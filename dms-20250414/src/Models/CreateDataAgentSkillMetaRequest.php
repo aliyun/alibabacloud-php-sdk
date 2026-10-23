@@ -16,6 +16,11 @@ class CreateDataAgentSkillMetaRequest extends Model
     /**
      * @var string
      */
+    public $skillId;
+
+    /**
+     * @var string
+     */
     public $skillName;
 
     /**
@@ -29,6 +34,7 @@ class CreateDataAgentSkillMetaRequest extends Model
     public $workspaceId;
     protected $_name = [
         'description' => 'Description',
+        'skillId' => 'SkillId',
         'skillName' => 'SkillName',
         'uploadLocation' => 'UploadLocation',
         'workspaceId' => 'WorkspaceId',
@@ -44,6 +50,10 @@ class CreateDataAgentSkillMetaRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->skillId) {
+            $res['SkillId'] = $this->skillId;
         }
 
         if (null !== $this->skillName) {
@@ -71,6 +81,10 @@ class CreateDataAgentSkillMetaRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['SkillId'])) {
+            $model->skillId = $map['SkillId'];
         }
 
         if (isset($map['SkillName'])) {
