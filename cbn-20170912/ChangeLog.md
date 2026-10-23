@@ -1,3 +1,8 @@
+2026-10-23 Version: 1.4.0
+- Support API DescribeTransitRouterCapacityReservations.
+- Support API ModifyTransitRouterCapacityReservations.
+
+
 2026-09-08 Version: 1.3.5
 - Generated php 2017-09-12 for Cbn.
 
