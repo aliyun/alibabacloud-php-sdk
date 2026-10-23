@@ -16,9 +16,15 @@ class userList extends Model
     /**
      * @var string
      */
+    public $authDb;
+
+    /**
+     * @var string
+     */
     public $instanceId;
     protected $_name = [
         'accountId' => 'AccountId',
+        'authDb' => 'AuthDb',
         'instanceId' => 'InstanceId',
     ];
 
@@ -32,6 +38,10 @@ class userList extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+
+        if (null !== $this->authDb) {
+            $res['AuthDb'] = $this->authDb;
         }
 
         if (null !== $this->instanceId) {
@@ -51,6 +61,10 @@ class userList extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+
+        if (isset($map['AuthDb'])) {
+            $model->authDb = $map['AuthDb'];
         }
 
         if (isset($map['InstanceId'])) {
