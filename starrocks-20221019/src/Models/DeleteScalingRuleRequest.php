@@ -11,6 +11,11 @@ class DeleteScalingRuleRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $nodeGroupId;
 
     /**
@@ -23,6 +28,7 @@ class DeleteScalingRuleRequest extends Model
      */
     public $triggerType;
     protected $_name = [
+        'instanceId' => 'InstanceId',
         'nodeGroupId' => 'NodeGroupId',
         'scalingRuleId' => 'ScalingRuleId',
         'triggerType' => 'TriggerType',
@@ -36,6 +42,10 @@ class DeleteScalingRuleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
@@ -59,6 +69,10 @@ class DeleteScalingRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }

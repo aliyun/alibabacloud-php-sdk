@@ -112,6 +112,11 @@ class data extends Model
      * @var bool
      */
     public $supportCompactionServiceWhiteList;
+
+    /**
+     * @var bool
+     */
+    public $supportLoadBasedAutoScaling;
     protected $_name = [
         'consoleControlRestart' => 'ConsoleControlRestart',
         'enableManageMv' => 'EnableManageMv',
@@ -134,6 +139,7 @@ class data extends Model
         'useComputeNode' => 'UseComputeNode',
         'supportCompactionService' => 'supportCompactionService',
         'supportCompactionServiceWhiteList' => 'supportCompactionServiceWhiteList',
+        'supportLoadBasedAutoScaling' => 'supportLoadBasedAutoScaling',
     ];
 
     public function validate()
@@ -238,6 +244,10 @@ class data extends Model
             $res['supportCompactionServiceWhiteList'] = $this->supportCompactionServiceWhiteList;
         }
 
+        if (null !== $this->supportLoadBasedAutoScaling) {
+            $res['supportLoadBasedAutoScaling'] = $this->supportLoadBasedAutoScaling;
+        }
+
         return $res;
     }
 
@@ -338,6 +348,10 @@ class data extends Model
 
         if (isset($map['supportCompactionServiceWhiteList'])) {
             $model->supportCompactionServiceWhiteList = $map['supportCompactionServiceWhiteList'];
+        }
+
+        if (isset($map['supportLoadBasedAutoScaling'])) {
+            $model->supportLoadBasedAutoScaling = $map['supportLoadBasedAutoScaling'];
         }
 
         return $model;

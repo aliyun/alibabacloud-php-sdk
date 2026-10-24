@@ -11,6 +11,11 @@ class ModifyScalingRuleRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $newTriggerType;
 
     /**
@@ -33,6 +38,7 @@ class ModifyScalingRuleRequest extends Model
      */
     public $scalingRuleId;
     protected $_name = [
+        'instanceId' => 'InstanceId',
         'newTriggerType' => 'NewTriggerType',
         'nodeGroupId' => 'NodeGroupId',
         'oldTriggerType' => 'OldTriggerType',
@@ -48,6 +54,10 @@ class ModifyScalingRuleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->newTriggerType) {
             $res['NewTriggerType'] = $this->newTriggerType;
         }
@@ -79,6 +89,10 @@ class ModifyScalingRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['NewTriggerType'])) {
             $model->newTriggerType = $map['NewTriggerType'];
         }
