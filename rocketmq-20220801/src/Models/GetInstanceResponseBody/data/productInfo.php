@@ -11,6 +11,11 @@ class productInfo extends Model
     /**
      * @var bool
      */
+    public $adaptiveElasticity;
+
+    /**
+     * @var bool
+     */
     public $autoScaling;
 
     /**
@@ -22,6 +27,11 @@ class productInfo extends Model
      * @var string
      */
     public $drReplicationMode;
+
+    /**
+     * @var int
+     */
+    public $maxDelayTime;
 
     /**
      * @var int
@@ -63,9 +73,11 @@ class productInfo extends Model
      */
     public $traceOn;
     protected $_name = [
+        'adaptiveElasticity' => 'adaptiveElasticity',
         'autoScaling' => 'autoScaling',
         'capacityType' => 'capacityType',
         'drReplicationMode' => 'drReplicationMode',
+        'maxDelayTime' => 'maxDelayTime',
         'messageRetentionTime' => 'messageRetentionTime',
         'msgProcessSpec' => 'msgProcessSpec',
         'provisionedCapacity' => 'provisionedCapacity',
@@ -84,6 +96,10 @@ class productInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adaptiveElasticity) {
+            $res['adaptiveElasticity'] = $this->adaptiveElasticity;
+        }
+
         if (null !== $this->autoScaling) {
             $res['autoScaling'] = $this->autoScaling;
         }
@@ -94,6 +110,10 @@ class productInfo extends Model
 
         if (null !== $this->drReplicationMode) {
             $res['drReplicationMode'] = $this->drReplicationMode;
+        }
+
+        if (null !== $this->maxDelayTime) {
+            $res['maxDelayTime'] = $this->maxDelayTime;
         }
 
         if (null !== $this->messageRetentionTime) {
@@ -139,6 +159,10 @@ class productInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['adaptiveElasticity'])) {
+            $model->adaptiveElasticity = $map['adaptiveElasticity'];
+        }
+
         if (isset($map['autoScaling'])) {
             $model->autoScaling = $map['autoScaling'];
         }
@@ -149,6 +173,10 @@ class productInfo extends Model
 
         if (isset($map['drReplicationMode'])) {
             $model->drReplicationMode = $map['drReplicationMode'];
+        }
+
+        if (isset($map['maxDelayTime'])) {
+            $model->maxDelayTime = $map['maxDelayTime'];
         }
 
         if (isset($map['messageRetentionTime'])) {

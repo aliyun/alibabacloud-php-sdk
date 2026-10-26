@@ -34,6 +34,11 @@ class data extends Model
     public $messageType;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -63,6 +68,7 @@ class data extends Model
         'liteTopicExpiration' => 'liteTopicExpiration',
         'maxSendTps' => 'maxSendTps',
         'messageType' => 'messageType',
+        'priority' => 'priority',
         'regionId' => 'regionId',
         'remark' => 'remark',
         'status' => 'status',
@@ -96,6 +102,10 @@ class data extends Model
 
         if (null !== $this->messageType) {
             $res['messageType'] = $this->messageType;
+        }
+
+        if (null !== $this->priority) {
+            $res['priority'] = $this->priority;
         }
 
         if (null !== $this->regionId) {
@@ -147,6 +157,10 @@ class data extends Model
 
         if (isset($map['messageType'])) {
             $model->messageType = $map['messageType'];
+        }
+
+        if (isset($map['priority'])) {
+            $model->priority = $map['priority'];
         }
 
         if (isset($map['regionId'])) {

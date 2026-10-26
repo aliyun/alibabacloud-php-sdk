@@ -11,6 +11,11 @@ class productInfo extends Model
     /**
      * @var bool
      */
+    public $adaptiveElasticity;
+
+    /**
+     * @var bool
+     */
     public $autoScaling;
 
     /**
@@ -28,6 +33,7 @@ class productInfo extends Model
      */
     public $traceOn;
     protected $_name = [
+        'adaptiveElasticity' => 'adaptiveElasticity',
         'autoScaling' => 'autoScaling',
         'messageRetentionTime' => 'messageRetentionTime',
         'sendReceiveRatio' => 'sendReceiveRatio',
@@ -42,6 +48,10 @@ class productInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adaptiveElasticity) {
+            $res['adaptiveElasticity'] = $this->adaptiveElasticity;
+        }
+
         if (null !== $this->autoScaling) {
             $res['autoScaling'] = $this->autoScaling;
         }
@@ -69,6 +79,10 @@ class productInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['adaptiveElasticity'])) {
+            $model->adaptiveElasticity = $map['adaptiveElasticity'];
+        }
+
         if (isset($map['autoScaling'])) {
             $model->autoScaling = $map['autoScaling'];
         }

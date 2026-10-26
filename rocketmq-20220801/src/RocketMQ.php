@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\AddDisasterRecoveryItemRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\AddDisasterRecoveryItemResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateAgentConversationRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateAgentConversationResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateDisasterRecoveryPlanRequest;
@@ -18,12 +20,16 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceAccountRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceAclRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceAclResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceInspectionRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceInspectionResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceIpWhitelistRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceIpWhitelistResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateTopicRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateTopicResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteAgentConversationRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteAgentConversationResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupSubscriptionRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupSubscriptionResponse;
@@ -32,6 +38,8 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteDisasterRecoveryPlanRespons
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceAclRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceAclResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceInspectionRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceInspectionResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceIpWhitelistRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceIpWhitelistResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceIpWhitelistShrinkRequest;
@@ -41,6 +49,12 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ExecuteMigrationOperationRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ExecuteMigrationOperationResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\FinishMigrationStageRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\FinishMigrationStageResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetAgentConversationEventsRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetAgentConversationEventsResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetAgentConversationRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetAgentConversationResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetAgentConversationTimelineRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetAgentConversationTimelineResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupLagRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupLagResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupResponse;
@@ -54,6 +68,12 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceAccountRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceAclRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceAclResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceInspectionReportRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceInspectionReportResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceInspectionRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceInspectionResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceInspectionRunRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceInspectionRunResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceIpWhitelistRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceIpWhitelistResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceIpWhitelistShrinkRequest;
@@ -62,6 +82,8 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetMessageDetailResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTopicResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListAgentConversationsRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListAgentConversationsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListAvailableZonesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerConnectionsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerConnectionsResponse;
@@ -75,10 +97,18 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryItemsRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryItemsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryPlansRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListDisasterRecoveryPlansResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInspectionTemplatesRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInspectionTemplatesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceAccountRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceAclRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceAclResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceInspectionResourcesRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceInspectionResourcesResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceInspectionRunsRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceInspectionRunsResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceInspectionsRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceInspectionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceIpWhitelistRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstanceIpWhitelistResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesRequest;
@@ -104,13 +134,27 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTracesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTracesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ResetConsumeOffsetRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ResetConsumeOffsetResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\RespondAgentConversationActionRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\RespondAgentConversationActionResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\RunInstanceInspectionRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\RunInstanceInspectionResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\SendAgentConversationMessageRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\SendAgentConversationMessageResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\StartDisasterRecoveryItemResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\SteerAgentConversationRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\SteerAgentConversationResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\StopAgentConversationRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\StopAgentConversationResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\StopDisasterRecoveryItemResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\SyncDisasterRecoveryCheckpointResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateAgentConversationRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateAgentConversationResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateAgentConversationShareScopeRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateAgentConversationShareScopeResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateDisasterRecoveryItemRequest;
@@ -121,10 +165,14 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceAccountRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceAclRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceAclResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceInspectionRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceInspectionResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateTopicRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateTopicResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UploadAgentConversationLogRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UploadAgentConversationLogResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\VerifyConsumeMessageRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\VerifyConsumeMessageResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\VerifySendMessageRequest;
@@ -139,7 +187,10 @@ class RocketMQ extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-guangzhou' => 'rocketmq.cn-guangzhou.aliyuncs.com	',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('rocketmq', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -169,7 +220,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Adds a topic mapping to a Global Replicator task.
+     * Adds a backup mapping task.
      *
      * @param request - AddDisasterRecoveryItemRequest
      * @param headers - map
@@ -212,7 +263,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Adds a topic mapping to a Global Replicator task.
+     * Adds a backup mapping task.
      *
      * @param request - AddDisasterRecoveryItemRequest
      *
@@ -232,7 +283,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+     * Modifies the resource group of an instance.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -286,7 +337,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+     * Modifies the resource group of an instance.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -305,14 +356,79 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates a consumer group.
+     * 创建 Agent 诊断会话.
+     *
+     * @param request - CreateAgentConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentConversationResponse
+     *
+     * @param CreateAgentConversationRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAgentConversationResponse
+     */
+    public function createAgentConversationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->initialMessage) {
+            @$body['initialMessage'] = $request->initialMessage;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgentConversation',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 Agent 诊断会话.
+     *
+     * @param request - CreateAgentConversationRequest
+     *
+     * @returns CreateAgentConversationResponse
+     *
+     * @param CreateAgentConversationRequest $request
+     *
+     * @return CreateAgentConversationResponse
+     */
+    public function createAgentConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAgentConversationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a consumer group (ConsumerGroup) for ApsaraMQ for RocketMQ. A consumer group is a load balancing group in ApsaraMQ for RocketMQ that contains multiple consumers with consistent consumption behavior. Consumers must subscribe to related topics by specifying a consumer group to implement message subscription.
      *
      * @remarks
-     * The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
-     * The following limits are imposed on the ID:
-     * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
-     * *   Length limit: The ID must be 1 to 60 characters in length.
-     * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
+     * >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use these operations only in the management link. Do not use them in the core data link for sending and receiving messages, as this may introduce risks to the link.
      *
      * @param request - CreateConsumerGroupRequest
      * @param headers - map
@@ -380,14 +496,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates a consumer group.
+     * Creates a consumer group (ConsumerGroup) for ApsaraMQ for RocketMQ. A consumer group is a load balancing group in ApsaraMQ for RocketMQ that contains multiple consumers with consistent consumption behavior. Consumers must subscribe to related topics by specifying a consumer group to implement message subscription.
      *
      * @remarks
-     * The ID of the consumer group. The ID is globally unique and is used to identify a consumer group.
-     * The following limits are imposed on the ID:
-     * *   Character limit: The ID can contain letters, digits, underscores (_), hyphens (-), and percent signs (%).
-     * *   Length limit: The ID must be 1 to 60 characters in length.
-     * For more information about strings that are reserved for the system, see [Limits on parameters](https://help.aliyun.com/document_detail/440347.html).
+     * >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use these operations only in the management link. Do not use them in the core data link for sending and receiving messages, as this may introduce risks to the link.
      *
      * @param request - CreateConsumerGroupRequest
      *
@@ -408,7 +520,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Create Disaster Recovery Plan.
+     * Creates a backup plan.
      *
      * @param request - CreateDisasterRecoveryPlanRequest
      * @param headers - map
@@ -470,7 +582,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Create Disaster Recovery Plan.
+     * Creates a backup plan.
      *
      * @param request - CreateDisasterRecoveryPlanRequest
      *
@@ -489,10 +601,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraMQ for RocketMQ 5.x instance.
+     * Creates an ApsaraMQ for RocketMQ 5.x series instance.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. Integrate it only into the management and control link. Do not rely on OpenAPI in the core data link for message sending and receiving. Otherwise, risks may occur on the link.
      *
      * @param request - CreateInstanceRequest
      * @param headers - map
@@ -600,10 +712,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraMQ for RocketMQ 5.x instance.
+     * Creates an ApsaraMQ for RocketMQ 5.x series instance.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. Integrate it only into the management and control link. Do not rely on OpenAPI in the core data link for message sending and receiving. Otherwise, risks may occur on the link.
      *
      * @param request - CreateInstanceRequest
      *
@@ -622,7 +734,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates an account that is used to access an instance.
+     * Creates an access account for an instance.
      *
      * @param request - CreateInstanceAccountRequest
      * @param headers - map
@@ -673,7 +785,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates an account that is used to access an instance.
+     * Creates an access account for an instance.
      *
      * @param request - CreateInstanceAccountRequest
      *
@@ -693,7 +805,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates an access control list (ACL) in a specific instance.
+     * Creates access permissions for a specified instance.
      *
      * @param request - CreateInstanceAclRequest
      * @param headers - map
@@ -753,7 +865,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates an access control list (ACL) in a specific instance.
+     * Creates access permissions for a specified instance.
      *
      * @param request - CreateInstanceAclRequest
      *
@@ -774,7 +886,88 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates an IP address whitelist.
+     * 创建实例巡检配置.
+     *
+     * @param request - CreateInstanceInspectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceInspectionResponse
+     *
+     * @param string                          $instanceId
+     * @param CreateInstanceInspectionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateInstanceInspectionResponse
+     */
+    public function createInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->items) {
+            @$body['items'] = $request->items;
+        }
+
+        if (null !== $request->resourceScope) {
+            @$body['resourceScope'] = $request->resourceScope;
+        }
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstanceInspection',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections/' . Url::percentEncode($instanceId) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstanceInspectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建实例巡检配置.
+     *
+     * @param request - CreateInstanceInspectionRequest
+     *
+     * @returns CreateInstanceInspectionResponse
+     *
+     * @param string                          $instanceId
+     * @param CreateInstanceInspectionRequest $request
+     *
+     * @return CreateInstanceInspectionResponse
+     */
+    public function createInstanceInspection($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an IP address whitelist for access control.
      *
      * @param request - CreateInstanceIpWhitelistRequest
      * @param headers - map
@@ -817,7 +1010,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Creates an IP address whitelist.
+     * Creates an IP address whitelist for access control.
      *
      * @param request - CreateInstanceIpWhitelistRequest
      *
@@ -837,7 +1030,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Create Topic.
+     * Creates a topic for ApsaraMQ for RocketMQ. A topic is the top-level container for message transmission and storage in ApsaraMQ for RocketMQ and is used to identify messages of the same business logic. In the messaging model, producers send messages to topics, and consumers consume messages by subscribing to specified topics.
      *
      * @param request - CreateTopicRequest
      * @param headers - map
@@ -893,7 +1086,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Create Topic.
+     * Creates a topic for ApsaraMQ for RocketMQ. A topic is the top-level container for message transmission and storage in ApsaraMQ for RocketMQ and is used to identify messages of the same business logic. In the messaging model, producers send messages to topics, and consumers consume messages by subscribing to specified topics.
      *
      * @param request - CreateTopicRequest
      *
@@ -914,11 +1107,68 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * 删除 Agent 诊断会话.
+     *
+     * @param request - DeleteAgentConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentConversationResponse
+     *
+     * @param string                         $conversationId
+     * @param DeleteAgentConversationRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAgentConversationResponse
+     */
+    public function deleteAgentConversationWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgentConversation',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 Agent 诊断会话.
+     *
+     * @param request - DeleteAgentConversationRequest
+     *
+     * @returns DeleteAgentConversationResponse
+     *
+     * @param string                         $conversationId
+     * @param DeleteAgentConversationRequest $request
+     *
+     * @return DeleteAgentConversationResponse
+     */
+    public function deleteAgentConversation($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAgentConversationWithOptions($conversationId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a specified consumer group.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+     * >Notice: OpenAPI operations provided by Alibaba Cloud are management API operations used to manage and query resources of Alibaba Cloud services. Integrate these operations only into management workflows. Do not rely on OpenAPI operations in the core data link for message sending and receiving. Otherwise, risks may occur in the workflows.
+     * After you delete a specified consumer group, consumer clients with the identity of the consumer group cannot consume messages. Invoke this operation with caution.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -956,8 +1206,8 @@ class RocketMQ extends OpenApiClient
      * Deletes a specified consumer group.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+     * >Notice: OpenAPI operations provided by Alibaba Cloud are management API operations used to manage and query resources of Alibaba Cloud services. Integrate these operations only into management workflows. Do not rely on OpenAPI operations in the core data link for message sending and receiving. Otherwise, risks may occur in the workflows.
+     * After you delete a specified consumer group, consumer clients with the identity of the consumer group cannot consume messages. Invoke this operation with caution.
      *
      * @returns DeleteConsumerGroupResponse
      *
@@ -975,7 +1225,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes the subscriptions of a consumer group.
+     * Deletes the subscription of a consumer group.
      *
      * @param request - DeleteConsumerGroupSubscriptionRequest
      * @param headers - map
@@ -1027,7 +1277,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes the subscriptions of a consumer group.
+     * Deletes the subscription of a consumer group.
      *
      * @param request - DeleteConsumerGroupSubscriptionRequest
      *
@@ -1048,7 +1298,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes a topic mapping of a Global Replicator task.
+     * Deletes a backup mapping task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1083,7 +1333,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes a topic mapping of a Global Replicator task.
+     * Deletes a backup mapping task.
      *
      * @returns DeleteDisasterRecoveryItemResponse
      *
@@ -1101,7 +1351,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes a global message backup plan.
+     * Deletes a backup plan.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1135,7 +1385,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes a global message backup plan.
+     * Deletes a backup plan.
      *
      * @returns DeleteDisasterRecoveryPlanResponse
      *
@@ -1213,7 +1463,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Delete access control ACL user.
+     * Deletes the access account information for a specified instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1248,7 +1498,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Delete access control ACL user.
+     * Deletes the access account information for a specified instance.
      *
      * @returns DeleteInstanceAccountResponse
      *
@@ -1266,7 +1516,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes the permissions of a specific account of an instance.
+     * Deletes the permissions of a specified account for a specified resource in a specified instance.
      *
      * @param request - DeleteInstanceAclRequest
      * @param headers - map
@@ -1314,7 +1564,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes the permissions of a specific account of an instance.
+     * Deletes the permissions of a specified account for a specified resource in a specified instance.
      *
      * @param request - DeleteInstanceAclRequest
      *
@@ -1335,7 +1585,70 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes a specific IP address whitelist from an instance.
+     * 关闭实例巡检配置.
+     *
+     * @param request - DeleteInstanceInspectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceInspectionResponse
+     *
+     * @param string                          $instanceId
+     * @param DeleteInstanceInspectionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteInstanceInspectionResponse
+     */
+    public function deleteInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstanceInspection',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections/' . Url::percentEncode($instanceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInstanceInspectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭实例巡检配置.
+     *
+     * @param request - DeleteInstanceInspectionRequest
+     *
+     * @returns DeleteInstanceInspectionResponse
+     *
+     * @param string                          $instanceId
+     * @param DeleteInstanceInspectionRequest $request
+     *
+     * @return DeleteInstanceInspectionResponse
+     */
+    public function deleteInstanceInspection($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a specified global IP whitelist under a specified instance.
      *
      * @param tmpReq - DeleteInstanceIpWhitelistRequest
      * @param headers - map
@@ -1388,7 +1701,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Deletes a specific IP address whitelist from an instance.
+     * Deletes a specified global IP whitelist under a specified instance.
      *
      * @param request - DeleteInstanceIpWhitelistRequest
      *
@@ -1411,7 +1724,7 @@ class RocketMQ extends OpenApiClient
      * Deletes a specified topic.
      *
      * @remarks
-     * If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+     * Deleting a topic clears all publish-subscribe relationships under the topic. Call this operation with caution.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1449,7 +1762,7 @@ class RocketMQ extends OpenApiClient
      * Deletes a specified topic.
      *
      * @remarks
-     * If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+     * Deleting a topic clears all publish-subscribe relationships under the topic. Call this operation with caution.
      *
      * @returns DeleteTopicResponse
      *
@@ -1467,7 +1780,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Executes a specific operation on a specific migration task.
+     * Performs a specified operation on a specified migration task.
      *
      * @param request - ExecuteMigrationOperationRequest
      * @param headers - map
@@ -1518,7 +1831,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Executes a specific operation on a specific migration task.
+     * Performs a specified operation on a specified migration task.
      *
      * @param request - ExecuteMigrationOperationRequest
      *
@@ -1540,7 +1853,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 完成当前迁移阶段.
+     * Completes the current migration stage for a specified migration task.
      *
      * @param request - FinishMigrationStageRequest
      * @param headers - map
@@ -1584,7 +1897,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * 完成当前迁移阶段.
+     * Completes the current migration stage for a specified migration task.
      *
      * @param request - FinishMigrationStageRequest
      *
@@ -1605,7 +1918,250 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the time range within which the consumer offset in a topic can be reset.
+     * 查询 Agent 诊断会话详情.
+     *
+     * @param request - GetAgentConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentConversationResponse
+     *
+     * @param string                      $conversationId
+     * @param GetAgentConversationRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAgentConversationResponse
+     */
+    public function getAgentConversationWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentConversation',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 Agent 诊断会话详情.
+     *
+     * @param request - GetAgentConversationRequest
+     *
+     * @returns GetAgentConversationResponse
+     *
+     * @param string                      $conversationId
+     * @param GetAgentConversationRequest $request
+     *
+     * @return GetAgentConversationResponse
+     */
+    public function getAgentConversation($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAgentConversationWithOptions($conversationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 订阅 Agent 诊断会话事件.
+     *
+     * @param request - GetAgentConversationEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentConversationEventsResponse
+     *
+     * @param string                            $conversationId
+     * @param GetAgentConversationEventsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAgentConversationEventsResponse
+     */
+    public function getAgentConversationEventsWithSSE($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->after) {
+            @$query['after'] = $request->after;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentConversationEvents',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/events',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'string',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = $resp->event->data;
+
+                yield GetAgentConversationEventsResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 订阅 Agent 诊断会话事件.
+     *
+     * @param request - GetAgentConversationEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentConversationEventsResponse
+     *
+     * @param string                            $conversationId
+     * @param GetAgentConversationEventsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAgentConversationEventsResponse
+     */
+    public function getAgentConversationEventsWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->after) {
+            @$query['after'] = $request->after;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentConversationEvents',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/events',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'string',
+        ]);
+
+        return GetAgentConversationEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 订阅 Agent 诊断会话事件.
+     *
+     * @param request - GetAgentConversationEventsRequest
+     *
+     * @returns GetAgentConversationEventsResponse
+     *
+     * @param string                            $conversationId
+     * @param GetAgentConversationEventsRequest $request
+     *
+     * @return GetAgentConversationEventsResponse
+     */
+    public function getAgentConversationEvents($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAgentConversationEventsWithOptions($conversationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询 Agent 诊断会话时间线
+     *
+     * @param request - GetAgentConversationTimelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentConversationTimelineResponse
+     *
+     * @param string                              $conversationId
+     * @param GetAgentConversationTimelineRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAgentConversationTimelineResponse
+     */
+    public function getAgentConversationTimelineWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->after) {
+            @$query['after'] = $request->after;
+        }
+
+        if (null !== $request->includeImageData) {
+            @$query['includeImageData'] = $request->includeImageData;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentConversationTimeline',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/timeline',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentConversationTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 Agent 诊断会话时间线
+     *
+     * @param request - GetAgentConversationTimelineRequest
+     *
+     * @returns GetAgentConversationTimelineResponse
+     *
+     * @param string                              $conversationId
+     * @param GetAgentConversationTimelineRequest $request
+     *
+     * @return GetAgentConversationTimelineResponse
+     */
+    public function getAgentConversationTimeline($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAgentConversationTimelineWithOptions($conversationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the time range in which a consumer offset can be reset for a topic.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1641,7 +2197,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the time range within which the consumer offset in a topic can be reset.
+     * Queries the time range in which a consumer offset can be reset for a topic.
      *
      * @returns GetConsumeTimespanResponse
      *
@@ -1660,10 +2216,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified consumer group.
+     * Retrieves the details of a specified consumer group.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control data links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the data link.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1698,10 +2254,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified consumer group.
+     * Retrieves the details of a specified consumer group.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control data links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the data link.
      *
      * @returns GetConsumerGroupResponse
      *
@@ -1719,7 +2275,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Consumer Group Backlog Information.
+     * Queries the message accumulation of a consumer group.
      *
      * @param request - GetConsumerGroupLagRequest
      * @param headers - map
@@ -1767,7 +2323,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Consumer Group Backlog Information.
+     * Queries the message accumulation of a consumer group.
      *
      * @param request - GetConsumerGroupLagRequest
      *
@@ -1908,7 +2464,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the details of a topic mapping in a Global Replicator task.
+     * Queries the details of a backup plan mapping.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1943,7 +2499,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the details of a topic mapping in a Global Replicator task.
+     * Queries the details of a backup plan mapping.
      *
      * @returns GetDisasterRecoveryItemResponse
      *
@@ -1961,7 +2517,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the details of a Global Replicator task.
+     * Queries the details of a backup plan.
+     *
+     * @remarks
+     * Before querying, make sure you have created a Global Replicator backup plan. Before using Global Replicator, your account must have the AliyunServiceRoleForRMQDisasterRecovery service-linked role. This role is used to grant authorization for ApsaraMQ for RocketMQ to access the EventBridge event bus. The system typically creates this role automatically the first time you use the associated feature. If automatic creation failed, create the role manually.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1995,7 +2554,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the details of a Global Replicator task.
+     * Queries the details of a backup plan.
+     *
+     * @remarks
+     * Before querying, make sure you have created a Global Replicator backup plan. Before using Global Replicator, your account must have the AliyunServiceRoleForRMQDisasterRecovery service-linked role. This role is used to grant authorization for ApsaraMQ for RocketMQ to access the EventBridge event bus. The system typically creates this role automatically the first time you use the associated feature. If automatic creation failed, create the role manually.
      *
      * @returns GetDisasterRecoveryPlanResponse
      *
@@ -2012,10 +2574,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about an instance.
+     * Retrieves the details of a specified instance.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use them only in management and control workflows. Do not rely on OpenAPI in core data link workflows for message sending and receiving, as this may introduce risks to the data link.</notice>
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2049,10 +2611,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about an instance.
+     * Retrieves the details of a specified instance.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI operations provided by Alibaba Cloud are management APIs used to manage and query Alibaba Cloud service resources. Use them only in management and control workflows. Do not rely on OpenAPI in core data link workflows for message sending and receiving, as this may introduce risks to the data link.</notice>
      *
      * @returns GetInstanceResponse
      *
@@ -2069,7 +2631,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Obtains the account used to access a specific instance.
+     * Retrieves the account details for a specified instance.
      *
      * @param request - GetInstanceAccountRequest
      * @param headers - map
@@ -2112,7 +2674,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Obtains the account used to access a specific instance.
+     * Retrieves the account details for a specified instance.
      *
      * @param request - GetInstanceAccountRequest
      *
@@ -2201,6 +2763,191 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * 查询实例巡检配置.
+     *
+     * @param request - GetInstanceInspectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceInspectionResponse
+     *
+     * @param string                       $instanceId
+     * @param GetInstanceInspectionRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetInstanceInspectionResponse
+     */
+    public function getInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceInspection',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections/' . Url::percentEncode($instanceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceInspectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例巡检配置.
+     *
+     * @param request - GetInstanceInspectionRequest
+     *
+     * @returns GetInstanceInspectionResponse
+     *
+     * @param string                       $instanceId
+     * @param GetInstanceInspectionRequest $request
+     *
+     * @return GetInstanceInspectionResponse
+     */
+    public function getInstanceInspection($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询实例风险诊断报告.
+     *
+     * @param request - GetInstanceInspectionReportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceInspectionReportResponse
+     *
+     * @param string                             $reportId
+     * @param GetInstanceInspectionReportRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetInstanceInspectionReportResponse
+     */
+    public function getInstanceInspectionReportWithOptions($reportId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceInspectionReport',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections/reports/' . Url::percentEncode($reportId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceInspectionReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例风险诊断报告.
+     *
+     * @param request - GetInstanceInspectionReportRequest
+     *
+     * @returns GetInstanceInspectionReportResponse
+     *
+     * @param string                             $reportId
+     * @param GetInstanceInspectionReportRequest $request
+     *
+     * @return GetInstanceInspectionReportResponse
+     */
+    public function getInstanceInspectionReport($reportId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceInspectionReportWithOptions($reportId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询实例巡检结果.
+     *
+     * @param request - GetInstanceInspectionRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceInspectionRunResponse
+     *
+     * @param string                          $instanceId
+     * @param string                          $runId
+     * @param GetInstanceInspectionRunRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetInstanceInspectionRunResponse
+     */
+    public function getInstanceInspectionRunWithOptions($instanceId, $runId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceInspectionRun',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections/' . Url::percentEncode($instanceId) . '/runs/' . Url::percentEncode($runId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceInspectionRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例巡检结果.
+     *
+     * @param request - GetInstanceInspectionRunRequest
+     *
+     * @returns GetInstanceInspectionRunResponse
+     *
+     * @param string                          $instanceId
+     * @param string                          $runId
+     * @param GetInstanceInspectionRunRequest $request
+     *
+     * @return GetInstanceInspectionRunResponse
+     */
+    public function getInstanceInspectionRun($instanceId, $runId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceInspectionRunWithOptions($instanceId, $runId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the information about the IP address whitelist of an instance.
      *
      * @param tmpReq - GetInstanceIpWhitelistRequest
@@ -2270,7 +3017,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specific message.
+     * Retrieves the details of a specified message.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2306,7 +3053,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specific message.
+     * Retrieves the details of a specified message.
      *
      * @returns GetMessageDetailResponse
      *
@@ -2325,7 +3072,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Topic Details.
+     * Retrieves the details of a specified topic.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2360,7 +3107,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Topic Details.
+     * Retrieves the details of a specified topic.
      *
      * @returns GetTopicResponse
      *
@@ -2378,7 +3125,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the trace of a specific message in a specific topic.
+     * Retrieves the message trace for a specified message in a specified topic.
      *
      * @param request - GetTraceRequest
      * @param headers - map
@@ -2427,7 +3174,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the trace of a specific message in a specific topic.
+     * Retrieves the message trace for a specified message in a specified topic.
      *
      * @param request - GetTraceRequest
      *
@@ -2449,7 +3196,80 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the supported zones.
+     * 查询 Agent 诊断会话列表.
+     *
+     * @param request - ListAgentConversationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentConversationsResponse
+     *
+     * @param ListAgentConversationsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAgentConversationsResponse
+     */
+    public function listAgentConversationsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->purpose) {
+            @$query['purpose'] = $request->purpose;
+        }
+
+        if (null !== $request->q) {
+            @$query['q'] = $request->q;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentConversations',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgentConversationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 Agent 诊断会话列表.
+     *
+     * @param request - ListAgentConversationsRequest
+     *
+     * @returns ListAgentConversationsResponse
+     *
+     * @param ListAgentConversationsRequest $request
+     *
+     * @return ListAgentConversationsResponse
+     */
+    public function listAgentConversations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAgentConversationsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries supported zones.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2482,7 +3302,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the supported zones.
+     * Queries supported zones.
      *
      * @returns ListAvailableZonesResponse
      *
@@ -2497,7 +3317,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the connections of a specific consumer client.
+     * Retrieves the connection information for clients in a specified consumer group.
      *
      * @param request - ListConsumerConnectionsRequest
      * @param headers - map
@@ -2545,7 +3365,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the connections of a specific consumer client.
+     * Retrieves the connection information for clients in a specified consumer group.
      *
      * @param request - ListConsumerConnectionsRequest
      *
@@ -2566,7 +3386,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the subscriptions of a specific consumer group.
+     * Lists the subscription relationships for a consumer group.
      *
      * @param request - ListConsumerGroupSubscriptionsRequest
      * @param headers - map
@@ -2610,7 +3430,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the subscriptions of a specific consumer group.
+     * Lists the subscription relationships for a consumer group.
      *
      * @param request - ListConsumerGroupSubscriptionsRequest
      *
@@ -2631,10 +3451,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * List Consumer Groups.
+     * Queries the list of consumer groups under a specified instance.
      *
      * @remarks
-     * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the link.
      *
      * @param request - ListConsumerGroupsRequest
      * @param headers - map
@@ -2685,10 +3505,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * List Consumer Groups.
+     * Queries the list of consumer groups under a specified instance.
      *
      * @remarks
-     * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. Do not rely on OpenAPI implementation in the core data chain for message sending and receiving, as this may lead to risks in the chain.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query related resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Using OpenAPI in the core data link for message sending and receiving is strictly prohibited. Otherwise, risks may occur in the link.
      *
      * @param request - ListConsumerGroupsRequest
      *
@@ -2708,7 +3528,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries consumer progress synchronization tasks.
+     * Queries the list of consumer offset synchronization checkpoints.
+     *
+     * @remarks
+     * Before you call this operation, create a Global Replicator backup plan and add topic mapping items to the plan. Then use the corresponding planId, itemId, and source instance ID to query consumer offset synchronization checkpoints. To use Global Replicator, make sure that your account has the AliyunServiceRoleForRMQDisasterRecovery service-linked role. The system typically performs automatic creation of this role when you first use the associated feature.
      *
      * @param request - ListDisasterRecoveryCheckpointsRequest
      * @param headers - map
@@ -2764,7 +3587,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries consumer progress synchronization tasks.
+     * Queries the list of consumer offset synchronization checkpoints.
+     *
+     * @remarks
+     * Before you call this operation, create a Global Replicator backup plan and add topic mapping items to the plan. Then use the corresponding planId, itemId, and source instance ID to query consumer offset synchronization checkpoints. To use Global Replicator, make sure that your account has the AliyunServiceRoleForRMQDisasterRecovery service-linked role. The system typically performs automatic creation of this role when you first use the associated feature.
      *
      * @param request - ListDisasterRecoveryCheckpointsRequest
      *
@@ -2785,7 +3611,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the Global Replicator tasks of an instance.
+     * Queries the list of backup mapping tasks.
      *
      * @param request - ListDisasterRecoveryItemsRequest
      * @param headers - map
@@ -2840,7 +3666,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the Global Replicator tasks of an instance.
+     * Queries the list of backup mapping tasks.
      *
      * @param request - ListDisasterRecoveryItemsRequest
      *
@@ -2860,7 +3686,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries Global Replicator tasks.
+     * Queries a list of backup plans.
      *
      * @param request - ListDisasterRecoveryPlansRequest
      * @param headers - map
@@ -2914,7 +3740,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries Global Replicator tasks.
+     * Queries a list of backup plans.
      *
      * @param request - ListDisasterRecoveryPlansRequest
      *
@@ -2933,7 +3759,76 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the accounts that are used to access a specific instance.
+     * 查询巡检模板列表.
+     *
+     * @param request - ListInspectionTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInspectionTemplatesResponse
+     *
+     * @param ListInspectionTemplatesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListInspectionTemplatesResponse
+     */
+    public function listInspectionTemplatesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInspectionTemplates',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/templates',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInspectionTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询巡检模板列表.
+     *
+     * @param request - ListInspectionTemplatesRequest
+     *
+     * @returns ListInspectionTemplatesResponse
+     *
+     * @param ListInspectionTemplatesRequest $request
+     *
+     * @return ListInspectionTemplatesResponse
+     */
+    public function listInspectionTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInspectionTemplatesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the access accounts for a specified instance.
      *
      * @param request - ListInstanceAccountRequest
      * @param headers - map
@@ -2992,7 +3887,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the accounts that are used to access a specific instance.
+     * Retrieves the access accounts for a specified instance.
      *
      * @param request - ListInstanceAccountRequest
      *
@@ -3083,6 +3978,253 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * 查询巡检项关联资源.
+     *
+     * @param request - ListInstanceInspectionResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceInspectionResourcesResponse
+     *
+     * @param string                                 $instanceId
+     * @param ListInstanceInspectionResourcesRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListInstanceInspectionResourcesResponse
+     */
+    public function listInstanceInspectionResourcesWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->runId) {
+            @$query['runId'] = $request->runId;
+        }
+
+        if (null !== $request->templateCode) {
+            @$query['templateCode'] = $request->templateCode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceInspectionResources',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections/' . Url::percentEncode($instanceId) . '/resources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceInspectionResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询巡检项关联资源.
+     *
+     * @param request - ListInstanceInspectionResourcesRequest
+     *
+     * @returns ListInstanceInspectionResourcesResponse
+     *
+     * @param string                                 $instanceId
+     * @param ListInstanceInspectionResourcesRequest $request
+     *
+     * @return ListInstanceInspectionResourcesResponse
+     */
+    public function listInstanceInspectionResources($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstanceInspectionResourcesWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询实例巡检历史.
+     *
+     * @param request - ListInstanceInspectionRunsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceInspectionRunsResponse
+     *
+     * @param string                            $instanceId
+     * @param ListInstanceInspectionRunsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListInstanceInspectionRunsResponse
+     */
+    public function listInstanceInspectionRunsWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reportStatus) {
+            @$query['reportStatus'] = $request->reportStatus;
+        }
+
+        if (null !== $request->result) {
+            @$query['result'] = $request->result;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['sortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->templateCode) {
+            @$query['templateCode'] = $request->templateCode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceInspectionRuns',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections/' . Url::percentEncode($instanceId) . '/runs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceInspectionRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例巡检历史.
+     *
+     * @param request - ListInstanceInspectionRunsRequest
+     *
+     * @returns ListInstanceInspectionRunsResponse
+     *
+     * @param string                            $instanceId
+     * @param ListInstanceInspectionRunsRequest $request
+     *
+     * @return ListInstanceInspectionRunsResponse
+     */
+    public function listInstanceInspectionRuns($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstanceInspectionRunsWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 分页查询已配置的实例诊断；仅返回配置摘要
+     *
+     * @param request - ListInstanceInspectionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceInspectionsResponse
+     *
+     * @param ListInstanceInspectionsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListInstanceInspectionsResponse
+     */
+    public function listInstanceInspectionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceInspections',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceInspectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询已配置的实例诊断；仅返回配置摘要
+     *
+     * @param request - ListInstanceInspectionsRequest
+     *
+     * @returns ListInstanceInspectionsResponse
+     *
+     * @param ListInstanceInspectionsRequest $request
+     *
+     * @return ListInstanceInspectionsResponse
+     */
+    public function listInstanceInspections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstanceInspectionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the IP address whitelists of an instance.
      *
      * @param request - ListInstanceIpWhitelistRequest
@@ -3154,10 +4296,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries all ApsaraMQ for RocketMQ instances in a specific region.
+     * Queries the list of all ApsaraMQ for RocketMQ instances in a specified region.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI operations provided by Alibaba Cloud are management API operations that are used to manage and query resources of Alibaba Cloud services. Integrate OpenAPI operations only into the management data link. Do not use OpenAPI operations in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
      *
      * @param tmpReq - ListInstancesRequest
      * @param headers - map
@@ -3229,10 +4371,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries all ApsaraMQ for RocketMQ instances in a specific region.
+     * Queries the list of all ApsaraMQ for RocketMQ instances in a specified region.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI operations provided by Alibaba Cloud are management API operations that are used to manage and query resources of Alibaba Cloud services. Integrate OpenAPI operations only into the management data link. Do not use OpenAPI operations in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
      *
      * @param request - ListInstancesRequest
      *
@@ -3251,7 +4393,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries messages.
+     * Queries a list of messages.
      *
      * @param request - ListMessagesRequest
      * @param headers - map
@@ -3323,7 +4465,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries messages.
+     * Queries a list of messages.
      *
      * @param request - ListMessagesRequest
      *
@@ -3409,7 +4551,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries a list of migration operations.
+     * Queries the list of migration operations.
      *
      * @param tmpReq - ListMigrationOperationsRequest
      * @param headers - map
@@ -3487,7 +4629,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries a list of migration operations.
+     * Queries the list of migration operations.
      *
      * @param request - ListMigrationOperationsRequest
      *
@@ -3508,7 +4650,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries migration tasks.
+     * Queries the list of migration tasks.
      *
      * @param request - ListMigrationsRequest
      * @param headers - map
@@ -3566,7 +4708,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries migration tasks.
+     * Queries the list of migration tasks.
      *
      * @param request - ListMigrationsRequest
      *
@@ -3585,7 +4727,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries regions in which ApsaraMQ for RocketMQ is available.
+     * Queries the list of regions.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3618,7 +4760,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries regions in which ApsaraMQ for RocketMQ is available.
+     * Queries the list of regions.
      *
      * @returns ListRegionsResponse
      *
@@ -3767,7 +4909,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Topic List.
+     * Queries the list of topics in a specified instance.
      *
      * @param tmpReq - ListTopicsRequest
      * @param headers - map
@@ -3828,7 +4970,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Query Topic List.
+     * Queries the list of topics in a specified instance.
      *
      * @param request - ListTopicsRequest
      *
@@ -3848,7 +4990,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the message traces of a specific topic.
+     * Queries the list of message traces under a specified topic.
      *
      * @param request - ListTracesRequest
      * @param headers - map
@@ -3920,7 +5062,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Queries the message traces of a specific topic.
+     * Queries the list of message traces under a specified topic.
      *
      * @param request - ListTracesRequest
      *
@@ -4012,6 +5154,311 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * 响应 Agent 诊断交互.
+     *
+     * @param request - RespondAgentConversationActionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RespondAgentConversationActionResponse
+     *
+     * @param string                                $conversationId
+     * @param string                                $actionId
+     * @param RespondAgentConversationActionRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RespondAgentConversationActionResponse
+     */
+    public function respondAgentConversationActionWithOptions($conversationId, $actionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->answers) {
+            @$body['answers'] = $request->answers;
+        }
+
+        if (null !== $request->decision) {
+            @$body['decision'] = $request->decision;
+        }
+
+        if (null !== $request->note) {
+            @$body['note'] = $request->note;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RespondAgentConversationAction',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/actions/' . Url::percentEncode($actionId) . '/respond',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RespondAgentConversationActionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 响应 Agent 诊断交互.
+     *
+     * @param request - RespondAgentConversationActionRequest
+     *
+     * @returns RespondAgentConversationActionResponse
+     *
+     * @param string                                $conversationId
+     * @param string                                $actionId
+     * @param RespondAgentConversationActionRequest $request
+     *
+     * @return RespondAgentConversationActionResponse
+     */
+    public function respondAgentConversationAction($conversationId, $actionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->respondAgentConversationActionWithOptions($conversationId, $actionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 立即执行实例巡检
+     *
+     * @param request - RunInstanceInspectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunInstanceInspectionResponse
+     *
+     * @param string                       $instanceId
+     * @param RunInstanceInspectionRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RunInstanceInspectionResponse
+     */
+    public function runInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->itemOverrides) {
+            @$body['itemOverrides'] = $request->itemOverrides;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunInstanceInspection',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections/' . Url::percentEncode($instanceId) . '/runs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RunInstanceInspectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 立即执行实例巡检
+     *
+     * @param request - RunInstanceInspectionRequest
+     *
+     * @returns RunInstanceInspectionResponse
+     *
+     * @param string                       $instanceId
+     * @param RunInstanceInspectionRequest $request
+     *
+     * @return RunInstanceInspectionResponse
+     */
+    public function runInstanceInspection($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 发送 Agent 诊断消息.
+     *
+     * @param request - SendAgentConversationMessageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendAgentConversationMessageResponse
+     *
+     * @param string                              $conversationId
+     * @param SendAgentConversationMessageRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SendAgentConversationMessageResponse
+     */
+    public function sendAgentConversationMessageWithSSE($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->attachments) {
+            @$body['attachments'] = $request->attachments;
+        }
+
+        if (null !== $request->clientContext) {
+            @$body['clientContext'] = $request->clientContext;
+        }
+
+        if (null !== $request->images) {
+            @$body['images'] = $request->images;
+        }
+
+        if (null !== $request->message) {
+            @$body['message'] = $request->message;
+        }
+
+        if (null !== $request->messageType) {
+            @$body['messageType'] = $request->messageType;
+        }
+
+        if (null !== $request->ticketRequestId) {
+            @$body['ticketRequestId'] = $request->ticketRequestId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SendAgentConversationMessage',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/messages',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'string',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = $resp->event->data;
+
+                yield SendAgentConversationMessageResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 发送 Agent 诊断消息.
+     *
+     * @param request - SendAgentConversationMessageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendAgentConversationMessageResponse
+     *
+     * @param string                              $conversationId
+     * @param SendAgentConversationMessageRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SendAgentConversationMessageResponse
+     */
+    public function sendAgentConversationMessageWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->attachments) {
+            @$body['attachments'] = $request->attachments;
+        }
+
+        if (null !== $request->clientContext) {
+            @$body['clientContext'] = $request->clientContext;
+        }
+
+        if (null !== $request->images) {
+            @$body['images'] = $request->images;
+        }
+
+        if (null !== $request->message) {
+            @$body['message'] = $request->message;
+        }
+
+        if (null !== $request->messageType) {
+            @$body['messageType'] = $request->messageType;
+        }
+
+        if (null !== $request->ticketRequestId) {
+            @$body['ticketRequestId'] = $request->ticketRequestId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SendAgentConversationMessage',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/messages',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'string',
+        ]);
+
+        return SendAgentConversationMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发送 Agent 诊断消息.
+     *
+     * @param request - SendAgentConversationMessageRequest
+     *
+     * @returns SendAgentConversationMessageResponse
+     *
+     * @param string                              $conversationId
+     * @param SendAgentConversationMessageRequest $request
+     *
+     * @return SendAgentConversationMessageResponse
+     */
+    public function sendAgentConversationMessage($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sendAgentConversationMessageWithOptions($conversationId, $request, $headers, $runtime);
+    }
+
+    /**
      * Starts a topic mapping of a Global Replicator task.
      *
      * @param headers - map
@@ -4062,6 +5509,130 @@ class RocketMQ extends OpenApiClient
         $headers = [];
 
         return $this->startDisasterRecoveryItemWithOptions($planId, $itemId, $headers, $runtime);
+    }
+
+    /**
+     * 引导 Agent 诊断会话执行.
+     *
+     * @param request - SteerAgentConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SteerAgentConversationResponse
+     *
+     * @param string                        $conversationId
+     * @param SteerAgentConversationRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SteerAgentConversationResponse
+     */
+    public function steerAgentConversationWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->commandId) {
+            @$body['commandId'] = $request->commandId;
+        }
+
+        if (null !== $request->message) {
+            @$body['message'] = $request->message;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SteerAgentConversation',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/actions/steer',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SteerAgentConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 引导 Agent 诊断会话执行.
+     *
+     * @param request - SteerAgentConversationRequest
+     *
+     * @returns SteerAgentConversationResponse
+     *
+     * @param string                        $conversationId
+     * @param SteerAgentConversationRequest $request
+     *
+     * @return SteerAgentConversationResponse
+     */
+    public function steerAgentConversation($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->steerAgentConversationWithOptions($conversationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 停止 Agent 诊断会话执行.
+     *
+     * @param request - StopAgentConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAgentConversationResponse
+     *
+     * @param string                       $conversationId
+     * @param StopAgentConversationRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StopAgentConversationResponse
+     */
+    public function stopAgentConversationWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopAgentConversation',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/actions/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopAgentConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止 Agent 诊断会话执行.
+     *
+     * @param request - StopAgentConversationRequest
+     *
+     * @returns StopAgentConversationResponse
+     *
+     * @param string                       $conversationId
+     * @param StopAgentConversationRequest $request
+     *
+     * @return StopAgentConversationResponse
+     */
+    public function stopAgentConversation($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopAgentConversationWithOptions($conversationId, $request, $headers, $runtime);
     }
 
     /**
@@ -4323,10 +5894,140 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Update ConsumerGroup.
+     * 重命名 Agent 诊断会话.
+     *
+     * @param request - UpdateAgentConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentConversationResponse
+     *
+     * @param string                         $conversationId
+     * @param UpdateAgentConversationRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAgentConversationResponse
+     */
+    public function updateAgentConversationWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgentConversation',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重命名 Agent 诊断会话.
+     *
+     * @param request - UpdateAgentConversationRequest
+     *
+     * @returns UpdateAgentConversationResponse
+     *
+     * @param string                         $conversationId
+     * @param UpdateAgentConversationRequest $request
+     *
+     * @return UpdateAgentConversationResponse
+     */
+    public function updateAgentConversation($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAgentConversationWithOptions($conversationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新 Agent 诊断会话分享范围.
+     *
+     * @param request - UpdateAgentConversationShareScopeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentConversationShareScopeResponse
+     *
+     * @param string                                   $conversationId
+     * @param UpdateAgentConversationShareScopeRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateAgentConversationShareScopeResponse
+     */
+    public function updateAgentConversationShareScopeWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->shareScope) {
+            @$body['shareScope'] = $request->shareScope;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgentConversationShareScope',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/share-scope',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentConversationShareScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 Agent 诊断会话分享范围.
+     *
+     * @param request - UpdateAgentConversationShareScopeRequest
+     *
+     * @returns UpdateAgentConversationShareScopeResponse
+     *
+     * @param string                                   $conversationId
+     * @param UpdateAgentConversationShareScopeRequest $request
+     *
+     * @return UpdateAgentConversationShareScopeResponse
+     */
+    public function updateAgentConversationShareScope($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAgentConversationShareScopeWithOptions($conversationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the basic information and consumption retry policy of a consumer group.
      *
      * @remarks
-     * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
      *
      * @param request - UpdateConsumerGroupRequest
      * @param headers - map
@@ -4382,10 +6083,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Update ConsumerGroup.
+     * Updates the basic information and consumption retry policy of a consumer group.
      *
      * @remarks
-     * >Notice: The OpenAPI provided by Alibaba Cloud is a management API used for managing and querying related resources of Alibaba Cloud services. It is recommended to integrate it only in the management chain. It is strictly prohibited to rely on OpenAPI implementation in the core data chain of message sending and receiving, otherwise it may lead to risks in the chain.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control links. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the data link.
      *
      * @param request - UpdateConsumerGroupRequest
      *
@@ -4554,10 +6255,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+     * Updates the basic information and specification configurations of an ApsaraMQ for RocketMQ instance.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control paths. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the link.
      *
      * @param request - UpdateInstanceRequest
      * @param headers - map
@@ -4616,10 +6317,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+     * Updates the basic information and specification configurations of an ApsaraMQ for RocketMQ instance.
      *
      * @remarks
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * >Notice: The OpenAPI provided by Alibaba Cloud is a management and control API used to manage and query resources of Alibaba Cloud services. It is recommended only for integration in management and control paths. Do not use OpenAPI in the core data link for sending and receiving messages. Otherwise, risks may occur on the link.
      *
      * @param request - UpdateInstanceRequest
      *
@@ -4639,7 +6340,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Updates the information about a specific account in a specific instance.
+     * Updates the information of a specified account under a specified instance.
      *
      * @param request - UpdateInstanceAccountRequest
      * @param headers - map
@@ -4691,7 +6392,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Updates the information about a specific account in a specific instance.
+     * Updates the information of a specified account under a specified instance.
      *
      * @param request - UpdateInstanceAccountRequest
      *
@@ -4793,7 +6494,92 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Update Topic.
+     * 修改实例巡检配置.
+     *
+     * @param request - UpdateInstanceInspectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceInspectionResponse
+     *
+     * @param string                          $instanceId
+     * @param UpdateInstanceInspectionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateInstanceInspectionResponse
+     */
+    public function updateInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->items) {
+            @$body['items'] = $request->items;
+        }
+
+        if (null !== $request->resourceScope) {
+            @$body['resourceScope'] = $request->resourceScope;
+        }
+
+        if (null !== $request->revision) {
+            @$body['revision'] = $request->revision;
+        }
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstanceInspection',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/monitoring/instance-inspections/' . Url::percentEncode($instanceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstanceInspectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改实例巡检配置.
+     *
+     * @param request - UpdateInstanceInspectionRequest
+     *
+     * @returns UpdateInstanceInspectionResponse
+     *
+     * @param string                          $instanceId
+     * @param UpdateInstanceInspectionRequest $request
+     *
+     * @return UpdateInstanceInspectionResponse
+     */
+    public function updateInstanceInspection($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateInstanceInspectionWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the remarks for a topic.
      *
      * @param request - UpdateTopicRequest
      * @param headers - map
@@ -4845,7 +6631,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Update Topic.
+     * Updates the remarks for a topic.
      *
      * @param request - UpdateTopicRequest
      *
@@ -4863,6 +6649,81 @@ class RocketMQ extends OpenApiClient
         $headers = [];
 
         return $this->updateTopicWithOptions($instanceId, $topicName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 上传 Agent 会话客户端日志.
+     *
+     * @param request - UploadAgentConversationLogRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadAgentConversationLogResponse
+     *
+     * @param string                            $conversationId
+     * @param UploadAgentConversationLogRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UploadAgentConversationLogResponse
+     */
+    public function uploadAgentConversationLogWithOptions($conversationId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contentGzipB64) {
+            @$body['contentGzipB64'] = $request->contentGzipB64;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['fileName'] = $request->fileName;
+        }
+
+        if (null !== $request->timeRangeEnd) {
+            @$body['timeRangeEnd'] = $request->timeRangeEnd;
+        }
+
+        if (null !== $request->timeRangeStart) {
+            @$body['timeRangeStart'] = $request->timeRangeStart;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UploadAgentConversationLog',
+            'version' => '2022-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/' . Url::percentEncode($conversationId) . '/logs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadAgentConversationLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传 Agent 会话客户端日志.
+     *
+     * @param request - UploadAgentConversationLogRequest
+     *
+     * @returns UploadAgentConversationLogResponse
+     *
+     * @param string                            $conversationId
+     * @param UploadAgentConversationLogRequest $request
+     *
+     * @return UploadAgentConversationLogResponse
+     */
+    public function uploadAgentConversationLog($conversationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->uploadAgentConversationLogWithOptions($conversationId, $request, $headers, $runtime);
     }
 
     /**
@@ -4937,7 +6798,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Verifies the message sending feature of a specific topic on a specific instance.
+     * Tests whether messages can be sent to a specified topic in an instance.
      *
      * @param request - VerifySendMessageRequest
      * @param headers - map
@@ -5005,7 +6866,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * Verifies the message sending feature of a specific topic on a specific instance.
+     * Tests whether messages can be sent to a specified topic in an instance.
      *
      * @param request - VerifySendMessageRequest
      *
