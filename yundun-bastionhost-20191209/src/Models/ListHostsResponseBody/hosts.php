@@ -19,6 +19,11 @@ class hosts extends Model
     public $comment;
 
     /**
+     * @var string
+     */
+    public $domainAccountCount;
+
+    /**
      * @var int
      */
     public $hostAccountCount;
@@ -65,6 +70,7 @@ class hosts extends Model
     protected $_name = [
         'activeAddressType' => 'ActiveAddressType',
         'comment' => 'Comment',
+        'domainAccountCount' => 'DomainAccountCount',
         'hostAccountCount' => 'HostAccountCount',
         'hostId' => 'HostId',
         'hostName' => 'HostName',
@@ -90,6 +96,10 @@ class hosts extends Model
 
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+
+        if (null !== $this->domainAccountCount) {
+            $res['DomainAccountCount'] = $this->domainAccountCount;
         }
 
         if (null !== $this->hostAccountCount) {
@@ -145,6 +155,10 @@ class hosts extends Model
 
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+
+        if (isset($map['DomainAccountCount'])) {
+            $model->domainAccountCount = $map['DomainAccountCount'];
         }
 
         if (isset($map['HostAccountCount'])) {

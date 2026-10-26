@@ -673,7 +673,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Adds multiple databases to a specified asset group.
+     * Adds multiple database instances to a specified asset group.
      *
      * @param request - AddDatabasesToGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -724,7 +724,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Adds multiple databases to a specified asset group.
+     * Adds multiple database instances to a specified asset group.
      *
      * @param request - AddDatabasesToGroupRequest
      *
@@ -825,7 +825,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Adds a Resource Directory (RD) member account to a Bastionhost instance so that you can import and manage the cloud assets of the member account through Bastionhost.
+     * Adds member accounts in a resource directory.
      *
      * @param request - AddInstanceRdMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -872,7 +872,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Adds a Resource Directory (RD) member account to a Bastionhost instance so that you can import and manage the cloud assets of the member account through Bastionhost.
+     * Adds member accounts in a resource directory.
      *
      * @param request - AddInstanceRdMemberRequest
      *
@@ -1259,7 +1259,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets.
+     * Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
      *
      * @param request - AttachHostAccountsToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1310,7 +1310,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * After you add a user to your bastion host, you must authorize the user to manage assets. Only authorized users can log on to the bastion host to perform O\\\\\\\\\\\\\\\\\\\\\\\\&M operations on the assets.
+     * Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
      *
      * @param request - AttachHostAccountsToUserRequest
      *
@@ -1407,7 +1407,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Authorizes a user to manage one or more host groups and host accounts.
+     * Grants permissions on host groups and host accounts to a user.
      *
      * @param request - AttachHostGroupAccountsToUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1458,7 +1458,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Authorizes a user to manage one or more host groups and host accounts.
+     * Grants permissions on host groups and host accounts to a user.
      *
      * @param request - AttachHostGroupAccountsToUserRequest
      *
@@ -1476,7 +1476,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Authorizes a user to manage one or more host groups and host accounts.
+     * Grants permissions on host groups and host accounts to a user group.
      *
      * @param request - AttachHostGroupAccountsToUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1527,7 +1527,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Authorizes a user to manage one or more host groups and host accounts.
+     * Grants permissions on host groups and host accounts to a user group.
      *
      * @param request - AttachHostGroupAccountsToUserGroupRequest
      *
@@ -1683,7 +1683,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Specifies manageable projects in a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2 for the corresponding project authorization.
+     * Specifies the projects that can be managed in a project authorization. You can call this operation only when the ScopeType parameter returned by the GetProjectAuthorization operation for the corresponding project authorization is 2.
      *
      * @param request - AttachProjectsToProjectAuthorizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1734,7 +1734,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Specifies manageable projects in a project authorization. This operation can be called only when the ScopeType parameter returned by the GetProjectAuthorization operation is 2 for the corresponding project authorization.
+     * Specifies the projects that can be managed in a project authorization. You can call this operation only when the ScopeType parameter returned by the GetProjectAuthorization operation for the corresponding project authorization is 2.
      *
      * @param request - AttachProjectsToProjectAuthorizationRequest
      *
@@ -1752,7 +1752,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Associates projects with the scope of an audit policy. This operation can be invoked only when the ScopeType parameter returned by the GetReviewRule operation is 2.
+     * Associates projects with the scope of an audit policy. You can invoke this operation only when the ScopeType parameter returned by the GetReviewRule operation for the corresponding audit policy is 2.
      *
      * @param request - AttachProjectsToReviewRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1803,7 +1803,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Associates projects with the scope of an audit policy. This operation can be invoked only when the ScopeType parameter returned by the GetReviewRule operation is 2.
+     * Associates projects with the scope of an audit policy. You can invoke this operation only when the ScopeType parameter returned by the GetReviewRule operation for the corresponding audit policy is 2.
      *
      * @param request - AttachProjectsToReviewRuleRequest
      *
@@ -1821,7 +1821,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Associates auditors with an audit policy.
+     * Attaches auditors to an audit policy.
      *
      * @param request - AttachReviewersToReviewRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1872,7 +1872,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Associates auditors with an audit policy.
+     * Attaches auditors to an audit policy.
      *
      * @param request - AttachReviewersToReviewRuleRequest
      *
@@ -3056,7 +3056,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a notification recipient for a project.
+     * Creates a project notification recipient.
      *
      * @param request - CreateProjectNotifyReceiverRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3115,7 +3115,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates a notification recipient for a project.
+     * Creates a project notification recipient.
      *
      * @param request - CreateProjectNotifyReceiverRequest
      *
@@ -3973,7 +3973,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a shared key.
+     * Deletes a host shared key.
      *
      * @param request - DeleteHostShareKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4020,7 +4020,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Deletes a shared key.
+     * Deletes a host shared key.
      *
      * @param request - DeleteHostShareKeyRequest
      *
@@ -8555,7 +8555,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the authorized and unauthorized host accounts for a specified user group on a specified host.
+     * Queries the authorized and unauthorized host accounts of a specified user group on a specified host.
      *
      * @param request - ListHostAccountsForUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8622,7 +8622,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the authorized and unauthorized host accounts for a specified user group on a specified host.
+     * Queries the authorized and unauthorized host accounts of a specified user group on a specified host.
      *
      * @param request - ListHostAccountsForUserGroupRequest
      *
@@ -9106,7 +9106,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the hosts of a specified Bastionhost instance.
+     * Queries the hosts in a specified Bastionhost instance.
      *
      * @param request - ListHostsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9189,7 +9189,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the hosts of a specified Bastionhost instance.
+     * Queries the hosts in a specified Bastionhost instance.
      *
      * @param request - ListHostsRequest
      *
@@ -9393,7 +9393,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Lists all importable KMS secrets for a specified host.
+     * Lists all importable KMS credentials for a specified host.
      *
      * @param request - ListImportableKMSSecretsForHostRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9452,7 +9452,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Lists all importable KMS secrets for a specified host.
+     * Lists all importable KMS credentials for a specified host.
      *
      * @param request - ListImportableKMSSecretsForHostRequest
      *
@@ -9470,7 +9470,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Lists the member accounts in a Resource Directory (RD).
+     * Retrieves a list of member accounts in a resource directory.
      *
      * @param request - ListInstanceRdMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9521,7 +9521,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Lists the member accounts in a Resource Directory (RD).
+     * Retrieves a list of member accounts in a resource directory.
      *
      * @param request - ListInstanceRdMembersRequest
      *
@@ -9539,7 +9539,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the list of members that are not occupied by other projects.
+     * Queries the list of member accounts that are not assigned to other projects.
      *
      * @param request - ListMembersNotForProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9602,7 +9602,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the list of members that are not occupied by other projects.
+     * Queries the list of member accounts that are not assigned to other projects.
      *
      * @param request - ListMembersNotForProjectRequest
      *
@@ -9879,7 +9879,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries a list of host accounts that the current Resource Access Management (RAM) user is authorized to manage.
+     * Lists the host accounts for which the current Resource Access Management (RAM) user has authorization.
      *
      * @param request - ListOperationHostAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9938,7 +9938,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries a list of host accounts that the current Resource Access Management (RAM) user is authorized to manage.
+     * Lists the host accounts for which the current Resource Access Management (RAM) user has authorization.
      *
      * @param request - ListOperationHostAccountsRequest
      *
@@ -10450,7 +10450,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the list of projects that the current user can manage.
+     * Queries the projects that the current user can manage.
      *
      * @param request - ListProjectsForProjectAuthorizationPrincipalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10509,7 +10509,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the list of projects that the current user can manage.
+     * Queries the projects that the current user can manage.
      *
      * @param request - ListProjectsForProjectAuthorizationPrincipalRequest
      *
@@ -10689,7 +10689,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the list of audit policies.
+     * Queries the audit policy list.
      *
      * @param request - ListReviewRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10748,7 +10748,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the list of audit policies.
+     * Queries the audit policy list.
      *
      * @param request - ListReviewRulesRequest
      *
@@ -11669,7 +11669,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Moves database instances to a different project in batches.
+     * Moves multiple database instances to a specified project.
      *
      * @param request - ModifyDatabasesProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11724,7 +11724,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Moves database instances to a different project in batches.
+     * Moves multiple database instances to a specified project.
      *
      * @param request - ModifyDatabasesProjectRequest
      *
@@ -12551,7 +12551,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Updates the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+     * Modifies the configuration of the LDAP authentication server for a Bastionhost instance.
      *
      * @param request - ModifyInstanceLDAPAuthServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12642,7 +12642,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Updates the settings of the Lightweight Directory Access Protocol (LDAP) authentication server of a bastion host.
+     * Modifies the configuration of the LDAP authentication server for a Bastionhost instance.
      *
      * @param request - ModifyInstanceLDAPAuthServerRequest
      *
@@ -14333,7 +14333,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Renews an O&M token. Each call extends the validity of the token by one hour.
+     * Renews an O&M token. Each call extends the validity of the O&M token by 1 hour.
      *
      * @param request - RenewAssetOperationTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14384,7 +14384,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Renews an O&M token. Each call extends the validity of the token by one hour.
+     * Renews an O&M token. Each call extends the validity of the O&M token by 1 hour.
      *
      * @param request - RenewAssetOperationTokenRequest
      *
@@ -15117,7 +15117,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates and attaches tags to one or more Bastionhost instances.
+     * Creates and binds tags for specified Bastionhost instances.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15168,7 +15168,7 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Creates and attaches tags to one or more Bastionhost instances.
+     * Creates and binds tags for specified Bastionhost instances.
      *
      * @param request - TagResourcesRequest
      *

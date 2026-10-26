@@ -26,6 +26,11 @@ class projects extends Model
     /**
      * @var int
      */
+    public $domainServerCount;
+
+    /**
+     * @var int
+     */
     public $hostCount;
 
     /**
@@ -51,6 +56,7 @@ class projects extends Model
         'appCount' => 'AppCount',
         'databaseCount' => 'DatabaseCount',
         'description' => 'Description',
+        'domainServerCount' => 'DomainServerCount',
         'hostCount' => 'HostCount',
         'isDefault' => 'IsDefault',
         'memberIds' => 'MemberIds',
@@ -79,6 +85,10 @@ class projects extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->domainServerCount) {
+            $res['DomainServerCount'] = $this->domainServerCount;
         }
 
         if (null !== $this->hostCount) {
@@ -129,6 +139,10 @@ class projects extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DomainServerCount'])) {
+            $model->domainServerCount = $map['DomainServerCount'];
         }
 
         if (isset($map['HostCount'])) {

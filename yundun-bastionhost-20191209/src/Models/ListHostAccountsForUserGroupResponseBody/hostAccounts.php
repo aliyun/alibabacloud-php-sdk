@@ -21,6 +21,11 @@ class hostAccounts extends Model
     /**
      * @var string
      */
+    public $hostAccountType;
+
+    /**
+     * @var string
+     */
     public $hostId;
 
     /**
@@ -35,6 +40,7 @@ class hostAccounts extends Model
     protected $_name = [
         'hostAccountId' => 'HostAccountId',
         'hostAccountName' => 'HostAccountName',
+        'hostAccountType' => 'HostAccountType',
         'hostId' => 'HostId',
         'isAuthorized' => 'IsAuthorized',
         'protocolName' => 'ProtocolName',
@@ -54,6 +60,10 @@ class hostAccounts extends Model
 
         if (null !== $this->hostAccountName) {
             $res['HostAccountName'] = $this->hostAccountName;
+        }
+
+        if (null !== $this->hostAccountType) {
+            $res['HostAccountType'] = $this->hostAccountType;
         }
 
         if (null !== $this->hostId) {
@@ -85,6 +95,10 @@ class hostAccounts extends Model
 
         if (isset($map['HostAccountName'])) {
             $model->hostAccountName = $map['HostAccountName'];
+        }
+
+        if (isset($map['HostAccountType'])) {
+            $model->hostAccountType = $map['HostAccountType'];
         }
 
         if (isset($map['HostId'])) {
