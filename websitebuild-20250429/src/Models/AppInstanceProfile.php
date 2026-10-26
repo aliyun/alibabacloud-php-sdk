@@ -133,6 +133,11 @@ class AppInstanceProfile extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $upgradeStatus;
     protected $_name = [
         'applicationType' => 'ApplicationType',
         'applicationTypeText' => 'ApplicationTypeText',
@@ -159,6 +164,7 @@ class AppInstanceProfile extends Model
         'source' => 'Source',
         'templateEtag' => 'TemplateEtag',
         'templateId' => 'TemplateId',
+        'upgradeStatus' => 'UpgradeStatus',
     ];
 
     public function validate()
@@ -272,6 +278,10 @@ class AppInstanceProfile extends Model
             $res['TemplateId'] = $this->templateId;
         }
 
+        if (null !== $this->upgradeStatus) {
+            $res['UpgradeStatus'] = $this->upgradeStatus;
+        }
+
         return $res;
     }
 
@@ -381,6 +391,10 @@ class AppInstanceProfile extends Model
 
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['UpgradeStatus'])) {
+            $model->upgradeStatus = $map['UpgradeStatus'];
         }
 
         return $model;

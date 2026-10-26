@@ -2363,7 +2363,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Submits a logo creation task.
+     * Submits a logo generation task.
      *
      * @param request - CreateLogoTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2414,7 +2414,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Submits a logo creation task.
+     * Submits a logo generation task.
      *
      * @param request - CreateLogoTaskRequest
      *
@@ -4476,7 +4476,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the details of an instance.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - GetAppInstanceForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4518,7 +4518,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the details of an instance.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - GetAppInstanceForPartnerRequest
      *
@@ -4732,7 +4732,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the publish status.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - GetAppPublishStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4782,7 +4782,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the publish status.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - GetAppPublishStatusRequest
      *

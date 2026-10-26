@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AppInstanceAggregate\conversationInfo;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AppInstanceAggregate\partnerDetail;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AppInstanceAggregate\tags;
 
@@ -44,6 +45,11 @@ class AppInstanceAggregate extends Model
      * @var string
      */
     public $buildType;
+
+    /**
+     * @var conversationInfo
+     */
+    public $conversationInfo;
 
     /**
      * @var string
@@ -187,6 +193,7 @@ class AppInstanceAggregate extends Model
         'appType' => 'AppType',
         'bizId' => 'BizId',
         'buildType' => 'BuildType',
+        'conversationInfo' => 'ConversationInfo',
         'createTime' => 'CreateTime',
         'deleted' => 'Deleted',
         'description' => 'Description',
@@ -226,6 +233,9 @@ class AppInstanceAggregate extends Model
         }
         if (\is_array($this->appServiceList)) {
             Model::validateArray($this->appServiceList);
+        }
+        if (null !== $this->conversationInfo) {
+            $this->conversationInfo->validate();
         }
         if (null !== $this->partnerDetail) {
             $this->partnerDetail->validate();
@@ -285,6 +295,10 @@ class AppInstanceAggregate extends Model
 
         if (null !== $this->buildType) {
             $res['BuildType'] = $this->buildType;
+        }
+
+        if (null !== $this->conversationInfo) {
+            $res['ConversationInfo'] = null !== $this->conversationInfo ? $this->conversationInfo->toArray($noStream) : $this->conversationInfo;
         }
 
         if (null !== $this->createTime) {
@@ -453,6 +467,10 @@ class AppInstanceAggregate extends Model
 
         if (isset($map['BuildType'])) {
             $model->buildType = $map['BuildType'];
+        }
+
+        if (isset($map['ConversationInfo'])) {
+            $model->conversationInfo = conversationInfo::fromMap($map['ConversationInfo']);
         }
 
         if (isset($map['CreateTime'])) {
