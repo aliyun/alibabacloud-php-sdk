@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\addAccounts;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\advancedOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\imageOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\imageSecurityOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\importImageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\repairItems;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\tags;
@@ -74,6 +75,11 @@ class imagePipelineSet extends Model
      * @var string
      */
     public $imagePipelineId;
+
+    /**
+     * @var imageSecurityOptions
+     */
+    public $imageSecurityOptions;
 
     /**
      * @var importImageOptions
@@ -152,6 +158,7 @@ class imagePipelineSet extends Model
         'imageName' => 'ImageName',
         'imageOptions' => 'ImageOptions',
         'imagePipelineId' => 'ImagePipelineId',
+        'imageSecurityOptions' => 'ImageSecurityOptions',
         'importImageOptions' => 'ImportImageOptions',
         'instanceType' => 'InstanceType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
@@ -177,6 +184,9 @@ class imagePipelineSet extends Model
         }
         if (null !== $this->imageOptions) {
             $this->imageOptions->validate();
+        }
+        if (null !== $this->imageSecurityOptions) {
+            $this->imageSecurityOptions->validate();
         }
         if (null !== $this->importImageOptions) {
             $this->importImageOptions->validate();
@@ -242,6 +252,10 @@ class imagePipelineSet extends Model
 
         if (null !== $this->imagePipelineId) {
             $res['ImagePipelineId'] = $this->imagePipelineId;
+        }
+
+        if (null !== $this->imageSecurityOptions) {
+            $res['ImageSecurityOptions'] = null !== $this->imageSecurityOptions ? $this->imageSecurityOptions->toArray($noStream) : $this->imageSecurityOptions;
         }
 
         if (null !== $this->importImageOptions) {
@@ -353,6 +367,10 @@ class imagePipelineSet extends Model
 
         if (isset($map['ImagePipelineId'])) {
             $model->imagePipelineId = $map['ImagePipelineId'];
+        }
+
+        if (isset($map['ImageSecurityOptions'])) {
+            $model->imageSecurityOptions = imageSecurityOptions::fromMap($map['ImageSecurityOptions']);
         }
 
         if (isset($map['ImportImageOptions'])) {

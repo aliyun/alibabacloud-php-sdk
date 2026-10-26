@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\advancedOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\imageOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\imageSecurityOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\importImageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\tag;
 
@@ -66,6 +67,11 @@ class CreateImagePipelineRequest extends Model
      * @var imageOptions
      */
     public $imageOptions;
+
+    /**
+     * @var imageSecurityOptions
+     */
+    public $imageSecurityOptions;
 
     /**
      * @var importImageOptions
@@ -168,6 +174,7 @@ class CreateImagePipelineRequest extends Model
         'imageFamily' => 'ImageFamily',
         'imageName' => 'ImageName',
         'imageOptions' => 'ImageOptions',
+        'imageSecurityOptions' => 'ImageSecurityOptions',
         'importImageOptions' => 'ImportImageOptions',
         'instanceType' => 'InstanceType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
@@ -198,6 +205,9 @@ class CreateImagePipelineRequest extends Model
         }
         if (null !== $this->imageOptions) {
             $this->imageOptions->validate();
+        }
+        if (null !== $this->imageSecurityOptions) {
+            $this->imageSecurityOptions->validate();
         }
         if (null !== $this->importImageOptions) {
             $this->importImageOptions->validate();
@@ -266,6 +276,10 @@ class CreateImagePipelineRequest extends Model
 
         if (null !== $this->imageOptions) {
             $res['ImageOptions'] = null !== $this->imageOptions ? $this->imageOptions->toArray($noStream) : $this->imageOptions;
+        }
+
+        if (null !== $this->imageSecurityOptions) {
+            $res['ImageSecurityOptions'] = null !== $this->imageSecurityOptions ? $this->imageSecurityOptions->toArray($noStream) : $this->imageSecurityOptions;
         }
 
         if (null !== $this->importImageOptions) {
@@ -421,6 +435,10 @@ class CreateImagePipelineRequest extends Model
 
         if (isset($map['ImageOptions'])) {
             $model->imageOptions = imageOptions::fromMap($map['ImageOptions']);
+        }
+
+        if (isset($map['ImageSecurityOptions'])) {
+            $model->imageSecurityOptions = imageSecurityOptions::fromMap($map['ImageSecurityOptions']);
         }
 
         if (isset($map['ImportImageOptions'])) {
