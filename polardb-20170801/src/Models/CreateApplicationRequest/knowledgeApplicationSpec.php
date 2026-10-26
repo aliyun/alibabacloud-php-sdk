@@ -22,10 +22,34 @@ class knowledgeApplicationSpec extends Model
      * @var string
      */
     public $llmModel;
+
+    /**
+     * @var string
+     */
+    public $polarAIEmbedderInstanceId;
+
+    /**
+     * @var string
+     */
+    public $polarAILlmInstanceId;
+
+    /**
+     * @var string
+     */
+    public $polarAIRerankerInstanceId;
+
+    /**
+     * @var string
+     */
+    public $polarAIVlInstanceId;
     protected $_name = [
         'dashboardPassword' => 'DashboardPassword',
         'dbPassword' => 'DbPassword',
         'llmModel' => 'LlmModel',
+        'polarAIEmbedderInstanceId' => 'PolarAIEmbedderInstanceId',
+        'polarAILlmInstanceId' => 'PolarAILlmInstanceId',
+        'polarAIRerankerInstanceId' => 'PolarAIRerankerInstanceId',
+        'polarAIVlInstanceId' => 'PolarAIVlInstanceId',
     ];
 
     public function validate()
@@ -46,6 +70,22 @@ class knowledgeApplicationSpec extends Model
 
         if (null !== $this->llmModel) {
             $res['LlmModel'] = $this->llmModel;
+        }
+
+        if (null !== $this->polarAIEmbedderInstanceId) {
+            $res['PolarAIEmbedderInstanceId'] = $this->polarAIEmbedderInstanceId;
+        }
+
+        if (null !== $this->polarAILlmInstanceId) {
+            $res['PolarAILlmInstanceId'] = $this->polarAILlmInstanceId;
+        }
+
+        if (null !== $this->polarAIRerankerInstanceId) {
+            $res['PolarAIRerankerInstanceId'] = $this->polarAIRerankerInstanceId;
+        }
+
+        if (null !== $this->polarAIVlInstanceId) {
+            $res['PolarAIVlInstanceId'] = $this->polarAIVlInstanceId;
         }
 
         return $res;
@@ -69,6 +109,22 @@ class knowledgeApplicationSpec extends Model
 
         if (isset($map['LlmModel'])) {
             $model->llmModel = $map['LlmModel'];
+        }
+
+        if (isset($map['PolarAIEmbedderInstanceId'])) {
+            $model->polarAIEmbedderInstanceId = $map['PolarAIEmbedderInstanceId'];
+        }
+
+        if (isset($map['PolarAILlmInstanceId'])) {
+            $model->polarAILlmInstanceId = $map['PolarAILlmInstanceId'];
+        }
+
+        if (isset($map['PolarAIRerankerInstanceId'])) {
+            $model->polarAIRerankerInstanceId = $map['PolarAIRerankerInstanceId'];
+        }
+
+        if (isset($map['PolarAIVlInstanceId'])) {
+            $model->polarAIVlInstanceId = $map['PolarAIVlInstanceId'];
         }
 
         return $model;

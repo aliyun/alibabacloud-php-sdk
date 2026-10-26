@@ -1344,12 +1344,12 @@ class Polardb extends OpenApiClient
      * Adds an MCP server to a specified PolarClaw application.
      *
      * @remarks
-     * ## Description
-     * - The `ApplicationId` and `ServerName` parameters are required.
-     * - The `ApplicationId` parameter specifies the application ID.
-     * - The `ServerName` parameter specifies the MCP server name to add.
-     * - A successful response returns the request ID, a message, a status code, the application ID, and the server name.
-     * - If the request fails, the API may return a 500 error code with a detailed error message.
+     * ## Request description
+     * - `ApplicationId` and `ServerName` are required query parameters.
+     * - `ApplicationId` specifies the ID of the application program to operate on.
+     * - `ServerName` specifies the name of the MCP server to add.
+     * - A successful response returns the request ID, message, status code, application program ID, and server name.
+     * - In case of a failed request, a 500 error code may be returned, along with a specific error message describing the fault.
      *
      * @param tmpReq - AddPolarClawMCPServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1405,12 +1405,12 @@ class Polardb extends OpenApiClient
      * Adds an MCP server to a specified PolarClaw application.
      *
      * @remarks
-     * ## Description
-     * - The `ApplicationId` and `ServerName` parameters are required.
-     * - The `ApplicationId` parameter specifies the application ID.
-     * - The `ServerName` parameter specifies the MCP server name to add.
-     * - A successful response returns the request ID, a message, a status code, the application ID, and the server name.
-     * - If the request fails, the API may return a 500 error code with a detailed error message.
+     * ## Request description
+     * - `ApplicationId` and `ServerName` are required query parameters.
+     * - `ApplicationId` specifies the ID of the application program to operate on.
+     * - `ServerName` specifies the name of the MCP server to add.
+     * - A successful response returns the request ID, message, status code, application program ID, and server name.
+     * - In case of a failed request, a 500 error code may be returned, along with a specific error message describing the fault.
      *
      * @param request - AddPolarClawMCPServerRequest
      *
@@ -1906,7 +1906,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 应用Lakebase挂载参数模板
+     * Applies a parameter template to Lakebase.
      *
      * @param request - ApplyLakebaseMountParameterGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1953,7 +1953,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 应用Lakebase挂载参数模板
+     * Applies a parameter template to Lakebase.
      *
      * @param request - ApplyLakebaseMountParameterGroupRequest
      *
@@ -1971,7 +1971,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Approves a PolarClaw device pairing.
+     * Approves PolarClaw device pairing.
      *
      * @param request - ApprovePolarClawDevicePairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2014,7 +2014,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Approves a PolarClaw device pairing.
+     * Approves PolarClaw device pairing.
      *
      * @param request - ApprovePolarClawDevicePairRequest
      *
@@ -4642,7 +4642,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates an API key for an AgenticDB tenant.
+     * Creates an AgenticDB tenant API key.
      *
      * @param request - CreateAgenticDBTenantApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4697,7 +4697,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates an API key for an AgenticDB tenant.
+     * Creates an AgenticDB tenant API key.
      *
      * @param request - CreateAgenticDBTenantApiKeyRequest
      *
@@ -5272,12 +5272,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates API keys in batches.
+     * Creates multiple API keys.
      *
      * @remarks
-     * > * Each cluster can have a maximum of three manually created backups at a time.
-     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+     * > * A maximum of three manually created backups can exist for each cluster at the same time.
+     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
      *
      * @param request - CreateBatchConsumerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5340,12 +5340,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates API keys in batches.
+     * Creates multiple API keys.
      *
      * @remarks
-     * > * Each cluster can have a maximum of three manually created backups at a time.
-     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+     * > * A maximum of three manually created backups can exist for each cluster at the same time.
+     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
      *
      * @param request - CreateBatchConsumerRequest
      *
@@ -8595,11 +8595,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a PolarClaw Agent.
+     * Creates a new PolarClaw agent.
      *
      * @remarks
-     * ## Description
-     * Use this operation to create a PolarClaw Agent. You can optionally specify an `emoji` and an `avatar`.
+     * ## Request description
+     * You can use this API to create a PolarClaw agent and optionally configure its `Emoji` and `Avatar`.
      *
      * @param request - CreatePolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8658,11 +8658,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a PolarClaw Agent.
+     * Creates a new PolarClaw agent.
      *
      * @remarks
-     * ## Description
-     * Use this operation to create a PolarClaw Agent. You can optionally specify an `emoji` and an `avatar`.
+     * ## Request description
+     * You can use this API to create a PolarClaw agent and optionally configure its `Emoji` and `Avatar`.
      *
      * @param request - CreatePolarClawAgentRequest
      *
@@ -8680,10 +8680,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a channel in PolarClaw.
+     * Creates a new communication channel in PolarClaw.
      *
      * @remarks
-     * ## Request
+     * ## Request description.
      *
      * @param tmpReq - CreatePolarClawChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8748,10 +8748,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a channel in PolarClaw.
+     * Creates a new communication channel in PolarClaw.
      *
      * @remarks
-     * ## Request
+     * ## Request description.
      *
      * @param request - CreatePolarClawChannelRequest
      *
@@ -8772,8 +8772,8 @@ class Polardb extends OpenApiClient
      * Creates a PolarClaw scheduled task.
      *
      * @remarks
-     * ## Request
-     * Use this API to create a cron job. You can configure the job\\"s payload, execution frequency, timezone, target channel, recipients, and a failure alert mechanism.
+     * ## Request description
+     * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
      *
      * @param tmpReq - CreatePolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8889,8 +8889,8 @@ class Polardb extends OpenApiClient
      * Creates a PolarClaw scheduled task.
      *
      * @remarks
-     * ## Request
-     * Use this API to create a cron job. You can configure the job\\"s payload, execution frequency, timezone, target channel, recipients, and a failure alert mechanism.
+     * ## Request description
+     * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
      *
      * @param request - CreatePolarClawCronJobRequest
      *
@@ -9060,12 +9060,12 @@ class Polardb extends OpenApiClient
      * Creates a new directory in a specified PolarFS instance.
      *
      * @remarks
-     * ## Description
-     * - **Path**: The absolute path of the directory to create.
-     * - **Recursive**: Specifies whether to recursively create parent directories. The default value is `false`.
-     * - This operation creates a directory structure with one or more levels in the specified PolarFS instance.
-     * - Setting `Recursive` to `true` automatically creates all non-existent parent directories.
-     * - Ensure that you have sufficient permissions to create the directory.
+     * ## Request description
+     * - **Path**: The absolute path of the folder to create.
+     * - **Recursive**: Specifies whether to use recursion to create parent folders. Default value: `false`.
+     * - This operation supports creating single-level or multi-level folder structures in a specified PolarFS instance.
+     * - If the `Recursive` Settings are `true`, the automatic creation of all non-existent parent folders is enabled.
+     * - Ensure that you have sufficient permissions when creating a folder.
      *
      * @param request - CreatePolarFsObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9111,12 +9111,12 @@ class Polardb extends OpenApiClient
      * Creates a new directory in a specified PolarFS instance.
      *
      * @remarks
-     * ## Description
-     * - **Path**: The absolute path of the directory to create.
-     * - **Recursive**: Specifies whether to recursively create parent directories. The default value is `false`.
-     * - This operation creates a directory structure with one or more levels in the specified PolarFS instance.
-     * - Setting `Recursive` to `true` automatically creates all non-existent parent directories.
-     * - Ensure that you have sufficient permissions to create the directory.
+     * ## Request description
+     * - **Path**: The absolute path of the folder to create.
+     * - **Recursive**: Specifies whether to use recursion to create parent folders. Default value: `false`.
+     * - This operation supports creating single-level or multi-level folder structures in a specified PolarFS instance.
+     * - If the `Recursive` Settings are `true`, the automatic creation of all non-existent parent folders is enabled.
+     * - Ensure that you have sufficient permissions when creating a folder.
      *
      * @param request - CreatePolarFsObjectRequest
      *
@@ -9211,15 +9211,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
+     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can use MaxCpu to specify the maximum CPU quota percentage or CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify exactly one of the MaxCpu and CpuCount parameters when you create the rule.
      *
      * @remarks
-     * Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
-     * ### Before you begin
-     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying CPU utilization for Resource Control.
+     * ### Limits
+     * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
      * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
      * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
-     * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+     * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
      * >Notice: This is a notice.</notice>
      *
      * @param request - CreateResourceControlRequest
@@ -9275,15 +9275,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can set MaxCpu to specify the maximum CPU quota percentage that the rule can use, or set CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify one and only one of MaxCpu and CpuCount when creating a rule.
+     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can use MaxCpu to specify the maximum CPU quota percentage or CpuCount to specify the maximum number of CPU cores that the rule can use. You must specify exactly one of the MaxCpu and CpuCount parameters when you create the rule.
      *
      * @remarks
-     * Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. Querying Resource Control CPU usage is not supported.
-     * ### Before you begin
-     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying CPU utilization for Resource Control.
+     * ### Limits
+     * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
      * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
      * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
-     * - The maximum value of CpuCount is determined by the kernel parameter resource_control_cpu_count_limit of the target cluster.
+     * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
      * >Notice: This is a notice.</notice>
      *
      * @param request - CreateResourceControlRequest
@@ -19926,10 +19926,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
+     * Queries the details of the current kernel version of a PolarDB for MySQL cluster.
      *
      * @remarks
-     * >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
+     * >For more information about the Milvus versions of PolarDB for MySQL clusters, see [Milvus version overview](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
      *
      * @param request - DescribeDBClusterVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19988,10 +19988,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of the current Milvus version of a PolarDB for MySQL cluster.
+     * Queries the details of the current kernel version of a PolarDB for MySQL cluster.
      *
      * @remarks
-     * >For more information about the minor Milvus versions and details of PolarDB for MySQL Cluster Edition, see [Minor Milvus version description](https://help.aliyun.com/document_detail/471239.html) and [Release notes](https://help.aliyun.com/document_detail/423884.html).
+     * >For more information about the Milvus versions of PolarDB for MySQL clusters, see [Milvus version overview](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
      *
      * @param request - DescribeDBClusterVersionRequest
      *
@@ -30049,7 +30049,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * List PolarClaw device pairings.
+     * Lists PolarClaw device pairings.
      *
      * @param request - ListPolarClawDevicePairsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30088,7 +30088,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * List PolarClaw device pairings.
+     * Lists PolarClaw device pairings.
      *
      * @param request - ListPolarClawDevicePairsRequest
      *
@@ -34885,7 +34885,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the node specifications of a PolarDB cluster.
+     * Modifies the node specifications of a PolarDB cluster.
      *
      * @param request - ModifyDBNodeClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34984,7 +34984,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the node specifications of a PolarDB cluster.
+     * Modifies the node specifications of a PolarDB cluster.
      *
      * @param request - ModifyDBNodeClassRequest
      *
@@ -36764,15 +36764,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
+     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
      *
      * @remarks
-     * Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
-     * ### Before you begin
-     * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
+     * ### Limits
+     * - Applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
      * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
      * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
-     * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+     * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
      * >Notice: This is a notice.</notice>
      *
      * @param request - ModifyResourceControlRequest
@@ -36828,15 +36828,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU percentage mode and the maximum CPU core count mode. You must specify one and only one of the MaxCpu and CpuCount parameters.
+     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
      *
      * @remarks
-     * Resource Control limits the CPU resources that can be used by a specified user, database, query, or connection in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules. It does not support querying Resource Control CPU usage.
-     * ### Before you begin
-     * - This operation applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
+     * ### Limits
+     * - Applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
      * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
      * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
-     * - The maximum value of CpuCount is determined by the cluster kernel parameter resource_control_cpu_count_limit.
+     * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
      * >Notice: This is a notice.</notice>
      *
      * @param request - ModifyResourceControlRequest
@@ -37301,7 +37301,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates a PolarClaw configuration.
+     * Updates the PolarClaw configuration.
      *
      * @param tmpReq - PatchPolarClawConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -37354,7 +37354,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates a PolarClaw configuration.
+     * Updates the PolarClaw configuration.
      *
      * @param request - PatchPolarClawConfigRequest
      *
@@ -38357,7 +38357,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Resets an api key.
+     * Resets an API key.
      *
      * @param request - ResetConsumerApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -38404,7 +38404,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Resets an api key.
+     * Resets an API key.
      *
      * @param request - ResetConsumerApiKeyRequest
      *
@@ -39338,7 +39338,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Runs a PolarClaw cron job.
+     * Executes a PolarClaw scheduled task.
      *
      * @param request - RunPolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39389,7 +39389,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Runs a PolarClaw cron job.
+     * Executes a PolarClaw scheduled task.
      *
      * @param request - RunPolarClawCronJobRequest
      *
@@ -40105,11 +40105,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unbinds a PolarClaw Agent.
+     * Disassociates a PolarClaw agent.
      *
      * @remarks
-     * ## 请求说明
-     * 调用前，先通过 BindPolarClawAgent 为指定应用、Agent 和通道建立绑定。本接口使用同一组 ApplicationId、AgentId 和 Channel 解除绑定。
+     * ## Request description
+     * Before calling this operation, use BindPolarClawAgent to establish a binding for the specified application, agent, and channel. This operation uses the same ApplicationId, AgentId, and Channel to remove the binding.
      *
      * @param request - UnbindPolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40160,11 +40160,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unbinds a PolarClaw Agent.
+     * Disassociates a PolarClaw agent.
      *
      * @remarks
-     * ## 请求说明
-     * 调用前，先通过 BindPolarClawAgent 为指定应用、Agent 和通道建立绑定。本接口使用同一组 ApplicationId、AgentId 和 Channel 解除绑定。
+     * ## Request description
+     * Before calling this operation, use BindPolarClawAgent to establish a binding for the specified application, agent, and channel. This operation uses the same ApplicationId, AgentId, and Channel to remove the binding.
      *
      * @param request - UnbindPolarClawAgentRequest
      *
@@ -41331,7 +41331,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates the PolarClaw Skill configuration.
+     * Updates the PolarClaw skill configuration.
      *
      * @param tmpReq - UpdatePolarClawSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41392,7 +41392,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates the PolarClaw Skill configuration.
+     * Updates the PolarClaw skill configuration.
      *
      * @param request - UpdatePolarClawSkillRequest
      *
