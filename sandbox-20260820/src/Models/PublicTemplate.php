@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sandbox\V20260820\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\PublicTemplate\resourceTags;
 
 class PublicTemplate extends Model
 {
@@ -22,6 +23,11 @@ class PublicTemplate extends Model
      * @var string
      */
     public $resourceGroupID;
+
+    /**
+     * @var resourceTags[]
+     */
+    public $resourceTags;
 
     /**
      * @var PublicTemplateRuntimeConfig
@@ -51,6 +57,7 @@ class PublicTemplate extends Model
         'createdTime' => 'createdTime',
         'name' => 'name',
         'resourceGroupID' => 'resourceGroupID',
+        'resourceTags' => 'resourceTags',
         'runtimeConfig' => 'runtimeConfig',
         'status' => 'status',
         'teamID' => 'teamID',
@@ -60,6 +67,9 @@ class PublicTemplate extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceTags)) {
+            Model::validateArray($this->resourceTags);
+        }
         if (null !== $this->runtimeConfig) {
             $this->runtimeConfig->validate();
         }
@@ -82,6 +92,17 @@ class PublicTemplate extends Model
 
         if (null !== $this->resourceGroupID) {
             $res['resourceGroupID'] = $this->resourceGroupID;
+        }
+
+        if (null !== $this->resourceTags) {
+            if (\is_array($this->resourceTags)) {
+                $res['resourceTags'] = [];
+                $n1 = 0;
+                foreach ($this->resourceTags as $item1) {
+                    $res['resourceTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->runtimeConfig) {
@@ -125,6 +146,17 @@ class PublicTemplate extends Model
 
         if (isset($map['resourceGroupID'])) {
             $model->resourceGroupID = $map['resourceGroupID'];
+        }
+
+        if (isset($map['resourceTags'])) {
+            if (!empty($map['resourceTags'])) {
+                $model->resourceTags = [];
+                $n1 = 0;
+                foreach ($map['resourceTags'] as $item1) {
+                    $model->resourceTags[$n1] = resourceTags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['runtimeConfig'])) {

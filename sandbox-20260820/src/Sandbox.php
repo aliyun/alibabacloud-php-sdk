@@ -104,7 +104,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建 ApiKey.
+     * Creates an API key.
      *
      * @param request - CreateApiKeyRequest
      * @param headers - map
@@ -141,7 +141,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建 ApiKey.
+     * Creates an API key.
      *
      * @param request - CreateApiKeyRequest
      *
@@ -160,7 +160,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建 Team.
+     * Creates a team.
      *
      * @param request - CreateTeamRequest
      * @param headers - map
@@ -197,7 +197,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建 Team.
+     * Creates a team.
      *
      * @param request - CreateTeamRequest
      *
@@ -216,7 +216,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建 Template.
+     * Creates a template.
      *
      * @param request - CreateTemplateRequest
      * @param headers - map
@@ -253,7 +253,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建 Template.
+     * Creates a template.
      *
      * @param request - CreateTemplateRequest
      *
@@ -272,7 +272,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建模板缓存.
+     * Creates a template cache.
      *
      * @param request - CreateTemplateCacheRequest
      * @param headers - map
@@ -309,7 +309,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建模板缓存.
+     * Creates a template cache.
      *
      * @param request - CreateTemplateCacheRequest
      *
@@ -328,7 +328,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建 Volume.
+     * Creates a storage volume.
      *
      * @param request - CreateVolumeRequest
      * @param headers - map
@@ -365,7 +365,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 创建 Volume.
+     * Creates a storage volume.
      *
      * @param request - CreateVolumeRequest
      *
@@ -384,7 +384,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 ApiKey.
+     * Deletes a specified API key.
      *
      * @param request - DeleteApiKeyRequest
      * @param headers - map
@@ -421,7 +421,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 ApiKey.
+     * Deletes a specified API key.
      *
      * @param request - DeleteApiKeyRequest
      *
@@ -441,7 +441,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 quota 配置.
+     * Deletes the quota configuration for a specified team.
      *
      * @param request - DeleteQuotaRequest
      * @param headers - map
@@ -483,7 +483,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 quota 配置.
+     * Deletes the quota configuration for a specified team.
      *
      * @param request - DeleteQuotaRequest
      *
@@ -502,7 +502,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 Team.
+     * Deletes a specified team.
      *
      * @param request - DeleteTeamRequest
      * @param headers - map
@@ -539,7 +539,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 Team.
+     * Deletes a specified team.
      *
      * @param request - DeleteTeamRequest
      *
@@ -559,7 +559,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 Template.
+     * Deletes a template.
      *
      * @param request - DeleteTemplateRequest
      * @param headers - map
@@ -602,7 +602,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 Template.
+     * Deletes a template.
      *
      * @param request - DeleteTemplateRequest
      *
@@ -622,7 +622,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除模板缓存.
+     * Deletes the template cache.
      *
      * @param request - DeleteTemplateCacheRequest
      * @param headers - map
@@ -665,7 +665,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除模板缓存.
+     * Deletes the template cache.
      *
      * @param request - DeleteTemplateCacheRequest
      *
@@ -685,7 +685,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 Volume.
+     * Deletes a specified storage volume.
      *
      * @param request - DeleteVolumeRequest
      * @param headers - map
@@ -728,7 +728,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 删除 Volume.
+     * Deletes a specified storage volume.
      *
      * @param request - DeleteVolumeRequest
      *
@@ -748,7 +748,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查看 ApiKey.
+     * Queries the details of a specified API key.
      *
      * @param request - DescribeApiKeyRequest
      * @param headers - map
@@ -785,7 +785,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查看 ApiKey.
+     * Queries the details of a specified API key.
      *
      * @param request - DescribeApiKeyRequest
      *
@@ -805,7 +805,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 获取 quota 配置.
+     * Queries the quota configuration of a specified team.
      *
      * @param request - DescribeQuotaRequest
      * @param headers - map
@@ -847,7 +847,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 获取 quota 配置.
+     * Queries the quota configuration of a specified team.
      *
      * @param request - DescribeQuotaRequest
      *
@@ -866,7 +866,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询模板缓存.
+     * Queries the template cache.
      *
      * @param request - DescribeTemplateCacheRequest
      * @param headers - map
@@ -909,7 +909,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询模板缓存.
+     * Queries the template cache.
      *
      * @param request - DescribeTemplateCacheRequest
      *
@@ -929,7 +929,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 获取Team详情.
+     * Queries the details of a specified team.
      *
      * @param request - GetTeamRequest
      * @param headers - map
@@ -966,7 +966,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 获取Team详情.
+     * Queries the details of a specified team.
      *
      * @param request - GetTeamRequest
      *
@@ -986,7 +986,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询 Template.
+     * Queries a template.
      *
      * @param request - GetTemplateRequest
      * @param headers - map
@@ -1029,7 +1029,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询 Template.
+     * Queries a template.
      *
      * @param request - GetTemplateRequest
      *
@@ -1049,7 +1049,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查看 Volume.
+     * Queries the details of a specified storage volume.
      *
      * @param request - GetVolumeRequest
      * @param headers - map
@@ -1092,7 +1092,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查看 Volume.
+     * Queries the details of a specified storage volume.
      *
      * @param request - GetVolumeRequest
      *
@@ -1112,7 +1112,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询 ApiKey.
+     * Queries the list of API keys by using paging.
      *
      * @param request - ListApiKeysRequest
      * @param headers - map
@@ -1178,7 +1178,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询 ApiKey.
+     * Queries the list of API keys by using paging.
      *
      * @param request - ListApiKeysRequest
      *
@@ -1197,7 +1197,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询 quota 配置.
+     * Performs a paging query on the quota configurations for the current account.
      *
      * @param request - ListQuotaRequest
      * @param headers - map
@@ -1243,7 +1243,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询 quota 配置.
+     * Performs a paging query on the quota configurations for the current account.
      *
      * @param request - ListQuotaRequest
      *
@@ -1262,7 +1262,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询 Team 列表.
+     * Queries the list of teams by using paging.
      *
      * @param request - ListTeamsRequest
      * @param headers - map
@@ -1320,7 +1320,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询 Team 列表.
+     * Queries the list of teams by using paging.
      *
      * @param request - ListTeamsRequest
      *
@@ -1339,7 +1339,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询模板缓存.
+     * Performs a paging query of template caches.
      *
      * @param request - ListTemplateCacheRequest
      * @param headers - map
@@ -1397,7 +1397,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询模板缓存.
+     * Performs a paging query of template caches.
      *
      * @param request - ListTemplateCacheRequest
      *
@@ -1416,7 +1416,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询 Template.
+     * Performs a paged query on the template list by using paging.
      *
      * @param request - ListTemplatesRequest
      * @param headers - map
@@ -1466,7 +1466,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询 Template.
+     * Performs a paged query on the template list by using paging.
      *
      * @param request - ListTemplatesRequest
      *
@@ -1485,7 +1485,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询 Volumes.
+     * Queries a list of storage volumes by using paging.
      *
      * @param request - ListVolumesRequest
      * @param headers - map
@@ -1555,7 +1555,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 分页查询 Volumes.
+     * Queries a list of storage volumes by using paging.
      *
      * @param request - ListVolumesRequest
      *
@@ -1574,7 +1574,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 重置 ApiKey.
+     * Resets a specified API key.
      *
      * @param request - ResetApiKeyRequest
      * @param headers - map
@@ -1611,7 +1611,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 重置 ApiKey.
+     * Resets a specified API key.
      *
      * @param request - ResetApiKeyRequest
      *
@@ -1631,7 +1631,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 ApiKey.
+     * Updates the configuration of a specified API key.
      *
      * @param request - UpdateApiKeyRequest
      * @param headers - map
@@ -1669,7 +1669,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 ApiKey.
+     * Updates the configuration of a specified API key.
      *
      * @param request - UpdateApiKeyRequest
      *
@@ -1689,7 +1689,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 quota 配置.
+     * Updates the quota configuration.
      *
      * @param request - UpdateQuotaRequest
      * @param headers - map
@@ -1726,7 +1726,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 quota 配置.
+     * Updates the quota configuration.
      *
      * @param request - UpdateQuotaRequest
      *
@@ -1745,7 +1745,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 Team.
+     * Updates the information of a specified team.
      *
      * @param request - UpdateTeamRequest
      * @param headers - map
@@ -1783,7 +1783,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 Team.
+     * Updates the information of a specified team.
      *
      * @param request - UpdateTeamRequest
      *
@@ -1803,7 +1803,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 Template.
+     * Updates a template.
      *
      * @param request - UpdateTemplateRequest
      * @param headers - map
@@ -1847,7 +1847,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 Template.
+     * Updates a template.
      *
      * @param request - UpdateTemplateRequest
      *
@@ -1867,7 +1867,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 Volume.
+     * Updates the configuration of a specified storage volume.
      *
      * @param request - UpdateVolumeRequest
      * @param headers - map
@@ -1911,7 +1911,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 更新 Volume.
+     * Updates the configuration of a specified storage volume.
      *
      * @param request - UpdateVolumeRequest
      *

@@ -1,3 +1,7 @@
+2026-10-26 Version: 1.2.2
+- Update API GetTemplate: add response parameters Body.resourceTags.
+
+
 2026-10-15 Version: 1.2.1
 - Generated php 2026-08-20 for Sandbox.
 
