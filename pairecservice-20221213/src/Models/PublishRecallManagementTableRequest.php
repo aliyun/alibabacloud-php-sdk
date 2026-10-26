@@ -32,12 +32,18 @@ class PublishRecallManagementTableRequest extends Model
      * @var bool
      */
     public $skipThresholdCheck;
+
+    /**
+     * @var int
+     */
+    public $startTimestampMs;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'mode' => 'Mode',
         'partition' => 'Partition',
         'partitions' => 'Partitions',
         'skipThresholdCheck' => 'SkipThresholdCheck',
+        'startTimestampMs' => 'StartTimestampMs',
     ];
 
     public function validate()
@@ -84,6 +90,10 @@ class PublishRecallManagementTableRequest extends Model
             $res['SkipThresholdCheck'] = $this->skipThresholdCheck;
         }
 
+        if (null !== $this->startTimestampMs) {
+            $res['StartTimestampMs'] = $this->startTimestampMs;
+        }
+
         return $res;
     }
 
@@ -123,6 +133,10 @@ class PublishRecallManagementTableRequest extends Model
 
         if (isset($map['SkipThresholdCheck'])) {
             $model->skipThresholdCheck = $map['SkipThresholdCheck'];
+        }
+
+        if (isset($map['StartTimestampMs'])) {
+            $model->startTimestampMs = $map['StartTimestampMs'];
         }
 
         return $model;
