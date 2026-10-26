@@ -1,3 +1,6 @@
+2026-10-26 Version: 7.2.5
+- Generated php 2022-12-13 for PaiRecService.
+
 2026-10-26 Version: 7.2.3
 - Update API PublishRecallManagementTable: add request parameters body.StartTimestampMs.
 
