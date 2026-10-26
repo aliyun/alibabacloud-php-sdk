@@ -21,6 +21,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $authDb;
+
+    /**
+     * @var string
+     */
     public $authRole;
 
     /**
@@ -70,6 +75,7 @@ class items extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'aliUid' => 'AliUid',
+        'authDb' => 'AuthDb',
         'authRole' => 'AuthRole',
         'encryptionKeyMode' => 'EncryptionKeyMode',
         'engineType' => 'EngineType',
@@ -96,6 +102,10 @@ class items extends Model
 
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
+        }
+
+        if (null !== $this->authDb) {
+            $res['AuthDb'] = $this->authDb;
         }
 
         if (null !== $this->authRole) {
@@ -155,6 +165,10 @@ class items extends Model
 
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
+        }
+
+        if (isset($map['AuthDb'])) {
+            $model->authDb = $map['AuthDb'];
         }
 
         if (isset($map['AuthRole'])) {

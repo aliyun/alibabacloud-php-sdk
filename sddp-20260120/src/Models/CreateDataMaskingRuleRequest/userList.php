@@ -12,8 +12,14 @@ class userList extends Model
      * @var string
      */
     public $accountId;
+
+    /**
+     * @var string
+     */
+    public $authDb;
     protected $_name = [
         'accountId' => 'AccountId',
+        'authDb' => 'AuthDb',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class userList extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+
+        if (null !== $this->authDb) {
+            $res['AuthDb'] = $this->authDb;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class userList extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+
+        if (isset($map['AuthDb'])) {
+            $model->authDb = $map['AuthDb'];
         }
 
         return $model;

@@ -16,6 +16,11 @@ class ListDataAssetAccountsRequest extends Model
     /**
      * @var string
      */
+    public $authDb;
+
+    /**
+     * @var string
+     */
     public $authRole;
 
     /**
@@ -54,6 +59,7 @@ class ListDataAssetAccountsRequest extends Model
     public $productIds;
     protected $_name = [
         'accountName' => 'AccountName',
+        'authDb' => 'AuthDb',
         'authRole' => 'AuthRole',
         'bizType' => 'BizType',
         'currentPage' => 'CurrentPage',
@@ -74,6 +80,10 @@ class ListDataAssetAccountsRequest extends Model
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+
+        if (null !== $this->authDb) {
+            $res['AuthDb'] = $this->authDb;
         }
 
         if (null !== $this->authRole) {
@@ -121,6 +131,10 @@ class ListDataAssetAccountsRequest extends Model
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+
+        if (isset($map['AuthDb'])) {
+            $model->authDb = $map['AuthDb'];
         }
 
         if (isset($map['AuthRole'])) {
