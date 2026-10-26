@@ -24,6 +24,11 @@ class ManageAlertRulesResult extends Model
     public $deletedUuidList;
 
     /**
+     * @var string
+     */
+    public $drillUuid;
+
+    /**
      * @var int
      */
     public $updatedCount;
@@ -36,6 +41,7 @@ class ManageAlertRulesResult extends Model
         'alertRule' => 'alertRule',
         'deletedCount' => 'deletedCount',
         'deletedUuidList' => 'deletedUuidList',
+        'drillUuid' => 'drillUuid',
         'updatedCount' => 'updatedCount',
         'updatedUuidList' => 'updatedUuidList',
     ];
@@ -74,6 +80,10 @@ class ManageAlertRulesResult extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->drillUuid) {
+            $res['drillUuid'] = $this->drillUuid;
         }
 
         if (null !== $this->updatedCount) {
@@ -119,6 +129,10 @@ class ManageAlertRulesResult extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['drillUuid'])) {
+            $model->drillUuid = $map['drillUuid'];
         }
 
         if (isset($map['updatedCount'])) {

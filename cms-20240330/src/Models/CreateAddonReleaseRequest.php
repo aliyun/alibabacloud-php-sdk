@@ -19,6 +19,11 @@ class CreateAddonReleaseRequest extends Model
     public $aliyunLang;
 
     /**
+     * @var string
+     */
+    public $apiVersion;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -60,6 +65,7 @@ class CreateAddonReleaseRequest extends Model
     protected $_name = [
         'addonName' => 'addonName',
         'aliyunLang' => 'aliyunLang',
+        'apiVersion' => 'apiVersion',
         'dryRun' => 'dryRun',
         'entityRules' => 'entityRules',
         'envType' => 'envType',
@@ -87,6 +93,10 @@ class CreateAddonReleaseRequest extends Model
 
         if (null !== $this->aliyunLang) {
             $res['aliyunLang'] = $this->aliyunLang;
+        }
+
+        if (null !== $this->apiVersion) {
+            $res['apiVersion'] = $this->apiVersion;
         }
 
         if (null !== $this->dryRun) {
@@ -138,6 +148,10 @@ class CreateAddonReleaseRequest extends Model
 
         if (isset($map['aliyunLang'])) {
             $model->aliyunLang = $map['aliyunLang'];
+        }
+
+        if (isset($map['apiVersion'])) {
+            $model->apiVersion = $map['apiVersion'];
         }
 
         if (isset($map['dryRun'])) {

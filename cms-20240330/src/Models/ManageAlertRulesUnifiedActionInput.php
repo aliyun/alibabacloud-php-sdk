@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ManageAlertRulesUnifiedActionInput\drillTimeRange;
 
 class ManageAlertRulesUnifiedActionInput extends Model
 {
@@ -52,6 +53,21 @@ class ManageAlertRulesUnifiedActionInput extends Model
      * @var string
      */
     public $displayName;
+
+    /**
+     * @var int
+     */
+    public $drillEvalTime;
+
+    /**
+     * @var string
+     */
+    public $drillMode;
+
+    /**
+     * @var drillTimeRange
+     */
+    public $drillTimeRange;
 
     /**
      * @var bool
@@ -127,6 +143,9 @@ class ManageAlertRulesUnifiedActionInput extends Model
         'contentTemplate' => 'contentTemplate',
         'datasourceConfig' => 'datasourceConfig',
         'displayName' => 'displayName',
+        'drillEvalTime' => 'drillEvalTime',
+        'drillMode' => 'drillMode',
+        'drillTimeRange' => 'drillTimeRange',
         'enabled' => 'enabled',
         'labels' => 'labels',
         'notifyConfig' => 'notifyConfig',
@@ -158,6 +177,9 @@ class ManageAlertRulesUnifiedActionInput extends Model
         }
         if (null !== $this->datasourceConfig) {
             $this->datasourceConfig->validate();
+        }
+        if (null !== $this->drillTimeRange) {
+            $this->drillTimeRange->validate();
         }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
@@ -225,6 +247,18 @@ class ManageAlertRulesUnifiedActionInput extends Model
 
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
+        }
+
+        if (null !== $this->drillEvalTime) {
+            $res['drillEvalTime'] = $this->drillEvalTime;
+        }
+
+        if (null !== $this->drillMode) {
+            $res['drillMode'] = $this->drillMode;
+        }
+
+        if (null !== $this->drillTimeRange) {
+            $res['drillTimeRange'] = null !== $this->drillTimeRange ? $this->drillTimeRange->toArray($noStream) : $this->drillTimeRange;
         }
 
         if (null !== $this->enabled) {
@@ -341,6 +375,18 @@ class ManageAlertRulesUnifiedActionInput extends Model
 
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
+        }
+
+        if (isset($map['drillEvalTime'])) {
+            $model->drillEvalTime = $map['drillEvalTime'];
+        }
+
+        if (isset($map['drillMode'])) {
+            $model->drillMode = $map['drillMode'];
+        }
+
+        if (isset($map['drillTimeRange'])) {
+            $model->drillTimeRange = drillTimeRange::fromMap($map['drillTimeRange']);
         }
 
         if (isset($map['enabled'])) {

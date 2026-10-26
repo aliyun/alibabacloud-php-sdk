@@ -18,6 +18,11 @@ class policies extends Model
     public $addonNames;
 
     /**
+     * @var string
+     */
+    public $apiVersion;
+
+    /**
      * @var bindResource
      */
     public $bindResource;
@@ -83,6 +88,7 @@ class policies extends Model
     public $workspace;
     protected $_name = [
         'addonNames' => 'addonNames',
+        'apiVersion' => 'apiVersion',
         'bindResource' => 'bindResource',
         'csUmodelStatus' => 'csUmodelStatus',
         'entityGroup' => 'entityGroup',
@@ -130,6 +136,10 @@ class policies extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->apiVersion) {
+            $res['apiVersion'] = $this->apiVersion;
         }
 
         if (null !== $this->bindResource) {
@@ -204,6 +214,10 @@ class policies extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['apiVersion'])) {
+            $model->apiVersion = $map['apiVersion'];
         }
 
         if (isset($map['bindResource'])) {

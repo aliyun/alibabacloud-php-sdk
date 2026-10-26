@@ -16,6 +16,11 @@ class GetAddonSchemaRequest extends Model
     /**
      * @var string
      */
+    public $apiVersion;
+
+    /**
+     * @var string
+     */
     public $environmentType;
 
     /**
@@ -24,6 +29,7 @@ class GetAddonSchemaRequest extends Model
     public $version;
     protected $_name = [
         'aliyunLang' => 'aliyunLang',
+        'apiVersion' => 'apiVersion',
         'environmentType' => 'environmentType',
         'version' => 'version',
     ];
@@ -38,6 +44,10 @@ class GetAddonSchemaRequest extends Model
         $res = [];
         if (null !== $this->aliyunLang) {
             $res['aliyunLang'] = $this->aliyunLang;
+        }
+
+        if (null !== $this->apiVersion) {
+            $res['apiVersion'] = $this->apiVersion;
         }
 
         if (null !== $this->environmentType) {
@@ -61,6 +71,10 @@ class GetAddonSchemaRequest extends Model
         $model = new self();
         if (isset($map['aliyunLang'])) {
             $model->aliyunLang = $map['aliyunLang'];
+        }
+
+        if (isset($map['apiVersion'])) {
+            $model->apiVersion = $map['apiVersion'];
         }
 
         if (isset($map['environmentType'])) {

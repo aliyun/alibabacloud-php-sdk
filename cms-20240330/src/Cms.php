@@ -455,7 +455,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Write to the context.
+     * Writes context.
      *
      * @param request - AddContextsRequest
      * @param headers - map
@@ -507,7 +507,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Write to the context.
+     * Writes context.
      *
      * @param request - AddContextsRequest
      *
@@ -528,7 +528,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
+     * Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and uses an asynchronous commit to commit them so that the memory is ready to search, retrieve, and run graph queries.
      *
      * @param request - AddMemoriesRequest
      * @param headers - map
@@ -608,7 +608,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
+     * Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and uses an asynchronous commit to commit them so that the memory is ready to search, retrieve, and run graph queries.
      *
      * @param request - AddMemoriesRequest
      *
@@ -698,7 +698,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Installs an access component, which represents a single access operation.
+     * Installs an add-on component, which represents an integration operation.
      *
      * @remarks
      * Creates a site monitoring task.
@@ -726,6 +726,10 @@ class Cms extends OpenApiClient
 
         if (null !== $request->aliyunLang) {
             @$body['aliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->apiVersion) {
+            @$body['apiVersion'] = $request->apiVersion;
         }
 
         if (null !== $request->dryRun) {
@@ -780,7 +784,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Installs an access component, which represents a single access operation.
+     * Installs an add-on component, which represents an integration operation.
      *
      * @remarks
      * Creates a site monitoring task.
@@ -803,7 +807,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create an aggregation task group.
+     * Creates an aggregation task group.
      *
      * @param request - CreateAggTaskGroupRequest
      * @param headers - map
@@ -912,7 +916,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create an aggregation task group.
+     * Creates an aggregation task group.
      *
      * @param request - CreateAggTaskGroupRequest
      *
@@ -1320,7 +1324,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates an API key for a context store.
+     * Creates an API key.
      *
      * @param request - CreateContextStoreAPIKeyRequest
      * @param headers - map
@@ -1364,7 +1368,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates an API key for a context store.
+     * Creates an API key.
      *
      * @param request - CreateContextStoreAPIKeyRequest
      *
@@ -1385,7 +1389,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a DataPipeline.
+     * Creates a data pipeline.
      *
      * @remarks
      * Creates a data pipeline in a specified workspace.
@@ -1455,7 +1459,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a DataPipeline.
+     * Creates a data pipeline.
      *
      * @remarks
      * Creates a data pipeline in a specified workspace.
@@ -1549,7 +1553,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create a data delivery task to deliver metric data from a data source to a storage destination or message queue. This task supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can also use tags to filter which metrics are delivered and attach custom tags to them.
+     * Creates a data delivery node that delivers metric data from a specified data source to a destination storage service or MSMQ. This operation supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can use labels to filter the metrics to be delivered and attach custom labels to the delivered metrics.
      *
      * @param request - CreateDeliveryTaskRequest
      * @param headers - map
@@ -1623,7 +1627,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create a data delivery task to deliver metric data from a data source to a storage destination or message queue. This task supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can also use tags to filter which metrics are delivered and attach custom tags to them.
+     * Creates a data delivery node that delivers metric data from a specified data source to a destination storage service or MSMQ. This operation supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can use labels to filter the metrics to be delivered and attach custom labels to the delivered metrics.
      *
      * @param request - CreateDeliveryTaskRequest
      *
@@ -1642,7 +1646,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates storage for an EntityStore.
+     * Creates EntityStore-related storage.
      *
      * @param request - CreateEntityStoreRequest
      * @param headers - map
@@ -1679,7 +1683,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates storage for an EntityStore.
+     * Creates EntityStore-related storage.
      *
      * @param request - CreateEntityStoreRequest
      *
@@ -1699,7 +1703,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates an Integration Center policy.
+     * Creates an access center policy.
      *
      * @remarks
      * This operation creates an event integration.
@@ -1720,6 +1724,10 @@ class Cms extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->apiVersion) {
+            @$body['apiVersion'] = $request->apiVersion;
+        }
+
         if (null !== $request->entityGroup) {
             @$body['entityGroup'] = $request->entityGroup;
         }
@@ -1764,7 +1772,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates an Integration Center policy.
+     * Creates an access center policy.
      *
      * @remarks
      * This operation creates an event integration.
@@ -1789,8 +1797,7 @@ class Cms extends OpenApiClient
      * Creates a silence policy.
      *
      * @remarks
-     * Creates a silence policy in a specified workspace. A silence policy uses filterSetting to filter events. When the policy is enabled and the current time hits the configured effective rules, hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications. The events are still Normal and stored in the database.
-     * When you create a silence policy, maintainWindowName and filterSetting are required. filterSetting must contain at least one condition. You do not have to configure any effective period. In this case, the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation is failed. If a policy name already exists in the same workspace, the InvalidParameterValue error is returned. After the policy is created, the silence policy ID is returned.
+     * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
      *
      * @param request - CreateMaintainWindowRequest
      * @param headers - map
@@ -1836,8 +1843,7 @@ class Cms extends OpenApiClient
      * Creates a silence policy.
      *
      * @remarks
-     * Creates a silence policy in a specified workspace. A silence policy uses filterSetting to filter events. When the policy is enabled and the current time hits the configured effective rules, hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications. The events are still Normal and stored in the database.
-     * When you create a silence policy, maintainWindowName and filterSetting are required. filterSetting must contain at least one condition. You do not have to configure any effective period. In this case, the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation is failed. If a policy name already exists in the same workspace, the InvalidParameterValue error is returned. After the policy is created, the silence policy ID is returned.
+     * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally. When you create a policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
      *
      * @param request - CreateMaintainWindowRequest
      *
@@ -1856,7 +1862,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a MemoryStore.
+     * Creates a memory store.
      *
      * @param request - CreateMemoryStoreRequest
      * @param headers - map
@@ -1923,7 +1929,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a MemoryStore.
+     * Creates a memory store.
      *
      * @param request - CreateMemoryStoreRequest
      *
@@ -1946,7 +1952,7 @@ class Cms extends OpenApiClient
      * Creates a notification policy.
      *
      * @remarks
-     * Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+     * Creates a notification policy in a specified workspace. In the request body NotifyPolicyConfig, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate policy name exists in the same workspace, ConflictName is returned.
      *
      * @param request - CreateNotifyPolicyRequest
      * @param headers - map
@@ -1992,7 +1998,7 @@ class Cms extends OpenApiClient
      * Creates a notification policy.
      *
      * @remarks
-     * Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+     * Creates a notification policy in a specified workspace. In the request body NotifyPolicyConfig, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate policy name exists in the same workspace, ConflictName is returned.
      *
      * @param request - CreateNotifyPolicyRequest
      *
@@ -2955,7 +2961,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes an alert chatbot.
+     * Deletes a chatbot.
      *
      * @param tmpReq - DeleteAlertRobotsRequest
      * @param headers - map
@@ -3007,7 +3013,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes an alert chatbot.
+     * Deletes a chatbot.
      *
      * @param request - DeleteAlertRobotsRequest
      *
@@ -5237,7 +5243,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Executes SQL and SPL queries.
+     * Executes SQL, SPL, and other queries.
      *
      * @param request - ExecuteQueryRequest
      * @param headers - map
@@ -5285,7 +5291,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Executes SQL and SPL queries.
+     * Executes SQL, SPL, and other queries.
      *
      * @param request - ExecuteQueryRequest
      *
@@ -5541,6 +5547,10 @@ class Cms extends OpenApiClient
             @$query['aliyunLang'] = $request->aliyunLang;
         }
 
+        if (null !== $request->apiVersion) {
+            @$query['apiVersion'] = $request->apiVersion;
+        }
+
         if (null !== $request->environmentType) {
             @$query['environmentType'] = $request->environmentType;
         }
@@ -5759,11 +5769,11 @@ class Cms extends OpenApiClient
      * Queries all entity information of a specific cloud service within a specified time range.
      *
      * @remarks
-     * ## Operation description
-     * - This operation queries all entities of a specific cloud service within a specified time range.
-     * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
-     * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
-     * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+     * ## Request description
+     * - This operation queries all entities under a specific cloud service within a specified time range.
+     * - The `from` and `to` parameters specify the time range for the query, represented by timestamps in seconds.
+     * - The `spl` parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
+     * - If only specific fields are required, you can use the `project` clause in `spl` to filter them.
      * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
      *
      * @param request - GetCloudResourceDataRequest
@@ -5817,11 +5827,11 @@ class Cms extends OpenApiClient
      * Queries all entity information of a specific cloud service within a specified time range.
      *
      * @remarks
-     * ## Operation description
-     * - This operation queries all entities of a specific cloud service within a specified time range.
-     * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
-     * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
-     * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+     * ## Request description
+     * - This operation queries all entities under a specific cloud service within a specified time range.
+     * - The `from` and `to` parameters specify the time range for the query, represented by timestamps in seconds.
+     * - The `spl` parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
+     * - If only specific fields are required, you can use the `project` clause in `spl` to filter them.
      * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
      *
      * @param request - GetCloudResourceDataRequest
@@ -5912,7 +5922,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a single context.
+     * Queries a single context.
      *
      * @param request - GetContextRequest
      * @param headers - map
@@ -5957,7 +5967,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a single context.
+     * Queries a single context.
      *
      * @param request - GetContextRequest
      *
@@ -6038,7 +6048,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a DataPipeline.
+     * Queries a data pipeline.
      *
      * @remarks
      * Queries the configuration and running status of a data pipeline in a specified workspace.
@@ -6079,7 +6089,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a DataPipeline.
+     * Queries a data pipeline.
      *
      * @remarks
      * Queries the configuration and running status of a data pipeline in a specified workspace.
@@ -6282,7 +6292,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
+     * Queries the entity and relationship data in a specified workspace, and returns the entity data within a specific time range.
      *
      * @param request - GetEntityStoreDataRequest
      * @param headers - GetEntityStoreDataHeaders
@@ -6342,7 +6352,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
+     * Queries the entity and relationship data in a specified workspace, and returns the entity data within a specific time range.
      *
      * @param request - GetEntityStoreDataRequest
      *
@@ -6910,7 +6920,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query pipeline.
+     * Queries a pipeline.
      *
      * @param request - GetPipelineRequest
      * @param headers - map
@@ -6948,7 +6958,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query pipeline.
+     * Queries a pipeline.
      *
      * @param request - GetPipelineRequest
      *
@@ -7235,7 +7245,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves an application observability instance.
+     * Retrieves the application observability instance.
      *
      * @param request - GetServiceObservabilityRequest
      * @param headers - map
@@ -7273,7 +7283,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves an application observability instance.
+     * Retrieves the application observability instance.
      *
      * @param request - GetServiceObservabilityRequest
      *
@@ -7440,10 +7450,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration of a Umodel.
+     * Retrieves Umodel configuration information.
      *
      * @remarks
-     * Retrieves the configuration of a Umodel.
+     * Retrieves Umodel configuration information.
      *
      * @param request - GetUmodelRequest
      * @param headers - map
@@ -7480,10 +7490,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration of a Umodel.
+     * Retrieves Umodel configuration information.
      *
      * @remarks
-     * Retrieves the configuration of a Umodel.
+     * Retrieves Umodel configuration information.
      *
      * @param request - GetUmodelRequest
      *
@@ -7503,7 +7513,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the referenced common Umodel schema.
+     * Retrieves the referenced public Umodel schema.
      *
      * @param request - GetUmodelCommonSchemaRefRequest
      * @param headers - map
@@ -7540,7 +7550,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the referenced common Umodel schema.
+     * Retrieves the referenced public Umodel schema.
      *
      * @param request - GetUmodelCommonSchemaRefRequest
      *
@@ -7692,10 +7702,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the releases for an add-on.
+     * Lists the releases of an add-on.
      *
      * @remarks
-     * This operation retrieves a list of integration configurations.
+     * Queries the list of integration configurations.
      *
      * @param request - ListAddonReleasesRequest
      * @param headers - map
@@ -7750,10 +7760,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the releases for an add-on.
+     * Lists the releases of an add-on.
      *
      * @remarks
-     * This operation retrieves a list of integration configurations.
+     * Queries the list of integration configurations.
      *
      * @param request - ListAddonReleasesRequest
      *
@@ -7773,10 +7783,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the products in the new Integration Center by group.
+     * Queries the grouped product list of the new integration center.
      *
      * @remarks
-     * Creates a site monitoring job.
+     * Creates a site monitoring task.
      *
      * @param request - ListAddonsRequest
      * @param headers - map
@@ -7796,6 +7806,10 @@ class Cms extends OpenApiClient
         $query = [];
         if (null !== $request->aliyunLang) {
             @$query['aliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->apiVersion) {
+            @$query['apiVersion'] = $request->apiVersion;
         }
 
         if (null !== $request->category) {
@@ -7830,10 +7844,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the products in the new Integration Center by group.
+     * Queries the grouped product list of the new integration center.
      *
      * @remarks
-     * Creates a site monitoring job.
+     * Creates a site monitoring task.
      *
      * @param request - ListAddonsRequest
      *
@@ -8212,7 +8226,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists business traces.
+     * Queries the list of business links.
      *
      * @param request - ListBizTracesRequest
      * @param headers - map
@@ -8262,7 +8276,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists business traces.
+     * Queries the list of business links.
      *
      * @param request - ListBizTracesRequest
      *
@@ -8475,7 +8489,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists API keys.
+     * Retrieves a list of API keys.
      *
      * @param request - ListContextStoreAPIKeysRequest
      * @param headers - map
@@ -8523,7 +8537,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists API keys.
+     * Retrieves a list of API keys.
      *
      * @param request - ListContextStoreAPIKeysRequest
      *
@@ -8544,7 +8558,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of context stores.
+     * Queries the list of context stores.
      *
      * @param request - ListContextStoresRequest
      * @param headers - map
@@ -8599,7 +8613,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of context stores.
+     * Queries the list of context stores.
      *
      * @param request - ListContextStoresRequest
      *
@@ -8619,7 +8633,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of DataPipelines.
+     * Queries data pipelines.
      *
      * @remarks
      * Queries data pipelines in a specified workspace by using paging.
@@ -8669,7 +8683,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of DataPipelines.
+     * Queries data pipelines.
      *
      * @remarks
      * Queries data pipelines in a specified workspace by using paging.
@@ -8692,7 +8706,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of datasets in a specified workspace.
+     * Lists datasets.
      *
      * @param request - ListDatasetsRequest
      * @param headers - map
@@ -8743,7 +8757,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of datasets in a specified workspace.
+     * Lists datasets.
      *
      * @param request - ListDatasetsRequest
      *
@@ -8763,7 +8777,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of data delivery tasks.
+     * Retrieves a list of data delivery tasks.
      *
      * @param tmpReq - ListDeliveryTasksRequest
      * @param headers - map
@@ -8827,7 +8841,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of data delivery tasks.
+     * Retrieves a list of data delivery tasks.
      *
      * @param request - ListDeliveryTasksRequest
      *
@@ -8971,10 +8985,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the add-ons that are installed for a specified policy.
+     * Retrieves the list of add-ons installed for the current policy.
      *
      * @remarks
-     * Lists the add-ons that are installed for a specified policy.
+     * Retrieves the list of add-ons installed for the current policy.
      *
      * @param request - ListIntegrationPolicyAddonsRequest
      * @param headers - map
@@ -9011,10 +9025,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the add-ons that are installed for a specified policy.
+     * Retrieves the list of add-ons installed for the current policy.
      *
      * @remarks
-     * Lists the add-ons that are installed for a specified policy.
+     * Retrieves the list of add-ons installed for the current policy.
      *
      * @param request - ListIntegrationPolicyAddonsRequest
      *
@@ -9180,10 +9194,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of integration policy dashboards.
+     * Queries the list of dashboards.
      *
      * @remarks
-     * This topic provides an example of how to query a list of integration policy dashboards.
+     * This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - ListIntegrationPolicyDashboardsRequest
      * @param headers - map
@@ -9234,10 +9248,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of integration policy dashboards.
+     * Queries the list of dashboards.
      *
      * @remarks
-     * This topic provides an example of how to query a list of integration policy dashboards.
+     * This topic provides an example of querying the alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - ListIntegrationPolicyDashboardsRequest
      *
@@ -9257,10 +9271,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the PodMonitor resources of an access center policy.
+     * Retrieves the PodMonitor resources of an Integration Center policy.
      *
      * @remarks
-     * This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of querying alert templates. The response indicates that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - ListIntegrationPolicyPodMonitorsRequest
      * @param headers - map
@@ -9315,10 +9329,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the PodMonitor resources of an access center policy.
+     * Retrieves the PodMonitor resources of an Integration Center policy.
      *
      * @remarks
-     * This topic provides an example on how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of querying alert templates. The response indicates that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - ListIntegrationPolicyPodMonitorsRequest
      *
@@ -9589,7 +9603,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of memory stores.
+     * Queries the list of memory stores.
      *
      * @param request - ListMemoryStoresRequest
      * @param headers - map
@@ -9640,7 +9654,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of memory stores.
+     * Queries the list of memory stores.
      *
      * @param request - ListMemoryStoresRequest
      *
@@ -10756,7 +10770,7 @@ class Cms extends OpenApiClient
      * Previews a data pipeline.
      *
      * @remarks
-     * Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+     * Compiles candidate configurations and queries read-only samples grouped by dataset within a specified time window.
      *
      * @param request - PreviewDataPipelineRequest
      * @param headers - map
@@ -10834,7 +10848,7 @@ class Cms extends OpenApiClient
      * Previews a data pipeline.
      *
      * @remarks
-     * Compiles a candidate configuration and queries read-only samples grouped by dataset within a specified time window.
+     * Compiles candidate configurations and queries read-only samples grouped by dataset within a specified time window.
      *
      * @param request - PreviewDataPipelineRequest
      *
@@ -10936,7 +10950,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param tmpReq - QueryAlertRulesRequest
      * @param headers - map
@@ -11005,7 +11019,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of querying an alert template list. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of querying the list of alert templates. The response shows that the list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - QueryAlertRulesRequest
      *
@@ -11451,7 +11465,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates an aggregation task group.
+     * Applies an aggregation task group.
      *
      * @param request - UpdateAggTaskGroupRequest
      * @param headers - map
@@ -11555,7 +11569,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates an aggregation task group.
+     * Applies an aggregation task group.
      *
      * @param request - UpdateAggTaskGroupRequest
      *
@@ -12050,10 +12064,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a DataPipeline.
+     * Updates a data pipeline.
      *
      * @remarks
-     * Modifies a specified data pipeline by using a complete candidate configuration.
+     * Updates the specified data pipeline with a full candidate configuration.
      *
      * @param request - UpdateDataPipelineRequest
      * @param headers - map
@@ -12121,10 +12135,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a DataPipeline.
+     * Updates a data pipeline.
      *
      * @remarks
-     * Modifies a specified data pipeline by using a complete candidate configuration.
+     * Updates the specified data pipeline with a full candidate configuration.
      *
      * @param request - UpdateDataPipelineRequest
      *
@@ -12523,7 +12537,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Modify a memory store.
+     * Modifies a memory store.
      *
      * @param request - UpdateMemoryStoreRequest
      * @param headers - map
@@ -12579,7 +12593,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Modify a memory store.
+     * Modifies a memory store.
      *
      * @param request - UpdateMemoryStoreRequest
      *

@@ -16,6 +16,11 @@ class ListAddonsRequest extends Model
     /**
      * @var string
      */
+    public $apiVersion;
+
+    /**
+     * @var string
+     */
     public $category;
 
     /**
@@ -29,6 +34,7 @@ class ListAddonsRequest extends Model
     public $search;
     protected $_name = [
         'aliyunLang' => 'aliyunLang',
+        'apiVersion' => 'apiVersion',
         'category' => 'category',
         'regexp' => 'regexp',
         'search' => 'search',
@@ -44,6 +50,10 @@ class ListAddonsRequest extends Model
         $res = [];
         if (null !== $this->aliyunLang) {
             $res['aliyunLang'] = $this->aliyunLang;
+        }
+
+        if (null !== $this->apiVersion) {
+            $res['apiVersion'] = $this->apiVersion;
         }
 
         if (null !== $this->category) {
@@ -71,6 +81,10 @@ class ListAddonsRequest extends Model
         $model = new self();
         if (isset($map['aliyunLang'])) {
             $model->aliyunLang = $map['aliyunLang'];
+        }
+
+        if (isset($map['apiVersion'])) {
+            $model->apiVersion = $map['apiVersion'];
         }
 
         if (isset($map['category'])) {

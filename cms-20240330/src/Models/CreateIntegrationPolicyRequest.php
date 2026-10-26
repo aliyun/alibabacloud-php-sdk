@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest\tags;
 class CreateIntegrationPolicyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $apiVersion;
+
+    /**
      * @var entityGroup
      */
     public $entityGroup;
@@ -40,6 +45,7 @@ class CreateIntegrationPolicyRequest extends Model
      */
     public $workspace;
     protected $_name = [
+        'apiVersion' => 'apiVersion',
         'entityGroup' => 'entityGroup',
         'policyName' => 'policyName',
         'policyType' => 'policyType',
@@ -62,6 +68,10 @@ class CreateIntegrationPolicyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiVersion) {
+            $res['apiVersion'] = $this->apiVersion;
+        }
+
         if (null !== $this->entityGroup) {
             $res['entityGroup'] = null !== $this->entityGroup ? $this->entityGroup->toArray($noStream) : $this->entityGroup;
         }
@@ -104,6 +114,10 @@ class CreateIntegrationPolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiVersion'])) {
+            $model->apiVersion = $map['apiVersion'];
+        }
+
         if (isset($map['entityGroup'])) {
             $model->entityGroup = entityGroup::fromMap($map['entityGroup']);
         }
