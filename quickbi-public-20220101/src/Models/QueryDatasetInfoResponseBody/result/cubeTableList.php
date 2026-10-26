@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetInfoResponseBody\result;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetInfoResponseBody\result\cubeTableList\childTables;
 
 class cubeTableList extends Model
 {
@@ -12,6 +13,11 @@ class cubeTableList extends Model
      * @var string
      */
     public $caption;
+
+    /**
+     * @var childTables[]
+     */
+    public $childTables;
 
     /**
      * @var bool
@@ -49,6 +55,7 @@ class cubeTableList extends Model
     public $uniqueId;
     protected $_name = [
         'caption' => 'Caption',
+        'childTables' => 'ChildTables',
         'customsql' => 'Customsql',
         'datasourceId' => 'DatasourceId',
         'dsType' => 'DsType',
@@ -60,6 +67,9 @@ class cubeTableList extends Model
 
     public function validate()
     {
+        if (\is_array($this->childTables)) {
+            Model::validateArray($this->childTables);
+        }
         parent::validate();
     }
 
@@ -68,6 +78,17 @@ class cubeTableList extends Model
         $res = [];
         if (null !== $this->caption) {
             $res['Caption'] = $this->caption;
+        }
+
+        if (null !== $this->childTables) {
+            if (\is_array($this->childTables)) {
+                $res['ChildTables'] = [];
+                $n1 = 0;
+                foreach ($this->childTables as $item1) {
+                    $res['ChildTables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->customsql) {
@@ -111,6 +132,17 @@ class cubeTableList extends Model
         $model = new self();
         if (isset($map['Caption'])) {
             $model->caption = $map['Caption'];
+        }
+
+        if (isset($map['ChildTables'])) {
+            if (!empty($map['ChildTables'])) {
+                $model->childTables = [];
+                $n1 = 0;
+                foreach ($map['ChildTables'] as $item1) {
+                    $model->childTables[$n1] = childTables::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Customsql'])) {

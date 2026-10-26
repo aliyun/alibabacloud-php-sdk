@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateCubeBySqlRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateCubeBySqlResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicket4AiProRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicket4AiProResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicket4CopilotRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicket4CopilotResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketRequest;
@@ -144,6 +146,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceUserRolesByUser
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListWorkspaceUserRolesByUserIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ManualRunMailTaskRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ManualRunMailTaskResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyAiproEmbedConfigRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyAiproEmbedConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyCopilotEmbedConfigRequest;
@@ -152,6 +156,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyDashboardNl2sqlStatusR
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyDashboardNl2sqlStatusResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAccelerationLogByCubeIdRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAccelerationLogByCubeIdResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAiproEmbedConfigRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAiproEmbedConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryApprovalInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryApprovalInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryAuditLogRequest;
@@ -262,6 +268,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateCubeBySqlRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateCubeBySqlResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataLevelPermissionStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataLevelPermissionStatusResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataSourcePropertiesRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataSourcePropertiesResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateEmbeddedStatusRequest;
@@ -2024,6 +2032,91 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * 生成AIPro超级框嵌入ticket.
+     *
+     * @param request - CreateTicket4AiProRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTicket4AiProResponse
+     *
+     * @param CreateTicket4AiProRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateTicket4AiProResponse
+     */
+    public function createTicket4AiProWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->accountType) {
+            @$query['AccountType'] = $request->accountType;
+        }
+
+        if (null !== $request->aiProId) {
+            @$query['AiProId'] = $request->aiProId;
+        }
+
+        if (null !== $request->customParam) {
+            @$query['CustomParam'] = $request->customParam;
+        }
+
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
+        }
+
+        if (null !== $request->quickBIUserId) {
+            @$query['QuickBIUserId'] = $request->quickBIUserId;
+        }
+
+        if (null !== $request->systemUid) {
+            @$query['SystemUid'] = $request->systemUid;
+        }
+
+        if (null !== $request->ticketNum) {
+            @$query['TicketNum'] = $request->ticketNum;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTicket4AiPro',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTicket4AiProResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成AIPro超级框嵌入ticket.
+     *
+     * @param request - CreateTicket4AiProRequest
+     *
+     * @returns CreateTicket4AiProResponse
+     *
+     * @param CreateTicket4AiProRequest $request
+     *
+     * @return CreateTicket4AiProResponse
+     */
+    public function createTicket4AiPro($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTicket4AiProWithOptions($request, $runtime);
+    }
+
+    /**
      * Generates a ticket to embed Copilot.
      *
      * @param request - CreateTicket4CopilotRequest
@@ -3365,7 +3458,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of embedded reports.
+     * Queries a list of embedded reports.
      *
      * @param request - GetWorksEmbedListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3420,7 +3513,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of embedded reports.
+     * Queries a list of embedded reports.
      *
      * @param request - GetWorksEmbedListRequest
      *
@@ -4882,6 +4975,87 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * 修改AI Pro嵌入配置.
+     *
+     * @param request - ModifyAiproEmbedConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAiproEmbedConfigResponse
+     *
+     * @param ModifyAiproEmbedConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAiproEmbedConfigResponse
+     */
+    public function modifyAiproEmbedConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->aiProId) {
+            @$query['AiProId'] = $request->aiProId;
+        }
+
+        if (null !== $request->chatHistoryStatus) {
+            @$query['ChatHistoryStatus'] = $request->chatHistoryStatus;
+        }
+
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
+        if (null !== $request->memoryEnabled) {
+            @$query['MemoryEnabled'] = $request->memoryEnabled;
+        }
+
+        if (null !== $request->showName) {
+            @$query['ShowName'] = $request->showName;
+        }
+
+        if (null !== $request->uploadEnabled) {
+            @$query['UploadEnabled'] = $request->uploadEnabled;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAiproEmbedConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAiproEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改AI Pro嵌入配置.
+     *
+     * @param request - ModifyAiproEmbedConfigRequest
+     *
+     * @returns ModifyAiproEmbedConfigResponse
+     *
+     * @param ModifyAiproEmbedConfigRequest $request
+     *
+     * @return ModifyAiproEmbedConfigResponse
+     */
+    public function modifyAiproEmbedConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAiproEmbedConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the configurations of a specified API data source.
      *
      * @remarks
@@ -5153,6 +5327,63 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryAccelerationLogByCubeIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 概述.
+     *
+     * @param request - QueryAiproEmbedConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAiproEmbedConfigResponse
+     *
+     * @param QueryAiproEmbedConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryAiproEmbedConfigResponse
+     */
+    public function queryAiproEmbedConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAiproEmbedConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAiproEmbedConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 概述.
+     *
+     * @param request - QueryAiproEmbedConfigRequest
+     *
+     * @returns QueryAiproEmbedConfigResponse
+     *
+     * @param QueryAiproEmbedConfigRequest $request
+     *
+     * @return QueryAiproEmbedConfigResponse
+     */
+    public function queryAiproEmbedConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAiproEmbedConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -5452,7 +5683,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries dataset optimization suggestions.
+     * Queries optimization suggestions for datasets.
      *
      * @param request - QueryCubeOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5491,7 +5722,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries dataset optimization suggestions.
+     * Queries optimization suggestions for datasets.
      *
      * @param request - QueryCubeOptimizationRequest
      *
@@ -6540,7 +6771,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of workspaces in the current organization.
+     * Queries the list of workspaces in the current organization.
      *
      * @param request - QueryOrganizationWorkspaceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6591,7 +6822,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of workspaces in the current organization.
+     * Queries the list of workspaces in the current organization.
      *
      * @param request - QueryOrganizationWorkspaceListRequest
      *
@@ -7556,7 +7787,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the information of a specified data work.
+     * Queries the details of a specified data work.
      *
      * @param request - QueryWorksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7595,7 +7826,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the information of a specified data work.
+     * Queries the details of a specified data work.
      *
      * @param request - QueryWorksRequest
      *
@@ -8823,6 +9054,75 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * 更新数据源基础属性.
+     *
+     * @param request - UpdateDataSourcePropertiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataSourcePropertiesResponse
+     *
+     * @param UpdateDataSourcePropertiesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateDataSourcePropertiesResponse
+     */
+    public function updateDataSourcePropertiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dsId) {
+            @$query['DsId'] = $request->dsId;
+        }
+
+        if (null !== $request->quickBIOwnerId) {
+            @$query['QuickBIOwnerId'] = $request->quickBIOwnerId;
+        }
+
+        if (null !== $request->showName) {
+            @$query['ShowName'] = $request->showName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataSourceProperties',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataSourcePropertiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新数据源基础属性.
+     *
+     * @param request - UpdateDataSourcePropertiesRequest
+     *
+     * @returns UpdateDataSourcePropertiesResponse
+     *
+     * @param UpdateDataSourcePropertiesRequest $request
+     *
+     * @return UpdateDataSourcePropertiesResponse
+     */
+    public function updateDataSourceProperties($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataSourcePropertiesWithOptions($request, $runtime);
+    }
+
+    /**
      * Change the embedding status of a report, turn on embedding, or turn off embedding.
      *
      * @param request - UpdateEmbeddedStatusRequest
@@ -9225,7 +9525,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the role of a specified member in a workspace. The existing role is overwritten.
+     * Modifies the role of a specified member in a workspace. Existing roles are overwritten.
      *
      * @param request - UpdateWorkspaceUserRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9276,7 +9576,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the role of a specified member in a workspace. The existing role is overwritten.
+     * Modifies the role of a specified member in a workspace. Existing roles are overwritten.
      *
      * @param request - UpdateWorkspaceUserRoleRequest
      *
