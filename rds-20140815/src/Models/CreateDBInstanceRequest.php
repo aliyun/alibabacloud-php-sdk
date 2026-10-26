@@ -31,6 +31,11 @@ class CreateDBInstanceRequest extends Model
     public $autoRenew;
 
     /**
+     * @var string
+     */
+    public $autoUpgradeMinorVersion;
+
+    /**
      * @var bool
      */
     public $autoUseCoupon;
@@ -324,6 +329,7 @@ class CreateDBInstanceRequest extends Model
         'autoCreateProxy' => 'AutoCreateProxy',
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
+        'autoUpgradeMinorVersion' => 'AutoUpgradeMinorVersion',
         'autoUseCoupon' => 'AutoUseCoupon',
         'babelfishConfig' => 'BabelfishConfig',
         'bpeEnabled' => 'BpeEnabled',
@@ -412,6 +418,10 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->autoUpgradeMinorVersion) {
+            $res['AutoUpgradeMinorVersion'] = $this->autoUpgradeMinorVersion;
         }
 
         if (null !== $this->autoUseCoupon) {
@@ -678,6 +688,10 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+
+        if (isset($map['AutoUpgradeMinorVersion'])) {
+            $model->autoUpgradeMinorVersion = $map['AutoUpgradeMinorVersion'];
         }
 
         if (isset($map['AutoUseCoupon'])) {

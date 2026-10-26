@@ -34,6 +34,11 @@ class CreateMigrateTaskRequest extends Model
     public $isOnlineDB;
 
     /**
+     * @var bool
+     */
+    public $keepCDC;
+
+    /**
      * @var string
      */
     public $migrateTaskId;
@@ -68,6 +73,7 @@ class CreateMigrateTaskRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
         'DBName' => 'DBName',
         'isOnlineDB' => 'IsOnlineDB',
+        'keepCDC' => 'KeepCDC',
         'migrateTaskId' => 'MigrateTaskId',
         'OSSUrls' => 'OSSUrls',
         'ossObjectPositions' => 'OssObjectPositions',
@@ -102,6 +108,10 @@ class CreateMigrateTaskRequest extends Model
 
         if (null !== $this->isOnlineDB) {
             $res['IsOnlineDB'] = $this->isOnlineDB;
+        }
+
+        if (null !== $this->keepCDC) {
+            $res['KeepCDC'] = $this->keepCDC;
         }
 
         if (null !== $this->migrateTaskId) {
@@ -157,6 +167,10 @@ class CreateMigrateTaskRequest extends Model
 
         if (isset($map['IsOnlineDB'])) {
             $model->isOnlineDB = $map['IsOnlineDB'];
+        }
+
+        if (isset($map['KeepCDC'])) {
+            $model->keepCDC = $map['KeepCDC'];
         }
 
         if (isset($map['MigrateTaskId'])) {

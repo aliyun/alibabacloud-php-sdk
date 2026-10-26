@@ -29,6 +29,11 @@ class CreateOnlineDatabaseTaskRequest extends Model
     public $DBName;
 
     /**
+     * @var bool
+     */
+    public $keepCDC;
+
+    /**
      * @var string
      */
     public $migrateTaskId;
@@ -57,6 +62,7 @@ class CreateOnlineDatabaseTaskRequest extends Model
         'clientToken' => 'ClientToken',
         'DBInstanceId' => 'DBInstanceId',
         'DBName' => 'DBName',
+        'keepCDC' => 'KeepCDC',
         'migrateTaskId' => 'MigrateTaskId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -86,6 +92,10 @@ class CreateOnlineDatabaseTaskRequest extends Model
 
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
+        }
+
+        if (null !== $this->keepCDC) {
+            $res['KeepCDC'] = $this->keepCDC;
         }
 
         if (null !== $this->migrateTaskId) {
@@ -133,6 +143,10 @@ class CreateOnlineDatabaseTaskRequest extends Model
 
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
+        }
+
+        if (isset($map['KeepCDC'])) {
+            $model->keepCDC = $map['KeepCDC'];
         }
 
         if (isset($map['MigrateTaskId'])) {

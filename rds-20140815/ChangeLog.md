@@ -1,3 +1,9 @@
+2026-10-26 Version: 14.0.1
+- Update API CreateDBInstance: add request parameters AutoUpgradeMinorVersion.
+- Update API CreateMigrateTask: add request parameters KeepCDC.
+- Update API CreateOnlineDatabaseTask: add request parameters KeepCDC.
+
+
 2026-10-08 Version: 14.0.0
 - Support API AddRCInstancesToDeploymentSet.
 - Support API RemoveRCInstancesFromDeploymentSet.
