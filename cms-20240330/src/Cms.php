@@ -59,6 +59,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceTaskRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceTaskResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateSubscriptionRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateSubscriptionResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelRequest;
@@ -118,6 +120,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceTaskRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceTaskResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteSubscriptionRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteSubscriptionResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelDataRequest;
@@ -135,10 +139,14 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DisableMaintainWindowRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DisableMaintainWindowResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DisableNotifyPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DisableNotifyPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DisableSubscriptionRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DisableSubscriptionResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EnableMaintainWindowRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EnableMaintainWindowResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EnableNotifyPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EnableNotifyPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\EnableSubscriptionRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\EnableSubscriptionResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonCodeTemplateRequest;
@@ -205,6 +213,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceTaskRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceTaskResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetSubscriptionRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetSubscriptionResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelCommonSchemaRefRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelDataRequest;
@@ -290,9 +300,13 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServiceTaskRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServiceTaskResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListSubscriptionsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListSubscriptionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListTagResourcesShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListUserNotifyHistoriesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListUserNotifyHistoriesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesShrinkRequest;
@@ -2697,6 +2711,68 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 创建订阅.
+     *
+     * @param request - CreateSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSubscriptionResponse
+     *
+     * @param CreateSubscriptionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateSubscriptionResponse
+     */
+    public function createSubscriptionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSubscription',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/subscriptions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建订阅.
+     *
+     * @param request - CreateSubscriptionRequest
+     *
+     * @returns CreateSubscriptionResponse
+     *
+     * @param CreateSubscriptionRequest $request
+     *
+     * @return CreateSubscriptionResponse
+     */
+    public function createSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSubscriptionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Generates a ticket for passwordless access if you need to share console pages with others without requiring logon or embed them in third-party systems. After generating the ticket by calling CreateTicket, you can construct a passwordless access link.
      *
      * @param request - CreateTicketRequest
@@ -4541,6 +4617,69 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 删除订阅.
+     *
+     * @param request - DeleteSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSubscriptionResponse
+     *
+     * @param string                    $subscriptionId
+     * @param DeleteSubscriptionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteSubscriptionResponse
+     */
+    public function deleteSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSubscription',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/subscriptions/' . Url::percentEncode($subscriptionId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除订阅.
+     *
+     * @param request - DeleteSubscriptionRequest
+     *
+     * @returns DeleteSubscriptionResponse
+     *
+     * @param string                    $subscriptionId
+     * @param DeleteSubscriptionRequest $request
+     *
+     * @return DeleteSubscriptionResponse
+     */
+    public function deleteSubscription($subscriptionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a Umodel configuration.
      *
      * @remarks
@@ -5105,6 +5244,69 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 暂停订阅.
+     *
+     * @param request - DisableSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSubscriptionResponse
+     *
+     * @param string                     $subscriptionId
+     * @param DisableSubscriptionRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DisableSubscriptionResponse
+     */
+    public function disableSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableSubscription',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/subscriptions/' . Url::percentEncode($subscriptionId) . '/disable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停订阅.
+     *
+     * @param request - DisableSubscriptionRequest
+     *
+     * @returns DisableSubscriptionResponse
+     *
+     * @param string                     $subscriptionId
+     * @param DisableSubscriptionRequest $request
+     *
+     * @return DisableSubscriptionResponse
+     */
+    public function disableSubscription($subscriptionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime);
+    }
+
+    /**
      * Enables a silence policy.
      *
      * @remarks
@@ -5240,6 +5442,69 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->enableNotifyPolicyWithOptions($uuid, $request, $headers, $runtime);
+    }
+
+    /**
+     * 启动订阅.
+     *
+     * @param request - EnableSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSubscriptionResponse
+     *
+     * @param string                    $subscriptionId
+     * @param EnableSubscriptionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EnableSubscriptionResponse
+     */
+    public function enableSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableSubscription',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/subscriptions/' . Url::percentEncode($subscriptionId) . '/enable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动订阅.
+     *
+     * @param request - EnableSubscriptionRequest
+     *
+     * @returns EnableSubscriptionResponse
+     *
+     * @param string                    $subscriptionId
+     * @param EnableSubscriptionRequest $request
+     *
+     * @return EnableSubscriptionResponse
+     */
+    public function enableSubscription($subscriptionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime);
     }
 
     /**
@@ -7450,6 +7715,69 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 获取订阅.
+     *
+     * @param request - GetSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSubscriptionResponse
+     *
+     * @param string                 $subscriptionId
+     * @param GetSubscriptionRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetSubscriptionResponse
+     */
+    public function getSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSubscription',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/subscriptions/' . Url::percentEncode($subscriptionId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取订阅.
+     *
+     * @param request - GetSubscriptionRequest
+     *
+     * @returns GetSubscriptionResponse
+     *
+     * @param string                 $subscriptionId
+     * @param GetSubscriptionRequest $request
+     *
+     * @return GetSubscriptionResponse
+     */
+    public function getSubscription($subscriptionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSubscriptionWithOptions($subscriptionId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves Umodel configuration information.
      *
      * @remarks
@@ -7702,10 +8030,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the releases of an add-on.
+     * Lists add-on releases.
      *
      * @remarks
-     * Queries the list of integration configurations.
+     * Queries the list of add-on configurations.
      *
      * @param request - ListAddonReleasesRequest
      * @param headers - map
@@ -7760,10 +8088,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the releases of an add-on.
+     * Lists add-on releases.
      *
      * @remarks
-     * Queries the list of integration configurations.
+     * Queries the list of add-on configurations.
      *
      * @param request - ListAddonReleasesRequest
      *
@@ -10457,6 +10785,111 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询订阅规则列表.
+     *
+     * @param request - ListSubscriptionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubscriptionsResponse
+     *
+     * @param ListSubscriptionsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListSubscriptionsResponse
+     */
+    public function listSubscriptionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentUuid) {
+            @$query['agentUuid'] = $request->agentUuid;
+        }
+
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
+        }
+
+        if (null !== $request->enable) {
+            @$query['enable'] = $request->enable;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->notifyStrategyUuid) {
+            @$query['notifyStrategyUuid'] = $request->notifyStrategyUuid;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->subscriptionId) {
+            @$query['subscriptionId'] = $request->subscriptionId;
+        }
+
+        if (null !== $request->subscriptionName) {
+            @$query['subscriptionName'] = $request->subscriptionName;
+        }
+
+        if (null !== $request->subscriptionType) {
+            @$query['subscriptionType'] = $request->subscriptionType;
+        }
+
+        if (null !== $request->unbound) {
+            @$query['unbound'] = $request->unbound;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSubscriptions',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/subscriptions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询订阅规则列表.
+     *
+     * @param request - ListSubscriptionsRequest
+     *
+     * @returns ListSubscriptionsResponse
+     *
+     * @param ListSubscriptionsRequest $request
+     *
+     * @return ListSubscriptionsResponse
+     */
+    public function listSubscriptions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSubscriptionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries labels associated with resources.
      *
      * @param tmpReq - ListTagResourcesRequest
@@ -10541,6 +10974,159 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * List History name.
+     *
+     * @param request - ListUserNotifyHistoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserNotifyHistoriesResponse
+     *
+     * @param ListUserNotifyHistoriesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListUserNotifyHistoriesResponse
+     */
+    public function listUserNotifyHistoriesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->batchId) {
+            @$query['batchId'] = $request->batchId;
+        }
+
+        if (null !== $request->bizSource) {
+            @$query['bizSource'] = $request->bizSource;
+        }
+
+        if (null !== $request->channel) {
+            @$query['channel'] = $request->channel;
+        }
+
+        if (null !== $request->channelCategory) {
+            @$query['channelCategory'] = $request->channelCategory;
+        }
+
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
+        }
+
+        if (null !== $request->group) {
+            @$query['group'] = $request->group;
+        }
+
+        if (null !== $request->incidentId) {
+            @$query['incidentId'] = $request->incidentId;
+        }
+
+        if (null !== $request->includeNoChannel) {
+            @$query['includeNoChannel'] = $request->includeNoChannel;
+        }
+
+        if (null !== $request->isDesc) {
+            @$query['isDesc'] = $request->isDesc;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->notifyStrategyId) {
+            @$query['notifyStrategyId'] = $request->notifyStrategyId;
+        }
+
+        if (null !== $request->notifyStrategyName) {
+            @$query['notifyStrategyName'] = $request->notifyStrategyName;
+        }
+
+        if (null !== $request->partitionKey) {
+            @$query['partitionKey'] = $request->partitionKey;
+        }
+
+        if (null !== $request->receiver) {
+            @$query['receiver'] = $request->receiver;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['ruleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sendType) {
+            @$query['sendType'] = $request->sendType;
+        }
+
+        if (null !== $request->severity) {
+            @$query['severity'] = $request->severity;
+        }
+
+        if (null !== $request->subscriptionId) {
+            @$query['subscriptionId'] = $request->subscriptionId;
+        }
+
+        if (null !== $request->subscriptionName) {
+            @$query['subscriptionName'] = $request->subscriptionName;
+        }
+
+        if (null !== $request->success) {
+            @$query['success'] = $request->success;
+        }
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserNotifyHistories',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/userHistories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserNotifyHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * List History name.
+     *
+     * @param request - ListUserNotifyHistoriesRequest
+     *
+     * @returns ListUserNotifyHistoriesResponse
+     *
+     * @param ListUserNotifyHistoriesRequest $request
+     *
+     * @return ListUserNotifyHistoriesResponse
+     */
+    public function listUserNotifyHistories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUserNotifyHistoriesWithOptions($request, $headers, $runtime);
     }
 
     /**
