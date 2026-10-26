@@ -71,6 +71,11 @@ class data extends Model
     public $encrypted;
 
     /**
+     * @var string
+     */
+    public $eosDate;
+
+    /**
      * @var int
      */
     public $expireTime;
@@ -178,6 +183,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $versionLifecycleStatus;
+
+    /**
+     * @var string
+     */
     public $vpcId;
     protected $_name = [
         'aclId' => 'AclId',
@@ -192,6 +202,7 @@ class data extends Model
         'enableSSL' => 'EnableSSL',
         'enabledAuditLoader' => 'EnabledAuditLoader',
         'encrypted' => 'Encrypted',
+        'eosDate' => 'EosDate',
         'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
@@ -213,6 +224,7 @@ class data extends Model
         'tags' => 'Tags',
         'vSwitches' => 'VSwitches',
         'version' => 'Version',
+        'versionLifecycleStatus' => 'VersionLifecycleStatus',
         'vpcId' => 'VpcId',
     ];
 
@@ -276,6 +288,10 @@ class data extends Model
 
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
+        }
+
+        if (null !== $this->eosDate) {
+            $res['EosDate'] = $this->eosDate;
         }
 
         if (null !== $this->expireTime) {
@@ -376,6 +392,10 @@ class data extends Model
             $res['Version'] = $this->version;
         }
 
+        if (null !== $this->versionLifecycleStatus) {
+            $res['VersionLifecycleStatus'] = $this->versionLifecycleStatus;
+        }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -437,6 +457,10 @@ class data extends Model
 
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
+        }
+
+        if (isset($map['EosDate'])) {
+            $model->eosDate = $map['EosDate'];
         }
 
         if (isset($map['ExpireTime'])) {
@@ -535,6 +559,10 @@ class data extends Model
 
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+
+        if (isset($map['VersionLifecycleStatus'])) {
+            $model->versionLifecycleStatus = $map['VersionLifecycleStatus'];
         }
 
         if (isset($map['VpcId'])) {
