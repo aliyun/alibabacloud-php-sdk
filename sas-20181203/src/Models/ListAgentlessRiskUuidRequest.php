@@ -36,6 +36,11 @@ class ListAgentlessRiskUuidRequest extends Model
     /**
      * @var string
      */
+    public $lang;
+
+    /**
+     * @var string
+     */
     public $machineName;
 
     /**
@@ -63,6 +68,7 @@ class ListAgentlessRiskUuidRequest extends Model
         'instanceName' => 'InstanceName',
         'internetIp' => 'InternetIp',
         'intranetIp' => 'IntranetIp',
+        'lang' => 'Lang',
         'machineName' => 'MachineName',
         'pageSize' => 'PageSize',
         'risk' => 'Risk',
@@ -96,6 +102,10 @@ class ListAgentlessRiskUuidRequest extends Model
 
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
+        }
+
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         if (null !== $this->machineName) {
@@ -147,6 +157,10 @@ class ListAgentlessRiskUuidRequest extends Model
 
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
+        }
+
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         if (isset($map['MachineName'])) {
