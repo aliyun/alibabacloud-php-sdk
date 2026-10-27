@@ -19,16 +19,6 @@ class saml extends Model
     public $entityId;
 
     /**
-     * @var bool
-     */
-    public $jitProvisionEnabled;
-
-    /**
-     * @var bool
-     */
-    public $jitUpdateEnabled;
-
-    /**
      * @var string
      */
     public $loginUrl;
@@ -40,8 +30,6 @@ class saml extends Model
     protected $_name = [
         'bindingType' => 'bindingType',
         'entityId' => 'entityId',
-        'jitProvisionEnabled' => 'jitProvisionEnabled',
-        'jitUpdateEnabled' => 'jitUpdateEnabled',
         'loginUrl' => 'loginUrl',
         'x509Certificates' => 'x509Certificates',
     ];
@@ -63,14 +51,6 @@ class saml extends Model
 
         if (null !== $this->entityId) {
             $res['entityId'] = $this->entityId;
-        }
-
-        if (null !== $this->jitProvisionEnabled) {
-            $res['jitProvisionEnabled'] = $this->jitProvisionEnabled;
-        }
-
-        if (null !== $this->jitUpdateEnabled) {
-            $res['jitUpdateEnabled'] = $this->jitUpdateEnabled;
         }
 
         if (null !== $this->loginUrl) {
@@ -105,14 +85,6 @@ class saml extends Model
 
         if (isset($map['entityId'])) {
             $model->entityId = $map['entityId'];
-        }
-
-        if (isset($map['jitProvisionEnabled'])) {
-            $model->jitProvisionEnabled = $map['jitProvisionEnabled'];
-        }
-
-        if (isset($map['jitUpdateEnabled'])) {
-            $model->jitUpdateEnabled = $map['jitUpdateEnabled'];
         }
 
         if (isset($map['loginUrl'])) {

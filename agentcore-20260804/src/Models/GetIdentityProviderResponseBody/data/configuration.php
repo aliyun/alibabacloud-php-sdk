@@ -21,16 +21,6 @@ class configuration extends Model
     /**
      * @var string
      */
-    public $jitProvisionStatus;
-
-    /**
-     * @var string
-     */
-    public $jitUpdateStatus;
-
-    /**
-     * @var string
-     */
     public $loginUrl;
 
     /**
@@ -40,8 +30,6 @@ class configuration extends Model
     protected $_name = [
         'bindingType' => 'bindingType',
         'entityId' => 'entityId',
-        'jitProvisionStatus' => 'jitProvisionStatus',
-        'jitUpdateStatus' => 'jitUpdateStatus',
         'loginUrl' => 'loginUrl',
         'ssoStatus' => 'ssoStatus',
     ];
@@ -60,14 +48,6 @@ class configuration extends Model
 
         if (null !== $this->entityId) {
             $res['entityId'] = $this->entityId;
-        }
-
-        if (null !== $this->jitProvisionStatus) {
-            $res['jitProvisionStatus'] = $this->jitProvisionStatus;
-        }
-
-        if (null !== $this->jitUpdateStatus) {
-            $res['jitUpdateStatus'] = $this->jitUpdateStatus;
         }
 
         if (null !== $this->loginUrl) {
@@ -95,14 +75,6 @@ class configuration extends Model
 
         if (isset($map['entityId'])) {
             $model->entityId = $map['entityId'];
-        }
-
-        if (isset($map['jitProvisionStatus'])) {
-            $model->jitProvisionStatus = $map['jitProvisionStatus'];
-        }
-
-        if (isset($map['jitUpdateStatus'])) {
-            $model->jitUpdateStatus = $map['jitUpdateStatus'];
         }
 
         if (isset($map['loginUrl'])) {

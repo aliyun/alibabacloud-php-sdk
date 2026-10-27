@@ -12,6 +12,16 @@ class body extends Model
     /**
      * @var string
      */
+    public $agentSpace;
+
+    /**
+     * @var string
+     */
+    public $cmsWorkspace;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -24,6 +34,8 @@ class body extends Model
      */
     public $storageType;
     protected $_name = [
+        'agentSpace' => 'agentSpace',
+        'cmsWorkspace' => 'cmsWorkspace',
         'name' => 'name',
         'networkConfiguration' => 'networkConfiguration',
         'storageType' => 'storageType',
@@ -40,6 +52,14 @@ class body extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentSpace) {
+            $res['agentSpace'] = $this->agentSpace;
+        }
+
+        if (null !== $this->cmsWorkspace) {
+            $res['cmsWorkspace'] = $this->cmsWorkspace;
+        }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -63,6 +83,14 @@ class body extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentSpace'])) {
+            $model->agentSpace = $map['agentSpace'];
+        }
+
+        if (isset($map['cmsWorkspace'])) {
+            $model->cmsWorkspace = $map['cmsWorkspace'];
+        }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
