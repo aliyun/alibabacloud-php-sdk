@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cms\V20240330;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ActiveContactChannelRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ActiveContactChannelResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AddContextsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AddContextsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AddMemoriesRequest;
@@ -16,6 +18,10 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertActionRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertActionResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertNotifyTemplateRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertNotifyTemplateResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertRobotRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertRobotResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertWebhookRequest;
@@ -23,6 +29,10 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateAlertWebhookResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContactGroupRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContactGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContactRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContactResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreAPIKeyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreAPIKeyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateContextStoreRequest;
@@ -43,6 +53,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateNotifyPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateNotifyPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateOncallScheduleRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateOncallScheduleResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePipelineRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceRequest;
@@ -69,6 +81,12 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAddonReleaseResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertActionsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertActionsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertActionsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertNotifyTemplatesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertNotifyTemplatesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertNotifyTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertRobotsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertRobotsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertRobotsShrinkRequest;
@@ -78,6 +96,12 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteAlertWebhooksShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteCloudResourceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContactGroupsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContactGroupsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContactGroupsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContactsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContactsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContactsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteContextsRequest;
@@ -106,6 +130,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteNotifyPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteNotifyPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteOncallSchedulesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteOncallSchedulesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteOncallSchedulesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePipelineRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceRequest;
@@ -159,6 +186,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonSchemaRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonSchemaResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAggTaskGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAlertActionRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetAlertActionResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetBizTraceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetCloudResourceDataRequest;
@@ -197,6 +226,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetNotifyPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetNotifyPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetOncallScheduleRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetOncallScheduleResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPipelineRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceRequest;
@@ -233,6 +264,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertNotifyTemplatesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertNotifyTemplatesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertNotifyTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertRobotsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertRobotsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertRobotsShrinkRequest;
@@ -281,6 +315,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListNotifyPoliciesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListNotifyPoliciesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListOncallContactsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListOncallContactsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListOncallSchedulesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListOncallSchedulesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListOncallSchedulesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPipelinesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusDashboardsRequest;
@@ -317,11 +356,15 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\OpenCmsServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\OpenCmsServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PreviewDataPipelineRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PreviewDataPipelineResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\PreviewNotifyTemplateRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\PreviewNotifyTemplateResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ResendVerifyActivateRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ResendVerifyActivateResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SearchContextRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SearchContextResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SearchMemoriesRequest;
@@ -337,12 +380,20 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAggTaskGroupStatusResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertActionRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertActionResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertNotifyTemplateRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertNotifyTemplateResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertRobotRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertRobotResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateAlertWebhookResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateBizTraceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContactGroupRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContactGroupResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContactRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContactResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateContextStoreRequest;
@@ -365,6 +416,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateOncallScheduleRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateOncallScheduleResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusInstanceRequest;
@@ -385,6 +438,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelCommonSchemaRefRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelCommonSchemaRefResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelDataRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpsertUmodelDataResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ViewOncallScheduleRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ViewOncallScheduleResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -416,8 +471,6 @@ class Cms extends OpenApiClient
             'cn-shanghai' => 'metrics.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'metrics.cn-hongkong.aliyuncs.com',
             'cn-shenzhen' => 'metrics.cn-shenzhen.aliyuncs.com',
-            'cn-nanjing' => 'metrics.cn-nanjing.aliyuncs.com',
-            'cn-fuzhou' => 'metrics.cn-fuzhou.aliyuncs.com',
             'cn-chengdu' => 'metrics.cn-chengdu.aliyuncs.com',
             'cn-guangzhou' => 'metrics.cn-guangzhou.aliyuncs.com',
             'cn-huhehaote' => 'metrics.cn-huhehaote.aliyuncs.com',
@@ -466,6 +519,71 @@ class Cms extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 激活验证码
+     *
+     * @param request - ActiveContactChannelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActiveContactChannelResponse
+     *
+     * @param ActiveContactChannelRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ActiveContactChannelResponse
+     */
+    public function activeContactChannelWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->code) {
+            @$query['code'] = $request->code;
+        }
+
+        if (null !== $request->site) {
+            @$query['site'] = $request->site;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ActiveContactChannel',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contacts/action/activate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ActiveContactChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 激活验证码
+     *
+     * @param request - ActiveContactChannelRequest
+     *
+     * @returns ActiveContactChannelResponse
+     *
+     * @param ActiveContactChannelRequest $request
+     *
+     * @return ActiveContactChannelResponse
+     */
+    public function activeContactChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->activeContactChannelWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -712,7 +830,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Installs an add-on component, which represents an integration operation.
+     * Installs an integration component to perform an integration.
      *
      * @remarks
      * Creates a site monitoring task.
@@ -798,7 +916,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Installs an add-on component, which represents an integration operation.
+     * Installs an integration component to perform an integration.
      *
      * @remarks
      * Creates a site monitoring task.
@@ -947,6 +1065,184 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createAggTaskGroupWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建告警动作.
+     *
+     * @param request - CreateAlertActionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlertActionResponse
+     *
+     * @param CreateAlertActionRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAlertActionResponse
+     */
+    public function createAlertActionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->alertActionId) {
+            @$body['alertActionId'] = $request->alertActionId;
+        }
+
+        if (null !== $request->alertActionName) {
+            @$body['alertActionName'] = $request->alertActionName;
+        }
+
+        if (null !== $request->ebParam) {
+            @$body['ebParam'] = $request->ebParam;
+        }
+
+        if (null !== $request->essParam) {
+            @$body['essParam'] = $request->essParam;
+        }
+
+        if (null !== $request->fc3Param) {
+            @$body['fc3Param'] = $request->fc3Param;
+        }
+
+        if (null !== $request->fcParam) {
+            @$body['fcParam'] = $request->fcParam;
+        }
+
+        if (null !== $request->mnsParam) {
+            @$body['mnsParam'] = $request->mnsParam;
+        }
+
+        if (null !== $request->pagerDutyParam) {
+            @$body['pagerDutyParam'] = $request->pagerDutyParam;
+        }
+
+        if (null !== $request->slsParam) {
+            @$body['slsParam'] = $request->slsParam;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        if (null !== $request->webhookParam) {
+            @$body['webhookParam'] = $request->webhookParam;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAlertAction',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alertAction',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAlertActionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建告警动作.
+     *
+     * @param request - CreateAlertActionRequest
+     *
+     * @returns CreateAlertActionResponse
+     *
+     * @param CreateAlertActionRequest $request
+     *
+     * @return CreateAlertActionResponse
+     */
+    public function createAlertAction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAlertActionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建通知模板
+     *
+     * @param request - CreateAlertNotifyTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAlertNotifyTemplateResponse
+     *
+     * @param CreateAlertNotifyTemplateRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateAlertNotifyTemplateResponse
+     */
+    public function createAlertNotifyTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->alertNotifyTemplateId) {
+            @$body['alertNotifyTemplateId'] = $request->alertNotifyTemplateId;
+        }
+
+        if (null !== $request->alertNotifyTemplateName) {
+            @$body['alertNotifyTemplateName'] = $request->alertNotifyTemplateName;
+        }
+
+        if (null !== $request->programLang) {
+            @$body['programLang'] = $request->programLang;
+        }
+
+        if (null !== $request->templates) {
+            @$body['templates'] = $request->templates;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAlertNotifyTemplate',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alertNotifyTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAlertNotifyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建通知模板
+     *
+     * @param request - CreateAlertNotifyTemplateRequest
+     *
+     * @returns CreateAlertNotifyTemplateResponse
+     *
+     * @param CreateAlertNotifyTemplateRequest $request
+     *
+     * @return CreateAlertNotifyTemplateResponse
+     */
+    public function createAlertNotifyTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAlertNotifyTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1256,6 +1552,164 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createCloudResourceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 创建联系人.
+     *
+     * @param request - CreateContactRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContactResponse
+     *
+     * @param CreateContactRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateContactResponse
+     */
+    public function createContactWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contactId) {
+            @$body['contactId'] = $request->contactId;
+        }
+
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
+        }
+
+        if (null !== $request->imUserIds) {
+            @$body['imUserIds'] = $request->imUserIds;
+        }
+
+        if (null !== $request->lang) {
+            @$body['lang'] = $request->lang;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContact',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contact',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建联系人.
+     *
+     * @param request - CreateContactRequest
+     *
+     * @returns CreateContactResponse
+     *
+     * @param CreateContactRequest $request
+     *
+     * @return CreateContactResponse
+     */
+    public function createContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createContactWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建联系人组.
+     *
+     * @param request - CreateContactGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContactGroupResponse
+     *
+     * @param CreateContactGroupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateContactGroupResponse
+     */
+    public function createContactGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contactGroupId) {
+            @$body['contactGroupId'] = $request->contactGroupId;
+        }
+
+        if (null !== $request->contacts) {
+            @$body['contacts'] = $request->contacts;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->workspace) {
+            @$body['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContactGroup',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contactGroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建联系人组.
+     *
+     * @param request - CreateContactGroupRequest
+     *
+     * @returns CreateContactGroupResponse
+     *
+     * @param CreateContactGroupRequest $request
+     *
+     * @return CreateContactGroupResponse
+     */
+    public function createContactGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createContactGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2031,6 +2485,89 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 创建OncallSchedule.
+     *
+     * @param request - CreateOncallScheduleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOncallScheduleResponse
+     *
+     * @param CreateOncallScheduleRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateOncallScheduleResponse
+     */
+    public function createOncallScheduleWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $body = [];
+        if (null !== $request->oncallScheduleId) {
+            @$body['oncallScheduleId'] = $request->oncallScheduleId;
+        }
+
+        if (null !== $request->oncallScheduleName) {
+            @$body['oncallScheduleName'] = $request->oncallScheduleName;
+        }
+
+        if (null !== $request->rotations) {
+            @$body['rotations'] = $request->rotations;
+        }
+
+        if (null !== $request->shiftRobotId) {
+            @$body['shiftRobotId'] = $request->shiftRobotId;
+        }
+
+        if (null !== $request->substitudes) {
+            @$body['substitudes'] = $request->substitudes;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOncallSchedule',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/oncallschedule',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOncallScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建OncallSchedule.
+     *
+     * @param request - CreateOncallScheduleRequest
+     *
+     * @returns CreateOncallScheduleResponse
+     *
+     * @param CreateOncallScheduleRequest $request
+     *
+     * @return CreateOncallScheduleResponse
+     */
+    public function createOncallSchedule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createOncallScheduleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Create a pipeline.
      *
      * @param request - CreatePipelineRequest
@@ -2711,7 +3248,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建订阅.
+     * Creates a subscription.
      *
      * @param request - CreateSubscriptionRequest
      * @param headers - map
@@ -2754,7 +3291,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建订阅.
+     * Creates a subscription.
      *
      * @param request - CreateSubscriptionRequest
      *
@@ -3037,6 +3574,140 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 删除告警动作.
+     *
+     * @param tmpReq - DeleteAlertActionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlertActionsResponse
+     *
+     * @param DeleteAlertActionsRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAlertActionsResponse
+     */
+    public function deleteAlertActionsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteAlertActionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->alertActionIds) {
+            $request->alertActionIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alertActionIds, 'alertActionIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->alertActionIdsShrink) {
+            @$query['alertActionIds'] = $request->alertActionIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAlertActions',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alertActions',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAlertActionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除告警动作.
+     *
+     * @param request - DeleteAlertActionsRequest
+     *
+     * @returns DeleteAlertActionsResponse
+     *
+     * @param DeleteAlertActionsRequest $request
+     *
+     * @return DeleteAlertActionsResponse
+     */
+    public function deleteAlertActions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertActionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除报警通知模板
+     *
+     * @param tmpReq - DeleteAlertNotifyTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAlertNotifyTemplatesResponse
+     *
+     * @param DeleteAlertNotifyTemplatesRequest $tmpReq
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteAlertNotifyTemplatesResponse
+     */
+    public function deleteAlertNotifyTemplatesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteAlertNotifyTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->alertNotifyTemplateIds) {
+            $request->alertNotifyTemplateIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alertNotifyTemplateIds, 'alertNotifyTemplateIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->alertNotifyTemplateIdsShrink) {
+            @$query['alertNotifyTemplateIds'] = $request->alertNotifyTemplateIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAlertNotifyTemplates',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alertNotifyTemplates',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAlertNotifyTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除报警通知模板
+     *
+     * @param request - DeleteAlertNotifyTemplatesRequest
+     *
+     * @returns DeleteAlertNotifyTemplatesResponse
+     *
+     * @param DeleteAlertNotifyTemplatesRequest $request
+     *
+     * @return DeleteAlertNotifyTemplatesResponse
+     */
+    public function deleteAlertNotifyTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAlertNotifyTemplatesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a chatbot.
      *
      * @param tmpReq - DeleteAlertRobotsRequest
@@ -3277,6 +3948,140 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteCloudResourceWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 删除联系人组.
+     *
+     * @param tmpReq - DeleteContactGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContactGroupsResponse
+     *
+     * @param DeleteContactGroupsRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteContactGroupsResponse
+     */
+    public function deleteContactGroupsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteContactGroupsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contactGroupIds) {
+            $request->contactGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactGroupIds, 'contactGroupIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->contactGroupIdsShrink) {
+            @$query['contactGroupIds'] = $request->contactGroupIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContactGroups',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contactGroups',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContactGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除联系人组.
+     *
+     * @param request - DeleteContactGroupsRequest
+     *
+     * @returns DeleteContactGroupsResponse
+     *
+     * @param DeleteContactGroupsRequest $request
+     *
+     * @return DeleteContactGroupsResponse
+     */
+    public function deleteContactGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteContactGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除联系人.
+     *
+     * @param tmpReq - DeleteContactsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContactsResponse
+     *
+     * @param DeleteContactsRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteContactsResponse
+     */
+    public function deleteContactsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteContactsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->contactIds) {
+            $request->contactIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contactIds, 'contactIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->contactIdsShrink) {
+            @$query['contactIds'] = $request->contactIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContacts',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contacts',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除联系人.
+     *
+     * @param request - DeleteContactsRequest
+     *
+     * @returns DeleteContactsResponse
+     *
+     * @param DeleteContactsRequest $request
+     *
+     * @return DeleteContactsResponse
+     */
+    public function deleteContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteContactsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4165,6 +4970,73 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->deleteNotifyPolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除OncallSchedule.
+     *
+     * @param tmpReq - DeleteOncallSchedulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOncallSchedulesResponse
+     *
+     * @param DeleteOncallSchedulesRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteOncallSchedulesResponse
+     */
+    public function deleteOncallSchedulesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteOncallSchedulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->oncallScheduleIds) {
+            $request->oncallScheduleIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->oncallScheduleIds, 'oncallScheduleIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->oncallScheduleIdsShrink) {
+            @$query['oncallScheduleIds'] = $request->oncallScheduleIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOncallSchedules',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/oncallSchedule',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOncallSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除OncallSchedule.
+     *
+     * @param request - DeleteOncallSchedulesRequest
+     *
+     * @returns DeleteOncallSchedulesResponse
+     *
+     * @param DeleteOncallSchedulesRequest $request
+     *
+     * @return DeleteOncallSchedulesResponse
+     */
+    public function deleteOncallSchedules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteOncallSchedulesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5786,10 +6658,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * The details of an add-on schema.
+     * Queries the schema details of an add-on.
      *
      * @remarks
-     * Retrieves the schema of an add-on.
+     * Retrieves the schema information of an add-on.
      *
      * @param request - GetAddonSchemaRequest
      * @param headers - map
@@ -5844,10 +6716,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * The details of an add-on schema.
+     * Queries the schema details of an add-on.
      *
      * @remarks
-     * Retrieves the schema of an add-on.
+     * Retrieves the schema information of an add-on.
      *
      * @param request - GetAddonSchemaRequest
      *
@@ -5923,6 +6795,63 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getAggTaskGroupWithOptions($instanceId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询告警动作.
+     *
+     * @param request - GetAlertActionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlertActionResponse
+     *
+     * @param string                $alertActionId
+     * @param GetAlertActionRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAlertActionResponse
+     */
+    public function getAlertActionWithOptions($alertActionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetAlertAction',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alertAction/' . Url::percentEncode($alertActionId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAlertActionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询告警动作.
+     *
+     * @param request - GetAlertActionRequest
+     *
+     * @returns GetAlertActionResponse
+     *
+     * @param string                $alertActionId
+     * @param GetAlertActionRequest $request
+     *
+     * @return GetAlertActionResponse
+     */
+    public function getAlertAction($alertActionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAlertActionWithOptions($alertActionId, $request, $headers, $runtime);
     }
 
     /**
@@ -7185,6 +8114,63 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询 OncallSchedule.
+     *
+     * @param request - GetOncallScheduleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOncallScheduleResponse
+     *
+     * @param string                   $oncallScheduleId
+     * @param GetOncallScheduleRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetOncallScheduleResponse
+     */
+    public function getOncallScheduleWithOptions($oncallScheduleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetOncallSchedule',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/oncallSchedule/' . Url::percentEncode($oncallScheduleId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOncallScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 OncallSchedule.
+     *
+     * @param request - GetOncallScheduleRequest
+     *
+     * @returns GetOncallScheduleResponse
+     *
+     * @param string                   $oncallScheduleId
+     * @param GetOncallScheduleRequest $request
+     *
+     * @return GetOncallScheduleResponse
+     */
+    public function getOncallSchedule($oncallScheduleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOncallScheduleWithOptions($oncallScheduleId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a pipeline.
      *
      * @param request - GetPipelineRequest
@@ -8371,6 +9357,93 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listAlertActionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询通知模板
+     *
+     * @param tmpReq - ListAlertNotifyTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertNotifyTemplatesResponse
+     *
+     * @param ListAlertNotifyTemplatesRequest $tmpReq
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAlertNotifyTemplatesResponse
+     */
+    public function listAlertNotifyTemplatesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAlertNotifyTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->alertNotifyTemplateIds) {
+            $request->alertNotifyTemplateIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alertNotifyTemplateIds, 'alertNotifyTemplateIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->alertNotifyTemplateIdsShrink) {
+            @$query['alertNotifyTemplateIds'] = $request->alertNotifyTemplateIdsShrink;
+        }
+
+        if (null !== $request->alertNotifyTemplateName) {
+            @$query['alertNotifyTemplateName'] = $request->alertNotifyTemplateName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->programLang) {
+            @$query['programLang'] = $request->programLang;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertNotifyTemplates',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alertNotifyTemplate',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertNotifyTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询通知模板
+     *
+     * @param request - ListAlertNotifyTemplatesRequest
+     *
+     * @returns ListAlertNotifyTemplatesResponse
+     *
+     * @param ListAlertNotifyTemplatesRequest $request
+     *
+     * @return ListAlertNotifyTemplatesResponse
+     */
+    public function listAlertNotifyTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlertNotifyTemplatesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10089,6 +11162,152 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 查询值班人.
+     *
+     * @param request - ListOncallContactsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOncallContactsResponse
+     *
+     * @param string                    $oncallScheduleId
+     * @param ListOncallContactsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListOncallContactsResponse
+     */
+    public function listOncallContactsWithOptions($oncallScheduleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->timestamp) {
+            @$query['timestamp'] = $request->timestamp;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOncallContacts',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/oncallSchedule/' . Url::percentEncode($oncallScheduleId) . '/contacts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOncallContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询值班人.
+     *
+     * @param request - ListOncallContactsRequest
+     *
+     * @returns ListOncallContactsResponse
+     *
+     * @param string                    $oncallScheduleId
+     * @param ListOncallContactsRequest $request
+     *
+     * @return ListOncallContactsResponse
+     */
+    public function listOncallContacts($oncallScheduleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOncallContactsWithOptions($oncallScheduleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询当前账号下所有值班排班的配置信息.
+     *
+     * @param tmpReq - ListOncallSchedulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOncallSchedulesResponse
+     *
+     * @param ListOncallSchedulesRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListOncallSchedulesResponse
+     */
+    public function listOncallSchedulesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListOncallSchedulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->oncallScheduleIds) {
+            $request->oncallScheduleIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->oncallScheduleIds, 'oncallScheduleIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->oncallScheduleIdsShrink) {
+            @$query['oncallScheduleIds'] = $request->oncallScheduleIdsShrink;
+        }
+
+        if (null !== $request->oncallScheduleName) {
+            @$query['oncallScheduleName'] = $request->oncallScheduleName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOncallSchedules',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/oncallSchedules',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOncallSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询当前账号下所有值班排班的配置信息.
+     *
+     * @param request - ListOncallSchedulesRequest
+     *
+     * @returns ListOncallSchedulesResponse
+     *
+     * @param ListOncallSchedulesRequest $request
+     *
+     * @return ListOncallSchedulesResponse
+     */
+    public function listOncallSchedules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOncallSchedulesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Lists pipelines.
      *
      * @param request - ListPipelinesRequest
@@ -11454,6 +12673,77 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 预览通知模板渲染结果.
+     *
+     * @remarks
+     * 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+     *
+     * @param request - PreviewNotifyTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewNotifyTemplateResponse
+     *
+     * @param PreviewNotifyTemplateRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PreviewNotifyTemplateResponse
+     */
+    public function previewNotifyTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->data) {
+            @$body['data'] = $request->data;
+        }
+
+        if (null !== $request->templates) {
+            @$body['templates'] = $request->templates;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PreviewNotifyTemplate',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/template/batchRender',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PreviewNotifyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预览通知模板渲染结果.
+     *
+     * @remarks
+     * 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+     *
+     * @param request - PreviewNotifyTemplateRequest
+     *
+     * @returns PreviewNotifyTemplateResponse
+     *
+     * @param PreviewNotifyTemplateRequest $request
+     *
+     * @return PreviewNotifyTemplateResponse
+     */
+    public function previewNotifyTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->previewNotifyTemplateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a workspace.
      *
      * @param request - PutWorkspaceRequest
@@ -11621,6 +12911,69 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->queryAlertRulesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 重新发送激活链接.
+     *
+     * @param request - ResendVerifyActivateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResendVerifyActivateResponse
+     *
+     * @param string                      $contactId
+     * @param ResendVerifyActivateRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ResendVerifyActivateResponse
+     */
+    public function resendVerifyActivateWithOptions($contactId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->channelType) {
+            @$body['channelType'] = $request->channelType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResendVerifyActivate',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contact/' . Url::percentEncode($contactId) . '/action/reSendVerifyActivate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResendVerifyActivateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重新发送激活链接.
+     *
+     * @param request - ResendVerifyActivateRequest
+     *
+     * @returns ResendVerifyActivateResponse
+     *
+     * @param string                      $contactId
+     * @param ResendVerifyActivateRequest $request
+     *
+     * @return ResendVerifyActivateResponse
+     */
+    public function resendVerifyActivate($contactId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resendVerifyActivateWithOptions($contactId, $request, $headers, $runtime);
     }
 
     /**
@@ -12241,6 +13594,172 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 修改告警动作.
+     *
+     * @param request - UpdateAlertActionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertActionResponse
+     *
+     * @param string                   $alertActionId
+     * @param UpdateAlertActionRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateAlertActionResponse
+     */
+    public function updateAlertActionWithOptions($alertActionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->alertActionName) {
+            @$body['alertActionName'] = $request->alertActionName;
+        }
+
+        if (null !== $request->ebParam) {
+            @$body['ebParam'] = $request->ebParam;
+        }
+
+        if (null !== $request->essParam) {
+            @$body['essParam'] = $request->essParam;
+        }
+
+        if (null !== $request->fc3Param) {
+            @$body['fc3Param'] = $request->fc3Param;
+        }
+
+        if (null !== $request->fcParam) {
+            @$body['fcParam'] = $request->fcParam;
+        }
+
+        if (null !== $request->mnsParam) {
+            @$body['mnsParam'] = $request->mnsParam;
+        }
+
+        if (null !== $request->pagerDutyParam) {
+            @$body['pagerDutyParam'] = $request->pagerDutyParam;
+        }
+
+        if (null !== $request->slsParam) {
+            @$body['slsParam'] = $request->slsParam;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        if (null !== $request->webhookParam) {
+            @$body['webhookParam'] = $request->webhookParam;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlertAction',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alertAction/' . Url::percentEncode($alertActionId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlertActionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改告警动作.
+     *
+     * @param request - UpdateAlertActionRequest
+     *
+     * @returns UpdateAlertActionResponse
+     *
+     * @param string                   $alertActionId
+     * @param UpdateAlertActionRequest $request
+     *
+     * @return UpdateAlertActionResponse
+     */
+    public function updateAlertAction($alertActionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertActionWithOptions($alertActionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改已存在的告警通知模板内容。
+     *
+     * @param request - UpdateAlertNotifyTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertNotifyTemplateResponse
+     *
+     * @param string                           $alertNotifyTemplateId
+     * @param UpdateAlertNotifyTemplateRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateAlertNotifyTemplateResponse
+     */
+    public function updateAlertNotifyTemplateWithOptions($alertNotifyTemplateId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->alertNotifyTemplateName) {
+            @$body['alertNotifyTemplateName'] = $request->alertNotifyTemplateName;
+        }
+
+        if (null !== $request->templates) {
+            @$body['templates'] = $request->templates;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlertNotifyTemplate',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alertNotifyTemplate/' . Url::percentEncode($alertNotifyTemplateId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlertNotifyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改已存在的告警通知模板内容。
+     *
+     * @param request - UpdateAlertNotifyTemplateRequest
+     *
+     * @returns UpdateAlertNotifyTemplateResponse
+     *
+     * @param string                           $alertNotifyTemplateId
+     * @param UpdateAlertNotifyTemplateRequest $request
+     *
+     * @return UpdateAlertNotifyTemplateResponse
+     */
+    public function updateAlertNotifyTemplate($alertNotifyTemplateId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertNotifyTemplateWithOptions($alertNotifyTemplateId, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates an alert robot.
      *
      * @param request - UpdateAlertRobotRequest
@@ -12479,6 +13998,152 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateBizTraceWithOptions($bizTraceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改已存在的联系人的详细信息.
+     *
+     * @param request - UpdateContactRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContactResponse
+     *
+     * @param string               $contactId
+     * @param UpdateContactRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateContactResponse
+     */
+    public function updateContactWithOptions($contactId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->email) {
+            @$body['email'] = $request->email;
+        }
+
+        if (null !== $request->imUserIds) {
+            @$body['imUserIds'] = $request->imUserIds;
+        }
+
+        if (null !== $request->lang) {
+            @$body['lang'] = $request->lang;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->phone) {
+            @$body['phone'] = $request->phone;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContact',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contact/' . Url::percentEncode($contactId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改已存在的联系人的详细信息.
+     *
+     * @param request - UpdateContactRequest
+     *
+     * @returns UpdateContactResponse
+     *
+     * @param string               $contactId
+     * @param UpdateContactRequest $request
+     *
+     * @return UpdateContactResponse
+     */
+    public function updateContact($contactId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateContactWithOptions($contactId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改已存在的联系人组信息。
+     *
+     * @param request - UpdateContactGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContactGroupResponse
+     *
+     * @param string                    $contactGroupId
+     * @param UpdateContactGroupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateContactGroupResponse
+     */
+    public function updateContactGroupWithOptions($contactGroupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contacts) {
+            @$body['contacts'] = $request->contacts;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContactGroup',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/contactGroup/' . Url::percentEncode($contactGroupId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改已存在的联系人组信息。
+     *
+     * @param request - UpdateContactGroupRequest
+     *
+     * @returns UpdateContactGroupResponse
+     *
+     * @param string                    $contactGroupId
+     * @param UpdateContactGroupRequest $request
+     *
+     * @return UpdateContactGroupResponse
+     */
+    public function updateContactGroup($contactGroupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateContactGroupWithOptions($contactGroupId, $request, $headers, $runtime);
     }
 
     /**
@@ -13332,6 +14997,81 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * 更新UpdateOncallSchedule.
+     *
+     * @param request - UpdateOncallScheduleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOncallScheduleResponse
+     *
+     * @param string                      $oncallScheduleId
+     * @param UpdateOncallScheduleRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateOncallScheduleResponse
+     */
+    public function updateOncallScheduleWithOptions($oncallScheduleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->oncallScheduleName) {
+            @$body['oncallScheduleName'] = $request->oncallScheduleName;
+        }
+
+        if (null !== $request->rotations) {
+            @$body['rotations'] = $request->rotations;
+        }
+
+        if (null !== $request->shiftRobotId) {
+            @$body['shiftRobotId'] = $request->shiftRobotId;
+        }
+
+        if (null !== $request->substitudes) {
+            @$body['substitudes'] = $request->substitudes;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOncallSchedule',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/oncallSchedule/' . Url::percentEncode($oncallScheduleId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOncallScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新UpdateOncallSchedule.
+     *
+     * @param request - UpdateOncallScheduleRequest
+     *
+     * @returns UpdateOncallScheduleResponse
+     *
+     * @param string                      $oncallScheduleId
+     * @param UpdateOncallScheduleRequest $request
+     *
+     * @return UpdateOncallScheduleResponse
+     */
+    public function updateOncallSchedule($oncallScheduleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOncallScheduleWithOptions($oncallScheduleId, $request, $headers, $runtime);
+    }
+
+    /**
      * Update pipeline.
      *
      * @param request - UpdatePipelineRequest
@@ -14100,5 +15840,72 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->upsertUmodelDataWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查看值班日历.
+     *
+     * @param request - ViewOncallScheduleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ViewOncallScheduleResponse
+     *
+     * @param string                    $oncallScheduleId
+     * @param ViewOncallScheduleRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ViewOncallScheduleResponse
+     */
+    public function viewOncallScheduleWithOptions($oncallScheduleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ViewOncallSchedule',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/oncallSchedule/' . Url::percentEncode($oncallScheduleId) . '/calendar',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ViewOncallScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看值班日历.
+     *
+     * @param request - ViewOncallScheduleRequest
+     *
+     * @returns ViewOncallScheduleResponse
+     *
+     * @param string                    $oncallScheduleId
+     * @param ViewOncallScheduleRequest $request
+     *
+     * @return ViewOncallScheduleResponse
+     */
+    public function viewOncallSchedule($oncallScheduleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->viewOncallScheduleWithOptions($oncallScheduleId, $request, $headers, $runtime);
     }
 }

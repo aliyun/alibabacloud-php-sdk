@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class IncidentForView extends Model
 {
     /**
+     * @var int
+     */
+    public $blockingExpireTimestamp;
+
+    /**
      * @var string
      */
     public $content;
@@ -99,6 +104,11 @@ class IncidentForView extends Model
     public $subscriptionUuid;
 
     /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
      * @var int
      */
     public $time;
@@ -118,6 +128,7 @@ class IncidentForView extends Model
      */
     public $workspace;
     protected $_name = [
+        'blockingExpireTimestamp' => 'blockingExpireTimestamp',
         'content' => 'content',
         'escalations' => 'escalations',
         'groupUuid' => 'groupUuid',
@@ -136,6 +147,7 @@ class IncidentForView extends Model
         'state' => 'state',
         'subscriptionName' => 'subscriptionName',
         'subscriptionUuid' => 'subscriptionUuid',
+        'tags' => 'tags',
         'time' => 'time',
         'title' => 'title',
         'userId' => 'userId',
@@ -165,12 +177,19 @@ class IncidentForView extends Model
         if (\is_array($this->relatedResources)) {
             Model::validateArray($this->relatedResources);
         }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->blockingExpireTimestamp) {
+            $res['blockingExpireTimestamp'] = $this->blockingExpireTimestamp;
+        }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -276,6 +295,15 @@ class IncidentForView extends Model
             $res['subscriptionUuid'] = $this->subscriptionUuid;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                foreach ($this->tags as $key1 => $value1) {
+                    $res['tags'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->time) {
             $res['time'] = $this->time;
         }
@@ -303,6 +331,10 @@ class IncidentForView extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['blockingExpireTimestamp'])) {
+            $model->blockingExpireTimestamp = $map['blockingExpireTimestamp'];
+        }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
@@ -406,6 +438,15 @@ class IncidentForView extends Model
 
         if (isset($map['subscriptionUuid'])) {
             $model->subscriptionUuid = $map['subscriptionUuid'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                foreach ($map['tags'] as $key1 => $value1) {
+                    $model->tags[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['time'])) {
