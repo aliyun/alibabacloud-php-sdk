@@ -8,6 +8,9 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\MaasQIService\V20260831\Models\AigcChatCompletionStreamHeaders;
 use AlibabaCloud\SDK\MaasQIService\V20260831\Models\AigcChatCompletionStreamRequest;
 use AlibabaCloud\SDK\MaasQIService\V20260831\Models\AigcChatCompletionStreamResponse;
+use AlibabaCloud\SDK\MaasQIService\V20260831\Models\CuaChatCompletionStreamHeaders;
+use AlibabaCloud\SDK\MaasQIService\V20260831\Models\CuaChatCompletionStreamRequest;
+use AlibabaCloud\SDK\MaasQIService\V20260831\Models\CuaChatCompletionStreamResponse;
 use AlibabaCloud\SDK\MaasQIService\V20260831\Models\GuiChatCompletionStreamHeaders;
 use AlibabaCloud\SDK\MaasQIService\V20260831\Models\GuiChatCompletionStreamRequest;
 use AlibabaCloud\SDK\MaasQIService\V20260831\Models\GuiChatCompletionStreamResponse;
@@ -24,7 +27,7 @@ class MaasQIService extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('maasqiservice', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -54,7 +57,21 @@ class MaasQIService extends OpenApiClient
     }
 
     /**
-     * 以 SSE 流式调用已发布 AIGC Agent；支持 AIGCLite 文生图/图生图与 AIGCStandard Planner，兼容 OpenAI Chat Completions。
+     * Calls a published Creative Agent with support for Lite and Dedicated editions, and returns execution progress and image artifacts by using Server-Sent Events (SSE). The Lite edition performs text-to-image or image-to-image generation depending on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute generation and editing tasks with multi-turn conversation support. Pass generation count, dimensions, and other parameters through metadata.parameters. Image URLs are included in the artifacts of the result.
+     *
+     * @remarks
+     * ### Before you begin
+     * - Install the SDK from the SDK Center.
+     * - Activate the Creative Agent service and prepare the published instance ID and the corresponding instance access key.
+     * - Creative Agent provides Lite and Dedicated editions. The Lite edition generates or edits images based on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute creative tasks.
+     * - Complete AccessKey authentication by using the SDK. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+     * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+     * ### How to call
+     * - Method and path: `POST /aigc/v1/chat/completions`.
+     * - Specify the instance by using `X-QI-Instance-Id`. The request is executed based on the published configuration of the specified instance. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+     * - This operation returns incremental events instead of a complete JSON response. Continue reading until the stream ends and check for in-stream errors.
+     * ### Session management
+     * You can omit `X-QI-Session-Id` for the first turn. Save the session identifier returned by the server from the `qi_session_id` field in the SSE body, and pass the same value back in subsequent turns. Do not rely on the gateway to pass through custom response headers. Use different identifiers for different sessions and send requests sequentially within the same session.
      *
      * @param request - AigcChatCompletionStreamRequest
      * @param headers - AigcChatCompletionStreamHeaders
@@ -142,7 +159,21 @@ class MaasQIService extends OpenApiClient
     }
 
     /**
-     * 以 SSE 流式调用已发布 AIGC Agent；支持 AIGCLite 文生图/图生图与 AIGCStandard Planner，兼容 OpenAI Chat Completions。
+     * Calls a published Creative Agent with support for Lite and Dedicated editions, and returns execution progress and image artifacts by using Server-Sent Events (SSE). The Lite edition performs text-to-image or image-to-image generation depending on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute generation and editing tasks with multi-turn conversation support. Pass generation count, dimensions, and other parameters through metadata.parameters. Image URLs are included in the artifacts of the result.
+     *
+     * @remarks
+     * ### Before you begin
+     * - Install the SDK from the SDK Center.
+     * - Activate the Creative Agent service and prepare the published instance ID and the corresponding instance access key.
+     * - Creative Agent provides Lite and Dedicated editions. The Lite edition generates or edits images based on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute creative tasks.
+     * - Complete AccessKey authentication by using the SDK. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+     * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+     * ### How to call
+     * - Method and path: `POST /aigc/v1/chat/completions`.
+     * - Specify the instance by using `X-QI-Instance-Id`. The request is executed based on the published configuration of the specified instance. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+     * - This operation returns incremental events instead of a complete JSON response. Continue reading until the stream ends and check for in-stream errors.
+     * ### Session management
+     * You can omit `X-QI-Session-Id` for the first turn. Save the session identifier returned by the server from the `qi_session_id` field in the SSE body, and pass the same value back in subsequent turns. Do not rely on the gateway to pass through custom response headers. Use different identifiers for different sessions and send requests sequentially within the same session.
      *
      * @param request - AigcChatCompletionStreamRequest
      * @param headers - AigcChatCompletionStreamHeaders
@@ -217,7 +248,21 @@ class MaasQIService extends OpenApiClient
     }
 
     /**
-     * 以 SSE 流式调用已发布 AIGC Agent；支持 AIGCLite 文生图/图生图与 AIGCStandard Planner，兼容 OpenAI Chat Completions。
+     * Calls a published Creative Agent with support for Lite and Dedicated editions, and returns execution progress and image artifacts by using Server-Sent Events (SSE). The Lite edition performs text-to-image or image-to-image generation depending on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute generation and editing tasks with multi-turn conversation support. Pass generation count, dimensions, and other parameters through metadata.parameters. Image URLs are included in the artifacts of the result.
+     *
+     * @remarks
+     * ### Before you begin
+     * - Install the SDK from the SDK Center.
+     * - Activate the Creative Agent service and prepare the published instance ID and the corresponding instance access key.
+     * - Creative Agent provides Lite and Dedicated editions. The Lite edition generates or edits images based on whether a reference image is provided. The Dedicated edition uses a Planner to plan and execute creative tasks.
+     * - Complete AccessKey authentication by using the SDK. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+     * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+     * ### How to call
+     * - Method and path: `POST /aigc/v1/chat/completions`.
+     * - Specify the instance by using `X-QI-Instance-Id`. The request is executed based on the published configuration of the specified instance. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+     * - This operation returns incremental events instead of a complete JSON response. Continue reading until the stream ends and check for in-stream errors.
+     * ### Session management
+     * You can omit `X-QI-Session-Id` for the first turn. Save the session identifier returned by the server from the `qi_session_id` field in the SSE body, and pass the same value back in subsequent turns. Do not rely on the gateway to pass through custom response headers. Use different identifiers for different sessions and send requests sequentially within the same session.
      *
      * @param request - AigcChatCompletionStreamRequest
      *
@@ -236,7 +281,211 @@ class MaasQIService extends OpenApiClient
     }
 
     /**
-     * 以 SSE 流式调用已发布 GUI Agent；兼容 OpenAI Chat Completions，输入屏幕截图与任务文本，返回下一步 GUI 操作。
+     * 调用已发布 CUAStandard 实例，根据任务和桌面截图生成电脑操作单步决策，以 SSE 返回 computer_use 工具调用.
+     *
+     * @param request - CuaChatCompletionStreamRequest
+     * @param headers - CuaChatCompletionStreamHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CuaChatCompletionStreamResponse
+     *
+     * @param CuaChatCompletionStreamRequest $request
+     * @param CuaChatCompletionStreamHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CuaChatCompletionStreamResponse
+     */
+    public function cuaChatCompletionStreamWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->model) {
+            @$body['model'] = $request->model;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->streamOptions) {
+            @$body['streamOptions'] = $request->streamOptions;
+        }
+
+        if (null !== $request->tools) {
+            @$body['tools'] = $request->tools;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xQIAgentApiKey) {
+            @$realHeaders['X-QI-Agent-Api-Key'] = '' . $headers->xQIAgentApiKey;
+        }
+
+        if (null !== $headers->xQIInstanceId) {
+            @$realHeaders['X-QI-Instance-Id'] = '' . $headers->xQIInstanceId;
+        }
+
+        if (null !== $headers->xQISessionId) {
+            @$realHeaders['X-QI-Session-Id'] = '' . $headers->xQISessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CuaChatCompletionStream',
+            'version' => '2026-08-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cua/v1/chat/completions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield CuaChatCompletionStreamResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 调用已发布 CUAStandard 实例，根据任务和桌面截图生成电脑操作单步决策，以 SSE 返回 computer_use 工具调用.
+     *
+     * @param request - CuaChatCompletionStreamRequest
+     * @param headers - CuaChatCompletionStreamHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CuaChatCompletionStreamResponse
+     *
+     * @param CuaChatCompletionStreamRequest $request
+     * @param CuaChatCompletionStreamHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CuaChatCompletionStreamResponse
+     */
+    public function cuaChatCompletionStreamWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->metadata) {
+            @$body['metadata'] = $request->metadata;
+        }
+
+        if (null !== $request->model) {
+            @$body['model'] = $request->model;
+        }
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
+        }
+
+        if (null !== $request->streamOptions) {
+            @$body['streamOptions'] = $request->streamOptions;
+        }
+
+        if (null !== $request->tools) {
+            @$body['tools'] = $request->tools;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xQIAgentApiKey) {
+            @$realHeaders['X-QI-Agent-Api-Key'] = '' . $headers->xQIAgentApiKey;
+        }
+
+        if (null !== $headers->xQIInstanceId) {
+            @$realHeaders['X-QI-Instance-Id'] = '' . $headers->xQIInstanceId;
+        }
+
+        if (null !== $headers->xQISessionId) {
+            @$realHeaders['X-QI-Session-Id'] = '' . $headers->xQISessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CuaChatCompletionStream',
+            'version' => '2026-08-31',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cua/v1/chat/completions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CuaChatCompletionStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 调用已发布 CUAStandard 实例，根据任务和桌面截图生成电脑操作单步决策，以 SSE 返回 computer_use 工具调用.
+     *
+     * @param request - CuaChatCompletionStreamRequest
+     *
+     * @returns CuaChatCompletionStreamResponse
+     *
+     * @param CuaChatCompletionStreamRequest $request
+     *
+     * @return CuaChatCompletionStreamResponse
+     */
+    public function cuaChatCompletionStream($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CuaChatCompletionStreamHeaders([]);
+
+        return $this->cuaChatCompletionStreamWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Calls a published Mobile-Use Agent instance, which supports the Standard Edition and Dedicated Edition. Submits the task text and the current screen screenshot, passes the device and application context through metadata, and returns the next mobile UI operation by using Server-Sent Events (SSE). The caller executes the UI operation and then continues to call the API with the session ID and the latest screenshot.
+     *
+     * @remarks
+     * ### Prerequisites
+     * - Install the SDK from the SDK Center.
+     * - Activate the Mobile-Use Agent service and prepare the ID and access key of a published Mobile-Use Agent instance.
+     * - Mobile-Use Agent provides the Standard Edition and Dedicated Edition. Call the API based on the edition of the selected instance.
+     * - Use the SDK to complete AccessKey authentication. Place the instance access key in the X-QI-Agent-Api-Key header, which cannot replace the AccessKey signature.
+     * - Set Content-Type to application/json and Accept to text/event-stream. The stream parameter must be set to true.
+     * ### Call methods
+     * - Method and path: POST /gui/v1/chat/completions.
+     * - Use X-QI-Instance-Id to specify the instance and execute based on the published configurations. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+     * - The response consists of SSE incremental events rather than a complete JSON object. Continuously read the stream until it ends and check for errors within the stream.
+     * ### Session management
+     * You can omit X-QI-Session-Id in the first round. Save the qi_session_id from the SSE body and pass it in the request header with the same name for subsequent calls. Make sequential calls within the same session and use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is subject to the SSE body.
      *
      * @param request - GuiChatCompletionStreamRequest
      * @param headers - GuiChatCompletionStreamHeaders
@@ -436,7 +685,21 @@ class MaasQIService extends OpenApiClient
     }
 
     /**
-     * 以 SSE 流式调用已发布 GUI Agent；兼容 OpenAI Chat Completions，输入屏幕截图与任务文本，返回下一步 GUI 操作。
+     * Calls a published Mobile-Use Agent instance, which supports the Standard Edition and Dedicated Edition. Submits the task text and the current screen screenshot, passes the device and application context through metadata, and returns the next mobile UI operation by using Server-Sent Events (SSE). The caller executes the UI operation and then continues to call the API with the session ID and the latest screenshot.
+     *
+     * @remarks
+     * ### Prerequisites
+     * - Install the SDK from the SDK Center.
+     * - Activate the Mobile-Use Agent service and prepare the ID and access key of a published Mobile-Use Agent instance.
+     * - Mobile-Use Agent provides the Standard Edition and Dedicated Edition. Call the API based on the edition of the selected instance.
+     * - Use the SDK to complete AccessKey authentication. Place the instance access key in the X-QI-Agent-Api-Key header, which cannot replace the AccessKey signature.
+     * - Set Content-Type to application/json and Accept to text/event-stream. The stream parameter must be set to true.
+     * ### Call methods
+     * - Method and path: POST /gui/v1/chat/completions.
+     * - Use X-QI-Instance-Id to specify the instance and execute based on the published configurations. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+     * - The response consists of SSE incremental events rather than a complete JSON object. Continuously read the stream until it ends and check for errors within the stream.
+     * ### Session management
+     * You can omit X-QI-Session-Id in the first round. Save the qi_session_id from the SSE body and pass it in the request header with the same name for subsequent calls. Make sequential calls within the same session and use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is subject to the SSE body.
      *
      * @param request - GuiChatCompletionStreamRequest
      * @param headers - GuiChatCompletionStreamHeaders
@@ -623,7 +886,21 @@ class MaasQIService extends OpenApiClient
     }
 
     /**
-     * 以 SSE 流式调用已发布 GUI Agent；兼容 OpenAI Chat Completions，输入屏幕截图与任务文本，返回下一步 GUI 操作。
+     * Calls a published Mobile-Use Agent instance, which supports the Standard Edition and Dedicated Edition. Submits the task text and the current screen screenshot, passes the device and application context through metadata, and returns the next mobile UI operation by using Server-Sent Events (SSE). The caller executes the UI operation and then continues to call the API with the session ID and the latest screenshot.
+     *
+     * @remarks
+     * ### Prerequisites
+     * - Install the SDK from the SDK Center.
+     * - Activate the Mobile-Use Agent service and prepare the ID and access key of a published Mobile-Use Agent instance.
+     * - Mobile-Use Agent provides the Standard Edition and Dedicated Edition. Call the API based on the edition of the selected instance.
+     * - Use the SDK to complete AccessKey authentication. Place the instance access key in the X-QI-Agent-Api-Key header, which cannot replace the AccessKey signature.
+     * - Set Content-Type to application/json and Accept to text/event-stream. The stream parameter must be set to true.
+     * ### Call methods
+     * - Method and path: POST /gui/v1/chat/completions.
+     * - Use X-QI-Instance-Id to specify the instance and execute based on the published configurations. The model field in the request body is a compatibility placeholder and cannot be used to switch models.
+     * - The response consists of SSE incremental events rather than a complete JSON object. Continuously read the stream until it ends and check for errors within the stream.
+     * ### Session management
+     * You can omit X-QI-Session-Id in the first round. Save the qi_session_id from the SSE body and pass it in the request header with the same name for subsequent calls. Make sequential calls within the same session and use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is subject to the SSE body.
      *
      * @param request - GuiChatCompletionStreamRequest
      *
@@ -642,7 +919,20 @@ class MaasQIService extends OpenApiClient
     }
 
     /**
-     * 以 SSE 流式调用已发布 PA Agent；兼容 OpenAI Chat Completions，支持多轮消息、工具调用、多模态输入与思考内容。
+     * Invokes a published Mobile Planner Agent using OpenAI-Compatible Chat Completions messages to initiate a conversation or node planning, and returns text, model-provided reasoning content, and structured tool calling via SSE. Supports multi-turn sessions and model-supported image input. Business tools are executed by the caller.
+     *
+     * @remarks
+     * ### Before you begin
+     * - Install the SDK from the SDK center.
+     * - Activate the Mobile Planner Agent service and prepare the published Mobile Planner Agent instance ID and its access key.
+     * - Use the SDK to complete AccessKey authentication. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+     * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+     * ### How to call
+     * - Method and path: `POST /pa/v1/chat/completions`.
+     * - X-QI-Instance-Id specifies the instance and executes based on the published configuration. The model field in the request body is a compatibility placeholder and cannot switch models.
+     * - The response consists of SSE incremental events, not a single complete JSON object. Continue reading until the stream ends and check for errors within the stream.
+     * ### Session management
+     * You can omit X-QI-Session-Id for the first turn. Save qi_session_id from the SSE body and pass it back through the request header of the same name in subsequent turns. Call sequentially within the same session. Use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is based on the SSE body.
      *
      * @param request - PaChatCompletionStreamRequest
      * @param headers - PaChatCompletionStreamHeaders
@@ -846,7 +1136,20 @@ class MaasQIService extends OpenApiClient
     }
 
     /**
-     * 以 SSE 流式调用已发布 PA Agent；兼容 OpenAI Chat Completions，支持多轮消息、工具调用、多模态输入与思考内容。
+     * Invokes a published Mobile Planner Agent using OpenAI-Compatible Chat Completions messages to initiate a conversation or node planning, and returns text, model-provided reasoning content, and structured tool calling via SSE. Supports multi-turn sessions and model-supported image input. Business tools are executed by the caller.
+     *
+     * @remarks
+     * ### Before you begin
+     * - Install the SDK from the SDK center.
+     * - Activate the Mobile Planner Agent service and prepare the published Mobile Planner Agent instance ID and its access key.
+     * - Use the SDK to complete AccessKey authentication. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+     * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+     * ### How to call
+     * - Method and path: `POST /pa/v1/chat/completions`.
+     * - X-QI-Instance-Id specifies the instance and executes based on the published configuration. The model field in the request body is a compatibility placeholder and cannot switch models.
+     * - The response consists of SSE incremental events, not a single complete JSON object. Continue reading until the stream ends and check for errors within the stream.
+     * ### Session management
+     * You can omit X-QI-Session-Id for the first turn. Save qi_session_id from the SSE body and pass it back through the request header of the same name in subsequent turns. Call sequentially within the same session. Use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is based on the SSE body.
      *
      * @param request - PaChatCompletionStreamRequest
      * @param headers - PaChatCompletionStreamHeaders
@@ -1037,7 +1340,20 @@ class MaasQIService extends OpenApiClient
     }
 
     /**
-     * 以 SSE 流式调用已发布 PA Agent；兼容 OpenAI Chat Completions，支持多轮消息、工具调用、多模态输入与思考内容。
+     * Invokes a published Mobile Planner Agent using OpenAI-Compatible Chat Completions messages to initiate a conversation or node planning, and returns text, model-provided reasoning content, and structured tool calling via SSE. Supports multi-turn sessions and model-supported image input. Business tools are executed by the caller.
+     *
+     * @remarks
+     * ### Before you begin
+     * - Install the SDK from the SDK center.
+     * - Activate the Mobile Planner Agent service and prepare the published Mobile Planner Agent instance ID and its access key.
+     * - Use the SDK to complete AccessKey authentication. The instance access key is placed in X-QI-Agent-Api-Key and cannot replace the AccessKey signature.
+     * - Set Content-Type: application/json and Accept: text/event-stream. The stream parameter must be set to true.
+     * ### How to call
+     * - Method and path: `POST /pa/v1/chat/completions`.
+     * - X-QI-Instance-Id specifies the instance and executes based on the published configuration. The model field in the request body is a compatibility placeholder and cannot switch models.
+     * - The response consists of SSE incremental events, not a single complete JSON object. Continue reading until the stream ends and check for errors within the stream.
+     * ### Session management
+     * You can omit X-QI-Session-Id for the first turn. Save qi_session_id from the SSE body and pass it back through the request header of the same name in subsequent turns. Call sequentially within the same session. Use different identifiers for different sessions. Do not rely on the gateway to pass through custom response headers. The actual identifier is based on the SSE body.
      *
      * @param request - PaChatCompletionStreamRequest
      *
