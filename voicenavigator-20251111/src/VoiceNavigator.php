@@ -190,7 +190,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 开启会话.
+     * Initiates a session.
      *
      * @param request - BeginSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -254,7 +254,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 开启会话.
+     * Initiates a session.
      *
      * @param request - BeginSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -305,7 +305,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 开启会话.
+     * Initiates a session.
      *
      * @param request - BeginSessionRequest
      *
@@ -323,7 +323,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 发起呼叫.
+     * Initiates a web call.
      *
      * @param request - BridgeWebCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -398,7 +398,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 发起呼叫.
+     * Initiates a web call.
      *
      * @param request - BridgeWebCallRequest
      *
@@ -416,7 +416,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建服务提供商.
+     * Creates a human agent service provider.
      *
      * @param request - CreateCallCenterProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -489,7 +489,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建服务提供商.
+     * Creates a human agent service provider.
      *
      * @param request - CreateCallCenterProviderRequest
      *
@@ -507,7 +507,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param request - CreateCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -554,7 +554,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param request - CreateCloneVoiceRequest
      *
@@ -572,7 +572,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建指令.
+     * Adds an instruction to the global configuration of a digital employee.
      *
      * @param request - CreateInstructionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -627,7 +627,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建指令.
+     * Adds an instruction to the global configuration of a digital employee.
      *
      * @param request - CreateInstructionRequest
      *
@@ -645,7 +645,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建语言模型配置信息.
+     * Creates the configuration information for a language model.
      *
      * @param tmpReq - CreateLlmAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -694,7 +694,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建语言模型配置信息.
+     * Creates the configuration information for a language model.
      *
      * @param request - CreateLlmAccessProfileRequest
      *
@@ -712,7 +712,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param request - CreateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -767,7 +767,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param request - CreateScriptRequest
      *
@@ -785,7 +785,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建场景配置.
+     * Creates a scenario configuration.
      *
      * @param tmpReq - CreateScriptVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -874,7 +874,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建场景配置.
+     * Creates a scenario configuration.
      *
      * @param request - CreateScriptVersionRequest
      *
@@ -892,7 +892,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建变量.
+     * Creates a variable.
      *
      * @param request - CreateVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -943,7 +943,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建变量.
+     * Creates a variable.
      *
      * @param request - CreateVariableRequest
      *
@@ -961,7 +961,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param tmpReq - CreateVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1018,7 +1018,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param request - CreateVocabularyRequest
      *
@@ -1036,7 +1036,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param tmpReq - CreateVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1089,7 +1089,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates an instance.
      *
      * @param request - CreateVoiceAccessProfileRequest
      *
@@ -1107,7 +1107,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除服务提供商.
+     * Deletes a human service provider in system administration.
      *
      * @param request - DeleteCallCenterProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1150,7 +1150,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除服务提供商.
+     * Deletes a human service provider in system administration.
      *
      * @param request - DeleteCallCenterProviderRequest
      *
@@ -1168,7 +1168,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a scenario.
      *
      * @param request - DeleteCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1211,7 +1211,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a scenario.
      *
      * @param request - DeleteCloneVoiceRequest
      *
@@ -1229,7 +1229,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除指令.
+     * Deletes an instruction from the global configuration of a digital employee.
      *
      * @param request - DeleteInstructionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1272,7 +1272,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除指令.
+     * Deletes an instruction from the global configuration of a digital employee.
      *
      * @param request - DeleteInstructionRequest
      *
@@ -1290,7 +1290,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除语言模型配置信息.
+     * Deletes the language model configuration.
      *
      * @param request - DeleteLlmAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1333,7 +1333,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除语言模型配置信息.
+     * Deletes the language model configuration.
      *
      * @param request - DeleteLlmAccessProfileRequest
      *
@@ -1351,7 +1351,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a scenario.
      *
      * @param request - DeleteScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1394,7 +1394,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a scenario.
      *
      * @param request - DeleteScriptRequest
      *
@@ -1412,7 +1412,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除变量.
+     * Deletes a variable.
      *
      * @param request - DeleteVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1455,7 +1455,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除变量.
+     * Deletes a variable.
      *
      * @param request - DeleteVariableRequest
      *
@@ -1473,7 +1473,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a vocabulary from a Voice Navigator instance.
      *
      * @param request - DeleteVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1516,7 +1516,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a vocabulary from a Voice Navigator instance.
      *
      * @param request - DeleteVocabularyRequest
      *
@@ -1534,7 +1534,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a Voice Access Profile.
      *
      * @param request - DeleteVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1577,7 +1577,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Deletes a Voice Access Profile.
      *
      * @param request - DeleteVoiceAccessProfileRequest
      *
@@ -1595,7 +1595,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 开启会话.
+     * Process a single conversational turn.
      *
      * @param request - DialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1663,7 +1663,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 开启会话.
+     * Process a single conversational turn.
      *
      * @param request - DialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1718,7 +1718,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 开启会话.
+     * Process a single conversational turn.
      *
      * @param request - DialogueRequest
      *
@@ -1736,7 +1736,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 禁用消息订阅.
+     * Disables the subscription for a Voice Navigator instance.
      *
      * @param request - DisableSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1775,7 +1775,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 禁用消息订阅.
+     * Disables the subscription for a Voice Navigator instance.
      *
      * @param request - DisableSubscriptionRequest
      *
@@ -1793,7 +1793,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 结束会话.
+     * Ends a session.
      *
      * @param request - EndSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1840,7 +1840,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 结束会话.
+     * Ends a session.
      *
      * @param request - EndSessionRequest
      *
@@ -1858,7 +1858,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Exports a specified script.
      *
      * @param request - ExportScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1901,7 +1901,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Exports a specified script.
      *
      * @param request - ExportScriptRequest
      *
@@ -1919,7 +1919,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 导出热词.
+     * Exports vocabularies.
      *
      * @param tmpReq - ExportVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1968,7 +1968,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 导出热词.
+     * Exports vocabularies.
      *
      * @param request - ExportVocabularyRequest
      *
@@ -1986,7 +1986,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Generates temporary credentials and parameters to upload a file to Object Storage Service (OSS).
      *
      * @param request - GenerateFileUploadParamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2033,7 +2033,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Generates temporary credentials and parameters to upload a file to Object Storage Service (OSS).
      *
      * @param request - GenerateFileUploadParamsRequest
      *
@@ -2051,7 +2051,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取通话详情.
+     * Get call details.
      *
      * @param request - GetCallDetailRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2094,7 +2094,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取通话详情.
+     * Get call details.
      *
      * @param request - GetCallDetailRecordRequest
      *
@@ -2112,7 +2112,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取语音对话参数.
+     * Retrieves a data channel credential.
      *
      * @param request - GetDataChannelCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2155,7 +2155,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取语音对话参数.
+     * Retrieves a data channel credential.
      *
      * @param request - GetDataChannelCredentialRequest
      *
@@ -2173,7 +2173,13 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例指标趋势详情.
+     * Retrieves the metric trends chart for an instance.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API operation is used to query the script configuration details for a specific scenario, including settings for ASR, TTS, and dialog capabilities.
+     * - No additional parameters are required in the request. The response contains configuration data for both the draft version and the published version.
+     * - Check the `Data` field in the response to obtain detailed configuration information.
      *
      * @param request - GetInstanceTrendingReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2224,7 +2230,13 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例指标趋势详情.
+     * Retrieves the metric trends chart for an instance.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API operation is used to query the script configuration details for a specific scenario, including settings for ASR, TTS, and dialog capabilities.
+     * - No additional parameters are required in the request. The response contains configuration data for both the draft version and the published version.
+     * - Check the `Data` field in the response to obtain detailed configuration information.
      *
      * @param request - GetInstanceTrendingReportRequest
      *
@@ -2242,7 +2254,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例实时指标.
+     * Retrieves real-time stats for an instance.
      *
      * @param request - GetRealtimeInstanceStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2281,7 +2293,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例实时指标.
+     * Retrieves real-time stats for an instance.
      *
      * @param request - GetRealtimeInstanceStatsRequest
      *
@@ -2299,7 +2311,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取场景实时指标.
+     * Queries the real-time statistics for a specified script.
      *
      * @param request - GetRealtimeScriptStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2342,7 +2354,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取场景实时指标.
+     * Queries the real-time statistics for a specified script.
      *
      * @param request - GetRealtimeScriptStatsRequest
      *
@@ -2360,7 +2372,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取录音.
+     * Retrieves the download URL for a call recording.
      *
      * @param request - GetRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2403,7 +2415,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取录音.
+     * Retrieves the download URL for a call recording.
      *
      * @param request - GetRecordingRequest
      *
@@ -2421,7 +2433,13 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the detailed configuration information for the draft and published versions of a specified scenario.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation queries the detailed script configuration for a specific scenario. The configuration includes settings for Automatic Speech Recognition (ASR), Text-to-Speech (TTS), and dialogue capabilities.
+     * - No additional parameters are required for the request. The response contains the configuration data for both the draft and published versions.
+     * - The detailed configuration information is returned in the `Data` field of the response.
      *
      * @param request - GetScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2464,7 +2482,13 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the detailed configuration information for the draft and published versions of a specified scenario.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation queries the detailed script configuration for a specific scenario. The configuration includes settings for Automatic Speech Recognition (ASR), Text-to-Speech (TTS), and dialogue capabilities.
+     * - No additional parameters are required for the request. The response contains the configuration data for both the draft and published versions.
+     * - The detailed configuration information is returned in the `Data` field of the response.
      *
      * @param request - GetScriptRequest
      *
@@ -2482,7 +2506,13 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取场景指标趋势详情.
+     * View the scenario metric trend chart.
+     *
+     * @remarks
+     * ## Request
+     * - This API returns the script configuration for a specific scenario, including settings for ASR, TTS, and conversational capability.
+     * - This request requires no parameters. The response includes configuration data for both the draft and published versions.
+     * - Check the `Data` field for configuration details.
      *
      * @param request - GetScriptTrendingReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2537,7 +2567,13 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取场景指标趋势详情.
+     * View the scenario metric trend chart.
+     *
+     * @remarks
+     * ## Request
+     * - This API returns the script configuration for a specific scenario, including settings for ASR, TTS, and conversational capability.
+     * - This request requires no parameters. The response includes configuration data for both the draft and published versions.
+     * - Check the `Data` field for configuration details.
      *
      * @param request - GetScriptTrendingReportRequest
      *
@@ -2555,7 +2591,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取MQ配置.
+     * Retrieves the details of a message queue (MQ) subscription.
      *
      * @param request - GetSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2594,7 +2630,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取MQ配置.
+     * Retrieves the details of a message queue (MQ) subscription.
      *
      * @param request - GetSubscriptionRequest
      *
@@ -2612,7 +2648,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Gets the details of a specified vocabulary.
      *
      * @param request - GetVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2655,7 +2691,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Gets the details of a specified vocabulary.
      *
      * @param request - GetVocabularyRequest
      *
@@ -2673,7 +2709,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 导入热词.
+     * Imports a custom vocabulary.
      *
      * @param request - ImportVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2716,7 +2752,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 导入热词.
+     * Imports a custom vocabulary.
      *
      * @param request - ImportVocabularyRequest
      *
@@ -2734,7 +2770,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取背景音列表.
+     * Retrieves a list of background music tracks.
      *
      * @param request - ListBackgroundMusicsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2781,7 +2817,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取背景音列表.
+     * Retrieves a list of background music tracks.
      *
      * @param request - ListBackgroundMusicsRequest
      *
@@ -2799,7 +2835,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 查询服务提供商.
+     * System Management > Manual Service Provider Management > Query.
      *
      * @param request - ListCallCenterProvidersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2850,7 +2886,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 查询服务提供商.
+     * System Management > Manual Service Provider Management > Query.
      *
      * @param request - ListCallCenterProvidersRequest
      *
@@ -2868,7 +2904,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Gets the call list.
      *
      * @param tmpReq - ListCallDetailRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2987,7 +3023,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Gets the call list.
      *
      * @param request - ListCallDetailRecordsRequest
      *
@@ -3005,7 +3041,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Lists the cloned voices in an instance.
      *
      * @param request - ListCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3056,7 +3092,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Lists the cloned voices in an instance.
      *
      * @param request - ListCloneVoiceRequest
      *
@@ -3074,7 +3110,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取克隆音色可用模型列表.
+     * Lists the available clone voice models.
      *
      * @param request - ListCloneVoiceModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3117,7 +3153,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取克隆音色可用模型列表.
+     * Lists the available clone voice models.
      *
      * @param request - ListCloneVoiceModelsRequest
      *
@@ -3135,7 +3171,13 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例指标汇总数据.
+     * Retrieve aggregated instance metrics.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves the script configuration for a specific scenario, including settings for ASR, TTS, and dialogue capability.
+     * - This request requires no parameters. The response includes the configuration data for both the draft and published versions.
+     * - The configuration data is returned in the `Data` field of the response.
      *
      * @param tmpReq - ListHistoricalInstanceReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3196,7 +3238,13 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例指标汇总数据.
+     * Retrieve aggregated instance metrics.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves the script configuration for a specific scenario, including settings for ASR, TTS, and dialogue capability.
+     * - This request requires no parameters. The response includes the configuration data for both the draft and published versions.
+     * - The configuration data is returned in the `Data` field of the response.
      *
      * @param request - ListHistoricalInstanceReportRequest
      *
@@ -3214,7 +3262,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取场景指标汇总数据.
+     * Get scene metric summary data.
      *
      * @param tmpReq - ListHistoricalScriptReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3279,7 +3327,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取场景指标汇总数据.
+     * Get scene metric summary data.
      *
      * @param request - ListHistoricalScriptReportRequest
      *
@@ -3297,7 +3345,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 查询指令.
+     * Lists the instructions that are configured for a Digital Employee.
      *
      * @param request - ListInstructionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3348,7 +3396,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 查询指令.
+     * Lists the instructions that are configured for a Digital Employee.
      *
      * @param request - ListInstructionsRequest
      *
@@ -3366,7 +3414,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取语言模型配置信息.
+     * Get the language model configuration.
      *
      * @param request - ListLlmAccessProfilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3413,7 +3461,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取语言模型配置信息.
+     * Get the language model configuration.
      *
      * @param request - ListLlmAccessProfilesRequest
      *
@@ -3431,7 +3479,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取对话模型列表.
+     * Lists the available NLU models.
      *
      * @param request - ListNluModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3470,7 +3518,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取对话模型列表.
+     * Lists the available NLU models.
      *
      * @param request - ListNluModelsRequest
      *
@@ -3488,7 +3536,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例实时指标.
+     * Retrieves real-time statistics for instances.
      *
      * @param tmpReq - ListRealtimeInstanceStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3541,7 +3589,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例实时指标.
+     * Retrieves real-time statistics for instances.
      *
      * @param request - ListRealtimeInstanceStatsRequest
      *
@@ -3559,7 +3607,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取场景配置模板列表.
+     * Retrieves a list of scenario configuration templates.
      *
      * @param request - ListScriptProfileTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3598,7 +3646,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取场景配置模板列表.
+     * Retrieves a list of scenario configuration templates.
      *
      * @param request - ListScriptProfileTemplatesRequest
      *
@@ -3616,7 +3664,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param tmpReq - ListScriptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3685,7 +3733,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param request - ListScriptsRequest
      *
@@ -3703,7 +3751,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取变量列表.
+     * Retrieves a list of variables.
      *
      * @param request - ListVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3754,7 +3802,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取变量列表.
+     * Retrieves a list of variables.
      *
      * @param request - ListVariableRequest
      *
@@ -3772,7 +3820,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves a list of vocabularies for a specified instance.
      *
      * @param request - ListVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3823,7 +3871,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves a list of vocabularies for a specified instance.
      *
      * @param request - ListVocabularyRequest
      *
@@ -3841,7 +3889,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param request - ListVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3888,7 +3936,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param request - ListVoiceAccessProfileRequest
      *
@@ -3906,7 +3954,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取引擎列表.
+     * Retrieves a list of engines.
      *
      * @param request - ListVoiceEnginesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3949,7 +3997,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取引擎列表.
+     * Retrieves a list of engines.
      *
      * @param request - ListVoiceEnginesRequest
      *
@@ -3967,7 +4015,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves a list of available voices.
      *
      * @param request - ListVoicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4022,7 +4070,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves a list of available voices.
      *
      * @param request - ListVoicesRequest
      *
@@ -4040,7 +4088,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 试听.
+     * Creates an instance.
      *
      * @param tmpReq - PreviewVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4109,7 +4157,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 试听.
+     * Creates an instance.
      *
      * @param request - PreviewVoiceRequest
      *
@@ -4127,7 +4175,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - PublishScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4174,7 +4222,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - PublishScriptRequest
      *
@@ -4192,7 +4240,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 修改服务提供商.
+     * Updates an agent service provider in system administration.
      *
      * @param request - UpdateCallCenterProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4269,7 +4317,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 修改服务提供商.
+     * Updates an agent service provider in system administration.
      *
      * @param request - UpdateCallCenterProviderRequest
      *
@@ -4287,7 +4335,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - UpdateCloneVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4334,7 +4382,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - UpdateCloneVoiceRequest
      *
@@ -4352,7 +4400,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 修改指令.
+     * Updates the global configuration of a specific instruction for a Digital Employee.
      *
      * @param request - UpdateInstructionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4407,7 +4455,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 修改指令.
+     * Updates the global configuration of a specific instruction for a Digital Employee.
      *
      * @param request - UpdateInstructionRequest
      *
@@ -4425,7 +4473,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新语言模型配置信息.
+     * Updates the language model configuration.
      *
      * @param tmpReq - UpdateLlmAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4478,7 +4526,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新语言模型配置信息.
+     * Updates the language model configuration.
      *
      * @param request - UpdateLlmAccessProfileRequest
      *
@@ -4496,7 +4544,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - UpdateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4551,7 +4599,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - UpdateScriptRequest
      *
@@ -4569,7 +4617,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建或更新MQ配置.
+     * Creates or updates the Message Queue (MQ) configuration.
      *
      * @param tmpReq - UpdateSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4646,7 +4694,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 创建或更新MQ配置.
+     * Creates or updates the Message Queue (MQ) configuration.
      *
      * @param request - UpdateSubscriptionRequest
      *
@@ -4664,7 +4712,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新变量.
+     * Updates a variable.
      *
      * @param request - UpdateVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4715,7 +4763,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新变量.
+     * Updates a variable.
      *
      * @param request - UpdateVariableRequest
      *
@@ -4733,7 +4781,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param tmpReq - UpdateVocabularyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4794,7 +4842,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - UpdateVocabularyRequest
      *
@@ -4812,7 +4860,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates a voice access profile.
      *
      * @param tmpReq - UpdateVoiceAccessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4869,7 +4917,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates a voice access profile.
      *
      * @param request - UpdateVoiceAccessProfileRequest
      *

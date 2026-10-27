@@ -54,6 +54,16 @@ class transcripts extends Model
     public $legacy;
 
     /**
+     * @var string
+     */
+    public $playbackStatus;
+
+    /**
+     * @var string
+     */
+    public $playedAnswer;
+
+    /**
      * @var int
      */
     public $playedWords;
@@ -92,6 +102,8 @@ class transcripts extends Model
         'extras' => 'Extras',
         'interrupted' => 'Interrupted',
         'legacy' => 'Legacy',
+        'playbackStatus' => 'PlaybackStatus',
+        'playedAnswer' => 'PlayedAnswer',
         'playedWords' => 'PlayedWords',
         'role' => 'Role',
         'streamEnd' => 'StreamEnd',
@@ -142,6 +154,14 @@ class transcripts extends Model
 
         if (null !== $this->legacy) {
             $res['Legacy'] = $this->legacy;
+        }
+
+        if (null !== $this->playbackStatus) {
+            $res['PlaybackStatus'] = $this->playbackStatus;
+        }
+
+        if (null !== $this->playedAnswer) {
+            $res['PlayedAnswer'] = $this->playedAnswer;
         }
 
         if (null !== $this->playedWords) {
@@ -213,6 +233,14 @@ class transcripts extends Model
 
         if (isset($map['Legacy'])) {
             $model->legacy = $map['Legacy'];
+        }
+
+        if (isset($map['PlaybackStatus'])) {
+            $model->playbackStatus = $map['PlaybackStatus'];
+        }
+
+        if (isset($map['PlayedAnswer'])) {
+            $model->playedAnswer = $map['PlayedAnswer'];
         }
 
         if (isset($map['PlayedWords'])) {
