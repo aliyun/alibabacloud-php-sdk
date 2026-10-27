@@ -274,6 +274,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $folderSync;
+
+    /**
+     * @var string
+     */
     public $gpuAcceleration;
 
     /**
@@ -822,6 +827,7 @@ class describePolicyGroups extends Model
         'fileTransferSizeLimit' => 'FileTransferSizeLimit',
         'fileTransferSpeed' => 'FileTransferSpeed',
         'fileTransferSpeedLocation' => 'FileTransferSpeedLocation',
+        'folderSync' => 'FolderSync',
         'gpuAcceleration' => 'GpuAcceleration',
         'hoverConfigMsg' => 'HoverConfigMsg',
         'hoverHibernate' => 'HoverHibernate',
@@ -1222,6 +1228,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->fileTransferSpeedLocation) {
             $res['FileTransferSpeedLocation'] = $this->fileTransferSpeedLocation;
+        }
+
+        if (null !== $this->folderSync) {
+            $res['FolderSync'] = $this->folderSync;
         }
 
         if (null !== $this->gpuAcceleration) {
@@ -1928,6 +1938,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['FileTransferSpeedLocation'])) {
             $model->fileTransferSpeedLocation = $map['FileTransferSpeedLocation'];
+        }
+
+        if (isset($map['FolderSync'])) {
+            $model->folderSync = $map['FolderSync'];
         }
 
         if (isset($map['GpuAcceleration'])) {

@@ -56,6 +56,11 @@ class sessions extends Model
     public $endUserId;
 
     /**
+     * @var string
+     */
+    public $lastClientIp;
+
+    /**
      * @var int
      */
     public $latestConnectionTime;
@@ -134,6 +139,7 @@ class sessions extends Model
         'directoryType' => 'DirectoryType',
         'endUserApplyCoordinateTime' => 'EndUserApplyCoordinateTime',
         'endUserId' => 'EndUserId',
+        'lastClientIp' => 'LastClientIp',
         'latestConnectionTime' => 'LatestConnectionTime',
         'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
@@ -198,6 +204,10 @@ class sessions extends Model
 
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+
+        if (null !== $this->lastClientIp) {
+            $res['LastClientIp'] = $this->lastClientIp;
         }
 
         if (null !== $this->latestConnectionTime) {
@@ -308,6 +318,10 @@ class sessions extends Model
 
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+
+        if (isset($map['LastClientIp'])) {
+            $model->lastClientIp = $map['LastClientIp'];
         }
 
         if (isset($map['LatestConnectionTime'])) {

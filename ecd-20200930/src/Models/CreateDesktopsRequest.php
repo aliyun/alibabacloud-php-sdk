@@ -109,6 +109,11 @@ class CreateDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $hostGpuDriverVersion;
+
+    /**
+     * @var string
+     */
     public $hostname;
 
     /**
@@ -254,6 +259,7 @@ class CreateDesktopsRequest extends Model
         'endUserId' => 'EndUserId',
         'extendInfo' => 'ExtendInfo',
         'groupId' => 'GroupId',
+        'hostGpuDriverVersion' => 'HostGpuDriverVersion',
         'hostname' => 'Hostname',
         'monthDesktopSetting' => 'MonthDesktopSetting',
         'officeSiteId' => 'OfficeSiteId',
@@ -408,6 +414,10 @@ class CreateDesktopsRequest extends Model
 
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+
+        if (null !== $this->hostGpuDriverVersion) {
+            $res['HostGpuDriverVersion'] = $this->hostGpuDriverVersion;
         }
 
         if (null !== $this->hostname) {
@@ -630,6 +640,10 @@ class CreateDesktopsRequest extends Model
 
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+
+        if (isset($map['HostGpuDriverVersion'])) {
+            $model->hostGpuDriverVersion = $map['HostGpuDriverVersion'];
         }
 
         if (isset($map['Hostname'])) {

@@ -253,6 +253,11 @@ class desktops extends Model
     /**
      * @var int
      */
+    public $sessionType;
+
+    /**
+     * @var int
+     */
     public $status;
 
     /**
@@ -333,6 +338,7 @@ class desktops extends Model
         'resType' => 'ResType',
         'resetType' => 'ResetType',
         'scaleTimerInfos' => 'ScaleTimerInfos',
+        'sessionType' => 'SessionType',
         'status' => 'Status',
         'stopDuration' => 'StopDuration',
         'systemDiskCategory' => 'SystemDiskCategory',
@@ -583,6 +589,10 @@ class desktops extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->sessionType) {
+            $res['SessionType'] = $this->sessionType;
         }
 
         if (null !== $this->status) {
@@ -849,6 +859,10 @@ class desktops extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SessionType'])) {
+            $model->sessionType = $map['SessionType'];
         }
 
         if (isset($map['Status'])) {

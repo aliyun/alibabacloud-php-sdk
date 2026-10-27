@@ -256,6 +256,11 @@ class desktopGroups extends Model
     public $resetType;
 
     /**
+     * @var int
+     */
+    public $sessionType;
+
+    /**
      * @var string
      */
     public $simpleUserGroupId;
@@ -364,6 +369,7 @@ class desktopGroups extends Model
         'qosRuleId' => 'QosRuleId',
         'ratioThreshold' => 'RatioThreshold',
         'resetType' => 'ResetType',
+        'sessionType' => 'SessionType',
         'simpleUserGroupId' => 'SimpleUserGroupId',
         'status' => 'Status',
         'stopDuration' => 'StopDuration',
@@ -623,6 +629,10 @@ class desktopGroups extends Model
 
         if (null !== $this->resetType) {
             $res['ResetType'] = $this->resetType;
+        }
+
+        if (null !== $this->sessionType) {
+            $res['SessionType'] = $this->sessionType;
         }
 
         if (null !== $this->simpleUserGroupId) {
@@ -913,6 +923,10 @@ class desktopGroups extends Model
 
         if (isset($map['ResetType'])) {
             $model->resetType = $map['ResetType'];
+        }
+
+        if (isset($map['SessionType'])) {
+            $model->sessionType = $map['SessionType'];
         }
 
         if (isset($map['SimpleUserGroupId'])) {
