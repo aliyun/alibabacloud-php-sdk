@@ -16,6 +16,11 @@ class CreateSessionInput extends Model
     /**
      * @var bool
      */
+    public $autoPauseFileSystemOnly;
+
+    /**
+     * @var bool
+     */
     public $disableSessionIdReuse;
 
     /**
@@ -74,6 +79,7 @@ class CreateSessionInput extends Model
     public $snapshotId;
     protected $_name = [
         'allowInternetAccess' => 'allowInternetAccess',
+        'autoPauseFileSystemOnly' => 'autoPauseFileSystemOnly',
         'disableSessionIdReuse' => 'disableSessionIdReuse',
         'enableAutoPause' => 'enableAutoPause',
         'enableAutoResume' => 'enableAutoResume',
@@ -113,6 +119,10 @@ class CreateSessionInput extends Model
         $res = [];
         if (null !== $this->allowInternetAccess) {
             $res['allowInternetAccess'] = $this->allowInternetAccess;
+        }
+
+        if (null !== $this->autoPauseFileSystemOnly) {
+            $res['autoPauseFileSystemOnly'] = $this->autoPauseFileSystemOnly;
         }
 
         if (null !== $this->disableSessionIdReuse) {
@@ -176,6 +186,10 @@ class CreateSessionInput extends Model
         $model = new self();
         if (isset($map['allowInternetAccess'])) {
             $model->allowInternetAccess = $map['allowInternetAccess'];
+        }
+
+        if (isset($map['autoPauseFileSystemOnly'])) {
+            $model->autoPauseFileSystemOnly = $map['autoPauseFileSystemOnly'];
         }
 
         if (isset($map['disableSessionIdReuse'])) {

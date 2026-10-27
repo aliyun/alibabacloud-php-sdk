@@ -37,6 +37,11 @@ class MicroSandboxConfig extends Model
      * @var string
      */
     public $startCommand;
+
+    /**
+     * @var Step[]
+     */
+    public $steps;
     protected $_name = [
         'acrInstanceId' => 'acrInstanceId',
         'image' => 'image',
@@ -44,12 +49,16 @@ class MicroSandboxConfig extends Model
         'readyCommand' => 'readyCommand',
         'registryConfig' => 'registryConfig',
         'startCommand' => 'startCommand',
+        'steps' => 'steps',
     ];
 
     public function validate()
     {
         if (null !== $this->registryConfig) {
             $this->registryConfig->validate();
+        }
+        if (\is_array($this->steps)) {
+            Model::validateArray($this->steps);
         }
         parent::validate();
     }
@@ -79,6 +88,17 @@ class MicroSandboxConfig extends Model
 
         if (null !== $this->startCommand) {
             $res['startCommand'] = $this->startCommand;
+        }
+
+        if (null !== $this->steps) {
+            if (\is_array($this->steps)) {
+                $res['steps'] = [];
+                $n1 = 0;
+                foreach ($this->steps as $item1) {
+                    $res['steps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -114,6 +134,17 @@ class MicroSandboxConfig extends Model
 
         if (isset($map['startCommand'])) {
             $model->startCommand = $map['startCommand'];
+        }
+
+        if (isset($map['steps'])) {
+            if (!empty($map['steps'])) {
+                $model->steps = [];
+                $n1 = 0;
+                foreach ($map['steps'] as $item1) {
+                    $model->steps[$n1] = Step::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

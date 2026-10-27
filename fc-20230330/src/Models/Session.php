@@ -14,6 +14,11 @@ class Session extends Model
     public $allowInternetAccess;
 
     /**
+     * @var bool
+     */
+    public $autoPauseFileSystemOnly;
+
+    /**
      * @var string
      */
     public $containerId;
@@ -109,6 +114,7 @@ class Session extends Model
     public $trafficAccessToken;
     protected $_name = [
         'allowInternetAccess' => 'allowInternetAccess',
+        'autoPauseFileSystemOnly' => 'autoPauseFileSystemOnly',
         'containerId' => 'containerId',
         'createdTime' => 'createdTime',
         'disableSessionIdReuse' => 'disableSessionIdReuse',
@@ -155,6 +161,10 @@ class Session extends Model
         $res = [];
         if (null !== $this->allowInternetAccess) {
             $res['allowInternetAccess'] = $this->allowInternetAccess;
+        }
+
+        if (null !== $this->autoPauseFileSystemOnly) {
+            $res['autoPauseFileSystemOnly'] = $this->autoPauseFileSystemOnly;
         }
 
         if (null !== $this->containerId) {
@@ -246,6 +256,10 @@ class Session extends Model
         $model = new self();
         if (isset($map['allowInternetAccess'])) {
             $model->allowInternetAccess = $map['allowInternetAccess'];
+        }
+
+        if (isset($map['autoPauseFileSystemOnly'])) {
+            $model->autoPauseFileSystemOnly = $map['autoPauseFileSystemOnly'];
         }
 
         if (isset($map['containerId'])) {
