@@ -26,6 +26,11 @@ class CreateAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $expertSuitesShrink;
+
+    /**
+     * @var string
+     */
     public $metadataShrink;
 
     /**
@@ -37,6 +42,11 @@ class CreateAgentShrinkRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var bool
+     */
+    public $publishImmediately;
 
     /**
      * @var string
@@ -66,9 +76,11 @@ class CreateAgentShrinkRequest extends Model
         'callableAgentsShrink' => 'CallableAgents',
         'description' => 'Description',
         'displayName' => 'DisplayName',
+        'expertSuitesShrink' => 'ExpertSuites',
         'metadataShrink' => 'Metadata',
         'modelShrink' => 'Model',
         'name' => 'Name',
+        'publishImmediately' => 'PublishImmediately',
         'skillsShrink' => 'Skills',
         'systemPrompt' => 'SystemPrompt',
         'toolsShrink' => 'Tools',
@@ -96,6 +108,10 @@ class CreateAgentShrinkRequest extends Model
             $res['DisplayName'] = $this->displayName;
         }
 
+        if (null !== $this->expertSuitesShrink) {
+            $res['ExpertSuites'] = $this->expertSuitesShrink;
+        }
+
         if (null !== $this->metadataShrink) {
             $res['Metadata'] = $this->metadataShrink;
         }
@@ -106,6 +122,10 @@ class CreateAgentShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->publishImmediately) {
+            $res['PublishImmediately'] = $this->publishImmediately;
         }
 
         if (null !== $this->skillsShrink) {
@@ -151,6 +171,10 @@ class CreateAgentShrinkRequest extends Model
             $model->displayName = $map['DisplayName'];
         }
 
+        if (isset($map['ExpertSuites'])) {
+            $model->expertSuitesShrink = $map['ExpertSuites'];
+        }
+
         if (isset($map['Metadata'])) {
             $model->metadataShrink = $map['Metadata'];
         }
@@ -161,6 +185,10 @@ class CreateAgentShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['PublishImmediately'])) {
+            $model->publishImmediately = $map['PublishImmediately'];
         }
 
         if (isset($map['Skills'])) {

@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListAgentSessionsResponseB
 class meta extends Model
 {
     /**
+     * @var bool
+     */
+    public $archived;
+
+    /**
      * @var string
      */
     public $sessionSource;
@@ -24,6 +29,7 @@ class meta extends Model
      */
     public $sessionTagList;
     protected $_name = [
+        'archived' => 'Archived',
         'sessionSource' => 'SessionSource',
         'sessionStatus' => 'SessionStatus',
         'sessionTagList' => 'SessionTagList',
@@ -40,6 +46,10 @@ class meta extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->archived) {
+            $res['Archived'] = $this->archived;
+        }
+
         if (null !== $this->sessionSource) {
             $res['SessionSource'] = $this->sessionSource;
         }
@@ -70,6 +80,10 @@ class meta extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Archived'])) {
+            $model->archived = $map['Archived'];
+        }
+
         if (isset($map['SessionSource'])) {
             $model->sessionSource = $map['SessionSource'];
         }

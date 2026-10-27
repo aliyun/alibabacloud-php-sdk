@@ -14,6 +14,11 @@ class params extends Model
     public $agentName;
 
     /**
+     * @var bool
+     */
+    public $archived;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -44,6 +49,7 @@ class params extends Model
     public $tagList;
     protected $_name = [
         'agentName' => 'AgentName',
+        'archived' => 'Archived',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'sessionId' => 'SessionId',
@@ -68,6 +74,10 @@ class params extends Model
         $res = [];
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
+        }
+
+        if (null !== $this->archived) {
+            $res['Archived'] = $this->archived;
         }
 
         if (null !== $this->maxResults) {
@@ -121,6 +131,10 @@ class params extends Model
         $model = new self();
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
+        }
+
+        if (isset($map['Archived'])) {
+            $model->archived = $map['Archived'];
         }
 
         if (isset($map['MaxResults'])) {

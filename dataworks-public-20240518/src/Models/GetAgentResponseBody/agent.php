@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponseBody
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponseBody\agent\callableAgents;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponseBody\agent\expertSuites;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponseBody\agent\model_;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponseBody\agent\skills;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponseBody\agent\tools;
@@ -13,6 +14,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponseBody\agent
 
 class agent extends Model
 {
+    /**
+     * @var int
+     */
+    public $agentVersion;
+
     /**
      * @var callableAgents[]
      */
@@ -32,6 +38,11 @@ class agent extends Model
      * @var string
      */
     public $displayName;
+
+    /**
+     * @var expertSuites[]
+     */
+    public $expertSuites;
 
     /**
      * @var string
@@ -93,10 +104,12 @@ class agent extends Model
      */
     public $visibilityScope;
     protected $_name = [
+        'agentVersion' => 'AgentVersion',
         'callableAgents' => 'CallableAgents',
         'creatorId' => 'CreatorId',
         'description' => 'Description',
         'displayName' => 'DisplayName',
+        'expertSuites' => 'ExpertSuites',
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
         'metadata' => 'Metadata',
@@ -115,6 +128,9 @@ class agent extends Model
     {
         if (\is_array($this->callableAgents)) {
             Model::validateArray($this->callableAgents);
+        }
+        if (\is_array($this->expertSuites)) {
+            Model::validateArray($this->expertSuites);
         }
         if (\is_array($this->metadata)) {
             Model::validateArray($this->metadata);
@@ -140,6 +156,10 @@ class agent extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentVersion) {
+            $res['AgentVersion'] = $this->agentVersion;
+        }
+
         if (null !== $this->callableAgents) {
             if (\is_array($this->callableAgents)) {
                 $res['CallableAgents'] = [];
@@ -161,6 +181,17 @@ class agent extends Model
 
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+
+        if (null !== $this->expertSuites) {
+            if (\is_array($this->expertSuites)) {
+                $res['ExpertSuites'] = [];
+                $n1 = 0;
+                foreach ($this->expertSuites as $item1) {
+                    $res['ExpertSuites'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->gmtCreateTime) {
@@ -248,6 +279,10 @@ class agent extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentVersion'])) {
+            $model->agentVersion = $map['AgentVersion'];
+        }
+
         if (isset($map['CallableAgents'])) {
             if (!empty($map['CallableAgents'])) {
                 $model->callableAgents = [];
@@ -269,6 +304,17 @@ class agent extends Model
 
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+
+        if (isset($map['ExpertSuites'])) {
+            if (!empty($map['ExpertSuites'])) {
+                $model->expertSuites = [];
+                $n1 = 0;
+                foreach ($map['ExpertSuites'] as $item1) {
+                    $model->expertSuites[$n1] = expertSuites::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['GmtCreateTime'])) {

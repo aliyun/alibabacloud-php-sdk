@@ -12,8 +12,26 @@ class skills extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $skillId;
+
+    /**
+     * @var string
+     */
+    public $source;
+
+    /**
+     * @var int
+     */
+    public $version;
     protected $_name = [
         'name' => 'Name',
+        'skillId' => 'SkillId',
+        'source' => 'Source',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -26,6 +44,18 @@ class skills extends Model
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->skillId) {
+            $res['SkillId'] = $this->skillId;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -41,6 +71,18 @@ class skills extends Model
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SkillId'])) {
+            $model->skillId = $map['SkillId'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

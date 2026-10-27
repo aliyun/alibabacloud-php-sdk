@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest\callableAgents;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest\expertSuites;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest\skills;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest\tools;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest\visibilityScope;
@@ -28,6 +29,11 @@ class CreateAgentRequest extends Model
     public $displayName;
 
     /**
+     * @var expertSuites[]
+     */
+    public $expertSuites;
+
+    /**
      * @var mixed[]
      */
     public $metadata;
@@ -41,6 +47,11 @@ class CreateAgentRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var bool
+     */
+    public $publishImmediately;
 
     /**
      * @var skills[]
@@ -70,9 +81,11 @@ class CreateAgentRequest extends Model
         'callableAgents' => 'CallableAgents',
         'description' => 'Description',
         'displayName' => 'DisplayName',
+        'expertSuites' => 'ExpertSuites',
         'metadata' => 'Metadata',
         'model' => 'Model',
         'name' => 'Name',
+        'publishImmediately' => 'PublishImmediately',
         'skills' => 'Skills',
         'systemPrompt' => 'SystemPrompt',
         'tools' => 'Tools',
@@ -84,6 +97,9 @@ class CreateAgentRequest extends Model
     {
         if (\is_array($this->callableAgents)) {
             Model::validateArray($this->callableAgents);
+        }
+        if (\is_array($this->expertSuites)) {
+            Model::validateArray($this->expertSuites);
         }
         if (\is_array($this->metadata)) {
             Model::validateArray($this->metadata);
@@ -125,6 +141,17 @@ class CreateAgentRequest extends Model
             $res['DisplayName'] = $this->displayName;
         }
 
+        if (null !== $this->expertSuites) {
+            if (\is_array($this->expertSuites)) {
+                $res['ExpertSuites'] = [];
+                $n1 = 0;
+                foreach ($this->expertSuites as $item1) {
+                    $res['ExpertSuites'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->metadata) {
             if (\is_array($this->metadata)) {
                 $res['Metadata'] = [];
@@ -145,6 +172,10 @@ class CreateAgentRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->publishImmediately) {
+            $res['PublishImmediately'] = $this->publishImmediately;
         }
 
         if (null !== $this->skills) {
@@ -211,6 +242,17 @@ class CreateAgentRequest extends Model
             $model->displayName = $map['DisplayName'];
         }
 
+        if (isset($map['ExpertSuites'])) {
+            if (!empty($map['ExpertSuites'])) {
+                $model->expertSuites = [];
+                $n1 = 0;
+                foreach ($map['ExpertSuites'] as $item1) {
+                    $model->expertSuites[$n1] = expertSuites::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Metadata'])) {
             if (!empty($map['Metadata'])) {
                 $model->metadata = [];
@@ -231,6 +273,10 @@ class CreateAgentRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['PublishImmediately'])) {
+            $model->publishImmediately = $map['PublishImmediately'];
         }
 
         if (isset($map['Skills'])) {
