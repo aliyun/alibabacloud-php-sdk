@@ -1,3 +1,24 @@
+2026-10-27 Version: 3.14.0
+- Support API AllocatePxfsPublicConnection.
+- Support API CreatePxfs.
+- Support API CreatePxfsAccessToken.
+- Support API CreatePxfsTenant.
+- Support API CreatePxfsUser.
+- Support API DeletePxfs.
+- Support API DeletePxfsUser.
+- Support API DescribePxfsAccessTokens.
+- Support API DescribePxfsInfo.
+- Support API DescribePxfsSecurityIps.
+- Support API DescribePxfsTenant.
+- Support API DescribePxfsUsers.
+- Support API ModifyPxfsSecurityIps.
+- Support API ReleasePxfsPublicConnection.
+- Support API RestartPxfs.
+- Support API RevokePxfsAccessToken.
+- Support API UpgradePxfsVersion.
+- Update API DescribeContext0Info: add response parameters Body.Data.Instance.MinorVersion.
+
+
 2026-08-31 Version: 3.13.0
 - Support API QueryColumnarLog.
 - Support API QueryColumnarLogSSE.

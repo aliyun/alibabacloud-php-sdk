@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionR
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateMem0PublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateMem0PublicConnectionResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocatePxfsPublicConnectionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocatePxfsPublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AttachColumnarInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AttachColumnarInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelActiveOperationTasksRequest;
@@ -66,6 +68,14 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateOpenSearchWhitelistGroupReq
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateOpenSearchWhitelistGroupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolardbxSupabaseInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolardbxSupabaseInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfsAccessTokenRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfsAccessTokenResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfsTenantRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfsTenantResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfsUserRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfsUserResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfuseRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePxfuseResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskRequest;
@@ -112,6 +122,10 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteOpenSearchWhitelistGroupReq
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteOpenSearchWhitelistGroupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePolardbxSupabaseInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePolardbxSupabaseInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePxfsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePxfsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePxfsUserRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePxfsUserResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePxfuseRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePxfuseResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteServiceAccountRequest;
@@ -238,6 +252,16 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesRequest
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDataNodesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePolarxDataNodesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsAccessTokensRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsAccessTokensResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsSecurityIpsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsSecurityIpsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsTenantRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsTenantResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsUsersRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfsUsersResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfuseInfoRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfuseInfoResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribePxfuseSecurityIpsRequest;
@@ -347,6 +371,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyOpenSearchWhitelistGroupReq
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyOpenSearchWhitelistGroupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfsSecurityIpsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfsSecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfuseSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfuseSecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySecurityIpsRequest;
@@ -373,6 +399,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionRe
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseMem0PublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseMem0PublicConnectionResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleasePxfsPublicConnectionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleasePxfsPublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRestrictRequest;
@@ -387,10 +415,14 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartOpenSearchRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartOpenSearchResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartPxfsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartPxfsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartSupabaseInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartSupabaseInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestoreDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestoreDBInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RevokePxfsAccessTokenRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RevokePxfsAccessTokenResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ScaleInOpenSearchRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ScaleInOpenSearchResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ScaleOutOpenSearchRequest;
@@ -427,6 +459,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeColumnarVersionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeColumnarVersionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeDBInstanceKernelVersionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeDBInstanceKernelVersionResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradePxfsVersionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradePxfsVersionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -484,18 +518,6 @@ class Polardbx extends OpenApiClient
             'eu-west-1-oxs' => 'polardbx.aliyuncs.com',
             'me-east-1' => 'polardbx.aliyuncs.com',
             'rus-west-1-pop' => 'polardbx.aliyuncs.com',
-            'cn-beijing' => 'polardbx.cn-beijing.aliyuncs.com',
-            'cn-qingdao' => 'polardbx.cn-qingdao.aliyuncs.com',
-            'cn-shanghai' => 'polardbx.cn-shanghai.aliyuncs.com',
-            'cn-hongkong' => 'polardbx.cn-hongkong.aliyuncs.com',
-            'cn-zhangjiakou' => 'polardbx.cn-zhangjiakou.aliyuncs.com',
-            'cn-shenzhen' => 'polardbx.cn-shenzhen.aliyuncs.com',
-            'cn-chengdu' => 'polardbx.cn-chengdu.aliyuncs.com',
-            'ap-southeast-1' => 'polardbx.ap-southeast-1.aliyuncs.com',
-            'cn-huhehaote' => 'polardbx.cn-huhehaote.aliyuncs.com',
-            'cn-hangzhou' => 'polardbx.cn-hangzhou.aliyuncs.com',
-            'us-east-1' => 'polardbx.us-east-1.aliyuncs.com',
-            'us-west-1' => 'polardbx.us-west-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('polardbx', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -526,6 +548,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Aligns the primary zone of the storage nodes of a PolarDB-X instance.
+     *
      * @param request - AlignStoragePrimaryAzoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -579,6 +603,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Aligns the primary zone of the storage nodes of a PolarDB-X instance.
+     *
      * @param request - AlignStoragePrimaryAzoneRequest
      *
      * @returns AlignStoragePrimaryAzoneResponse
@@ -656,10 +682,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enables a public network connection for a specified physical ReplicaSet of the context service.
+     * Enables public network connections for a specified physical ReplicaSet of the context service.
      *
      * @remarks
-     * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+     * This operation confirms that no active connections exist before a rollback task to ensure operational security.
      *
      * @param request - AllocateContext0PublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -714,10 +740,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enables a public network connection for a specified physical ReplicaSet of the context service.
+     * Enables public network connections for a specified physical ReplicaSet of the context service.
      *
      * @remarks
-     * This operation is used to confirm that no active connections exist before a rollback task, ensuring operation safety.
+     * This operation confirms that no active connections exist before a rollback task to ensure operational security.
      *
      * @param request - AllocateContext0PublicConnectionRequest
      *
@@ -903,10 +929,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enables a public domain name for a Mem0 instance.
+     * Enables the public domain name for a Mem0 instance.
      *
      * @remarks
-     * This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+     * This operation checks for active connections before a rollback task to ensure operational security.
      *
      * @param request - AllocateMem0PublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -957,10 +983,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enables a public domain name for a Mem0 instance.
+     * Enables the public domain name for a Mem0 instance.
      *
      * @remarks
-     * This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+     * This operation checks for active connections before a rollback task to ensure operational security.
      *
      * @param request - AllocateMem0PublicConnectionRequest
      *
@@ -975,6 +1001,73 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateMem0PublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables public network connection for PXFS.
+     *
+     * @remarks
+     * Enables public network connection for the agent file service.
+     *
+     * @param request - AllocatePxfsPublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AllocatePxfsPublicConnectionResponse
+     *
+     * @param AllocatePxfsPublicConnectionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AllocatePxfsPublicConnectionResponse
+     */
+    public function allocatePxfsPublicConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AllocatePxfsPublicConnection',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AllocatePxfsPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables public network connection for PXFS.
+     *
+     * @remarks
+     * Enables public network connection for the agent file service.
+     *
+     * @param request - AllocatePxfsPublicConnectionRequest
+     *
+     * @returns AllocatePxfsPublicConnectionResponse
+     *
+     * @param AllocatePxfsPublicConnectionRequest $request
+     *
+     * @return AllocatePxfsPublicConnectionResponse
+     */
+    public function allocatePxfsPublicConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allocatePxfsPublicConnectionWithOptions($request, $runtime);
     }
 
     /**
@@ -1576,7 +1669,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Creates a backup by calling the CreateBackup operation.
+     * Creates a backup.
      *
      * @param request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1623,7 +1716,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Creates a backup by calling the CreateBackup operation.
+     * Creates a backup.
      *
      * @param request - CreateBackupRequest
      *
@@ -1874,7 +1967,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Creates a database by calling the CreateDB operation.
+     * Creates a database.
      *
      * @param request - CreateDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1953,7 +2046,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Creates a database by calling the CreateDB operation.
+     * Creates a database.
      *
      * @param request - CreateDBRequest
      *
@@ -1971,7 +2064,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the CreateDBInstance operation to create a PolarDB-X instance.
+     * Creates a PolarDB-X instance.
      *
      * @remarks
      *
@@ -2138,7 +2231,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the CreateDBInstance operation to create a PolarDB-X instance.
+     * Creates a PolarDB-X instance.
      *
      * @remarks
      *
@@ -2264,7 +2357,6 @@ class Polardbx extends OpenApiClient
      * Creates an AI gateway consumer for a PolarDB-X instance.
      *
      * @remarks
-     * ***.
      *
      * @param request - CreateGatewayConsumerForPolarDBXRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2310,7 +2402,6 @@ class Polardbx extends OpenApiClient
      * Creates an AI gateway consumer for a PolarDB-X instance.
      *
      * @remarks
-     * ***.
      *
      * @param request - CreateGatewayConsumerForPolarDBXRequest
      *
@@ -2564,7 +2655,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enable Memory Engine.
+     * Enables the memory engine.
      *
      * @remarks
      * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -2610,7 +2701,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enable Memory Engine.
+     * Enables the memory engine.
      *
      * @remarks
      * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -2770,7 +2861,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Creates an account for a PolarDB-X Search instance.
+     * Creates a PolarDB-X Search instance account.
      *
      * @remarks
      * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -2824,7 +2915,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Creates an account for a PolarDB-X Search instance.
+     * Creates a PolarDB-X Search instance account.
      *
      * @remarks
      * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -3038,6 +3129,350 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPolardbxSupabaseInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an Agent file service instance.
+     *
+     * @remarks
+     * Creates an Agent file service instance.
+     *
+     * @param request - CreatePxfsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePxfsResponse
+     *
+     * @param CreatePxfsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreatePxfsResponse
+     */
+    public function createPxfsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->classCode) {
+            @$query['ClassCode'] = $request->classCode;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->nodeCount) {
+            @$query['NodeCount'] = $request->nodeCount;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        if (null !== $request->storageSize) {
+            @$query['StorageSize'] = $request->storageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePxfs',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePxfsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an Agent file service instance.
+     *
+     * @remarks
+     * Creates an Agent file service instance.
+     *
+     * @param request - CreatePxfsRequest
+     *
+     * @returns CreatePxfsResponse
+     *
+     * @param CreatePxfsRequest $request
+     *
+     * @return CreatePxfsResponse
+     */
+    public function createPxfs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPxfsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Issues an access token for the Agent file service.
+     *
+     * @remarks
+     * Issues an access token for the Agent file service.
+     *
+     * @param request - CreatePxfsAccessTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePxfsAccessTokenResponse
+     *
+     * @param CreatePxfsAccessTokenRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreatePxfsAccessTokenResponse
+     */
+    public function createPxfsAccessTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->identityName) {
+            @$query['IdentityName'] = $request->identityName;
+        }
+
+        if (null !== $request->label) {
+            @$query['Label'] = $request->label;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->ttlSeconds) {
+            @$query['TtlSeconds'] = $request->ttlSeconds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePxfsAccessToken',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePxfsAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Issues an access token for the Agent file service.
+     *
+     * @remarks
+     * Issues an access token for the Agent file service.
+     *
+     * @param request - CreatePxfsAccessTokenRequest
+     *
+     * @returns CreatePxfsAccessTokenResponse
+     *
+     * @param CreatePxfsAccessTokenRequest $request
+     *
+     * @return CreatePxfsAccessTokenResponse
+     */
+    public function createPxfsAccessToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPxfsAccessTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an Agent file service tenant.
+     *
+     * @remarks
+     * Creates an Agent file service tenant.
+     *
+     * @param request - CreatePxfsTenantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePxfsTenantResponse
+     *
+     * @param CreatePxfsTenantRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreatePxfsTenantResponse
+     */
+    public function createPxfsTenantWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->quotaBytes) {
+            @$query['QuotaBytes'] = $request->quotaBytes;
+        }
+
+        if (null !== $request->quotaFiles) {
+            @$query['QuotaFiles'] = $request->quotaFiles;
+        }
+
+        if (null !== $request->rateLimitRps) {
+            @$query['RateLimitRps'] = $request->rateLimitRps;
+        }
+
+        if (null !== $request->rateLimitWbps) {
+            @$query['RateLimitWbps'] = $request->rateLimitWbps;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->tenantName) {
+            @$query['TenantName'] = $request->tenantName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePxfsTenant',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePxfsTenantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an Agent file service tenant.
+     *
+     * @remarks
+     * Creates an Agent file service tenant.
+     *
+     * @param request - CreatePxfsTenantRequest
+     *
+     * @returns CreatePxfsTenantResponse
+     *
+     * @param CreatePxfsTenantRequest $request
+     *
+     * @return CreatePxfsTenantResponse
+     */
+    public function createPxfsTenant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPxfsTenantWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a tenant identity for the Agent file service.
+     *
+     * @remarks
+     * Creates a tenant identity for the Agent file service.
+     *
+     * @param request - CreatePxfsUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePxfsUserResponse
+     *
+     * @param CreatePxfsUserRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePxfsUserResponse
+     */
+    public function createPxfsUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->identityName) {
+            @$query['IdentityName'] = $request->identityName;
+        }
+
+        if (null !== $request->posixGid) {
+            @$query['PosixGid'] = $request->posixGid;
+        }
+
+        if (null !== $request->posixUid) {
+            @$query['PosixUid'] = $request->posixUid;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePxfsUser',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePxfsUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a tenant identity for the Agent file service.
+     *
+     * @remarks
+     * Creates a tenant identity for the Agent file service.
+     *
+     * @param request - CreatePxfsUserRequest
+     *
+     * @returns CreatePxfsUserResponse
+     *
+     * @param CreatePxfsUserRequest $request
+     *
+     * @return CreatePxfsUserResponse
+     */
+    public function createPxfsUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPxfsUserWithOptions($request, $runtime);
     }
 
     /**
@@ -3592,7 +4027,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enables the public endpoint for a Supabase instance.
+     * Enables the public endpoint for Supabase.
      *
      * @remarks
      *
@@ -3641,7 +4076,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enables the public endpoint for a Supabase instance.
+     * Enables the public endpoint for Supabase.
      *
      * @remarks
      *
@@ -4334,7 +4769,7 @@ class Polardbx extends OpenApiClient
      * Disables the memory engine.
      *
      * @remarks
-     * Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
+     * Deletes the custom endpoint of a specified database instance and disables access to the domain name.
      *
      * @param request - DeleteMem0Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4380,7 +4815,7 @@ class Polardbx extends OpenApiClient
      * Disables the memory engine.
      *
      * @remarks
-     * Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
+     * Deletes the custom endpoint of a specified database instance and disables access to the domain name.
      *
      * @param request - DeleteMem0Request
      *
@@ -4673,6 +5108,148 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePolardbxSupabaseInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an Agent file service instance.
+     *
+     * @remarks
+     * Deletes an Agent file service instance.
+     *
+     * @param request - DeletePxfsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePxfsResponse
+     *
+     * @param DeletePxfsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeletePxfsResponse
+     */
+    public function deletePxfsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePxfs',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePxfsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an Agent file service instance.
+     *
+     * @remarks
+     * Deletes an Agent file service instance.
+     *
+     * @param request - DeletePxfsRequest
+     *
+     * @returns DeletePxfsResponse
+     *
+     * @param DeletePxfsRequest $request
+     *
+     * @return DeletePxfsResponse
+     */
+    public function deletePxfs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePxfsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an Agent file service tenant identity.
+     *
+     * @remarks
+     * Deletes an Agent file service tenant identity.
+     *
+     * @param request - DeletePxfsUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePxfsUserResponse
+     *
+     * @param DeletePxfsUserRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeletePxfsUserResponse
+     */
+    public function deletePxfsUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->identityName) {
+            @$query['IdentityName'] = $request->identityName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePxfsUser',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePxfsUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an Agent file service tenant identity.
+     *
+     * @remarks
+     * Deletes an Agent file service tenant identity.
+     *
+     * @param request - DeletePxfsUserRequest
+     *
+     * @returns DeletePxfsUserResponse
+     *
+     * @param DeletePxfsUserRequest $request
+     *
+     * @return DeletePxfsUserResponse
+     */
+    public function deletePxfsUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePxfsUserWithOptions($request, $runtime);
     }
 
     /**
@@ -5017,7 +5594,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
+     * Queries the O&M time configuration.
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5056,7 +5633,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
+     * Queries the O&M time configuration.
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
      *
@@ -5127,7 +5704,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries O&M events by calling the DescribeActiveOperationTasks operation.
+     * Queries O&M events.
      *
      * @param request - DescribeActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5162,7 +5739,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries O&M events by calling the DescribeActiveOperationTasks operation.
+     * Queries O&M events.
      *
      * @param request - DescribeActiveOperationTasksRequest
      *
@@ -5180,7 +5757,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the list of cold storage tables.
+     * Lists cold storage tables.
      *
      * @param request - DescribeArchiveTableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5243,7 +5820,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the list of cold storage tables.
+     * Lists cold storage tables.
      *
      * @param request - DescribeArchiveTableListRequest
      *
@@ -5505,12 +6082,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries binary logs by calling the DescribeBinaryLogList operation.
+     * Queries binary logs.
      *
      * @remarks
      * - Binary log files are retained for 15 days by default.
-     * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
-     * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+     * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
      *
      * @param request - DescribeBinaryLogListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5573,12 +6150,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries binary logs by calling the DescribeBinaryLogList operation.
+     * Queries binary logs.
      *
      * @remarks
      * - Binary log files are retained for 15 days by default.
-     * - The returned log list includes all logs log record end time is after the query start time and log record start time is before the query end time.
-     * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     * - The returned log list includes all log records whose end time is later than the query start time and whose start time is earlier than the query end time.
+     * - If the value of DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
      *
      * @param request - DescribeBinaryLogListRequest
      *
@@ -5732,12 +6309,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of CDC versions.
+     * Retrieves a list of CDC versions.
      *
      * @remarks
      * - Binary log files are retained for 15 days by default.
-     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-     * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+     * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
      *
      * @param request - DescribeCdcVersionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5784,12 +6361,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of CDC versions.
+     * Retrieves a list of CDC versions.
      *
      * @remarks
      * - Binary log files are retained for 15 days by default.
-     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
-     * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+     * - If DownloadLink is not NULL, you can download the backup file by using this URL. The URL is valid for 2 days after it is generated. Download the file before it expires.
      *
      * @param request - DescribeCdcVersionListRequest
      *
@@ -5868,7 +6445,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Retrieves the basic information of cold storage.
+     * Queries the basic information of cold storage.
      *
      * @param request - DescribeColdDataBasicInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5903,7 +6480,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Retrieves the basic information of cold storage.
+     * Queries the basic information of cold storage.
      *
      * @param request - DescribeColdDataBasicInfoRequest
      *
@@ -6321,7 +6898,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the whitelist of the context service.
+     * Queries the whitelist for the context service.
      *
      * @remarks
      * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
@@ -6367,7 +6944,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the whitelist of the context service.
+     * Queries the whitelist for the context service.
      *
      * @remarks
      * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
@@ -6664,7 +7241,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
+     * Queries the attributes of an instance.
+     *
+     * @remarks
+     * This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6711,7 +7291,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
+     * Queries the attributes of an instance.
+     *
+     * @remarks
+     * This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      *
@@ -6869,7 +7452,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the high availability (HA) information of an instance.
+     * Queries the high availability information of an instance.
      *
      * @param request - DescribeDBInstanceHARequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6912,7 +7495,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the high availability (HA) information of an instance.
+     * Queries the high availability information of an instance.
      *
      * @param request - DescribeDBInstanceHARequest
      *
@@ -6930,7 +7513,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries SSL information.
+     * Retrieves SSL information.
      *
      * @param request - DescribeDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6973,7 +7556,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries SSL information.
+     * Retrieves SSL information.
      *
      * @param request - DescribeDBInstanceSSLRequest
      *
@@ -7052,7 +7635,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the topology information of an instance.
+     * Retrieves the topology information of an instance.
      *
      * @param request - DescribeDBInstanceTopologyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7107,7 +7690,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the topology information of an instance.
+     * Retrieves the topology information of an instance.
      *
      * @param request - DescribeDBInstanceTopologyRequest
      *
@@ -7186,7 +7769,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances by calling the DescribeDBInstances operation.
+     * Queries a list of database instances.
      *
      * @param request - DescribeDBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7261,7 +7844,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances by calling the DescribeDBInstances operation.
+     * Queries a list of database instances.
      *
      * @param request - DescribeDBInstancesRequest
      *
@@ -7827,7 +8410,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of global database network (GDN) instances.
+     * Queries the list of global database network (GDN) instances.
      *
      * @param request - DescribeGdnInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7886,7 +8469,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of global database network (GDN) instances.
+     * Queries the list of global database network (GDN) instances.
      *
      * @param request - DescribeGdnInstancesRequest
      *
@@ -8237,7 +8820,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the information about a PolarDB-X Search instance.
+     * Queries the details of PolarDB-X Search instances.
      *
      * @remarks
      * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
@@ -8283,7 +8866,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the information about a PolarDB-X Search instance.
+     * Queries the details of PolarDB-X Search instances.
      *
      * @remarks
      * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
@@ -8716,7 +9299,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
+     * Queries the instance parameter templates.
      *
      * @param request - DescribeParameterTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8767,7 +9350,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeParameterTemplates operation to retrieve the parameter template list of an instance.
+     * Queries the instance parameter templates.
      *
      * @param request - DescribeParameterTemplatesRequest
      *
@@ -8920,6 +9503,357 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolarxDataNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the access token for the Agent file service.
+     *
+     * @remarks
+     * Queries the access token for the Agent file service.
+     *
+     * @param request - DescribePxfsAccessTokensRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePxfsAccessTokensResponse
+     *
+     * @param DescribePxfsAccessTokensRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribePxfsAccessTokensResponse
+     */
+    public function describePxfsAccessTokensWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->identityName) {
+            @$query['IdentityName'] = $request->identityName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePxfsAccessTokens',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePxfsAccessTokensResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the access token for the Agent file service.
+     *
+     * @remarks
+     * Queries the access token for the Agent file service.
+     *
+     * @param request - DescribePxfsAccessTokensRequest
+     *
+     * @returns DescribePxfsAccessTokensResponse
+     *
+     * @param DescribePxfsAccessTokensRequest $request
+     *
+     * @return DescribePxfsAccessTokensResponse
+     */
+    public function describePxfsAccessTokens($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePxfsAccessTokensWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the information about an Agent file service instance.
+     *
+     * @remarks
+     * Queries the information about an Agent file service instance.
+     *
+     * @param request - DescribePxfsInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePxfsInfoResponse
+     *
+     * @param DescribePxfsInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribePxfsInfoResponse
+     */
+    public function describePxfsInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePxfsInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePxfsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the information about an Agent file service instance.
+     *
+     * @remarks
+     * Queries the information about an Agent file service instance.
+     *
+     * @param request - DescribePxfsInfoRequest
+     *
+     * @returns DescribePxfsInfoResponse
+     *
+     * @param DescribePxfsInfoRequest $request
+     *
+     * @return DescribePxfsInfoResponse
+     */
+    public function describePxfsInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePxfsInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the whitelist for the Agent file service.
+     *
+     * @remarks
+     * Queries the whitelist for the Agent file service.
+     *
+     * @param request - DescribePxfsSecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePxfsSecurityIpsResponse
+     *
+     * @param DescribePxfsSecurityIpsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePxfsSecurityIpsResponse
+     */
+    public function describePxfsSecurityIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePxfsSecurityIps',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePxfsSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the whitelist for the Agent file service.
+     *
+     * @remarks
+     * Queries the whitelist for the Agent file service.
+     *
+     * @param request - DescribePxfsSecurityIpsRequest
+     *
+     * @returns DescribePxfsSecurityIpsResponse
+     *
+     * @param DescribePxfsSecurityIpsRequest $request
+     *
+     * @return DescribePxfsSecurityIpsResponse
+     */
+    public function describePxfsSecurityIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePxfsSecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the Agent file service tenant.
+     *
+     * @remarks
+     * Queries the Agent file service tenant.
+     *
+     * @param request - DescribePxfsTenantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePxfsTenantResponse
+     *
+     * @param DescribePxfsTenantRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribePxfsTenantResponse
+     */
+    public function describePxfsTenantWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePxfsTenant',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePxfsTenantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the Agent file service tenant.
+     *
+     * @remarks
+     * Queries the Agent file service tenant.
+     *
+     * @param request - DescribePxfsTenantRequest
+     *
+     * @returns DescribePxfsTenantResponse
+     *
+     * @param DescribePxfsTenantRequest $request
+     *
+     * @return DescribePxfsTenantResponse
+     */
+    public function describePxfsTenant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePxfsTenantWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the tenant identity of the Agent file service.
+     *
+     * @remarks
+     * Queries the tenant identity of the Agent file service.
+     *
+     * @param request - DescribePxfsUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePxfsUsersResponse
+     *
+     * @param DescribePxfsUsersRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribePxfsUsersResponse
+     */
+    public function describePxfsUsersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePxfsUsers',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePxfsUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the tenant identity of the Agent file service.
+     *
+     * @remarks
+     * Queries the tenant identity of the Agent file service.
+     *
+     * @param request - DescribePxfsUsersRequest
+     *
+     * @returns DescribePxfsUsersResponse
+     *
+     * @param DescribePxfsUsersRequest $request
+     *
+     * @return DescribePxfsUsersResponse
+     */
+    public function describePxfsUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePxfsUsersWithOptions($request, $runtime);
     }
 
     /**
@@ -9321,7 +10255,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Displays the progress of a ScaleOut migration task.
+     * Retrieves the progress of a scale-out migration task.
      *
      * @param request - DescribeScaleOutMigrateTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9380,7 +10314,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Displays the progress of a ScaleOut migration task.
+     * Retrieves the progress of a scale-out migration task.
      *
      * @param request - DescribeScaleOutMigrateTaskListRequest
      *
@@ -9952,8 +10886,8 @@ class Polardbx extends OpenApiClient
      *
      * @remarks
      * - Binary log files are retained for 15 days by default.
-     * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
-     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
      *
      * @param request - DescribeSupabaseApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10000,8 +10934,8 @@ class Polardbx extends OpenApiClient
      *
      * @remarks
      * - Binary log files are retained for 15 days by default.
-     * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
-     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     * - The returned log list includes all log records whose end time is after the query start time and whose start time is before the query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before it expires.
      *
      * @param request - DescribeSupabaseApiKeyRequest
      *
@@ -10087,7 +11021,7 @@ class Polardbx extends OpenApiClient
      * Queries a list of Supabase instances.
      *
      * @remarks
-     * Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+     * Retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
      *
      * @param request - DescribeSupabaseInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10153,7 +11087,7 @@ class Polardbx extends OpenApiClient
      * Queries a list of Supabase instances.
      *
      * @remarks
-     * Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+     * Retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
      *
      * @param request - DescribeSupabaseInstancesRequest
      *
@@ -10171,12 +11105,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the IP whitelist of a Supabase instance.
+     * Queries the Supabase IP whitelist.
      *
      * @remarks
      * - Binary log files are retained for 15 days by default.
-     * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
-     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
      *
      * @param request - DescribeSupabaseIpWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10223,12 +11157,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the IP whitelist of a Supabase instance.
+     * Queries the Supabase IP whitelist.
      *
      * @remarks
      * - Binary log files are retained for 15 days by default.
-     * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
-     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     * - The returned log list includes all log records whose record end time is after the query start time and whose record start time is before the query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for two days after it is generated. Download the file before it expires.
      *
      * @param request - DescribeSupabaseIpWhitelistRequest
      *
@@ -10311,7 +11245,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Retrieves the task list of an instance.
+     * Retrieves the list of tasks for an instance.
      *
      * @param request - DescribeTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10386,7 +11320,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Retrieves the task list of an instance.
+     * Retrieves the list of tasks for an instance.
      *
      * @param request - DescribeTasksRequest
      *
@@ -10530,7 +11464,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Disables public network access for PolarDB-X Search.
+     * Disables public network access to PolarDB-X Search.
      *
      * @remarks
      * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -10580,7 +11514,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Disables public network access for PolarDB-X Search.
+     * Disables public network access to PolarDB-X Search.
      *
      * @remarks
      * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -10983,7 +11917,7 @@ class Polardbx extends OpenApiClient
      * Executes a metadata query.
      *
      * @remarks
-     * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+     * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
      *
      * @param request - ExecuteMetaQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11041,7 +11975,7 @@ class Polardbx extends OpenApiClient
      * Executes a metadata query.
      *
      * @remarks
-     * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+     * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
      *
      * @param request - ExecuteMetaQueryRequest
      *
@@ -11371,7 +12305,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
+     * Modifies the time configuration for O&M events.
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11406,7 +12340,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the time configuration of O&M events by calling the ModifyActiveOperationMaintainConf operation.
+     * Modifies the time configuration for O&M events.
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
      *
@@ -11647,7 +12581,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+     * Synchronously modifies the whitelists for the context service and dashboard.
      *
      * @remarks
      *
@@ -11704,7 +12638,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Synchronously modifies the whitelists of the context service (Service) and Dashboard.
+     * Synchronously modifies the whitelists for the context service and dashboard.
      *
      * @remarks
      *
@@ -11975,7 +12909,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the ModifyDBInstanceClass operation to modify the instance specifications.
+     * Modifies the specifications of an instance.
      *
      * @param request - ModifyDBInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12062,7 +12996,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the ModifyDBInstanceClass operation to modify the instance specifications.
+     * Modifies the specifications of an instance.
      *
      * @param request - ModifyDBInstanceClassRequest
      *
@@ -12360,10 +13294,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
+     * Modifies the virtual IP address or network properties of a database instance. This operation supports changing the internal IP address, adjusting the subnet, and migrating across zones.
      *
      * @remarks
-     * ***.
      *
      * @param request - ModifyDBInstanceVipRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12418,10 +13351,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
+     * Modifies the virtual IP address or network properties of a database instance. This operation supports changing the internal IP address, adjusting the subnet, and migrating across zones.
      *
      * @remarks
-     * ***.
      *
      * @param request - ModifyDBInstanceVipRequest
      *
@@ -12735,7 +13667,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a PolarDB-X Search instance.
+     * Modifies the specifications of a PolarDBX Search instance.
      *
      * @remarks
      *
@@ -12788,7 +13720,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a PolarDB-X Search instance.
+     * Modifies the specifications of a PolarDBX Search instance.
      *
      * @remarks
      *
@@ -12885,7 +13817,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies instance parameters, including parameters at the compute layer and storage layer.
+     * Modifies the parameters of an instance, including the compute and storage layer parameters.
      *
      * @param request - ModifyParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12944,7 +13876,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies instance parameters, including parameters at the compute layer and storage layer.
+     * Modifies the parameters of an instance, including the compute and storage layer parameters.
      *
      * @param request - ModifyParameterRequest
      *
@@ -12959,6 +13891,85 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyParameterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the whitelist of the Agent file service.
+     *
+     * @remarks
+     * Modifies the whitelist of the Agent file service.
+     *
+     * @param request - ModifyPxfsSecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPxfsSecurityIpsResponse
+     *
+     * @param ModifyPxfsSecurityIpsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyPxfsSecurityIpsResponse
+     */
+    public function modifyPxfsSecurityIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPxfsSecurityIps',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyPxfsSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the whitelist of the Agent file service.
+     *
+     * @remarks
+     * Modifies the whitelist of the Agent file service.
+     *
+     * @param request - ModifyPxfsSecurityIpsRequest
+     *
+     * @returns ModifyPxfsSecurityIpsResponse
+     *
+     * @param ModifyPxfsSecurityIpsRequest $request
+     *
+     * @return ModifyPxfsSecurityIpsResponse
+     */
+    public function modifyPxfsSecurityIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPxfsSecurityIpsWithOptions($request, $runtime);
     }
 
     /**
@@ -13181,7 +14192,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the IP whitelist of a Supabase instance.
+     * Modifies the IP whitelist for Supabase.
      *
      * @remarks
      *
@@ -13238,7 +14249,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the IP whitelist of a Supabase instance.
+     * Modifies the IP whitelist for Supabase.
      *
      * @remarks
      *
@@ -13404,7 +14415,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries complete column store audit logs by using streaming.
+     * Queries full column store audit logs by using streaming.
      *
      * @remarks
      *
@@ -13470,7 +14481,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries complete column store audit logs by using streaming.
+     * Queries full column store audit logs by using streaming.
      *
      * @remarks
      *
@@ -13523,7 +14534,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries complete column store audit logs by using streaming.
+     * Queries full column store audit logs by using streaming.
      *
      * @remarks
      *
@@ -13955,6 +14966,73 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Disables the public network connection for the Agent file service.
+     *
+     * @remarks
+     * Disables the public network connection for the Agent file service.
+     *
+     * @param request - ReleasePxfsPublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleasePxfsPublicConnectionResponse
+     *
+     * @param ReleasePxfsPublicConnectionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ReleasePxfsPublicConnectionResponse
+     */
+    public function releasePxfsPublicConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReleasePxfsPublicConnection',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleasePxfsPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables the public network connection for the Agent file service.
+     *
+     * @remarks
+     * Disables the public network connection for the Agent file service.
+     *
+     * @param request - ReleasePxfsPublicConnectionRequest
+     *
+     * @returns ReleasePxfsPublicConnectionResponse
+     *
+     * @param ReleasePxfsPublicConnectionRequest $request
+     *
+     * @return ReleasePxfsPublicConnectionResponse
+     */
+    public function releasePxfsPublicConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releasePxfsPublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Resets the password of an account.
      *
      * @param request - ResetAccountPasswordRequest
@@ -14116,7 +15194,6 @@ class Polardbx extends OpenApiClient
      * Resets the API key of the memory engine.
      *
      * @remarks
-     * ***.
      *
      * @param request - ResetMem0AccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14166,7 +15243,6 @@ class Polardbx extends OpenApiClient
      * Resets the API key of the memory engine.
      *
      * @remarks
-     * ***.
      *
      * @param request - ResetMem0AccountPasswordRequest
      *
@@ -14452,6 +15528,73 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Restarts an Agent file service instance.
+     *
+     * @remarks
+     * Restarts an Agent file service instance.
+     *
+     * @param request - RestartPxfsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartPxfsResponse
+     *
+     * @param RestartPxfsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RestartPxfsResponse
+     */
+    public function restartPxfsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartPxfs',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartPxfsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restarts an Agent file service instance.
+     *
+     * @remarks
+     * Restarts an Agent file service instance.
+     *
+     * @param request - RestartPxfsRequest
+     *
+     * @returns RestartPxfsResponse
+     *
+     * @param RestartPxfsRequest $request
+     *
+     * @return RestartPxfsResponse
+     */
+    public function restartPxfs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartPxfsWithOptions($request, $runtime);
+    }
+
+    /**
      * Restarts a Supabase instance.
      *
      * @remarks
@@ -14695,6 +15838,81 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restoreDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Revokes an access token for the Agent file service.
+     *
+     * @remarks
+     * Revokes an access token for the Agent file service.
+     *
+     * @param request - RevokePxfsAccessTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokePxfsAccessTokenResponse
+     *
+     * @param RevokePxfsAccessTokenRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RevokePxfsAccessTokenResponse
+     */
+    public function revokePxfsAccessTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->tokenId) {
+            @$query['TokenId'] = $request->tokenId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokePxfsAccessToken',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokePxfsAccessTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Revokes an access token for the Agent file service.
+     *
+     * @remarks
+     * Revokes an access token for the Agent file service.
+     *
+     * @param request - RevokePxfsAccessTokenRequest
+     *
+     * @returns RevokePxfsAccessTokenResponse
+     *
+     * @param RevokePxfsAccessTokenRequest $request
+     *
+     * @return RevokePxfsAccessTokenResponse
+     */
+    public function revokePxfsAccessToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokePxfsAccessTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -15154,6 +16372,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Switches the zone of the primary node for a PolarDB-X instance.
+     *
      * @param request - SwitchDBInstanceHARequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -15211,6 +16431,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Switches the zone of the primary node for a PolarDB-X instance.
+     *
      * @param request - SwitchDBInstanceHARequest
      *
      * @returns SwitchDBInstanceHAResponse
@@ -15595,7 +16817,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies instance tags.
+     * Updates instance labels.
      *
      * @remarks
      * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -15649,7 +16871,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies instance tags.
+     * Updates instance labels.
      *
      * @remarks
      * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
@@ -15812,7 +17034,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
+     * Changes the number of nodes for a PolarDB-X instance, including scaling out and scaling in. This request generates an order.
      *
      * @param request - UpdatePolarDBXInstanceNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15883,7 +17105,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
+     * Changes the number of nodes for a PolarDB-X instance, including scaling out and scaling in. This request generates an order.
      *
      * @param request - UpdatePolarDBXInstanceNodeRequest
      *
@@ -16117,5 +17339,76 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeDBInstanceKernelVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Upgrades the minor version of the Agent file service.
+     *
+     * @remarks
+     * Upgrades the minor version of the Agent file service.
+     *
+     * @param request - UpgradePxfsVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradePxfsVersionResponse
+     *
+     * @param UpgradePxfsVersionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpgradePxfsVersionResponse
+     */
+    public function upgradePxfsVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->minorVersion) {
+            @$query['MinorVersion'] = $request->minorVersion;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradePxfsVersion',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradePxfsVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Upgrades the minor version of the Agent file service.
+     *
+     * @remarks
+     * Upgrades the minor version of the Agent file service.
+     *
+     * @param request - UpgradePxfsVersionRequest
+     *
+     * @returns UpgradePxfsVersionResponse
+     *
+     * @param UpgradePxfsVersionRequest $request
+     *
+     * @return UpgradePxfsVersionResponse
+     */
+    public function upgradePxfsVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradePxfsVersionWithOptions($request, $runtime);
     }
 }
