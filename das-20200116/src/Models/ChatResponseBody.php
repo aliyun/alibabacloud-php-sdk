@@ -21,6 +21,11 @@ class ChatResponseBody extends Model
     /**
      * @var string
      */
+    public $code;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
@@ -37,6 +42,11 @@ class ChatResponseBody extends Model
      * @var string
      */
     public $label;
+
+    /**
+     * @var string
+     */
+    public $message;
 
     /**
      * @var string
@@ -125,10 +135,12 @@ class ChatResponseBody extends Model
     protected $_name = [
         'activityType' => 'ActivityType',
         'agentId' => 'AgentId',
+        'code' => 'Code',
         'content' => 'Content',
         'delta' => 'Delta',
         'kind' => 'Kind',
         'label' => 'Label',
+        'message' => 'Message',
         'messageId' => 'MessageId',
         'name' => 'Name',
         'originatingToolCallId' => 'OriginatingToolCallId',
@@ -164,6 +176,10 @@ class ChatResponseBody extends Model
             $res['AgentId'] = $this->agentId;
         }
 
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
@@ -178,6 +194,10 @@ class ChatResponseBody extends Model
 
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         if (null !== $this->messageId) {
@@ -267,6 +287,10 @@ class ChatResponseBody extends Model
             $model->agentId = $map['AgentId'];
         }
 
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
@@ -281,6 +305,10 @@ class ChatResponseBody extends Model
 
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         if (isset($map['MessageId'])) {
