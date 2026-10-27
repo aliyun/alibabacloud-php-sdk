@@ -14,11 +14,17 @@ class RemoveUsersRequest extends Model
     public $businessChannel;
 
     /**
+     * @var bool
+     */
+    public $unbindDesktops;
+
+    /**
      * @var string[]
      */
     public $users;
     protected $_name = [
         'businessChannel' => 'BusinessChannel',
+        'unbindDesktops' => 'UnbindDesktops',
         'users' => 'Users',
     ];
 
@@ -35,6 +41,10 @@ class RemoveUsersRequest extends Model
         $res = [];
         if (null !== $this->businessChannel) {
             $res['BusinessChannel'] = $this->businessChannel;
+        }
+
+        if (null !== $this->unbindDesktops) {
+            $res['UnbindDesktops'] = $this->unbindDesktops;
         }
 
         if (null !== $this->users) {
@@ -61,6 +71,10 @@ class RemoveUsersRequest extends Model
         $model = new self();
         if (isset($map['BusinessChannel'])) {
             $model->businessChannel = $map['BusinessChannel'];
+        }
+
+        if (isset($map['UnbindDesktops'])) {
+            $model->unbindDesktops = $map['UnbindDesktops'];
         }
 
         if (isset($map['Users'])) {

@@ -41,6 +41,11 @@ class CreateResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupDescription;
+
+    /**
+     * @var string
+     */
     public $resourceGroupName;
     protected $_name = [
         'agentType' => 'AgentType',
@@ -49,6 +54,7 @@ class CreateResourceGroupRequest extends Model
         'isResourceGroupWithOfficeSite' => 'IsResourceGroupWithOfficeSite',
         'platform' => 'Platform',
         'resourceClassification' => 'ResourceClassification',
+        'resourceGroupDescription' => 'ResourceGroupDescription',
         'resourceGroupName' => 'ResourceGroupName',
     ];
 
@@ -82,6 +88,10 @@ class CreateResourceGroupRequest extends Model
 
         if (null !== $this->resourceClassification) {
             $res['ResourceClassification'] = $this->resourceClassification;
+        }
+
+        if (null !== $this->resourceGroupDescription) {
+            $res['ResourceGroupDescription'] = $this->resourceGroupDescription;
         }
 
         if (null !== $this->resourceGroupName) {
@@ -121,6 +131,10 @@ class CreateResourceGroupRequest extends Model
 
         if (isset($map['ResourceClassification'])) {
             $model->resourceClassification = $map['ResourceClassification'];
+        }
+
+        if (isset($map['ResourceGroupDescription'])) {
+            $model->resourceGroupDescription = $map['ResourceGroupDescription'];
         }
 
         if (isset($map['ResourceGroupName'])) {

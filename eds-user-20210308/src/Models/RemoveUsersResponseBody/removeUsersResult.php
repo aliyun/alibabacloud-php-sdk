@@ -17,10 +17,22 @@ class removeUsersResult extends Model
     /**
      * @var string[]
      */
+    public $processingUsers;
+
+    /**
+     * @var string[]
+     */
     public $removedUsers;
+
+    /**
+     * @var string[]
+     */
+    public $submittedUsers;
     protected $_name = [
         'failedUsers' => 'FailedUsers',
+        'processingUsers' => 'ProcessingUsers',
         'removedUsers' => 'RemovedUsers',
+        'submittedUsers' => 'SubmittedUsers',
     ];
 
     public function validate()
@@ -28,8 +40,14 @@ class removeUsersResult extends Model
         if (\is_array($this->failedUsers)) {
             Model::validateArray($this->failedUsers);
         }
+        if (\is_array($this->processingUsers)) {
+            Model::validateArray($this->processingUsers);
+        }
         if (\is_array($this->removedUsers)) {
             Model::validateArray($this->removedUsers);
+        }
+        if (\is_array($this->submittedUsers)) {
+            Model::validateArray($this->submittedUsers);
         }
         parent::validate();
     }
@@ -48,12 +66,34 @@ class removeUsersResult extends Model
             }
         }
 
+        if (null !== $this->processingUsers) {
+            if (\is_array($this->processingUsers)) {
+                $res['ProcessingUsers'] = [];
+                $n1 = 0;
+                foreach ($this->processingUsers as $item1) {
+                    $res['ProcessingUsers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->removedUsers) {
             if (\is_array($this->removedUsers)) {
                 $res['RemovedUsers'] = [];
                 $n1 = 0;
                 foreach ($this->removedUsers as $item1) {
                     $res['RemovedUsers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->submittedUsers) {
+            if (\is_array($this->submittedUsers)) {
+                $res['SubmittedUsers'] = [];
+                $n1 = 0;
+                foreach ($this->submittedUsers as $item1) {
+                    $res['SubmittedUsers'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -81,12 +121,34 @@ class removeUsersResult extends Model
             }
         }
 
+        if (isset($map['ProcessingUsers'])) {
+            if (!empty($map['ProcessingUsers'])) {
+                $model->processingUsers = [];
+                $n1 = 0;
+                foreach ($map['ProcessingUsers'] as $item1) {
+                    $model->processingUsers[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RemovedUsers'])) {
             if (!empty($map['RemovedUsers'])) {
                 $model->removedUsers = [];
                 $n1 = 0;
                 foreach ($map['RemovedUsers'] as $item1) {
                     $model->removedUsers[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['SubmittedUsers'])) {
+            if (!empty($map['SubmittedUsers'])) {
+                $model->submittedUsers = [];
+                $n1 = 0;
+                foreach ($map['SubmittedUsers'] as $item1) {
+                    $model->submittedUsers[$n1] = $item1;
                     ++$n1;
                 }
             }

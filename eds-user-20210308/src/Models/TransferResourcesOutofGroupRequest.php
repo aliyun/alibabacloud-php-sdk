@@ -12,12 +12,22 @@ class TransferResourcesOutofGroupRequest extends Model
     /**
      * @var string
      */
+    public $appRuleId;
+
+    /**
+     * @var string
+     */
     public $businessChannel;
 
     /**
      * @var string
      */
     public $platform;
+
+    /**
+     * @var string
+     */
+    public $policyId;
 
     /**
      * @var string
@@ -33,12 +43,20 @@ class TransferResourcesOutofGroupRequest extends Model
      * @var string
      */
     public $targetResourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $timerId;
     protected $_name = [
+        'appRuleId' => 'AppRuleId',
         'businessChannel' => 'BusinessChannel',
         'platform' => 'Platform',
+        'policyId' => 'PolicyId',
         'resourceGroupId' => 'ResourceGroupId',
         'resources' => 'Resources',
         'targetResourceGroupId' => 'TargetResourceGroupId',
+        'timerId' => 'TimerId',
     ];
 
     public function validate()
@@ -52,12 +70,20 @@ class TransferResourcesOutofGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appRuleId) {
+            $res['AppRuleId'] = $this->appRuleId;
+        }
+
         if (null !== $this->businessChannel) {
             $res['BusinessChannel'] = $this->businessChannel;
         }
 
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -79,6 +105,10 @@ class TransferResourcesOutofGroupRequest extends Model
             $res['TargetResourceGroupId'] = $this->targetResourceGroupId;
         }
 
+        if (null !== $this->timerId) {
+            $res['TimerId'] = $this->timerId;
+        }
+
         return $res;
     }
 
@@ -90,12 +120,20 @@ class TransferResourcesOutofGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppRuleId'])) {
+            $model->appRuleId = $map['AppRuleId'];
+        }
+
         if (isset($map['BusinessChannel'])) {
             $model->businessChannel = $map['BusinessChannel'];
         }
 
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
 
         if (isset($map['ResourceGroupId'])) {
@@ -115,6 +153,10 @@ class TransferResourcesOutofGroupRequest extends Model
 
         if (isset($map['TargetResourceGroupId'])) {
             $model->targetResourceGroupId = $map['TargetResourceGroupId'];
+        }
+
+        if (isset($map['TimerId'])) {
+            $model->timerId = $map['TimerId'];
         }
 
         return $model;

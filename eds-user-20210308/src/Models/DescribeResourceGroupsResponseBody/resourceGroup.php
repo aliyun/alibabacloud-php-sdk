@@ -49,6 +49,11 @@ class resourceGroup extends Model
     /**
      * @var string
      */
+    public $resourceGroupDescription;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -68,6 +73,7 @@ class resourceGroup extends Model
         'createTime' => 'CreateTime',
         'policies' => 'Policies',
         'resourceCount' => 'ResourceCount',
+        'resourceGroupDescription' => 'ResourceGroupDescription',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceGroupName' => 'ResourceGroupName',
         'timers' => 'Timers',
@@ -130,6 +136,10 @@ class resourceGroup extends Model
 
         if (null !== $this->resourceCount) {
             $res['ResourceCount'] = $this->resourceCount;
+        }
+
+        if (null !== $this->resourceGroupDescription) {
+            $res['ResourceGroupDescription'] = $this->resourceGroupDescription;
         }
 
         if (null !== $this->resourceGroupId) {
@@ -202,6 +212,10 @@ class resourceGroup extends Model
 
         if (isset($map['ResourceCount'])) {
             $model->resourceCount = $map['ResourceCount'];
+        }
+
+        if (isset($map['ResourceGroupDescription'])) {
+            $model->resourceGroupDescription = $map['ResourceGroupDescription'];
         }
 
         if (isset($map['ResourceGroupId'])) {
