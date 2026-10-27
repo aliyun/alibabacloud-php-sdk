@@ -41,6 +41,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $supportConvertComputeFreeToPostPaid;
+
+    /**
+     * @var bool
+     */
     public $supportCreateAgent;
 
     /**
@@ -124,6 +129,7 @@ class data extends Model
         'mountDlfMetaToken' => 'MountDlfMetaToken',
         'supportAddConfigTypes' => 'SupportAddConfigTypes',
         'supportBackup' => 'SupportBackup',
+        'supportConvertComputeFreeToPostPaid' => 'SupportConvertComputeFreeToPostPaid',
         'supportCreateAgent' => 'SupportCreateAgent',
         'supportCreateNonStandardNodeGroup' => 'SupportCreateNonStandardNodeGroup',
         'supportEed' => 'SupportEed',
@@ -182,6 +188,10 @@ class data extends Model
 
         if (null !== $this->supportBackup) {
             $res['SupportBackup'] = $this->supportBackup;
+        }
+
+        if (null !== $this->supportConvertComputeFreeToPostPaid) {
+            $res['SupportConvertComputeFreeToPostPaid'] = $this->supportConvertComputeFreeToPostPaid;
         }
 
         if (null !== $this->supportCreateAgent) {
@@ -288,6 +298,10 @@ class data extends Model
 
         if (isset($map['SupportBackup'])) {
             $model->supportBackup = $map['SupportBackup'];
+        }
+
+        if (isset($map['SupportConvertComputeFreeToPostPaid'])) {
+            $model->supportConvertComputeFreeToPostPaid = $map['SupportConvertComputeFreeToPostPaid'];
         }
 
         if (isset($map['SupportCreateAgent'])) {

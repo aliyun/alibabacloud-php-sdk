@@ -43,6 +43,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $computeFree;
+
+    /**
+     * @var bool
+     */
     public $enableAiFunction;
 
     /**
@@ -196,6 +201,7 @@ class data extends Model
         'aiFunctionInstanceId' => 'AiFunctionInstanceId',
         'architecture' => 'Architecture',
         'beginTime' => 'BeginTime',
+        'computeFree' => 'ComputeFree',
         'enableAiFunction' => 'EnableAiFunction',
         'enableAutoMinorVersionUpgrade' => 'EnableAutoMinorVersionUpgrade',
         'enableMultiAz' => 'EnableMultiAz',
@@ -264,6 +270,10 @@ class data extends Model
 
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
+        }
+
+        if (null !== $this->computeFree) {
+            $res['ComputeFree'] = $this->computeFree;
         }
 
         if (null !== $this->enableAiFunction) {
@@ -433,6 +443,10 @@ class data extends Model
 
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
+        }
+
+        if (isset($map['ComputeFree'])) {
+            $model->computeFree = $map['ComputeFree'];
         }
 
         if (isset($map['EnableAiFunction'])) {
