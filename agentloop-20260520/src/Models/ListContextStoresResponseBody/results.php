@@ -59,6 +59,11 @@ class results extends Model
     public $storageMode;
 
     /**
+     * @var string[]
+     */
+    public $storageModes;
+
+    /**
      * @var string
      */
     public $updateTime;
@@ -73,6 +78,7 @@ class results extends Model
         'sourceType' => 'sourceType',
         'status' => 'status',
         'storageMode' => 'storageMode',
+        'storageModes' => 'storageModes',
         'updateTime' => 'updateTime',
     ];
 
@@ -80,6 +86,9 @@ class results extends Model
     {
         if (\is_array($this->serviceNames)) {
             Model::validateArray($this->serviceNames);
+        }
+        if (\is_array($this->storageModes)) {
+            Model::validateArray($this->storageModes);
         }
         parent::validate();
     }
@@ -132,6 +141,17 @@ class results extends Model
 
         if (null !== $this->storageMode) {
             $res['storageMode'] = $this->storageMode;
+        }
+
+        if (null !== $this->storageModes) {
+            if (\is_array($this->storageModes)) {
+                $res['storageModes'] = [];
+                $n1 = 0;
+                foreach ($this->storageModes as $item1) {
+                    $res['storageModes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->updateTime) {
@@ -194,6 +214,17 @@ class results extends Model
 
         if (isset($map['storageMode'])) {
             $model->storageMode = $map['storageMode'];
+        }
+
+        if (isset($map['storageModes'])) {
+            if (!empty($map['storageModes'])) {
+                $model->storageModes = [];
+                $n1 = 0;
+                foreach ($map['storageModes'] as $item1) {
+                    $model->storageModes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['updateTime'])) {

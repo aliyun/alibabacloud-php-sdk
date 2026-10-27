@@ -84,6 +84,11 @@ class config extends Model
     public $sourceStatus;
 
     /**
+     * @var string[]
+     */
+    public $storageModes;
+
+    /**
      * @var storagePolicy
      */
     public $storagePolicy;
@@ -106,6 +111,7 @@ class config extends Model
         'serviceNames' => 'serviceNames',
         'source' => 'source',
         'sourceStatus' => 'sourceStatus',
+        'storageModes' => 'storageModes',
         'storagePolicy' => 'storagePolicy',
         'strategyVersion' => 'strategyVersion',
     ];
@@ -144,6 +150,9 @@ class config extends Model
         }
         if (null !== $this->sourceStatus) {
             $this->sourceStatus->validate();
+        }
+        if (\is_array($this->storageModes)) {
+            Model::validateArray($this->storageModes);
         }
         if (null !== $this->storagePolicy) {
             $this->storagePolicy->validate();
@@ -223,6 +232,17 @@ class config extends Model
 
         if (null !== $this->sourceStatus) {
             $res['sourceStatus'] = null !== $this->sourceStatus ? $this->sourceStatus->toArray($noStream) : $this->sourceStatus;
+        }
+
+        if (null !== $this->storageModes) {
+            if (\is_array($this->storageModes)) {
+                $res['storageModes'] = [];
+                $n1 = 0;
+                foreach ($this->storageModes as $item1) {
+                    $res['storageModes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->storagePolicy) {
@@ -313,6 +333,17 @@ class config extends Model
 
         if (isset($map['sourceStatus'])) {
             $model->sourceStatus = sourceStatus::fromMap($map['sourceStatus']);
+        }
+
+        if (isset($map['storageModes'])) {
+            if (!empty($map['storageModes'])) {
+                $model->storageModes = [];
+                $n1 = 0;
+                foreach ($map['storageModes'] as $item1) {
+                    $model->storageModes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['storagePolicy'])) {

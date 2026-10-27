@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\config\extractionPolicies\model_;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest\config\extractionPolicies\storagePolicy;
 
 class extractionPolicies extends Model
 {
@@ -45,6 +46,11 @@ class extractionPolicies extends Model
     public $preset;
 
     /**
+     * @var storagePolicy
+     */
+    public $storagePolicy;
+
+    /**
      * @var string
      */
     public $strategyId;
@@ -56,6 +62,7 @@ class extractionPolicies extends Model
         'model' => 'model',
         'name' => 'name',
         'preset' => 'preset',
+        'storagePolicy' => 'storagePolicy',
         'strategyId' => 'strategyId',
     ];
 
@@ -69,6 +76,9 @@ class extractionPolicies extends Model
         }
         if (null !== $this->model) {
             $this->model->validate();
+        }
+        if (null !== $this->storagePolicy) {
+            $this->storagePolicy->validate();
         }
         parent::validate();
     }
@@ -116,6 +126,10 @@ class extractionPolicies extends Model
 
         if (null !== $this->preset) {
             $res['preset'] = $this->preset;
+        }
+
+        if (null !== $this->storagePolicy) {
+            $res['storagePolicy'] = null !== $this->storagePolicy ? $this->storagePolicy->toArray($noStream) : $this->storagePolicy;
         }
 
         if (null !== $this->strategyId) {
@@ -173,6 +187,10 @@ class extractionPolicies extends Model
 
         if (isset($map['preset'])) {
             $model->preset = $map['preset'];
+        }
+
+        if (isset($map['storagePolicy'])) {
+            $model->storagePolicy = storagePolicy::fromMap($map['storagePolicy']);
         }
 
         if (isset($map['strategyId'])) {
