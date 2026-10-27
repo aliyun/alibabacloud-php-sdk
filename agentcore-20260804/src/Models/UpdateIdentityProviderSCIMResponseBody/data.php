@@ -49,12 +49,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $operationStatus;
+
+    /**
+     * @var string
+     */
     public $protocol;
 
     /**
      * @var saml
      */
     public $saml;
+
+    /**
+     * @var string
+     */
+    public $scimStatus;
 
     /**
      * @var string
@@ -83,8 +93,10 @@ class data extends Model
         'loginCallbackUrl' => 'loginCallbackUrl',
         'loginEnabled' => 'loginEnabled',
         'metadata' => 'metadata',
+        'operationStatus' => 'operationStatus',
         'protocol' => 'protocol',
         'saml' => 'saml',
+        'scimStatus' => 'scimStatus',
         'status' => 'status',
         'syncEnabled' => 'syncEnabled',
         'updatedAt' => 'updatedAt',
@@ -136,12 +148,20 @@ class data extends Model
             $res['metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
         }
 
+        if (null !== $this->operationStatus) {
+            $res['operationStatus'] = $this->operationStatus;
+        }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
 
         if (null !== $this->saml) {
             $res['saml'] = null !== $this->saml ? $this->saml->toArray($noStream) : $this->saml;
+        }
+
+        if (null !== $this->scimStatus) {
+            $res['scimStatus'] = $this->scimStatus;
         }
 
         if (null !== $this->status) {
@@ -199,12 +219,20 @@ class data extends Model
             $model->metadata = metadata::fromMap($map['metadata']);
         }
 
+        if (isset($map['operationStatus'])) {
+            $model->operationStatus = $map['operationStatus'];
+        }
+
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
 
         if (isset($map['saml'])) {
             $model->saml = saml::fromMap($map['saml']);
+        }
+
+        if (isset($map['scimStatus'])) {
+            $model->scimStatus = $map['scimStatus'];
         }
 
         if (isset($map['status'])) {

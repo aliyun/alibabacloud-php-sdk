@@ -20,12 +20,18 @@ class data extends Model
     public $operationStatus;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var bool
      */
     public $syncEnabled;
     protected $_name = [
         'configuration' => 'configuration',
         'operationStatus' => 'operationStatus',
+        'status' => 'status',
         'syncEnabled' => 'syncEnabled',
     ];
 
@@ -46,6 +52,10 @@ class data extends Model
 
         if (null !== $this->operationStatus) {
             $res['operationStatus'] = $this->operationStatus;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->syncEnabled) {
@@ -69,6 +79,10 @@ class data extends Model
 
         if (isset($map['operationStatus'])) {
             $model->operationStatus = $map['operationStatus'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['syncEnabled'])) {
