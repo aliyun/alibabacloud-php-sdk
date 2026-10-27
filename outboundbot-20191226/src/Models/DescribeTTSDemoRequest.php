@@ -49,6 +49,11 @@ class DescribeTTSDemoRequest extends Model
     public $pitchRate;
 
     /**
+     * @var int
+     */
+    public $sampleRate;
+
+    /**
      * @var string
      */
     public $scriptId;
@@ -86,6 +91,7 @@ class DescribeTTSDemoRequest extends Model
         'instanceId' => 'InstanceId',
         'nlsServiceType' => 'NlsServiceType',
         'pitchRate' => 'PitchRate',
+        'sampleRate' => 'SampleRate',
         'scriptId' => 'ScriptId',
         'secretKey' => 'SecretKey',
         'speechRate' => 'SpeechRate',
@@ -132,6 +138,10 @@ class DescribeTTSDemoRequest extends Model
 
         if (null !== $this->pitchRate) {
             $res['PitchRate'] = $this->pitchRate;
+        }
+
+        if (null !== $this->sampleRate) {
+            $res['SampleRate'] = $this->sampleRate;
         }
 
         if (null !== $this->scriptId) {
@@ -199,6 +209,10 @@ class DescribeTTSDemoRequest extends Model
 
         if (isset($map['PitchRate'])) {
             $model->pitchRate = $map['PitchRate'];
+        }
+
+        if (isset($map['SampleRate'])) {
+            $model->sampleRate = $map['SampleRate'];
         }
 
         if (isset($map['ScriptId'])) {

@@ -4241,7 +4241,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Returns the conversation data of a job.
+     * Retrieves the conversation data of a job.
      *
      * @param request - DescribeJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4288,7 +4288,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Returns the conversation data of a job.
+     * Retrieves the conversation data of a job.
      *
      * @param request - DescribeJobRequest
      *
@@ -4726,6 +4726,10 @@ class OutboundBot extends OpenApiClient
 
         if (null !== $request->pitchRate) {
             @$query['PitchRate'] = $request->pitchRate;
+        }
+
+        if (null !== $request->sampleRate) {
+            @$query['SampleRate'] = $request->sampleRate;
         }
 
         if (null !== $request->scriptId) {
@@ -7314,7 +7318,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 查询自定义场景模板列表.
+     * Queries the custom script templates of a specified instance.
      *
      * @param request - ListCustomScriptTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7361,7 +7365,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 查询自定义场景模板列表.
+     * Queries the custom script templates of a specified instance.
      *
      * @param request - ListCustomScriptTemplatesRequest
      *
@@ -9935,7 +9939,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modify script information.
+     * Updates script information.
      *
      * @param request - ModifyScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10066,7 +10070,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Modify script information.
+     * Updates script information.
      *
      * @param request - ModifyScriptRequest
      *
@@ -10315,7 +10319,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 修改声音克隆.
+     * Modifies the name or status of a cloned voice.
      *
      * @param request - ModifyVoiceCloneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10366,7 +10370,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 修改声音克隆.
+     * Modifies the name or status of a cloned voice.
      *
      * @param request - ModifyVoiceCloneRequest
      *
