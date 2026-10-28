@@ -264,6 +264,9 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListAggTaskGroupsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertHistoriesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertHistoriesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertHistoriesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertNotifyTemplatesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertNotifyTemplatesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertNotifyTemplatesShrinkRequest;
@@ -522,7 +525,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 激活验证码
+     * Activates the contact channel.
      *
      * @param request - ActiveContactChannelRequest
      * @param headers - map
@@ -568,7 +571,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 激活验证码
+     * Activates the contact channel.
      *
      * @param request - ActiveContactChannelRequest
      *
@@ -1068,7 +1071,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建告警动作.
+     * Creates an alert action integration.
      *
      * @param request - CreateAlertActionRequest
      * @param headers - map
@@ -1150,7 +1153,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建告警动作.
+     * Creates an alert action integration.
      *
      * @param request - CreateAlertActionRequest
      *
@@ -1169,7 +1172,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建通知模板
+     * Creates a notification template.
      *
      * @param request - CreateAlertNotifyTemplateRequest
      * @param headers - map
@@ -1227,7 +1230,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建通知模板
+     * Creates a notification template.
      *
      * @param request - CreateAlertNotifyTemplateRequest
      *
@@ -1555,7 +1558,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建联系人.
+     * Creates a contact.
      *
      * @param request - CreateContactRequest
      * @param headers - map
@@ -1621,7 +1624,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建联系人.
+     * Creates a contact.
      *
      * @param request - CreateContactRequest
      *
@@ -1640,7 +1643,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建联系人组.
+     * Creates a contact group.
      *
      * @param request - CreateContactGroupRequest
      * @param headers - map
@@ -1694,7 +1697,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建联系人组.
+     * Creates a contact group.
      *
      * @param request - CreateContactGroupRequest
      *
@@ -2485,7 +2488,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建OncallSchedule.
+     * Creates an on-call schedule.
+     *
+     * @remarks
+     * Creates an on-call schedule.
      *
      * @param request - CreateOncallScheduleRequest
      * @param headers - map
@@ -2549,7 +2555,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建OncallSchedule.
+     * Creates an on-call schedule.
+     *
+     * @remarks
+     * Creates an on-call schedule.
      *
      * @param request - CreateOncallScheduleRequest
      *
@@ -3574,7 +3583,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除告警动作.
+     * Deletes an alert action integration.
      *
      * @param tmpReq - DeleteAlertActionsRequest
      * @param headers - map
@@ -3622,7 +3631,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除告警动作.
+     * Deletes an alert action integration.
      *
      * @param request - DeleteAlertActionsRequest
      *
@@ -3641,7 +3650,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除报警通知模板
+     * Deletes notification templates.
      *
      * @param tmpReq - DeleteAlertNotifyTemplatesRequest
      * @param headers - map
@@ -3689,7 +3698,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除报警通知模板
+     * Deletes notification templates.
      *
      * @param request - DeleteAlertNotifyTemplatesRequest
      *
@@ -3951,7 +3960,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除联系人组.
+     * Deletes contact groups.
      *
      * @param tmpReq - DeleteContactGroupsRequest
      * @param headers - map
@@ -3999,7 +4008,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除联系人组.
+     * Deletes contact groups.
      *
      * @param request - DeleteContactGroupsRequest
      *
@@ -4018,7 +4027,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除联系人.
+     * Deletes a contact.
      *
      * @param tmpReq - DeleteContactsRequest
      * @param headers - map
@@ -4066,7 +4075,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除联系人.
+     * Deletes a contact.
      *
      * @param request - DeleteContactsRequest
      *
@@ -4973,7 +4982,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除OncallSchedule.
+     * Deletes an on-call schedule.
+     *
+     * @remarks
+     * Creates an on-call schedule.
      *
      * @param tmpReq - DeleteOncallSchedulesRequest
      * @param headers - map
@@ -5021,7 +5033,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除OncallSchedule.
+     * Deletes an on-call schedule.
+     *
+     * @remarks
+     * Creates an on-call schedule.
      *
      * @param request - DeleteOncallSchedulesRequest
      *
@@ -5489,7 +5504,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除订阅.
+     * Deletes a subscription.
      *
      * @param request - DeleteSubscriptionRequest
      * @param headers - map
@@ -5532,7 +5547,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除订阅.
+     * Deletes a subscription.
      *
      * @param request - DeleteSubscriptionRequest
      *
@@ -6116,7 +6131,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 暂停订阅.
+     * Disables a subscription.
      *
      * @param request - DisableSubscriptionRequest
      * @param headers - map
@@ -6159,7 +6174,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 暂停订阅.
+     * Disables a subscription.
      *
      * @param request - DisableSubscriptionRequest
      *
@@ -6317,7 +6332,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 启动订阅.
+     * Activates a subscription.
      *
      * @param request - EnableSubscriptionRequest
      * @param headers - map
@@ -6360,7 +6375,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 启动订阅.
+     * Activates a subscription.
      *
      * @param request - EnableSubscriptionRequest
      *
@@ -6798,7 +6813,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询告警动作.
+     * Retrieves alert action integrations.
      *
      * @param request - GetAlertActionRequest
      * @param headers - map
@@ -6835,7 +6850,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询告警动作.
+     * Retrieves alert action integrations.
      *
      * @param request - GetAlertActionRequest
      *
@@ -8114,7 +8129,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询 OncallSchedule.
+     * Retrieves the on-call schedule.
+     *
+     * @remarks
+     * Creates an on-call schedule.
      *
      * @param request - GetOncallScheduleRequest
      * @param headers - map
@@ -8151,7 +8169,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询 OncallSchedule.
+     * Retrieves the on-call schedule.
+     *
+     * @remarks
+     * Creates an on-call schedule.
      *
      * @param request - GetOncallScheduleRequest
      *
@@ -8701,7 +8722,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取订阅.
+     * Retrieves a subscription.
      *
      * @param request - GetSubscriptionRequest
      * @param headers - map
@@ -8744,7 +8765,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取订阅.
+     * Retrieves a subscription.
      *
      * @param request - GetSubscriptionRequest
      *
@@ -9360,7 +9381,184 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询通知模板
+     * Queries CloudMonitor 2.0 alert history records.
+     *
+     * @remarks
+     * Queries CloudMonitor 2.0 alert history records. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+     *
+     * @param tmpReq - ListAlertHistoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAlertHistoriesResponse
+     *
+     * @param ListAlertHistoriesRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAlertHistoriesResponse
+     */
+    public function listAlertHistoriesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAlertHistoriesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labelFilter) {
+            $request->labelFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelFilter, 'labelFilter', 'json');
+        }
+
+        if (null !== $tmpReq->notificationFilter) {
+            $request->notificationFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notificationFilter, 'notificationFilter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->alertHistoryId) {
+            @$query['alertHistoryId'] = $request->alertHistoryId;
+        }
+
+        if (null !== $request->alertRuleId) {
+            @$query['alertRuleId'] = $request->alertRuleId;
+        }
+
+        if (null !== $request->bizSource) {
+            @$query['bizSource'] = $request->bizSource;
+        }
+
+        if (null !== $request->cmsNamespace) {
+            @$query['cmsNamespace'] = $request->cmsNamespace;
+        }
+
+        if (null !== $request->cmsProductCategory) {
+            @$query['cmsProductCategory'] = $request->cmsProductCategory;
+        }
+
+        if (null !== $request->displayNameKeyWord) {
+            @$query['displayNameKeyWord'] = $request->displayNameKeyWord;
+        }
+
+        if (null !== $request->instanceKey) {
+            @$query['instanceKey'] = $request->instanceKey;
+        }
+
+        if (null !== $request->labelFilterShrink) {
+            @$query['labelFilter'] = $request->labelFilterShrink;
+        }
+
+        if (null !== $request->latestLevel) {
+            @$query['latestLevel'] = $request->latestLevel;
+        }
+
+        if (null !== $request->maxLevel) {
+            @$query['maxLevel'] = $request->maxLevel;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->migrationStatus) {
+            @$query['migrationStatus'] = $request->migrationStatus;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->notificationFilterShrink) {
+            @$query['notificationFilter'] = $request->notificationFilterShrink;
+        }
+
+        if (null !== $request->observeRelationType) {
+            @$query['observeRelationType'] = $request->observeRelationType;
+        }
+
+        if (null !== $request->observeResourceDomain) {
+            @$query['observeResourceDomain'] = $request->observeResourceDomain;
+        }
+
+        if (null !== $request->observeResourceGlobalScope) {
+            @$query['observeResourceGlobalScope'] = $request->observeResourceGlobalScope;
+        }
+
+        if (null !== $request->observeResourceInstanceId) {
+            @$query['observeResourceInstanceId'] = $request->observeResourceInstanceId;
+        }
+
+        if (null !== $request->observeResourceType) {
+            @$query['observeResourceType'] = $request->observeResourceType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->partitionKey) {
+            @$query['partitionKey'] = $request->partitionKey;
+        }
+
+        if (null !== $request->startTimeFrom) {
+            @$query['startTimeFrom'] = $request->startTimeFrom;
+        }
+
+        if (null !== $request->startTimeTo) {
+            @$query['startTimeTo'] = $request->startTimeTo;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAlertHistories',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/alertHistories',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAlertHistoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries CloudMonitor 2.0 alert history records.
+     *
+     * @remarks
+     * Queries CloudMonitor 2.0 alert history records. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+     *
+     * @param request - ListAlertHistoriesRequest
+     *
+     * @returns ListAlertHistoriesResponse
+     *
+     * @param ListAlertHistoriesRequest $request
+     *
+     * @return ListAlertHistoriesResponse
+     */
+    public function listAlertHistories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAlertHistoriesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries notification templates.
      *
      * @param tmpReq - ListAlertNotifyTemplatesRequest
      * @param headers - map
@@ -9428,7 +9626,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询通知模板
+     * Queries notification templates.
      *
      * @param request - ListAlertNotifyTemplatesRequest
      *
@@ -11162,7 +11360,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询值班人.
+     * Queries the on-call contacts at a specified time.
+     *
+     * @remarks
+     * This topic provides an example of creating an alert contact group named `ECS_Group`.
      *
      * @param request - ListOncallContactsRequest
      * @param headers - map
@@ -11205,7 +11406,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询值班人.
+     * Queries the on-call contacts at a specified time.
+     *
+     * @remarks
+     * This topic provides an example of creating an alert contact group named `ECS_Group`.
      *
      * @param request - ListOncallContactsRequest
      *
@@ -11225,7 +11429,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询当前账号下所有值班排班的配置信息.
+     * Queries on-call schedules.
      *
      * @param tmpReq - ListOncallSchedulesRequest
      * @param headers - map
@@ -11289,7 +11493,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询当前账号下所有值班排班的配置信息.
+     * Queries on-call schedules.
      *
      * @param request - ListOncallSchedulesRequest
      *
@@ -12004,7 +12208,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询订阅规则列表.
+     * Queries subscriptions.
      *
      * @param request - ListSubscriptionsRequest
      * @param headers - map
@@ -12090,7 +12294,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询订阅规则列表.
+     * Queries subscriptions.
      *
      * @param request - ListSubscriptionsRequest
      *
@@ -12196,7 +12400,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * List History name.
+     * Queries the alert notification delivery history in a specified workspace by using paging, and supports filtering by conditions such as notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
      *
      * @param request - ListUserNotifyHistoriesRequest
      * @param headers - map
@@ -12330,7 +12534,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * List History name.
+     * Queries the alert notification delivery history in a specified workspace by using paging, and supports filtering by conditions such as notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
      *
      * @param request - ListUserNotifyHistoriesRequest
      *
@@ -12673,10 +12877,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 预览通知模板渲染结果.
+     * Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
      *
      * @remarks
-     * 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+     * Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
      *
      * @param request - PreviewNotifyTemplateRequest
      * @param headers - map
@@ -12722,10 +12926,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 预览通知模板渲染结果.
+     * Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
      *
      * @remarks
-     * 传入 Go template 语法的模板内容和渲染上下文数据，返回各模板的渲染结果。支持同时预览多个模板（如 title 和 content），用于前端模板编辑器的实时预览能力。
+     * Renders templates written in Go template syntax by using the provided context data and returns the rendering results. This operation supports the simultaneous preview of multiple templates, such as title and content, to enable real-time preview in frontend template editors.
      *
      * @param request - PreviewNotifyTemplateRequest
      *
@@ -12914,7 +13118,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 重新发送激活链接.
+     * Resends the activation link.
      *
      * @param request - ResendVerifyActivateRequest
      * @param headers - map
@@ -12957,7 +13161,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 重新发送激活链接.
+     * Resends the activation link.
      *
      * @param request - ResendVerifyActivateRequest
      *
@@ -13594,7 +13798,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改告警动作.
+     * Updates an alert action integration.
      *
      * @param request - UpdateAlertActionRequest
      * @param headers - map
@@ -13673,7 +13877,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改告警动作.
+     * Updates an alert action integration.
      *
      * @param request - UpdateAlertActionRequest
      *
@@ -13693,7 +13897,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的告警通知模板内容。
+     * Updates a notification template.
      *
      * @param request - UpdateAlertNotifyTemplateRequest
      * @param headers - map
@@ -13740,7 +13944,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的告警通知模板内容。
+     * Updates a notification template.
      *
      * @param request - UpdateAlertNotifyTemplateRequest
      *
@@ -14001,7 +14205,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的联系人的详细信息.
+     * Updates a contact.
      *
      * @param request - UpdateContactRequest
      * @param headers - map
@@ -14060,7 +14264,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的联系人的详细信息.
+     * Updates a contact.
      *
      * @param request - UpdateContactRequest
      *
@@ -14080,7 +14284,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的联系人组信息。
+     * Updates a contact group.
      *
      * @param request - UpdateContactGroupRequest
      * @param headers - map
@@ -14127,7 +14331,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的联系人组信息。
+     * Updates a contact group.
      *
      * @param request - UpdateContactGroupRequest
      *
@@ -14997,7 +15201,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新UpdateOncallSchedule.
+     * Updates an on-call schedule.
+     *
+     * @remarks
+     * Creates an on-call schedule.
      *
      * @param request - UpdateOncallScheduleRequest
      * @param headers - map
@@ -15052,7 +15259,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新UpdateOncallSchedule.
+     * Updates an on-call schedule.
+     *
+     * @remarks
+     * Creates an on-call schedule.
      *
      * @param request - UpdateOncallScheduleRequest
      *
@@ -15843,7 +16053,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查看值班日历.
+     * Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call shift grouped by shift name.
+     *
+     * @remarks
+     * Retrieves the on-call calendar. Returns the on-call arrangements of a specified on-call schedule within the queried date range. The response is grouped by shift name, where the key is the shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
      *
      * @param request - ViewOncallScheduleRequest
      * @param headers - map
@@ -15890,7 +16103,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查看值班日历.
+     * Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call shift grouped by shift name.
+     *
+     * @remarks
+     * Retrieves the on-call calendar. Returns the on-call arrangements of a specified on-call schedule within the queried date range. The response is grouped by shift name, where the key is the shift name and the value is a list of on-call shifts. Each shift includes the on-call contact and the start and end times.
      *
      * @param request - ViewOncallScheduleRequest
      *
