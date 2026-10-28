@@ -56,6 +56,11 @@ class policy extends Model
     /**
      * @var string
      */
+    public $multiScreen;
+
+    /**
+     * @var string
+     */
     public $noOperationDisconnect;
 
     /**
@@ -91,6 +96,7 @@ class policy extends Model
         'disconnectKeepSessionTime' => 'DisconnectKeepSessionTime',
         'fileManager' => 'FileManager',
         'html5FileTransfer' => 'Html5FileTransfer',
+        'multiScreen' => 'MultiScreen',
         'noOperationDisconnect' => 'NoOperationDisconnect',
         'noOperationDisconnectTime' => 'NoOperationDisconnectTime',
         'policyId' => 'PolicyId',
@@ -166,6 +172,10 @@ class policy extends Model
 
         if (null !== $this->html5FileTransfer) {
             $res['Html5FileTransfer'] = $this->html5FileTransfer;
+        }
+
+        if (null !== $this->multiScreen) {
+            $res['MultiScreen'] = $this->multiScreen;
         }
 
         if (null !== $this->noOperationDisconnect) {
@@ -247,6 +257,10 @@ class policy extends Model
 
         if (isset($map['Html5FileTransfer'])) {
             $model->html5FileTransfer = $map['Html5FileTransfer'];
+        }
+
+        if (isset($map['MultiScreen'])) {
+            $model->multiScreen = $map['MultiScreen'];
         }
 
         if (isset($map['NoOperationDisconnect'])) {

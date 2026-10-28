@@ -16,6 +16,11 @@ class ListLlmTemplatesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $language;
+
+    /**
+     * @var string
+     */
     public $llmCode;
 
     /**
@@ -49,6 +54,7 @@ class ListLlmTemplatesShrinkRequest extends Model
     public $smartModel;
     protected $_name = [
         'bizType' => 'BizType',
+        'language' => 'Language',
         'llmCode' => 'LlmCode',
         'llmTemplateIdsShrink' => 'LlmTemplateIds',
         'modelTemplateId' => 'ModelTemplateId',
@@ -68,6 +74,10 @@ class ListLlmTemplatesShrinkRequest extends Model
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         if (null !== $this->llmCode) {
@@ -111,6 +121,10 @@ class ListLlmTemplatesShrinkRequest extends Model
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         if (isset($map['LlmCode'])) {

@@ -16,6 +16,11 @@ class ListLlmTemplatesRequest extends Model
     /**
      * @var string
      */
+    public $language;
+
+    /**
+     * @var string
+     */
     public $llmCode;
 
     /**
@@ -49,6 +54,7 @@ class ListLlmTemplatesRequest extends Model
     public $smartModel;
     protected $_name = [
         'bizType' => 'BizType',
+        'language' => 'Language',
         'llmCode' => 'LlmCode',
         'llmTemplateIds' => 'LlmTemplateIds',
         'modelTemplateId' => 'ModelTemplateId',
@@ -71,6 +77,10 @@ class ListLlmTemplatesRequest extends Model
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         if (null !== $this->llmCode) {
@@ -121,6 +131,10 @@ class ListLlmTemplatesRequest extends Model
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         if (isset($map['LlmCode'])) {

@@ -32,12 +32,18 @@ class GetRuntimeModelConfigRequest extends Model
      * @var string
      */
     public $runtimeType;
+
+    /**
+     * @var bool
+     */
+    public $smartModel;
     protected $_name = [
         'agentPlatform' => 'AgentPlatform',
         'agentProvider' => 'AgentProvider',
         'includeRiskInfo' => 'IncludeRiskInfo',
         'runtimeId' => 'RuntimeId',
         'runtimeType' => 'RuntimeType',
+        'smartModel' => 'SmartModel',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class GetRuntimeModelConfigRequest extends Model
 
         if (null !== $this->runtimeType) {
             $res['RuntimeType'] = $this->runtimeType;
+        }
+
+        if (null !== $this->smartModel) {
+            $res['SmartModel'] = $this->smartModel;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class GetRuntimeModelConfigRequest extends Model
 
         if (isset($map['RuntimeType'])) {
             $model->runtimeType = $map['RuntimeType'];
+        }
+
+        if (isset($map['SmartModel'])) {
+            $model->smartModel = $map['SmartModel'];
         }
 
         return $model;

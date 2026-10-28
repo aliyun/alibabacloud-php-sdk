@@ -34,6 +34,11 @@ class policy extends Model
     public $clipboardPolicy;
 
     /**
+     * @var string
+     */
+    public $multiScreen;
+
+    /**
      * @var videoPolicy
      */
     public $videoPolicy;
@@ -47,6 +52,7 @@ class policy extends Model
         'authorizeAccessPolicyRules' => 'AuthorizeAccessPolicyRules',
         'clientTypes' => 'ClientTypes',
         'clipboardPolicy' => 'ClipboardPolicy',
+        'multiScreen' => 'MultiScreen',
         'videoPolicy' => 'VideoPolicy',
         'watermarkPolicy' => 'WatermarkPolicy',
     ];
@@ -104,6 +110,10 @@ class policy extends Model
             $res['ClipboardPolicy'] = null !== $this->clipboardPolicy ? $this->clipboardPolicy->toArray($noStream) : $this->clipboardPolicy;
         }
 
+        if (null !== $this->multiScreen) {
+            $res['MultiScreen'] = $this->multiScreen;
+        }
+
         if (null !== $this->videoPolicy) {
             $res['VideoPolicy'] = null !== $this->videoPolicy ? $this->videoPolicy->toArray($noStream) : $this->videoPolicy;
         }
@@ -151,6 +161,10 @@ class policy extends Model
 
         if (isset($map['ClipboardPolicy'])) {
             $model->clipboardPolicy = clipboardPolicy::fromMap($map['ClipboardPolicy']);
+        }
+
+        if (isset($map['MultiScreen'])) {
+            $model->multiScreen = $map['MultiScreen'];
         }
 
         if (isset($map['VideoPolicy'])) {
