@@ -16,6 +16,11 @@ class RemoveKnowledgeTagsRequest extends Model
     /**
      * @var string
      */
+    public $fileId;
+
+    /**
+     * @var string
+     */
     public $fileLocation;
 
     /**
@@ -24,6 +29,7 @@ class RemoveKnowledgeTagsRequest extends Model
     public $tags;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'fileId' => 'FileId',
         'fileLocation' => 'FileLocation',
         'tags' => 'Tags',
     ];
@@ -38,6 +44,10 @@ class RemoveKnowledgeTagsRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
         }
 
         if (null !== $this->fileLocation) {
@@ -61,6 +71,10 @@ class RemoveKnowledgeTagsRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
         }
 
         if (isset($map['FileLocation'])) {

@@ -27,11 +27,17 @@ class ModifyDBClusterSSLRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $SSLEnabled;
     protected $_name = [
         'connectionString' => 'ConnectionString',
         'DBClusterId' => 'DBClusterId',
         'enableSSL' => 'EnableSSL',
         'regionId' => 'RegionId',
+        'SSLEnabled' => 'SSLEnabled',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ModifyDBClusterSSLRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->SSLEnabled) {
+            $res['SSLEnabled'] = $this->SSLEnabled;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ModifyDBClusterSSLRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SSLEnabled'])) {
+            $model->SSLEnabled = $map['SSLEnabled'];
         }
 
         return $model;

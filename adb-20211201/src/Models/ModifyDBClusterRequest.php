@@ -41,6 +41,11 @@ class ModifyDBClusterRequest extends Model
     /**
      * @var string
      */
+    public $productVersion;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -64,6 +69,7 @@ class ModifyDBClusterRequest extends Model
         'DBClusterId' => 'DBClusterId',
         'enableDefaultResourcePool' => 'EnableDefaultResourcePool',
         'productForm' => 'ProductForm',
+        'productVersion' => 'ProductVersion',
         'regionId' => 'RegionId',
         'reservedNodeCount' => 'ReservedNodeCount',
         'reservedNodeSize' => 'ReservedNodeSize',
@@ -100,6 +106,10 @@ class ModifyDBClusterRequest extends Model
 
         if (null !== $this->productForm) {
             $res['ProductForm'] = $this->productForm;
+        }
+
+        if (null !== $this->productVersion) {
+            $res['ProductVersion'] = $this->productVersion;
         }
 
         if (null !== $this->regionId) {
@@ -151,6 +161,10 @@ class ModifyDBClusterRequest extends Model
 
         if (isset($map['ProductForm'])) {
             $model->productForm = $map['ProductForm'];
+        }
+
+        if (isset($map['ProductVersion'])) {
+            $model->productVersion = $map['ProductVersion'];
         }
 
         if (isset($map['RegionId'])) {

@@ -12,8 +12,14 @@ class DescribeLakeCacheSizeRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DescribeLakeCacheSizeRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DescribeLakeCacheSizeRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

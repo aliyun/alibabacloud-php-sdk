@@ -16,6 +16,11 @@ class RemoveKnowledgeUploadUserRequest extends Model
     /**
      * @var string
      */
+    public $fileId;
+
+    /**
+     * @var string
+     */
     public $fileLocation;
 
     /**
@@ -24,6 +29,7 @@ class RemoveKnowledgeUploadUserRequest extends Model
     public $users;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'fileId' => 'FileId',
         'fileLocation' => 'FileLocation',
         'users' => 'Users',
     ];
@@ -38,6 +44,10 @@ class RemoveKnowledgeUploadUserRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
         }
 
         if (null !== $this->fileLocation) {
@@ -61,6 +71,10 @@ class RemoveKnowledgeUploadUserRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
         }
 
         if (isset($map['FileLocation'])) {

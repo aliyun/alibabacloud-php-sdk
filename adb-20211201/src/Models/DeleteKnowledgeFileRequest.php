@@ -16,9 +16,15 @@ class DeleteKnowledgeFileRequest extends Model
     /**
      * @var string
      */
+    public $fileId;
+
+    /**
+     * @var string
+     */
     public $fileLocation;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'fileId' => 'FileId',
         'fileLocation' => 'FileLocation',
     ];
 
@@ -32,6 +38,10 @@ class DeleteKnowledgeFileRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
         }
 
         if (null !== $this->fileLocation) {
@@ -51,6 +61,10 @@ class DeleteKnowledgeFileRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
         }
 
         if (isset($map['FileLocation'])) {
