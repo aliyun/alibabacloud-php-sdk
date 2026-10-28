@@ -192,6 +192,11 @@ class items extends Model
     public $tags;
 
     /**
+     * @var bool
+     */
+    public $tdeEnabled;
+
+    /**
      * @var string
      */
     public $tenantClusterId;
@@ -262,6 +267,7 @@ class items extends Model
         'storageSize' => 'StorageSize',
         'storageType' => 'StorageType',
         'tags' => 'Tags',
+        'tdeEnabled' => 'TdeEnabled',
         'tenantClusterId' => 'TenantClusterId',
         'tenantToken' => 'TenantToken',
         'tenantUserId' => 'TenantUserId',
@@ -451,6 +457,10 @@ class items extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->tdeEnabled) {
+            $res['TdeEnabled'] = $this->tdeEnabled;
         }
 
         if (null !== $this->tenantClusterId) {
@@ -655,6 +665,10 @@ class items extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TdeEnabled'])) {
+            $model->tdeEnabled = $map['TdeEnabled'];
         }
 
         if (isset($map['TenantClusterId'])) {
