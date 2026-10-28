@@ -5,13 +5,30 @@
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\UpdateQuotaRequest\clusterSpec;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\UpdateQuotaRequest\gracefulUpgradeConfig;
 
 class UpdateQuotaRequest extends Model
 {
     /**
+     * @var clusterSpec
+     */
+    public $clusterSpec;
+
+    /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $enableGracefulUpgrade;
+
+    /**
+     * @var gracefulUpgradeConfig
+     */
+    public $gracefulUpgradeConfig;
 
     /**
      * @var Label[]
@@ -38,7 +55,10 @@ class UpdateQuotaRequest extends Model
      */
     public $quotaName;
     protected $_name = [
+        'clusterSpec' => 'ClusterSpec',
         'description' => 'Description',
+        'enableGracefulUpgrade' => 'EnableGracefulUpgrade',
+        'gracefulUpgradeConfig' => 'GracefulUpgradeConfig',
         'labels' => 'Labels',
         'propagateDefaultGPUDriver' => 'PropagateDefaultGPUDriver',
         'queueStrategy' => 'QueueStrategy',
@@ -48,6 +68,12 @@ class UpdateQuotaRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->clusterSpec) {
+            $this->clusterSpec->validate();
+        }
+        if (null !== $this->gracefulUpgradeConfig) {
+            $this->gracefulUpgradeConfig->validate();
+        }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
         }
@@ -60,8 +86,20 @@ class UpdateQuotaRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clusterSpec) {
+            $res['ClusterSpec'] = null !== $this->clusterSpec ? $this->clusterSpec->toArray($noStream) : $this->clusterSpec;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableGracefulUpgrade) {
+            $res['EnableGracefulUpgrade'] = $this->enableGracefulUpgrade;
+        }
+
+        if (null !== $this->gracefulUpgradeConfig) {
+            $res['GracefulUpgradeConfig'] = null !== $this->gracefulUpgradeConfig ? $this->gracefulUpgradeConfig->toArray($noStream) : $this->gracefulUpgradeConfig;
         }
 
         if (null !== $this->labels) {
@@ -102,8 +140,20 @@ class UpdateQuotaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterSpec'])) {
+            $model->clusterSpec = clusterSpec::fromMap($map['ClusterSpec']);
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableGracefulUpgrade'])) {
+            $model->enableGracefulUpgrade = $map['EnableGracefulUpgrade'];
+        }
+
+        if (isset($map['GracefulUpgradeConfig'])) {
+            $model->gracefulUpgradeConfig = gracefulUpgradeConfig::fromMap($map['GracefulUpgradeConfig']);
         }
 
         if (isset($map['Labels'])) {
