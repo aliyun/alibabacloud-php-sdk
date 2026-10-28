@@ -53,6 +53,11 @@ class CreateJobRequest extends Model
     public $displayName;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var JobElasticSpec
      */
     public $elasticSpec;
@@ -150,6 +155,7 @@ class CreateJobRequest extends Model
         'debuggerConfigContent' => 'DebuggerConfigContent',
         'description' => 'Description',
         'displayName' => 'DisplayName',
+        'dryRun' => 'DryRun',
         'elasticSpec' => 'ElasticSpec',
         'envs' => 'Envs',
         'jobMaxRunningTimeMinutes' => 'JobMaxRunningTimeMinutes',
@@ -252,6 +258,10 @@ class CreateJobRequest extends Model
 
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->elasticSpec) {
@@ -400,6 +410,10 @@ class CreateJobRequest extends Model
 
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['ElasticSpec'])) {
