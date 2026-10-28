@@ -36,6 +36,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $eligibleForPerformance;
+
+    /**
+     * @var string
+     */
     public $endMonth;
 
     /**
@@ -68,6 +73,7 @@ class data extends Model
         'commodityName' => 'CommodityName',
         'eligibleForCommission' => 'EligibleForCommission',
         'eligibleForDiscount' => 'EligibleForDiscount',
+        'eligibleForPerformance' => 'EligibleForPerformance',
         'endMonth' => 'EndMonth',
         'productCampaign' => 'ProductCampaign',
         'productCode' => 'ProductCode',
@@ -102,6 +108,10 @@ class data extends Model
 
         if (null !== $this->eligibleForDiscount) {
             $res['EligibleForDiscount'] = $this->eligibleForDiscount;
+        }
+
+        if (null !== $this->eligibleForPerformance) {
+            $res['EligibleForPerformance'] = $this->eligibleForPerformance;
         }
 
         if (null !== $this->endMonth) {
@@ -157,6 +167,10 @@ class data extends Model
 
         if (isset($map['EligibleForDiscount'])) {
             $model->eligibleForDiscount = $map['EligibleForDiscount'];
+        }
+
+        if (isset($map['EligibleForPerformance'])) {
+            $model->eligibleForPerformance = $map['EligibleForPerformance'];
         }
 
         if (isset($map['EndMonth'])) {
