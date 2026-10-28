@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ChatConversationRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ChatConversationResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckInstanceResourcesRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckInstanceResourcesResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckRecallManagementServiceRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckRecallManagementServiceResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckTrafficControlTaskExpressionRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckTrafficControlTaskExpressionResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CloneEngineConfigRequest;
@@ -425,7 +427,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Applies an engine configuration.
+     * Publishes an engine configuration.
      *
      * @param request - ApplyEngineConfigRequest
      * @param headers - map
@@ -468,7 +470,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Applies an engine configuration.
+     * Publishes an engine configuration.
      *
      * @param request - ApplyEngineConfigRequest
      *
@@ -589,15 +591,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * This API changes the version of a recall management service.
+     * Updates the version of a specified recall management service.
      *
      * @remarks
-     * ## Request
-     * Use this API to change the version of a recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid, and that you have the required permissions for these resources.
-     * - **RecallManagementServiceId**: The unique identifier of the recall management service.
-     * - **InstanceId**: The instance ID associated with the recall management service.
-     * - **RecallManagementServiceVersionId**: The target version ID to switch to.
-     * Note: Before changing the version, confirm that the new version is fully tested and ready for production.
+     * ## Request description
+     * You can call this API to change the version of a specific recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid and that you have the required permissions to manage these resources.
+     * - **RecallManagementServiceId**: The unique identifier of the recall management service whose version you want to change.
+     * - **InstanceId**: Instance ID of the instance associated with the recall management service.
+     * - **RecallManagementServiceVersionId**: Instance ID of the target version to switch to.
+     * Note: Before you change the version, ensure that the new version has been fully tested and is ready to go live.
      *
      * @param request - ChangeRecallManagementServiceVersionRequest
      * @param headers - map
@@ -644,15 +646,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * This API changes the version of a recall management service.
+     * Updates the version of a specified recall management service.
      *
      * @remarks
-     * ## Request
-     * Use this API to change the version of a recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid, and that you have the required permissions for these resources.
-     * - **RecallManagementServiceId**: The unique identifier of the recall management service.
-     * - **InstanceId**: The instance ID associated with the recall management service.
-     * - **RecallManagementServiceVersionId**: The target version ID to switch to.
-     * Note: Before changing the version, confirm that the new version is fully tested and ready for production.
+     * ## Request description
+     * You can call this API to change the version of a specific recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid and that you have the required permissions to manage these resources.
+     * - **RecallManagementServiceId**: The unique identifier of the recall management service whose version you want to change.
+     * - **InstanceId**: Instance ID of the instance associated with the recall management service.
+     * - **RecallManagementServiceVersionId**: Instance ID of the target version to switch to.
+     * Note: Before you change the version, ensure that the new version has been fully tested and is ready to go live.
      *
      * @param request - ChangeRecallManagementServiceVersionRequest
      *
@@ -904,11 +906,106 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Validates a traffic control task expression.
+     * Checks whether a specified recall management service is working properly.
      *
      * @remarks
-     * ## Description
-     * This operation validates a traffic control task expression for a specific instance and table. Provide the correct `InstanceId`, `TableMetaId`, and `Expression` parameters.
+     * ## Request description
+     * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+     *
+     * @param request - CheckRecallManagementServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckRecallManagementServiceResponse
+     *
+     * @param string                              $RecallManagementServiceId
+     * @param CheckRecallManagementServiceRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CheckRecallManagementServiceResponse
+     */
+    public function checkRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contextParams) {
+            @$body['ContextParams'] = $request->contextParams;
+        }
+
+        if (null !== $request->exposureList) {
+            @$body['ExposureList'] = $request->exposureList;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->recallManagementServiceVersionId) {
+            @$body['RecallManagementServiceVersionId'] = $request->recallManagementServiceVersionId;
+        }
+
+        if (null !== $request->recalls) {
+            @$body['Recalls'] = $request->recalls;
+        }
+
+        if (null !== $request->retainFields) {
+            @$body['RetainFields'] = $request->retainFields;
+        }
+
+        if (null !== $request->uid) {
+            @$body['Uid'] = $request->uid;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckRecallManagementService',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/recallmanagementservices/' . Url::percentEncode($RecallManagementServiceId) . '/action/check',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckRecallManagementServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Checks whether a specified recall management service is working properly.
+     *
+     * @remarks
+     * ## Request description
+     * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+     *
+     * @param request - CheckRecallManagementServiceRequest
+     *
+     * @returns CheckRecallManagementServiceResponse
+     *
+     * @param string                              $RecallManagementServiceId
+     * @param CheckRecallManagementServiceRequest $request
+     *
+     * @return CheckRecallManagementServiceResponse
+     */
+    public function checkRecallManagementService($RecallManagementServiceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkRecallManagementServiceWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Validates whether a specified traffic control task expression is valid.
+     *
+     * @remarks
+     * ## Request description
+     * This API operation checks the validity of a traffic control task expression for a specified instance and data table. Make sure that the `InstanceId`, `TableMetaId`, and `Expression` parameters are accurate to correctly perform the validation.
      *
      * @param request - CheckTrafficControlTaskExpressionRequest
      * @param headers - map
@@ -958,11 +1055,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Validates a traffic control task expression.
+     * Validates whether a specified traffic control task expression is valid.
      *
      * @remarks
-     * ## Description
-     * This operation validates a traffic control task expression for a specific instance and table. Provide the correct `InstanceId`, `TableMetaId`, and `Expression` parameters.
+     * ## Request description
+     * This API operation checks the validity of a traffic control task expression for a specified instance and data table. Make sure that the `InstanceId`, `TableMetaId`, and `Expression` parameters are accurate to correctly perform the validation.
      *
      * @param request - CheckTrafficControlTaskExpressionRequest
      *
@@ -1194,7 +1291,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Clones a feature consistency check job configuration.
+     * Clones the feature consistency check job configuration.
      *
      * @param request - CloneFeatureConsistencyCheckJobConfigRequest
      * @param headers - map
@@ -1237,7 +1334,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Clones a feature consistency check job configuration.
+     * Clones the feature consistency check job configuration.
      *
      * @param request - CloneFeatureConsistencyCheckJobConfigRequest
      *
@@ -1257,7 +1354,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Clones a specified laboratory to a designated environment. You can specify whether to clone the experiment groups within the laboratory.
+     * Clones a specified laboratory to a specified environment and specifies whether to clone the experiment groups under the laboratory.
      *
      * @param request - CloneLaboratoryRequest
      * @param headers - map
@@ -1308,7 +1405,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Clones a specified laboratory to a designated environment. You can specify whether to clone the experiment groups within the laboratory.
+     * Clones a specified laboratory to a specified environment and specifies whether to clone the experiment groups under the laboratory.
      *
      * @param request - CloneLaboratoryRequest
      *
@@ -1328,11 +1425,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Clones a specified traffic control task to a new instance.
+     * Clones a specified traffic shaping task to a new instance.
      *
      * @remarks
      * ## Request description
-     * This API clones an existing traffic control task to another specified instance. Ensure that the `InstanceId` you provide is valid and that you have the required permissions for the target instance.
+     * You can use this API to clone an existing traffic shaping task to another specified instance. Make sure that the `InstanceId` you provide is valid and that you have the required permissions to perform operations on the instance.
      * Note: The cloning process does not affect the status or configuration of the original task.
      *
      * @param request - CloneTrafficControlTaskRequest
@@ -1376,11 +1473,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Clones a specified traffic control task to a new instance.
+     * Clones a specified traffic shaping task to a new instance.
      *
      * @remarks
      * ## Request description
-     * This API clones an existing traffic control task to another specified instance. Ensure that the `InstanceId` you provide is valid and that you have the required permissions for the target instance.
+     * You can use this API to clone an existing traffic shaping task to another specified instance. Make sure that the `InstanceId` you provide is valid and that you have the required permissions to perform operations on the instance.
      * Note: The cloning process does not affect the status or configuration of the original task.
      *
      * @param request - CloneTrafficControlTaskRequest
@@ -1464,7 +1561,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates an AB metric.
+     * Creates an AB test metric.
      *
      * @param request - CreateABMetricRequest
      * @param headers - map
@@ -1574,7 +1671,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates an AB metric.
+     * Creates an AB test metric.
      *
      * @param request - CreateABMetricRequest
      *
@@ -1593,7 +1690,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates an A/B metric group.
+     * Creates an AB test metric group.
      *
      * @param request - CreateABMetricGroupRequest
      * @param headers - map
@@ -1655,7 +1752,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates an A/B metric group.
+     * Creates an AB test metric group.
      *
      * @param request - CreateABMetricGroupRequest
      *
@@ -1747,7 +1844,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates a crowd that represents a group of users.
+     * Creates a crowd to represent a user group.
      *
      * @param request - CreateCrowdRequest
      * @param headers - map
@@ -1809,7 +1906,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates a crowd that represents a group of users.
+     * Creates a crowd to represent a user group.
      *
      * @param request - CreateCrowdRequest
      *
@@ -2206,7 +2303,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates an experiment group in a specified layer. You can use experiment groups to categorize experiments and observe their overall performance.
+     * Creates an experiment group under a specified layer. You can categorize experiment groups by experiment type to observe the overall performance of experiments by group.
      *
      * @param request - CreateExperimentGroupRequest
      * @param headers - map
@@ -2304,7 +2401,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates an experiment group in a specified layer. You can use experiment groups to categorize experiments and observe their overall performance.
+     * Creates an experiment group under a specified layer. You can categorize experiment groups by experiment type to observe the overall performance of experiments by group.
      *
      * @param request - CreateExperimentGroupRequest
      *
@@ -2641,7 +2738,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates a configuration resource for a specified instance.
+     * Creates a configuration resource for the specified instance.
      *
      * @param request - CreateInstanceResourceRequest
      * @param headers - map
@@ -2696,7 +2793,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates a configuration resource for a specified instance.
+     * Creates a configuration resource for the specified instance.
      *
      * @param request - CreateInstanceResourceRequest
      *
@@ -3140,13 +3237,13 @@ class PaiRecService extends OpenApiClient
      * Creates a new recall management service version that supports configuring multiple recall strategies.
      *
      * @remarks
-     * ## Request
-     * - Use this API to create a new version of a recall management service.
-     * - To create a new version from an existing one, specify the source recall management service version ID.
-     * - You can configure detailed recall rules, such as the recall name, description, priority, and recall type.
-     * - Configure operators such as filter, trigger, feature extraction, and join.
-     * - The merge configuration specifies how to merge multiple recall results and supports two merge methods: weight-based and alternating.
-     * - All configuration items are optional.
+     * ## Request description
+     * - This operation allows you to create a new version for a specific recall management service.
+     * - You can create a new version based on an existing version by specifying the source recall management service version ID.
+     * - You can configure detailed recall rules, including but not limited to the recall name, description, priority, and recall type.
+     * - The operation provides flexible operator configuration options, such as filtering, triggering, feature extraction, and join operations, to meet various business requirements.
+     * - The merge configuration allows you to specify how to merge multiple recall results. Two merge methods are supported: weight and alternate.
+     * - All configuration items are optional. Specify them as needed.
      *
      * @param request - CreateRecallManagementServiceVersionRequest
      * @param headers - map
@@ -3200,13 +3297,13 @@ class PaiRecService extends OpenApiClient
      * Creates a new recall management service version that supports configuring multiple recall strategies.
      *
      * @remarks
-     * ## Request
-     * - Use this API to create a new version of a recall management service.
-     * - To create a new version from an existing one, specify the source recall management service version ID.
-     * - You can configure detailed recall rules, such as the recall name, description, priority, and recall type.
-     * - Configure operators such as filter, trigger, feature extraction, and join.
-     * - The merge configuration specifies how to merge multiple recall results and supports two merge methods: weight-based and alternating.
-     * - All configuration items are optional.
+     * ## Request description
+     * - This operation allows you to create a new version for a specific recall management service.
+     * - You can create a new version based on an existing version by specifying the source recall management service version ID.
+     * - You can configure detailed recall rules, including but not limited to the recall name, description, priority, and recall type.
+     * - The operation provides flexible operator configuration options, such as filtering, triggering, feature extraction, and join operations, to meet various business requirements.
+     * - The merge configuration allows you to specify how to merge multiple recall results. Two merge methods are supported: weight and alternate.
+     * - All configuration items are optional. Specify them as needed.
      *
      * @param request - CreateRecallManagementServiceVersionRequest
      *
@@ -3745,7 +3842,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates a scene for metric and experiment analysis.
+     * Creates a scenario for metric and experiment analysis.
      *
      * @param request - CreateSceneRequest
      * @param headers - map
@@ -3799,7 +3896,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Creates a scene for metric and experiment analysis.
+     * Creates a scenario for metric and experiment analysis.
      *
      * @param request - CreateSceneRequest
      *
@@ -4950,7 +5047,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Delete the specified layer.
+     * Deletes a specified layer.
      *
      * @param request - DeleteLayerRequest
      * @param headers - map
@@ -4993,7 +5090,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Delete the specified layer.
+     * Deletes a specified layer.
      *
      * @param request - DeleteLayerRequest
      *
@@ -5076,11 +5173,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Deletes a recall management service.
+     * Deletes a specified recall management service.
      *
      * @remarks
      * ## Request description
-     * This operation deletes a recall management service based on the RecallManagementServiceId and InstanceId. Before you call this API, ensure you have the correct information for the service to be deleted.
+     * This API operation deletes a specific recall management service based on the provided recall management service ID and instance ID. Make sure that you have obtained the information about the service to be deleted before you call this operation.
      *
      * @param request - DeleteRecallManagementServiceRequest
      * @param headers - map
@@ -5123,11 +5220,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Deletes a recall management service.
+     * Deletes a specified recall management service.
      *
      * @remarks
      * ## Request description
-     * This operation deletes a recall management service based on the RecallManagementServiceId and InstanceId. Before you call this API, ensure you have the correct information for the service to be deleted.
+     * This API operation deletes a specific recall management service based on the provided recall management service ID and instance ID. Make sure that you have obtained the information about the service to be deleted before you call this operation.
      *
      * @param request - DeleteRecallManagementServiceRequest
      *
@@ -5147,11 +5244,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Deletes a specified version of a recall management service.
+     * Deletes a specified recall management service version.
      *
      * @remarks
-     * ## Request
-     * This operation deletes a specific version of a recall management service. You must provide the recall management service ID, the recall management service version ID, and the instance ID. This operation is irreversible, so back up all critical data before proceeding.
+     * ## Request description
+     * This operation allows you to delete a specific version of a recall management service by providing the recall management service ID, recall management service version ID, and instance ID. Back up important data before calling this operation because the deletion is irreversible.
      *
      * @param request - DeleteRecallManagementServiceVersionRequest
      * @param headers - map
@@ -5195,11 +5292,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Deletes a specified version of a recall management service.
+     * Deletes a specified recall management service version.
      *
      * @remarks
-     * ## Request
-     * This operation deletes a specific version of a recall management service. You must provide the recall management service ID, the recall management service version ID, and the instance ID. This operation is irreversible, so back up all critical data before proceeding.
+     * ## Request description
+     * This operation allows you to delete a specific version of a recall management service by providing the recall management service ID, recall management service version ID, and instance ID. Back up important data before calling this operation because the deletion is irreversible.
      *
      * @param request - DeleteRecallManagementServiceVersionRequest
      *
@@ -5299,13 +5396,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * This API deletes a recall management table using the specified recall management table ID and instance ID.
+     * Deletes a recall management data table based on the specified data table ID and instance ID.
      *
      * @remarks
-     * ## Request
-     * - The required **path parameter** `RecallManagementTableId` specifies the ID of the recall management table to delete.
-     * - The required **query parameter** `InstanceId` specifies the ID of the instance.
-     * - A successful operation returns a `RequestId` in the response body for request tracking.
+     * ## Request description
+     * - The **path parameter** `RecallManagementTableId` is required and specifies instance ID of the data table to delete.
+     * - The **query parameter** `InstanceId` is also required and specifies instance ID of the instance on which the operation is performed.
+     * - After a successful execution, a response body containing the request ID (`RequestId`) is returned, which can be used to track the request.
      *
      * @param request - DeleteRecallManagementTableRequest
      * @param headers - map
@@ -5348,13 +5445,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * This API deletes a recall management table using the specified recall management table ID and instance ID.
+     * Deletes a recall management data table based on the specified data table ID and instance ID.
      *
      * @remarks
-     * ## Request
-     * - The required **path parameter** `RecallManagementTableId` specifies the ID of the recall management table to delete.
-     * - The required **query parameter** `InstanceId` specifies the ID of the instance.
-     * - A successful operation returns a `RequestId` in the response body for request tracking.
+     * ## Request description
+     * - The **path parameter** `RecallManagementTableId` is required and specifies instance ID of the data table to delete.
+     * - The **query parameter** `InstanceId` is also required and specifies instance ID of the instance on which the operation is performed.
+     * - After a successful execution, a response body containing the request ID (`RequestId`) is returned, which can be used to track the request.
      *
      * @param request - DeleteRecallManagementTableRequest
      *
@@ -5565,7 +5662,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Delete the specified scenario.
+     * Deletes a specified scenario.
      *
      * @param request - DeleteSceneRequest
      * @param headers - map
@@ -5608,7 +5705,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Delete the specified scenario.
+     * Deletes a specified scenario.
      *
      * @param request - DeleteSceneRequest
      *
@@ -5628,7 +5725,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Deletes the specified subcrowd.
+     * Deletes a specified sub-crowd.
      *
      * @param request - DeleteSubCrowdRequest
      * @param headers - map
@@ -5672,7 +5769,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Deletes the specified subcrowd.
+     * Deletes a specified sub-crowd.
      *
      * @param request - DeleteSubCrowdRequest
      *
@@ -5756,13 +5853,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Deletes the specified traffic control target.
+     * Deletes a specified traffic control target by its ID.
      *
      * @remarks
-     * ## Request
-     * - **TrafficControlTargetId** is a required path parameter that specifies the traffic control target to delete.
-     * - **InstanceId** is a required query parameter that specifies the instance ID for this operation.
-     * - A successful response includes a `RequestId` field to track the request.
+     * ## Request description
+     * - **TrafficControlTargetId** is a required path parameter used as the identity of the specific traffic control target to delete.
+     * - **InstanceId** is a required query parameter that specifies the instance ID to execute the operation.
+     * - A successful response returns a `RequestId` field for tracking the request.
      *
      * @param request - DeleteTrafficControlTargetRequest
      * @param headers - map
@@ -5805,13 +5902,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Deletes the specified traffic control target.
+     * Deletes a specified traffic control target by its ID.
      *
      * @remarks
-     * ## Request
-     * - **TrafficControlTargetId** is a required path parameter that specifies the traffic control target to delete.
-     * - **InstanceId** is a required query parameter that specifies the instance ID for this operation.
-     * - A successful response includes a `RequestId` field to track the request.
+     * ## Request description
+     * - **TrafficControlTargetId** is a required path parameter used as the identity of the specific traffic control target to delete.
+     * - **InstanceId** is a required query parameter that specifies the instance ID to execute the operation.
+     * - A successful response returns a `RequestId` field for tracking the request.
      *
      * @param request - DeleteTrafficControlTargetRequest
      *
@@ -5834,10 +5931,10 @@ class PaiRecService extends OpenApiClient
      * Deletes a specified traffic control task.
      *
      * @remarks
-     * ## Description
-     * - This API uses `TrafficControlTaskId` and `InstanceId` to delete a traffic control task.
-     * - Ensure the `TrafficControlTaskId` and `InstanceId` are correct, or the operation may fail.
-     * - This operation is irreversible. Proceed with caution.
+     * ## Request description
+     * - This API locates and deletes a specific traffic control task by providing the `TrafficControlTaskId` and `InstanceId`.
+     * - Ensure that the provided `TrafficControlTaskId` and `InstanceId` are correct. Otherwise, the deletion may fail.
+     * - Once the deletion is complete, the related data cannot be recovered. Proceed with caution.
      *
      * @param request - DeleteTrafficControlTaskRequest
      * @param headers - map
@@ -5883,10 +5980,10 @@ class PaiRecService extends OpenApiClient
      * Deletes a specified traffic control task.
      *
      * @remarks
-     * ## Description
-     * - This API uses `TrafficControlTaskId` and `InstanceId` to delete a traffic control task.
-     * - Ensure the `TrafficControlTaskId` and `InstanceId` are correct, or the operation may fail.
-     * - This operation is irreversible. Proceed with caution.
+     * ## Request description
+     * - This API locates and deletes a specific traffic control task by providing the `TrafficControlTaskId` and `InstanceId`.
+     * - Ensure that the provided `TrafficControlTaskId` and `InstanceId` are correct. Otherwise, the deletion may fail.
+     * - Once the deletion is complete, the related data cannot be recovered. Proceed with caution.
      *
      * @param request - DeleteTrafficControlTaskRequest
      *
@@ -6163,13 +6260,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Generates Flink code for a specified traffic control task ID and instance information.
+     * Generates the corresponding Flink code based on the specified traffic control task ID and instance information.
      *
      * @remarks
-     * ## Description
-     * - This API generates Flink code for a specified traffic control task ID, instance ID, and environment type.
-     * - The `Environment` parameter accepts three values: `Daily` for the daily environment, `Pre` for the pre-release environment, and `Prod` for the production environment.
-     * - Check the `PreNeedConfig` field in the response. A `true` value indicates that necessary configuration information might be missing in the pre-release environment. If this occurs, add or adjust the required settings.
+     * ## Request description
+     * - This API operation generates the corresponding Flink code based on the specified traffic control task ID, instance ID, and environment type.
+     * - The Environment parameter supports three values: Daily (daily environment), Pre (pre-release environment), and Prod (production environment). Make sure to select the correct value to meet your requirements.
+     * - Check the PreNeedConfig field in the response. If the value is true, it indicates that required configuration information may be missing in the pre-release environment. Adjust or supplement the relevant settings as needed.
      *
      * @param request - GenerateTrafficControlTaskCodeRequest
      * @param headers - map
@@ -6216,13 +6313,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Generates Flink code for a specified traffic control task ID and instance information.
+     * Generates the corresponding Flink code based on the specified traffic control task ID and instance information.
      *
      * @remarks
-     * ## Description
-     * - This API generates Flink code for a specified traffic control task ID, instance ID, and environment type.
-     * - The `Environment` parameter accepts three values: `Daily` for the daily environment, `Pre` for the pre-release environment, and `Prod` for the production environment.
-     * - Check the `PreNeedConfig` field in the response. A `true` value indicates that necessary configuration information might be missing in the pre-release environment. If this occurs, add or adjust the required settings.
+     * ## Request description
+     * - This API operation generates the corresponding Flink code based on the specified traffic control task ID, instance ID, and environment type.
+     * - The Environment parameter supports three values: Daily (daily environment), Pre (pre-release environment), and Prod (production environment). Make sure to select the correct value to meet your requirements.
+     * - Check the PreNeedConfig field in the response. If the value is true, it indicates that required configuration information may be missing in the pre-release environment. Adjust or supplement the relevant settings as needed.
      *
      * @param request - GenerateTrafficControlTaskCodeRequest
      *
@@ -6368,7 +6465,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an A/B testing metric group.
+     * Retrieves the details of an ABTest metric group.
      *
      * @param request - GetABMetricGroupRequest
      * @param headers - map
@@ -6411,7 +6508,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an A/B testing metric group.
+     * Retrieves the details of an ABTest metric group.
      *
      * @param request - GetABMetricGroupRequest
      *
@@ -6697,7 +6794,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specified experiment group.
+     * Retrieves the details of a specified experiment group.
      *
      * @param request - GetExperimentGroupRequest
      * @param headers - map
@@ -6740,7 +6837,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specified experiment group.
+     * Retrieves the details of a specified experiment group.
      *
      * @param request - GetExperimentGroupRequest
      *
@@ -7737,7 +7834,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified scene.
+     * Retrieves the details of a specified scenario.
      *
      * @param request - GetSceneRequest
      * @param headers - map
@@ -7780,7 +7877,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified scene.
+     * Retrieves the details of a specified scenario.
      *
      * @param request - GetSceneRequest
      *
@@ -9295,7 +9392,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the score difference reports for a feature consistency check job.
+     * Retrieves the score report for a feature consistency check task.
      *
      * @param tmpReq - ListFeatureConsistencyCheckJobScoreReportsRequest
      * @param headers - map
@@ -9348,7 +9445,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves the score difference reports for a feature consistency check job.
+     * Retrieves the score report for a feature consistency check task.
      *
      * @param request - ListFeatureConsistencyCheckJobScoreReportsRequest
      *
@@ -9449,11 +9546,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Lists all schemas for a specified resource in an instance.
+     * Queries all schemas for a specified instance and resource.
      *
      * @remarks
-     * ## Description
-     * To retrieve a list of all schemas for a specified resource, provide the instance ID (InstanceId) and resource ID (ResourceId). Use the optional SchemaName parameter to filter the schemas by a name prefix.
+     * ## Request description
+     * Provide the instance ID (InstanceId) and resource ID (ResourceId) to retrieve a list of all schemas for the instance resource. You can use the optional SchemaName parameter to filter results by name prefix and locate the required schemas more precisely.
      *
      * @param request - ListInstanceResourceSchemasRequest
      * @param headers - map
@@ -9497,11 +9594,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Lists all schemas for a specified resource in an instance.
+     * Queries all schemas for a specified instance and resource.
      *
      * @remarks
-     * ## Description
-     * To retrieve a list of all schemas for a specified resource, provide the instance ID (InstanceId) and resource ID (ResourceId). Use the optional SchemaName parameter to filter the schemas by a name prefix.
+     * ## Request description
+     * Provide the instance ID (InstanceId) and resource ID (ResourceId) to retrieve a list of all schemas for the instance resource. You can use the optional SchemaName parameter to filter results by name prefix and locate the required schemas more precisely.
      *
      * @param request - ListInstanceResourceSchemasRequest
      *
@@ -9595,7 +9692,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Lists the resources configured for an instance.
+     * Retrieves the list of resources configured for an instance.
      *
      * @param request - ListInstanceResourcesRequest
      * @param headers - map
@@ -9646,7 +9743,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Lists the resources configured for an instance.
+     * Retrieves the list of resources configured for an instance.
      *
      * @param request - ListInstanceResourcesRequest
      *
@@ -9885,7 +9982,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of parameters.
+     * Retrieves the list of parameters.
      *
      * @param request - ListParamsRequest
      * @param headers - map
@@ -9951,7 +10048,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of parameters.
+     * Retrieves the list of parameters.
      *
      * @param request - ListParamsRequest
      *
@@ -10647,7 +10744,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of scenes.
+     * Retrieves the list of scenes.
      *
      * @param request - ListScenesRequest
      * @param headers - map
@@ -10693,7 +10790,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of scenes.
+     * Retrieves the list of scenes.
      *
      * @param request - ListScenesRequest
      *
@@ -11088,7 +11185,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Takes an experiment offline.
+     * Takes the specified experiment offline.
      *
      * @param request - OfflineExperimentRequest
      * @param headers - map
@@ -11131,7 +11228,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Takes an experiment offline.
+     * Takes the specified experiment offline.
      *
      * @param request - OfflineExperimentRequest
      *
@@ -11151,7 +11248,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Takes a specified experiment group offline.
+     * Takes the specified experiment group offline.
      *
      * @param request - OfflineExperimentGroupRequest
      * @param headers - map
@@ -11194,7 +11291,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Takes a specified experiment group offline.
+     * Takes the specified experiment group offline.
      *
      * @param request - OfflineExperimentGroupRequest
      *
@@ -11352,7 +11449,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Brings a specified experiment online.
+     * Publishes the specified experiment online.
      *
      * @param request - OnlineExperimentRequest
      * @param headers - map
@@ -11395,7 +11492,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Brings a specified experiment online.
+     * Publishes the specified experiment online.
      *
      * @param request - OnlineExperimentRequest
      *
@@ -11930,11 +12027,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves records from a specified recall management table.
+     * Retrieves a list of records from a specified recall management table.
      *
      * @remarks
-     * ## Request
-     * This API retrieves records from a specific recall management table using the provided primary keys. You must provide a valid `InstanceId` and `RecallManagementTableId`, and a non-empty `PrimaryKeys` list. If you specify `RecallManagementTableVersionId`, the API returns records from that version; otherwise, it uses the currently published version.
+     * ## Request description
+     * This operation retrieves data records from a specific recall management table based on the specified primary keys. Ensure that the provided `InstanceId` and `RecallManagementTableId` are valid and that the `PrimaryKeys` list is not empty. If `RecallManagementTableVersionId` is specified, data of that version is returned. Otherwise, the current published version is used by default.
      *
      * @param request - QueryRecallManagementTableRecordsRequest
      * @param headers - map
@@ -11985,11 +12082,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves records from a specified recall management table.
+     * Retrieves a list of records from a specified recall management table.
      *
      * @remarks
-     * ## Request
-     * This API retrieves records from a specific recall management table using the provided primary keys. You must provide a valid `InstanceId` and `RecallManagementTableId`, and a non-empty `PrimaryKeys` list. If you specify `RecallManagementTableVersionId`, the API returns records from that version; otherwise, it uses the currently published version.
+     * ## Request description
+     * This operation retrieves data records from a specific recall management table based on the specified primary keys. Ensure that the provided `InstanceId` and `RecallManagementTableId` are valid and that the `PrimaryKeys` list is not empty. If `RecallManagementTableVersionId` is specified, data of that version is returned. Otherwise, the current published version is used by default.
      *
      * @param request - QueryRecallManagementTableRecordsRequest
      *
@@ -12162,8 +12259,8 @@ class PaiRecService extends OpenApiClient
      * Retrieves the deployment status and related information of a specified traffic control task in a specific environment.
      *
      * @remarks
-     * ## Operation description
-     * You can call this operation to query the deployment result of a traffic control task specified by TrafficControlTaskId for a given instance ID and environment. Make sure that the specified InstanceId is associated with your account and that the Environment parameter value is valid (Daily for daily environment, Pre for staging environment, Prod for production environment). All request parameters are required.
+     * ## Request description
+     * You can use this API to query the deployment results of a traffic control task with a specific TrafficControlTaskId for a given instance ID and environment. Make sure that the provided InstanceId is associated with your account and the Environment parameter value meets your expectations (Daily: daily environment, Pre: staging environment, Prod: production environment). All request parameters are required.
      *
      * @param request - QueryTrafficControlTaskDeployResultRequest
      * @param headers - map
@@ -12213,8 +12310,8 @@ class PaiRecService extends OpenApiClient
      * Retrieves the deployment status and related information of a specified traffic control task in a specific environment.
      *
      * @remarks
-     * ## Operation description
-     * You can call this operation to query the deployment result of a traffic control task specified by TrafficControlTaskId for a given instance ID and environment. Make sure that the specified InstanceId is associated with your account and that the Environment parameter value is valid (Daily for daily environment, Pre for staging environment, Prod for production environment). All request parameters are required.
+     * ## Request description
+     * You can use this API to query the deployment results of a traffic control task with a specific TrafficControlTaskId for a given instance ID and environment. Make sure that the provided InstanceId is associated with your account and the Environment parameter value meets your expectations (Daily: daily environment, Pre: staging environment, Prod: production environment). All request parameters are required.
      *
      * @param request - QueryTrafficControlTaskDeployResultRequest
      *
@@ -12327,15 +12424,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Releases a traffic control task for the specified instance and environment.
+     * Publishes a traffic control task for a specified instance and environment.
      *
      * @remarks
-     * ## Request
-     * Use this API to release a traffic control task for a specific instance and environment (Daily, Pre, or Prod). Your request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters.
-     * - `TrafficControlTaskId`: The unique ID of the traffic control task.
-     * - `InstanceId`: The ID of the target instance.
-     * - `Environment`: The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
-     * The request succeeds only if all required parameters are provided correctly. A successful response includes a `RequestId`.
+     * ## Request description
+     * This API allows you to publish a traffic control task for a specific instance ID and environment (daily, staging, or production). Make sure to correctly specify the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters in the request.
+     * - `TrafficControlTaskId`: the unique identifier of the traffic control task to be published.
+     * - `InstanceId`: the ID of the target instance to which the traffic control settings will be applied.
+     * - `Environment`: the environment in which the traffic control task is executed. Valid values: Daily (daily environment), Pre (staging environment), and Prod (production environment). Select an environment based on your business requirements.
+     * Note: The request is processed and a RequestId is returned in the response only when all required fields are correctly provided.
      *
      * @param request - ReleaseTrafficControlTaskRequest
      * @param headers - map
@@ -12382,15 +12479,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Releases a traffic control task for the specified instance and environment.
+     * Publishes a traffic control task for a specified instance and environment.
      *
      * @remarks
-     * ## Request
-     * Use this API to release a traffic control task for a specific instance and environment (Daily, Pre, or Prod). Your request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters.
-     * - `TrafficControlTaskId`: The unique ID of the traffic control task.
-     * - `InstanceId`: The ID of the target instance.
-     * - `Environment`: The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
-     * The request succeeds only if all required parameters are provided correctly. A successful response includes a `RequestId`.
+     * ## Request description
+     * This API allows you to publish a traffic control task for a specific instance ID and environment (daily, staging, or production). Make sure to correctly specify the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters in the request.
+     * - `TrafficControlTaskId`: the unique identifier of the traffic control task to be published.
+     * - `InstanceId`: the ID of the target instance to which the traffic control settings will be applied.
+     * - `Environment`: the environment in which the traffic control task is executed. Valid values: Daily (daily environment), Pre (staging environment), and Prod (production environment). Select an environment based on your business requirements.
+     * Note: The request is processed and a RequestId is returned in the response only when all required fields are correctly provided.
      *
      * @param request - ReleaseTrafficControlTaskRequest
      *
@@ -12948,14 +13045,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Starts a traffic control task with a specified ID for instances in different environments.
+     * Starts the traffic shaping task with the specified ID for instances in different environments.
      *
      * @remarks
-     * ## Request details
-     * - This operation starts the traffic control task identified by `TrafficControlTaskId`.
+     * ## Request description
+     * - This API operation starts the traffic shaping task identified by the specified `TrafficControlTaskId`.
      * - `InstanceId` specifies the target instance.
-     * - `Environment` specifies the target environment. Valid values: Daily, Pre, and Prod.
-     * - Ensure that all required parameters are set correctly before you call this operation. The specified `TrafficControlTaskId` must exist in the system.
+     * - The `Environment` parameter defines the target environment for this operation (daily, staging, or production).
+     * - Ensure that all required parameters are correctly configured before you call this operation. Specifically, the `TrafficControlTaskId` must exist in the system.
      *
      * @param request - StartTrafficControlTaskRequest
      * @param headers - map
@@ -13002,14 +13099,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Starts a traffic control task with a specified ID for instances in different environments.
+     * Starts the traffic shaping task with the specified ID for instances in different environments.
      *
      * @remarks
-     * ## Request details
-     * - This operation starts the traffic control task identified by `TrafficControlTaskId`.
+     * ## Request description
+     * - This API operation starts the traffic shaping task identified by the specified `TrafficControlTaskId`.
      * - `InstanceId` specifies the target instance.
-     * - `Environment` specifies the target environment. Valid values: Daily, Pre, and Prod.
-     * - Ensure that all required parameters are set correctly before you call this operation. The specified `TrafficControlTaskId` must exist in the system.
+     * - The `Environment` parameter defines the target environment for this operation (daily, staging, or production).
+     * - Ensure that all required parameters are correctly configured before you call this operation. Specifically, the `TrafficControlTaskId` must exist in the system.
      *
      * @param request - StartTrafficControlTaskRequest
      *
@@ -13483,15 +13580,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Modifies the metric configuration of an existing ABTest experiment.
+     * Updates the metric configuration of an existing AB test.
      *
      * @remarks
-     * ## Operation description
-     * This API operation allows you to update the attributes of a specified ABTest metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
+     * ## Request description
+     * This API operation allows you to update the properties of a specified AB test metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
      * - `NeedSignificance`: Specifies whether to perform significance analysis on the current metric. Default value: `false`.
-     * - `AggregationByUser`: When significance calculation is enabled, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
-     * - `Numerator` and `Denominator`: The specific definitions of the numerator and denominator used in significance calculation.
-     * - `IsBinomialDistribution`: Valid only for derived metrics. Specifies whether the metric follows a binomial distribution, which affects subsequent data processing logic.
+     * - `AggregationByUser`: When significance calculation is selected, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
+     * - `Numerator` and `Denominator`: Represent the specific definitions of the numerator and denominator when performing significance calculation.
+     * - `IsBinomialDistribution`: Valid only for derived metrics. Indicates whether the metric follows a binomial distribution, which affects subsequent data processing logic.
      * Note: You do not need to provide all fields at the same time. Include only the parameters whose values you want to change in the request body.
      *
      * @param request - UpdateABMetricRequest
@@ -13603,15 +13700,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Modifies the metric configuration of an existing ABTest experiment.
+     * Updates the metric configuration of an existing AB test.
      *
      * @remarks
-     * ## Operation description
-     * This API operation allows you to update the attributes of a specified ABTest metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
+     * ## Request description
+     * This API operation allows you to update the properties of a specified AB test metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
      * - `NeedSignificance`: Specifies whether to perform significance analysis on the current metric. Default value: `false`.
-     * - `AggregationByUser`: When significance calculation is enabled, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
-     * - `Numerator` and `Denominator`: The specific definitions of the numerator and denominator used in significance calculation.
-     * - `IsBinomialDistribution`: Valid only for derived metrics. Specifies whether the metric follows a binomial distribution, which affects subsequent data processing logic.
+     * - `AggregationByUser`: When significance calculation is selected, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
+     * - `Numerator` and `Denominator`: Represent the specific definitions of the numerator and denominator when performing significance calculation.
+     * - `IsBinomialDistribution`: Valid only for derived metrics. Indicates whether the metric follows a binomial distribution, which affects subsequent data processing logic.
      * Note: You do not need to provide all fields at the same time. Include only the parameters whose values you want to change in the request body.
      *
      * @param request - UpdateABMetricRequest
@@ -14091,7 +14188,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Updates information for a specified experiment group, such as its name and description.
+     * Updates the information of a specified experiment group, such as the name and description.
      *
      * @param request - UpdateExperimentGroupRequest
      * @param headers - map
@@ -14190,7 +14287,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Updates information for a specified experiment group, such as its name and description.
+     * Updates the information of a specified experiment group, such as the name and description.
      *
      * @param request - UpdateExperimentGroupRequest
      *
@@ -15323,7 +15420,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Updates information for a scene, such as its name and description.
+     * Updates scene information, such as the name and description of a scene.
      *
      * @param request - UpdateSceneRequest
      * @param headers - map
@@ -15378,7 +15475,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Updates information for a scene, such as its name and description.
+     * Updates scene information, such as the name and description of a scene.
      *
      * @param request - UpdateSceneRequest
      *
