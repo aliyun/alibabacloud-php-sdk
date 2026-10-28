@@ -21,6 +21,11 @@ class attachInfos extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $kvcsId;
 
     /**
@@ -55,6 +60,7 @@ class attachInfos extends Model
     protected $_name = [
         'attachedAt' => 'AttachedAt',
         'capacity' => 'Capacity',
+        'instanceId' => 'InstanceId',
         'kvcsId' => 'KvcsId',
         'mountPointId' => 'MountPointId',
         'regionId' => 'RegionId',
@@ -78,6 +84,10 @@ class attachInfos extends Model
 
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->kvcsId) {
@@ -125,6 +135,10 @@ class attachInfos extends Model
 
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['KvcsId'])) {

@@ -69,7 +69,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Mounts KVCacheInstance resources to the virtualization stack in batches.
+     * Mounts KVCacheInstance resources to the virtualization side in batches.
      *
      * @remarks
      * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
@@ -95,6 +95,10 @@ class Kvcachestore extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
 
         if (null !== $request->regionId) {
@@ -124,7 +128,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Mounts KVCacheInstance resources to the virtualization stack in batches.
+     * Mounts KVCacheInstance resources to the virtualization side in batches.
      *
      * @remarks
      * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
@@ -149,9 +153,9 @@ class Kvcachestore extends OpenApiClient
      * Creates a KVCacheInstance instance.
      *
      * @remarks
-     * This is an asynchronous operation. After the request is successful, the KVCacheStore enters the Creating state. You can call GetKVCacheStore or ListKVCacheStores to query the KVCacheStore status. The KVCacheStore becomes available when its status changes to Available.
-     * * To ensure idempotence in case of network exceptions, use ClientToken. If you call the operation with the same ClientToken and the same request parameters, the same KVCacheStore ID and order ID are returned. If the request parameters change, an IdempotentParameterMismatch error is returned.
-     * * Creating a KVCacheStore generates an order. The response includes OrderId, which you can view in the Expenses and Costs console. For more information, refer to View and manage orders.
+     * This is an asynchronous operation. After the request is successful, the KVCacheStore enters the Creating state. You can call GetKVCacheStore or ListKVCacheStores to query the KVCacheStore status. The KVCacheStore is available after the status changes to Available.
+     * * To ensure idempotency in case of network exceptions, use ClientToken. If you call this operation with the same ClientToken and the same request parameters, the same KVCacheStore ID and order ID are returned. If the request parameters change, an IdempotentParameterMismatch error is returned.
+     * * When a KVCacheStore is created, an order is generated at the same time. The OrderId is returned in the response. You can view the order in the Expenses and Costs console. For more information, see View and manage orders.
      *
      * @param request - CreateKVCacheStoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -229,9 +233,9 @@ class Kvcachestore extends OpenApiClient
      * Creates a KVCacheInstance instance.
      *
      * @remarks
-     * This is an asynchronous operation. After the request is successful, the KVCacheStore enters the Creating state. You can call GetKVCacheStore or ListKVCacheStores to query the KVCacheStore status. The KVCacheStore becomes available when its status changes to Available.
-     * * To ensure idempotence in case of network exceptions, use ClientToken. If you call the operation with the same ClientToken and the same request parameters, the same KVCacheStore ID and order ID are returned. If the request parameters change, an IdempotentParameterMismatch error is returned.
-     * * Creating a KVCacheStore generates an order. The response includes OrderId, which you can view in the Expenses and Costs console. For more information, refer to View and manage orders.
+     * This is an asynchronous operation. After the request is successful, the KVCacheStore enters the Creating state. You can call GetKVCacheStore or ListKVCacheStores to query the KVCacheStore status. The KVCacheStore is available after the status changes to Available.
+     * * To ensure idempotency in case of network exceptions, use ClientToken. If you call this operation with the same ClientToken and the same request parameters, the same KVCacheStore ID and order ID are returned. If the request parameters change, an IdempotentParameterMismatch error is returned.
+     * * When a KVCacheStore is created, an order is generated at the same time. The OrderId is returned in the response. You can view the order in the Expenses and Costs console. For more information, see View and manage orders.
      *
      * @param request - CreateKVCacheStoreRequest
      *
@@ -379,7 +383,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries the list of available zones for KVCacheStore in a specified region.
+     * Queries the available zones for KVCacheStore in a specified region.
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -418,7 +422,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries the list of available zones for KVCacheStore in a specified region.
+     * Queries the available zones for KVCacheStore in a specified region.
      *
      * @param request - DescribeZonesRequest
      *
@@ -436,10 +440,10 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Unmounts KVCacheInstance resources from the virtualization side in batches.
+     * Detaches multiple KVCache instances from the virtualization side.
      *
      * @remarks
-     * This is an asynchronous operation. A return status of Detaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. When no record corresponding to the specified KvcsId and VscId is found, the unmount operation is complete.
+     * This operation is asynchronous. A return value of Detaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query attachment records. If no record is found for the specified KvcsId and VscId, the detachment is complete.
      *
      * @param request - DetachKVCacheStoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -486,10 +490,10 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Unmounts KVCacheInstance resources from the virtualization side in batches.
+     * Detaches multiple KVCache instances from the virtualization side.
      *
      * @remarks
-     * This is an asynchronous operation. A return status of Detaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. When no record corresponding to the specified KvcsId and VscId is found, the unmount operation is complete.
+     * This operation is asynchronous. A return value of Detaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query attachment records. If no record is found for the specified KvcsId and VscId, the detachment is complete.
      *
      * @param request - DetachKVCacheStoreRequest
      *
@@ -568,13 +572,13 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries mount information of KVCacheInstances in batches.
+     * Queries the mount information of KVCache instances in batches.
      *
      * @remarks
-     * This operation has no KVCacheStore status restrictions. If a KVCacheStore is in the Creating state, an empty list is returned.
-     * * A KVCacheStore can be mounted to multiple VSCs, so each KVCacheStore may return multiple mount records.
-     * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
-     * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
+     * This operation has no status restrictions on KVCacheStore. If a KVCacheStore is in the Creating state, an empty list is returned.
+     * * A KVCacheStore can be mounted to multiple VSCs. Multiple mount records may be returned for each KVCacheStore.
+     * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single call.
+     * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are provided, cursor-based pagination takes precedence.
      *
      * @param request - ListKVCacheStoreAttachInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -614,6 +618,10 @@ class Kvcachestore extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->vscId) {
+            @$query['VscId'] = $request->vscId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -633,13 +641,13 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries mount information of KVCacheInstances in batches.
+     * Queries the mount information of KVCache instances in batches.
      *
      * @remarks
-     * This operation has no KVCacheStore status restrictions. If a KVCacheStore is in the Creating state, an empty list is returned.
-     * * A KVCacheStore can be mounted to multiple VSCs, so each KVCacheStore may return multiple mount records.
-     * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
-     * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
+     * This operation has no status restrictions on KVCacheStore. If a KVCacheStore is in the Creating state, an empty list is returned.
+     * * A KVCacheStore can be mounted to multiple VSCs. Multiple mount records may be returned for each KVCacheStore.
+     * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single call.
+     * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are provided, cursor-based pagination takes precedence.
      *
      * @param request - ListKVCacheStoreAttachInfoRequest
      *
@@ -657,10 +665,10 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries the list of available HpnZones for a specified KVCacheStore instance.
+     * Queries the available HpnZones for a specified KVCacheStore instance.
      *
      * @remarks
-     * This operation queries available HpnZones by KVCacheStore. Use this operation to query available HPN cluster IDs before scaling or migrating a KVCacheStore.
+     * This operation queries available HpnZones by KVCacheStore instance. It is used to query optional HPN cluster IDs before scaling or migrating a KVCacheStore instance.
      *
      * @param request - ListKVCacheStoreAvailableHpnZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -703,10 +711,10 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries the list of available HpnZones for a specified KVCacheStore instance.
+     * Queries the available HpnZones for a specified KVCacheStore instance.
      *
      * @remarks
-     * This operation queries available HpnZones by KVCacheStore. Use this operation to query available HPN cluster IDs before scaling or migrating a KVCacheStore.
+     * This operation queries available HpnZones by KVCacheStore instance. It is used to query optional HPN cluster IDs before scaling or migrating a KVCacheStore instance.
      *
      * @param request - ListKVCacheStoreAvailableHpnZonesRequest
      *
@@ -797,7 +805,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries the list of KVCacheInstance instances.
+     * Queries a list of KVCacheInstance instances.
      *
      * @remarks
      * Two pagination methods are supported: page number-based pagination (PageNumber + PageSize) and cursor-based pagination (NextToken + MaxResults). If both are specified, page number-based pagination takes precedence.
@@ -871,7 +879,7 @@ class Kvcachestore extends OpenApiClient
     }
 
     /**
-     * Queries the list of KVCacheInstance instances.
+     * Queries a list of KVCacheInstance instances.
      *
      * @remarks
      * Two pagination methods are supported: page number-based pagination (PageNumber + PageSize) and cursor-based pagination (NextToken + MaxResults). If both are specified, page number-based pagination takes precedence.

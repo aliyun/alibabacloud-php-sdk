@@ -23,6 +23,11 @@ class AttachKVCacheStoreRequest extends Model
     /**
      * @var string
      */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -32,6 +37,7 @@ class AttachKVCacheStoreRequest extends Model
     protected $_name = [
         'arns' => 'Arns',
         'clientToken' => 'ClientToken',
+        'instanceType' => 'InstanceType',
         'regionId' => 'RegionId',
         'resourceIds' => 'ResourceIds',
     ];
@@ -63,6 +69,10 @@ class AttachKVCacheStoreRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
 
         if (null !== $this->regionId) {
@@ -104,6 +114,10 @@ class AttachKVCacheStoreRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
 
         if (isset($map['RegionId'])) {

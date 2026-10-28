@@ -37,6 +37,11 @@ class ListKVCacheStoreAttachInfoRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $vscId;
     protected $_name = [
         'kvcsIds' => 'KvcsIds',
         'maxResults' => 'MaxResults',
@@ -44,6 +49,7 @@ class ListKVCacheStoreAttachInfoRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'vscId' => 'VscId',
     ];
 
     public function validate()
@@ -88,6 +94,10 @@ class ListKVCacheStoreAttachInfoRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->vscId) {
+            $res['VscId'] = $this->vscId;
+        }
+
         return $res;
     }
 
@@ -128,6 +138,10 @@ class ListKVCacheStoreAttachInfoRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['VscId'])) {
+            $model->vscId = $map['VscId'];
         }
 
         return $model;
