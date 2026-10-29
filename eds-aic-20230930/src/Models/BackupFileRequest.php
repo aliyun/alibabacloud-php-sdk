@@ -36,6 +36,11 @@ class BackupFileRequest extends Model
     /**
      * @var string[]
      */
+    public $excludeAppList;
+
+    /**
+     * @var string[]
+     */
     public $excludeSourceFilePathList;
 
     /**
@@ -63,6 +68,7 @@ class BackupFileRequest extends Model
         'backupFileName' => 'BackupFileName',
         'backupFilePath' => 'BackupFilePath',
         'description' => 'Description',
+        'excludeAppList' => 'ExcludeAppList',
         'excludeSourceFilePathList' => 'ExcludeSourceFilePathList',
         'sourceAppList' => 'SourceAppList',
         'sourceFilePathList' => 'SourceFilePathList',
@@ -74,6 +80,9 @@ class BackupFileRequest extends Model
     {
         if (\is_array($this->androidInstanceIdList)) {
             Model::validateArray($this->androidInstanceIdList);
+        }
+        if (\is_array($this->excludeAppList)) {
+            Model::validateArray($this->excludeAppList);
         }
         if (\is_array($this->excludeSourceFilePathList)) {
             Model::validateArray($this->excludeSourceFilePathList);
@@ -115,6 +124,17 @@ class BackupFileRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->excludeAppList) {
+            if (\is_array($this->excludeAppList)) {
+                $res['ExcludeAppList'] = [];
+                $n1 = 0;
+                foreach ($this->excludeAppList as $item1) {
+                    $res['ExcludeAppList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->excludeSourceFilePathList) {
@@ -194,6 +214,17 @@ class BackupFileRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['ExcludeAppList'])) {
+            if (!empty($map['ExcludeAppList'])) {
+                $model->excludeAppList = [];
+                $n1 = 0;
+                foreach ($map['ExcludeAppList'] as $item1) {
+                    $model->excludeAppList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ExcludeSourceFilePathList'])) {

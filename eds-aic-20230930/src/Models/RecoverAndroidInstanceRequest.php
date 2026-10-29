@@ -24,6 +24,11 @@ class RecoverAndroidInstanceRequest extends Model
     public $backupFilePath;
 
     /**
+     * @var string[]
+     */
+    public $excludeAppList;
+
+    /**
      * @var string
      */
     public $uploadEndpoint;
@@ -36,6 +41,7 @@ class RecoverAndroidInstanceRequest extends Model
         'androidInstanceIdList' => 'AndroidInstanceIdList',
         'backupFileId' => 'BackupFileId',
         'backupFilePath' => 'BackupFilePath',
+        'excludeAppList' => 'ExcludeAppList',
         'uploadEndpoint' => 'UploadEndpoint',
         'uploadType' => 'UploadType',
     ];
@@ -44,6 +50,9 @@ class RecoverAndroidInstanceRequest extends Model
     {
         if (\is_array($this->androidInstanceIdList)) {
             Model::validateArray($this->androidInstanceIdList);
+        }
+        if (\is_array($this->excludeAppList)) {
+            Model::validateArray($this->excludeAppList);
         }
         parent::validate();
     }
@@ -68,6 +77,17 @@ class RecoverAndroidInstanceRequest extends Model
 
         if (null !== $this->backupFilePath) {
             $res['BackupFilePath'] = $this->backupFilePath;
+        }
+
+        if (null !== $this->excludeAppList) {
+            if (\is_array($this->excludeAppList)) {
+                $res['ExcludeAppList'] = [];
+                $n1 = 0;
+                foreach ($this->excludeAppList as $item1) {
+                    $res['ExcludeAppList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->uploadEndpoint) {
@@ -106,6 +126,17 @@ class RecoverAndroidInstanceRequest extends Model
 
         if (isset($map['BackupFilePath'])) {
             $model->backupFilePath = $map['BackupFilePath'];
+        }
+
+        if (isset($map['ExcludeAppList'])) {
+            if (!empty($map['ExcludeAppList'])) {
+                $model->excludeAppList = [];
+                $n1 = 0;
+                foreach ($map['ExcludeAppList'] as $item1) {
+                    $model->excludeAppList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UploadEndpoint'])) {
