@@ -53,6 +53,16 @@ class appInstanceGroupModels extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var bool
+     */
+    public $supportUserGroupMixedAuth;
+
+    /**
+     * @var string
+     */
+    public $userGroupAuthMode;
     protected $_name = [
         'appCenterImageId' => 'AppCenterImageId',
         'appInstanceGroupId' => 'AppInstanceGroupId',
@@ -63,6 +73,8 @@ class appInstanceGroupModels extends Model
         'gmtCreate' => 'GmtCreate',
         'regionId' => 'RegionId',
         'status' => 'Status',
+        'supportUserGroupMixedAuth' => 'SupportUserGroupMixedAuth',
+        'userGroupAuthMode' => 'UserGroupAuthMode',
     ];
 
     public function validate()
@@ -119,6 +131,14 @@ class appInstanceGroupModels extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->supportUserGroupMixedAuth) {
+            $res['SupportUserGroupMixedAuth'] = $this->supportUserGroupMixedAuth;
+        }
+
+        if (null !== $this->userGroupAuthMode) {
+            $res['UserGroupAuthMode'] = $this->userGroupAuthMode;
+        }
+
         return $res;
     }
 
@@ -171,6 +191,14 @@ class appInstanceGroupModels extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SupportUserGroupMixedAuth'])) {
+            $model->supportUserGroupMixedAuth = $map['SupportUserGroupMixedAuth'];
+        }
+
+        if (isset($map['UserGroupAuthMode'])) {
+            $model->userGroupAuthMode = $map['UserGroupAuthMode'];
         }
 
         return $model;

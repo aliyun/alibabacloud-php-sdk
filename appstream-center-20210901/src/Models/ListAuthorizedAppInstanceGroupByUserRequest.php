@@ -34,6 +34,11 @@ class ListAuthorizedAppInstanceGroupByUserRequest extends Model
     public $endUserId;
 
     /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -53,6 +58,7 @@ class ListAuthorizedAppInstanceGroupByUserRequest extends Model
         'appInstanceGroupName' => 'AppInstanceGroupName',
         'appName' => 'AppName',
         'endUserId' => 'EndUserId',
+        'officeSiteId' => 'OfficeSiteId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'productType' => 'ProductType',
@@ -84,6 +90,10 @@ class ListAuthorizedAppInstanceGroupByUserRequest extends Model
 
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
 
         if (null !== $this->pageNumber) {
@@ -127,6 +137,10 @@ class ListAuthorizedAppInstanceGroupByUserRequest extends Model
 
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
 
         if (isset($map['PageNumber'])) {

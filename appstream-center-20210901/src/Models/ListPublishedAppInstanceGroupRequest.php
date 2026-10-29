@@ -34,6 +34,11 @@ class ListPublishedAppInstanceGroupRequest extends Model
     public $excludeUserId;
 
     /**
+     * @var string
+     */
+    public $officeSiteId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -53,6 +58,7 @@ class ListPublishedAppInstanceGroupRequest extends Model
         'appInstanceGroupName' => 'AppInstanceGroupName',
         'appName' => 'AppName',
         'excludeUserId' => 'ExcludeUserId',
+        'officeSiteId' => 'OfficeSiteId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'productType' => 'ProductType',
@@ -84,6 +90,10 @@ class ListPublishedAppInstanceGroupRequest extends Model
 
         if (null !== $this->excludeUserId) {
             $res['ExcludeUserId'] = $this->excludeUserId;
+        }
+
+        if (null !== $this->officeSiteId) {
+            $res['OfficeSiteId'] = $this->officeSiteId;
         }
 
         if (null !== $this->pageNumber) {
@@ -127,6 +137,10 @@ class ListPublishedAppInstanceGroupRequest extends Model
 
         if (isset($map['ExcludeUserId'])) {
             $model->excludeUserId = $map['ExcludeUserId'];
+        }
+
+        if (isset($map['OfficeSiteId'])) {
+            $model->officeSiteId = $map['OfficeSiteId'];
         }
 
         if (isset($map['PageNumber'])) {
