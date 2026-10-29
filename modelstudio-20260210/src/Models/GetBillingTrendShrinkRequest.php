@@ -24,6 +24,11 @@ class GetBillingTrendShrinkRequest extends Model
     public $groupByShrink;
 
     /**
+     * @var bool
+     */
+    public $includeHistoryPeriod;
+
+    /**
      * @var string
      */
     public $locale;
@@ -51,6 +56,7 @@ class GetBillingTrendShrinkRequest extends Model
         'filterShrink' => 'filter',
         'granularity' => 'granularity',
         'groupByShrink' => 'groupBy',
+        'includeHistoryPeriod' => 'includeHistoryPeriod',
         'locale' => 'locale',
         'regionId' => 'regionId',
         'timePeriodShrink' => 'timePeriod',
@@ -76,6 +82,10 @@ class GetBillingTrendShrinkRequest extends Model
 
         if (null !== $this->groupByShrink) {
             $res['groupBy'] = $this->groupByShrink;
+        }
+
+        if (null !== $this->includeHistoryPeriod) {
+            $res['includeHistoryPeriod'] = $this->includeHistoryPeriod;
         }
 
         if (null !== $this->locale) {
@@ -119,6 +129,10 @@ class GetBillingTrendShrinkRequest extends Model
 
         if (isset($map['groupBy'])) {
             $model->groupByShrink = $map['groupBy'];
+        }
+
+        if (isset($map['includeHistoryPeriod'])) {
+            $model->includeHistoryPeriod = $map['includeHistoryPeriod'];
         }
 
         if (isset($map['locale'])) {

@@ -27,6 +27,11 @@ class GetBillingTrendRequest extends Model
     public $groupBy;
 
     /**
+     * @var bool
+     */
+    public $includeHistoryPeriod;
+
+    /**
      * @var string
      */
     public $locale;
@@ -54,6 +59,7 @@ class GetBillingTrendRequest extends Model
         'filter' => 'filter',
         'granularity' => 'granularity',
         'groupBy' => 'groupBy',
+        'includeHistoryPeriod' => 'includeHistoryPeriod',
         'locale' => 'locale',
         'regionId' => 'regionId',
         'timePeriod' => 'timePeriod',
@@ -95,6 +101,10 @@ class GetBillingTrendRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->includeHistoryPeriod) {
+            $res['includeHistoryPeriod'] = $this->includeHistoryPeriod;
         }
 
         if (null !== $this->locale) {
@@ -145,6 +155,10 @@ class GetBillingTrendRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['includeHistoryPeriod'])) {
+            $model->includeHistoryPeriod = $map['includeHistoryPeriod'];
         }
 
         if (isset($map['locale'])) {

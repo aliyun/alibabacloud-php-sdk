@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingTrendResponseB
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingTrendResponseBody\data\costTotals;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingTrendResponseBody\data\groupByTotal;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingTrendResponseBody\data\historyPeriod;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingTrendResponseBody\data\resultByTime;
 
 class data extends Model
@@ -22,12 +23,18 @@ class data extends Model
     public $groupByTotal;
 
     /**
+     * @var historyPeriod
+     */
+    public $historyPeriod;
+
+    /**
      * @var resultByTime[]
      */
     public $resultByTime;
     protected $_name = [
         'costTotals' => 'costTotals',
         'groupByTotal' => 'groupByTotal',
+        'historyPeriod' => 'historyPeriod',
         'resultByTime' => 'resultByTime',
     ];
 
@@ -38,6 +45,9 @@ class data extends Model
         }
         if (\is_array($this->groupByTotal)) {
             Model::validateArray($this->groupByTotal);
+        }
+        if (null !== $this->historyPeriod) {
+            $this->historyPeriod->validate();
         }
         if (\is_array($this->resultByTime)) {
             Model::validateArray($this->resultByTime);
@@ -61,6 +71,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->historyPeriod) {
+            $res['historyPeriod'] = null !== $this->historyPeriod ? $this->historyPeriod->toArray($noStream) : $this->historyPeriod;
         }
 
         if (null !== $this->resultByTime) {
@@ -98,6 +112,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['historyPeriod'])) {
+            $model->historyPeriod = historyPeriod::fromMap($map['historyPeriod']);
         }
 
         if (isset($map['resultByTime'])) {

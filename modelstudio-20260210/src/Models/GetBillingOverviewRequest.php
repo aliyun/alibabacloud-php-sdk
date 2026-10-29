@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingOverviewRequest\filter;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingOverviewRequest\groupBy;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetBillingOverviewRequest\timePeriod;
 
 class GetBillingOverviewRequest extends Model
 {
@@ -19,6 +20,11 @@ class GetBillingOverviewRequest extends Model
      * @var filter
      */
     public $filter;
+
+    /**
+     * @var string
+     */
+    public $granularity;
 
     /**
      * @var groupBy[]
@@ -36,6 +42,11 @@ class GetBillingOverviewRequest extends Model
     public $regionId;
 
     /**
+     * @var timePeriod
+     */
+    public $timePeriod;
+
+    /**
      * @var int
      */
     public $topNum;
@@ -47,9 +58,11 @@ class GetBillingOverviewRequest extends Model
     protected $_name = [
         'billMonth' => 'billMonth',
         'filter' => 'filter',
+        'granularity' => 'granularity',
         'groupBy' => 'groupBy',
         'locale' => 'locale',
         'regionId' => 'regionId',
+        'timePeriod' => 'timePeriod',
         'topNum' => 'topNum',
         'zeroFilter' => 'zeroFilter',
     ];
@@ -61,6 +74,9 @@ class GetBillingOverviewRequest extends Model
         }
         if (\is_array($this->groupBy)) {
             Model::validateArray($this->groupBy);
+        }
+        if (null !== $this->timePeriod) {
+            $this->timePeriod->validate();
         }
         parent::validate();
     }
@@ -74,6 +90,10 @@ class GetBillingOverviewRequest extends Model
 
         if (null !== $this->filter) {
             $res['filter'] = null !== $this->filter ? $this->filter->toArray($noStream) : $this->filter;
+        }
+
+        if (null !== $this->granularity) {
+            $res['granularity'] = $this->granularity;
         }
 
         if (null !== $this->groupBy) {
@@ -93,6 +113,10 @@ class GetBillingOverviewRequest extends Model
 
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->timePeriod) {
+            $res['timePeriod'] = null !== $this->timePeriod ? $this->timePeriod->toArray($noStream) : $this->timePeriod;
         }
 
         if (null !== $this->topNum) {
@@ -122,6 +146,10 @@ class GetBillingOverviewRequest extends Model
             $model->filter = filter::fromMap($map['filter']);
         }
 
+        if (isset($map['granularity'])) {
+            $model->granularity = $map['granularity'];
+        }
+
         if (isset($map['groupBy'])) {
             if (!empty($map['groupBy'])) {
                 $model->groupBy = [];
@@ -139,6 +167,10 @@ class GetBillingOverviewRequest extends Model
 
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['timePeriod'])) {
+            $model->timePeriod = timePeriod::fromMap($map['timePeriod']);
         }
 
         if (isset($map['topNum'])) {

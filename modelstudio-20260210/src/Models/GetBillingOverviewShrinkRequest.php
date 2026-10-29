@@ -21,6 +21,11 @@ class GetBillingOverviewShrinkRequest extends Model
     /**
      * @var string
      */
+    public $granularity;
+
+    /**
+     * @var string
+     */
     public $groupByShrink;
 
     /**
@@ -34,6 +39,11 @@ class GetBillingOverviewShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $timePeriodShrink;
+
+    /**
      * @var int
      */
     public $topNum;
@@ -45,9 +55,11 @@ class GetBillingOverviewShrinkRequest extends Model
     protected $_name = [
         'billMonth' => 'billMonth',
         'filterShrink' => 'filter',
+        'granularity' => 'granularity',
         'groupByShrink' => 'groupBy',
         'locale' => 'locale',
         'regionId' => 'regionId',
+        'timePeriodShrink' => 'timePeriod',
         'topNum' => 'topNum',
         'zeroFilter' => 'zeroFilter',
     ];
@@ -68,6 +80,10 @@ class GetBillingOverviewShrinkRequest extends Model
             $res['filter'] = $this->filterShrink;
         }
 
+        if (null !== $this->granularity) {
+            $res['granularity'] = $this->granularity;
+        }
+
         if (null !== $this->groupByShrink) {
             $res['groupBy'] = $this->groupByShrink;
         }
@@ -78,6 +94,10 @@ class GetBillingOverviewShrinkRequest extends Model
 
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->timePeriodShrink) {
+            $res['timePeriod'] = $this->timePeriodShrink;
         }
 
         if (null !== $this->topNum) {
@@ -107,6 +127,10 @@ class GetBillingOverviewShrinkRequest extends Model
             $model->filterShrink = $map['filter'];
         }
 
+        if (isset($map['granularity'])) {
+            $model->granularity = $map['granularity'];
+        }
+
         if (isset($map['groupBy'])) {
             $model->groupByShrink = $map['groupBy'];
         }
@@ -117,6 +141,10 @@ class GetBillingOverviewShrinkRequest extends Model
 
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['timePeriod'])) {
+            $model->timePeriodShrink = $map['timePeriod'];
         }
 
         if (isset($map['topNum'])) {
