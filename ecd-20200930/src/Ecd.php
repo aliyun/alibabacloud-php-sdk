@@ -3610,7 +3610,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a region-independent Cloud Desktop policy.
+     * Creates a region-independent cloud desktop policy.
      *
      * @param request - CreateCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3646,6 +3646,10 @@ class Ecd extends OpenApiClient
             @$query['AppContentProtection'] = $request->appContentProtection;
         }
 
+        if (null !== $request->appScreenshotBuckets) {
+            @$query['AppScreenshotBuckets'] = $request->appScreenshotBuckets;
+        }
+
         if (null !== $request->authorizeAccessPolicyRule) {
             @$query['AuthorizeAccessPolicyRule'] = $request->authorizeAccessPolicyRule;
         }
@@ -3656,6 +3660,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->autoReconnect) {
             @$query['AutoReconnect'] = $request->autoReconnect;
+        }
+
+        if (null !== $request->autoSaveAppScreenshot) {
+            @$query['AutoSaveAppScreenshot'] = $request->autoSaveAppScreenshot;
         }
 
         if (null !== $request->businessChannel) {
@@ -3856,6 +3864,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->maxReconnectTime) {
             @$query['MaxReconnectTime'] = $request->maxReconnectTime;
+        }
+
+        if (null !== $request->mcpService) {
+            @$query['McpService'] = $request->mcpService;
         }
 
         if (null !== $request->memoryDownGradeDuration) {
@@ -4217,7 +4229,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a region-independent Cloud Desktop policy.
+     * Creates a region-independent cloud desktop policy.
      *
      * @param request - CreateCenterPolicyRequest
      *
@@ -9840,7 +9852,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of regionless policies.
+     * 查詢無地域策略的詳細資訊。
      *
      * @param request - DescribeCenterPolicyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9911,7 +9923,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of regionless policies.
+     * 查詢無地域策略的詳細資訊。
      *
      * @param request - DescribeCenterPolicyListRequest
      *
@@ -10370,7 +10382,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
+     * Queries the list and basic information of all personal drives in an enterprise drive.
      *
      * @param request - DescribeCloudDriveUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10425,7 +10437,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of personal drives and their basic information for all users in an enterprise network drive.
+     * Queries the list and basic information of all personal drives in an enterprise drive.
      *
      * @param request - DescribeCloudDriveUsersRequest
      *
@@ -14253,7 +14265,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of cloud computer policies.
+     * Queries the details of cloud desktop policies.
      *
      * @param request - DescribePolicyGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14324,7 +14336,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of cloud computer policies.
+     * Queries the details of cloud desktop policies.
      *
      * @param request - DescribePolicyGroupsRequest
      *
@@ -15305,6 +15317,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->resourceId) {
             @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
 
         $req = new OpenApiRequest([
@@ -19903,7 +19919,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a region-free policy.
+     * Modifies the configuration of a regionless policy.
      *
      * @param request - ModifyCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19939,6 +19955,10 @@ class Ecd extends OpenApiClient
             @$query['AppContentProtection'] = $request->appContentProtection;
         }
 
+        if (null !== $request->appScreenshotBuckets) {
+            @$query['AppScreenshotBuckets'] = $request->appScreenshotBuckets;
+        }
+
         if (null !== $request->authorizeAccessPolicyRule) {
             @$query['AuthorizeAccessPolicyRule'] = $request->authorizeAccessPolicyRule;
         }
@@ -19949,6 +19969,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->autoReconnect) {
             @$query['AutoReconnect'] = $request->autoReconnect;
+        }
+
+        if (null !== $request->autoSaveAppScreenshot) {
+            @$query['AutoSaveAppScreenshot'] = $request->autoSaveAppScreenshot;
         }
 
         if (null !== $request->businessChannel) {
@@ -20145,6 +20169,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->maxReconnectTime) {
             @$query['MaxReconnectTime'] = $request->maxReconnectTime;
+        }
+
+        if (null !== $request->mcpService) {
+            @$query['McpService'] = $request->mcpService;
         }
 
         if (null !== $request->memoryDownGradeDuration) {
@@ -20518,7 +20546,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a region-free policy.
+     * Modifies the configuration of a regionless policy.
      *
      * @param request - ModifyCenterPolicyRequest
      *
@@ -23646,7 +23674,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a configuration group, such as scheduled task configurations.
+     * Modifies the specific settings of a configuration group, such as the configuration of scheduled tasks.
      *
      * @param request - ModifyTimerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23701,7 +23729,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a configuration group, such as scheduled task configurations.
+     * Modifies the specific settings of a configuration group, such as the configuration of scheduled tasks.
      *
      * @param request - ModifyTimerGroupRequest
      *

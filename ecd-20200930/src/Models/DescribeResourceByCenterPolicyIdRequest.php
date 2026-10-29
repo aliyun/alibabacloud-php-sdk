@@ -32,12 +32,18 @@ class DescribeResourceByCenterPolicyIdRequest extends Model
      * @var string
      */
     public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceName;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'policyGroupId' => 'PolicyGroupId',
         'productType' => 'ProductType',
         'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class DescribeResourceByCenterPolicyIdRequest extends Model
 
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class DescribeResourceByCenterPolicyIdRequest extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
 
         return $model;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\appScreenshotBuckets;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\authorizeAccessPolicyRules;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\authorizeSecurityPolicyRules;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePolicyGroupsResponseBody\describePolicyGroups\clientTypes;
@@ -43,6 +44,11 @@ class describePolicyGroups extends Model
     public $appContentProtection;
 
     /**
+     * @var appScreenshotBuckets[]
+     */
+    public $appScreenshotBuckets;
+
+    /**
      * @var authorizeAccessPolicyRules[]
      */
     public $authorizeAccessPolicyRules;
@@ -56,6 +62,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $autoReconnect;
+
+    /**
+     * @var string
+     */
+    public $autoSaveAppScreenshot;
 
     /**
      * @var string
@@ -336,6 +347,11 @@ class describePolicyGroups extends Model
      * @var int
      */
     public $maxReconnectTime;
+
+    /**
+     * @var string
+     */
+    public $mcpService;
 
     /**
      * @var int
@@ -787,9 +803,11 @@ class describePolicyGroups extends Model
         'adminKeyboardOnFullScreen' => 'AdminKeyboardOnFullScreen',
         'adminKeyboardOnWindows' => 'AdminKeyboardOnWindows',
         'appContentProtection' => 'AppContentProtection',
+        'appScreenshotBuckets' => 'AppScreenshotBuckets',
         'authorizeAccessPolicyRules' => 'AuthorizeAccessPolicyRules',
         'authorizeSecurityPolicyRules' => 'AuthorizeSecurityPolicyRules',
         'autoReconnect' => 'AutoReconnect',
+        'autoSaveAppScreenshot' => 'AutoSaveAppScreenshot',
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
         'clientCreateSnapshot' => 'ClientCreateSnapshot',
@@ -846,6 +864,7 @@ class describePolicyGroups extends Model
         'keyboardControl' => 'KeyboardControl',
         'localDrive' => 'LocalDrive',
         'maxReconnectTime' => 'MaxReconnectTime',
+        'mcpService' => 'McpService',
         'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
         'memoryOverload' => 'MemoryOverload',
         'memoryProcessors' => 'MemoryProcessors',
@@ -939,6 +958,9 @@ class describePolicyGroups extends Model
 
     public function validate()
     {
+        if (\is_array($this->appScreenshotBuckets)) {
+            Model::validateArray($this->appScreenshotBuckets);
+        }
         if (\is_array($this->authorizeAccessPolicyRules)) {
             Model::validateArray($this->authorizeAccessPolicyRules);
         }
@@ -1013,6 +1035,17 @@ class describePolicyGroups extends Model
             $res['AppContentProtection'] = $this->appContentProtection;
         }
 
+        if (null !== $this->appScreenshotBuckets) {
+            if (\is_array($this->appScreenshotBuckets)) {
+                $res['AppScreenshotBuckets'] = [];
+                $n1 = 0;
+                foreach ($this->appScreenshotBuckets as $item1) {
+                    $res['AppScreenshotBuckets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->authorizeAccessPolicyRules) {
             if (\is_array($this->authorizeAccessPolicyRules)) {
                 $res['AuthorizeAccessPolicyRules'] = [];
@@ -1037,6 +1070,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->autoReconnect) {
             $res['AutoReconnect'] = $this->autoReconnect;
+        }
+
+        if (null !== $this->autoSaveAppScreenshot) {
+            $res['AutoSaveAppScreenshot'] = $this->autoSaveAppScreenshot;
         }
 
         if (null !== $this->cameraRedirect) {
@@ -1296,6 +1333,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->maxReconnectTime) {
             $res['MaxReconnectTime'] = $this->maxReconnectTime;
+        }
+
+        if (null !== $this->mcpService) {
+            $res['McpService'] = $this->mcpService;
         }
 
         if (null !== $this->memoryDownGradeDuration) {
@@ -1748,6 +1789,17 @@ class describePolicyGroups extends Model
             $model->appContentProtection = $map['AppContentProtection'];
         }
 
+        if (isset($map['AppScreenshotBuckets'])) {
+            if (!empty($map['AppScreenshotBuckets'])) {
+                $model->appScreenshotBuckets = [];
+                $n1 = 0;
+                foreach ($map['AppScreenshotBuckets'] as $item1) {
+                    $model->appScreenshotBuckets[$n1] = appScreenshotBuckets::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AuthorizeAccessPolicyRules'])) {
             if (!empty($map['AuthorizeAccessPolicyRules'])) {
                 $model->authorizeAccessPolicyRules = [];
@@ -1772,6 +1824,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['AutoReconnect'])) {
             $model->autoReconnect = $map['AutoReconnect'];
+        }
+
+        if (isset($map['AutoSaveAppScreenshot'])) {
+            $model->autoSaveAppScreenshot = $map['AutoSaveAppScreenshot'];
         }
 
         if (isset($map['CameraRedirect'])) {
@@ -2031,6 +2087,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['MaxReconnectTime'])) {
             $model->maxReconnectTime = $map['MaxReconnectTime'];
+        }
+
+        if (isset($map['McpService'])) {
+            $model->mcpService = $map['McpService'];
         }
 
         if (isset($map['MemoryDownGradeDuration'])) {

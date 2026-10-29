@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCenterPolicyRequest\appScreenshotBuckets;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCenterPolicyRequest\authorizeAccessPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCenterPolicyRequest\authorizeSecurityPolicyRule;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyCenterPolicyRequest\clientType;
@@ -46,6 +47,11 @@ class ModifyCenterPolicyRequest extends Model
     public $appContentProtection;
 
     /**
+     * @var appScreenshotBuckets[]
+     */
+    public $appScreenshotBuckets;
+
+    /**
      * @var authorizeAccessPolicyRule[]
      */
     public $authorizeAccessPolicyRule;
@@ -59,6 +65,11 @@ class ModifyCenterPolicyRequest extends Model
      * @var string
      */
     public $autoReconnect;
+
+    /**
+     * @var string
+     */
+    public $autoSaveAppScreenshot;
 
     /**
      * @var string
@@ -304,6 +315,11 @@ class ModifyCenterPolicyRequest extends Model
      * @var int
      */
     public $maxReconnectTime;
+
+    /**
+     * @var string
+     */
+    public $mcpService;
 
     /**
      * @var int
@@ -750,9 +766,11 @@ class ModifyCenterPolicyRequest extends Model
         'adminKeyboardOnFullScreen' => 'AdminKeyboardOnFullScreen',
         'adminKeyboardOnWindows' => 'AdminKeyboardOnWindows',
         'appContentProtection' => 'AppContentProtection',
+        'appScreenshotBuckets' => 'AppScreenshotBuckets',
         'authorizeAccessPolicyRule' => 'AuthorizeAccessPolicyRule',
         'authorizeSecurityPolicyRule' => 'AuthorizeSecurityPolicyRule',
         'autoReconnect' => 'AutoReconnect',
+        'autoSaveAppScreenshot' => 'AutoSaveAppScreenshot',
         'businessChannel' => 'BusinessChannel',
         'businessType' => 'BusinessType',
         'cameraRedirect' => 'CameraRedirect',
@@ -802,6 +820,7 @@ class ModifyCenterPolicyRequest extends Model
         'internetPrinter' => 'InternetPrinter',
         'localDrive' => 'LocalDrive',
         'maxReconnectTime' => 'MaxReconnectTime',
+        'mcpService' => 'McpService',
         'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
         'memoryOverload' => 'MemoryOverload',
         'memoryProcessors' => 'MemoryProcessors',
@@ -894,6 +913,9 @@ class ModifyCenterPolicyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->appScreenshotBuckets)) {
+            Model::validateArray($this->appScreenshotBuckets);
+        }
         if (\is_array($this->authorizeAccessPolicyRule)) {
             Model::validateArray($this->authorizeAccessPolicyRule);
         }
@@ -977,6 +999,17 @@ class ModifyCenterPolicyRequest extends Model
             $res['AppContentProtection'] = $this->appContentProtection;
         }
 
+        if (null !== $this->appScreenshotBuckets) {
+            if (\is_array($this->appScreenshotBuckets)) {
+                $res['AppScreenshotBuckets'] = [];
+                $n1 = 0;
+                foreach ($this->appScreenshotBuckets as $item1) {
+                    $res['AppScreenshotBuckets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->authorizeAccessPolicyRule) {
             if (\is_array($this->authorizeAccessPolicyRule)) {
                 $res['AuthorizeAccessPolicyRule'] = [];
@@ -1001,6 +1034,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (null !== $this->autoReconnect) {
             $res['AutoReconnect'] = $this->autoReconnect;
+        }
+
+        if (null !== $this->autoSaveAppScreenshot) {
+            $res['AutoSaveAppScreenshot'] = $this->autoSaveAppScreenshot;
         }
 
         if (null !== $this->businessChannel) {
@@ -1239,6 +1276,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (null !== $this->maxReconnectTime) {
             $res['MaxReconnectTime'] = $this->maxReconnectTime;
+        }
+
+        if (null !== $this->mcpService) {
+            $res['McpService'] = $this->mcpService;
         }
 
         if (null !== $this->memoryDownGradeDuration) {
@@ -1701,6 +1742,17 @@ class ModifyCenterPolicyRequest extends Model
             $model->appContentProtection = $map['AppContentProtection'];
         }
 
+        if (isset($map['AppScreenshotBuckets'])) {
+            if (!empty($map['AppScreenshotBuckets'])) {
+                $model->appScreenshotBuckets = [];
+                $n1 = 0;
+                foreach ($map['AppScreenshotBuckets'] as $item1) {
+                    $model->appScreenshotBuckets[$n1] = appScreenshotBuckets::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AuthorizeAccessPolicyRule'])) {
             if (!empty($map['AuthorizeAccessPolicyRule'])) {
                 $model->authorizeAccessPolicyRule = [];
@@ -1725,6 +1777,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (isset($map['AutoReconnect'])) {
             $model->autoReconnect = $map['AutoReconnect'];
+        }
+
+        if (isset($map['AutoSaveAppScreenshot'])) {
+            $model->autoSaveAppScreenshot = $map['AutoSaveAppScreenshot'];
         }
 
         if (isset($map['BusinessChannel'])) {
@@ -1963,6 +2019,10 @@ class ModifyCenterPolicyRequest extends Model
 
         if (isset($map['MaxReconnectTime'])) {
             $model->maxReconnectTime = $map['MaxReconnectTime'];
+        }
+
+        if (isset($map['McpService'])) {
+            $model->mcpService = $map['McpService'];
         }
 
         if (isset($map['MemoryDownGradeDuration'])) {
