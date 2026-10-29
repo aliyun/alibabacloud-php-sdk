@@ -42,6 +42,11 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableJumboFrame;
+
+    /**
      * @var string
      */
     public $gmtCreate;
@@ -117,6 +122,7 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
         'bandwidth' => 'Bandwidth',
         'bizStatus' => 'BizStatus',
         'description' => 'Description',
+        'enableJumboFrame' => 'EnableJumboFrame',
         'gmtCreate' => 'GmtCreate',
         'gmtExpired' => 'GmtExpired',
         'gmtModified' => 'GmtModified',
@@ -172,6 +178,10 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableJumboFrame) {
+            $res['EnableJumboFrame'] = $this->enableJumboFrame;
         }
 
         if (null !== $this->gmtCreate) {
@@ -270,6 +280,10 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableJumboFrame'])) {
+            $model->enableJumboFrame = $map['EnableJumboFrame'];
         }
 
         if (isset($map['GmtCreate'])) {

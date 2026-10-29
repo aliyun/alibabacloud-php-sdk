@@ -29,6 +29,11 @@ class ModifyVpcPeerConnectionRequest extends Model
     public $dryRun;
 
     /**
+     * @var bool
+     */
+    public $enableJumboFrame;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -47,6 +52,7 @@ class ModifyVpcPeerConnectionRequest extends Model
         'clientToken' => 'ClientToken',
         'description' => 'Description',
         'dryRun' => 'DryRun',
+        'enableJumboFrame' => 'EnableJumboFrame',
         'instanceId' => 'InstanceId',
         'linkType' => 'LinkType',
         'name' => 'Name',
@@ -74,6 +80,10 @@ class ModifyVpcPeerConnectionRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->enableJumboFrame) {
+            $res['EnableJumboFrame'] = $this->enableJumboFrame;
         }
 
         if (null !== $this->instanceId) {
@@ -113,6 +123,10 @@ class ModifyVpcPeerConnectionRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['EnableJumboFrame'])) {
+            $model->enableJumboFrame = $map['EnableJumboFrame'];
         }
 
         if (isset($map['InstanceId'])) {
