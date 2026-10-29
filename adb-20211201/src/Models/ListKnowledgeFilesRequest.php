@@ -21,6 +21,11 @@ class ListKnowledgeFilesRequest extends Model
     /**
      * @var string
      */
+    public $fileLocation;
+
+    /**
+     * @var string
+     */
     public $page;
 
     /**
@@ -40,6 +45,7 @@ class ListKnowledgeFilesRequest extends Model
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'fileIds' => 'FileIds',
+        'fileLocation' => 'FileLocation',
         'page' => 'Page',
         'pageSize' => 'PageSize',
         'status' => 'Status',
@@ -60,6 +66,10 @@ class ListKnowledgeFilesRequest extends Model
 
         if (null !== $this->fileIds) {
             $res['FileIds'] = $this->fileIds;
+        }
+
+        if (null !== $this->fileLocation) {
+            $res['FileLocation'] = $this->fileLocation;
         }
 
         if (null !== $this->page) {
@@ -95,6 +105,10 @@ class ListKnowledgeFilesRequest extends Model
 
         if (isset($map['FileIds'])) {
             $model->fileIds = $map['FileIds'];
+        }
+
+        if (isset($map['FileLocation'])) {
+            $model->fileLocation = $map['FileLocation'];
         }
 
         if (isset($map['Page'])) {

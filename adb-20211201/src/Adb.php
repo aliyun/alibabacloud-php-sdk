@@ -340,6 +340,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkWarehouseBatchSQLRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkWarehouseBatchSQLResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ForkKnowledgeFileRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ForkKnowledgeFileResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GenerateSqlBySemanticSqlRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GenerateSqlBySemanticSqlResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetADBSparkNecessaryRAMPermissionsRequest;
@@ -546,6 +548,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitSparkLogAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitSparkLogAnalyzeTaskResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SuspendApsJobRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SuspendApsJobResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\TriggerKnowledgeFileParseRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\TriggerKnowledgeFileParseResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindAccountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindDBResourceGroupWithUserRequest;
@@ -14119,6 +14123,79 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * Creates a reference record for a knowledge base file.
+     *
+     * @param request - ForkKnowledgeFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ForkKnowledgeFileResponse
+     *
+     * @param ForkKnowledgeFileRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ForkKnowledgeFileResponse
+     */
+    public function forkKnowledgeFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->uploadUser) {
+            @$query['UploadUser'] = $request->uploadUser;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ForkKnowledgeFile',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ForkKnowledgeFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a reference record for a knowledge base file.
+     *
+     * @param request - ForkKnowledgeFileRequest
+     *
+     * @returns ForkKnowledgeFileResponse
+     *
+     * @param ForkKnowledgeFileRequest $request
+     *
+     * @return ForkKnowledgeFileResponse
+     */
+    public function forkKnowledgeFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->forkKnowledgeFileWithOptions($request, $runtime);
+    }
+
+    /**
      * Generates an executable SQL statement from a semantic SQL statement.
      *
      * @param request - GenerateSqlBySemanticSqlRequest
@@ -16827,6 +16904,10 @@ class Adb extends OpenApiClient
 
         if (null !== $request->fileIds) {
             @$query['FileIds'] = $request->fileIds;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
         }
 
         if (null !== $request->page) {
@@ -21893,6 +21974,71 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->suspendApsJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a reparse task for a knowledge base file.
+     *
+     * @param request - TriggerKnowledgeFileParseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TriggerKnowledgeFileParseResponse
+     *
+     * @param TriggerKnowledgeFileParseRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return TriggerKnowledgeFileParseResponse
+     */
+    public function triggerKnowledgeFileParseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->fileLocation) {
+            @$query['FileLocation'] = $request->fileLocation;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TriggerKnowledgeFileParse',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TriggerKnowledgeFileParseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a reparse task for a knowledge base file.
+     *
+     * @param request - TriggerKnowledgeFileParseRequest
+     *
+     * @returns TriggerKnowledgeFileParseResponse
+     *
+     * @param TriggerKnowledgeFileParseRequest $request
+     *
+     * @return TriggerKnowledgeFileParseResponse
+     */
+    public function triggerKnowledgeFileParse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->triggerKnowledgeFileParseWithOptions($request, $runtime);
     }
 
     /**
