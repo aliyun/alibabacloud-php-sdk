@@ -26,6 +26,11 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $contactGroups;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $effectiveInterval;
@@ -108,6 +113,7 @@ class PutResourceMetricRuleShrinkRequest extends Model
         'escalations' => 'Escalations',
         'compositeExpressionShrink' => 'CompositeExpression',
         'contactGroups' => 'ContactGroups',
+        'dryRun' => 'DryRun',
         'effectiveInterval' => 'EffectiveInterval',
         'emailSubject' => 'EmailSubject',
         'interval' => 'Interval',
@@ -150,6 +156,10 @@ class PutResourceMetricRuleShrinkRequest extends Model
 
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = $this->contactGroups;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->effectiveInterval) {
@@ -244,6 +254,10 @@ class PutResourceMetricRuleShrinkRequest extends Model
 
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = $map['ContactGroups'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EffectiveInterval'])) {

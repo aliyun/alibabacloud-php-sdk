@@ -14,6 +14,11 @@ class CreateMonitorGroupRequest extends Model
     public $contactGroups;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $groupName;
@@ -24,6 +29,7 @@ class CreateMonitorGroupRequest extends Model
     public $regionId;
     protected $_name = [
         'contactGroups' => 'ContactGroups',
+        'dryRun' => 'DryRun',
         'groupName' => 'GroupName',
         'regionId' => 'RegionId',
     ];
@@ -38,6 +44,10 @@ class CreateMonitorGroupRequest extends Model
         $res = [];
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = $this->contactGroups;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->groupName) {
@@ -61,6 +71,10 @@ class CreateMonitorGroupRequest extends Model
         $model = new self();
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = $map['ContactGroups'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['GroupName'])) {

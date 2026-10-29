@@ -282,6 +282,11 @@ class optionJson extends Model
     public $serverName;
 
     /**
+     * @var bool
+     */
+    public $sse;
+
+    /**
      * @var steps
      */
     public $steps;
@@ -398,6 +403,7 @@ class optionJson extends Model
         'screenShot' => 'screen_shot',
         'scrollEnd' => 'scroll_end',
         'serverName' => 'server_name',
+        'sse' => 'sse',
         'steps' => 'steps',
         'strictMode' => 'strict_mode',
         'supportedCipherSuits' => 'supported_cipher_suits',
@@ -666,6 +672,10 @@ class optionJson extends Model
 
         if (null !== $this->serverName) {
             $res['server_name'] = $this->serverName;
+        }
+
+        if (null !== $this->sse) {
+            $res['sse'] = $this->sse;
         }
 
         if (null !== $this->steps) {
@@ -937,6 +947,10 @@ class optionJson extends Model
 
         if (isset($map['server_name'])) {
             $model->serverName = $map['server_name'];
+        }
+
+        if (isset($map['sse'])) {
+            $model->sse = $map['sse'];
         }
 
         if (isset($map['steps'])) {

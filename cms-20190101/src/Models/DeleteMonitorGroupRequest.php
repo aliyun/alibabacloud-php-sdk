@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DeleteMonitorGroupRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var int
      */
     public $groupId;
@@ -18,6 +23,7 @@ class DeleteMonitorGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'groupId' => 'GroupId',
         'regionId' => 'RegionId',
     ];
@@ -30,6 +36,10 @@ class DeleteMonitorGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -49,6 +59,10 @@ class DeleteMonitorGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

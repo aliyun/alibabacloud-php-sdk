@@ -12,6 +12,11 @@ class CreateMonitorGroupInstancesRequest extends Model
     /**
      * @var string
      */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -24,6 +29,7 @@ class CreateMonitorGroupInstancesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'groupId' => 'GroupId',
         'instances' => 'Instances',
         'regionId' => 'RegionId',
@@ -40,6 +46,10 @@ class CreateMonitorGroupInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -70,6 +80,10 @@ class CreateMonitorGroupInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

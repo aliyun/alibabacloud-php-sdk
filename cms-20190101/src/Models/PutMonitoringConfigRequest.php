@@ -16,6 +16,11 @@ class PutMonitoringConfigRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $enableInstallAgentNewECS;
 
     /**
@@ -24,6 +29,7 @@ class PutMonitoringConfigRequest extends Model
     public $regionId;
     protected $_name = [
         'autoInstall' => 'AutoInstall',
+        'dryRun' => 'DryRun',
         'enableInstallAgentNewECS' => 'EnableInstallAgentNewECS',
         'regionId' => 'RegionId',
     ];
@@ -38,6 +44,10 @@ class PutMonitoringConfigRequest extends Model
         $res = [];
         if (null !== $this->autoInstall) {
             $res['AutoInstall'] = $this->autoInstall;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->enableInstallAgentNewECS) {
@@ -61,6 +71,10 @@ class PutMonitoringConfigRequest extends Model
         $model = new self();
         if (isset($map['AutoInstall'])) {
             $model->autoInstall = $map['AutoInstall'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EnableInstallAgentNewECS'])) {

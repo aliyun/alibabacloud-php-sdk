@@ -31,6 +31,11 @@ class PutGroupMetricRuleRequest extends Model
     public $dimensions;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $effectiveInterval;
@@ -114,6 +119,7 @@ class PutGroupMetricRuleRequest extends Model
         'category' => 'Category',
         'contactGroups' => 'ContactGroups',
         'dimensions' => 'Dimensions',
+        'dryRun' => 'DryRun',
         'effectiveInterval' => 'EffectiveInterval',
         'emailSubject' => 'EmailSubject',
         'extraDimensionJson' => 'ExtraDimensionJson',
@@ -160,6 +166,10 @@ class PutGroupMetricRuleRequest extends Model
 
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->effectiveInterval) {
@@ -258,6 +268,10 @@ class PutGroupMetricRuleRequest extends Model
 
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EffectiveInterval'])) {

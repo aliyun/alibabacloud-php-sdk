@@ -17,6 +17,11 @@ class CreateDynamicTagGroupRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $enableInstallAgent;
 
     /**
@@ -55,6 +60,7 @@ class CreateDynamicTagGroupRequest extends Model
     public $templateIdList;
     protected $_name = [
         'contactGroupList' => 'ContactGroupList',
+        'dryRun' => 'DryRun',
         'enableInstallAgent' => 'EnableInstallAgent',
         'enableSubscribeEvent' => 'EnableSubscribeEvent',
         'matchExpress' => 'MatchExpress',
@@ -91,6 +97,10 @@ class CreateDynamicTagGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->enableInstallAgent) {
@@ -159,6 +169,10 @@ class CreateDynamicTagGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EnableInstallAgent'])) {

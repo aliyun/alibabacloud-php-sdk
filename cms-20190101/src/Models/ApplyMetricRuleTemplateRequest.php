@@ -19,6 +19,11 @@ class ApplyMetricRuleTemplateRequest extends Model
     public $applyMode;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var int
      */
     public $enableEndTime;
@@ -55,6 +60,7 @@ class ApplyMetricRuleTemplateRequest extends Model
     protected $_name = [
         'appendMode' => 'AppendMode',
         'applyMode' => 'ApplyMode',
+        'dryRun' => 'DryRun',
         'enableEndTime' => 'EnableEndTime',
         'enableStartTime' => 'EnableStartTime',
         'groupId' => 'GroupId',
@@ -78,6 +84,10 @@ class ApplyMetricRuleTemplateRequest extends Model
 
         if (null !== $this->applyMode) {
             $res['ApplyMode'] = $this->applyMode;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->enableEndTime) {
@@ -125,6 +135,10 @@ class ApplyMetricRuleTemplateRequest extends Model
 
         if (isset($map['ApplyMode'])) {
             $model->applyMode = $map['ApplyMode'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EnableEndTime'])) {

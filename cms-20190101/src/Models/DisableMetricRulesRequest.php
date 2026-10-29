@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DisableMetricRulesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -18,6 +23,7 @@ class DisableMetricRulesRequest extends Model
      */
     public $ruleId;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'regionId' => 'RegionId',
         'ruleId' => 'RuleId',
     ];
@@ -33,6 +39,10 @@ class DisableMetricRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -59,6 +69,10 @@ class DisableMetricRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
