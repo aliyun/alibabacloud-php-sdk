@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\CreateSqlLogTaskRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateSqlLogTaskResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateStorageAnalysisTaskRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\CreateStorageAnalysisTaskResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\CreateYaoChiAgentConfirmRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\CreateYaoChiAgentConfirmResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteCloudBenchTaskRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteCloudBenchTaskResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteSecurityIPGroupRequest;
@@ -395,14 +397,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Invokes the asynchronous logic interface for DAS large model capabilities.
+     * Invokes the asynchronous logic interface for the large language model capabilities of Database Autonomy Service (DAS).
      *
      * @remarks
      * Before you begin:
-     * - Use the latest version of the Alibaba Cloud or DAS SDK.
-     * - When you use the SDK to call DAS services, specify the region as cn-shanghai.
-     * - Only database instances with DAS Enterprise Edition enabled support creating offline tasks. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
-     * For more methods and examples on how to use the Chat interface to interact with the DAS Agent, see [Best practices for DAS Agent interaction (Chat API integration)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When calling DAS services by using the SDK, set the region to cn-shanghai.
+     * - Only database instances with DAS Enterprise Edition enabled support the creation of offline tasks. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * For more methods and examples of using the Chat API to interact with the DAS agent, see [Best practices for DAS agent interaction (Chat API integration)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
      *
      * @param request - ChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -474,14 +476,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Invokes the asynchronous logic interface for DAS large model capabilities.
+     * Invokes the asynchronous logic interface for the large language model capabilities of Database Autonomy Service (DAS).
      *
      * @remarks
      * Before you begin:
-     * - Use the latest version of the Alibaba Cloud or DAS SDK.
-     * - When you use the SDK to call DAS services, specify the region as cn-shanghai.
-     * - Only database instances with DAS Enterprise Edition enabled support creating offline tasks. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
-     * For more methods and examples on how to use the Chat interface to interact with the DAS Agent, see [Best practices for DAS Agent interaction (Chat API integration)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When calling DAS services by using the SDK, set the region to cn-shanghai.
+     * - Only database instances with DAS Enterprise Edition enabled support the creation of offline tasks. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * For more methods and examples of using the Chat API to interact with the DAS agent, see [Best practices for DAS agent interaction (Chat API integration)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
      *
      * @param request - ChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -540,14 +542,14 @@ class DAS extends OpenApiClient
     }
 
     /**
-     * Invokes the asynchronous logic interface for DAS large model capabilities.
+     * Invokes the asynchronous logic interface for the large language model capabilities of Database Autonomy Service (DAS).
      *
      * @remarks
      * Before you begin:
-     * - Use the latest version of the Alibaba Cloud or DAS SDK.
-     * - When you use the SDK to call DAS services, specify the region as cn-shanghai.
-     * - Only database instances with DAS Enterprise Edition enabled support creating offline tasks. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
-     * For more methods and examples on how to use the Chat interface to interact with the DAS Agent, see [Best practices for DAS Agent interaction (Chat API integration)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
+     * - When using the Alibaba Cloud or DAS SDK, use the latest version.
+     * - When calling DAS services by using the SDK, set the region to cn-shanghai.
+     * - Only database instances with DAS Enterprise Edition enabled support the creation of offline tasks. For the databases and regions supported by each edition of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+     * For more methods and examples of using the Chat API to interact with the DAS agent, see [Best practices for DAS agent interaction (Chat API integration)](https://www.alibabacloud.com/help/en/das/developer-reference/chat-api-best-practice).
      *
      * @param request - ChatRequest
      *
@@ -1597,6 +1599,103 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createStorageAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Confirms or rejects a pending operation in an Alibaba Cloud ApsaraDB agent session.
+     *
+     * @remarks
+     * This operation responds to operation confirmation requests initiated by the ApsaraDB AI assistant in a session. It is not used to create sessions.
+     * ### Invocation flow
+     * 1. Initiate a chat with the ApsaraDB AI assistant, save the current session ID, and continuously read the chat response stream.
+     * 2. After receiving an event where the toolName in ui_function_call is humanConfirm, read the pending confirmation ID from argsText.confirmation_id. Use the ID of the session to which this event belongs as the SessionId. Do not use call_id or query_id in place of ConfirmationId.
+     * 3. Display the pending operation and its parameters to the user, and invoke this operation within the confirmation time limit. Approved=true indicates agreement to proceed with the execution. Approved=false indicates cancellation of the current tool invocation, which does not shut down the entire session. Omit ToolArgs in the current version.
+     * 4. Keep the original chat response stream open and continue reading subsequent responses or errors until the current session response ends. You can also query saved session messages later by invoking DescribeYaoChiAgentChatRecords.
+     * ### Limits
+     * - You must use the same invocation identity and session ID as those used to initiate the confirmation request.
+     * - The default confirmation wait time limit is 120 seconds, subject to the actual server configuration. After a timeout, the tool invocation is automatically canceled. A late approval cannot be used to resume a canceled execution.
+     * - Do not shut down the original chat stream before submitting the confirmation, and do not initiate a new chat round to resume the tool invocation. Disconnecting the original chat stream may cause the current task to be canceled.
+     * - Submit a decision for the same ConfirmationId only once. Do not use historical confirmation cards as replayable requests. If the confirmation record is invalid or has been cleared, submitting a request may return Forbidden.Confirm.
+     * - This operation only processes the UUID confirmation identifier in humanConfirm events and is not used for interruption recovery in other interaction protocols.
+     *
+     * @param request - CreateYaoChiAgentConfirmRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateYaoChiAgentConfirmResponse
+     *
+     * @param CreateYaoChiAgentConfirmRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateYaoChiAgentConfirmResponse
+     */
+    public function createYaoChiAgentConfirmWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->approved) {
+            @$query['Approved'] = $request->approved;
+        }
+
+        if (null !== $request->confirmationId) {
+            @$query['ConfirmationId'] = $request->confirmationId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->toolArgs) {
+            @$query['ToolArgs'] = $request->toolArgs;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateYaoChiAgentConfirm',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateYaoChiAgentConfirmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Confirms or rejects a pending operation in an Alibaba Cloud ApsaraDB agent session.
+     *
+     * @remarks
+     * This operation responds to operation confirmation requests initiated by the ApsaraDB AI assistant in a session. It is not used to create sessions.
+     * ### Invocation flow
+     * 1. Initiate a chat with the ApsaraDB AI assistant, save the current session ID, and continuously read the chat response stream.
+     * 2. After receiving an event where the toolName in ui_function_call is humanConfirm, read the pending confirmation ID from argsText.confirmation_id. Use the ID of the session to which this event belongs as the SessionId. Do not use call_id or query_id in place of ConfirmationId.
+     * 3. Display the pending operation and its parameters to the user, and invoke this operation within the confirmation time limit. Approved=true indicates agreement to proceed with the execution. Approved=false indicates cancellation of the current tool invocation, which does not shut down the entire session. Omit ToolArgs in the current version.
+     * 4. Keep the original chat response stream open and continue reading subsequent responses or errors until the current session response ends. You can also query saved session messages later by invoking DescribeYaoChiAgentChatRecords.
+     * ### Limits
+     * - You must use the same invocation identity and session ID as those used to initiate the confirmation request.
+     * - The default confirmation wait time limit is 120 seconds, subject to the actual server configuration. After a timeout, the tool invocation is automatically canceled. A late approval cannot be used to resume a canceled execution.
+     * - Do not shut down the original chat stream before submitting the confirmation, and do not initiate a new chat round to resume the tool invocation. Disconnecting the original chat stream may cause the current task to be canceled.
+     * - Submit a decision for the same ConfirmationId only once. Do not use historical confirmation cards as replayable requests. If the confirmation record is invalid or has been cleared, submitting a request may return Forbidden.Confirm.
+     * - This operation only processes the UUID confirmation identifier in humanConfirm events and is not used for interruption recovery in other interaction protocols.
+     *
+     * @param request - CreateYaoChiAgentConfirmRequest
+     *
+     * @returns CreateYaoChiAgentConfirmResponse
+     *
+     * @param CreateYaoChiAgentConfirmRequest $request
+     *
+     * @return CreateYaoChiAgentConfirmResponse
+     */
+    public function createYaoChiAgentConfirm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createYaoChiAgentConfirmWithOptions($request, $runtime);
     }
 
     /**
