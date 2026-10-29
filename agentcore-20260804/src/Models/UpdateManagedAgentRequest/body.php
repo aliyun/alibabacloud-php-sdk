@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\h
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\model_;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\network;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\ossMounts;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\promptVariables;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\runtime;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\skills;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\subAgents;
@@ -65,6 +66,11 @@ class body extends Model
     public $ossMounts;
 
     /**
+     * @var promptVariables[]
+     */
+    public $promptVariables;
+
+    /**
      * @var runtime
      */
     public $runtime;
@@ -98,6 +104,7 @@ class body extends Model
         'name' => 'name',
         'network' => 'network',
         'ossMounts' => 'ossMounts',
+        'promptVariables' => 'promptVariables',
         'runtime' => 'runtime',
         'skills' => 'skills',
         'subAgents' => 'subAgents',
@@ -124,6 +131,9 @@ class body extends Model
         }
         if (\is_array($this->ossMounts)) {
             Model::validateArray($this->ossMounts);
+        }
+        if (\is_array($this->promptVariables)) {
+            Model::validateArray($this->promptVariables);
         }
         if (null !== $this->runtime) {
             $this->runtime->validate();
@@ -191,6 +201,17 @@ class body extends Model
                 $n1 = 0;
                 foreach ($this->ossMounts as $item1) {
                     $res['ossMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->promptVariables) {
+            if (\is_array($this->promptVariables)) {
+                $res['promptVariables'] = [];
+                $n1 = 0;
+                foreach ($this->promptVariables as $item1) {
+                    $res['promptVariables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -293,6 +314,17 @@ class body extends Model
                 $n1 = 0;
                 foreach ($map['ossMounts'] as $item1) {
                     $model->ossMounts[$n1] = ossMounts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['promptVariables'])) {
+            if (!empty($map['promptVariables'])) {
+                $model->promptVariables = [];
+                $n1 = 0;
+                foreach ($map['promptVariables'] as $item1) {
+                    $model->promptVariables[$n1] = promptVariables::fromMap($item1);
                     ++$n1;
                 }
             }

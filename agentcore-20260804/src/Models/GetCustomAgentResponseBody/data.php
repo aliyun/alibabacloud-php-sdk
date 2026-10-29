@@ -8,8 +8,11 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\agenticFsMounts;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\artifact;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\codePackageInfo;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\currentImage;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\customImage;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\environment;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\healthCheck;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\imagePreparation;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\latestExecutionError;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\logging;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentResponseBody\data\network;
@@ -51,6 +54,16 @@ class data extends Model
     public $createdAt;
 
     /**
+     * @var currentImage
+     */
+    public $currentImage;
+
+    /**
+     * @var customImage
+     */
+    public $customImage;
+
+    /**
      * @var string
      */
     public $deployType;
@@ -79,6 +92,11 @@ class data extends Model
      * @var string
      */
     public $imageCacheId;
+
+    /**
+     * @var imagePreparation
+     */
+    public $imagePreparation;
 
     /**
      * @var latestExecutionError
@@ -171,12 +189,15 @@ class data extends Model
         'codePackageInfo' => 'codePackageInfo',
         'createMode' => 'createMode',
         'createdAt' => 'createdAt',
+        'currentImage' => 'currentImage',
+        'customImage' => 'customImage',
         'deployType' => 'deployType',
         'description' => 'description',
         'effectiveSpecVersion' => 'effectiveSpecVersion',
         'environment' => 'environment',
         'healthCheck' => 'healthCheck',
         'imageCacheId' => 'imageCacheId',
+        'imagePreparation' => 'imagePreparation',
         'latestExecutionError' => 'latestExecutionError',
         'latestSpecVersion' => 'latestSpecVersion',
         'latestVersionStatus' => 'latestVersionStatus',
@@ -207,11 +228,20 @@ class data extends Model
         if (null !== $this->codePackageInfo) {
             $this->codePackageInfo->validate();
         }
+        if (null !== $this->currentImage) {
+            $this->currentImage->validate();
+        }
+        if (null !== $this->customImage) {
+            $this->customImage->validate();
+        }
         if (null !== $this->environment) {
             $this->environment->validate();
         }
         if (null !== $this->healthCheck) {
             $this->healthCheck->validate();
+        }
+        if (null !== $this->imagePreparation) {
+            $this->imagePreparation->validate();
         }
         if (null !== $this->latestExecutionError) {
             $this->latestExecutionError->validate();
@@ -274,6 +304,14 @@ class data extends Model
             $res['createdAt'] = $this->createdAt;
         }
 
+        if (null !== $this->currentImage) {
+            $res['currentImage'] = null !== $this->currentImage ? $this->currentImage->toArray($noStream) : $this->currentImage;
+        }
+
+        if (null !== $this->customImage) {
+            $res['customImage'] = null !== $this->customImage ? $this->customImage->toArray($noStream) : $this->customImage;
+        }
+
         if (null !== $this->deployType) {
             $res['deployType'] = $this->deployType;
         }
@@ -296,6 +334,10 @@ class data extends Model
 
         if (null !== $this->imageCacheId) {
             $res['imageCacheId'] = $this->imageCacheId;
+        }
+
+        if (null !== $this->imagePreparation) {
+            $res['imagePreparation'] = null !== $this->imagePreparation ? $this->imagePreparation->toArray($noStream) : $this->imagePreparation;
         }
 
         if (null !== $this->latestExecutionError) {
@@ -427,6 +469,14 @@ class data extends Model
             $model->createdAt = $map['createdAt'];
         }
 
+        if (isset($map['currentImage'])) {
+            $model->currentImage = currentImage::fromMap($map['currentImage']);
+        }
+
+        if (isset($map['customImage'])) {
+            $model->customImage = customImage::fromMap($map['customImage']);
+        }
+
         if (isset($map['deployType'])) {
             $model->deployType = $map['deployType'];
         }
@@ -449,6 +499,10 @@ class data extends Model
 
         if (isset($map['imageCacheId'])) {
             $model->imageCacheId = $map['imageCacheId'];
+        }
+
+        if (isset($map['imagePreparation'])) {
+            $model->imagePreparation = imagePreparation::fromMap($map['imagePreparation']);
         }
 
         if (isset($map['latestExecutionError'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\agenticFsMounts;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\artifact;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\customImage;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\environment;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\healthCheck;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest\body\logging;
@@ -27,6 +28,11 @@ class body extends Model
      * @var artifact
      */
     public $artifact;
+
+    /**
+     * @var customImage
+     */
+    public $customImage;
 
     /**
      * @var string
@@ -90,6 +96,7 @@ class body extends Model
     protected $_name = [
         'agenticFsMounts' => 'agenticFsMounts',
         'artifact' => 'artifact',
+        'customImage' => 'customImage',
         'description' => 'description',
         'environment' => 'environment',
         'healthCheck' => 'healthCheck',
@@ -111,6 +118,9 @@ class body extends Model
         }
         if (null !== $this->artifact) {
             $this->artifact->validate();
+        }
+        if (null !== $this->customImage) {
+            $this->customImage->validate();
         }
         if (null !== $this->environment) {
             $this->environment->validate();
@@ -155,6 +165,10 @@ class body extends Model
 
         if (null !== $this->artifact) {
             $res['artifact'] = null !== $this->artifact ? $this->artifact->toArray($noStream) : $this->artifact;
+        }
+
+        if (null !== $this->customImage) {
+            $res['customImage'] = null !== $this->customImage ? $this->customImage->toArray($noStream) : $this->customImage;
         }
 
         if (null !== $this->description) {
@@ -243,6 +257,10 @@ class body extends Model
 
         if (isset($map['artifact'])) {
             $model->artifact = artifact::fromMap($map['artifact']);
+        }
+
+        if (isset($map['customImage'])) {
+            $model->customImage = customImage::fromMap($map['customImage']);
         }
 
         if (isset($map['description'])) {
