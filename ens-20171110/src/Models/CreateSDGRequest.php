@@ -39,6 +39,11 @@ class CreateSDGRequest extends Model
     public $performanceLevel;
 
     /**
+     * @var bool
+     */
+    public $resetOptimize;
+
+    /**
      * @var string
      */
     public $size;
@@ -49,6 +54,7 @@ class CreateSDGRequest extends Model
         'fromSDGId' => 'FromSDGId',
         'instanceId' => 'InstanceId',
         'performanceLevel' => 'PerformanceLevel',
+        'resetOptimize' => 'ResetOptimize',
         'size' => 'Size',
     ];
 
@@ -82,6 +88,10 @@ class CreateSDGRequest extends Model
 
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+
+        if (null !== $this->resetOptimize) {
+            $res['ResetOptimize'] = $this->resetOptimize;
         }
 
         if (null !== $this->size) {
@@ -121,6 +131,10 @@ class CreateSDGRequest extends Model
 
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+
+        if (isset($map['ResetOptimize'])) {
+            $model->resetOptimize = $map['ResetOptimize'];
         }
 
         if (isset($map['Size'])) {
