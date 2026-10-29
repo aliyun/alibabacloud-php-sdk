@@ -1,3 +1,7 @@
+2026-10-29 Version: 14.1.0
+- Support API DescribeOperatorPermission.
+
+
 2026-10-26 Version: 14.0.1
 - Update API CreateDBInstance: add request parameters AutoUpgradeMinorVersion.
 - Update API CreateMigrateTask: add request parameters KeepCDC.
