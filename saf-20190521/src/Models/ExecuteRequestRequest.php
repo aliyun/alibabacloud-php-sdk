@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Saf\V20190521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExecuteRequestRequest extends Model
 {
@@ -18,20 +18,22 @@ class ExecuteRequestRequest extends Model
      */
     public $serviceParameters;
     protected $_name = [
-        'service'           => 'Service',
+        'service' => 'Service',
         'serviceParameters' => 'ServiceParameters',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
+
         if (null !== $this->serviceParameters) {
             $res['ServiceParameters'] = $this->serviceParameters;
         }
@@ -39,17 +41,18 @@ class ExecuteRequestRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExecuteRequestRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }
+
         if (isset($map['ServiceParameters'])) {
             $model->serviceParameters = $map['ServiceParameters'];
         }

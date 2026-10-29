@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Saf\V20190521\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RequestDecisionRequest extends Model
 {
@@ -18,20 +18,22 @@ class RequestDecisionRequest extends Model
      */
     public $serviceParameters;
     protected $_name = [
-        'eventCode'         => 'EventCode',
+        'eventCode' => 'EventCode',
         'serviceParameters' => 'ServiceParameters',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventCode) {
             $res['EventCode'] = $this->eventCode;
         }
+
         if (null !== $this->serviceParameters) {
             $res['ServiceParameters'] = $this->serviceParameters;
         }
@@ -39,17 +41,18 @@ class RequestDecisionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RequestDecisionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventCode'])) {
             $model->eventCode = $map['EventCode'];
         }
+
         if (isset($map['ServiceParameters'])) {
             $model->serviceParameters = $map['ServiceParameters'];
         }
