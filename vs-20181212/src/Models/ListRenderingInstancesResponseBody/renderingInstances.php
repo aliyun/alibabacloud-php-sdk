@@ -11,7 +11,32 @@ class renderingInstances extends Model
     /**
      * @var string
      */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
     public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $expireTime;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $maxEgressBandwidth;
+
+    /**
+     * @var string
+     */
+    public $maxIngressBandwidth;
 
     /**
      * @var string
@@ -24,13 +49,30 @@ class renderingInstances extends Model
     public $renderingSpec;
 
     /**
+     * @var string
+     */
+    public $serverStatus;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $storageSize;
     protected $_name = [
+        'chargeType' => 'ChargeType',
         'creationTime' => 'CreationTime',
+        'expireTime' => 'ExpireTime',
+        'instanceName' => 'InstanceName',
+        'maxEgressBandwidth' => 'MaxEgressBandwidth',
+        'maxIngressBandwidth' => 'MaxIngressBandwidth',
         'renderingInstanceId' => 'RenderingInstanceId',
         'renderingSpec' => 'RenderingSpec',
+        'serverStatus' => 'ServerStatus',
+        'status' => 'Status',
         'storageSize' => 'StorageSize',
     ];
 
@@ -42,8 +84,28 @@ class renderingInstances extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->maxEgressBandwidth) {
+            $res['MaxEgressBandwidth'] = $this->maxEgressBandwidth;
+        }
+
+        if (null !== $this->maxIngressBandwidth) {
+            $res['MaxIngressBandwidth'] = $this->maxIngressBandwidth;
         }
 
         if (null !== $this->renderingInstanceId) {
@@ -52,6 +114,14 @@ class renderingInstances extends Model
 
         if (null !== $this->renderingSpec) {
             $res['RenderingSpec'] = $this->renderingSpec;
+        }
+
+        if (null !== $this->serverStatus) {
+            $res['ServerStatus'] = $this->serverStatus;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->storageSize) {
@@ -69,8 +139,28 @@ class renderingInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['MaxEgressBandwidth'])) {
+            $model->maxEgressBandwidth = $map['MaxEgressBandwidth'];
+        }
+
+        if (isset($map['MaxIngressBandwidth'])) {
+            $model->maxIngressBandwidth = $map['MaxIngressBandwidth'];
         }
 
         if (isset($map['RenderingInstanceId'])) {
@@ -79,6 +169,14 @@ class renderingInstances extends Model
 
         if (isset($map['RenderingSpec'])) {
             $model->renderingSpec = $map['RenderingSpec'];
+        }
+
+        if (isset($map['ServerStatus'])) {
+            $model->serverStatus = $map['ServerStatus'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['StorageSize'])) {

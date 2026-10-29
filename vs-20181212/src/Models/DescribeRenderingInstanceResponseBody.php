@@ -38,12 +38,22 @@ class DescribeRenderingInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $expiredTime;
+
+    /**
+     * @var string
+     */
     public $hostname;
 
     /**
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
 
     /**
      * @var string
@@ -104,8 +114,10 @@ class DescribeRenderingInstanceResponseBody extends Model
         'configInfo' => 'ConfigInfo',
         'creationTime' => 'CreationTime',
         'egressIp' => 'EgressIp',
+        'expiredTime' => 'ExpiredTime',
         'hostname' => 'Hostname',
         'instanceChargeType' => 'InstanceChargeType',
+        'instanceName' => 'InstanceName',
         'internalIp' => 'InternalIp',
         'isp' => 'Isp',
         'portMappings' => 'PortMappings',
@@ -171,12 +183,20 @@ class DescribeRenderingInstanceResponseBody extends Model
             $res['EgressIp'] = $this->egressIp;
         }
 
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
+
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
         }
 
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->internalIp) {
@@ -264,12 +284,20 @@ class DescribeRenderingInstanceResponseBody extends Model
             $model->egressIp = $map['EgressIp'];
         }
 
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
+
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
         }
 
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['InternalIp'])) {

@@ -11,6 +11,11 @@ class ModifyRenderingInstanceAttributeRequest extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
     public $password;
 
     /**
@@ -18,6 +23,7 @@ class ModifyRenderingInstanceAttributeRequest extends Model
      */
     public $renderingInstanceId;
     protected $_name = [
+        'instanceName' => 'InstanceName',
         'password' => 'Password',
         'renderingInstanceId' => 'RenderingInstanceId',
     ];
@@ -30,6 +36,10 @@ class ModifyRenderingInstanceAttributeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
@@ -49,6 +59,10 @@ class ModifyRenderingInstanceAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
