@@ -38,6 +38,11 @@ class items extends Model
      * @var rules[]
      */
     public $rules;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'id' => 'id',
         'name' => 'name',
@@ -45,6 +50,7 @@ class items extends Model
         'resourceSubType' => 'resource_sub_type',
         'resourceType' => 'resource_type',
         'rules' => 'rules',
+        'type' => 'type',
     ];
 
     public function validate()
@@ -99,6 +105,10 @@ class items extends Model
             }
         }
 
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -146,6 +156,10 @@ class items extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
 
         return $model;

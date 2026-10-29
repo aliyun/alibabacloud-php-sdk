@@ -16,6 +16,11 @@ class autoRepairPolicy extends Model
     /**
      * @var string
      */
+    public $autoRepairPolicyId;
+
+    /**
+     * @var string
+     */
     public $maxParallelRepairingNodes;
 
     /**
@@ -29,6 +34,7 @@ class autoRepairPolicy extends Model
     public $restartNode;
     protected $_name = [
         'approvalRequired' => 'approval_required',
+        'autoRepairPolicyId' => 'auto_repair_policy_id',
         'maxParallelRepairingNodes' => 'max_parallel_repairing_nodes',
         'maxUnhealthyNodesThreshold' => 'max_unhealthy_nodes_threshold',
         'restartNode' => 'restart_node',
@@ -44,6 +50,10 @@ class autoRepairPolicy extends Model
         $res = [];
         if (null !== $this->approvalRequired) {
             $res['approval_required'] = $this->approvalRequired;
+        }
+
+        if (null !== $this->autoRepairPolicyId) {
+            $res['auto_repair_policy_id'] = $this->autoRepairPolicyId;
         }
 
         if (null !== $this->maxParallelRepairingNodes) {
@@ -71,6 +81,10 @@ class autoRepairPolicy extends Model
         $model = new self();
         if (isset($map['approval_required'])) {
             $model->approvalRequired = $map['approval_required'];
+        }
+
+        if (isset($map['auto_repair_policy_id'])) {
+            $model->autoRepairPolicyId = $map['auto_repair_policy_id'];
         }
 
         if (isset($map['max_parallel_repairing_nodes'])) {
