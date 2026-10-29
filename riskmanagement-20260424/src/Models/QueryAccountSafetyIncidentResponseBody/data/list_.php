@@ -27,6 +27,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $businessCode;
+
+    /**
+     * @var string
+     */
     public $callApi;
 
     /**
@@ -112,6 +117,7 @@ class list_ extends Model
         'actionCode' => 'ActionCode',
         'actionName' => 'ActionName',
         'antiPunishTime' => 'AntiPunishTime',
+        'businessCode' => 'BusinessCode',
         'callApi' => 'CallApi',
         'dateExtras' => 'DateExtras',
         'eventId' => 'EventId',
@@ -152,6 +158,10 @@ class list_ extends Model
 
         if (null !== $this->antiPunishTime) {
             $res['AntiPunishTime'] = $this->antiPunishTime;
+        }
+
+        if (null !== $this->businessCode) {
+            $res['BusinessCode'] = $this->businessCode;
         }
 
         if (null !== $this->callApi) {
@@ -243,6 +253,10 @@ class list_ extends Model
 
         if (isset($map['AntiPunishTime'])) {
             $model->antiPunishTime = $map['AntiPunishTime'];
+        }
+
+        if (isset($map['BusinessCode'])) {
+            $model->businessCode = $map['BusinessCode'];
         }
 
         if (isset($map['CallApi'])) {

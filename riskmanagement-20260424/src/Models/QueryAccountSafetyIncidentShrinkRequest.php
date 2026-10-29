@@ -21,6 +21,11 @@ class QueryAccountSafetyIncidentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $businessCodesShrink;
+
+    /**
+     * @var string
+     */
     public $caseCode;
 
     /**
@@ -75,6 +80,7 @@ class QueryAccountSafetyIncidentShrinkRequest extends Model
     protected $_name = [
         'actionCodesShrink' => 'ActionCodes',
         'aliyunLang' => 'AliyunLang',
+        'businessCodesShrink' => 'BusinessCodes',
         'caseCode' => 'CaseCode',
         'caseCodesShrink' => 'CaseCodes',
         'current' => 'Current',
@@ -102,6 +108,10 @@ class QueryAccountSafetyIncidentShrinkRequest extends Model
 
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
+        }
+
+        if (null !== $this->businessCodesShrink) {
+            $res['BusinessCodes'] = $this->businessCodesShrink;
         }
 
         if (null !== $this->caseCode) {
@@ -165,6 +175,10 @@ class QueryAccountSafetyIncidentShrinkRequest extends Model
 
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
+        }
+
+        if (isset($map['BusinessCodes'])) {
+            $model->businessCodesShrink = $map['BusinessCodes'];
         }
 
         if (isset($map['CaseCode'])) {

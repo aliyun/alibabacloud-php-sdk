@@ -19,6 +19,11 @@ class QueryAccountSafetyIncidentRequest extends Model
     public $aliyunLang;
 
     /**
+     * @var string[]
+     */
+    public $businessCodes;
+
+    /**
      * @var string
      */
     public $caseCode;
@@ -75,6 +80,7 @@ class QueryAccountSafetyIncidentRequest extends Model
     protected $_name = [
         'actionCodes' => 'ActionCodes',
         'aliyunLang' => 'AliyunLang',
+        'businessCodes' => 'BusinessCodes',
         'caseCode' => 'CaseCode',
         'caseCodes' => 'CaseCodes',
         'current' => 'Current',
@@ -92,6 +98,9 @@ class QueryAccountSafetyIncidentRequest extends Model
     {
         if (\is_array($this->actionCodes)) {
             Model::validateArray($this->actionCodes);
+        }
+        if (\is_array($this->businessCodes)) {
+            Model::validateArray($this->businessCodes);
         }
         if (\is_array($this->caseCodes)) {
             Model::validateArray($this->caseCodes);
@@ -121,6 +130,17 @@ class QueryAccountSafetyIncidentRequest extends Model
 
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
+        }
+
+        if (null !== $this->businessCodes) {
+            if (\is_array($this->businessCodes)) {
+                $res['BusinessCodes'] = [];
+                $n1 = 0;
+                foreach ($this->businessCodes as $item1) {
+                    $res['BusinessCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->caseCode) {
@@ -212,6 +232,17 @@ class QueryAccountSafetyIncidentRequest extends Model
 
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
+        }
+
+        if (isset($map['BusinessCodes'])) {
+            if (!empty($map['BusinessCodes'])) {
+                $model->businessCodes = [];
+                $n1 = 0;
+                foreach ($map['BusinessCodes'] as $item1) {
+                    $model->businessCodes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['CaseCode'])) {

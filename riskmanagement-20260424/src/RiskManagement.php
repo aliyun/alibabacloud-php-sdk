@@ -872,7 +872,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * Immediately terminates a penetration test.
+     * Immediately ends a penetration test.
      *
      * @param request - EndPenetrationTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -911,7 +911,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * Immediately terminates a penetration test.
+     * Immediately ends a penetration test.
      *
      * @param request - EndPenetrationTestRequest
      *
@@ -2101,6 +2101,10 @@ class RiskManagement extends OpenApiClient
             $request->actionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionCodes, 'ActionCodes', 'json');
         }
 
+        if (null !== $tmpReq->businessCodes) {
+            $request->businessCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->businessCodes, 'BusinessCodes', 'json');
+        }
+
         if (null !== $tmpReq->caseCodes) {
             $request->caseCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->caseCodes, 'CaseCodes', 'json');
         }
@@ -2120,6 +2124,10 @@ class RiskManagement extends OpenApiClient
 
         if (null !== $request->aliyunLang) {
             @$query['AliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->businessCodesShrink) {
+            @$query['BusinessCodes'] = $request->businessCodesShrink;
         }
 
         if (null !== $request->caseCode) {
@@ -2988,7 +2996,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * Submits a penetration test application.
+     * Submits a penetration test request.
      *
      * @param request - SubmitPenetrationTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3063,7 +3071,7 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
-     * Submits a penetration test application.
+     * Submits a penetration test request.
      *
      * @param request - SubmitPenetrationTestRequest
      *
