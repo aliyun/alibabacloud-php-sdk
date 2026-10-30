@@ -1,3 +1,9 @@
+2026-10-30 Version: 3.2.0
+- Support API MoveIp.
+- Update API DescribeNetworkLayerIntercepts: add request parameters InterceptModule.
+- Update API ListPolicyAttachment: add response parameters Body.AttachmentList.$.Status.
+
+
 2026-09-02 Version: 3.1.2
 - Update API ListPolicy: add response parameters Body.PolicyList.$.Content.FingerPrintRuleList.$.Comment.
 - Update API ListPolicy: add response parameters Body.PolicyList.$.Content.FingerPrintRuleList.$.Mode.

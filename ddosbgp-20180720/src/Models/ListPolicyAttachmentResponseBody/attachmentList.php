@@ -57,6 +57,11 @@ class attachmentList extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'ip' => 'Ip',
         'memberUid' => 'MemberUid',
@@ -68,6 +73,7 @@ class attachmentList extends Model
         'portRange' => 'PortRange',
         'protocol' => 'Protocol',
         'region' => 'Region',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class attachmentList extends Model
 
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -167,6 +177,10 @@ class attachmentList extends Model
 
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

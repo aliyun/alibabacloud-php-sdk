@@ -31,6 +31,11 @@ class DescribeNetworkLayerInterceptsRequest extends Model
     /**
      * @var string
      */
+    public $interceptModule;
+
+    /**
+     * @var string
+     */
     public $networkProtocol;
 
     /**
@@ -67,6 +72,7 @@ class DescribeNetworkLayerInterceptsRequest extends Model
         'destinationPort' => 'DestinationPort',
         'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
+        'interceptModule' => 'InterceptModule',
         'networkProtocol' => 'NetworkProtocol',
         'page' => 'Page',
         'pageSize' => 'PageSize',
@@ -98,6 +104,10 @@ class DescribeNetworkLayerInterceptsRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->interceptModule) {
+            $res['InterceptModule'] = $this->interceptModule;
         }
 
         if (null !== $this->networkProtocol) {
@@ -153,6 +163,10 @@ class DescribeNetworkLayerInterceptsRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InterceptModule'])) {
+            $model->interceptModule = $map['InterceptModule'];
         }
 
         if (isset($map['NetworkProtocol'])) {
