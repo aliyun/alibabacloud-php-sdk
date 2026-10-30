@@ -14,16 +14,25 @@ class CreateRenderingInstanceResponseBody extends Model
     public $renderingInstanceId;
 
     /**
+     * @var string[]
+     */
+    public $renderingInstanceIds;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'renderingInstanceId' => 'RenderingInstanceId',
+        'renderingInstanceIds' => 'RenderingInstanceIds',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->renderingInstanceIds)) {
+            Model::validateArray($this->renderingInstanceIds);
+        }
         parent::validate();
     }
 
@@ -32,6 +41,17 @@ class CreateRenderingInstanceResponseBody extends Model
         $res = [];
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
+        }
+
+        if (null !== $this->renderingInstanceIds) {
+            if (\is_array($this->renderingInstanceIds)) {
+                $res['RenderingInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->renderingInstanceIds as $item1) {
+                    $res['RenderingInstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->requestId) {
@@ -51,6 +71,17 @@ class CreateRenderingInstanceResponseBody extends Model
         $model = new self();
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
+        }
+
+        if (isset($map['RenderingInstanceIds'])) {
+            if (!empty($map['RenderingInstanceIds'])) {
+                $model->renderingInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['RenderingInstanceIds'] as $item1) {
+                    $model->renderingInstanceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RequestId'])) {
