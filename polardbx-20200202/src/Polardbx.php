@@ -6831,10 +6831,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the information about a context service instance.
+     * Queries the information about context service instances.
      *
      * @remarks
-     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
      *
      * @param request - DescribeContext0InfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6877,10 +6877,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the information about a context service instance.
+     * Queries the information about context service instances.
      *
      * @remarks
-     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge, but Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
      *
      * @param request - DescribeContext0InfoRequest
      *
@@ -7241,7 +7241,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the attributes of an instance.
+     * Retrieves the attributes of an instance.
      *
      * @remarks
      * This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.
@@ -7291,7 +7291,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Queries the attributes of an instance.
+     * Retrieves the attributes of an instance.
      *
      * @remarks
      * This operation retrieves the list of custom endpoints configured by the user to facilitate the management and viewing of private connections or VPC endpoint service settings.

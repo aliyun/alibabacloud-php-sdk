@@ -1,3 +1,8 @@
+2026-10-30 Version: 3.14.1
+- Update API DescribeDBInstanceAttribute: add response parameters Body.DBInstance.SearchEnabled.
+- Update API DescribeDBInstanceAttribute: add response parameters Body.DBInstance.SearchInstance.
+
+
 2026-10-27 Version: 3.14.0
 - Support API AllocatePxfsPublicConnection.
 - Support API CreatePxfs.

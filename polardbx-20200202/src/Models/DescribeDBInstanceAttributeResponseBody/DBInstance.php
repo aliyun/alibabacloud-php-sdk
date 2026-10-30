@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\connAddrs;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\DBNodes;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\gdnMemberList;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\searchInstance;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\tagSet;
 
 class DBInstance extends Model
@@ -248,6 +249,16 @@ class DBInstance extends Model
     public $rightsSeparationStatus;
 
     /**
+     * @var bool
+     */
+    public $searchEnabled;
+
+    /**
+     * @var searchInstance
+     */
+    public $searchInstance;
+
+    /**
      * @var string
      */
     public $secondaryZone;
@@ -359,6 +370,8 @@ class DBInstance extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'rightsSeparationEnabled' => 'RightsSeparationEnabled',
         'rightsSeparationStatus' => 'RightsSeparationStatus',
+        'searchEnabled' => 'SearchEnabled',
+        'searchInstance' => 'SearchInstance',
         'secondaryZone' => 'SecondaryZone',
         'series' => 'Series',
         'specCategory' => 'SpecCategory',
@@ -393,6 +406,9 @@ class DBInstance extends Model
         }
         if (\is_array($this->readDBInstances)) {
             Model::validateArray($this->readDBInstances);
+        }
+        if (null !== $this->searchInstance) {
+            $this->searchInstance->validate();
         }
         if (\is_array($this->tagSet)) {
             Model::validateArray($this->tagSet);
@@ -631,6 +647,14 @@ class DBInstance extends Model
 
         if (null !== $this->rightsSeparationStatus) {
             $res['RightsSeparationStatus'] = $this->rightsSeparationStatus;
+        }
+
+        if (null !== $this->searchEnabled) {
+            $res['SearchEnabled'] = $this->searchEnabled;
+        }
+
+        if (null !== $this->searchInstance) {
+            $res['SearchInstance'] = null !== $this->searchInstance ? $this->searchInstance->toArray($noStream) : $this->searchInstance;
         }
 
         if (null !== $this->secondaryZone) {
@@ -931,6 +955,14 @@ class DBInstance extends Model
 
         if (isset($map['RightsSeparationStatus'])) {
             $model->rightsSeparationStatus = $map['RightsSeparationStatus'];
+        }
+
+        if (isset($map['SearchEnabled'])) {
+            $model->searchEnabled = $map['SearchEnabled'];
+        }
+
+        if (isset($map['SearchInstance'])) {
+            $model->searchInstance = searchInstance::fromMap($map['SearchInstance']);
         }
 
         if (isset($map['SecondaryZone'])) {
