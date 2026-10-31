@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTemplateVersionsResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTemplateVersionsResponseBody\data\templateVersionList\dataSourceConfig;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTemplateVersionsResponseBody\data\templateVersionList\params;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTemplateVersionsResponseBody\data\templateVersionList\pythonModuleList;
 
 class templateVersionList extends Model
 {
@@ -19,9 +22,24 @@ class templateVersionList extends Model
     public $content;
 
     /**
+     * @var dataSourceConfig
+     */
+    public $dataSourceConfig;
+
+    /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $devResourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $devResourceGroupName;
 
     /**
      * @var string
@@ -74,9 +92,34 @@ class templateVersionList extends Model
     public $ownerId;
 
     /**
+     * @var params[]
+     */
+    public $params;
+
+    /**
      * @var int
      */
     public $projectId;
+
+    /**
+     * @var pythonModuleList[]
+     */
+    public $pythonModuleList;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupName;
+
+    /**
+     * @var bool
+     */
+    public $shareRuntimeResource;
 
     /**
      * @var string
@@ -90,7 +133,10 @@ class templateVersionList extends Model
     protected $_name = [
         'comment' => 'Comment',
         'content' => 'Content',
+        'dataSourceConfig' => 'DataSourceConfig',
         'description' => 'Description',
+        'devResourceGroupId' => 'DevResourceGroupId',
+        'devResourceGroupName' => 'DevResourceGroupName',
         'engine' => 'Engine',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
@@ -101,13 +147,27 @@ class templateVersionList extends Model
         'operatorType' => 'OperatorType',
         'owner' => 'Owner',
         'ownerId' => 'OwnerId',
+        'params' => 'Params',
         'projectId' => 'ProjectId',
+        'pythonModuleList' => 'PythonModuleList',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceGroupName' => 'ResourceGroupName',
+        'shareRuntimeResource' => 'ShareRuntimeResource',
         'status' => 'Status',
         'version' => 'Version',
     ];
 
     public function validate()
     {
+        if (null !== $this->dataSourceConfig) {
+            $this->dataSourceConfig->validate();
+        }
+        if (\is_array($this->params)) {
+            Model::validateArray($this->params);
+        }
+        if (\is_array($this->pythonModuleList)) {
+            Model::validateArray($this->pythonModuleList);
+        }
         parent::validate();
     }
 
@@ -122,8 +182,20 @@ class templateVersionList extends Model
             $res['Content'] = $this->content;
         }
 
+        if (null !== $this->dataSourceConfig) {
+            $res['DataSourceConfig'] = null !== $this->dataSourceConfig ? $this->dataSourceConfig->toArray($noStream) : $this->dataSourceConfig;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->devResourceGroupId) {
+            $res['DevResourceGroupId'] = $this->devResourceGroupId;
+        }
+
+        if (null !== $this->devResourceGroupName) {
+            $res['DevResourceGroupName'] = $this->devResourceGroupName;
         }
 
         if (null !== $this->engine) {
@@ -166,8 +238,42 @@ class templateVersionList extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
+        if (null !== $this->params) {
+            if (\is_array($this->params)) {
+                $res['Params'] = [];
+                $n1 = 0;
+                foreach ($this->params as $item1) {
+                    $res['Params'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->pythonModuleList) {
+            if (\is_array($this->pythonModuleList)) {
+                $res['PythonModuleList'] = [];
+                $n1 = 0;
+                foreach ($this->pythonModuleList as $item1) {
+                    $res['PythonModuleList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->resourceGroupName) {
+            $res['ResourceGroupName'] = $this->resourceGroupName;
+        }
+
+        if (null !== $this->shareRuntimeResource) {
+            $res['ShareRuntimeResource'] = $this->shareRuntimeResource;
         }
 
         if (null !== $this->status) {
@@ -197,8 +303,20 @@ class templateVersionList extends Model
             $model->content = $map['Content'];
         }
 
+        if (isset($map['DataSourceConfig'])) {
+            $model->dataSourceConfig = dataSourceConfig::fromMap($map['DataSourceConfig']);
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DevResourceGroupId'])) {
+            $model->devResourceGroupId = $map['DevResourceGroupId'];
+        }
+
+        if (isset($map['DevResourceGroupName'])) {
+            $model->devResourceGroupName = $map['DevResourceGroupName'];
         }
 
         if (isset($map['Engine'])) {
@@ -241,8 +359,42 @@ class templateVersionList extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
+        if (isset($map['Params'])) {
+            if (!empty($map['Params'])) {
+                $model->params = [];
+                $n1 = 0;
+                foreach ($map['Params'] as $item1) {
+                    $model->params[$n1] = params::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['PythonModuleList'])) {
+            if (!empty($map['PythonModuleList'])) {
+                $model->pythonModuleList = [];
+                $n1 = 0;
+                foreach ($map['PythonModuleList'] as $item1) {
+                    $model->pythonModuleList[$n1] = pythonModuleList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ResourceGroupName'])) {
+            $model->resourceGroupName = $map['ResourceGroupName'];
+        }
+
+        if (isset($map['ShareRuntimeResource'])) {
+            $model->shareRuntimeResource = $map['ShareRuntimeResource'];
         }
 
         if (isset($map['Status'])) {

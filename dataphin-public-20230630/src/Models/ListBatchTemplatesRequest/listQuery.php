@@ -22,10 +22,16 @@ class listQuery extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $templateId;
     protected $_name = [
         'keyword' => 'Keyword',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class listQuery extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class listQuery extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

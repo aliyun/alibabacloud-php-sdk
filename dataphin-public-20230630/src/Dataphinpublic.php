@@ -32,6 +32,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceApiShrinkRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceAppRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceAppResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceAppShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyResourcePermissionRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyResourcePermissionResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyResourcePermissionShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AssignQualityRuleOfAllRuleScopeSchedulesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AssignQualityRuleOfAllRuleScopeSchedulesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest;
@@ -44,6 +47,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgRelationShrink
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchHandoverAssetRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchHandoverAssetResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchHandoverAssetShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeClusterConnectivityByIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeClusterConnectivityByIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityByIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityByIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityRequest;
@@ -71,6 +76,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBasicProjectShrinkReq
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTemplateRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTemplateResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityShrinkRequest;
@@ -127,12 +135,18 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeShrinkReq
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRectifyFlowRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRectifyFlowResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRectifyFlowShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateResourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateResourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateResourceShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateScheduleMonitorRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateScheduleMonitorResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateScheduleMonitorShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityClassifyCatalogRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityClassifyCatalogResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateSecurityClassifyCatalogShrinkRequest;
@@ -300,6 +314,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskResultRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskResultResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetApprovalTaskDetailRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetApprovalTaskDetailResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetAttributesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetAttributesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAssetAttributesShrinkRequest;
@@ -386,6 +402,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDirectoryTreeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDirectoryTreeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetFileStorageCredentialRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetFileStorageCredentialResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetGranularityBySummaryIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetGranularityBySummaryIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamShrinkRequest;
@@ -481,6 +499,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQualityWatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQueueEngineVersionByEnvRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQueueEngineVersionByEnvResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetRectifyFlowRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetRectifyFlowResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetRectifyFlowShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceByVersionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceByVersionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetResourceRequest;
@@ -520,6 +541,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardWordRootRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStandardWordRootResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamJobsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamJobsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamLogContentRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamLogContentResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamOpsRecordRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamOpsRecordResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetStreamTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunRequest;
@@ -652,6 +679,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListGovernObjectsShrinkRequ
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListK8SResourceGroupIdsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListK8SResourceGroupIdsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListKgEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListKgEntityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListKgEntityShrinkRequest;
@@ -681,6 +710,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPythonModulesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPythonModulesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPythonModulesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityArchiveTablesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityArchiveTablesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityArchiveTablesShrinkRequest;
@@ -699,6 +731,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchesShrinkReq
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchTasksRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchTasksResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListQualityWatchTasksShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRectifyFlowRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRectifyFlowResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRectifyFlowShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogShrinkRequest;
@@ -711,6 +746,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionByUserIdSh
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListScheduleMonitorRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListScheduleMonitorResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListScheduleMonitorShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListScheduleTemplatesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListScheduleTemplatesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListScheduleTemplatesShrinkRequest;
@@ -726,6 +764,16 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSecurityIdentifyResults
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStandardsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStandardsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStandardsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamInstanceRecordsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamInstanceRecordsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamJobManagerLogsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamJobManagerLogsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamOpsRecordsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamOpsRecordsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamTaskManagerLogsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamTaskManagerLogsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamTaskManagersRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListStreamTaskManagersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsShrinkRequest;
@@ -743,6 +791,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupMembersShrinkR
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserProjectsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserProjectsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserProjectsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUsersRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUsersResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUsersShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBizEntityRequest;
@@ -780,6 +834,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListShrinkRequ
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishStandardRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishStandardResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishStandardShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\QueryPipelineSubmitResultRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\QueryPipelineSubmitResultResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\QueryPipelineSubmitResultShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveDataServiceAppMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveDataServiceAppMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveDataServiceAppMemberShrinkRequest;
@@ -789,6 +846,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveProjectMemberShrinkRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveQualityRuleSchedulesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveQualityRuleSchedulesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveQualityRuleSchedulesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveScheduleMonitorRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveScheduleMonitorResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveScheduleMonitorShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberShrinkRequest;
@@ -807,6 +867,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResumePhysicalNodeShrinkReq
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RetryTransferOwnershipRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RetryTransferOwnershipResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RetryTransferOwnershipShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReviewRectifyFlowRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReviewRectifyFlowResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ReviewRectifyFlowShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeDataServiceApiResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeDataServiceApiShrinkRequest;
@@ -833,6 +896,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitAssetsOnShelveShrinkR
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTemplateRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTemplateResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitPipelineAsyncRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitPipelineAsyncResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitPipelineAsyncShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitPipelineByIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitPipelineByIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitPipelineByIdShrinkRequest;
@@ -842,6 +911,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityRuleTasksShrin
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityWatchTasksRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityWatchTasksResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitQualityWatchTasksShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitRectifyFlowForReviewRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitRectifyFlowForReviewResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitRectifyFlowForReviewShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SyncDepartmentShrinkRequest;
@@ -866,6 +938,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskShrinkReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTemplateRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTemplateResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizEntityRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizEntityResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizEntityShrinkRequest;
@@ -942,6 +1017,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateResourceShrinkRequest
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateScheduleMonitorRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateScheduleMonitorResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateScheduleMonitorShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityClassifyCatalogRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityClassifyCatalogResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateSecurityClassifyCatalogShrinkRequest;
@@ -1122,7 +1200,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Adds users to a data service project and assigns roles to them.
+     * Adds a user to a Data Service project and assigns a role.
      *
      * @param tmpReq - AddDataServiceProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1181,7 +1259,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Adds users to a data service project and assigns roles to them.
+     * Adds a user to a Data Service project and assigns a role.
      *
      * @param request - AddDataServiceProjectMemberRequest
      *
@@ -1199,7 +1277,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Adds members to a project.
+     * Adds project members.
      *
      * @param tmpReq - AddProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1258,7 +1336,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Adds members to a project.
+     * Adds project members.
      *
      * @param request - AddProjectMemberRequest
      *
@@ -1276,7 +1354,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Registers data lineage. Available since version v5.4.0.
+     * Registers data lineage. Released in version 5.4.0.
      *
      * @param tmpReq - AddRegisterLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1331,7 +1409,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Registers data lineage. Available since version v5.4.0.
+     * Registers data lineage. Released in version 5.4.0.
      *
      * @param request - AddRegisterLineageRequest
      *
@@ -1349,7 +1427,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
+     * Adds users to a tenant in batches. This API operation can be invoked only by super administrators and system administration.
      *
      * @param tmpReq - AddTenantMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1404,7 +1482,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
+     * Adds users to a tenant in batches. This API operation can be invoked only by super administrators and system administration.
      *
      * @param request - AddTenantMembersRequest
      *
@@ -1718,6 +1796,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Applies for resource permissions at the table or column level. Available since version 6.4.0.
+     *
+     * @param tmpReq - ApplyResourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyResourcePermissionResponse
+     *
+     * @param ApplyResourcePermissionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ApplyResourcePermissionResponse
+     */
+    public function applyResourcePermissionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ApplyResourcePermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applyCommand) {
+            $request->applyCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applyCommand, 'ApplyCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->applyCommandShrink) {
+            @$body['ApplyCommand'] = $request->applyCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ApplyResourcePermission',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ApplyResourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Applies for resource permissions at the table or column level. Available since version 6.4.0.
+     *
+     * @param request - ApplyResourcePermissionRequest
+     *
+     * @returns ApplyResourcePermissionResponse
+     *
+     * @param ApplyResourcePermissionRequest $request
+     *
+     * @return ApplyResourcePermissionResponse
+     */
+    public function applyResourcePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyResourcePermissionWithOptions($request, $runtime);
+    }
+
+    /**
      * Binds specified quality rules to schedule settings.
      * Release version: v5.4.2.
      *
@@ -1793,7 +1944,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates knowledge graph entity records in batches. Available since version v6.1.1.
+     * Creates knowledge graph entity records in batches. Released in version v6.1.1.
      *
      * @param tmpReq - BatchCreateKgEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1852,7 +2003,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates knowledge graph entity records in batches. Available since version v6.1.1.
+     * Creates knowledge graph entity records in batches. Released in version v6.1.1.
      *
      * @param request - BatchCreateKgEntityRequest
      *
@@ -1870,7 +2021,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+     * Creates knowledge graph relationship records in batches. Released in version v6.1.1.
      *
      * @param tmpReq - BatchCreateKgRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1929,7 +2080,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+     * Creates knowledge graph relationship records in batches. Released in version v6.1.1.
      *
      * @param request - BatchCreateKgRelationRequest
      *
@@ -2020,7 +2171,72 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks the connectivity of a compute source.
+     * Checks the connectivity of a saved cluster. Available since v6.4.0.
+     *
+     * @param request - CheckComputeClusterConnectivityByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckComputeClusterConnectivityByIdResponse
+     *
+     * @param CheckComputeClusterConnectivityByIdRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return CheckComputeClusterConnectivityByIdResponse
+     */
+    public function checkComputeClusterConnectivityByIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckComputeClusterConnectivityById',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckComputeClusterConnectivityByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Checks the connectivity of a saved cluster. Available since v6.4.0.
+     *
+     * @param request - CheckComputeClusterConnectivityByIdRequest
+     *
+     * @returns CheckComputeClusterConnectivityByIdResponse
+     *
+     * @param CheckComputeClusterConnectivityByIdRequest $request
+     *
+     * @return CheckComputeClusterConnectivityByIdResponse
+     */
+    public function checkComputeClusterConnectivityById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkComputeClusterConnectivityByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * Validates the connectivity.
      *
      * @param tmpReq - CheckComputeSourceConnectivityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2075,7 +2291,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks the connectivity of a compute source.
+     * Validates the connectivity.
      *
      * @param request - CheckComputeSourceConnectivityRequest
      *
@@ -2093,7 +2309,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks the connectivity of an existing compute source by compute source ID.
+     * Verifies the connectivity of an existing compute source by using the compute source ID.
      *
      * @param request - CheckComputeSourceConnectivityByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2140,7 +2356,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks the connectivity of an existing compute source by compute source ID.
+     * Verifies the connectivity of an existing compute source by using the compute source ID.
      *
      * @param request - CheckComputeSourceConnectivityByIdRequest
      *
@@ -2158,7 +2374,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks the connectivity of a data source.
+     * Checks the connectivity of a datasource.
      *
      * @param tmpReq - CheckDataSourceConnectivityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2213,7 +2429,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks the connectivity of a data source.
+     * Checks the connectivity of a datasource.
      *
      * @param request - CheckDataSourceConnectivityRequest
      *
@@ -2375,7 +2591,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks whether a project has data dependencies such as tasks.
+     * Checks whether the project is depended on by data dependencies such as nodes.
      *
      * @param request - CheckProjectHasDependencyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2422,7 +2638,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks whether a project has data dependencies such as tasks.
+     * Checks whether the project is depended on by data dependencies such as nodes.
      *
      * @param request - CheckProjectHasDependencyRequest
      *
@@ -2440,7 +2656,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks whether a user has the permission on a specified resource.
+     * Checks whether a user has the specified resource permissions.
      *
      * @param tmpReq - CheckResourcePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2495,7 +2711,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Checks whether a user has the permission on a specified resource.
+     * Checks whether a user has the specified resource permissions.
      *
      * @param request - CheckResourcePermissionRequest
      *
@@ -2659,7 +2875,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a batch task.
+     * Creates an offline computing task.
      *
      * @param tmpReq - CreateBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2714,7 +2930,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a batch task.
+     * Creates an offline computing task.
      *
      * @param request - CreateBatchTaskRequest
      *
@@ -2729,6 +2945,83 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an offline computing template. Available since version 6.4.0.
+     *
+     * @param tmpReq - CreateBatchTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBatchTemplateResponse
+     *
+     * @param CreateBatchTemplateRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateBatchTemplateResponse
+     */
+    public function createBatchTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateBatchTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBatchTemplate',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBatchTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an offline computing template. Available since version 6.4.0.
+     *
+     * @param request - CreateBatchTemplateRequest
+     *
+     * @returns CreateBatchTemplateResponse
+     *
+     * @param CreateBatchTemplateRequest $request
+     *
+     * @return CreateBatchTemplateResponse
+     */
+    public function createBatchTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBatchTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -2805,8 +3098,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a business metric.
-     * Release version: v5.5.0.
+     * Creates a business metric. Release version: v5.5.0.
      *
      * @param tmpReq - CreateBizMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2861,8 +3153,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a business metric.
-     * Release version: v5.5.0.
+     * Creates a business metric. Release version: v5.5.0.
      *
      * @param request - CreateBizMetricRequest
      *
@@ -2953,7 +3244,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a cluster. Online since version v6.3.0.
+     * Creates a cluster. Release version: v6.3.0.
      *
      * @param tmpReq - CreateComputeClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3008,7 +3299,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a cluster. Online since version v6.3.0.
+     * Creates a cluster. Release version: v6.3.0.
      *
      * @param request - CreateComputeClusterRequest
      *
@@ -3026,7 +3317,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+     * Creates a compute source. Only business unit administrators and project administrators are authorized to perform this operation.
      *
      * @param tmpReq - CreateComputeSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3081,7 +3372,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+     * Creates a compute source. Only business unit administrators and project administrators are authorized to perform this operation.
      *
      * @param request - CreateComputeSourceRequest
      *
@@ -3460,17 +3751,17 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a new dataset in the specified project. Available since v6.2.0.
+     * Creates a dataset in a specified project. Available since v6.2.0.
      *
      * @remarks
      * ## Request description
-     * - This API creates a new dataset in the specified project.
-     * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
-     * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-     * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
-     * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-     * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
-     * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
+     * - This API operation creates a dataset in a specified project.
+     * - ProjectId is a required parameter that specifies the ID of the project in which to create the dataset.
+     * - CreateCommand is a complex object that contains various configuration information required to create the dataset.
+     * - Name, Type, ContentType, and Scenario are required fields that specify the dataset name, type, content type, and Scenarios, respectively.
+     * - You can configure FileStorageConfig and MetadataStorageConfig in VersionConfig as needed.
+     * - If real-time metatable configuration is required, provide the RealtimeMetaTableConfig information.
+     * - Make sure that all required fields are correctly filled in. Otherwise, the request will be failed.
      *
      * @param tmpReq - CreateDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3529,17 +3820,17 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a new dataset in the specified project. Available since v6.2.0.
+     * Creates a dataset in a specified project. Available since v6.2.0.
      *
      * @remarks
      * ## Request description
-     * - This API creates a new dataset in the specified project.
-     * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
-     * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-     * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
-     * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-     * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
-     * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
+     * - This API operation creates a dataset in a specified project.
+     * - ProjectId is a required parameter that specifies the ID of the project in which to create the dataset.
+     * - CreateCommand is a complex object that contains various configuration information required to create the dataset.
+     * - Name, Type, ContentType, and Scenario are required fields that specify the dataset name, type, content type, and Scenarios, respectively.
+     * - You can configure FileStorageConfig and MetadataStorageConfig in VersionConfig as needed.
+     * - If real-time metatable configuration is required, provide the RealtimeMetaTableConfig information.
+     * - Make sure that all required fields are correctly filled in. Otherwise, the request will be failed.
      *
      * @param request - CreateDatasetRequest
      *
@@ -3857,9 +4148,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * General-purpose data backfill operation that supports both list mode and batch mode data backfill:
-     * 1. Generates data backfill instances that run and affect data output of related tables.
-     * 2. Triggers node execution, which incurs compute and storage costs.
+     * Backfills data in list mode or massive mode. Take note of the following items: 1. Data backfill instances are generated and run, which affects the data output of related tables. 2. Nodes are run, which incurs computing and storage costs.
      *
      * @param tmpReq - CreateNodeSupplementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3918,9 +4207,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * General-purpose data backfill operation that supports both list mode and batch mode data backfill:
-     * 1. Generates data backfill instances that run and affect data output of related tables.
-     * 2. Triggers node execution, which incurs compute and storage costs.
+     * Backfills data in list mode or massive mode. Take note of the following items: 1. Data backfill instances are generated and run, which affects the data output of related tables. 2. Nodes are run, which incurs computing and storage costs.
      *
      * @param request - CreateNodeSupplementRequest
      *
@@ -4173,6 +4460,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Creates a quality rectification process. Released in version 6.4.0.
+     *
+     * @param tmpReq - CreateRectifyFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRectifyFlowResponse
+     *
+     * @param CreateRectifyFlowRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateRectifyFlowResponse
+     */
+    public function createRectifyFlowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateRectifyFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRectifyFlow',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRectifyFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a quality rectification process. Released in version 6.4.0.
+     *
+     * @param request - CreateRectifyFlowRequest
+     *
+     * @returns CreateRectifyFlowResponse
+     *
+     * @param CreateRectifyFlowRequest $request
+     *
+     * @return CreateRectifyFlowResponse
+     */
+    public function createRectifyFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRectifyFlowWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a resource file.
      *
      * @param tmpReq - CreateResourceRequest
@@ -4322,6 +4682,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRowPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a scheduling monitoring alerting configuration by specifying a monitored object and one or more alerting rules. Online version: v6.4.0.
+     *
+     * @param tmpReq - CreateScheduleMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScheduleMonitorResponse
+     *
+     * @param CreateScheduleMonitorRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateScheduleMonitorResponse
+     */
+    public function createScheduleMonitorWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateScheduleMonitorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateScheduleMonitor',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateScheduleMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a scheduling monitoring alerting configuration by specifying a monitored object and one or more alerting rules. Online version: v6.4.0.
+     *
+     * @param request - CreateScheduleMonitorRequest
+     *
+     * @returns CreateScheduleMonitorResponse
+     *
+     * @param CreateScheduleMonitorRequest $request
+     *
+     * @return CreateScheduleMonitorResponse
+     */
+    public function createScheduleMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createScheduleMonitorWithOptions($request, $runtime);
     }
 
     /**
@@ -4619,8 +5052,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a standard.
-     * Release version: v5.4.2.
+     * Creates a standard. Release version: v5.4.2.
      *
      * @param tmpReq - CreateStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4675,8 +5107,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a standard.
-     * Release version: v5.4.2.
+     * Creates a standard. Release version: v5.4.2.
      *
      * @param request - CreateStandardRequest
      *
@@ -4694,8 +5125,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data standard lookup table.
-     * Release version: v5.4.2.
+     * Creates a data standard lookup table. Released in version v5.4.2.
      *
      * @param tmpReq - CreateStandardLookupTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4750,8 +5180,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data standard lookup table.
-     * Release version: v5.4.2.
+     * Creates a data standard lookup table. Released in version v5.4.2.
      *
      * @param request - CreateStandardLookupTableRequest
      *
@@ -4994,8 +5423,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Create a data standard template.
-     * Release version: v5.4.2.
+     * Creates a data standard template. Release version: v5.4.2.
      *
      * @param tmpReq - CreateStandardTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5050,8 +5478,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Create a data standard template.
-     * Release version: v5.4.2.
+     * Creates a data standard template. Release version: v5.4.2.
      *
      * @param request - CreateStandardTemplateRequest
      *
@@ -5069,8 +5496,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data standard root word.
-     * Release version: v5.4.2.
+     * Creates a data standard root word. Released in version v5.4.2.
      *
      * @param tmpReq - CreateStandardWordRootRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5125,8 +5551,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a data standard root word.
-     * Release version: v5.4.2.
+     * Creates a data standard root word. Released in version v5.4.2.
      *
      * @param request - CreateStandardWordRootRequest
      *
@@ -5144,7 +5569,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a stream-batch integrated node.
+     * Creates a stream-batch integrated task.
      *
      * @param tmpReq - CreateStreamBatchJobMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5199,7 +5624,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates a stream-batch integrated node.
+     * Creates a stream-batch integrated task.
      *
      * @param request - CreateStreamBatchJobMappingRequest
      *
@@ -5513,7 +5938,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
+     * Deletes an offline computing task. If the task is not offline, you must take it offline before deleting it.
      *
      * @param tmpReq - DeleteBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5568,7 +5993,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
+     * Deletes an offline computing task. If the task is not offline, you must take it offline before deleting it.
      *
      * @param request - DeleteBatchTaskRequest
      *
@@ -6489,7 +6914,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a project (applicable to both Basic and Dev-Prod projects).
+     * Deletes a project. This applies to both Basic and Dev-Prod projects.
      *
      * @param request - DeleteProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6536,7 +6961,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a project (applicable to both Basic and Dev-Prod projects).
+     * Deletes a project. This applies to both Basic and Dev-Prod projects.
      *
      * @param request - DeleteProjectRequest
      *
@@ -6554,8 +6979,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes quality rule objects in batches.
-     * Release version: v5.4.2.
+     * Deletes quality rule objects in batches. Released in version 5.4.2.
      *
      * @param tmpReq - DeleteQualityRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6610,8 +7034,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes quality rule objects in batches.
-     * Release version: v5.4.2.
+     * Deletes quality rule objects in batches. Released in version 5.4.2.
      *
      * @param request - DeleteQualityRulesRequest
      *
@@ -6629,8 +7052,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes quality scheduling objects in batches.
-     * Release version: v5.4.2.
+     * Deletes multiple quality scheduling objects. Release version: v5.4.2.
      *
      * @param tmpReq - DeleteQualitySchedulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6685,8 +7107,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes quality scheduling objects in batches.
-     * Release version: v5.4.2.
+     * Deletes multiple quality scheduling objects. Release version: v5.4.2.
      *
      * @param request - DeleteQualitySchedulesRequest
      *
@@ -6704,8 +7125,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes quality template objects in batches.
-     * Online version: v5.4.2.
+     * Deletes quality template objects in batches. Available since version v5.4.2.
      *
      * @param tmpReq - DeleteQualityTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6760,8 +7180,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes quality template objects in batches.
-     * Online version: v5.4.2.
+     * Deletes quality template objects in batches. Available since version v5.4.2.
      *
      * @param request - DeleteQualityTemplatesRequest
      *
@@ -6779,8 +7198,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes monitored objects in batches.
-     * Release version: v5.4.2.
+     * Deletes quality monitored objects in batches. Release version: v5.4.2.
      *
      * @param tmpReq - DeleteQualityWatchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6835,8 +7253,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes monitored objects in batches.
-     * Release version: v5.4.2.
+     * Deletes quality monitored objects in batches. Release version: v5.4.2.
      *
      * @param request - DeleteQualityWatchesRequest
      *
@@ -6927,7 +7344,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Delete a resource file.
+     * Deletes a resource file.
      *
      * @param request - DeleteResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6982,7 +7399,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Delete a resource file.
+     * Deletes a resource file.
      *
      * @param request - DeleteResourceRequest
      *
@@ -7000,7 +7417,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a row-level permission.
+     * Deletes row-level permissions.
      *
      * @param tmpReq - DeleteRowPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7055,7 +7472,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a row-level permission.
+     * Deletes row-level permissions.
      *
      * @param request - DeleteRowPermissionRequest
      *
@@ -7073,7 +7490,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data categorization. Available since v5.4.2.
+     * Deletes a data category. Released in version v5.4.2.
      *
      * @param tmpReq - DeleteSecurityClassifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7128,7 +7545,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data categorization. Available since v5.4.2.
+     * Deletes a data category. Released in version v5.4.2.
      *
      * @param request - DeleteSecurityClassifyRequest
      *
@@ -7146,7 +7563,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data classification catalog. Available since v5.4.2.
+     * Deletes a data classification catalog. Available since version v5.4.2.
      *
      * @param tmpReq - DeleteSecurityClassifyCatalogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7201,7 +7618,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data classification catalog. Available since v5.4.2.
+     * Deletes a data classification catalog. Available since version v5.4.2.
      *
      * @param request - DeleteSecurityClassifyCatalogRequest
      *
@@ -7219,7 +7636,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes security identification results in batches. Release version: v5.4.2.
+     * Deletes security identification results in batches. Released in version 5.4.2.
      *
      * @param tmpReq - DeleteSecurityIdentifyResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7274,7 +7691,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes security identification results in batches. Release version: v5.4.2.
+     * Deletes security identification results in batches. Released in version 5.4.2.
      *
      * @param request - DeleteSecurityIdentifyResultsRequest
      *
@@ -7365,8 +7782,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a standard.
-     * Online version: v5.4.2.
+     * Deletes a standard. Release version: v5.4.2.
      *
      * @param tmpReq - DeleteStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7421,8 +7837,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a standard.
-     * Online version: v5.4.2.
+     * Deletes a standard. Release version: v5.4.2.
      *
      * @param request - DeleteStandardRequest
      *
@@ -7440,8 +7855,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes invalid mapping relationships.
-     * Online version: v5.4.2.
+     * Deletes invalid mapping relationships. Released in version v5.4.2.
      *
      * @param tmpReq - DeleteStandardInValidMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7496,8 +7910,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes invalid mapping relationships.
-     * Online version: v5.4.2.
+     * Deletes invalid mapping relationships. Released in version v5.4.2.
      *
      * @param request - DeleteStandardInValidMappingRequest
      *
@@ -7515,7 +7928,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data standard lookup table. Release version: v5.4.2.
+     * Deletes a data standard lookup table. Released in version 5.4.2.
      *
      * @param request - DeleteStandardLookupTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7562,7 +7975,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a data standard lookup table. Release version: v5.4.2.
+     * Deletes a data standard lookup table. Released in version 5.4.2.
      *
      * @param request - DeleteStandardLookupTableRequest
      *
@@ -7580,8 +7993,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes standard associations in batches.
-     * Release version: v5.4.2.
+     * Deletes standard associations in batches. Available since version 5.4.2.
      *
      * @param tmpReq - DeleteStandardRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7636,8 +8048,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes standard associations in batches.
-     * Release version: v5.4.2.
+     * Deletes standard associations in batches. Available since version 5.4.2.
      *
      * @param request - DeleteStandardRelationsRequest
      *
@@ -7722,8 +8133,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes valid mapping relationships.
-     * Release version: v5.4.2.
+     * Deletes valid mapping relationships. Release version: v5.4.2.
      *
      * @param tmpReq - DeleteStandardValidMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7778,8 +8188,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes valid mapping relationships.
-     * Release version: v5.4.2.
+     * Deletes valid mapping relationships. Release version: v5.4.2.
      *
      * @param request - DeleteStandardValidMappingRequest
      *
@@ -7864,7 +8273,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a user-defined function.
+     * Deletes a custom function.
      *
      * @param request - DeleteUdfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7919,7 +8328,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a user-defined function.
+     * Deletes a custom function.
      *
      * @param request - DeleteUdfRequest
      *
@@ -8383,7 +8792,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Runs a trigger-based node.
+     * Runs a trigger node.
      *
      * @param request - ExecuteTriggerNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8446,7 +8855,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Runs a trigger-based node.
+     * Runs a trigger node.
      *
      * @param request - ExecuteTriggerNodeRequest
      *
@@ -8614,7 +9023,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
+     * Retrieves all authorized accounts for a row-level permission by using the row-level permission ID.
      *
      * @param tmpReq - GetAccountByRowPermissionIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8669,7 +9078,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
+     * Retrieves all authorized accounts for a row-level permission by using the row-level permission ID.
      *
      * @param request - GetAccountByRowPermissionIdRequest
      *
@@ -8756,7 +9165,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the runtime logs of an ad hoc query task.
+     * Retrieves the execution logs of an ad-hoc query task.
      *
      * @param request - GetAdHocTaskLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8815,7 +9224,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the runtime logs of an ad hoc query task.
+     * Retrieves the execution logs of an ad-hoc query task.
      *
      * @param request - GetAdHocTaskLogRequest
      *
@@ -8833,7 +9242,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the task execution result of an ad hoc query.
+     * Retrieves the execution results of an ad hoc query task.
      *
      * @param request - GetAdHocTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8888,7 +9297,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the task execution result of an ad hoc query.
+     * Retrieves the execution results of an ad hoc query task.
      *
      * @param request - GetAdHocTaskResultRequest
      *
@@ -8971,6 +9380,71 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries the details of an approval task based on the approval flow ID, including the approval process steps. Available from version 6.4.0.
+     *
+     * @param request - GetApprovalTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApprovalTaskDetailResponse
+     *
+     * @param GetApprovalTaskDetailRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetApprovalTaskDetailResponse
+     */
+    public function getApprovalTaskDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApprovalTaskDetail',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApprovalTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an approval task based on the approval flow ID, including the approval process steps. Available from version 6.4.0.
+     *
+     * @param request - GetApprovalTaskDetailRequest
+     *
+     * @returns GetApprovalTaskDetailResponse
+     *
+     * @param GetApprovalTaskDetailRequest $request
+     *
+     * @return GetApprovalTaskDetailResponse
+     */
+    public function getApprovalTaskDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApprovalTaskDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries asset property values. Online version: v6.3.0.
      *
      * @param tmpReq - GetAssetAttributesRequest
@@ -9044,8 +9518,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries mapping relationships by asset object GUID.
-     * Available since: v5.4.2.
+     * Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
      *
      * @param tmpReq - GetAssetMappingRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9100,8 +9573,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries mapping relationships by asset object GUID.
-     * Available since: v5.4.2.
+     * Queries the mapping relationships based on the asset object GUID. Released in version 5.4.2.
      *
      * @param request - GetAssetMappingRelationsRequest
      *
@@ -9334,7 +9806,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Obtains the custom lineage of an offline task.
+     * Retrieves the custom lineage of an offline task.
      *
      * @param request - GetBatchTaskUdfLineagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9385,7 +9857,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Obtains the custom lineage of an offline task.
+     * Retrieves the custom lineage of an offline task.
      *
      * @param request - GetBatchTaskUdfLineagesRequest
      *
@@ -9403,7 +9875,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the version list of a batch task.
+     * Queries a list of batch taskfile versions.
      *
      * @param request - GetBatchTaskVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9454,7 +9926,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the version list of a batch task.
+     * Queries a list of batch taskfile versions.
      *
      * @param request - GetBatchTaskVersionsRequest
      *
@@ -9472,7 +9944,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
+     * Retrieves the versions of a specified offline template. Available since v6.2.0.
      *
      * @param request - GetBatchTemplateVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9527,7 +9999,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
+     * Retrieves the versions of a specified offline template. Available since v6.2.0.
      *
      * @param request - GetBatchTemplateVersionsRequest
      *
@@ -9545,8 +10017,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query mapping relationships by belonging asset GUID.
-     * Release version: v5.4.2.
+     * Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
      *
      * @param tmpReq - GetBelongAssetMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9601,8 +10072,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query mapping relationships by belonging asset GUID.
-     * Release version: v5.4.2.
+     * Queries the mapping relationships based on the GUID of the owning asset. Released in v5.4.2.
      *
      * @param request - GetBelongAssetMappingRequest
      *
@@ -9762,8 +10232,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query business metric details by name.
-     * Release version: v5.5.0.
+     * Queries the details of a business metric by name. Release version: v5.5.0.
      *
      * @param tmpReq - GetBizMetricByNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9818,8 +10287,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query business metric details by name.
-     * Release version: v5.5.0.
+     * Queries the details of a business metric by name. Release version: v5.5.0.
      *
      * @param request - GetBizMetricByNameRequest
      *
@@ -9837,7 +10305,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a data domain.
+     * Retrieves the details of a data sector.
      *
      * @param request - GetBizUnitInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9884,7 +10352,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a data domain.
+     * Retrieves the details of a data sector.
      *
      * @param request - GetBizUnitInfoRequest
      *
@@ -10046,11 +10514,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
-     * Release version: v5.5.0.
+     * Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
      *
      * @remarks
-     * Queries the details of connectivity tasks that have been tested for a specified data source ID.
+     * Queries the details of tested connectivity tasks based on the data source ID.
      *
      * @param request - GetCheckConnectivityJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10097,11 +10564,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
-     * Release version: v5.5.0.
+     * Queries a list of connectivity check tasks based on the specified data source ID, including null value validation and tenant permission verification to prevent cross-tenant access. Release version: v5.5.0.
      *
      * @remarks
-     * Queries the details of connectivity tasks that have been tested for a specified data source ID.
+     * Queries the details of tested connectivity tasks based on the data source ID.
      *
      * @param request - GetCheckConnectivityJobsRequest
      *
@@ -10263,7 +10729,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a compute source by compute source ID.
+     * Retrieves the details of a compute source by its ID.
      *
      * @param request - GetComputeSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10310,7 +10776,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a compute source by compute source ID.
+     * Retrieves the details of a compute source by its ID.
      *
      * @param request - GetComputeSourceRequest
      *
@@ -10472,7 +10938,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Service Monitoring: Retrieves the aggregate statistics of API calls.
+     * Retrieves the summary statistics of API calls for Service Monitoring.
      *
      * @param request - GetDataServiceApiCallSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10527,7 +10993,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Service Monitoring: Retrieves the aggregate statistics of API calls.
+     * Retrieves the summary statistics of API calls for Service Monitoring.
      *
      * @param request - GetDataServiceApiCallSummaryRequest
      *
@@ -10618,7 +11084,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves API documentation.
+     * Retrieves the API documentation.
      *
      * @param request - GetDataServiceApiDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10669,7 +11135,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves API documentation.
+     * Retrieves the API documentation.
      *
      * @param request - GetDataServiceApiDocumentRequest
      *
@@ -10825,8 +11291,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
-     * Release version: v6.0.0.
+     * Queries the details of a data service application, including the project, application name, authentication information, and IP address whitelist. Only application members can view this information. Released in v6.0.0.
      *
      * @param request - GetDataServiceAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10873,8 +11338,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
-     * Release version: v6.0.0.
+     * Queries the details of a data service application, including the project, application name, authentication information, and IP address whitelist. Only application members can view this information. Released in v6.0.0.
      *
      * @param request - GetDataServiceAppRequest
      *
@@ -10892,7 +11356,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of users who have permissions on an application.
+     * Retrieves the list of users who have permissions for the application.
      *
      * @param request - GetDataServiceAppAuthorizedUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10943,7 +11407,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of users who have permissions on an application.
+     * Retrieves the list of users who have permissions for the application.
      *
      * @param request - GetDataServiceAppAuthorizedUsersRequest
      *
@@ -11093,7 +11557,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of applications in a group.
+     * Queries the applications in a group.
      *
      * @param request - GetDataServiceAppsByGroupIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11144,7 +11608,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of applications in a group.
+     * Queries the applications in a group.
      *
      * @param request - GetDataServiceAppsByGroupIdRequest
      *
@@ -11231,7 +11695,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of projects that the current user has permissions to access.
+     * Queries the list of projects that the user has access to.
      *
      * @param request - GetDataServiceAuthorizedProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11274,7 +11738,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of projects that the current user has permissions to access.
+     * Queries the list of projects that the user has access to.
      *
      * @param request - GetDataServiceAuthorizedProjectsRequest
      *
@@ -11353,7 +11817,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of users who can be added as project members.
+     * Retrieves a list of users that can be added as project members.
      *
      * @param request - GetDataServiceProjectAddableUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11400,7 +11864,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of users who can be added as project members.
+     * Retrieves a list of users that can be added as project members.
      *
      * @param request - GetDataServiceProjectAddableUsersRequest
      *
@@ -11558,7 +12022,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query upstream dependencies of development objects.
+     * Queries the upstream dependencies of a development object.
      *
      * @param request - GetDevObjectDependencyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11617,7 +12081,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query upstream dependencies of development objects.
+     * Queries the upstream dependencies of a development object.
      *
      * @param request - GetDevObjectDependencyRequest
      *
@@ -11704,7 +12168,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Obtains temporary read/write authorization for file storage.
+     * Retrieves temporary read and write authorization for file storage.
      *
      * @param request - GetFileStorageCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11759,7 +12223,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Obtains temporary read/write authorization for file storage.
+     * Retrieves temporary read and write authorization for file storage.
      *
      * @param request - GetFileStorageCredentialRequest
      *
@@ -11774,6 +12238,89 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getFileStorageCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the statistical granularity information of an aggregate logical table. Available from version 6.4.0.
+     *
+     * @remarks
+     * Queries the statistical granularity of an aggregate logical table. Recursive objects are referenced by ID. Logical tree node IDs are valid only within the currently returned tree.
+     *
+     * @param request - GetGranularityBySummaryIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGranularityBySummaryIdResponse
+     *
+     * @param GetGranularityBySummaryIdRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetGranularityBySummaryIdResponse
+     */
+    public function getGranularityBySummaryIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['ModelId'] = $request->modelId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->queryDraft) {
+            @$query['QueryDraft'] = $request->queryDraft;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetGranularityBySummaryId',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGranularityBySummaryIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the statistical granularity information of an aggregate logical table. Available from version 6.4.0.
+     *
+     * @remarks
+     * Queries the statistical granularity of an aggregate logical table. Recursive objects are referenced by ID. Logical tree node IDs are valid only within the currently returned tree.
+     *
+     * @param request - GetGranularityBySummaryIdRequest
+     *
+     * @returns GetGranularityBySummaryIdResponse
+     *
+     * @param GetGranularityBySummaryIdRequest $request
+     *
+     * @return GetGranularityBySummaryIdResponse
+     */
+    public function getGranularityBySummaryId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGranularityBySummaryIdWithOptions($request, $runtime);
     }
 
     /**
@@ -11862,7 +12409,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the dag of an instance. Logical tables and code nodes are supported.
+     * Queries the upstream and downstream nodes of an instance. Supports logical tables and code nodes.
      *
      * @param tmpReq - GetInstanceUpDownStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11933,7 +12480,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the dag of an instance. Logical tables and code nodes are supported.
+     * Queries the upstream and downstream nodes of an instance. Supports logical tables and code nodes.
      *
      * @param request - GetInstanceUpDownStreamRequest
      *
@@ -11951,7 +12498,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+     * Retrieves a list of workspaces with authorized knowledge graphs. Release version: v6.3.0.
      *
      * @param request - GetKgAuthorizedWorkspacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11994,7 +12541,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of workspaces with authorized knowledge graphs. Online version: v6.3.0.
+     * Retrieves a list of workspaces with authorized knowledge graphs. Release version: v6.3.0.
      *
      * @param request - GetKgAuthorizedWorkspacesRequest
      *
@@ -12012,7 +12559,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
+     * Retrieves the details of a knowledge graph entity record. Available since version 6.1.1.
      *
      * @param request - GetKgEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12067,7 +12614,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a knowledge graph entity record. Online version: v6.1.1.
+     * Retrieves the details of a knowledge graph entity record. Available since version 6.1.1.
      *
      * @param request - GetKgEntityRequest
      *
@@ -12170,7 +12717,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a knowledge graph relationship record. Online version: v6.1.1.
+     * Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
      *
      * @param request - GetKgRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12225,7 +12772,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a knowledge graph relationship record. Online version: v6.1.1.
+     * Retrieves the details of a knowledge graph relation record. Released in version v6.1.1.
      *
      * @param request - GetKgRelationRequest
      *
@@ -12243,7 +12790,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the publish result of a knowledge graph model. Online version: v6.2.0.
+     * Retrieves the publish result of a graph model. Online version: v6.2.0.
      *
      * @param request - GetKgSchemaPublishResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12294,7 +12841,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the publish result of a knowledge graph model. Online version: v6.2.0.
+     * Retrieves the publish result of a graph model. Online version: v6.2.0.
      *
      * @param request - GetKgSchemaPublishResultRequest
      *
@@ -12312,7 +12859,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of the latest pending submit record.
+     * Retrieves the details of the latest pending release record.
      *
      * @param tmpReq - GetLatestSubmitDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12367,7 +12914,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of the latest pending submit record.
+     * Retrieves the details of the latest pending release record.
      *
      * @param request - GetLatestSubmitDetailRequest
      *
@@ -12511,7 +13058,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of roles for the current user.
+     * Retrieves the list of user roles.
      *
      * @param request - GetMyRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12554,7 +13101,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of roles for the current user.
+     * Retrieves the list of user roles.
      *
      * @param request - GetMyRolesRequest
      *
@@ -12645,7 +13192,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the dag of a node. This is a general-purpose operation.
+     * Queries the upstream and downstream nodes of a node.
      *
      * @param tmpReq - GetNodeUpDownStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12716,7 +13263,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the dag of a node. This is a general-purpose operation.
+     * Queries the upstream and downstream nodes of a node.
      *
      * @param request - GetNodeUpDownStreamRequest
      *
@@ -12734,7 +13281,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries an operation log by ID. Available since v6.2.0.
+     * Queries an execution record by ID. Available since version 6.2.0.
      *
      * @param tmpReq - GetOperationRecordByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12789,7 +13336,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries an operation log by ID. Available since v6.2.0.
+     * Queries an execution record by ID. Available since version 6.2.0.
      *
      * @param request - GetOperationRecordByIdRequest
      *
@@ -12807,7 +13354,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of an execution record. Released in version v6.2.0.
+     * Queries the details of an operation record. Available since version 6.2.0.
      *
      * @param tmpReq - GetOperationRecordDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12862,7 +13409,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of an execution record. Released in version v6.2.0.
+     * Queries the details of an operation record. Available since version 6.2.0.
      *
      * @param request - GetOperationRecordDetailRequest
      *
@@ -12880,7 +13427,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the execution code of an operation log. Online version: v6.2.0.
+     * Queries the executed code of operation records. Release version: v6.2.0.
      *
      * @param tmpReq - GetOperationRecordRunCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12935,7 +13482,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the execution code of an operation log. Online version: v6.2.0.
+     * Queries the executed code of operation records. Release version: v6.2.0.
      *
      * @param request - GetOperationRecordRunCodeRequest
      *
@@ -12953,7 +13500,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the submit status of a data backfill request.
+     * Queries the submit status of data backfill.
      *
      * @param request - GetOperationSubmitStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13004,7 +13551,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the submit status of a data backfill request.
+     * Queries the submit status of data backfill.
      *
      * @param request - GetOperationSubmitStatusRequest
      *
@@ -13022,7 +13569,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Gets instance information.
+     * Retrieves instance information.
      *
      * @param request - GetPhysicalInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13077,7 +13624,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Gets instance information.
+     * Retrieves instance information.
      *
      * @param request - GetPhysicalInstanceRequest
      *
@@ -13168,7 +13715,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries a physical schedule resource.
+     * Queries physical scheduling nodes.
      *
      * @param request - GetPhysicalNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13219,7 +13766,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries a physical schedule resource.
+     * Queries physical scheduling nodes.
      *
      * @param request - GetPhysicalNodeRequest
      *
@@ -13237,7 +13784,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
+     * Queries physical nodes by output name. Only offline code nodes and integration task nodes are supported.
      *
      * @param request - GetPhysicalNodeByOutputNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13288,7 +13835,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
+     * Queries physical nodes by output name. Only offline code nodes and integration task nodes are supported.
      *
      * @param request - GetPhysicalNodeByOutputNameRequest
      *
@@ -13306,7 +13853,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the code content of a schedule resource node.
+     * Queries the code content of a scheduling node.
      *
      * @param request - GetPhysicalNodeContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13357,7 +13904,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the code content of a schedule resource node.
+     * Queries the code content of a scheduling node.
      *
      * @param request - GetPhysicalNodeContentRequest
      *
@@ -13375,7 +13922,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of a node.
+     * Queries the node operation logs.
      *
      * @param request - GetPhysicalNodeOperationLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13426,7 +13973,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of a node.
+     * Queries the node operation logs.
      *
      * @param request - GetPhysicalNodeOperationLogRequest
      *
@@ -13602,7 +14149,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Get project details by project ID.
+     * Retrieves the details of a project by project ID.
      *
      * @param request - GetProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13653,7 +14200,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Get project details by project ID.
+     * Retrieves the details of a project by project ID.
      *
      * @param request - GetProjectRequest
      *
@@ -13736,7 +14283,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
+     * Retrieves the production account for a project. Only super administrators can call this API operation.
      *
      * @param request - GetProjectProduceUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13783,7 +14330,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
+     * Retrieves the production account for a project. Only super administrators can call this API operation.
      *
      * @param request - GetProjectProduceUserRequest
      *
@@ -13801,7 +14348,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the whitelist of a project.
+     * Retrieves the project whitelist.
      *
      * @param request - GetProjectWhiteListsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13848,7 +14395,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the whitelist of a project.
+     * Retrieves the project whitelist.
      *
      * @param request - GetProjectWhiteListsRequest
      *
@@ -13996,8 +14543,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality rule object.
-     * Release version: v5.4.2.
+     * Retrieves the quality rule object. Release version: v5.4.2.
      *
      * @param request - GetQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14044,8 +14590,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality rule object.
-     * Release version: v5.4.2.
+     * Retrieves the quality rule object. Release version: v5.4.2.
      *
      * @param request - GetQualityRuleRequest
      *
@@ -14063,7 +14608,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a quality node task object. Online version: v5.4.2.
+     * Retrieves the details of a quality task object. Released in version 5.4.2.
      *
      * @param request - GetQualityRuleTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14110,7 +14655,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a quality node task object. Online version: v5.4.2.
+     * Retrieves the details of a quality task object. Released in version 5.4.2.
      *
      * @param request - GetQualityRuleTaskRequest
      *
@@ -14195,8 +14740,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality schedule object.
-     * Release version: v5.4.2.
+     * Retrieves the quality scheduling object. Available since v5.4.2.
      *
      * @param request - GetQualityScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14243,8 +14787,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality schedule object.
-     * Release version: v5.4.2.
+     * Retrieves the quality scheduling object. Available since v5.4.2.
      *
      * @param request - GetQualityScheduleRequest
      *
@@ -14262,8 +14805,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of schedule settings by monitored object ID.
-     * Release version: v5.4.2.
+     * Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
      *
      * @param request - GetQualitySchedulesByWatchIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14310,8 +14852,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of schedule settings by monitored object ID.
-     * Release version: v5.4.2.
+     * Retrieves a list of scheduling settings by monitored object ID. Available since v5.4.2.
      *
      * @param request - GetQualitySchedulesByWatchIdRequest
      *
@@ -14329,8 +14870,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality template object.
-     * Release version: v5.4.2.
+     * Retrieves a quality template object. Released in version 5.4.2.
      *
      * @param request - GetQualityTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14377,8 +14917,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality template object.
-     * Release version: v5.4.2.
+     * Retrieves a quality template object. Released in version 5.4.2.
      *
      * @param request - GetQualityTemplateRequest
      *
@@ -14463,8 +15002,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
-     * Release version: v5.4.2.
+     * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
      *
      * @param request - GetQualityWatchByObjectIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14515,8 +15053,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
-     * Release version: v5.4.2.
+     * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a data source, table, or metric. Release version: v5.4.2.
      *
      * @param request - GetQualityWatchByObjectIdRequest
      *
@@ -14534,8 +15071,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a monitoring node task object.
-     * Online version: v5.4.2.
+     * Retrieves a monitoring node object. Online version: v5.4.2.
      *
      * @param request - GetQualityWatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14582,8 +15118,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a monitoring node task object.
-     * Online version: v5.4.2.
+     * Retrieves a monitoring node object. Online version: v5.4.2.
      *
      * @param request - GetQualityWatchTaskRequest
      *
@@ -14749,6 +15284,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Retrieves the quality rectification process. Released in version 6.4.0.
+     *
+     * @param tmpReq - GetRectifyFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRectifyFlowResponse
+     *
+     * @param GetRectifyFlowRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetRectifyFlowResponse
+     */
+    public function getRectifyFlowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetRectifyFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->getQuery) {
+            $request->getQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->getQuery, 'GetQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->getQueryShrink) {
+            @$body['GetQuery'] = $request->getQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetRectifyFlow',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRectifyFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the quality rectification process. Released in version 6.4.0.
+     *
+     * @param request - GetRectifyFlowRequest
+     *
+     * @returns GetRectifyFlowResponse
+     *
+     * @param GetRectifyFlowRequest $request
+     *
+     * @return GetRectifyFlowResponse
+     */
+    public function getRectifyFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRectifyFlowWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a resource file.
      *
      * @param request - GetResourceRequest
@@ -14891,7 +15499,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves row permissions by table GUIDs. Online version: v5.4.2.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - GetRowPermissionByTableGuidsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14946,7 +15554,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves row permissions by table GUIDs. Online version: v5.4.2.
+     * Online version: v5.4.2.
      *
      * @param request - GetRowPermissionByTableGuidsRequest
      *
@@ -15029,8 +15637,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an identification result.
-     * Release version: v5.4.2.
+     * Retrieves the details of a recognition result. Release version: v5.4.2.
      *
      * @param request - GetSecurityIdentifyResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15077,8 +15684,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an identification result.
-     * Release version: v5.4.2.
+     * Retrieves the details of a recognition result. Release version: v5.4.2.
      *
      * @param request - GetSecurityIdentifyResultRequest
      *
@@ -15229,7 +15835,7 @@ class Dataphinpublic extends OpenApiClient
      * Retrieves the Dataphin server version.
      *
      * @remarks
-     * Queries the details of a published API based on the AppKey.
+     * Queries the details of published APIs based on the appKey.
      *
      * @param request - GetServerVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15279,7 +15885,7 @@ class Dataphinpublic extends OpenApiClient
      * Retrieves the Dataphin server version.
      *
      * @remarks
-     * Queries the details of a published API based on the AppKey.
+     * Queries the details of published APIs based on the appKey.
      *
      * @param request - GetServerVersionRequest
      *
@@ -15378,7 +15984,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the Spark client information of the cluster associated with a compute source.
+     * Retrieves the Spark client information for the cluster associated with the compute source.
      *
      * @param request - GetSparkLocalClientInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15429,7 +16035,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the Spark client information of the cluster associated with a compute source.
+     * Retrieves the Spark client information for the cluster associated with the compute source.
      *
      * @param request - GetSparkLocalClientInfoRequest
      *
@@ -15447,8 +16053,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a standard.
-     * Release version: v5.4.2.
+     * Retrieves the details of a standard. Released in v5.4.2.
      *
      * @param tmpReq - GetStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15503,8 +16108,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a standard.
-     * Release version: v5.4.2.
+     * Retrieves the details of a standard. Released in v5.4.2.
      *
      * @param request - GetStandardRequest
      *
@@ -15522,8 +16126,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a data standard lookup table.
-     * Online version: v5.4.2.
+     * Retrieves the details of a data standard lookup table. Released in version 5.4.2.
      *
      * @param request - GetStandardLookupTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15574,8 +16177,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a data standard lookup table.
-     * Online version: v5.4.2.
+     * Retrieves the details of a data standard lookup table. Released in version 5.4.2.
      *
      * @param request - GetStandardLookupTableRequest
      *
@@ -15593,8 +16195,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a standard set.
-     * Release version: v5.4.2.
+     * Retrieves the details of a standard set. Release version: v5.4.2.
      *
      * @param request - GetStandardSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15645,8 +16246,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a standard set.
-     * Release version: v5.4.2.
+     * Retrieves the details of a standard set. Release version: v5.4.2.
      *
      * @param request - GetStandardSetRequest
      *
@@ -15664,8 +16264,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the number of standards grouped by standard type under a specified folder.
-     * Online version: v5.4.2.
+     * Queries the statistics of standards by standard type under a directory.
+     * Available since: v5.4.2.
      *
      * @param tmpReq - GetStandardStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15720,8 +16320,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the number of standards grouped by standard type under a specified folder.
-     * Online version: v5.4.2.
+     * Queries the statistics of standards by standard type under a directory.
+     * Available since: v5.4.2.
      *
      * @param request - GetStandardStatisticsRequest
      *
@@ -15739,8 +16339,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a data standard template.
-     * Online version: v5.4.2.
+     * Retrieves the details of a data standard template. Released in version v5.4.2.
      *
      * @param tmpReq - GetStandardTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15803,8 +16402,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a data standard template.
-     * Online version: v5.4.2.
+     * Retrieves the details of a data standard template. Released in version v5.4.2.
      *
      * @param request - GetStandardTemplateRequest
      *
@@ -15822,8 +16420,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a data standard word root.
-     * Online version: v5.4.2.
+     * Queries the details of a data standard word root. Release version: v5.4.2.
      *
      * @param request - GetStandardWordRootRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15874,8 +16471,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a data standard word root.
-     * Online version: v5.4.2.
+     * Queries the details of a data standard word root. Release version: v5.4.2.
      *
      * @param request - GetStandardWordRootRequest
      *
@@ -15962,6 +16558,243 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Retrieves the full text of JobManager or TaskManager logs. Available since version 6.4.0.
+     *
+     * @remarks
+     * Retrieves the full text of JobManager or TaskManager logs in the production environment.
+     *
+     * @param request - GetStreamLogContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStreamLogContentResponse
+     *
+     * @param GetStreamLogContentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetStreamLogContentResponse
+     */
+    public function getStreamLogContentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deploymentInstanceId) {
+            @$query['DeploymentInstanceId'] = $request->deploymentInstanceId;
+        }
+
+        if (null !== $request->logName) {
+            @$query['LogName'] = $request->logName;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->taskmanagerId) {
+            @$query['TaskmanagerId'] = $request->taskmanagerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStreamLogContent',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStreamLogContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the full text of JobManager or TaskManager logs. Available since version 6.4.0.
+     *
+     * @remarks
+     * Retrieves the full text of JobManager or TaskManager logs in the production environment.
+     *
+     * @param request - GetStreamLogContentRequest
+     *
+     * @returns GetStreamLogContentResponse
+     *
+     * @param GetStreamLogContentRequest $request
+     *
+     * @return GetStreamLogContentResponse
+     */
+    public function getStreamLogContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStreamLogContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a single start or stop operation record and the log content. Available since version 6.4.0.
+     *
+     * @remarks
+     * Retrieves a single start or stop operation record and the log content by querying the production environment.
+     *
+     * @param request - GetStreamOpsRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStreamOpsRecordResponse
+     *
+     * @param GetStreamOpsRecordRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetStreamOpsRecordResponse
+     */
+    public function getStreamOpsRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->opsRecordId) {
+            @$query['OpsRecordId'] = $request->opsRecordId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStreamOpsRecord',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStreamOpsRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a single start or stop operation record and the log content. Available since version 6.4.0.
+     *
+     * @remarks
+     * Retrieves a single start or stop operation record and the log content by querying the production environment.
+     *
+     * @param request - GetStreamOpsRecordRequest
+     *
+     * @returns GetStreamOpsRecordResponse
+     *
+     * @param GetStreamOpsRecordRequest $request
+     *
+     * @return GetStreamOpsRecordResponse
+     */
+    public function getStreamOpsRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStreamOpsRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the basic information and running status of a real-time task. Available since v6.4.0.
+     *
+     * @remarks
+     * Queries the basic information and running status of a real-time task. The DEV and PROD environments are supported.
+     *
+     * @param request - GetStreamTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetStreamTaskResponse
+     *
+     * @param GetStreamTaskRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetStreamTaskResponse
+     */
+    public function getStreamTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStreamTask',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStreamTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the basic information and running status of a real-time task. Available since v6.4.0.
+     *
+     * @remarks
+     * Queries the basic information and running status of a real-time task. The DEV and PROD environments are supported.
+     *
+     * @param request - GetStreamTaskRequest
+     *
+     * @returns GetStreamTaskResponse
+     *
+     * @param GetStreamTaskRequest $request
+     *
+     * @return GetStreamTaskResponse
+     */
+    public function getStreamTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStreamTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves dagrun information for all business dates of a data backfill instance workflow.
      *
      * @param request - GetSupplementDagrunRequest
@@ -16031,7 +16864,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Lists the instances of all nodes for a specific business date in a data backfill workflow.
+     * Lists all node instances for a specific business date in a data backfill workflow.
      *
      * @param request - GetSupplementDagrunInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16082,7 +16915,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Lists the instances of all nodes for a specific business date in a data backfill workflow.
+     * Lists all node instances for a specific business date in a data backfill workflow.
      *
      * @param request - GetSupplementDagrunInstanceRequest
      *
@@ -16317,7 +17150,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
+     * Queries the fields of Dataphin tables in the asset inventory. Supported table types include logical dimension tables, logical fact tables, logical aggregate tables, logical tag tables, logical table views, physical tables, physical views, and materialized views. Released in version 5.4.2.
      *
      * @param request - GetTableColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16345,6 +17178,10 @@ class Dataphinpublic extends OpenApiClient
             @$query['OpUserId'] = $request->opUserId;
         }
 
+        if (null !== $request->tableGuid) {
+            @$query['TableGuid'] = $request->tableGuid;
+        }
+
         if (null !== $request->tableName) {
             @$query['TableName'] = $request->tableName;
         }
@@ -16368,7 +17205,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the columns of a Dataphin table in the asset inventory. Supported table types: logical dimension table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view table. Release version: v5.4.2.
+     * Queries the fields of Dataphin tables in the asset inventory. Supported table types include logical dimension tables, logical fact tables, logical aggregate tables, logical tag tables, logical table views, physical tables, physical views, and materialized views. Released in version 5.4.2.
      *
      * @param request - GetTableColumnsRequest
      *
@@ -16672,7 +17509,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specific version of a user-defined function.
+     * Queries the details of a custom function version.
      *
      * @param request - GetUdfByVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16727,7 +17564,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specific version of a user-defined function.
+     * Queries the details of a custom function version.
      *
      * @param request - GetUdfByVersionRequest
      *
@@ -17013,7 +17850,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Grants API authorization.
+     * Grants permissions for an API.
      *
      * @param tmpReq - GrantDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17072,7 +17909,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Grants API authorization.
+     * Grants permissions for an API.
      *
      * @param request - GrantDataServiceApiRequest
      *
@@ -17090,7 +17927,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Grants permissions on resources to users by resource point.
+     * Grants resource permissions to users.
      *
      * @param tmpReq - GrantResourcePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17145,7 +17982,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Grants permissions on resources to users by resource point.
+     * Grants resource permissions to users.
      *
      * @param request - GrantResourcePermissionRequest
      *
@@ -17163,7 +18000,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Imports a knowledge graph model definition. Online version: v6.1.1.
+     * Imports the knowledge graph model definition. Release version: v6.1.1.
      *
      * @param tmpReq - ImportKgSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17222,7 +18059,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Imports a knowledge graph model definition. Online version: v6.1.1.
+     * Imports the knowledge graph model definition. Release version: v6.1.1.
      *
      * @param request - ImportKgSchemaRequest
      *
@@ -17301,7 +18138,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
+     * Queries the users that can be added to a tenant. Only super administrators and system administrators can invoke this operation. The users must be added to the member list of the Dataphin instance but have not yet been added to the tenant member list.
      *
      * @param tmpReq - ListAddableUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17356,7 +18193,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
+     * Queries the users that can be added to a tenant. Only super administrators and system administrators can invoke this operation. The users must be added to the member list of the Dataphin instance but have not yet been added to the tenant member list.
      *
      * @param request - ListAddableUsersRequest
      *
@@ -17520,10 +18357,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of APIs by application.
+     * Queries the API list for an application.
      *
      * @remarks
-     * Queries the detailed information of published APIs by appKey.
+     * Queries the details of published APIs by AppKey.
      *
      * @param tmpReq - ListApiByAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17578,10 +18415,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of APIs by application.
+     * Queries the API list for an application.
      *
      * @remarks
-     * Queries the detailed information of published APIs by appKey.
+     * Queries the details of published APIs by AppKey.
      *
      * @param request - ListApiByAppRequest
      *
@@ -17818,10 +18655,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the specific field list of APIs that an application has requested.
+     * Queries the specific field list of the APIs that an application has applied for.
      *
      * @remarks
-     * ## Request description.
+     * ## Request description
+     * This API allows you to query the APIs authorized to an application by providing the tenant ID, the AppKey of the data service application, or a keyword of the application name. Pagination is supported. The returned data includes the API ID, name, project, authorization validity period (for development and production environments), permission type, and field lists for production and development environments (including field or parameter name, parameter type, description, example value, and authorization status). Note that pagination parameters are required.
      *
      * @param tmpReq - ListAuthorizedDataServiceApiDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17876,10 +18714,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the specific field list of APIs that an application has requested.
+     * Queries the specific field list of the APIs that an application has applied for.
      *
      * @remarks
-     * ## Request description.
+     * ## Request description
+     * This API allows you to query the APIs authorized to an application by providing the tenant ID, the AppKey of the data service application, or a keyword of the application name. Pagination is supported. The returned data includes the API ID, name, project, authorization validity period (for development and production environments), permission type, and field lists for production and development environments (including field or parameter name, parameter type, description, example value, and authorization status). Note that pagination parameters are required.
      *
      * @param request - ListAuthorizedDataServiceApiDetailsRequest
      *
@@ -17897,7 +18736,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID.
+     * Queries a list of offline computing tasks. Supports fuzzy search by task name and exact matching by output table name to locate the task that generates the table and retrieve its file ID. Available since version 6.3.2.
      *
      * @param tmpReq - ListBatchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17952,7 +18791,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID.
+     * Queries a list of offline computing tasks. Supports fuzzy search by task name and exact matching by output table name to locate the task that generates the table and retrieve its file ID. Available since version 6.3.2.
      *
      * @param request - ListBatchTasksRequest
      *
@@ -17970,7 +18809,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries offline computing templates by paging. Online version: v6.2.0.
+     * Performs a paging query on offline computing templates. Released in version v6.2.0.
      *
      * @param tmpReq - ListBatchTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18033,7 +18872,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries offline computing templates by paging. Online version: v6.2.0.
+     * Performs a paging query on offline computing templates. Released in version v6.2.0.
      *
      * @param request - ListBatchTemplatesRequest
      *
@@ -18124,7 +18963,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves all business units under the current tenant.
+     * Queries all business units under the current tenant.
      *
      * @param request - ListBizUnitsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18167,7 +19006,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Retrieves all business units under the current tenant.
+     * Queries all business units under the current tenant.
      *
      * @param request - ListBizUnitsRequest
      *
@@ -18491,7 +19330,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * O&M analysis: API call statistics.
+     * Queries API invoke statistics information for O&M analysis.
      *
      * @param tmpReq - ListDataServiceApiCallStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18550,7 +19389,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * O&M analysis: API call statistics.
+     * Queries API invoke statistics information for O&M analysis.
      *
      * @param request - ListDataServiceApiCallStatisticsRequest
      *
@@ -18568,7 +19407,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries data service call logs with pagination.
+     * Performs a paging query on data service invoke logs.
      *
      * @param tmpReq - ListDataServiceApiCallsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18627,7 +19466,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries data service call logs with pagination.
+     * Performs a paging query on data service invoke logs.
      *
      * @param request - ListDataServiceApiCallsRequest
      *
@@ -19105,7 +19944,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Search for data sources. The results include data source configuration items.
+     * Searches for data sources and returns results that include datasource config items.
      *
      * @param tmpReq - ListDataSourceWithConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19160,7 +19999,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Search for data sources. The results include data source configuration items.
+     * Searches for data sources and returns results that include datasource config items.
      *
      * @param request - ListDataSourceWithConfigRequest
      *
@@ -19178,11 +20017,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+     * Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
      *
      * @remarks
-     * ## Operation description
-     * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+     * ## Request description
+     * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
      *
      * @param tmpReq - ListDatasetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19237,11 +20076,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+     * Performs a conditional query to retrieve a list of datasets in a project. Online version: v6.2.0.
      *
      * @remarks
-     * ## Operation description
-     * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+     * ## Request description
+     * This API allows you to retrieve dataset information for a specific project by providing the tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported for paged query, and the returned packet includes the basic information of the datasets and their version details. Note that ProjectId is required, while other parameters are options that you can configure in Settings as needed to filter the results.
      *
      * @param request - ListDatasetsRequest
      *
@@ -19487,6 +20326,67 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+     *
+     * @param request - ListK8SResourceGroupIdsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListK8SResourceGroupIdsResponse
+     *
+     * @param ListK8SResourceGroupIdsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListK8SResourceGroupIdsResponse
+     */
+    public function listK8SResourceGroupIdsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListK8SResourceGroupIds',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListK8SResourceGroupIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of custom Kubernetes resource groups under a tenant. Released in version 6.4.0.
+     *
+     * @param request - ListK8SResourceGroupIdsRequest
+     *
+     * @returns ListK8SResourceGroupIdsResponse
+     *
+     * @param ListK8SResourceGroupIdsRequest $request
+     *
+     * @return ListK8SResourceGroupIdsResponse
+     */
+    public function listK8SResourceGroupIds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listK8SResourceGroupIdsWithOptions($request, $runtime);
     }
 
     /**
@@ -19806,7 +20706,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on the list of operation records. Online version: v6.2.0.
+     * Performs a paging query on the list of execution records. Online version: v6.2.0.
      *
      * @param tmpReq - ListOperationRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19861,7 +20761,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on the list of operation records. Online version: v6.2.0.
+     * Performs a paging query on the list of execution records. Online version: v6.2.0.
      *
      * @param request - ListOperationRecordRequest
      *
@@ -20037,13 +20937,17 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目角色列表.
+     * Retrieves a list of project roles. Release version: v6.3.2.
      *
      * @remarks
-     * 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
-     * - BUILD_IN：内置角色
-     * - CUSTOM：自定义角色
-     * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+     * Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
+     * - BUILD_IN: built-in role.
+     * - CUSTOM: custom role.
+     * The ProjectType request parameter is required. Valid values:
+     * - BASIC: basic mode project.
+     * - DEV: development environment project.
+     * - PROD: production environment project.
+     * - TAG: tag platform project.
      *
      * @param request - ListProjectRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20090,13 +20994,17 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目角色列表.
+     * Retrieves a list of project roles. Release version: v6.3.2.
      *
      * @remarks
-     * 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
-     * - BUILD_IN：内置角色
-     * - CUSTOM：自定义角色
-     * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+     * Retrieves the list of project roles for a specified project type under a tenant. The roleType field in the returned role list indicates the role type:
+     * - BUILD_IN: built-in role.
+     * - CUSTOM: custom role.
+     * The ProjectType request parameter is required. Valid values:
+     * - BASIC: basic mode project.
+     * - DEV: development environment project.
+     * - PROD: production environment project.
+     * - TAG: tag platform project.
      *
      * @param request - ListProjectRolesRequest
      *
@@ -20260,6 +21168,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Performs a paged query on Python third-party packages with paging. Online version: v6.4.0.
+     *
+     * @param tmpReq - ListPythonModulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPythonModulesResponse
+     *
+     * @param ListPythonModulesRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListPythonModulesResponse
+     */
+    public function listPythonModulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListPythonModulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPythonModules',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPythonModulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on Python third-party packages with paging. Online version: v6.4.0.
+     *
+     * @param request - ListPythonModulesRequest
+     *
+     * @returns ListPythonModulesResponse
+     *
+     * @param ListPythonModulesRequest $request
+     *
+     * @return ListPythonModulesResponse
+     */
+    public function listPythonModules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPythonModulesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of anomaly archived tables under a specified monitored object. Online version: v6.3.0.
      *
      * @param tmpReq - ListQualityArchiveTablesRequest
@@ -20333,8 +21314,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries quality rule tasks by paging.
-     * Online version: v5.4.2.
+     * Performs a paging query of quality rule nodes. Online version: v5.4.2.
      *
      * @param tmpReq - ListQualityRuleTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20389,8 +21369,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries quality rule tasks by paging.
-     * Online version: v5.4.2.
+     * Performs a paging query of quality rule nodes. Online version: v5.4.2.
      *
      * @param request - ListQualityRuleTasksRequest
      *
@@ -20408,8 +21387,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries quality rules by paging.
-     * Online version: v5.4.2.
+     * Performs a paged query of quality rules. Supports paging. Available online in version 5.4.2.
      *
      * @param tmpReq - ListQualityRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20464,8 +21442,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries quality rules by paging.
-     * Online version: v5.4.2.
+     * Performs a paged query of quality rules. Supports paging. Available online in version 5.4.2.
      *
      * @param request - ListQualityRulesRequest
      *
@@ -20483,8 +21460,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries quality templates by paging.
-     * Online version: v5.4.2.
+     * Performs a paging query on quality templates. Online version: v5.4.2.
      *
      * @param tmpReq - ListQualityTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20539,8 +21515,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries quality templates by paging.
-     * Online version: v5.4.2.
+     * Performs a paging query on quality templates. Online version: v5.4.2.
      *
      * @param request - ListQualityTemplatesRequest
      *
@@ -20633,8 +21608,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of quality monitored objects.
-     * Online version: v5.4.2.
+     * Queries quality monitoring objects by using a paging query. Online version: v5.4.2.
      *
      * @param tmpReq - ListQualityWatchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20689,8 +21663,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of quality monitored objects.
-     * Online version: v5.4.2.
+     * Queries quality monitoring objects by using a paging query. Online version: v5.4.2.
      *
      * @param request - ListQualityWatchesRequest
      *
@@ -20705,6 +21678,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listQualityWatchesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries quality rectification processes. Released in version v6.4.0.
+     *
+     * @param tmpReq - ListRectifyFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRectifyFlowResponse
+     *
+     * @param ListRectifyFlowRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListRectifyFlowResponse
+     */
+    public function listRectifyFlowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListRectifyFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListRectifyFlow',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRectifyFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries quality rectification processes. Released in version v6.4.0.
+     *
+     * @param request - ListRectifyFlowRequest
+     *
+     * @returns ListRectifyFlowResponse
+     *
+     * @param ListRectifyFlowRequest $request
+     *
+     * @return ListRectifyFlowResponse
+     */
+    public function listRectifyFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRectifyFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -20846,7 +21892,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of row-level permissions.
+     * Performs a paging query on row-level permissions.
      *
      * @param tmpReq - ListRowPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20901,7 +21947,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of row-level permissions.
+     * Performs a paging query on row-level permissions.
      *
      * @param request - ListRowPermissionRequest
      *
@@ -20919,7 +21965,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries row-level permissions of a specified user by paging.
+     * Performs a paging query on the row-level permissions of a specified user.
      *
      * @param tmpReq - ListRowPermissionByUserIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20974,7 +22020,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries row-level permissions of a specified user by paging.
+     * Performs a paging query on the row-level permissions of a specified user.
      *
      * @param request - ListRowPermissionByUserIdRequest
      *
@@ -20989,6 +22035,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRowPermissionByUserIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paged query on the scheduling monitoring and alerting configuration list. Supports filtering by project, monitored object type, alerting cause, notification method, recipient, creator, on-call schedule, logical table or field, and keyword. Online version: v6.4.0.
+     *
+     * @param tmpReq - ListScheduleMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScheduleMonitorResponse
+     *
+     * @param ListScheduleMonitorRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListScheduleMonitorResponse
+     */
+    public function listScheduleMonitorWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListScheduleMonitorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListScheduleMonitor',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListScheduleMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on the scheduling monitoring and alerting configuration list. Supports filtering by project, monitored object type, alerting cause, notification method, recipient, creator, on-call schedule, logical table or field, and keyword. Online version: v6.4.0.
+     *
+     * @param request - ListScheduleMonitorRequest
+     *
+     * @returns ListScheduleMonitorResponse
+     *
+     * @param ListScheduleMonitorRequest $request
+     *
+     * @return ListScheduleMonitorResponse
+     */
+    public function listScheduleMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listScheduleMonitorWithOptions($request, $runtime);
     }
 
     /**
@@ -21209,8 +22328,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query security identification results by page.
-     * Release version: v5.4.2.
+     * Performs a paged query on security identification results with paging. The online version is v5.4.2.
      *
      * @param tmpReq - ListSecurityIdentifyResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21265,8 +22383,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query security identification results by page.
-     * Release version: v5.4.2.
+     * Performs a paged query on security identification results with paging. The online version is v5.4.2.
      *
      * @param request - ListSecurityIdentifyResultsRequest
      *
@@ -21284,8 +22401,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query the standard list by page.
-     * Release version: v5.4.2.
+     * Performs a paging query on the standard list. Released in version v5.4.2.
      *
      * @param tmpReq - ListStandardsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21340,8 +22456,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Query the standard list by page.
-     * Release version: v5.4.2.
+     * Performs a paging query on the standard list. Released in version v5.4.2.
      *
      * @param request - ListStandardsRequest
      *
@@ -21359,7 +22474,386 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Paginate and retrieve the list of pending deployment records.
+     * Retrieves a list of historical running instances for a real-time task. Available since v6.4.0.
+     *
+     * @remarks
+     * Retrieves the list of historical running instances for a real-time task in the production environment.
+     *
+     * @param request - ListStreamInstanceRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStreamInstanceRecordsResponse
+     *
+     * @param ListStreamInstanceRecordsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListStreamInstanceRecordsResponse
+     */
+    public function listStreamInstanceRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListStreamInstanceRecords',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStreamInstanceRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of historical running instances for a real-time task. Available since v6.4.0.
+     *
+     * @remarks
+     * Retrieves the list of historical running instances for a real-time task in the production environment.
+     *
+     * @param request - ListStreamInstanceRecordsRequest
+     *
+     * @returns ListStreamInstanceRecordsResponse
+     *
+     * @param ListStreamInstanceRecordsRequest $request
+     *
+     * @return ListStreamInstanceRecordsResponse
+     */
+    public function listStreamInstanceRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStreamInstanceRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of JobManager log files for a real-time task. Available since version 6.4.0.
+     *
+     * @remarks
+     * Retrieves the list of JobManager log files for a real-time task in the production environment.
+     *
+     * @param request - ListStreamJobManagerLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStreamJobManagerLogsResponse
+     *
+     * @param ListStreamJobManagerLogsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListStreamJobManagerLogsResponse
+     */
+    public function listStreamJobManagerLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deploymentInstanceId) {
+            @$query['DeploymentInstanceId'] = $request->deploymentInstanceId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListStreamJobManagerLogs',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStreamJobManagerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of JobManager log files for a real-time task. Available since version 6.4.0.
+     *
+     * @remarks
+     * Retrieves the list of JobManager log files for a real-time task in the production environment.
+     *
+     * @param request - ListStreamJobManagerLogsRequest
+     *
+     * @returns ListStreamJobManagerLogsResponse
+     *
+     * @param ListStreamJobManagerLogsRequest $request
+     *
+     * @return ListStreamJobManagerLogsResponse
+     */
+    public function listStreamJobManagerLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStreamJobManagerLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+     *
+     * @remarks
+     * Retrieves the start and stop operation records of real-time tasks in the production environment.
+     *
+     * @param request - ListStreamOpsRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStreamOpsRecordsResponse
+     *
+     * @param ListStreamOpsRecordsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListStreamOpsRecordsResponse
+     */
+    public function listStreamOpsRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListStreamOpsRecords',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStreamOpsRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the start and stop operation records of real-time tasks. Available since v6.4.0.
+     *
+     * @remarks
+     * Retrieves the start and stop operation records of real-time tasks in the production environment.
+     *
+     * @param request - ListStreamOpsRecordsRequest
+     *
+     * @returns ListStreamOpsRecordsResponse
+     *
+     * @param ListStreamOpsRecordsRequest $request
+     *
+     * @return ListStreamOpsRecordsResponse
+     */
+    public function listStreamOpsRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStreamOpsRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of log files for a specified TaskManager. Available since v6.4.0.
+     *
+     * @remarks
+     * Retrieves the list of log files for a specified TaskManager in the production environment.
+     *
+     * @param request - ListStreamTaskManagerLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStreamTaskManagerLogsResponse
+     *
+     * @param ListStreamTaskManagerLogsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListStreamTaskManagerLogsResponse
+     */
+    public function listStreamTaskManagerLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deploymentInstanceId) {
+            @$query['DeploymentInstanceId'] = $request->deploymentInstanceId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->taskmanagerId) {
+            @$query['TaskmanagerId'] = $request->taskmanagerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListStreamTaskManagerLogs',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStreamTaskManagerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of log files for a specified TaskManager. Available since v6.4.0.
+     *
+     * @remarks
+     * Retrieves the list of log files for a specified TaskManager in the production environment.
+     *
+     * @param request - ListStreamTaskManagerLogsRequest
+     *
+     * @returns ListStreamTaskManagerLogsResponse
+     *
+     * @param ListStreamTaskManagerLogsRequest $request
+     *
+     * @return ListStreamTaskManagerLogsResponse
+     */
+    public function listStreamTaskManagerLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStreamTaskManagerLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of TaskManagers for a real-time task. Available since v6.4.0.
+     *
+     * @remarks
+     * Retrieves the list of TaskManagers for a real-time task in the production environment.
+     *
+     * @param request - ListStreamTaskManagersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListStreamTaskManagersResponse
+     *
+     * @param ListStreamTaskManagersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListStreamTaskManagersResponse
+     */
+    public function listStreamTaskManagersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deploymentInstanceId) {
+            @$query['DeploymentInstanceId'] = $request->deploymentInstanceId;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListStreamTaskManagers',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStreamTaskManagersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of TaskManagers for a real-time task. Available since v6.4.0.
+     *
+     * @remarks
+     * Retrieves the list of TaskManagers for a real-time task in the production environment.
+     *
+     * @param request - ListStreamTaskManagersRequest
+     *
+     * @returns ListStreamTaskManagersResponse
+     *
+     * @param ListStreamTaskManagersRequest $request
+     *
+     * @return ListStreamTaskManagersResponse
+     */
+    public function listStreamTaskManagers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStreamTaskManagersWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a paginated list of pending release records.
      *
      * @param tmpReq - ListSubmitRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21414,7 +22908,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Paginate and retrieve the list of pending deployment records.
+     * Retrieves a paginated list of pending release records.
      *
      * @param request - ListSubmitRecordsRequest
      *
@@ -21507,7 +23001,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of tenant members.
+     * Retrieves a list of tenant members.
      *
      * @param tmpReq - ListTenantMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21562,7 +23056,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of tenant members.
+     * Retrieves a list of tenant members.
      *
      * @param request - ListTenantMembersRequest
      *
@@ -21653,7 +23147,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs a paging query of user group members.
+     * Performs a paging query on the members of a user group.
      *
      * @param tmpReq - ListUserGroupMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21708,7 +23202,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs a paging query of user group members.
+     * Performs a paging query on the members of a user group.
      *
      * @param request - ListUserGroupMembersRequest
      *
@@ -21726,7 +23220,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries user groups by paging.
+     * Performs a paging query on the user group list.
      *
      * @param tmpReq - ListUserGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21781,7 +23275,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries user groups by paging.
+     * Performs a paging query on the user group list.
      *
      * @param request - ListUserGroupsRequest
      *
@@ -21799,7 +23293,153 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Offlines a batch task.
+     * Queries the list of projects that a specified user participates in. Released in version v6.4.0.
+     *
+     * @param tmpReq - ListUserProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserProjectsResponse
+     *
+     * @param ListUserProjectsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListUserProjectsResponse
+     */
+    public function listUserProjectsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListUserProjectsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserProjects',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of projects that a specified user participates in. Released in version v6.4.0.
+     *
+     * @param request - ListUserProjectsRequest
+     *
+     * @returns ListUserProjectsResponse
+     *
+     * @param ListUserProjectsRequest $request
+     *
+     * @return ListUserProjectsResponse
+     */
+    public function listUserProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paged query for paging the user list. Online version: v6.4.0.
+     *
+     * @param tmpReq - ListUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListUsersResponse
+     */
+    public function listUsersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListUsersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListUsers',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query for paging the user list. Online version: v6.4.0.
+     *
+     * @param request - ListUsersRequest
+     *
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     *
+     * @return ListUsersResponse
+     */
+    public function listUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * Takes an offline computing task offline.
      *
      * @param request - OfflineBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21854,7 +23494,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Offlines a batch task.
+     * Takes an offline computing task offline.
      *
      * @param request - OfflineBatchTaskRequest
      *
@@ -21945,7 +23585,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Offlines an integration pipeline node.
+     * Takes an integration pipeline task offline.
      *
      * @param tmpReq - OfflinePipelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22008,7 +23648,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Offlines an integration pipeline node.
+     * Takes an integration pipeline task offline.
      *
      * @param request - OfflinePipelineRequest
      *
@@ -22026,7 +23666,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Asynchronously offlines an integration pipeline node.
+     * Asynchronously takes an integration pipeline task offline.
      *
      * @param tmpReq - OfflinePipelineByAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22089,7 +23729,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Asynchronously offlines an integration pipeline node.
+     * Asynchronously takes an integration pipeline task offline.
      *
      * @param request - OfflinePipelineByAsyncRequest
      *
@@ -22107,8 +23747,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Offlines a standard.
-     * Online version: v5.4.2.
+     * Takes a standard offline. Introduced in version v5.4.2.
      *
      * @param tmpReq - OfflineStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22163,8 +23802,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Offlines a standard.
-     * Online version: v5.4.2.
+     * Takes a standard offline. Introduced in version v5.4.2.
      *
      * @param request - OfflineStandardRequest
      *
@@ -22255,7 +23893,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
+     * Performs batch O&M operations on instances, supporting physical instances and logical table instances.
      *
      * @param tmpReq - OperateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22314,7 +23952,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
+     * Performs batch O&M operations on instances, supporting physical instances and logical table instances.
      *
      * @param request - OperateInstanceRequest
      *
@@ -22555,7 +24193,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Publishes a knowledge graph model. Online version: v6.2.0.
+     * Publishes a graph model. The online version is v6.2.0.
      *
      * @param tmpReq - PublishKgSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22614,7 +24252,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Publishes a knowledge graph model. Online version: v6.2.0.
+     * Publishes a graph model. The online version is v6.2.0.
      *
      * @param request - PublishKgSchemaRequest
      *
@@ -22780,6 +24418,83 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries the submit result of a real-time integration task based on the submit detail ID. Available since v6.4.0.
+     *
+     * @param tmpReq - QueryPipelineSubmitResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPipelineSubmitResultResponse
+     *
+     * @param QueryPipelineSubmitResultRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryPipelineSubmitResultResponse
+     */
+    public function queryPipelineSubmitResultWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryPipelineSubmitResultShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->submitId) {
+            @$query['SubmitId'] = $request->submitId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPipelineSubmitResult',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPipelineSubmitResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the submit result of a real-time integration task based on the submit detail ID. Available since v6.4.0.
+     *
+     * @param request - QueryPipelineSubmitResultRequest
+     *
+     * @returns QueryPipelineSubmitResultResponse
+     *
+     * @param QueryPipelineSubmitResultRequest $request
+     *
+     * @return QueryPipelineSubmitResultResponse
+     */
+    public function queryPipelineSubmitResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPipelineSubmitResultWithOptions($request, $runtime);
+    }
+
+    /**
      * Remove regular members from a data service application. Only the application owner can perform this operation.
      * Released version: v6.0.0.
      *
@@ -22855,7 +24570,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a project member.
+     * Removes a project member.
      *
      * @param tmpReq - RemoveProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22914,7 +24629,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Deletes a project member.
+     * Removes a project member.
      *
      * @param request - RemoveProjectMemberRequest
      *
@@ -23004,6 +24719,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeQualityRuleSchedulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes one or more scheduling monitoring alert configurations. Available since v6.4.0.
+     *
+     * @param tmpReq - RemoveScheduleMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveScheduleMonitorResponse
+     *
+     * @param RemoveScheduleMonitorRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveScheduleMonitorResponse
+     */
+    public function removeScheduleMonitorWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RemoveScheduleMonitorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->removeCommand) {
+            $request->removeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeCommand, 'RemoveCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->removeCommandShrink) {
+            @$body['RemoveCommand'] = $request->removeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveScheduleMonitor',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveScheduleMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes one or more scheduling monitoring alert configurations. Available since v6.4.0.
+     *
+     * @param request - RemoveScheduleMonitorRequest
+     *
+     * @returns RemoveScheduleMonitorResponse
+     *
+     * @param RemoveScheduleMonitorRequest $request
+     *
+     * @return RemoveScheduleMonitorResponse
+     */
+    public function removeScheduleMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeScheduleMonitorWithOptions($request, $runtime);
     }
 
     /**
@@ -23230,8 +25018,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Reset the Data Service application key. Only the application owner can perform this operation.
-     * Release version: v6.0.0.
+     * Resets the application key of a data service. Only the application owner can perform this operation. Released in v6.0.0.
      *
      * @param tmpReq - ResetDataServiceAppSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23286,8 +25073,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Reset the Data Service application key. Only the application owner can perform this operation.
-     * Release version: v6.0.0.
+     * Resets the application key of a data service. Only the application owner can perform this operation. Released in v6.0.0.
      *
      * @param request - ResetDataServiceAppSecretRequest
      *
@@ -23305,7 +25091,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Resume physical node scheduling.
+     * Resumes the scheduling of physical nodes.
      *
      * @param tmpReq - ResumePhysicalNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23364,7 +25150,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Resume physical node scheduling.
+     * Resumes the scheduling of physical nodes.
      *
      * @param request - ResumePhysicalNodeRequest
      *
@@ -23452,6 +25238,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->retryTransferOwnershipWithOptions($request, $runtime);
+    }
+
+    /**
+     * Reviews the quality rectification process. Release version: v6.4.0.
+     *
+     * @param tmpReq - ReviewRectifyFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReviewRectifyFlowResponse
+     *
+     * @param ReviewRectifyFlowRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ReviewRectifyFlowResponse
+     */
+    public function reviewRectifyFlowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ReviewRectifyFlowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->reviewCommand) {
+            $request->reviewCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->reviewCommand, 'ReviewCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->reviewCommandShrink) {
+            @$body['ReviewCommand'] = $request->reviewCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReviewRectifyFlow',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReviewRectifyFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Reviews the quality rectification process. Release version: v6.4.0.
+     *
+     * @param request - ReviewRectifyFlowRequest
+     *
+     * @returns ReviewRectifyFlowResponse
+     *
+     * @param ReviewRectifyFlowRequest $request
+     *
+     * @return ReviewRectifyFlowResponse
+     */
+    public function reviewRectifyFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reviewRectifyFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -24055,7 +25914,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Submits a batch task.
+     * Submits an offline computing task.
      *
      * @param tmpReq - SubmitBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24110,7 +25969,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Submits a batch task.
+     * Submits an offline computing task.
      *
      * @param request - SubmitBatchTaskRequest
      *
@@ -24125,6 +25984,164 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits an offline computing template. Available since v6.4.0.
+     *
+     * @param tmpReq - SubmitBatchTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitBatchTemplateResponse
+     *
+     * @param SubmitBatchTemplateRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitBatchTemplateResponse
+     */
+    public function submitBatchTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitBatchTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitCommand) {
+            $request->submitCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $body = [];
+        if (null !== $request->submitCommandShrink) {
+            @$body['SubmitCommand'] = $request->submitCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitBatchTemplate',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitBatchTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits an offline computing template. Available since v6.4.0.
+     *
+     * @param request - SubmitBatchTemplateRequest
+     *
+     * @returns SubmitBatchTemplateResponse
+     *
+     * @param SubmitBatchTemplateRequest $request
+     *
+     * @return SubmitBatchTemplateResponse
+     */
+    public function submitBatchTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitBatchTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs an asynchronous commit of a real-time integration pipeline task based on the OAQueryId. Online version: v6.4.0.
+     *
+     * @param tmpReq - SubmitPipelineAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitPipelineAsyncResponse
+     *
+     * @param SubmitPipelineAsyncRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitPipelineAsyncResponse
+     */
+    public function submitPipelineAsyncWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitPipelineAsyncShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->queryId) {
+            $request->queryIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryId, 'QueryId', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->queryIdShrink) {
+            @$body['QueryId'] = $request->queryIdShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitPipelineAsync',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitPipelineAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs an asynchronous commit of a real-time integration pipeline task based on the OAQueryId. Online version: v6.4.0.
+     *
+     * @param request - SubmitPipelineAsyncRequest
+     *
+     * @returns SubmitPipelineAsyncResponse
+     *
+     * @param SubmitPipelineAsyncRequest $request
+     *
+     * @return SubmitPipelineAsyncResponse
+     */
+    public function submitPipelineAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitPipelineAsyncWithOptions($request, $runtime);
     }
 
     /**
@@ -24205,8 +26222,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Batch submit rule tasks with support for test runs.
-     * Release version: v5.4.2.
+     * Submits rule tasks in batches and supports test runs. Available since version 5.4.2.
      *
      * @param tmpReq - SubmitQualityRuleTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24261,8 +26277,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Batch submit rule tasks with support for test runs.
-     * Release version: v5.4.2.
+     * Submits rule tasks in batches and supports test runs. Available since version 5.4.2.
      *
      * @param request - SubmitQualityRuleTasksRequest
      *
@@ -24280,8 +26295,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Submits quality watchtask check tasks in batches.
-     * Online version: v5.4.2.
+     * Submits multiple monitoring object check nodes in batches. Released in version v5.4.2.
      *
      * @param tmpReq - SubmitQualityWatchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24336,8 +26350,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Submits quality watchtask check tasks in batches.
-     * Online version: v5.4.2.
+     * Submits multiple monitoring object check nodes in batches. Released in version v5.4.2.
      *
      * @param request - SubmitQualityWatchTasksRequest
      *
@@ -24352,6 +26365,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitQualityWatchTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a quality rectification process for review. Released in v6.4.0.
+     *
+     * @param tmpReq - SubmitRectifyFlowForReviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitRectifyFlowForReviewResponse
+     *
+     * @param SubmitRectifyFlowForReviewRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitRectifyFlowForReviewResponse
+     */
+    public function submitRectifyFlowForReviewWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitRectifyFlowForReviewShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitCommand) {
+            $request->submitCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->submitCommandShrink) {
+            @$body['SubmitCommand'] = $request->submitCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitRectifyFlowForReview',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitRectifyFlowForReviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a quality rectification process for review. Released in v6.4.0.
+     *
+     * @param request - SubmitRectifyFlowForReviewRequest
+     *
+     * @returns SubmitRectifyFlowForReviewResponse
+     *
+     * @param SubmitRectifyFlowForReviewRequest $request
+     *
+     * @return SubmitRectifyFlowForReviewResponse
+     */
+    public function submitRectifyFlowForReview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitRectifyFlowForReviewWithOptions($request, $runtime);
     }
 
     /**
@@ -24521,7 +26607,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Transfers ownership to a new owner in one click.
+     * Transfers the ownership with one click.
      *
      * @param tmpReq - TransferOwnershipForAllObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24576,7 +26662,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Transfers ownership to a new owner in one click.
+     * Transfers the ownership with one click.
      *
      * @param request - TransferOwnershipForAllObjectRequest
      *
@@ -24740,7 +26826,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+     * Updates a Basic (single-environment) project. The project name cannot be modified. You must specify the current project name.
      *
      * @param tmpReq - UpdateBasicProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24795,7 +26881,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+     * Updates a Basic (single-environment) project. The project name cannot be modified. You must specify the current project name.
      *
      * @param request - UpdateBasicProjectRequest
      *
@@ -24959,6 +27045,83 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Modifies an offline computing template. Available since v6.4.0.
+     *
+     * @param tmpReq - UpdateBatchTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBatchTemplateResponse
+     *
+     * @param UpdateBatchTemplateRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateBatchTemplateResponse
+     */
+    public function updateBatchTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateBatchTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBatchTemplate',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBatchTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies an offline computing template. Available since v6.4.0.
+     *
+     * @param request - UpdateBatchTemplateRequest
+     *
+     * @returns UpdateBatchTemplateResponse
+     *
+     * @param UpdateBatchTemplateRequest $request
+     *
+     * @return UpdateBatchTemplateResponse
+     */
+    public function updateBatchTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBatchTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates a business entity.
      *
      * @param tmpReq - UpdateBizEntityRequest
@@ -25032,8 +27195,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Update a business metric.
-     * Release version: v5.5.0.
+     * Updates a business metric. Release version: v5.5.0.
      *
      * @param tmpReq - UpdateBizMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25088,8 +27250,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Update a business metric.
-     * Release version: v5.5.0.
+     * Updates a business metric. Release version: v5.5.0.
      *
      * @param request - UpdateBizMetricRequest
      *
@@ -25107,7 +27268,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a data domain.
+     * Updates a business unit.
      *
      * @param tmpReq - UpdateBizUnitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25162,7 +27323,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a data domain.
+     * Updates a business unit.
      *
      * @param request - UpdateBizUnitRequest
      *
@@ -25257,7 +27418,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+     * Updates a compute source. Only business unit administrators and project administrators have the permissions to perform this operation.
      *
      * @param tmpReq - UpdateComputeSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25312,7 +27473,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
+     * Updates a compute source. Only business unit administrators and project administrators have the permissions to perform this operation.
      *
      * @param request - UpdateComputeSourceRequest
      *
@@ -25559,8 +27720,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a data service application group. Only superusers and system administrators can perform this operation.
-     * Online version: v6.0.0.
+     * Updates an application group for the data service. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
      *
      * @param tmpReq - UpdateDataServiceAppGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25615,8 +27775,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a data service application group. Only superusers and system administrators can perform this operation.
-     * Online version: v6.0.0.
+     * Updates an application group for the data service. Only super administrators and system administrators can perform this operation. Online version: v6.0.0.
      *
      * @param request - UpdateDataServiceAppGroupRequest
      *
@@ -25782,7 +27941,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
+     * Modifies the connection configuration items of a datasource. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
      *
      * @param tmpReq - UpdateDataSourceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25837,7 +27996,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
+     * Modifies the connection configuration items of a datasource. Only tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators are authorized to perform this operation.
      *
      * @param request - UpdateDataSourceConfigRequest
      *
@@ -25855,10 +28014,16 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates the information of a dataset in a specified project. Available since v6.2.0.
+     * Updates the information of a dataset in a specified project. Available since version 6.2.0.
      *
      * @remarks
-     * ## Request description.
+     * ## Request description
+     * - This API operation updates the details of an existing dataset in a specific project.
+     * - You must specify the `ProjectId` and `UpdateCommand` parameters. The `UpdateCommand` parameter contains the specific fields of the dataset to be updated.
+     * - The `Id` field in `UpdateCommand` is required to identify the dataset to be updated.
+     * - Other fields such as `Name`, `Type`, and `DataCellId` are optional. Specify them based on your actual requirements.
+     * - Version configuration (`VersionConfig`) and real-time metatable configuration (`RealtimeMetaTableConfig`) provide more detailed setting options, including storage paths and table schemas. These are also optional.
+     * - Make sure that all provided ID values, such as `ProjectId`, `Id`, and `DataSourceId`, are valid and correctly associated in the system.
      *
      * @param tmpReq - UpdateDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25917,10 +28082,16 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates the information of a dataset in a specified project. Available since v6.2.0.
+     * Updates the information of a dataset in a specified project. Available since version 6.2.0.
      *
      * @remarks
-     * ## Request description.
+     * ## Request description
+     * - This API operation updates the details of an existing dataset in a specific project.
+     * - You must specify the `ProjectId` and `UpdateCommand` parameters. The `UpdateCommand` parameter contains the specific fields of the dataset to be updated.
+     * - The `Id` field in `UpdateCommand` is required to identify the dataset to be updated.
+     * - Other fields such as `Name`, `Type`, and `DataCellId` are optional. Specify them based on your actual requirements.
+     * - Version configuration (`VersionConfig`) and real-time metatable configuration (`RealtimeMetaTableConfig`) provide more detailed setting options, including storage paths and table schemas. These are also optional.
+     * - Make sure that all provided ID values, such as `ProjectId`, `Id`, and `DataSourceId`, are valid and correctly associated in the system.
      *
      * @param request - UpdateDatasetRequest
      *
@@ -25938,7 +28109,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits a Dev-Prod (dual-environment) project.
+     * Modifies a Dev-Prod (dual-environment) project.
      *
      * @param tmpReq - UpdateDevProdProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25993,7 +28164,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits a Dev-Prod (dual-environment) project.
+     * Modifies a Dev-Prod (dual-environment) project.
      *
      * @param request - UpdateDevProdProjectRequest
      *
@@ -26465,7 +28636,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Asynchronously updates a pipeline or unstructured workflow node.
+     * Asynchronously updates a pipeline or unstructured workflow task.
      *
      * @param tmpReq - UpdatePipelineByAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26528,7 +28699,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Asynchronously updates a pipeline or unstructured workflow node.
+     * Asynchronously updates a pipeline or unstructured workflow task.
      *
      * @param request - UpdatePipelineByAsyncRequest
      *
@@ -26546,7 +28717,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits project members.
+     * Modifies the members of a project.
      *
      * @param tmpReq - UpdateProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26605,7 +28776,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits project members.
+     * Modifies the members of a project.
      *
      * @param request - UpdateProjectMemberRequest
      *
@@ -26623,8 +28794,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Enables or disables quality rules in batches.
-     * Release version: v5.4.2.
+     * Enables or disables quality rules in batches. Release version: v5.4.2.
      *
      * @param tmpReq - UpdateQualityRuleSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26679,8 +28849,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Enables or disables quality rules in batches.
-     * Release version: v5.4.2.
+     * Enables or disables quality rules in batches. Release version: v5.4.2.
      *
      * @param request - UpdateQualityRuleSwitchRequest
      *
@@ -26698,8 +28867,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Starts or stops quality monitored objects in batches.
-     * Release version: v5.4.2.
+     * Enables or disables quality monitored objects in batches. Release version: v5.4.2.
      *
      * @param tmpReq - UpdateQualityWatchSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26754,8 +28922,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Starts or stops quality monitored objects in batches.
-     * Release version: v5.4.2.
+     * Enables or disables quality monitored objects in batches. Release version: v5.4.2.
      *
      * @param request - UpdateQualityWatchSwitchRequest
      *
@@ -26773,7 +28940,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits a resource file.
+     * Updates a resource file.
      *
      * @param tmpReq - UpdateResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26828,7 +28995,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits a resource file.
+     * Updates a resource file.
      *
      * @param request - UpdateResourceRequest
      *
@@ -26916,6 +29083,79 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRowPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates existing scheduling monitoring and alert configurations by modifying monitored objects or alert rules. Available since version 6.4.0.
+     *
+     * @param tmpReq - UpdateScheduleMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateScheduleMonitorResponse
+     *
+     * @param UpdateScheduleMonitorRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateScheduleMonitorResponse
+     */
+    public function updateScheduleMonitorWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateScheduleMonitorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->opUserId) {
+            @$query['OpUserId'] = $request->opUserId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateScheduleMonitor',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateScheduleMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates existing scheduling monitoring and alert configurations by modifying monitored objects or alert rules. Available since version 6.4.0.
+     *
+     * @param request - UpdateScheduleMonitorRequest
+     *
+     * @returns UpdateScheduleMonitorResponse
+     *
+     * @param UpdateScheduleMonitorRequest $request
+     *
+     * @return UpdateScheduleMonitorResponse
+     */
+    public function updateScheduleMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateScheduleMonitorWithOptions($request, $runtime);
     }
 
     /**
@@ -27067,8 +29307,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates the effective status of security identification results.
-     * Release version: v5.4.2.
+     * Updates the effective status of security identification results. Released in version 5.4.2.
      *
      * @param tmpReq - UpdateSecurityIdentifyResultStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27123,8 +29362,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates the effective status of security identification results.
-     * Release version: v5.4.2.
+     * Updates the effective status of security identification results. Released in version 5.4.2.
      *
      * @param request - UpdateSecurityIdentifyResultStatusRequest
      *
@@ -27217,8 +29455,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a standard.
-     * Release version: v5.4.2.
+     * Updates a standard. Release version: v5.4.2.
      *
      * @param tmpReq - UpdateStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27273,8 +29510,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a standard.
-     * Release version: v5.4.2.
+     * Updates a standard. Release version: v5.4.2.
      *
      * @param request - UpdateStandardRequest
      *
@@ -27292,8 +29528,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a data standard lookup table.
-     * Release version: v5.4.2.
+     * Updates a data standard lookup table. Release version: v5.4.2.
      *
      * @param tmpReq - UpdateStandardLookupTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27348,8 +29583,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a data standard lookup table.
-     * Release version: v5.4.2.
+     * Updates a data standard lookup table. Release version: v5.4.2.
      *
      * @param request - UpdateStandardLookupTableRequest
      *
@@ -27367,8 +29601,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Sets the standard mapping relationship to invalid mapping.
-     * Release version: v5.4.2.
+     * Invalidates standard mapping relationships. Released in version 5.4.2.
      *
      * @param tmpReq - UpdateStandardMappingToInvalidRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27423,8 +29656,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Sets the standard mapping relationship to invalid mapping.
-     * Release version: v5.4.2.
+     * Invalidates standard mapping relationships. Released in version 5.4.2.
      *
      * @param request - UpdateStandardMappingToInvalidRequest
      *
@@ -27667,7 +29899,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Modifies the compute settings of a tenant.
+     * Modifies the computing settings of a tenant.
      *
      * @param tmpReq - UpdateTenantComputeEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27722,7 +29954,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Modifies the compute settings of a tenant.
+     * Modifies the computing settings of a tenant.
      *
      * @param request - UpdateTenantComputeEngineRequest
      *
@@ -27740,7 +29972,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits tenant members.
+     * Modifies tenant members.
      *
      * @param tmpReq - UpdateTenantMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27795,7 +30027,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Edits tenant members.
+     * Modifies tenant members.
      *
      * @param request - UpdateTenantMemberRequest
      *
@@ -27959,7 +30191,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Modifies the enabled status of a user group.
+     * Updates the enabled status of a user group.
      *
      * @param request - UpdateUserGroupSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28010,7 +30242,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Modifies the enabled status of a user group.
+     * Updates the enabled status of a user group.
      *
      * @param request - UpdateUserGroupSwitchRequest
      *
@@ -28249,8 +30481,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates or updates a schedule setting.
-     * Release version: v5.4.2.
+     * Creates or modifies scheduling settings. Released in version 5.4.2.
      *
      * @param tmpReq - UpsertQualityScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28305,8 +30536,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates or updates a schedule setting.
-     * Release version: v5.4.2.
+     * Creates or modifies scheduling settings. Released in version 5.4.2.
      *
      * @param request - UpsertQualityScheduleRequest
      *
@@ -28324,8 +30554,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates or updates a quality template.
-     * Release version: v5.4.2.
+     * Creates or updates a quality template. Released in version 5.4.2.
      *
      * @param tmpReq - UpsertQualityTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28380,8 +30609,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates or updates a quality template.
-     * Release version: v5.4.2.
+     * Creates or updates a quality template. Released in version 5.4.2.
      *
      * @param request - UpsertQualityTemplateRequest
      *
@@ -28399,8 +30627,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
-     * Release version: v5.4.2.
+     * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time metatables. Release version: v5.4.2.
      *
      * @param tmpReq - UpsertQualityWatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28455,8 +30682,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
-     * Release version: v5.4.2.
+     * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time metatables. Release version: v5.4.2.
      *
      * @param request - UpsertQualityWatchRequest
      *

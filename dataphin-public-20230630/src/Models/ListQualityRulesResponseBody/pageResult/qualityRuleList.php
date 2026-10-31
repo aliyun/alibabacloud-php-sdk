@@ -86,6 +86,11 @@ class qualityRuleList extends Model
     /**
      * @var string
      */
+    public $sql;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -157,6 +162,7 @@ class qualityRuleList extends Model
         'modifyTime' => 'ModifyTime',
         'name' => 'Name',
         'scheduleBindList' => 'ScheduleBindList',
+        'sql' => 'Sql',
         'status' => 'Status',
         'strength' => 'Strength',
         'templateId' => 'TemplateId',
@@ -279,6 +285,10 @@ class qualityRuleList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->sql) {
+            $res['Sql'] = $this->sql;
         }
 
         if (null !== $this->status) {
@@ -429,6 +439,10 @@ class qualityRuleList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Sql'])) {
+            $model->sql = $map['Sql'];
         }
 
         if (isset($map['Status'])) {

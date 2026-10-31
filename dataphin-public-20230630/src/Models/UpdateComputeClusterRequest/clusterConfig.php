@@ -38,6 +38,11 @@ class clusterConfig extends Model
     /**
      * @var string
      */
+    public $timeZone;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -50,6 +55,7 @@ class clusterConfig extends Model
         'configList' => 'ConfigList',
         'des' => 'Des',
         'name' => 'Name',
+        'timeZone' => 'TimeZone',
         'type' => 'Type',
         'typeVersion' => 'TypeVersion',
     ];
@@ -105,6 +111,10 @@ class clusterConfig extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -156,6 +166,10 @@ class clusterConfig extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         if (isset($map['Type'])) {

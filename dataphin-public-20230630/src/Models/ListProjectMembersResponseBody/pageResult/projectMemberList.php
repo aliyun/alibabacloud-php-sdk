@@ -34,6 +34,11 @@ class projectMemberList extends Model
     public $lastModifierName;
 
     /**
+     * @var string[]
+     */
+    public $roleCodeList;
+
+    /**
      * @var int[]
      */
     public $roleIdList;
@@ -53,6 +58,7 @@ class projectMemberList extends Model
         'id' => 'Id',
         'lastModifier' => 'LastModifier',
         'lastModifierName' => 'LastModifierName',
+        'roleCodeList' => 'RoleCodeList',
         'roleIdList' => 'RoleIdList',
         'userId' => 'UserId',
         'userName' => 'UserName',
@@ -60,6 +66,9 @@ class projectMemberList extends Model
 
     public function validate()
     {
+        if (\is_array($this->roleCodeList)) {
+            Model::validateArray($this->roleCodeList);
+        }
         if (\is_array($this->roleIdList)) {
             Model::validateArray($this->roleIdList);
         }
@@ -87,6 +96,17 @@ class projectMemberList extends Model
 
         if (null !== $this->lastModifierName) {
             $res['LastModifierName'] = $this->lastModifierName;
+        }
+
+        if (null !== $this->roleCodeList) {
+            if (\is_array($this->roleCodeList)) {
+                $res['RoleCodeList'] = [];
+                $n1 = 0;
+                foreach ($this->roleCodeList as $item1) {
+                    $res['RoleCodeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->roleIdList) {
@@ -137,6 +157,17 @@ class projectMemberList extends Model
 
         if (isset($map['LastModifierName'])) {
             $model->lastModifierName = $map['LastModifierName'];
+        }
+
+        if (isset($map['RoleCodeList'])) {
+            if (!empty($map['RoleCodeList'])) {
+                $model->roleCodeList = [];
+                $n1 = 0;
+                foreach ($map['RoleCodeList'] as $item1) {
+                    $model->roleCodeList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RoleIdList'])) {

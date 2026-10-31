@@ -29,6 +29,16 @@ class createCommand extends Model
     public $endBizDate;
 
     /**
+     * @var string
+     */
+    public $executeStatusOfIdleNode;
+
+    /**
+     * @var string
+     */
+    public $executeStatusOfPauseNode;
+
+    /**
      * @var filterList[]
      */
     public $filterList;
@@ -81,11 +91,18 @@ class createCommand extends Model
     /**
      * @var string
      */
+    public $scheduleResourceGroupId;
+
+    /**
+     * @var string
+     */
     public $startBizDate;
     protected $_name = [
         'containAllDownStream' => 'ContainAllDownStream',
         'downStreamNodeIdList' => 'DownStreamNodeIdList',
         'endBizDate' => 'EndBizDate',
+        'executeStatusOfIdleNode' => 'ExecuteStatusOfIdleNode',
+        'executeStatusOfPauseNode' => 'ExecuteStatusOfPauseNode',
         'filterList' => 'FilterList',
         'globalParamList' => 'GlobalParamList',
         'maxDueTime' => 'MaxDueTime',
@@ -96,6 +113,7 @@ class createCommand extends Model
         'parallelism' => 'Parallelism',
         'projectId' => 'ProjectId',
         'runImmediately' => 'RunImmediately',
+        'scheduleResourceGroupId' => 'ScheduleResourceGroupId',
         'startBizDate' => 'StartBizDate',
     ];
 
@@ -139,6 +157,14 @@ class createCommand extends Model
 
         if (null !== $this->endBizDate) {
             $res['EndBizDate'] = $this->endBizDate;
+        }
+
+        if (null !== $this->executeStatusOfIdleNode) {
+            $res['ExecuteStatusOfIdleNode'] = $this->executeStatusOfIdleNode;
+        }
+
+        if (null !== $this->executeStatusOfPauseNode) {
+            $res['ExecuteStatusOfPauseNode'] = $this->executeStatusOfPauseNode;
         }
 
         if (null !== $this->filterList) {
@@ -209,6 +235,10 @@ class createCommand extends Model
             $res['RunImmediately'] = $this->runImmediately;
         }
 
+        if (null !== $this->scheduleResourceGroupId) {
+            $res['ScheduleResourceGroupId'] = $this->scheduleResourceGroupId;
+        }
+
         if (null !== $this->startBizDate) {
             $res['StartBizDate'] = $this->startBizDate;
         }
@@ -241,6 +271,14 @@ class createCommand extends Model
 
         if (isset($map['EndBizDate'])) {
             $model->endBizDate = $map['EndBizDate'];
+        }
+
+        if (isset($map['ExecuteStatusOfIdleNode'])) {
+            $model->executeStatusOfIdleNode = $map['ExecuteStatusOfIdleNode'];
+        }
+
+        if (isset($map['ExecuteStatusOfPauseNode'])) {
+            $model->executeStatusOfPauseNode = $map['ExecuteStatusOfPauseNode'];
         }
 
         if (isset($map['FilterList'])) {
@@ -309,6 +347,10 @@ class createCommand extends Model
 
         if (isset($map['RunImmediately'])) {
             $model->runImmediately = $map['RunImmediately'];
+        }
+
+        if (isset($map['ScheduleResourceGroupId'])) {
+            $model->scheduleResourceGroupId = $map['ScheduleResourceGroupId'];
         }
 
         if (isset($map['StartBizDate'])) {

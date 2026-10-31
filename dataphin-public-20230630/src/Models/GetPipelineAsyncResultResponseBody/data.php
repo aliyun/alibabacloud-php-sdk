@@ -16,6 +16,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $checkDetail;
+
+    /**
+     * @var string
+     */
     public $errorCode;
 
     /**
@@ -54,6 +59,7 @@ class data extends Model
     public $version;
     protected $_name = [
         'asyncId' => 'AsyncId',
+        'checkDetail' => 'CheckDetail',
         'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'hostMachine' => 'HostMachine',
@@ -74,6 +80,10 @@ class data extends Model
         $res = [];
         if (null !== $this->asyncId) {
             $res['AsyncId'] = $this->asyncId;
+        }
+
+        if (null !== $this->checkDetail) {
+            $res['CheckDetail'] = $this->checkDetail;
         }
 
         if (null !== $this->errorCode) {
@@ -121,6 +131,10 @@ class data extends Model
         $model = new self();
         if (isset($map['AsyncId'])) {
             $model->asyncId = $map['AsyncId'];
+        }
+
+        if (isset($map['CheckDetail'])) {
+            $model->checkDetail = $map['CheckDetail'];
         }
 
         if (isset($map['ErrorCode'])) {

@@ -6,6 +6,10 @@ namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVer
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponseBody\taskInfo\customScheduleConfig;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponseBody\taskInfo\databricksPythonConnectInfo;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponseBody\taskInfo\executeRerunConfig;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponseBody\taskInfo\executeTimeOutConfig;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponseBody\taskInfo\paiConfig;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponseBody\taskInfo\paramList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponseBody\taskInfo\pythonModuleList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponseBody\taskInfo\sparkClientInfo;
@@ -17,6 +21,21 @@ class taskInfo extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var string
+     */
+    public $codeTemplateId;
+
+    /**
+     * @var int
+     */
+    public $codeTemplateVersion;
+
+    /**
+     * @var string
+     */
+    public $cpuResource;
 
     /**
      * @var string
@@ -49,6 +68,11 @@ class taskInfo extends Model
     public $dataSourceSchema;
 
     /**
+     * @var databricksPythonConnectInfo
+     */
+    public $databricksPythonConnectInfo;
+
+    /**
      * @var string[]
      */
     public $developOwnerIdList;
@@ -59,6 +83,16 @@ class taskInfo extends Model
     public $developOwnerNameList;
 
     /**
+     * @var executeRerunConfig
+     */
+    public $executeRerunConfig;
+
+    /**
+     * @var executeTimeOutConfig
+     */
+    public $executeTimeOutConfig;
+
+    /**
      * @var int
      */
     public $fileId;
@@ -67,6 +101,11 @@ class taskInfo extends Model
      * @var bool
      */
     public $hasDevNode;
+
+    /**
+     * @var string
+     */
+    public $memoryResource;
 
     /**
      * @var string
@@ -134,6 +173,11 @@ class taskInfo extends Model
     public $ownerUserId;
 
     /**
+     * @var paiConfig
+     */
+    public $paiConfig;
+
+    /**
      * @var paramList[]
      */
     public $paramList;
@@ -179,6 +223,11 @@ class taskInfo extends Model
     public $rerunable;
 
     /**
+     * @var bool
+     */
+    public $retryOnTimeoutEnable;
+
+    /**
      * @var string
      */
     public $schedulePeriod;
@@ -192,6 +241,26 @@ class taskInfo extends Model
      * @var sparkClientInfo
      */
     public $sparkClientInfo;
+
+    /**
+     * @var bool
+     */
+    public $sparkDynamicResourceSwitch;
+
+    /**
+     * @var string
+     */
+    public $sparkResourceEffectScope;
+
+    /**
+     * @var string
+     */
+    public $sparkSqlResourceConfigMap;
+
+    /**
+     * @var string
+     */
+    public $sparkVersion;
 
     /**
      * @var string
@@ -209,16 +278,23 @@ class taskInfo extends Model
     public $upStreamList;
     protected $_name = [
         'code' => 'Code',
+        'codeTemplateId' => 'CodeTemplateId',
+        'codeTemplateVersion' => 'CodeTemplateVersion',
+        'cpuResource' => 'CpuResource',
         'cronExpression' => 'CronExpression',
         'customScheduleConfig' => 'CustomScheduleConfig',
         'dagId' => 'DagId',
         'dataSourceCatalog' => 'DataSourceCatalog',
         'dataSourceId' => 'DataSourceId',
         'dataSourceSchema' => 'DataSourceSchema',
+        'databricksPythonConnectInfo' => 'DatabricksPythonConnectInfo',
         'developOwnerIdList' => 'DevelopOwnerIdList',
         'developOwnerNameList' => 'DevelopOwnerNameList',
+        'executeRerunConfig' => 'ExecuteRerunConfig',
+        'executeTimeOutConfig' => 'ExecuteTimeOutConfig',
         'fileId' => 'FileId',
         'hasDevNode' => 'HasDevNode',
+        'memoryResource' => 'MemoryResource',
         'name' => 'Name',
         'needPublish' => 'NeedPublish',
         'nodeDescription' => 'NodeDescription',
@@ -232,6 +308,7 @@ class taskInfo extends Model
         'opsOwnerNameList' => 'OpsOwnerNameList',
         'ownerName' => 'OwnerName',
         'ownerUserId' => 'OwnerUserId',
+        'paiConfig' => 'PaiConfig',
         'paramList' => 'ParamList',
         'paused' => 'Paused',
         'priority' => 'Priority',
@@ -241,9 +318,14 @@ class taskInfo extends Model
         'pythonVersion' => 'PythonVersion',
         'remark' => 'Remark',
         'rerunable' => 'Rerunable',
+        'retryOnTimeoutEnable' => 'RetryOnTimeoutEnable',
         'schedulePeriod' => 'SchedulePeriod',
         'scheduleType' => 'ScheduleType',
         'sparkClientInfo' => 'SparkClientInfo',
+        'sparkDynamicResourceSwitch' => 'SparkDynamicResourceSwitch',
+        'sparkResourceEffectScope' => 'SparkResourceEffectScope',
+        'sparkSqlResourceConfigMap' => 'SparkSqlResourceConfigMap',
+        'sparkVersion' => 'SparkVersion',
         'status' => 'Status',
         'taskType' => 'TaskType',
         'upStreamList' => 'UpStreamList',
@@ -254,11 +336,20 @@ class taskInfo extends Model
         if (null !== $this->customScheduleConfig) {
             $this->customScheduleConfig->validate();
         }
+        if (null !== $this->databricksPythonConnectInfo) {
+            $this->databricksPythonConnectInfo->validate();
+        }
         if (\is_array($this->developOwnerIdList)) {
             Model::validateArray($this->developOwnerIdList);
         }
         if (\is_array($this->developOwnerNameList)) {
             Model::validateArray($this->developOwnerNameList);
+        }
+        if (null !== $this->executeRerunConfig) {
+            $this->executeRerunConfig->validate();
+        }
+        if (null !== $this->executeTimeOutConfig) {
+            $this->executeTimeOutConfig->validate();
         }
         if (\is_array($this->nodeOutputNameList)) {
             Model::validateArray($this->nodeOutputNameList);
@@ -268,6 +359,9 @@ class taskInfo extends Model
         }
         if (\is_array($this->opsOwnerNameList)) {
             Model::validateArray($this->opsOwnerNameList);
+        }
+        if (null !== $this->paiConfig) {
+            $this->paiConfig->validate();
         }
         if (\is_array($this->paramList)) {
             Model::validateArray($this->paramList);
@@ -289,6 +383,18 @@ class taskInfo extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->codeTemplateId) {
+            $res['CodeTemplateId'] = $this->codeTemplateId;
+        }
+
+        if (null !== $this->codeTemplateVersion) {
+            $res['CodeTemplateVersion'] = $this->codeTemplateVersion;
+        }
+
+        if (null !== $this->cpuResource) {
+            $res['CpuResource'] = $this->cpuResource;
         }
 
         if (null !== $this->cronExpression) {
@@ -315,6 +421,10 @@ class taskInfo extends Model
             $res['DataSourceSchema'] = $this->dataSourceSchema;
         }
 
+        if (null !== $this->databricksPythonConnectInfo) {
+            $res['DatabricksPythonConnectInfo'] = null !== $this->databricksPythonConnectInfo ? $this->databricksPythonConnectInfo->toArray($noStream) : $this->databricksPythonConnectInfo;
+        }
+
         if (null !== $this->developOwnerIdList) {
             if (\is_array($this->developOwnerIdList)) {
                 $res['DevelopOwnerIdList'] = [];
@@ -337,12 +447,24 @@ class taskInfo extends Model
             }
         }
 
+        if (null !== $this->executeRerunConfig) {
+            $res['ExecuteRerunConfig'] = null !== $this->executeRerunConfig ? $this->executeRerunConfig->toArray($noStream) : $this->executeRerunConfig;
+        }
+
+        if (null !== $this->executeTimeOutConfig) {
+            $res['ExecuteTimeOutConfig'] = null !== $this->executeTimeOutConfig ? $this->executeTimeOutConfig->toArray($noStream) : $this->executeTimeOutConfig;
+        }
+
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
 
         if (null !== $this->hasDevNode) {
             $res['HasDevNode'] = $this->hasDevNode;
+        }
+
+        if (null !== $this->memoryResource) {
+            $res['MemoryResource'] = $this->memoryResource;
         }
 
         if (null !== $this->name) {
@@ -418,6 +540,10 @@ class taskInfo extends Model
             $res['OwnerUserId'] = $this->ownerUserId;
         }
 
+        if (null !== $this->paiConfig) {
+            $res['PaiConfig'] = null !== $this->paiConfig ? $this->paiConfig->toArray($noStream) : $this->paiConfig;
+        }
+
         if (null !== $this->paramList) {
             if (\is_array($this->paramList)) {
                 $res['ParamList'] = [];
@@ -468,6 +594,10 @@ class taskInfo extends Model
             $res['Rerunable'] = $this->rerunable;
         }
 
+        if (null !== $this->retryOnTimeoutEnable) {
+            $res['RetryOnTimeoutEnable'] = $this->retryOnTimeoutEnable;
+        }
+
         if (null !== $this->schedulePeriod) {
             $res['SchedulePeriod'] = $this->schedulePeriod;
         }
@@ -478,6 +608,22 @@ class taskInfo extends Model
 
         if (null !== $this->sparkClientInfo) {
             $res['SparkClientInfo'] = null !== $this->sparkClientInfo ? $this->sparkClientInfo->toArray($noStream) : $this->sparkClientInfo;
+        }
+
+        if (null !== $this->sparkDynamicResourceSwitch) {
+            $res['SparkDynamicResourceSwitch'] = $this->sparkDynamicResourceSwitch;
+        }
+
+        if (null !== $this->sparkResourceEffectScope) {
+            $res['SparkResourceEffectScope'] = $this->sparkResourceEffectScope;
+        }
+
+        if (null !== $this->sparkSqlResourceConfigMap) {
+            $res['SparkSqlResourceConfigMap'] = $this->sparkSqlResourceConfigMap;
+        }
+
+        if (null !== $this->sparkVersion) {
+            $res['SparkVersion'] = $this->sparkVersion;
         }
 
         if (null !== $this->status) {
@@ -514,6 +660,18 @@ class taskInfo extends Model
             $model->code = $map['Code'];
         }
 
+        if (isset($map['CodeTemplateId'])) {
+            $model->codeTemplateId = $map['CodeTemplateId'];
+        }
+
+        if (isset($map['CodeTemplateVersion'])) {
+            $model->codeTemplateVersion = $map['CodeTemplateVersion'];
+        }
+
+        if (isset($map['CpuResource'])) {
+            $model->cpuResource = $map['CpuResource'];
+        }
+
         if (isset($map['CronExpression'])) {
             $model->cronExpression = $map['CronExpression'];
         }
@@ -538,6 +696,10 @@ class taskInfo extends Model
             $model->dataSourceSchema = $map['DataSourceSchema'];
         }
 
+        if (isset($map['DatabricksPythonConnectInfo'])) {
+            $model->databricksPythonConnectInfo = databricksPythonConnectInfo::fromMap($map['DatabricksPythonConnectInfo']);
+        }
+
         if (isset($map['DevelopOwnerIdList'])) {
             if (!empty($map['DevelopOwnerIdList'])) {
                 $model->developOwnerIdList = [];
@@ -560,12 +722,24 @@ class taskInfo extends Model
             }
         }
 
+        if (isset($map['ExecuteRerunConfig'])) {
+            $model->executeRerunConfig = executeRerunConfig::fromMap($map['ExecuteRerunConfig']);
+        }
+
+        if (isset($map['ExecuteTimeOutConfig'])) {
+            $model->executeTimeOutConfig = executeTimeOutConfig::fromMap($map['ExecuteTimeOutConfig']);
+        }
+
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
 
         if (isset($map['HasDevNode'])) {
             $model->hasDevNode = $map['HasDevNode'];
+        }
+
+        if (isset($map['MemoryResource'])) {
+            $model->memoryResource = $map['MemoryResource'];
         }
 
         if (isset($map['Name'])) {
@@ -641,6 +815,10 @@ class taskInfo extends Model
             $model->ownerUserId = $map['OwnerUserId'];
         }
 
+        if (isset($map['PaiConfig'])) {
+            $model->paiConfig = paiConfig::fromMap($map['PaiConfig']);
+        }
+
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
@@ -691,6 +869,10 @@ class taskInfo extends Model
             $model->rerunable = $map['Rerunable'];
         }
 
+        if (isset($map['RetryOnTimeoutEnable'])) {
+            $model->retryOnTimeoutEnable = $map['RetryOnTimeoutEnable'];
+        }
+
         if (isset($map['SchedulePeriod'])) {
             $model->schedulePeriod = $map['SchedulePeriod'];
         }
@@ -701,6 +883,22 @@ class taskInfo extends Model
 
         if (isset($map['SparkClientInfo'])) {
             $model->sparkClientInfo = sparkClientInfo::fromMap($map['SparkClientInfo']);
+        }
+
+        if (isset($map['SparkDynamicResourceSwitch'])) {
+            $model->sparkDynamicResourceSwitch = $map['SparkDynamicResourceSwitch'];
+        }
+
+        if (isset($map['SparkResourceEffectScope'])) {
+            $model->sparkResourceEffectScope = $map['SparkResourceEffectScope'];
+        }
+
+        if (isset($map['SparkSqlResourceConfigMap'])) {
+            $model->sparkSqlResourceConfigMap = $map['SparkSqlResourceConfigMap'];
+        }
+
+        if (isset($map['SparkVersion'])) {
+            $model->sparkVersion = $map['SparkVersion'];
         }
 
         if (isset($map['Status'])) {

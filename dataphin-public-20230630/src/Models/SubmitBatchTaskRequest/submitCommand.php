@@ -5,9 +5,13 @@
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\conditionScheduleConfig;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\customScheduleConfig;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\executeRerunConfig;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\executeTimeOutConfig;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\offlineCodeTemplateParams;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\paramList;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\scheduleTemplate;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\sparkClientInfo;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\upStreamList;
 
@@ -29,6 +33,16 @@ class submitCommand extends Model
     public $comment;
 
     /**
+     * @var conditionScheduleConfig
+     */
+    public $conditionScheduleConfig;
+
+    /**
+     * @var string
+     */
+    public $cpuResource;
+
+    /**
      * @var string
      */
     public $cronExpression;
@@ -44,9 +58,24 @@ class submitCommand extends Model
     public $engine;
 
     /**
+     * @var executeRerunConfig
+     */
+    public $executeRerunConfig;
+
+    /**
+     * @var executeTimeOutConfig
+     */
+    public $executeTimeOutConfig;
+
+    /**
      * @var int
      */
     public $fileId;
+
+    /**
+     * @var string
+     */
+    public $memoryResource;
 
     /**
      * @var string
@@ -99,14 +128,44 @@ class submitCommand extends Model
     public $pythonModuleList;
 
     /**
+     * @var string[]
+     */
+    public $resourceReferenceList;
+
+    /**
+     * @var bool
+     */
+    public $retryOnTimeoutEnable;
+
+    /**
      * @var string
      */
     public $schedulePeriod;
 
     /**
+     * @var scheduleTemplate
+     */
+    public $scheduleTemplate;
+
+    /**
      * @var sparkClientInfo
      */
     public $sparkClientInfo;
+
+    /**
+     * @var bool
+     */
+    public $sparkDynamicResourceSwitch;
+
+    /**
+     * @var string
+     */
+    public $sparkResourceEffectScope;
+
+    /**
+     * @var string[]
+     */
+    public $sparkSqlResourceConfigMap;
 
     /**
      * @var upStreamList[]
@@ -116,10 +175,15 @@ class submitCommand extends Model
         'code' => 'Code',
         'codeTemplateVersion' => 'CodeTemplateVersion',
         'comment' => 'Comment',
+        'conditionScheduleConfig' => 'ConditionScheduleConfig',
+        'cpuResource' => 'CpuResource',
         'cronExpression' => 'CronExpression',
         'customScheduleConfig' => 'CustomScheduleConfig',
         'engine' => 'Engine',
+        'executeRerunConfig' => 'ExecuteRerunConfig',
+        'executeTimeOutConfig' => 'ExecuteTimeOutConfig',
         'fileId' => 'FileId',
+        'memoryResource' => 'MemoryResource',
         'name' => 'Name',
         'nodeDescription' => 'NodeDescription',
         'nodeOutputNameList' => 'NodeOutputNameList',
@@ -130,15 +194,30 @@ class submitCommand extends Model
         'priority' => 'Priority',
         'projectId' => 'ProjectId',
         'pythonModuleList' => 'PythonModuleList',
+        'resourceReferenceList' => 'ResourceReferenceList',
+        'retryOnTimeoutEnable' => 'RetryOnTimeoutEnable',
         'schedulePeriod' => 'SchedulePeriod',
+        'scheduleTemplate' => 'ScheduleTemplate',
         'sparkClientInfo' => 'SparkClientInfo',
+        'sparkDynamicResourceSwitch' => 'SparkDynamicResourceSwitch',
+        'sparkResourceEffectScope' => 'SparkResourceEffectScope',
+        'sparkSqlResourceConfigMap' => 'SparkSqlResourceConfigMap',
         'upStreamList' => 'UpStreamList',
     ];
 
     public function validate()
     {
+        if (null !== $this->conditionScheduleConfig) {
+            $this->conditionScheduleConfig->validate();
+        }
         if (null !== $this->customScheduleConfig) {
             $this->customScheduleConfig->validate();
+        }
+        if (null !== $this->executeRerunConfig) {
+            $this->executeRerunConfig->validate();
+        }
+        if (null !== $this->executeTimeOutConfig) {
+            $this->executeTimeOutConfig->validate();
         }
         if (\is_array($this->nodeOutputNameList)) {
             Model::validateArray($this->nodeOutputNameList);
@@ -152,8 +231,17 @@ class submitCommand extends Model
         if (\is_array($this->pythonModuleList)) {
             Model::validateArray($this->pythonModuleList);
         }
+        if (\is_array($this->resourceReferenceList)) {
+            Model::validateArray($this->resourceReferenceList);
+        }
+        if (null !== $this->scheduleTemplate) {
+            $this->scheduleTemplate->validate();
+        }
         if (null !== $this->sparkClientInfo) {
             $this->sparkClientInfo->validate();
+        }
+        if (\is_array($this->sparkSqlResourceConfigMap)) {
+            Model::validateArray($this->sparkSqlResourceConfigMap);
         }
         if (\is_array($this->upStreamList)) {
             Model::validateArray($this->upStreamList);
@@ -176,6 +264,14 @@ class submitCommand extends Model
             $res['Comment'] = $this->comment;
         }
 
+        if (null !== $this->conditionScheduleConfig) {
+            $res['ConditionScheduleConfig'] = null !== $this->conditionScheduleConfig ? $this->conditionScheduleConfig->toArray($noStream) : $this->conditionScheduleConfig;
+        }
+
+        if (null !== $this->cpuResource) {
+            $res['CpuResource'] = $this->cpuResource;
+        }
+
         if (null !== $this->cronExpression) {
             $res['CronExpression'] = $this->cronExpression;
         }
@@ -188,8 +284,20 @@ class submitCommand extends Model
             $res['Engine'] = $this->engine;
         }
 
+        if (null !== $this->executeRerunConfig) {
+            $res['ExecuteRerunConfig'] = null !== $this->executeRerunConfig ? $this->executeRerunConfig->toArray($noStream) : $this->executeRerunConfig;
+        }
+
+        if (null !== $this->executeTimeOutConfig) {
+            $res['ExecuteTimeOutConfig'] = null !== $this->executeTimeOutConfig ? $this->executeTimeOutConfig->toArray($noStream) : $this->executeTimeOutConfig;
+        }
+
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
+        }
+
+        if (null !== $this->memoryResource) {
+            $res['MemoryResource'] = $this->memoryResource;
         }
 
         if (null !== $this->name) {
@@ -260,12 +368,48 @@ class submitCommand extends Model
             }
         }
 
+        if (null !== $this->resourceReferenceList) {
+            if (\is_array($this->resourceReferenceList)) {
+                $res['ResourceReferenceList'] = [];
+                $n1 = 0;
+                foreach ($this->resourceReferenceList as $item1) {
+                    $res['ResourceReferenceList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->retryOnTimeoutEnable) {
+            $res['RetryOnTimeoutEnable'] = $this->retryOnTimeoutEnable;
+        }
+
         if (null !== $this->schedulePeriod) {
             $res['SchedulePeriod'] = $this->schedulePeriod;
         }
 
+        if (null !== $this->scheduleTemplate) {
+            $res['ScheduleTemplate'] = null !== $this->scheduleTemplate ? $this->scheduleTemplate->toArray($noStream) : $this->scheduleTemplate;
+        }
+
         if (null !== $this->sparkClientInfo) {
             $res['SparkClientInfo'] = null !== $this->sparkClientInfo ? $this->sparkClientInfo->toArray($noStream) : $this->sparkClientInfo;
+        }
+
+        if (null !== $this->sparkDynamicResourceSwitch) {
+            $res['SparkDynamicResourceSwitch'] = $this->sparkDynamicResourceSwitch;
+        }
+
+        if (null !== $this->sparkResourceEffectScope) {
+            $res['SparkResourceEffectScope'] = $this->sparkResourceEffectScope;
+        }
+
+        if (null !== $this->sparkSqlResourceConfigMap) {
+            if (\is_array($this->sparkSqlResourceConfigMap)) {
+                $res['SparkSqlResourceConfigMap'] = [];
+                foreach ($this->sparkSqlResourceConfigMap as $key1 => $value1) {
+                    $res['SparkSqlResourceConfigMap'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->upStreamList) {
@@ -302,6 +446,14 @@ class submitCommand extends Model
             $model->comment = $map['Comment'];
         }
 
+        if (isset($map['ConditionScheduleConfig'])) {
+            $model->conditionScheduleConfig = conditionScheduleConfig::fromMap($map['ConditionScheduleConfig']);
+        }
+
+        if (isset($map['CpuResource'])) {
+            $model->cpuResource = $map['CpuResource'];
+        }
+
         if (isset($map['CronExpression'])) {
             $model->cronExpression = $map['CronExpression'];
         }
@@ -314,8 +466,20 @@ class submitCommand extends Model
             $model->engine = $map['Engine'];
         }
 
+        if (isset($map['ExecuteRerunConfig'])) {
+            $model->executeRerunConfig = executeRerunConfig::fromMap($map['ExecuteRerunConfig']);
+        }
+
+        if (isset($map['ExecuteTimeOutConfig'])) {
+            $model->executeTimeOutConfig = executeTimeOutConfig::fromMap($map['ExecuteTimeOutConfig']);
+        }
+
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
+        }
+
+        if (isset($map['MemoryResource'])) {
+            $model->memoryResource = $map['MemoryResource'];
         }
 
         if (isset($map['Name'])) {
@@ -386,12 +550,48 @@ class submitCommand extends Model
             }
         }
 
+        if (isset($map['ResourceReferenceList'])) {
+            if (!empty($map['ResourceReferenceList'])) {
+                $model->resourceReferenceList = [];
+                $n1 = 0;
+                foreach ($map['ResourceReferenceList'] as $item1) {
+                    $model->resourceReferenceList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RetryOnTimeoutEnable'])) {
+            $model->retryOnTimeoutEnable = $map['RetryOnTimeoutEnable'];
+        }
+
         if (isset($map['SchedulePeriod'])) {
             $model->schedulePeriod = $map['SchedulePeriod'];
         }
 
+        if (isset($map['ScheduleTemplate'])) {
+            $model->scheduleTemplate = scheduleTemplate::fromMap($map['ScheduleTemplate']);
+        }
+
         if (isset($map['SparkClientInfo'])) {
             $model->sparkClientInfo = sparkClientInfo::fromMap($map['SparkClientInfo']);
+        }
+
+        if (isset($map['SparkDynamicResourceSwitch'])) {
+            $model->sparkDynamicResourceSwitch = $map['SparkDynamicResourceSwitch'];
+        }
+
+        if (isset($map['SparkResourceEffectScope'])) {
+            $model->sparkResourceEffectScope = $map['SparkResourceEffectScope'];
+        }
+
+        if (isset($map['SparkSqlResourceConfigMap'])) {
+            if (!empty($map['SparkSqlResourceConfigMap'])) {
+                $model->sparkSqlResourceConfigMap = [];
+                foreach ($map['SparkSqlResourceConfigMap'] as $key1 => $value1) {
+                    $model->sparkSqlResourceConfigMap[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['UpStreamList'])) {

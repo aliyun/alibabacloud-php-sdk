@@ -16,6 +16,11 @@ class memberList extends Model
     /**
      * @var string
      */
+    public $displayName;
+
+    /**
+     * @var string
+     */
     public $mail;
 
     /**
@@ -34,6 +39,7 @@ class memberList extends Model
     public $userId;
     protected $_name = [
         'dingNumber' => 'DingNumber',
+        'displayName' => 'DisplayName',
         'mail' => 'Mail',
         'mobilePhone' => 'MobilePhone',
         'roleList' => 'RoleList',
@@ -53,6 +59,10 @@ class memberList extends Model
         $res = [];
         if (null !== $this->dingNumber) {
             $res['DingNumber'] = $this->dingNumber;
+        }
+
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
 
         if (null !== $this->mail) {
@@ -91,6 +101,10 @@ class memberList extends Model
         $model = new self();
         if (isset($map['DingNumber'])) {
             $model->dingNumber = $map['DingNumber'];
+        }
+
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
 
         if (isset($map['Mail'])) {

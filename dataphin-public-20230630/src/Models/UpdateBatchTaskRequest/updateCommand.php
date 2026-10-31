@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\conditionScheduleParamList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\contextParamList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\customScheduleConfig;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\executeRerunConfig;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\executeTimeOutConfig;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\paramList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\sparkClientInfo;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\upStreamList;
@@ -43,6 +45,11 @@ class updateCommand extends Model
      * @var contextParamList[]
      */
     public $contextParamList;
+
+    /**
+     * @var string
+     */
+    public $cpuResource;
 
     /**
      * @var string
@@ -90,9 +97,24 @@ class updateCommand extends Model
     public $engine;
 
     /**
+     * @var executeRerunConfig
+     */
+    public $executeRerunConfig;
+
+    /**
+     * @var executeTimeOutConfig
+     */
+    public $executeTimeOutConfig;
+
+    /**
      * @var int
      */
     public $fileId;
+
+    /**
+     * @var string
+     */
+    public $memoryResource;
 
     /**
      * @var string
@@ -150,6 +172,16 @@ class updateCommand extends Model
     public $resourceGroupId;
 
     /**
+     * @var string[]
+     */
+    public $resourceReferenceList;
+
+    /**
+     * @var bool
+     */
+    public $retryOnTimeoutEnable;
+
+    /**
      * @var string
      */
     public $schedulePeriod;
@@ -158,6 +190,21 @@ class updateCommand extends Model
      * @var sparkClientInfo
      */
     public $sparkClientInfo;
+
+    /**
+     * @var bool
+     */
+    public $sparkDynamicResourceSwitch;
+
+    /**
+     * @var string
+     */
+    public $sparkResourceEffectScope;
+
+    /**
+     * @var string
+     */
+    public $sparkSqlResourceConfigMap;
 
     /**
      * @var string[]
@@ -190,6 +237,7 @@ class updateCommand extends Model
         'conditionScheduleParamList' => 'ConditionScheduleParamList',
         'conditionScheduleTemplateId' => 'ConditionScheduleTemplateId',
         'contextParamList' => 'ContextParamList',
+        'cpuResource' => 'CpuResource',
         'cronExpression' => 'CronExpression',
         'customScheduleConfig' => 'CustomScheduleConfig',
         'dataSourceCatalog' => 'DataSourceCatalog',
@@ -199,7 +247,10 @@ class updateCommand extends Model
         'devResourceGroupId' => 'DevResourceGroupId',
         'developOwnerIdList' => 'DevelopOwnerIdList',
         'engine' => 'Engine',
+        'executeRerunConfig' => 'ExecuteRerunConfig',
+        'executeTimeOutConfig' => 'ExecuteTimeOutConfig',
         'fileId' => 'FileId',
+        'memoryResource' => 'MemoryResource',
         'name' => 'Name',
         'nodeDescription' => 'NodeDescription',
         'nodeOutputNameList' => 'NodeOutputNameList',
@@ -211,8 +262,13 @@ class updateCommand extends Model
         'projectId' => 'ProjectId',
         'pythonModuleList' => 'PythonModuleList',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceReferenceList' => 'ResourceReferenceList',
+        'retryOnTimeoutEnable' => 'RetryOnTimeoutEnable',
         'schedulePeriod' => 'SchedulePeriod',
         'sparkClientInfo' => 'SparkClientInfo',
+        'sparkDynamicResourceSwitch' => 'SparkDynamicResourceSwitch',
+        'sparkResourceEffectScope' => 'SparkResourceEffectScope',
+        'sparkSqlResourceConfigMap' => 'SparkSqlResourceConfigMap',
         'taskTagList' => 'TaskTagList',
         'taskType' => 'TaskType',
         'upStreamList' => 'UpStreamList',
@@ -234,6 +290,12 @@ class updateCommand extends Model
         if (\is_array($this->developOwnerIdList)) {
             Model::validateArray($this->developOwnerIdList);
         }
+        if (null !== $this->executeRerunConfig) {
+            $this->executeRerunConfig->validate();
+        }
+        if (null !== $this->executeTimeOutConfig) {
+            $this->executeTimeOutConfig->validate();
+        }
         if (\is_array($this->nodeOutputNameList)) {
             Model::validateArray($this->nodeOutputNameList);
         }
@@ -245,6 +307,9 @@ class updateCommand extends Model
         }
         if (\is_array($this->pythonModuleList)) {
             Model::validateArray($this->pythonModuleList);
+        }
+        if (\is_array($this->resourceReferenceList)) {
+            Model::validateArray($this->resourceReferenceList);
         }
         if (null !== $this->sparkClientInfo) {
             $this->sparkClientInfo->validate();
@@ -299,6 +364,10 @@ class updateCommand extends Model
             }
         }
 
+        if (null !== $this->cpuResource) {
+            $res['CpuResource'] = $this->cpuResource;
+        }
+
         if (null !== $this->cronExpression) {
             $res['CronExpression'] = $this->cronExpression;
         }
@@ -342,8 +411,20 @@ class updateCommand extends Model
             $res['Engine'] = $this->engine;
         }
 
+        if (null !== $this->executeRerunConfig) {
+            $res['ExecuteRerunConfig'] = null !== $this->executeRerunConfig ? $this->executeRerunConfig->toArray($noStream) : $this->executeRerunConfig;
+        }
+
+        if (null !== $this->executeTimeOutConfig) {
+            $res['ExecuteTimeOutConfig'] = null !== $this->executeTimeOutConfig ? $this->executeTimeOutConfig->toArray($noStream) : $this->executeTimeOutConfig;
+        }
+
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
+        }
+
+        if (null !== $this->memoryResource) {
+            $res['MemoryResource'] = $this->memoryResource;
         }
 
         if (null !== $this->name) {
@@ -418,12 +499,39 @@ class updateCommand extends Model
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->resourceReferenceList) {
+            if (\is_array($this->resourceReferenceList)) {
+                $res['ResourceReferenceList'] = [];
+                $n1 = 0;
+                foreach ($this->resourceReferenceList as $item1) {
+                    $res['ResourceReferenceList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->retryOnTimeoutEnable) {
+            $res['RetryOnTimeoutEnable'] = $this->retryOnTimeoutEnable;
+        }
+
         if (null !== $this->schedulePeriod) {
             $res['SchedulePeriod'] = $this->schedulePeriod;
         }
 
         if (null !== $this->sparkClientInfo) {
             $res['SparkClientInfo'] = null !== $this->sparkClientInfo ? $this->sparkClientInfo->toArray($noStream) : $this->sparkClientInfo;
+        }
+
+        if (null !== $this->sparkDynamicResourceSwitch) {
+            $res['SparkDynamicResourceSwitch'] = $this->sparkDynamicResourceSwitch;
+        }
+
+        if (null !== $this->sparkResourceEffectScope) {
+            $res['SparkResourceEffectScope'] = $this->sparkResourceEffectScope;
+        }
+
+        if (null !== $this->sparkSqlResourceConfigMap) {
+            $res['SparkSqlResourceConfigMap'] = $this->sparkSqlResourceConfigMap;
         }
 
         if (null !== $this->taskTagList) {
@@ -509,6 +617,10 @@ class updateCommand extends Model
             }
         }
 
+        if (isset($map['CpuResource'])) {
+            $model->cpuResource = $map['CpuResource'];
+        }
+
         if (isset($map['CronExpression'])) {
             $model->cronExpression = $map['CronExpression'];
         }
@@ -552,8 +664,20 @@ class updateCommand extends Model
             $model->engine = $map['Engine'];
         }
 
+        if (isset($map['ExecuteRerunConfig'])) {
+            $model->executeRerunConfig = executeRerunConfig::fromMap($map['ExecuteRerunConfig']);
+        }
+
+        if (isset($map['ExecuteTimeOutConfig'])) {
+            $model->executeTimeOutConfig = executeTimeOutConfig::fromMap($map['ExecuteTimeOutConfig']);
+        }
+
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
+        }
+
+        if (isset($map['MemoryResource'])) {
+            $model->memoryResource = $map['MemoryResource'];
         }
 
         if (isset($map['Name'])) {
@@ -628,12 +752,39 @@ class updateCommand extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
+        if (isset($map['ResourceReferenceList'])) {
+            if (!empty($map['ResourceReferenceList'])) {
+                $model->resourceReferenceList = [];
+                $n1 = 0;
+                foreach ($map['ResourceReferenceList'] as $item1) {
+                    $model->resourceReferenceList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RetryOnTimeoutEnable'])) {
+            $model->retryOnTimeoutEnable = $map['RetryOnTimeoutEnable'];
+        }
+
         if (isset($map['SchedulePeriod'])) {
             $model->schedulePeriod = $map['SchedulePeriod'];
         }
 
         if (isset($map['SparkClientInfo'])) {
             $model->sparkClientInfo = sparkClientInfo::fromMap($map['SparkClientInfo']);
+        }
+
+        if (isset($map['SparkDynamicResourceSwitch'])) {
+            $model->sparkDynamicResourceSwitch = $map['SparkDynamicResourceSwitch'];
+        }
+
+        if (isset($map['SparkResourceEffectScope'])) {
+            $model->sparkResourceEffectScope = $map['SparkResourceEffectScope'];
+        }
+
+        if (isset($map['SparkSqlResourceConfigMap'])) {
+            $model->sparkSqlResourceConfigMap = $map['SparkSqlResourceConfigMap'];
         }
 
         if (isset($map['TaskTagList'])) {

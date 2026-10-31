@@ -42,6 +42,11 @@ class updateCommand extends Model
     /**
      * @var string
      */
+    public $timeZone;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -55,6 +60,7 @@ class updateCommand extends Model
         'description' => 'Description',
         'id' => 'Id',
         'name' => 'Name',
+        'timeZone' => 'TimeZone',
         'type' => 'Type',
         'typeVersion' => 'TypeVersion',
     ];
@@ -99,6 +105,10 @@ class updateCommand extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
         }
 
         if (null !== $this->type) {
@@ -149,6 +159,10 @@ class updateCommand extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         if (isset($map['Type'])) {

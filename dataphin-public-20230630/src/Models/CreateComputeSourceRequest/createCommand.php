@@ -37,6 +37,11 @@ class createCommand extends Model
     /**
      * @var string
      */
+    public $timeZone;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -49,6 +54,7 @@ class createCommand extends Model
         'createType' => 'CreateType',
         'description' => 'Description',
         'name' => 'Name',
+        'timeZone' => 'TimeZone',
         'type' => 'Type',
         'typeVersion' => 'TypeVersion',
     ];
@@ -89,6 +95,10 @@ class createCommand extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->timeZone) {
+            $res['TimeZone'] = $this->timeZone;
         }
 
         if (null !== $this->type) {
@@ -135,6 +145,10 @@ class createCommand extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
         if (isset($map['Type'])) {

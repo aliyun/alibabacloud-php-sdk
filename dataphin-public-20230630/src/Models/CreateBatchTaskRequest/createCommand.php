@@ -5,9 +5,21 @@
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskRequest\createCommand\databricksPythonConnectInfo;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskRequest\createCommand\paiConfig;
 
 class createCommand extends Model
 {
+    /**
+     * @var string
+     */
+    public $codeTemplateId;
+
+    /**
+     * @var int
+     */
+    public $codeTemplateVersion;
+
     /**
      * @var string
      */
@@ -22,6 +34,11 @@ class createCommand extends Model
      * @var string
      */
     public $dataSourceSchema;
+
+    /**
+     * @var databricksPythonConnectInfo
+     */
+    public $databricksPythonConnectInfo;
 
     /**
      * @var string
@@ -54,6 +71,11 @@ class createCommand extends Model
     public $opsOwnerIdList;
 
     /**
+     * @var paiConfig
+     */
+    public $paiConfig;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -69,32 +91,66 @@ class createCommand extends Model
     public $scheduleType;
 
     /**
+     * @var bool
+     */
+    public $sparkDynamicResourceSwitch;
+
+    /**
+     * @var string
+     */
+    public $sparkResourceEffectScope;
+
+    /**
+     * @var string
+     */
+    public $sparkSqlResourceConfigMap;
+
+    /**
+     * @var string
+     */
+    public $sparkVersion;
+
+    /**
      * @var int
      */
     public $taskType;
     protected $_name = [
+        'codeTemplateId' => 'CodeTemplateId',
+        'codeTemplateVersion' => 'CodeTemplateVersion',
         'dataSourceCatalog' => 'DataSourceCatalog',
         'dataSourceId' => 'DataSourceId',
         'dataSourceSchema' => 'DataSourceSchema',
+        'databricksPythonConnectInfo' => 'DatabricksPythonConnectInfo',
         'description' => 'Description',
         'developOwnerIdList' => 'DevelopOwnerIdList',
         'directory' => 'Directory',
         'engine' => 'Engine',
         'name' => 'Name',
         'opsOwnerIdList' => 'OpsOwnerIdList',
+        'paiConfig' => 'PaiConfig',
         'projectId' => 'ProjectId',
         'pythonModuleList' => 'PythonModuleList',
         'scheduleType' => 'ScheduleType',
+        'sparkDynamicResourceSwitch' => 'SparkDynamicResourceSwitch',
+        'sparkResourceEffectScope' => 'SparkResourceEffectScope',
+        'sparkSqlResourceConfigMap' => 'SparkSqlResourceConfigMap',
+        'sparkVersion' => 'SparkVersion',
         'taskType' => 'TaskType',
     ];
 
     public function validate()
     {
+        if (null !== $this->databricksPythonConnectInfo) {
+            $this->databricksPythonConnectInfo->validate();
+        }
         if (\is_array($this->developOwnerIdList)) {
             Model::validateArray($this->developOwnerIdList);
         }
         if (\is_array($this->opsOwnerIdList)) {
             Model::validateArray($this->opsOwnerIdList);
+        }
+        if (null !== $this->paiConfig) {
+            $this->paiConfig->validate();
         }
         if (\is_array($this->pythonModuleList)) {
             Model::validateArray($this->pythonModuleList);
@@ -105,6 +161,14 @@ class createCommand extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->codeTemplateId) {
+            $res['CodeTemplateId'] = $this->codeTemplateId;
+        }
+
+        if (null !== $this->codeTemplateVersion) {
+            $res['CodeTemplateVersion'] = $this->codeTemplateVersion;
+        }
+
         if (null !== $this->dataSourceCatalog) {
             $res['DataSourceCatalog'] = $this->dataSourceCatalog;
         }
@@ -115,6 +179,10 @@ class createCommand extends Model
 
         if (null !== $this->dataSourceSchema) {
             $res['DataSourceSchema'] = $this->dataSourceSchema;
+        }
+
+        if (null !== $this->databricksPythonConnectInfo) {
+            $res['DatabricksPythonConnectInfo'] = null !== $this->databricksPythonConnectInfo ? $this->databricksPythonConnectInfo->toArray($noStream) : $this->databricksPythonConnectInfo;
         }
 
         if (null !== $this->description) {
@@ -155,6 +223,10 @@ class createCommand extends Model
             }
         }
 
+        if (null !== $this->paiConfig) {
+            $res['PaiConfig'] = null !== $this->paiConfig ? $this->paiConfig->toArray($noStream) : $this->paiConfig;
+        }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -174,6 +246,22 @@ class createCommand extends Model
             $res['ScheduleType'] = $this->scheduleType;
         }
 
+        if (null !== $this->sparkDynamicResourceSwitch) {
+            $res['SparkDynamicResourceSwitch'] = $this->sparkDynamicResourceSwitch;
+        }
+
+        if (null !== $this->sparkResourceEffectScope) {
+            $res['SparkResourceEffectScope'] = $this->sparkResourceEffectScope;
+        }
+
+        if (null !== $this->sparkSqlResourceConfigMap) {
+            $res['SparkSqlResourceConfigMap'] = $this->sparkSqlResourceConfigMap;
+        }
+
+        if (null !== $this->sparkVersion) {
+            $res['SparkVersion'] = $this->sparkVersion;
+        }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -189,6 +277,14 @@ class createCommand extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CodeTemplateId'])) {
+            $model->codeTemplateId = $map['CodeTemplateId'];
+        }
+
+        if (isset($map['CodeTemplateVersion'])) {
+            $model->codeTemplateVersion = $map['CodeTemplateVersion'];
+        }
+
         if (isset($map['DataSourceCatalog'])) {
             $model->dataSourceCatalog = $map['DataSourceCatalog'];
         }
@@ -199,6 +295,10 @@ class createCommand extends Model
 
         if (isset($map['DataSourceSchema'])) {
             $model->dataSourceSchema = $map['DataSourceSchema'];
+        }
+
+        if (isset($map['DatabricksPythonConnectInfo'])) {
+            $model->databricksPythonConnectInfo = databricksPythonConnectInfo::fromMap($map['DatabricksPythonConnectInfo']);
         }
 
         if (isset($map['Description'])) {
@@ -239,6 +339,10 @@ class createCommand extends Model
             }
         }
 
+        if (isset($map['PaiConfig'])) {
+            $model->paiConfig = paiConfig::fromMap($map['PaiConfig']);
+        }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
@@ -256,6 +360,22 @@ class createCommand extends Model
 
         if (isset($map['ScheduleType'])) {
             $model->scheduleType = $map['ScheduleType'];
+        }
+
+        if (isset($map['SparkDynamicResourceSwitch'])) {
+            $model->sparkDynamicResourceSwitch = $map['SparkDynamicResourceSwitch'];
+        }
+
+        if (isset($map['SparkResourceEffectScope'])) {
+            $model->sparkResourceEffectScope = $map['SparkResourceEffectScope'];
+        }
+
+        if (isset($map['SparkSqlResourceConfigMap'])) {
+            $model->sparkSqlResourceConfigMap = $map['SparkSqlResourceConfigMap'];
+        }
+
+        if (isset($map['SparkVersion'])) {
+            $model->sparkVersion = $map['SparkVersion'];
         }
 
         if (isset($map['TaskType'])) {

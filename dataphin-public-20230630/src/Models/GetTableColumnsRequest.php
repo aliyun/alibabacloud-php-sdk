@@ -26,11 +26,17 @@ class GetTableColumnsRequest extends Model
     /**
      * @var string
      */
+    public $tableGuid;
+
+    /**
+     * @var string
+     */
     public $tableName;
     protected $_name = [
         'catalog' => 'Catalog',
         'opTenantId' => 'OpTenantId',
         'opUserId' => 'OpUserId',
+        'tableGuid' => 'TableGuid',
         'tableName' => 'TableName',
     ];
 
@@ -52,6 +58,10 @@ class GetTableColumnsRequest extends Model
 
         if (null !== $this->opUserId) {
             $res['OpUserId'] = $this->opUserId;
+        }
+
+        if (null !== $this->tableGuid) {
+            $res['TableGuid'] = $this->tableGuid;
         }
 
         if (null !== $this->tableName) {
@@ -79,6 +89,10 @@ class GetTableColumnsRequest extends Model
 
         if (isset($map['OpUserId'])) {
             $model->opUserId = $map['OpUserId'];
+        }
+
+        if (isset($map['TableGuid'])) {
+            $model->tableGuid = $map['TableGuid'];
         }
 
         if (isset($map['TableName'])) {

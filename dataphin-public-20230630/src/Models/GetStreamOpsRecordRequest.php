@@ -1,0 +1,90 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class GetStreamOpsRecordRequest extends Model
+{
+    /**
+     * @var int
+     */
+    public $opTenantId;
+
+    /**
+     * @var string
+     */
+    public $opUserId;
+
+    /**
+     * @var string
+     */
+    public $opsRecordId;
+
+    /**
+     * @var int
+     */
+    public $projectId;
+    protected $_name = [
+        'opTenantId' => 'OpTenantId',
+        'opUserId' => 'OpUserId',
+        'opsRecordId' => 'OpsRecordId',
+        'projectId' => 'ProjectId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->opTenantId) {
+            $res['OpTenantId'] = $this->opTenantId;
+        }
+
+        if (null !== $this->opUserId) {
+            $res['OpUserId'] = $this->opUserId;
+        }
+
+        if (null !== $this->opsRecordId) {
+            $res['OpsRecordId'] = $this->opsRecordId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['OpTenantId'])) {
+            $model->opTenantId = $map['OpTenantId'];
+        }
+
+        if (isset($map['OpUserId'])) {
+            $model->opUserId = $map['OpUserId'];
+        }
+
+        if (isset($map['OpsRecordId'])) {
+            $model->opsRecordId = $map['OpsRecordId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
+        }
+
+        return $model;
+    }
+}
