@@ -20,6 +20,16 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateCustomAgentRequest\body\ru
 class body extends Model
 {
     /**
+     * @var string
+     */
+    public $accessMode;
+
+    /**
+     * @var string
+     */
+    public $accessScope;
+
+    /**
      * @var agenticFsMounts[]
      */
     public $agenticFsMounts;
@@ -94,6 +104,8 @@ class body extends Model
      */
     public $useImageCache;
     protected $_name = [
+        'accessMode' => 'accessMode',
+        'accessScope' => 'accessScope',
         'agenticFsMounts' => 'agenticFsMounts',
         'artifact' => 'artifact',
         'customImage' => 'customImage',
@@ -152,6 +164,14 @@ class body extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessMode) {
+            $res['accessMode'] = $this->accessMode;
+        }
+
+        if (null !== $this->accessScope) {
+            $res['accessScope'] = $this->accessScope;
+        }
+
         if (null !== $this->agenticFsMounts) {
             if (\is_array($this->agenticFsMounts)) {
                 $res['agenticFsMounts'] = [];
@@ -244,6 +264,14 @@ class body extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['accessMode'])) {
+            $model->accessMode = $map['accessMode'];
+        }
+
+        if (isset($map['accessScope'])) {
+            $model->accessScope = $map['accessScope'];
+        }
+
         if (isset($map['agenticFsMounts'])) {
             if (!empty($map['agenticFsMounts'])) {
                 $model->agenticFsMounts = [];

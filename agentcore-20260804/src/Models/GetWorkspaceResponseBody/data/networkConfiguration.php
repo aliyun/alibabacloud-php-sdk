@@ -12,6 +12,11 @@ class networkConfiguration extends Model
     /**
      * @var bool
      */
+    public $privateIngressEnabled;
+
+    /**
+     * @var bool
+     */
     public $publicEgressEnabled;
 
     /**
@@ -29,6 +34,7 @@ class networkConfiguration extends Model
      */
     public $vpc;
     protected $_name = [
+        'privateIngressEnabled' => 'privateIngressEnabled',
         'publicEgressEnabled' => 'publicEgressEnabled',
         'publicEgressIp' => 'publicEgressIp',
         'publicIngressEnabled' => 'publicIngressEnabled',
@@ -46,6 +52,10 @@ class networkConfiguration extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->privateIngressEnabled) {
+            $res['privateIngressEnabled'] = $this->privateIngressEnabled;
+        }
+
         if (null !== $this->publicEgressEnabled) {
             $res['publicEgressEnabled'] = $this->publicEgressEnabled;
         }
@@ -73,6 +83,10 @@ class networkConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['privateIngressEnabled'])) {
+            $model->privateIngressEnabled = $map['privateIngressEnabled'];
+        }
+
         if (isset($map['publicEgressEnabled'])) {
             $model->publicEgressEnabled = $map['publicEgressEnabled'];
         }

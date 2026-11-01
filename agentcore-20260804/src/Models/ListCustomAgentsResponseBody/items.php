@@ -14,6 +14,16 @@ class items extends Model
     /**
      * @var string
      */
+    public $accessMode;
+
+    /**
+     * @var string
+     */
+    public $accessScope;
+
+    /**
+     * @var string
+     */
     public $agentId;
 
     /**
@@ -81,6 +91,8 @@ class items extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'accessMode' => 'accessMode',
+        'accessScope' => 'accessScope',
         'agentId' => 'agentId',
         'artifact' => 'artifact',
         'codePackageInfo' => 'codePackageInfo',
@@ -114,6 +126,14 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessMode) {
+            $res['accessMode'] = $this->accessMode;
+        }
+
+        if (null !== $this->accessScope) {
+            $res['accessScope'] = $this->accessScope;
+        }
+
         if (null !== $this->agentId) {
             $res['agentId'] = $this->agentId;
         }
@@ -188,6 +208,14 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['accessMode'])) {
+            $model->accessMode = $map['accessMode'];
+        }
+
+        if (isset($map['accessScope'])) {
+            $model->accessScope = $map['accessScope'];
+        }
+
         if (isset($map['agentId'])) {
             $model->agentId = $map['agentId'];
         }

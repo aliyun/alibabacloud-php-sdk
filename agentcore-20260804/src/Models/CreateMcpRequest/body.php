@@ -43,6 +43,11 @@ class body extends Model
     /**
      * @var string
      */
+    public $permissionMode;
+
+    /**
+     * @var string
+     */
     public $protocol;
 
     /**
@@ -61,6 +66,7 @@ class body extends Model
         'deploymentConfig' => 'deploymentConfig',
         'description' => 'description',
         'name' => 'name',
+        'permissionMode' => 'permissionMode',
         'protocol' => 'protocol',
         'swaggerConfig' => 'swaggerConfig',
         'type' => 'type',
@@ -124,6 +130,10 @@ class body extends Model
             $res['name'] = $this->name;
         }
 
+        if (null !== $this->permissionMode) {
+            $res['permissionMode'] = $this->permissionMode;
+        }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
@@ -183,6 +193,10 @@ class body extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['permissionMode'])) {
+            $model->permissionMode = $map['permissionMode'];
         }
 
         if (isset($map['protocol'])) {

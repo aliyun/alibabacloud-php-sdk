@@ -74,6 +74,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $permissionMode;
+
+    /**
+     * @var string
+     */
     public $protocol;
 
     /**
@@ -118,6 +123,7 @@ class items extends Model
         'mcpServerId' => 'mcpServerId',
         'name' => 'name',
         'officialTag' => 'officialTag',
+        'permissionMode' => 'permissionMode',
         'protocol' => 'protocol',
         'status' => 'status',
         'statusReason' => 'statusReason',
@@ -210,6 +216,10 @@ class items extends Model
 
         if (null !== $this->officialTag) {
             $res['officialTag'] = $this->officialTag;
+        }
+
+        if (null !== $this->permissionMode) {
+            $res['permissionMode'] = $this->permissionMode;
         }
 
         if (null !== $this->protocol) {
@@ -311,6 +321,10 @@ class items extends Model
 
         if (isset($map['officialTag'])) {
             $model->officialTag = $map['officialTag'];
+        }
+
+        if (isset($map['permissionMode'])) {
+            $model->permissionMode = $map['permissionMode'];
         }
 
         if (isset($map['protocol'])) {

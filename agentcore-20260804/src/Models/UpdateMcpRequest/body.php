@@ -38,6 +38,11 @@ class body extends Model
     /**
      * @var string
      */
+    public $permissionMode;
+
+    /**
+     * @var string
+     */
     public $swaggerConfig;
     protected $_name = [
         'addresses' => 'addresses',
@@ -45,6 +50,7 @@ class body extends Model
         'customTags' => 'customTags',
         'deploymentConfig' => 'deploymentConfig',
         'description' => 'description',
+        'permissionMode' => 'permissionMode',
         'swaggerConfig' => 'swaggerConfig',
     ];
 
@@ -102,6 +108,10 @@ class body extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->permissionMode) {
+            $res['permissionMode'] = $this->permissionMode;
+        }
+
         if (null !== $this->swaggerConfig) {
             $res['swaggerConfig'] = $this->swaggerConfig;
         }
@@ -149,6 +159,10 @@ class body extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['permissionMode'])) {
+            $model->permissionMode = $map['permissionMode'];
         }
 
         if (isset($map['swaggerConfig'])) {
