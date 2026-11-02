@@ -199,6 +199,11 @@ class DescribePolarFsAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -278,6 +283,7 @@ class DescribePolarFsAttributeResponseBody extends Model
         'relativeDbClusterId' => 'RelativeDbClusterId',
         'relativePfsClusterId' => 'RelativePfsClusterId',
         'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
         'storageSpace' => 'StorageSpace',
         'storageType' => 'StorageType',
@@ -466,6 +472,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->securityGroupId) {
@@ -675,6 +685,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['SecurityGroupId'])) {

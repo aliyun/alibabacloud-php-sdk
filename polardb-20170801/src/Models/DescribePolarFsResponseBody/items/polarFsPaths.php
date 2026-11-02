@@ -104,6 +104,11 @@ class polarFsPaths extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
 
     /**
@@ -154,6 +159,7 @@ class polarFsPaths extends Model
         'polarFsType' => 'PolarFsType',
         'regionId' => 'RegionId',
         'relativeDbClusterId' => 'RelativeDbClusterId',
+        'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
         'storageSpace' => 'StorageSpace',
         'storageType' => 'StorageType',
@@ -250,6 +256,10 @@ class polarFsPaths extends Model
 
         if (null !== $this->relativeDbClusterId) {
             $res['RelativeDbClusterId'] = $this->relativeDbClusterId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->securityGroupId) {
@@ -361,6 +371,10 @@ class polarFsPaths extends Model
 
         if (isset($map['RelativeDbClusterId'])) {
             $model->relativeDbClusterId = $map['RelativeDbClusterId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['SecurityGroupId'])) {

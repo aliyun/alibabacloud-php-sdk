@@ -42,6 +42,11 @@ class results extends Model
     /**
      * @var string
      */
+    public $knowledgeBaseId;
+
+    /**
+     * @var string
+     */
     public $metadata;
 
     /**
@@ -75,6 +80,7 @@ class results extends Model
         'fileName' => 'FileName',
         'headings' => 'Headings',
         'imageResources' => 'ImageResources',
+        'knowledgeBaseId' => 'KnowledgeBaseId',
         'metadata' => 'Metadata',
         'pageNumbers' => 'PageNumbers',
         'shardContent' => 'ShardContent',
@@ -156,6 +162,10 @@ class results extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->knowledgeBaseId) {
+            $res['KnowledgeBaseId'] = $this->knowledgeBaseId;
         }
 
         if (null !== $this->metadata) {
@@ -250,6 +260,10 @@ class results extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['KnowledgeBaseId'])) {
+            $model->knowledgeBaseId = $map['KnowledgeBaseId'];
         }
 
         if (isset($map['Metadata'])) {

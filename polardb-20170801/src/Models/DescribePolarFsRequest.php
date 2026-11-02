@@ -50,6 +50,11 @@ class DescribePolarFsRequest extends Model
     public $relativeDbClusterId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -62,6 +67,7 @@ class DescribePolarFsRequest extends Model
         'polarFsType' => 'PolarFsType',
         'regionId' => 'RegionId',
         'relativeDbClusterId' => 'RelativeDbClusterId',
+        'resourceGroupId' => 'ResourceGroupId',
         'tag' => 'Tag',
     ];
 
@@ -106,6 +112,10 @@ class DescribePolarFsRequest extends Model
 
         if (null !== $this->relativeDbClusterId) {
             $res['RelativeDbClusterId'] = $this->relativeDbClusterId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->tag) {
@@ -160,6 +170,10 @@ class DescribePolarFsRequest extends Model
 
         if (isset($map['RelativeDbClusterId'])) {
             $model->relativeDbClusterId = $map['RelativeDbClusterId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['Tag'])) {

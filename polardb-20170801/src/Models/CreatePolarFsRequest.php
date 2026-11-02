@@ -100,6 +100,11 @@ class CreatePolarFsRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $storageSpace;
@@ -147,6 +152,7 @@ class CreatePolarFsRequest extends Model
         'period' => 'Period',
         'promotionCode' => 'PromotionCode',
         'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'storageSpace' => 'StorageSpace',
         'storageType' => 'StorageType',
         'usedTime' => 'UsedTime',
@@ -243,6 +249,10 @@ class CreatePolarFsRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->storageSpace) {
@@ -357,6 +367,10 @@ class CreatePolarFsRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['StorageSpace'])) {
