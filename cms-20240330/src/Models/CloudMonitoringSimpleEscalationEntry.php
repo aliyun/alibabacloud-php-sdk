@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class CloudMonitoringSimpleEscalationEntry extends Model
 {
     /**
+     * @var float
+     */
+    public $absDeviation;
+
+    /**
+     * @var string
+     */
+    public $baselinePeriod;
+
+    /**
      * @var string
      */
     public $comparisonOperator;
@@ -17,6 +27,11 @@ class CloudMonitoringSimpleEscalationEntry extends Model
      * @var string
      */
     public $preCondition;
+
+    /**
+     * @var string
+     */
+    public $sensitivity;
 
     /**
      * @var string
@@ -38,8 +53,11 @@ class CloudMonitoringSimpleEscalationEntry extends Model
      */
     public $times;
     protected $_name = [
+        'absDeviation' => 'absDeviation',
+        'baselinePeriod' => 'baselinePeriod',
         'comparisonOperator' => 'comparisonOperator',
         'preCondition' => 'preCondition',
+        'sensitivity' => 'sensitivity',
         'severity' => 'severity',
         'statistics' => 'statistics',
         'threshold' => 'threshold',
@@ -54,12 +72,24 @@ class CloudMonitoringSimpleEscalationEntry extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->absDeviation) {
+            $res['absDeviation'] = $this->absDeviation;
+        }
+
+        if (null !== $this->baselinePeriod) {
+            $res['baselinePeriod'] = $this->baselinePeriod;
+        }
+
         if (null !== $this->comparisonOperator) {
             $res['comparisonOperator'] = $this->comparisonOperator;
         }
 
         if (null !== $this->preCondition) {
             $res['preCondition'] = $this->preCondition;
+        }
+
+        if (null !== $this->sensitivity) {
+            $res['sensitivity'] = $this->sensitivity;
         }
 
         if (null !== $this->severity) {
@@ -89,12 +119,24 @@ class CloudMonitoringSimpleEscalationEntry extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['absDeviation'])) {
+            $model->absDeviation = $map['absDeviation'];
+        }
+
+        if (isset($map['baselinePeriod'])) {
+            $model->baselinePeriod = $map['baselinePeriod'];
+        }
+
         if (isset($map['comparisonOperator'])) {
             $model->comparisonOperator = $map['comparisonOperator'];
         }
 
         if (isset($map['preCondition'])) {
             $model->preCondition = $map['preCondition'];
+        }
+
+        if (isset($map['sensitivity'])) {
+            $model->sensitivity = $map['sensitivity'];
         }
 
         if (isset($map['severity'])) {

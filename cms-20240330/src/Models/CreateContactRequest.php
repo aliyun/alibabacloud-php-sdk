@@ -41,6 +41,11 @@ class CreateContactRequest extends Model
     /**
      * @var string
      */
+    public $phoneCode;
+
+    /**
+     * @var string
+     */
     public $workspace;
     protected $_name = [
         'contactId' => 'contactId',
@@ -49,6 +54,7 @@ class CreateContactRequest extends Model
         'lang' => 'lang',
         'name' => 'name',
         'phone' => 'phone',
+        'phoneCode' => 'phoneCode',
         'workspace' => 'workspace',
     ];
 
@@ -90,6 +96,10 @@ class CreateContactRequest extends Model
 
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
+        }
+
+        if (null !== $this->phoneCode) {
+            $res['phoneCode'] = $this->phoneCode;
         }
 
         if (null !== $this->workspace) {
@@ -134,6 +144,10 @@ class CreateContactRequest extends Model
 
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
+        }
+
+        if (isset($map['phoneCode'])) {
+            $model->phoneCode = $map['phoneCode'];
         }
 
         if (isset($map['workspace'])) {

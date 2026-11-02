@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DeleteContactGroupsResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $deletedCount;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'deletedCount' => 'deletedCount',
         'requestId' => 'requestId',
     ];
 
@@ -24,6 +30,10 @@ class DeleteContactGroupsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->deletedCount) {
+            $res['deletedCount'] = $this->deletedCount;
+        }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -39,6 +49,10 @@ class DeleteContactGroupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['deletedCount'])) {
+            $model->deletedCount = $map['deletedCount'];
+        }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -32,12 +32,18 @@ class UpdateContactRequest extends Model
      * @var string
      */
     public $phone;
+
+    /**
+     * @var string
+     */
+    public $phoneCode;
     protected $_name = [
         'email' => 'email',
         'imUserIds' => 'imUserIds',
         'lang' => 'lang',
         'name' => 'name',
         'phone' => 'phone',
+        'phoneCode' => 'phoneCode',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class UpdateContactRequest extends Model
             $res['phone'] = $this->phone;
         }
 
+        if (null !== $this->phoneCode) {
+            $res['phoneCode'] = $this->phoneCode;
+        }
+
         return $res;
     }
 
@@ -110,6 +120,10 @@ class UpdateContactRequest extends Model
 
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
+        }
+
+        if (isset($map['phoneCode'])) {
+            $model->phoneCode = $map['phoneCode'];
         }
 
         return $model;
