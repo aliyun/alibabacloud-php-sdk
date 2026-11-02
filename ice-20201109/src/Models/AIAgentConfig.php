@@ -13,6 +13,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\backChannelingConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\backChannelingConfigs;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\interruptConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\llmConfig;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\transferCallConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\ttsConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\turnDetectionConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentConfig\vcrConfig;
@@ -101,6 +102,11 @@ class AIAgentConfig extends Model
     public $maxIdleTime;
 
     /**
+     * @var transferCallConfig
+     */
+    public $transferCallConfig;
+
+    /**
      * @var ttsConfig
      */
     public $ttsConfig;
@@ -161,6 +167,7 @@ class AIAgentConfig extends Model
         'interruptConfig' => 'InterruptConfig',
         'llmConfig' => 'LlmConfig',
         'maxIdleTime' => 'MaxIdleTime',
+        'transferCallConfig' => 'TransferCallConfig',
         'ttsConfig' => 'TtsConfig',
         'turnDetectionConfig' => 'TurnDetectionConfig',
         'userOfflineTimeout' => 'UserOfflineTimeout',
@@ -197,6 +204,9 @@ class AIAgentConfig extends Model
         }
         if (null !== $this->llmConfig) {
             $this->llmConfig->validate();
+        }
+        if (null !== $this->transferCallConfig) {
+            $this->transferCallConfig->validate();
         }
         if (null !== $this->ttsConfig) {
             $this->ttsConfig->validate();
@@ -292,6 +302,10 @@ class AIAgentConfig extends Model
 
         if (null !== $this->maxIdleTime) {
             $res['MaxIdleTime'] = $this->maxIdleTime;
+        }
+
+        if (null !== $this->transferCallConfig) {
+            $res['TransferCallConfig'] = null !== $this->transferCallConfig ? $this->transferCallConfig->toArray($noStream) : $this->transferCallConfig;
         }
 
         if (null !== $this->ttsConfig) {
@@ -417,6 +431,10 @@ class AIAgentConfig extends Model
 
         if (isset($map['MaxIdleTime'])) {
             $model->maxIdleTime = $map['MaxIdleTime'];
+        }
+
+        if (isset($map['TransferCallConfig'])) {
+            $model->transferCallConfig = transferCallConfig::fromMap($map['TransferCallConfig']);
         }
 
         if (isset($map['TtsConfig'])) {

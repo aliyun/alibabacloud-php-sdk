@@ -12,8 +12,20 @@ class avatarConfig extends Model
      * @var string
      */
     public $avatarId;
+
+    /**
+     * @var string
+     */
+    public $resolution;
+
+    /**
+     * @var string
+     */
+    public $templateId;
     protected $_name = [
         'avatarId' => 'AvatarId',
+        'resolution' => 'Resolution',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -26,6 +38,14 @@ class avatarConfig extends Model
         $res = [];
         if (null !== $this->avatarId) {
             $res['AvatarId'] = $this->avatarId;
+        }
+
+        if (null !== $this->resolution) {
+            $res['Resolution'] = $this->resolution;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -41,6 +61,14 @@ class avatarConfig extends Model
         $model = new self();
         if (isset($map['AvatarId'])) {
             $model->avatarId = $map['AvatarId'];
+        }
+
+        if (isset($map['Resolution'])) {
+            $model->resolution = $map['Resolution'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

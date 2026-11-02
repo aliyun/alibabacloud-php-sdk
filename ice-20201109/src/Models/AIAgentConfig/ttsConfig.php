@@ -17,6 +17,16 @@ class ttsConfig extends Model
     /**
      * @var string
      */
+    public $hotFix;
+
+    /**
+     * @var string
+     */
+    public $instruction;
+
+    /**
+     * @var string
+     */
     public $languageId;
 
     /**
@@ -45,6 +55,8 @@ class ttsConfig extends Model
     public $voiceIdList;
     protected $_name = [
         'emotion' => 'Emotion',
+        'hotFix' => 'HotFix',
+        'instruction' => 'Instruction',
         'languageId' => 'LanguageId',
         'modelId' => 'ModelId',
         'pronunciationRules' => 'PronunciationRules',
@@ -69,6 +81,14 @@ class ttsConfig extends Model
         $res = [];
         if (null !== $this->emotion) {
             $res['Emotion'] = $this->emotion;
+        }
+
+        if (null !== $this->hotFix) {
+            $res['HotFix'] = $this->hotFix;
+        }
+
+        if (null !== $this->instruction) {
+            $res['Instruction'] = $this->instruction;
         }
 
         if (null !== $this->languageId) {
@@ -122,6 +142,14 @@ class ttsConfig extends Model
         $model = new self();
         if (isset($map['Emotion'])) {
             $model->emotion = $map['Emotion'];
+        }
+
+        if (isset($map['HotFix'])) {
+            $model->hotFix = $map['HotFix'];
+        }
+
+        if (isset($map['Instruction'])) {
+            $model->instruction = $map['Instruction'];
         }
 
         if (isset($map['LanguageId'])) {

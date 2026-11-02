@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class asrConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $asrContext;
+
+    /**
      * @var string[]
      */
     public $asrHotWords;
@@ -26,6 +31,11 @@ class asrConfig extends Model
     /**
      * @var string
      */
+    public $asrVocabulary;
+
+    /**
+     * @var string
+     */
     public $customParams;
 
     /**
@@ -38,9 +48,11 @@ class asrConfig extends Model
      */
     public $vadLevel;
     protected $_name = [
+        'asrContext' => 'AsrContext',
         'asrHotWords' => 'AsrHotWords',
         'asrLanguageId' => 'AsrLanguageId',
         'asrMaxSilence' => 'AsrMaxSilence',
+        'asrVocabulary' => 'AsrVocabulary',
         'customParams' => 'CustomParams',
         'vadDuration' => 'VadDuration',
         'vadLevel' => 'VadLevel',
@@ -57,6 +69,10 @@ class asrConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->asrContext) {
+            $res['AsrContext'] = $this->asrContext;
+        }
+
         if (null !== $this->asrHotWords) {
             if (\is_array($this->asrHotWords)) {
                 $res['AsrHotWords'] = [];
@@ -74,6 +90,10 @@ class asrConfig extends Model
 
         if (null !== $this->asrMaxSilence) {
             $res['AsrMaxSilence'] = $this->asrMaxSilence;
+        }
+
+        if (null !== $this->asrVocabulary) {
+            $res['AsrVocabulary'] = $this->asrVocabulary;
         }
 
         if (null !== $this->customParams) {
@@ -99,6 +119,10 @@ class asrConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsrContext'])) {
+            $model->asrContext = $map['AsrContext'];
+        }
+
         if (isset($map['AsrHotWords'])) {
             if (!empty($map['AsrHotWords'])) {
                 $model->asrHotWords = [];
@@ -116,6 +140,10 @@ class asrConfig extends Model
 
         if (isset($map['AsrMaxSilence'])) {
             $model->asrMaxSilence = $map['AsrMaxSilence'];
+        }
+
+        if (isset($map['AsrVocabulary'])) {
+            $model->asrVocabulary = $map['AsrVocabulary'];
         }
 
         if (isset($map['CustomParams'])) {
