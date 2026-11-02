@@ -83,6 +83,11 @@ class sessionConfig extends Model
      * @var string[]
      */
     public $userSpecifiedSkillList;
+
+    /**
+     * @var string
+     */
+    public $webReportTheme;
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'customAgentStage' => 'CustomAgentStage',
@@ -99,6 +104,7 @@ class sessionConfig extends Model
         'skipSqlConfirm' => 'SkipSqlConfirm',
         'skipWebReportConfirm' => 'SkipWebReportConfirm',
         'userSpecifiedSkillList' => 'UserSpecifiedSkillList',
+        'webReportTheme' => 'WebReportTheme',
     ];
 
     public function validate()
@@ -202,6 +208,10 @@ class sessionConfig extends Model
             }
         }
 
+        if (null !== $this->webReportTheme) {
+            $res['WebReportTheme'] = $this->webReportTheme;
+        }
+
         return $res;
     }
 
@@ -292,6 +302,10 @@ class sessionConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['WebReportTheme'])) {
+            $model->webReportTheme = $map['WebReportTheme'];
         }
 
         return $model;

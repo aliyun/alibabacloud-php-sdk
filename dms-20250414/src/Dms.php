@@ -5746,7 +5746,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+     * Queries the SQL execution history within the current tenant, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
      *
      * @param request - ListAgenticGlobalSqlExecutionHistoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5829,7 +5829,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the SQL execution history within the current tenant and returns the results in descending order of execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+     * Queries the SQL execution history within the current tenant, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
      *
      * @param request - ListAgenticGlobalSqlExecutionHistoriesRequest
      *
@@ -5930,7 +5930,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+     * Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
      *
      * @param request - ListAgenticSqlExecutionHistoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6013,7 +6013,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only AGENT_QUERY and WORKFLOW_QUERY are included.
+     * Queries the SQL execution history visible to the current caller, sorted in descending order by execution start time. Only includes AGENT_QUERY and WORKFLOW_QUERY.
      *
      * @param request - ListAgenticSqlExecutionHistoriesRequest
      *
@@ -8966,10 +8966,10 @@ class Dms extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
-     * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
-     * - When `message_type` is `additional`, the `question` field is required.
-     * - `quoted_message` can be used to quote previous user messages.
+     * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+     * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+     * - When message_type is set to additional, the question field is required.
+     * - You can use quoted_message to quote previous user messages.
      *
      * @param tmpReq - SendChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9086,10 +9086,10 @@ class Dms extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
-     * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
-     * - When `message_type` is `additional`, the `question` field is required.
-     * - `quoted_message` can be used to quote previous user messages.
+     * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+     * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+     * - When message_type is set to additional, the question field is required.
+     * - You can use quoted_message to quote previous user messages.
      *
      * @param request - SendChatMessageRequest
      *
