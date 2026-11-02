@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class items extends Model
 {
     /**
+     * @var int
+     */
+    public $periodMultiplier;
+
+    /**
      * @var string
      */
     public $periodType;
@@ -48,6 +53,7 @@ class items extends Model
      */
     public $windowAlignment;
     protected $_name = [
+        'periodMultiplier' => 'periodMultiplier',
         'periodType' => 'periodType',
         'quotaDimension' => 'quotaDimension',
         'quotaLimit' => 'quotaLimit',
@@ -66,6 +72,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->periodMultiplier) {
+            $res['periodMultiplier'] = $this->periodMultiplier;
+        }
+
         if (null !== $this->periodType) {
             $res['periodType'] = $this->periodType;
         }
@@ -109,6 +119,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['periodMultiplier'])) {
+            $model->periodMultiplier = $map['periodMultiplier'];
+        }
+
         if (isset($map['periodType'])) {
             $model->periodType = $map['periodType'];
         }

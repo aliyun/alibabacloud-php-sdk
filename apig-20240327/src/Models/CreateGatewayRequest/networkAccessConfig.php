@@ -11,8 +11,14 @@ class networkAccessConfig extends Model
     /**
      * @var string
      */
+    public $endpointSecurityGroupId;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
+        'endpointSecurityGroupId' => 'endpointSecurityGroupId',
         'type' => 'type',
     ];
 
@@ -24,6 +30,10 @@ class networkAccessConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endpointSecurityGroupId) {
+            $res['endpointSecurityGroupId'] = $this->endpointSecurityGroupId;
+        }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -39,6 +49,10 @@ class networkAccessConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['endpointSecurityGroupId'])) {
+            $model->endpointSecurityGroupId = $map['endpointSecurityGroupId'];
+        }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

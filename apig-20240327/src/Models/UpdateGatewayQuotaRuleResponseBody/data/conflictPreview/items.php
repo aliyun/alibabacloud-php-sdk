@@ -31,6 +31,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $periodType;
+
+    /**
+     * @var string
+     */
     public $subjectId;
 
     /**
@@ -47,6 +52,7 @@ class items extends Model
         'conflictType' => 'conflictType',
         'consumerId' => 'consumerId',
         'consumerName' => 'consumerName',
+        'periodType' => 'periodType',
         'subjectId' => 'subjectId',
         'subjectName' => 'subjectName',
         'subjectType' => 'subjectType',
@@ -74,6 +80,10 @@ class items extends Model
 
         if (null !== $this->consumerName) {
             $res['consumerName'] = $this->consumerName;
+        }
+
+        if (null !== $this->periodType) {
+            $res['periodType'] = $this->periodType;
         }
 
         if (null !== $this->subjectId) {
@@ -113,6 +123,10 @@ class items extends Model
 
         if (isset($map['consumerName'])) {
             $model->consumerName = $map['consumerName'];
+        }
+
+        if (isset($map['periodType'])) {
+            $model->periodType = $map['periodType'];
         }
 
         if (isset($map['subjectId'])) {

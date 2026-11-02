@@ -50,6 +50,11 @@ class AgentServiceConfig extends Model
      * @var string
      */
     public $provider;
+
+    /**
+     * @var string
+     */
+    public $upstreamAuthMode;
     protected $_name = [
         'address' => 'address',
         'customConfig' => 'customConfig',
@@ -59,6 +64,7 @@ class AgentServiceConfig extends Model
         'enableOutlierDetection' => 'enableOutlierDetection',
         'protocols' => 'protocols',
         'provider' => 'provider',
+        'upstreamAuthMode' => 'upstreamAuthMode',
     ];
 
     public function validate()
@@ -120,6 +126,10 @@ class AgentServiceConfig extends Model
             $res['provider'] = $this->provider;
         }
 
+        if (null !== $this->upstreamAuthMode) {
+            $res['upstreamAuthMode'] = $this->upstreamAuthMode;
+        }
+
         return $res;
     }
 
@@ -168,6 +178,10 @@ class AgentServiceConfig extends Model
 
         if (isset($map['provider'])) {
             $model->provider = $map['provider'];
+        }
+
+        if (isset($map['upstreamAuthMode'])) {
+            $model->upstreamAuthMode = $map['upstreamAuthMode'];
         }
 
         return $model;

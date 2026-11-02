@@ -28,6 +28,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $currentCycleResetAt;
+
+    /**
+     * @var int
+     */
+    public $periodMultiplier;
+
+    /**
+     * @var string
+     */
     public $periodType;
 
     /**
@@ -83,6 +93,8 @@ class data extends Model
         'baseTimestamp' => 'baseTimestamp',
         'consumerCount' => 'consumerCount',
         'consumers' => 'consumers',
+        'currentCycleResetAt' => 'currentCycleResetAt',
+        'periodMultiplier' => 'periodMultiplier',
         'periodType' => 'periodType',
         'quotaDimension' => 'quotaDimension',
         'quotaLimit' => 'quotaLimit',
@@ -127,6 +139,14 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->currentCycleResetAt) {
+            $res['currentCycleResetAt'] = $this->currentCycleResetAt;
+        }
+
+        if (null !== $this->periodMultiplier) {
+            $res['periodMultiplier'] = $this->periodMultiplier;
         }
 
         if (null !== $this->periodType) {
@@ -208,6 +228,14 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['currentCycleResetAt'])) {
+            $model->currentCycleResetAt = $map['currentCycleResetAt'];
+        }
+
+        if (isset($map['periodMultiplier'])) {
+            $model->periodMultiplier = $map['periodMultiplier'];
         }
 
         if (isset($map['periodType'])) {

@@ -8,11 +8,14 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\environments;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\loadBalancers;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\maintenancePeriod;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\networkAccessConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\privateLink;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\securityGroup;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\tags;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\vpc;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\vSwitch;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponseBody\data\zones;
+use AlibabaCloud\SDK\APIG\V20240327\Models\SubDomainInfo;
 
 class data extends Model
 {
@@ -30,6 +33,11 @@ class data extends Model
      * @var int
      */
     public $createTimestamp;
+
+    /**
+     * @var bool
+     */
+    public $elasticEnabled;
 
     /**
      * @var environments[]
@@ -82,6 +90,16 @@ class data extends Model
     public $name;
 
     /**
+     * @var networkAccessConfig
+     */
+    public $networkAccessConfig;
+
+    /**
+     * @var privateLink
+     */
+    public $privateLink;
+
+    /**
      * @var string
      */
     public $replicas;
@@ -105,6 +123,11 @@ class data extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var SubDomainInfo[]
+     */
+    public $subDomainInfos;
 
     /**
      * @var tags[]
@@ -149,6 +172,7 @@ class data extends Model
         'chargeType' => 'chargeType',
         'createFrom' => 'createFrom',
         'createTimestamp' => 'createTimestamp',
+        'elasticEnabled' => 'elasticEnabled',
         'environments' => 'environments',
         'expireTimestamp' => 'expireTimestamp',
         'gatewayEdition' => 'gatewayEdition',
@@ -159,11 +183,14 @@ class data extends Model
         'loadBalancers' => 'loadBalancers',
         'maintenancePeriod' => 'maintenancePeriod',
         'name' => 'name',
+        'networkAccessConfig' => 'networkAccessConfig',
+        'privateLink' => 'privateLink',
         'replicas' => 'replicas',
         'resourceGroupId' => 'resourceGroupId',
         'securityGroup' => 'securityGroup',
         'spec' => 'spec',
         'status' => 'status',
+        'subDomainInfos' => 'subDomainInfos',
         'tags' => 'tags',
         'targetVersion' => 'targetVersion',
         'tenantId' => 'tenantId',
@@ -185,8 +212,17 @@ class data extends Model
         if (null !== $this->maintenancePeriod) {
             $this->maintenancePeriod->validate();
         }
+        if (null !== $this->networkAccessConfig) {
+            $this->networkAccessConfig->validate();
+        }
+        if (null !== $this->privateLink) {
+            $this->privateLink->validate();
+        }
         if (null !== $this->securityGroup) {
             $this->securityGroup->validate();
+        }
+        if (\is_array($this->subDomainInfos)) {
+            Model::validateArray($this->subDomainInfos);
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -216,6 +252,10 @@ class data extends Model
 
         if (null !== $this->createTimestamp) {
             $res['createTimestamp'] = $this->createTimestamp;
+        }
+
+        if (null !== $this->elasticEnabled) {
+            $res['elasticEnabled'] = $this->elasticEnabled;
         }
 
         if (null !== $this->environments) {
@@ -272,6 +312,14 @@ class data extends Model
             $res['name'] = $this->name;
         }
 
+        if (null !== $this->networkAccessConfig) {
+            $res['networkAccessConfig'] = null !== $this->networkAccessConfig ? $this->networkAccessConfig->toArray($noStream) : $this->networkAccessConfig;
+        }
+
+        if (null !== $this->privateLink) {
+            $res['privateLink'] = null !== $this->privateLink ? $this->privateLink->toArray($noStream) : $this->privateLink;
+        }
+
         if (null !== $this->replicas) {
             $res['replicas'] = $this->replicas;
         }
@@ -290,6 +338,17 @@ class data extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->subDomainInfos) {
+            if (\is_array($this->subDomainInfos)) {
+                $res['subDomainInfos'] = [];
+                $n1 = 0;
+                foreach ($this->subDomainInfos as $item1) {
+                    $res['subDomainInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->tags) {
@@ -361,6 +420,10 @@ class data extends Model
             $model->createTimestamp = $map['createTimestamp'];
         }
 
+        if (isset($map['elasticEnabled'])) {
+            $model->elasticEnabled = $map['elasticEnabled'];
+        }
+
         if (isset($map['environments'])) {
             if (!empty($map['environments'])) {
                 $model->environments = [];
@@ -415,6 +478,14 @@ class data extends Model
             $model->name = $map['name'];
         }
 
+        if (isset($map['networkAccessConfig'])) {
+            $model->networkAccessConfig = networkAccessConfig::fromMap($map['networkAccessConfig']);
+        }
+
+        if (isset($map['privateLink'])) {
+            $model->privateLink = privateLink::fromMap($map['privateLink']);
+        }
+
         if (isset($map['replicas'])) {
             $model->replicas = $map['replicas'];
         }
@@ -433,6 +504,17 @@ class data extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['subDomainInfos'])) {
+            if (!empty($map['subDomainInfos'])) {
+                $model->subDomainInfos = [];
+                $n1 = 0;
+                foreach ($map['subDomainInfos'] as $item1) {
+                    $model->subDomainInfos[$n1] = SubDomainInfo::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['tags'])) {

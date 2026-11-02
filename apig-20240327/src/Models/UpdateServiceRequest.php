@@ -29,6 +29,16 @@ class UpdateServiceRequest extends Model
     /**
      * @var string[]
      */
+    public $apiKeyReferencesToAdd;
+
+    /**
+     * @var string[]
+     */
+    public $apiKeysToAdd;
+
+    /**
+     * @var string[]
+     */
     public $dnsServers;
 
     /**
@@ -64,6 +74,8 @@ class UpdateServiceRequest extends Model
         'addresses' => 'addresses',
         'agentServiceConfig' => 'agentServiceConfig',
         'aiServiceConfig' => 'aiServiceConfig',
+        'apiKeyReferencesToAdd' => 'apiKeyReferencesToAdd',
+        'apiKeysToAdd' => 'apiKeysToAdd',
         'dnsServers' => 'dnsServers',
         'healthCheckConfig' => 'healthCheckConfig',
         'healthyPanicThreshold' => 'healthyPanicThreshold',
@@ -83,6 +95,12 @@ class UpdateServiceRequest extends Model
         }
         if (null !== $this->aiServiceConfig) {
             $this->aiServiceConfig->validate();
+        }
+        if (\is_array($this->apiKeyReferencesToAdd)) {
+            Model::validateArray($this->apiKeyReferencesToAdd);
+        }
+        if (\is_array($this->apiKeysToAdd)) {
+            Model::validateArray($this->apiKeysToAdd);
         }
         if (\is_array($this->dnsServers)) {
             Model::validateArray($this->dnsServers);
@@ -119,6 +137,28 @@ class UpdateServiceRequest extends Model
 
         if (null !== $this->aiServiceConfig) {
             $res['aiServiceConfig'] = null !== $this->aiServiceConfig ? $this->aiServiceConfig->toArray($noStream) : $this->aiServiceConfig;
+        }
+
+        if (null !== $this->apiKeyReferencesToAdd) {
+            if (\is_array($this->apiKeyReferencesToAdd)) {
+                $res['apiKeyReferencesToAdd'] = [];
+                $n1 = 0;
+                foreach ($this->apiKeyReferencesToAdd as $item1) {
+                    $res['apiKeyReferencesToAdd'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->apiKeysToAdd) {
+            if (\is_array($this->apiKeysToAdd)) {
+                $res['apiKeysToAdd'] = [];
+                $n1 = 0;
+                foreach ($this->apiKeysToAdd as $item1) {
+                    $res['apiKeysToAdd'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->dnsServers) {
@@ -191,6 +231,28 @@ class UpdateServiceRequest extends Model
 
         if (isset($map['aiServiceConfig'])) {
             $model->aiServiceConfig = AiServiceConfig::fromMap($map['aiServiceConfig']);
+        }
+
+        if (isset($map['apiKeyReferencesToAdd'])) {
+            if (!empty($map['apiKeyReferencesToAdd'])) {
+                $model->apiKeyReferencesToAdd = [];
+                $n1 = 0;
+                foreach ($map['apiKeyReferencesToAdd'] as $item1) {
+                    $model->apiKeyReferencesToAdd[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['apiKeysToAdd'])) {
+            if (!empty($map['apiKeysToAdd'])) {
+                $model->apiKeysToAdd = [];
+                $n1 = 0;
+                foreach ($map['apiKeysToAdd'] as $item1) {
+                    $model->apiKeysToAdd[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['dnsServers'])) {

@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\loadBalancers;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\networkAccessConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\privateLink;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\securityGroup;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\tags;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\vpc;
@@ -29,6 +31,11 @@ class items extends Model
      * @var int
      */
     public $createTimestamp;
+
+    /**
+     * @var bool
+     */
+    public $elasticEnabled;
 
     /**
      * @var int
@@ -69,6 +76,16 @@ class items extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var networkAccessConfig
+     */
+    public $networkAccessConfig;
+
+    /**
+     * @var privateLink
+     */
+    public $privateLink;
 
     /**
      * @var string
@@ -138,6 +155,7 @@ class items extends Model
         'chargeType' => 'chargeType',
         'createFrom' => 'createFrom',
         'createTimestamp' => 'createTimestamp',
+        'elasticEnabled' => 'elasticEnabled',
         'expireTimestamp' => 'expireTimestamp',
         'gatewayEdition' => 'gatewayEdition',
         'gatewayId' => 'gatewayId',
@@ -146,6 +164,8 @@ class items extends Model
         'legacy' => 'legacy',
         'loadBalancers' => 'loadBalancers',
         'name' => 'name',
+        'networkAccessConfig' => 'networkAccessConfig',
+        'privateLink' => 'privateLink',
         'replicas' => 'replicas',
         'resourceGroupId' => 'resourceGroupId',
         'securityGroup' => 'securityGroup',
@@ -165,6 +185,12 @@ class items extends Model
     {
         if (\is_array($this->loadBalancers)) {
             Model::validateArray($this->loadBalancers);
+        }
+        if (null !== $this->networkAccessConfig) {
+            $this->networkAccessConfig->validate();
+        }
+        if (null !== $this->privateLink) {
+            $this->privateLink->validate();
         }
         if (null !== $this->securityGroup) {
             $this->securityGroup->validate();
@@ -200,6 +226,10 @@ class items extends Model
 
         if (null !== $this->createTimestamp) {
             $res['createTimestamp'] = $this->createTimestamp;
+        }
+
+        if (null !== $this->elasticEnabled) {
+            $res['elasticEnabled'] = $this->elasticEnabled;
         }
 
         if (null !== $this->expireTimestamp) {
@@ -239,6 +269,14 @@ class items extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->networkAccessConfig) {
+            $res['networkAccessConfig'] = null !== $this->networkAccessConfig ? $this->networkAccessConfig->toArray($noStream) : $this->networkAccessConfig;
+        }
+
+        if (null !== $this->privateLink) {
+            $res['privateLink'] = null !== $this->privateLink ? $this->privateLink->toArray($noStream) : $this->privateLink;
         }
 
         if (null !== $this->replicas) {
@@ -337,6 +375,10 @@ class items extends Model
             $model->createTimestamp = $map['createTimestamp'];
         }
 
+        if (isset($map['elasticEnabled'])) {
+            $model->elasticEnabled = $map['elasticEnabled'];
+        }
+
         if (isset($map['expireTimestamp'])) {
             $model->expireTimestamp = $map['expireTimestamp'];
         }
@@ -374,6 +416,14 @@ class items extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['networkAccessConfig'])) {
+            $model->networkAccessConfig = networkAccessConfig::fromMap($map['networkAccessConfig']);
+        }
+
+        if (isset($map['privateLink'])) {
+            $model->privateLink = privateLink::fromMap($map['privateLink']);
         }
 
         if (isset($map['replicas'])) {

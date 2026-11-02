@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AiSecurityGuardConfig\consumerConfigBindings;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiSecurityGuardConfig\consumerRequestCheckService;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiSecurityGuardConfig\consumerResponseCheckService;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiSecurityGuardConfig\consumerRiskLevel;
@@ -38,6 +39,11 @@ class AiSecurityGuardConfig extends Model
     public $checkResponseImage;
 
     /**
+     * @var consumerConfigBindings[]
+     */
+    public $consumerConfigBindings;
+
+    /**
      * @var consumerRequestCheckService[]
      */
     public $consumerRequestCheckService;
@@ -51,6 +57,16 @@ class AiSecurityGuardConfig extends Model
      * @var consumerRiskLevel[]
      */
     public $consumerRiskLevel;
+
+    /**
+     * @var bool
+     */
+    public $defaultGenerated;
+
+    /**
+     * @var bool
+     */
+    public $longTermEnabled;
 
     /**
      * @var AiPluginStatus
@@ -97,9 +113,12 @@ class AiSecurityGuardConfig extends Model
         'checkRequestImage' => 'checkRequestImage',
         'checkResponse' => 'checkResponse',
         'checkResponseImage' => 'checkResponseImage',
+        'consumerConfigBindings' => 'consumerConfigBindings',
         'consumerRequestCheckService' => 'consumerRequestCheckService',
         'consumerResponseCheckService' => 'consumerResponseCheckService',
         'consumerRiskLevel' => 'consumerRiskLevel',
+        'defaultGenerated' => 'defaultGenerated',
+        'longTermEnabled' => 'longTermEnabled',
         'pluginStatus' => 'pluginStatus',
         'requestCheckService' => 'requestCheckService',
         'requestImageCheckService' => 'requestImageCheckService',
@@ -112,6 +131,9 @@ class AiSecurityGuardConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->consumerConfigBindings)) {
+            Model::validateArray($this->consumerConfigBindings);
+        }
         if (\is_array($this->consumerRequestCheckService)) {
             Model::validateArray($this->consumerRequestCheckService);
         }
@@ -153,6 +175,17 @@ class AiSecurityGuardConfig extends Model
             $res['checkResponseImage'] = $this->checkResponseImage;
         }
 
+        if (null !== $this->consumerConfigBindings) {
+            if (\is_array($this->consumerConfigBindings)) {
+                $res['consumerConfigBindings'] = [];
+                $n1 = 0;
+                foreach ($this->consumerConfigBindings as $item1) {
+                    $res['consumerConfigBindings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->consumerRequestCheckService) {
             if (\is_array($this->consumerRequestCheckService)) {
                 $res['consumerRequestCheckService'] = [];
@@ -184,6 +217,14 @@ class AiSecurityGuardConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->defaultGenerated) {
+            $res['defaultGenerated'] = $this->defaultGenerated;
+        }
+
+        if (null !== $this->longTermEnabled) {
+            $res['longTermEnabled'] = $this->longTermEnabled;
         }
 
         if (null !== $this->pluginStatus) {
@@ -256,6 +297,17 @@ class AiSecurityGuardConfig extends Model
             $model->checkResponseImage = $map['checkResponseImage'];
         }
 
+        if (isset($map['consumerConfigBindings'])) {
+            if (!empty($map['consumerConfigBindings'])) {
+                $model->consumerConfigBindings = [];
+                $n1 = 0;
+                foreach ($map['consumerConfigBindings'] as $item1) {
+                    $model->consumerConfigBindings[$n1] = consumerConfigBindings::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['consumerRequestCheckService'])) {
             if (!empty($map['consumerRequestCheckService'])) {
                 $model->consumerRequestCheckService = [];
@@ -287,6 +339,14 @@ class AiSecurityGuardConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['defaultGenerated'])) {
+            $model->defaultGenerated = $map['defaultGenerated'];
+        }
+
+        if (isset($map['longTermEnabled'])) {
+            $model->longTermEnabled = $map['longTermEnabled'];
         }
 
         if (isset($map['pluginStatus'])) {
