@@ -1,3 +1,7 @@
+2026-11-02 Version: 11.2.0
+- Support API DescribeSharedDiskRecords.
+
+
 2026-10-29 Version: 11.1.1
 - Update API CreateSDG: add request parameters ResetOptimize.
 
