@@ -1,3 +1,13 @@
+2026-11-02 Version: 7.4.0
+- Support API CalculateNatGatewayCapacityUnits.
+- Support API DeleteNatRateLimitRule.
+- Support API DescribeNatGatewayCapacityReservation.
+- Support API ModifyNatGatewayCapacityReservation.
+- Support API ModifyNatRateLimitRule.
+- Update API DescribeVcoRouteEntries: add response parameters Body.VcoRouteEntries.$.PrefixListId.
+- Update API DescribeVpnRouteEntries: add response parameters Body.VpnRouteEntries.$.PrefixListId.
+
+
 2026-09-15 Version: 7.3.1
 - Update API CreateVSwitch: add request parameters CidrMask.
 - Update API CreateVSwitch: add request parameters Ipv6CidrMask.

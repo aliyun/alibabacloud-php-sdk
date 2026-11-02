@@ -36,6 +36,11 @@ class vpnRouteEntry extends Model
     /**
      * @var string
      */
+    public $prefixListId;
+
+    /**
+     * @var string
+     */
     public $routeDest;
 
     /**
@@ -68,6 +73,7 @@ class vpnRouteEntry extends Model
         'createTime' => 'CreateTime',
         'nextHop' => 'NextHop',
         'nextHopTunnelId' => 'NextHopTunnelId',
+        'prefixListId' => 'PrefixListId',
         'routeDest' => 'RouteDest',
         'routeEntryType' => 'RouteEntryType',
         'source' => 'Source',
@@ -102,6 +108,10 @@ class vpnRouteEntry extends Model
 
         if (null !== $this->nextHopTunnelId) {
             $res['NextHopTunnelId'] = $this->nextHopTunnelId;
+        }
+
+        if (null !== $this->prefixListId) {
+            $res['PrefixListId'] = $this->prefixListId;
         }
 
         if (null !== $this->routeDest) {
@@ -157,6 +167,10 @@ class vpnRouteEntry extends Model
 
         if (isset($map['NextHopTunnelId'])) {
             $model->nextHopTunnelId = $map['NextHopTunnelId'];
+        }
+
+        if (isset($map['PrefixListId'])) {
+            $model->prefixListId = $map['PrefixListId'];
         }
 
         if (isset($map['RouteDest'])) {

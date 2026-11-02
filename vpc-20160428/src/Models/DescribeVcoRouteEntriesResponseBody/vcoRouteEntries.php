@@ -36,6 +36,11 @@ class vcoRouteEntries extends Model
     /**
      * @var string
      */
+    public $prefixListId;
+
+    /**
+     * @var string
+     */
     public $routeDest;
 
     /**
@@ -68,6 +73,7 @@ class vcoRouteEntries extends Model
         'createTime' => 'CreateTime',
         'nextHop' => 'NextHop',
         'nextHopTunnelIdList' => 'NextHopTunnelIdList',
+        'prefixListId' => 'PrefixListId',
         'routeDest' => 'RouteDest',
         'routeEntryType' => 'RouteEntryType',
         'source' => 'Source',
@@ -112,6 +118,10 @@ class vcoRouteEntries extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->prefixListId) {
+            $res['PrefixListId'] = $this->prefixListId;
         }
 
         if (null !== $this->routeDest) {
@@ -174,6 +184,10 @@ class vcoRouteEntries extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PrefixListId'])) {
+            $model->prefixListId = $map['PrefixListId'];
         }
 
         if (isset($map['RouteDest'])) {
