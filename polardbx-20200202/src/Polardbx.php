@@ -321,6 +321,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableSqlAuditRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableSqlAuditResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ExecuteMetaQueryRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ExecuteMetaQueryResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListPxfsTenantsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListPxfsTenantsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\MigrateDBInstanceRequest;
@@ -373,6 +375,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfsSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfsSecurityIpsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfsTenantQuotaRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfsTenantQuotaResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfuseSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyPxfuseSecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySecurityIpsRequest;
@@ -11993,6 +11997,73 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries the list of PXFS tenants.
+     *
+     * @remarks
+     * Queries the list of PXFS tenants under a specified PolarDB-X instance and returns the tenant quota, throttling, and usage information.
+     *
+     * @param request - ListPxfsTenantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPxfsTenantsResponse
+     *
+     * @param ListPxfsTenantsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListPxfsTenantsResponse
+     */
+    public function listPxfsTenantsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPxfsTenants',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPxfsTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of PXFS tenants.
+     *
+     * @remarks
+     * Queries the list of PXFS tenants under a specified PolarDB-X instance and returns the tenant quota, throttling, and usage information.
+     *
+     * @param request - ListPxfsTenantsRequest
+     *
+     * @returns ListPxfsTenantsResponse
+     *
+     * @param ListPxfsTenantsRequest $request
+     *
+     * @return ListPxfsTenantsResponse
+     */
+    public function listPxfsTenants($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPxfsTenantsWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves a list of labels.
      *
      * @param request - ListTagResourcesRequest
@@ -13970,6 +14041,93 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPxfsSecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adjusts the quotas for a PXFS tenant.
+     *
+     * @remarks
+     * Adjusts the capacity quota, file count quota, request rate limit, and write bandwidth limit for a specified PXFS tenant. Parameters that are not passed remain unchanged.
+     *
+     * @param request - ModifyPxfsTenantQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPxfsTenantQuotaResponse
+     *
+     * @param ModifyPxfsTenantQuotaRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyPxfsTenantQuotaResponse
+     */
+    public function modifyPxfsTenantQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->quotaBytes) {
+            @$query['QuotaBytes'] = $request->quotaBytes;
+        }
+
+        if (null !== $request->quotaFiles) {
+            @$query['QuotaFiles'] = $request->quotaFiles;
+        }
+
+        if (null !== $request->rateLimitRps) {
+            @$query['RateLimitRps'] = $request->rateLimitRps;
+        }
+
+        if (null !== $request->rateLimitWbps) {
+            @$query['RateLimitWbps'] = $request->rateLimitWbps;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPxfsTenantQuota',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyPxfsTenantQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adjusts the quotas for a PXFS tenant.
+     *
+     * @remarks
+     * Adjusts the capacity quota, file count quota, request rate limit, and write bandwidth limit for a specified PXFS tenant. Parameters that are not passed remain unchanged.
+     *
+     * @param request - ModifyPxfsTenantQuotaRequest
+     *
+     * @returns ModifyPxfsTenantQuotaResponse
+     *
+     * @param ModifyPxfsTenantQuotaRequest $request
+     *
+     * @return ModifyPxfsTenantQuotaResponse
+     */
+    public function modifyPxfsTenantQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPxfsTenantQuotaWithOptions($request, $runtime);
     }
 
     /**
