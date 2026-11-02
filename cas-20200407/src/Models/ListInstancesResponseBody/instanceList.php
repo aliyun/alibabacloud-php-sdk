@@ -16,6 +16,11 @@ class instanceList extends Model
     /**
      * @var string
      */
+    public $autoRenewalStatus;
+
+    /**
+     * @var string
+     */
     public $brand;
 
     /**
@@ -144,6 +149,7 @@ class instanceList extends Model
     public $wildcardDomainCount;
     protected $_name = [
         'autoReissue' => 'AutoReissue',
+        'autoRenewalStatus' => 'AutoRenewalStatus',
         'brand' => 'Brand',
         'certIdentifier' => 'CertIdentifier',
         'certificateDomain' => 'CertificateDomain',
@@ -185,6 +191,10 @@ class instanceList extends Model
         $res = [];
         if (null !== $this->autoReissue) {
             $res['AutoReissue'] = $this->autoReissue;
+        }
+
+        if (null !== $this->autoRenewalStatus) {
+            $res['AutoRenewalStatus'] = $this->autoRenewalStatus;
         }
 
         if (null !== $this->brand) {
@@ -311,6 +321,10 @@ class instanceList extends Model
         $model = new self();
         if (isset($map['AutoReissue'])) {
             $model->autoReissue = $map['AutoReissue'];
+        }
+
+        if (isset($map['AutoRenewalStatus'])) {
+            $model->autoRenewalStatus = $map['AutoRenewalStatus'];
         }
 
         if (isset($map['Brand'])) {

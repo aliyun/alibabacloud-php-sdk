@@ -24,6 +24,11 @@ class GetInstanceDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $autoRenewalStatus;
+
+    /**
+     * @var string
+     */
     public $averageWaitingTime;
 
     /**
@@ -248,6 +253,7 @@ class GetInstanceDetailResponseBody extends Model
     protected $_name = [
         'autoReissue' => 'AutoReissue',
         'autoReissueFlag' => 'AutoReissueFlag',
+        'autoRenewalStatus' => 'AutoRenewalStatus',
         'averageWaitingTime' => 'AverageWaitingTime',
         'brand' => 'Brand',
         'certIdentifier' => 'CertIdentifier',
@@ -321,6 +327,10 @@ class GetInstanceDetailResponseBody extends Model
 
         if (null !== $this->autoReissueFlag) {
             $res['AutoReissueFlag'] = $this->autoReissueFlag;
+        }
+
+        if (null !== $this->autoRenewalStatus) {
+            $res['AutoRenewalStatus'] = $this->autoRenewalStatus;
         }
 
         if (null !== $this->averageWaitingTime) {
@@ -548,6 +558,10 @@ class GetInstanceDetailResponseBody extends Model
 
         if (isset($map['AutoReissueFlag'])) {
             $model->autoReissueFlag = $map['AutoReissueFlag'];
+        }
+
+        if (isset($map['AutoRenewalStatus'])) {
+            $model->autoRenewalStatus = $map['AutoRenewalStatus'];
         }
 
         if (isset($map['AverageWaitingTime'])) {
