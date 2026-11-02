@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\SearchKnowledgeBaseResponseBody\evidenceResults;
 use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\SearchKnowledgeBaseResponseBody\results;
 
 class SearchKnowledgeBaseResponseBody extends Model
@@ -18,6 +19,16 @@ class SearchKnowledgeBaseResponseBody extends Model
      * @var int
      */
     public $code;
+
+    /**
+     * @var string
+     */
+    public $evidenceNextToken;
+
+    /**
+     * @var evidenceResults[]
+     */
+    public $evidenceResults;
 
     /**
      * @var int
@@ -66,6 +77,8 @@ class SearchKnowledgeBaseResponseBody extends Model
     protected $_name = [
         'accessDeniedDetail' => 'accessDeniedDetail',
         'code' => 'code',
+        'evidenceNextToken' => 'evidenceNextToken',
+        'evidenceResults' => 'evidenceResults',
         'httpStatusCode' => 'httpStatusCode',
         'message' => 'message',
         'pageNumber' => 'pageNumber',
@@ -79,6 +92,9 @@ class SearchKnowledgeBaseResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->evidenceResults)) {
+            Model::validateArray($this->evidenceResults);
+        }
         if (\is_array($this->queryLabels)) {
             Model::validateArray($this->queryLabels);
         }
@@ -97,6 +113,21 @@ class SearchKnowledgeBaseResponseBody extends Model
 
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->evidenceNextToken) {
+            $res['evidenceNextToken'] = $this->evidenceNextToken;
+        }
+
+        if (null !== $this->evidenceResults) {
+            if (\is_array($this->evidenceResults)) {
+                $res['evidenceResults'] = [];
+                $n1 = 0;
+                foreach ($this->evidenceResults as $item1) {
+                    $res['evidenceResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->httpStatusCode) {
@@ -166,6 +197,21 @@ class SearchKnowledgeBaseResponseBody extends Model
 
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['evidenceNextToken'])) {
+            $model->evidenceNextToken = $map['evidenceNextToken'];
+        }
+
+        if (isset($map['evidenceResults'])) {
+            if (!empty($map['evidenceResults'])) {
+                $model->evidenceResults = [];
+                $n1 = 0;
+                foreach ($map['evidenceResults'] as $item1) {
+                    $model->evidenceResults[$n1] = evidenceResults::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['httpStatusCode'])) {

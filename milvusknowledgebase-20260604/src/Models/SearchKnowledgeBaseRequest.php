@@ -22,9 +22,19 @@ class SearchKnowledgeBaseRequest extends Model
     public $enableKnowledgeGraph;
 
     /**
+     * @var string
+     */
+    public $evidencePageToken;
+
+    /**
      * @var image
      */
     public $image;
+
+    /**
+     * @var bool
+     */
+    public $includeWiki;
 
     /**
      * @var int
@@ -68,7 +78,9 @@ class SearchKnowledgeBaseRequest extends Model
     protected $_name = [
         'documentIds' => 'documentIds',
         'enableKnowledgeGraph' => 'enableKnowledgeGraph',
+        'evidencePageToken' => 'evidencePageToken',
         'image' => 'image',
+        'includeWiki' => 'includeWiki',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'query' => 'query',
@@ -114,8 +126,16 @@ class SearchKnowledgeBaseRequest extends Model
             $res['enableKnowledgeGraph'] = $this->enableKnowledgeGraph;
         }
 
+        if (null !== $this->evidencePageToken) {
+            $res['evidencePageToken'] = $this->evidencePageToken;
+        }
+
         if (null !== $this->image) {
             $res['image'] = null !== $this->image ? $this->image->toArray($noStream) : $this->image;
+        }
+
+        if (null !== $this->includeWiki) {
+            $res['includeWiki'] = $this->includeWiki;
         }
 
         if (null !== $this->pageNumber) {
@@ -176,8 +196,16 @@ class SearchKnowledgeBaseRequest extends Model
             $model->enableKnowledgeGraph = $map['enableKnowledgeGraph'];
         }
 
+        if (isset($map['evidencePageToken'])) {
+            $model->evidencePageToken = $map['evidencePageToken'];
+        }
+
         if (isset($map['image'])) {
             $model->image = image::fromMap($map['image']);
+        }
+
+        if (isset($map['includeWiki'])) {
+            $model->includeWiki = $map['includeWiki'];
         }
 
         if (isset($map['pageNumber'])) {

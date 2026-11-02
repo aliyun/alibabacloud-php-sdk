@@ -220,10 +220,10 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * Retrieves documents from a knowledge base.
+     * Searches a knowledge base.
      *
      * @remarks
-     * Retrieves documents from a specified knowledge base by question or image. Use DRAFT, LATEST_PUBLISHED, or vN display names for the version. Pass tag filter conditions using the actual backend operators.
+     * Searches a specified knowledge base by using a query or an image. For the version, use the display name DRAFT, LATEST_PUBLISHED, or vN. Pass tag filter conditions based on the actual operators used by the backend.
      *
      * @param request - SearchKnowledgeBaseRequest
      * @param headers - map
@@ -250,8 +250,16 @@ class MilvusKnowledgeBase extends OpenApiClient
             @$body['enableKnowledgeGraph'] = $request->enableKnowledgeGraph;
         }
 
+        if (null !== $request->evidencePageToken) {
+            @$body['evidencePageToken'] = $request->evidencePageToken;
+        }
+
         if (null !== $request->image) {
             @$body['image'] = $request->image;
+        }
+
+        if (null !== $request->includeWiki) {
+            @$body['includeWiki'] = $request->includeWiki;
         }
 
         if (null !== $request->pageNumber) {
@@ -306,10 +314,10 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * Retrieves documents from a knowledge base.
+     * Searches a knowledge base.
      *
      * @remarks
-     * Retrieves documents from a specified knowledge base by question or image. Use DRAFT, LATEST_PUBLISHED, or vN display names for the version. Pass tag filter conditions using the actual backend operators.
+     * Searches a specified knowledge base by using a query or an image. For the version, use the display name DRAFT, LATEST_PUBLISHED, or vN. Pass tag filter conditions based on the actual operators used by the backend.
      *
      * @param request - SearchKnowledgeBaseRequest
      *
