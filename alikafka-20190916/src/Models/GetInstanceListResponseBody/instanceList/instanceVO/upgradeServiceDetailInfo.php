@@ -12,8 +12,14 @@ class upgradeServiceDetailInfo extends Model
      * @var string
      */
     public $current2OpenSourceVersion;
+
+    /**
+     * @var string
+     */
+    public $minorVersion;
     protected $_name = [
         'current2OpenSourceVersion' => 'Current2OpenSourceVersion',
+        'minorVersion' => 'MinorVersion',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class upgradeServiceDetailInfo extends Model
         $res = [];
         if (null !== $this->current2OpenSourceVersion) {
             $res['Current2OpenSourceVersion'] = $this->current2OpenSourceVersion;
+        }
+
+        if (null !== $this->minorVersion) {
+            $res['MinorVersion'] = $this->minorVersion;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class upgradeServiceDetailInfo extends Model
         $model = new self();
         if (isset($map['Current2OpenSourceVersion'])) {
             $model->current2OpenSourceVersion = $map['Current2OpenSourceVersion'];
+        }
+
+        if (isset($map['MinorVersion'])) {
+            $model->minorVersion = $map['MinorVersion'];
         }
 
         return $model;
