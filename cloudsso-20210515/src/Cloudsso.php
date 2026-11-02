@@ -122,6 +122,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListPermissionPoliciesInAccessCon
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListPermissionPoliciesInAccessConfigurationResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListSCIMServerCredentialsRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListSCIMServerCredentialsResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListTasksResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ListUserProvisioningEventsRequest;
@@ -152,6 +154,10 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetPasswordPolicyRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetPasswordPolicyResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSCIMSynchronizationStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSCIMSynchronizationStatusResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateAccessConfigurationRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateAccessConfigurationResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateAttributePassingSettingRequest;
@@ -217,11 +223,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Adds a Security Assertion Markup Language (SAML) signing certificate.
+     * Adds a SAML signing certificate.
      *
      * @remarks
      * You can add up to two SAML signing certificates.
-     * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
+     * This topic provides an example of adding a new SAML signing certificate to the `d-00fc2p61****` directory.
      *
      * @param request - AddExternalSAMLIdPCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -264,11 +270,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Adds a Security Assertion Markup Language (SAML) signing certificate.
+     * Adds a SAML signing certificate.
      *
      * @remarks
      * You can add up to two SAML signing certificates.
-     * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
+     * This topic provides an example of adding a new SAML signing certificate to the `d-00fc2p61****` directory.
      *
      * @param request - AddExternalSAMLIdPCertificateRequest
      *
@@ -286,10 +292,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Adds a policy to an access configuration.
+     * Adds an access policy to an access configuration.
      *
      * @remarks
-     * This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+     * This topic provides an example of adding a system policy named `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
      *
      * @param request - AddPermissionPolicyToAccessConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -344,10 +350,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Adds a policy to an access configuration.
+     * Adds an access policy to an access configuration.
      *
      * @remarks
-     * This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+     * This topic provides an example of adding a system policy named `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
      *
      * @param request - AddPermissionPolicyToAccessConfigurationRequest
      *
@@ -368,8 +374,8 @@ class Cloudsso extends OpenApiClient
      * Adds a user to a group.
      *
      * @remarks
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
-     * This topic provides an example on how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+     * After SCIM synchronization is enabled, you cannot add users to SCIM-synchronized groups.
+     * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
      *
      * @param request - AddUserToGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -419,8 +425,8 @@ class Cloudsso extends OpenApiClient
      * Adds a user to a group.
      *
      * @remarks
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
-     * This topic provides an example on how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+     * After SCIM synchronization is enabled, you cannot add users to SCIM-synchronized groups.
+     * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
      *
      * @param request - AddUserToGroupRequest
      *
@@ -438,11 +444,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Clears the configurations of a Security Assertion Markup Language (SAML) identity provider (IdP).
+     * Clears the configuration of the SAML IdP.
      *
      * @remarks
-     * If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
-     * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     * You can clear the SAML IdP information only when SSO logon is disabled. Otherwise, you cannot perform this operation.
+     * This topic provides an example of clearing the configuration of the SAML IdP for the `d-00fc2p61****` directory.
      *
      * @param request - ClearExternalSAMLIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -481,11 +487,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Clears the configurations of a Security Assertion Markup Language (SAML) identity provider (IdP).
+     * Clears the configuration of the SAML IdP.
      *
      * @remarks
-     * If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
-     * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     * You can clear the SAML IdP information only when SSO logon is disabled. Otherwise, you cannot perform this operation.
+     * This topic provides an example of clearing the configuration of the SAML IdP for the `d-00fc2p61****` directory.
      *
      * @param request - ClearExternalSAMLIdentityProviderRequest
      *
@@ -503,12 +509,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Assigns access permissions on an account in your resource directory to a user or a group by using an access configuration.
+     * Configures the settings for the users or groups allowed to access an account in a resource directory, and the corresponding access permissions (access configurations).
      *
      * @remarks
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](https://help.aliyun.com/document_detail/266726.html).
-     * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
+     * This API operation is asynchronous. You can use the TaskId returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+     * For more information about granting access to an account in a resource directory, see [Multi-account authorization overview](https://help.aliyun.com/document_detail/266726.html).
+     * This topic provides an example on how to assign the access configuration `ac-00jhtfl8thteu6uj****` to the CloudSSO user `u-00q8wbq42wiltcrk****` for the account `114240524784****` in a resource directory. This allows the CloudSSO user to access authorized resources in the account.
      *
      * @param request - CreateAccessAssignmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -571,12 +577,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Assigns access permissions on an account in your resource directory to a user or a group by using an access configuration.
+     * Configures the settings for the users or groups allowed to access an account in a resource directory, and the corresponding access permissions (access configurations).
      *
      * @remarks
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](https://help.aliyun.com/document_detail/266726.html).
-     * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
+     * This API operation is asynchronous. You can use the TaskId returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+     * For more information about granting access to an account in a resource directory, see [Multi-account authorization overview](https://help.aliyun.com/document_detail/266726.html).
+     * This topic provides an example on how to assign the access configuration `ac-00jhtfl8thteu6uj****` to the CloudSSO user `u-00q8wbq42wiltcrk****` for the account `114240524784****` in a resource directory. This allows the CloudSSO user to access authorized resources in the account.
      *
      * @param request - CreateAccessAssignmentRequest
      *
@@ -682,13 +688,13 @@ class Cloudsso extends OpenApiClient
      * Creates a directory.
      *
      * @remarks
-     * ### [](#)Operation description
-     * A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
-     * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
+     * ### Usage notes
+     * A directory is an instance in CloudSSO. You must create a directory before you use CloudSSO. All CloudSSO resources must be maintained in the directory.
+     * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
      * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
-     * ### [](#)Limits
-     * *   You can create only one directory for a management account.
-     * *   If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
+     * ### Limits
+     * - A management account can create only one directory.
+     * - To change the region of the directory, you must delete the existing directory and create a new one in another region.
      *
      * @param request - CreateDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -730,13 +736,13 @@ class Cloudsso extends OpenApiClient
      * Creates a directory.
      *
      * @remarks
-     * ### [](#)Operation description
-     * A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
-     * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
+     * ### Usage notes
+     * A directory is an instance in CloudSSO. You must create a directory before you use CloudSSO. All CloudSSO resources must be maintained in the directory.
+     * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
      * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
-     * ### [](#)Limits
-     * *   You can create only one directory for a management account.
-     * *   If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
+     * ### Limits
+     * - A management account can create only one directory.
+     * - To change the region of the directory, you must delete the existing directory and create a new one in another region.
      *
      * @param request - CreateDirectoryRequest
      *
@@ -754,10 +760,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a group.
+     * Creates a user group.
      *
      * @remarks
-     * This topic provides an example on how to create a group named `TestGroup`.
+     * This topic provides an example of creating a user group named `TestGroup`.
      *
      * @param request - CreateGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -804,10 +810,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a group.
+     * Creates a user group.
      *
      * @remarks
-     * This topic provides an example on how to create a group named `TestGroup`.
+     * This topic provides an example of creating a user group named `TestGroup`.
      *
      * @param request - CreateGroupRequest
      *
@@ -825,11 +831,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a System for Cross-domain Identity Management (SCIM) credential.
+     * Creates a SCIM credential.
      *
      * @remarks
-     * SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
-     * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
+     * A SCIM credential is required for SCIM synchronization. You can create up to two SCIM credentials.
+     * This topic provides an example on how to create a SCIM credential in the directory `d-00fc2p61****`.
      *
      * @param request - CreateSCIMServerCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -868,11 +874,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a System for Cross-domain Identity Management (SCIM) credential.
+     * Creates a SCIM credential.
      *
      * @remarks
-     * SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
-     * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
+     * A SCIM credential is required for SCIM synchronization. You can create up to two SCIM credentials.
+     * This topic provides an example on how to create a SCIM credential in the directory `d-00fc2p61****`.
      *
      * @param request - CreateSCIMServerCredentialRequest
      *
@@ -979,10 +985,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) user provisioning.
+     * Invokes CreateUserProvisioning to create a Resource Access Management (RAM) user synchronization.
      *
      * @remarks
-     * You can create a RAM user provisioning for a member in your resource directory to create a RAM user that has the same username as a CloudSSO user. This way, the CloudSSO user can access the resources of the member as the RAM user.
+     * You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in a destination account in a resource directory. You can then use the Resource Access Management (RAM) user to access resources in the account.
      *
      * @param request - CreateUserProvisioningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1049,10 +1055,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) user provisioning.
+     * Invokes CreateUserProvisioning to create a Resource Access Management (RAM) user synchronization.
      *
      * @remarks
-     * You can create a RAM user provisioning for a member in your resource directory to create a RAM user that has the same username as a CloudSSO user. This way, the CloudSSO user can access the resources of the member as the RAM user.
+     * You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in a destination account in a resource directory. You can then use the Resource Access Management (RAM) user to access resources in the account.
      *
      * @param request - CreateUserProvisioningRequest
      *
@@ -1070,11 +1076,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Removes the access permissions on an account in a resource directory.
+     * Removes the authorization from an account in a resource directory.
      *
      * @remarks
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
+     * This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+     * This topic provides an example of removing the authorization for the CloudSSO user `u-00q8wbq42wiltcrk****` to use the access configuration `ac-00jhtfl8thteu6uj****` on the account in a resource directory `114240524784****`.
      *
      * @param request - DeleteAccessAssignmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1141,11 +1147,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Removes the access permissions on an account in a resource directory.
+     * Removes the authorization from an account in a resource directory.
      *
      * @remarks
-     * When you call this operation, an asynchronous task is created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
+     * This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+     * This topic provides an example of removing the authorization for the CloudSSO user `u-00q8wbq42wiltcrk****` to use the access configuration `ac-00jhtfl8thteu6uj****` on the account in a resource directory `114240524784****`.
      *
      * @param request - DeleteAccessAssignmentRequest
      *
@@ -1166,10 +1172,10 @@ class Cloudsso extends OpenApiClient
      * Deletes an access configuration.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
-     * ### [](#)Operation description
-     * This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
+     * ### Before you begin
+     * Before you delete an access configuration, you must deprovision the access configuration from the members of the resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
+     * ### Usage notes
+     * This topic provides an example on how to delete an access configuration whose ID is `ac-001j9mcm3k7335bc****`.
      *
      * @param request - DeleteAccessConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1219,10 +1225,10 @@ class Cloudsso extends OpenApiClient
      * Deletes an access configuration.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
-     * ### [](#)Operation description
-     * This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
+     * ### Before you begin
+     * Before you delete an access configuration, you must deprovision the access configuration from the members of the resource directory. For more information, see [DeprovisionAccessConfiguration](https://help.aliyun.com/document_detail/338352.html).
+     * ### Usage notes
+     * This topic provides an example on how to delete an access configuration whose ID is `ac-001j9mcm3k7335bc****`.
      *
      * @param request - DeleteAccessConfigurationRequest
      *
@@ -1243,16 +1249,16 @@ class Cloudsso extends OpenApiClient
      * Deletes a directory.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * No resources are contained in the directory that you want to delete.
-     * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
-     * *   Users are deleted. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
-     * *   Groups are deleted. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
-     * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
-     * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
-     * *   Single sign-on (SSO) logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
-     * ### [](#)Operation description
-     * This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
+     * ### Before you begin
+     * Before you delete a directory, make sure that the directory does not contain any resources. Specifically:
+     * - Remove all authorizations for users and groups on an account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * - Delete users. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
+     * - Delete groups. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
+     * - Delete access configurations. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
+     * - Delete SCIM credentials. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
+     * - Delete single sign-on configurations. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
+     * ### Usage notes
+     * This topic provides an example on how to delete a directory with the ID `d-00fc2p61****`.
      *
      * @param request - DeleteDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1294,16 +1300,16 @@ class Cloudsso extends OpenApiClient
      * Deletes a directory.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * No resources are contained in the directory that you want to delete.
-     * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
-     * *   Users are deleted. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
-     * *   Groups are deleted. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
-     * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
-     * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
-     * *   Single sign-on (SSO) logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
-     * ### [](#)Operation description
-     * This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
+     * ### Before you begin
+     * Before you delete a directory, make sure that the directory does not contain any resources. Specifically:
+     * - Remove all authorizations for users and groups on an account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * - Delete users. For more information, see [DeleteUser](https://help.aliyun.com/document_detail/341671.html).
+     * - Delete groups. For more information, see [DeleteGroup](https://help.aliyun.com/document_detail/341821.html).
+     * - Delete access configurations. For more information, see [DeleteAccessConfiguration](https://help.aliyun.com/document_detail/336907.html).
+     * - Delete SCIM credentials. For more information, see [DeleteSCIMServerCredential](https://help.aliyun.com/document_detail/341842.html).
+     * - Delete single sign-on configurations. For more information, see [ClearExternalSAMLIdentityProvider](https://help.aliyun.com/document_detail/341573.html).
+     * ### Usage notes
+     * This topic provides an example on how to delete a directory with the ID `d-00fc2p61****`.
      *
      * @param request - DeleteDirectoryRequest
      *
@@ -1321,16 +1327,16 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Deletes a group.
+     * Deletes a specified group.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
-     * - Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-     * - Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
-     * ### [](#)Operation description
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
-     * This topic provides an example on how to delete the group `g-00jqzghi2n3o5hkh****`.
+     * ### Before you begin
+     * Before you delete a user group, make sure that the user group is not associated with the following resources. Otherwise, the deletion failed.
+     * - Users: You must remove users from the user group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+     * - Authorization: You must remove the authorization of the user group on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * ### Usage notes
+     * If SCIM synchronization is enabled, you cannot delete user groups that are synchronized by using SCIM.
+     * This topic provides an example on how to delete the user group `g-00jqzghi2n3o5hkh****`.
      *
      * @param request - DeleteGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1373,16 +1379,16 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Deletes a group.
+     * Deletes a specified group.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
-     * - Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-     * - Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
-     * ### [](#)Operation description
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
-     * This topic provides an example on how to delete the group `g-00jqzghi2n3o5hkh****`.
+     * ### Before you begin
+     * Before you delete a user group, make sure that the user group is not associated with the following resources. Otherwise, the deletion failed.
+     * - Users: You must remove users from the user group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+     * - Authorization: You must remove the authorization of the user group on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * ### Usage notes
+     * If SCIM synchronization is enabled, you cannot delete user groups that are synchronized by using SCIM.
+     * This topic provides an example on how to delete the user group `g-00jqzghi2n3o5hkh****`.
      *
      * @param request - DeleteGroupRequest
      *
@@ -1475,11 +1481,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Deletes a System for Cross-domain Identity Management (SCIM) credential.
+     * Deletes a SCIM credential.
      *
      * @remarks
-     * After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
-     * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
+     * After a SCIM credential is deleted, synchronization tasks that use the SCIM credential will fail.
+     * This topic provides an example of deleting a SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
      *
      * @param request - DeleteSCIMServerCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1522,11 +1528,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Deletes a System for Cross-domain Identity Management (SCIM) credential.
+     * Deletes a SCIM credential.
      *
      * @remarks
-     * After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
-     * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
+     * After a SCIM credential is deleted, synchronization tasks that use the SCIM credential will fail.
+     * This topic provides an example of deleting a SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
      *
      * @param request - DeleteSCIMServerCredentialRequest
      *
@@ -1547,14 +1553,14 @@ class Cloudsso extends OpenApiClient
      * Deletes a user.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Before you delete a user, make sure that the user is not associated with the following resources. Otherwise, the deletion fails.
-     * *   Multi-factor authentication (MFA) devices: You must delete the MFA devices bound to the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
-     * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
-     * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-     * ### [](#)Precautions
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
-     * This topic provides an example on how to delete the user whose ID is `u-00q8wbq42wiltcrk****`.
+     * ### Before you begin
+     * Before you delete a user, ensure that the user is not associated with the following resources. Otherwise, the deletion will result in a failed state:
+     * - MFA devices: You must delete the MFA device attached to the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
+     * - Authorization: You must remove the authorization of the user on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * - Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+     * ### Usage notes
+     * You cannot delete a SCIM-synchronized user when SCIM synchronization is enabled.
+     * This topic provides an example of deleting a user whose ID is `u-00q8wbq42wiltcrk****`.
      *
      * @param request - DeleteUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1600,14 +1606,14 @@ class Cloudsso extends OpenApiClient
      * Deletes a user.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Before you delete a user, make sure that the user is not associated with the following resources. Otherwise, the deletion fails.
-     * *   Multi-factor authentication (MFA) devices: You must delete the MFA devices bound to the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
-     * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
-     * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-     * ### [](#)Precautions
-     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
-     * This topic provides an example on how to delete the user whose ID is `u-00q8wbq42wiltcrk****`.
+     * ### Before you begin
+     * Before you delete a user, ensure that the user is not associated with the following resources. Otherwise, the deletion will result in a failed state:
+     * - MFA devices: You must delete the MFA device attached to the user. For more information, see [DeleteMFADeviceForUser](https://help.aliyun.com/document_detail/341675.html).
+     * - Authorization: You must remove the authorization of the user on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * - Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
+     * ### Usage notes
+     * You cannot delete a SCIM-synchronized user when SCIM synchronization is enabled.
+     * This topic provides an example of deleting a user whose ID is `u-00q8wbq42wiltcrk****`.
      *
      * @param request - DeleteUserRequest
      *
@@ -1625,7 +1631,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user provisioning.
+     * Invokes DeleteUserProvisioning to delete a Resource Access Management (RAM) user synchronization.
      *
      * @param request - DeleteUserProvisioningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1672,7 +1678,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user provisioning.
+     * Invokes DeleteUserProvisioning to delete a Resource Access Management (RAM) user synchronization.
      *
      * @param request - DeleteUserProvisioningRequest
      *
@@ -1690,7 +1696,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user provisioning event.
+     * Invokes DeleteUserProvisioningEvent to delete a Resource Access Management (RAM) user synchronization event that failed to execute.
      *
      * @param request - DeleteUserProvisioningEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1737,7 +1743,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Deletes a Resource Access Management (RAM) user provisioning event.
+     * Invokes DeleteUserProvisioningEvent to delete a Resource Access Management (RAM) user synchronization event that failed to execute.
      *
      * @param request - DeleteUserProvisioningEventRequest
      *
@@ -1755,11 +1761,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * De-provisions an access configuration from an account in your resource directory.
+     * Deprovisions an access configuration from an account in a resource directory.
      *
      * @remarks
-     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
+     * This API operation is asynchronous. You can use the `TaskId` returned in the response parameters to call [GetTask](https://help.aliyun.com/document_detail/340670.html) and query the task execution status.
+     * This topic provides an example of deprovisioning the access configuration `ac-00jhtfl8thteu6uj****` from the account in a resource directory `114240524784****`.
      *
      * @param request - DeprovisionAccessConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1814,11 +1820,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * De-provisions an access configuration from an account in your resource directory.
+     * Deprovisions an access configuration from an account in a resource directory.
      *
      * @remarks
-     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
+     * This API operation is asynchronous. You can use the `TaskId` returned in the response parameters to call [GetTask](https://help.aliyun.com/document_detail/340670.html) and query the task execution status.
+     * This topic provides an example of deprovisioning the access configuration `ac-00jhtfl8thteu6uj****` from the account in a resource directory `114240524784****`.
      *
      * @param request - DeprovisionAccessConfigurationRequest
      *
@@ -1942,11 +1948,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Enables the delegated administrator account of CloudSSO.
+     * Enables a CloudSSO delegated administrator account.
      *
      * @remarks
-     * You can use the management account of a resource directory to specify a member of the resource directory as the delegated administrator account of CloudSSO. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
-     * After the delegated administrator account of CloudSSO is specified, you can call this operation to enable the delegated administrator account of CloudSSO to manage CloudSSO resources.
+     * The management account of a resource directory can set a member of the resource directory as a CloudSSO delegated administrator account. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
+     * After the configuration is complete, you can call this operation to enable the CloudSSO delegated administrator account to manage CloudSSO.
      *
      * @param request - EnableDelegateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1985,11 +1991,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Enables the delegated administrator account of CloudSSO.
+     * Enables a CloudSSO delegated administrator account.
      *
      * @remarks
-     * You can use the management account of a resource directory to specify a member of the resource directory as the delegated administrator account of CloudSSO. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
-     * After the delegated administrator account of CloudSSO is specified, you can call this operation to enable the delegated administrator account of CloudSSO to manage CloudSSO resources.
+     * The management account of a resource directory can set a member of the resource directory as a CloudSSO delegated administrator account. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
+     * After the configuration is complete, you can call this operation to enable the CloudSSO delegated administrator account to manage CloudSSO.
      *
      * @param request - EnableDelegateAccountRequest
      *
@@ -2188,10 +2194,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries information about a directory.
+     * Queries the details of a directory.
      *
      * @remarks
-     * This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
+     * This topic provides an example of querying the details of a directory whose ID is `d-00fc2p61****`.
      *
      * @param request - GetDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2230,10 +2236,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries information about a directory.
+     * Queries the details of a directory.
      *
      * @remarks
-     * This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
+     * This topic provides an example of querying the details of a directory whose ID is `d-00fc2p61****`.
      *
      * @param request - GetDirectoryRequest
      *
@@ -2922,10 +2928,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries information about an asynchronous task.
+     * Queries the details of an asynchronous task.
      *
      * @remarks
-     * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     * This topic provides an example of querying the details of a task whose ID is `t-shfqw1u1edszvxw5****`.
      *
      * @param request - GetTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2968,10 +2974,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries information about an asynchronous task.
+     * Queries the details of an asynchronous task.
      *
      * @remarks
-     * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     * This topic provides an example of querying the details of a task whose ID is `t-shfqw1u1edszvxw5****`.
      *
      * @param request - GetTaskRequest
      *
@@ -3554,10 +3560,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the access permissions that are assigned.
+     * Queries access assignments.
      *
      * @remarks
-     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+     * This topic provides an example of querying the access assignments on the account in a resource directory `114240524784****`. The response shows that one access assignment record exists on the account.
      *
      * @param request - ListAccessAssignmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3628,10 +3634,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the access permissions that are assigned.
+     * Queries access assignments.
      *
      * @remarks
-     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+     * This topic provides an example of querying the access assignments on the account in a resource directory `114240524784****`. The response shows that one access assignment record exists on the account.
      *
      * @param request - ListAccessAssignmentsRequest
      *
@@ -3649,10 +3655,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the access configurations that are provisioned.
+     * Queries access configuration provisionings.
      *
      * @remarks
-     * This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
+     * This topic provides an example of querying the deployment list of the access configuration `ac-00ccule7tadaijxc****`. The response shows that the access configuration is deployed in two accounts, each being an account in a resource directory.
      *
      * @param request - ListAccessConfigurationProvisioningsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3719,10 +3725,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the access configurations that are provisioned.
+     * Queries access configuration provisionings.
      *
      * @remarks
-     * This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
+     * This topic provides an example of querying the deployment list of the access configuration `ac-00ccule7tadaijxc****`. The response shows that the access configuration is deployed in two accounts, each being an account in a resource directory.
      *
      * @param request - ListAccessConfigurationProvisioningsRequest
      *
@@ -4365,11 +4371,83 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries asynchronous tasks.
+     * Queries the relationships between resources and tags.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the relationships between resources and tags.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of asynchronous tasks.
      *
      * @remarks
-     * By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
-     * This topic provides an example on how to query the tasks within the previous 24 hours.
+     * By default, this operation queries the list of tasks created within the last 24 hours. You can query tasks created within the last 7 days at most. You can use the Filter parameter to specify the start time of the query. This topic provides an example on how to query the list of tasks created within the last 24 hours.
      *
      * @param request - ListTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4448,11 +4526,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries asynchronous tasks.
+     * Queries a list of asynchronous tasks.
      *
      * @remarks
-     * By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
-     * This topic provides an example on how to query the tasks within the previous 24 hours.
+     * By default, this operation queries the list of tasks created within the last 24 hours. You can query tasks created within the last 7 days at most. You can use the Filter parameter to specify the start time of the query. This topic provides an example on how to query the list of tasks created within the last 24 hours.
      *
      * @param request - ListTasksRequest
      *
@@ -4701,11 +4778,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Provisions an access configuration for an account in your resource directory.
+     * Invokes ProvisionAccessConfiguration to perform access configuration provisioning and deployment for an account in a resource directory.
      *
      * @remarks
-     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
+     * This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) and query the task execution status.
+     * This topic provides an example of provisioning the access configuration `ac-00jhtfl8thteu6uj****` to the account in a resource directory `114240524784****`.
      *
      * @param request - ProvisionAccessConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4760,11 +4837,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Provisions an access configuration for an account in your resource directory.
+     * Invokes ProvisionAccessConfiguration to perform access configuration provisioning and deployment for an account in a resource directory.
      *
      * @remarks
-     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](https://help.aliyun.com/document_detail/340670.html) operation to query the progress of the task based on the value of the `TaskId` response parameter.
-     * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
+     * This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) and query the task execution status.
+     * This topic provides an example of provisioning the access configuration `ac-00jhtfl8thteu6uj****` to the account in a resource directory `114240524784****`.
      *
      * @param request - ProvisionAccessConfigurationRequest
      *
@@ -5002,9 +5079,9 @@ class Cloudsso extends OpenApiClient
      * Resets the password of a user.
      *
      * @remarks
-     * If a user forgets the password, the password expires, or the password poses security risks, a CloudSSO administrator can reset the password for the user.
-     * > After you enable single sign-on (SSO) logon, the password of a user cannot be reset.
-     * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
+     * A CloudSSO administrator can reset the password of a user when the user forgets the password, the password expires, or the password poses a security risk.
+     * > You cannot reset user passwords after single sign-on (SSO) is enabled.
+     * This topic provides an example of resetting the password of the user u-00q8wbq42wiltcrk**** by using a system-generated password.
      *
      * @param request - ResetUserPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5062,9 +5139,9 @@ class Cloudsso extends OpenApiClient
      * Resets the password of a user.
      *
      * @remarks
-     * If a user forgets the password, the password expires, or the password poses security risks, a CloudSSO administrator can reset the password for the user.
-     * > After you enable single sign-on (SSO) logon, the password of a user cannot be reset.
-     * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
+     * A CloudSSO administrator can reset the password of a user when the user forgets the password, the password expires, or the password poses a security risk.
+     * > You cannot reset user passwords after single sign-on (SSO) is enabled.
+     * This topic provides an example of resetting the password of the user u-00q8wbq42wiltcrk**** by using a system-generated password.
      *
      * @param request - ResetUserPasswordRequest
      *
@@ -5542,6 +5619,148 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
+     * Tags resources.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Tags resources.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Untags resources.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Untags resources.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies information about an access configuration.
      *
      * @remarks
@@ -5996,10 +6215,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Enables or disables a System for Cross-domain Identity Management (SCIM) credential.
+     * Enables or disables a SCIM credential.
      *
      * @remarks
-     * This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
+     * This topic provides an example of disabling the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the credential is disabled, synchronization tasks that use this SCIM credential will fail. You can call this operation again to enable the SCIM credential.
      *
      * @param request - UpdateSCIMServerCredentialStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6046,10 +6265,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Enables or disables a System for Cross-domain Identity Management (SCIM) credential.
+     * Enables or disables a SCIM credential.
      *
      * @remarks
-     * This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
+     * This topic provides an example of disabling the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the credential is disabled, synchronization tasks that use this SCIM credential will fail. You can call this operation again to enable the SCIM credential.
      *
      * @param request - UpdateSCIMServerCredentialStatusRequest
      *
