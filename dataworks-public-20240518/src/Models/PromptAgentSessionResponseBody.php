@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionResponseBody\meta;
 
 class PromptAgentSessionResponseBody extends Model
 {
@@ -22,6 +23,11 @@ class PromptAgentSessionResponseBody extends Model
      * @var string
      */
     public $jsonrpc;
+
+    /**
+     * @var meta
+     */
+    public $meta;
 
     /**
      * @var string
@@ -51,6 +57,7 @@ class PromptAgentSessionResponseBody extends Model
         'error' => 'Error',
         'id' => 'Id',
         'jsonrpc' => 'Jsonrpc',
+        'meta' => 'Meta',
         'method' => 'Method',
         'params' => 'Params',
         'requestId' => 'RequestId',
@@ -60,6 +67,9 @@ class PromptAgentSessionResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->meta) {
+            $this->meta->validate();
+        }
         parent::validate();
     }
 
@@ -76,6 +86,10 @@ class PromptAgentSessionResponseBody extends Model
 
         if (null !== $this->jsonrpc) {
             $res['Jsonrpc'] = $this->jsonrpc;
+        }
+
+        if (null !== $this->meta) {
+            $res['Meta'] = null !== $this->meta ? $this->meta->toArray($noStream) : $this->meta;
         }
 
         if (null !== $this->method) {
@@ -119,6 +133,10 @@ class PromptAgentSessionResponseBody extends Model
 
         if (isset($map['Jsonrpc'])) {
             $model->jsonrpc = $map['Jsonrpc'];
+        }
+
+        if (isset($map['Meta'])) {
+            $model->meta = meta::fromMap($map['Meta']);
         }
 
         if (isset($map['Method'])) {

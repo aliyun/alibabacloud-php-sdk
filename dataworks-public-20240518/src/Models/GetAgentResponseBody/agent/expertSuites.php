@@ -47,6 +47,11 @@ class expertSuites extends Model
      * @var int
      */
     public $version;
+
+    /**
+     * @var string
+     */
+    public $versionSelector;
     protected $_name = [
         'description' => 'Description',
         'displayName' => 'DisplayName',
@@ -56,6 +61,7 @@ class expertSuites extends Model
         'source' => 'Source',
         'suiteId' => 'SuiteId',
         'version' => 'Version',
+        'versionSelector' => 'VersionSelector',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class expertSuites extends Model
 
         if (null !== $this->version) {
             $res['Version'] = $this->version;
+        }
+
+        if (null !== $this->versionSelector) {
+            $res['VersionSelector'] = $this->versionSelector;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class expertSuites extends Model
 
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+
+        if (isset($map['VersionSelector'])) {
+            $model->versionSelector = $map['VersionSelector'];
         }
 
         return $model;
