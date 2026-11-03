@@ -1,3 +1,20 @@
+2026-11-03 Version: 2.0.12
+- Update API GetContextStore: add response parameters Body.config.auditLogStore.
+- Update API GetContextStore: add response parameters Body.config.runtimeRecallEnabled.
+- Update API GetContextStore: add response parameters Body.config.runtimeRecallRevision.
+- Update API SearchContext: add response parameters Body.callId.
+- Update API SearchContext: add response parameters Body.diagnostics.
+- Update API SearchContext: add response parameters Body.mode.
+- Update API SearchContext: add response parameters Body.relevance.
+- Update API SearchContext: add response parameters Body.rewrittenQueries.
+- Update API SearchContext: add response parameters Body.status.
+- Update API SearchContext: add response parameters Body.strategyVersion.
+- Update API UpdateContextStore: add request parameters body.expectedRuntimeRecallRevision.
+- Update API UpdateContextStore: add request parameters body.reason.
+- Update API UpdateContextStore: add request parameters body.config.runtimeRecallEnabled.
+- Update API UpdateContextStore: add response parameters Body.config.
+
+
 2026-10-28 Version: 2.0.11
 - Generated php 2026-05-20 for AgentLoop.
 

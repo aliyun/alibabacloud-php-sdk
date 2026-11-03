@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBod
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBody\config\audit;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBody\config\auditLogStore;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBody\config\extractionPolicies;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBody\config\extractionPolicy;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponseBody\config\innerSource;
@@ -22,6 +23,11 @@ class config extends Model
      * @var audit
      */
     public $audit;
+
+    /**
+     * @var auditLogStore
+     */
+    public $auditLogStore;
 
     /**
      * @var extractionPolicies[]
@@ -64,6 +70,16 @@ class config extends Model
     public $outputDataset;
 
     /**
+     * @var bool
+     */
+    public $runtimeRecallEnabled;
+
+    /**
+     * @var int
+     */
+    public $runtimeRecallRevision;
+
+    /**
      * @var scopePolicy
      */
     public $scopePolicy;
@@ -99,6 +115,7 @@ class config extends Model
     public $strategyVersion;
     protected $_name = [
         'audit' => 'audit',
+        'auditLogStore' => 'auditLogStore',
         'extractionPolicies' => 'extractionPolicies',
         'extractionPolicy' => 'extractionPolicy',
         'innerSource' => 'innerSource',
@@ -107,6 +124,8 @@ class config extends Model
         'miningTaskName' => 'miningTaskName',
         'observability' => 'observability',
         'outputDataset' => 'outputDataset',
+        'runtimeRecallEnabled' => 'runtimeRecallEnabled',
+        'runtimeRecallRevision' => 'runtimeRecallRevision',
         'scopePolicy' => 'scopePolicy',
         'serviceNames' => 'serviceNames',
         'source' => 'source',
@@ -120,6 +139,9 @@ class config extends Model
     {
         if (null !== $this->audit) {
             $this->audit->validate();
+        }
+        if (null !== $this->auditLogStore) {
+            $this->auditLogStore->validate();
         }
         if (\is_array($this->extractionPolicies)) {
             Model::validateArray($this->extractionPolicies);
@@ -167,6 +189,10 @@ class config extends Model
             $res['audit'] = null !== $this->audit ? $this->audit->toArray($noStream) : $this->audit;
         }
 
+        if (null !== $this->auditLogStore) {
+            $res['auditLogStore'] = null !== $this->auditLogStore ? $this->auditLogStore->toArray($noStream) : $this->auditLogStore;
+        }
+
         if (null !== $this->extractionPolicies) {
             if (\is_array($this->extractionPolicies)) {
                 $res['extractionPolicies'] = [];
@@ -209,6 +235,14 @@ class config extends Model
 
         if (null !== $this->outputDataset) {
             $res['outputDataset'] = null !== $this->outputDataset ? $this->outputDataset->toArray($noStream) : $this->outputDataset;
+        }
+
+        if (null !== $this->runtimeRecallEnabled) {
+            $res['runtimeRecallEnabled'] = $this->runtimeRecallEnabled;
+        }
+
+        if (null !== $this->runtimeRecallRevision) {
+            $res['runtimeRecallRevision'] = $this->runtimeRecallRevision;
         }
 
         if (null !== $this->scopePolicy) {
@@ -268,6 +302,10 @@ class config extends Model
             $model->audit = audit::fromMap($map['audit']);
         }
 
+        if (isset($map['auditLogStore'])) {
+            $model->auditLogStore = auditLogStore::fromMap($map['auditLogStore']);
+        }
+
         if (isset($map['extractionPolicies'])) {
             if (!empty($map['extractionPolicies'])) {
                 $model->extractionPolicies = [];
@@ -310,6 +348,14 @@ class config extends Model
 
         if (isset($map['outputDataset'])) {
             $model->outputDataset = outputDataset::fromMap($map['outputDataset']);
+        }
+
+        if (isset($map['runtimeRecallEnabled'])) {
+            $model->runtimeRecallEnabled = $map['runtimeRecallEnabled'];
+        }
+
+        if (isset($map['runtimeRecallRevision'])) {
+            $model->runtimeRecallRevision = $map['runtimeRecallRevision'];
         }
 
         if (isset($map['scopePolicy'])) {

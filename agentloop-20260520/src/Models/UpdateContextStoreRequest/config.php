@@ -35,6 +35,11 @@ class config extends Model
     public $metadataField;
 
     /**
+     * @var bool
+     */
+    public $runtimeRecallEnabled;
+
+    /**
      * @var scopePolicy
      */
     public $scopePolicy;
@@ -53,6 +58,7 @@ class config extends Model
         'extractionPolicies' => 'extractionPolicies',
         'extractionPolicy' => 'extractionPolicy',
         'metadataField' => 'metadataField',
+        'runtimeRecallEnabled' => 'runtimeRecallEnabled',
         'scopePolicy' => 'scopePolicy',
         'source' => 'source',
         'storagePolicy' => 'storagePolicy',
@@ -115,6 +121,10 @@ class config extends Model
             }
         }
 
+        if (null !== $this->runtimeRecallEnabled) {
+            $res['runtimeRecallEnabled'] = $this->runtimeRecallEnabled;
+        }
+
         if (null !== $this->scopePolicy) {
             $res['scopePolicy'] = null !== $this->scopePolicy ? $this->scopePolicy->toArray($noStream) : $this->scopePolicy;
         }
@@ -164,6 +174,10 @@ class config extends Model
                     $model->metadataField[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['runtimeRecallEnabled'])) {
+            $model->runtimeRecallEnabled = $map['runtimeRecallEnabled'];
         }
 
         if (isset($map['scopePolicy'])) {

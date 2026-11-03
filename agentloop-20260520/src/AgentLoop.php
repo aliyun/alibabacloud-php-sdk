@@ -2396,7 +2396,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a context store.
+     * Queries the context store.
      *
      * @param request - GetContextStoreRequest
      * @param headers - map
@@ -2434,7 +2434,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a context store.
+     * Queries the context store.
      *
      * @param request - GetContextStoreRequest
      *
@@ -4970,6 +4970,14 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->expectedRuntimeRecallRevision) {
+            @$body['expectedRuntimeRecallRevision'] = $request->expectedRuntimeRecallRevision;
+        }
+
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
         }
 
         if (null !== $request->status) {

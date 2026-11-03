@@ -30,6 +30,16 @@ class UpdateContextStoreRequest extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $expectedRuntimeRecallRevision;
+
+    /**
+     * @var string
+     */
+    public $reason;
+
+    /**
      * @var string
      */
     public $status;
@@ -43,6 +53,8 @@ class UpdateContextStoreRequest extends Model
         'config' => 'config',
         'contextType' => 'contextType',
         'description' => 'description',
+        'expectedRuntimeRecallRevision' => 'expectedRuntimeRecallRevision',
+        'reason' => 'reason',
         'status' => 'status',
         'clientToken' => 'clientToken',
     ];
@@ -72,6 +84,14 @@ class UpdateContextStoreRequest extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->expectedRuntimeRecallRevision) {
+            $res['expectedRuntimeRecallRevision'] = $this->expectedRuntimeRecallRevision;
+        }
+
+        if (null !== $this->reason) {
+            $res['reason'] = $this->reason;
         }
 
         if (null !== $this->status) {
@@ -107,6 +127,14 @@ class UpdateContextStoreRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['expectedRuntimeRecallRevision'])) {
+            $model->expectedRuntimeRecallRevision = $map['expectedRuntimeRecallRevision'];
+        }
+
+        if (isset($map['reason'])) {
+            $model->reason = $map['reason'];
         }
 
         if (isset($map['status'])) {
