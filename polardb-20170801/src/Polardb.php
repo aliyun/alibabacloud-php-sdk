@@ -4674,6 +4674,10 @@ class Polardb extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
         if (null !== $request->tenantName) {
             @$query['TenantName'] = $request->tenantName;
         }
@@ -5391,6 +5395,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->instanceIdsShrink) {
             @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->instanceParams) {
+            @$query['InstanceParams'] = $request->instanceParams;
         }
 
         if (null !== $request->param) {
@@ -15671,7 +15679,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AgenticDB projects.
+     * Queries the list of AgenticDB projects.
      *
      * @param request - DescribeAgenticDBProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15734,7 +15742,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AgenticDB projects.
+     * Queries the list of AgenticDB projects.
      *
      * @param request - DescribeAgenticDBProjectsRequest
      *
@@ -27388,7 +27396,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves information about vSwitches.
+     * Queries vSwitch information.
      *
      * @param request - DescribeVSwitchListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27467,7 +27475,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves information about vSwitches.
+     * Queries vSwitch information.
      *
      * @param request - DescribeVSwitchListRequest
      *
@@ -27809,7 +27817,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Disables the relational algebra of a cluster.
+     * Closes the cluster relationship.
      *
      * @param request - DisableDBClusterOrcaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27868,7 +27876,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Disables the relational algebra of a cluster.
+     * Closes the cluster relationship.
      *
      * @param request - DisableDBClusterOrcaRequest
      *
@@ -28231,7 +28239,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the Orca (Redis-compatible) feature for a PolarDB cluster.
+     * Enables the relational feature for a cluster.
      *
      * @param request - EnableDBClusterOrcaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28286,7 +28294,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the Orca (Redis-compatible) feature for a PolarDB cluster.
+     * Enables the relational feature for a cluster.
      *
      * @param request - EnableDBClusterOrcaRequest
      *
@@ -29751,7 +29759,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Installs a PolarClaw Skill.
+     * Installs a PolarClaw skill.
      *
      * @param request - InstallPolarClawSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29767,12 +29775,20 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
         if (null !== $request->applicationId) {
             @$query['ApplicationId'] = $request->applicationId;
         }
 
         if (null !== $request->force) {
             @$query['Force'] = $request->force;
+        }
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
 
         if (null !== $request->skillVersion) {
@@ -29810,7 +29826,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Installs a PolarClaw Skill.
+     * Installs a PolarClaw skill.
      *
      * @param request - InstallPolarClawSkillRequest
      *
@@ -36772,7 +36788,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
+     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify either MaxCpu or CpuCount, but not both.
      *
      * @remarks
      * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
@@ -36836,7 +36852,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify exactly one of the MaxCpu and CpuCount parameters.
+     * Modifies the CPU quota of an existing resource control rule in a specified PolarDB for MySQL cluster. You can modify the current quota value or switch between the maximum CPU quota percentage mode and the maximum CPU core count mode. When modifying the rule, you must specify either MaxCpu or CpuCount, but not both.
      *
      * @remarks
      * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
@@ -39510,7 +39526,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Searches for PolarClaw Skills.
+     * Searches for PolarClaw skills.
      *
      * @param request - SearchPolarClawSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39530,12 +39546,20 @@ class Polardb extends OpenApiClient
             @$query['ApplicationId'] = $request->applicationId;
         }
 
+        if (null !== $request->exact) {
+            @$query['Exact'] = $request->exact;
+        }
+
         if (null !== $request->limit) {
             @$query['Limit'] = $request->limit;
         }
 
         if (null !== $request->query) {
             @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
         }
 
         $req = new OpenApiRequest([
@@ -39557,7 +39581,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Searches for PolarClaw Skills.
+     * Searches for PolarClaw skills.
      *
      * @param request - SearchPolarClawSkillsRequest
      *
@@ -41046,7 +41070,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates the skills of a PolarClaw Agent.
+     * Updates the skills of a PolarClaw agent.
      *
      * @param tmpReq - UpdatePolarClawAgentSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41099,7 +41123,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates the skills of a PolarClaw Agent.
+     * Updates the skills of a PolarClaw agent.
      *
      * @param request - UpdatePolarClawAgentSkillsRequest
      *

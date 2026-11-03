@@ -21,6 +21,11 @@ class CreateBatchTaskRequest extends Model
     /**
      * @var string
      */
+    public $instanceParams;
+
+    /**
+     * @var string
+     */
     public $param;
 
     /**
@@ -40,6 +45,7 @@ class CreateBatchTaskRequest extends Model
     protected $_name = [
         'applicationType' => 'ApplicationType',
         'instanceIds' => 'InstanceIds',
+        'instanceParams' => 'InstanceParams',
         'param' => 'Param',
         'regionId' => 'RegionId',
         'taskName' => 'TaskName',
@@ -70,6 +76,10 @@ class CreateBatchTaskRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->instanceParams) {
+            $res['InstanceParams'] = $this->instanceParams;
         }
 
         if (null !== $this->param) {
@@ -112,6 +122,10 @@ class CreateBatchTaskRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['InstanceParams'])) {
+            $model->instanceParams = $map['InstanceParams'];
         }
 
         if (isset($map['Param'])) {

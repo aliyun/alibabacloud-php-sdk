@@ -14,6 +14,11 @@ class SearchPolarClawSkillsRequest extends Model
     public $applicationId;
 
     /**
+     * @var bool
+     */
+    public $exact;
+
+    /**
      * @var int
      */
     public $limit;
@@ -22,10 +27,17 @@ class SearchPolarClawSkillsRequest extends Model
      * @var string
      */
     public $query;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'exact' => 'Exact',
         'limit' => 'Limit',
         'query' => 'Query',
+        'source' => 'Source',
     ];
 
     public function validate()
@@ -40,12 +52,20 @@ class SearchPolarClawSkillsRequest extends Model
             $res['ApplicationId'] = $this->applicationId;
         }
 
+        if (null !== $this->exact) {
+            $res['Exact'] = $this->exact;
+        }
+
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
 
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -63,12 +83,20 @@ class SearchPolarClawSkillsRequest extends Model
             $model->applicationId = $map['ApplicationId'];
         }
 
+        if (isset($map['Exact'])) {
+            $model->exact = $map['Exact'];
+        }
+
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
 
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

@@ -31,12 +31,18 @@ class CreateAgenticDBTenantApiKeyRequest extends Model
     /**
      * @var string
      */
+    public $tenantId;
+
+    /**
+     * @var string
+     */
     public $tenantName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'description' => 'Description',
         'expireTime' => 'ExpireTime',
         'regionId' => 'RegionId',
+        'tenantId' => 'TenantId',
         'tenantName' => 'TenantName',
     ];
 
@@ -62,6 +68,10 @@ class CreateAgenticDBTenantApiKeyRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
 
         if (null !== $this->tenantName) {
@@ -93,6 +103,10 @@ class CreateAgenticDBTenantApiKeyRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
 
         if (isset($map['TenantName'])) {

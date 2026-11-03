@@ -31,6 +31,11 @@ class InstallPolarClawSkillResponseBody extends Model
     /**
      * @var string
      */
+    public $operation;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -41,7 +46,17 @@ class InstallPolarClawSkillResponseBody extends Model
     /**
      * @var string
      */
+    public $state;
+
+    /**
+     * @var string
+     */
     public $targetDir;
+
+    /**
+     * @var string
+     */
+    public $taskId;
 
     /**
      * @var string
@@ -52,9 +67,12 @@ class InstallPolarClawSkillResponseBody extends Model
         'code' => 'Code',
         'message' => 'Message',
         'ok' => 'Ok',
+        'operation' => 'Operation',
         'requestId' => 'RequestId',
         'slug' => 'Slug',
+        'state' => 'State',
         'targetDir' => 'TargetDir',
+        'taskId' => 'TaskId',
         'version' => 'Version',
     ];
 
@@ -82,6 +100,10 @@ class InstallPolarClawSkillResponseBody extends Model
             $res['Ok'] = $this->ok;
         }
 
+        if (null !== $this->operation) {
+            $res['Operation'] = $this->operation;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -90,8 +112,16 @@ class InstallPolarClawSkillResponseBody extends Model
             $res['Slug'] = $this->slug;
         }
 
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
+        }
+
         if (null !== $this->targetDir) {
             $res['TargetDir'] = $this->targetDir;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         if (null !== $this->version) {
@@ -125,6 +155,10 @@ class InstallPolarClawSkillResponseBody extends Model
             $model->ok = $map['Ok'];
         }
 
+        if (isset($map['Operation'])) {
+            $model->operation = $map['Operation'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -133,8 +167,16 @@ class InstallPolarClawSkillResponseBody extends Model
             $model->slug = $map['Slug'];
         }
 
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
+        }
+
         if (isset($map['TargetDir'])) {
             $model->targetDir = $map['TargetDir'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         if (isset($map['Version'])) {

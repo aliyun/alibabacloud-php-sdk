@@ -11,12 +11,22 @@ class InstallPolarClawSkillRequest extends Model
     /**
      * @var string
      */
+    public $agentId;
+
+    /**
+     * @var string
+     */
     public $applicationId;
 
     /**
      * @var bool
      */
     public $force;
+
+    /**
+     * @var string
+     */
+    public $scope;
 
     /**
      * @var string
@@ -38,8 +48,10 @@ class InstallPolarClawSkillRequest extends Model
      */
     public $url;
     protected $_name = [
+        'agentId' => 'AgentId',
         'applicationId' => 'ApplicationId',
         'force' => 'Force',
+        'scope' => 'Scope',
         'skillVersion' => 'SkillVersion',
         'slug' => 'Slug',
         'source' => 'Source',
@@ -54,12 +66,20 @@ class InstallPolarClawSkillRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentId) {
+            $res['AgentId'] = $this->agentId;
+        }
+
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
 
         if (null !== $this->force) {
             $res['Force'] = $this->force;
+        }
+
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
         }
 
         if (null !== $this->skillVersion) {
@@ -89,12 +109,20 @@ class InstallPolarClawSkillRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentId'])) {
+            $model->agentId = $map['AgentId'];
+        }
+
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
 
         if (isset($map['Force'])) {
             $model->force = $map['Force'];
+        }
+
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
         }
 
         if (isset($map['SkillVersion'])) {

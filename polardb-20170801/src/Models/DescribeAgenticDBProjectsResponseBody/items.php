@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class items extends Model
 {
     /**
+     * @var int
+     */
+    public $branchCount;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -58,6 +63,7 @@ class items extends Model
      */
     public $tenantId;
     protected $_name = [
+        'branchCount' => 'BranchCount',
         'createTime' => 'CreateTime',
         'DBClusterId' => 'DBClusterId',
         'defaultBranchId' => 'DefaultBranchId',
@@ -78,6 +84,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchCount) {
+            $res['BranchCount'] = $this->branchCount;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -129,6 +139,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchCount'])) {
+            $model->branchCount = $map['BranchCount'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
