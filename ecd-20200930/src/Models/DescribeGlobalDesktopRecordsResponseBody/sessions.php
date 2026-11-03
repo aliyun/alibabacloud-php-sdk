@@ -75,6 +75,11 @@ class sessions extends Model
     public $latestSessionEndTime;
 
     /**
+     * @var string[]
+     */
+    public $managementFlags;
+
+    /**
      * @var int
      */
     public $memory;
@@ -162,6 +167,7 @@ class sessions extends Model
         'gpuSpec' => 'GpuSpec',
         'latestConnectionTime' => 'LatestConnectionTime',
         'latestSessionEndTime' => 'LatestSessionEndTime',
+        'managementFlags' => 'ManagementFlags',
         'memory' => 'Memory',
         'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
@@ -183,6 +189,9 @@ class sessions extends Model
     {
         if (\is_array($this->endUserIds)) {
             Model::validateArray($this->endUserIds);
+        }
+        if (\is_array($this->managementFlags)) {
+            Model::validateArray($this->managementFlags);
         }
         if (\is_array($this->resourceGroups)) {
             Model::validateArray($this->resourceGroups);
@@ -253,6 +262,17 @@ class sessions extends Model
 
         if (null !== $this->latestSessionEndTime) {
             $res['LatestSessionEndTime'] = $this->latestSessionEndTime;
+        }
+
+        if (null !== $this->managementFlags) {
+            if (\is_array($this->managementFlags)) {
+                $res['ManagementFlags'] = [];
+                $n1 = 0;
+                foreach ($this->managementFlags as $item1) {
+                    $res['ManagementFlags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->memory) {
@@ -397,6 +417,17 @@ class sessions extends Model
 
         if (isset($map['LatestSessionEndTime'])) {
             $model->latestSessionEndTime = $map['LatestSessionEndTime'];
+        }
+
+        if (isset($map['ManagementFlags'])) {
+            if (!empty($map['ManagementFlags'])) {
+                $model->managementFlags = [];
+                $n1 = 0;
+                foreach ($map['ManagementFlags'] as $item1) {
+                    $model->managementFlags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Memory'])) {

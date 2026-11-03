@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class desktopDurationList extends Model
 {
     /**
+     * @var bool
+     */
+    public $disableRemainingNotify;
+
+    /**
      * @var string
      */
     public $orderInstanceId;
@@ -68,6 +73,7 @@ class desktopDurationList extends Model
      */
     public $usedDuration;
     protected $_name = [
+        'disableRemainingNotify' => 'DisableRemainingNotify',
         'orderInstanceId' => 'OrderInstanceId',
         'packageCreationTime' => 'PackageCreationTime',
         'packageExpiredTime' => 'PackageExpiredTime',
@@ -90,6 +96,10 @@ class desktopDurationList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->disableRemainingNotify) {
+            $res['DisableRemainingNotify'] = $this->disableRemainingNotify;
+        }
+
         if (null !== $this->orderInstanceId) {
             $res['OrderInstanceId'] = $this->orderInstanceId;
         }
@@ -149,6 +159,10 @@ class desktopDurationList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DisableRemainingNotify'])) {
+            $model->disableRemainingNotify = $map['DisableRemainingNotify'];
+        }
+
         if (isset($map['OrderInstanceId'])) {
             $model->orderInstanceId = $map['OrderInstanceId'];
         }

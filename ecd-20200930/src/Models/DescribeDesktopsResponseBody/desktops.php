@@ -356,6 +356,11 @@ class desktops extends Model
     public $subnetId;
 
     /**
+     * @var string
+     */
+    public $subnetName;
+
+    /**
      * @var bool
      */
     public $supportHibernation;
@@ -463,6 +468,7 @@ class desktops extends Model
         'standardStartTime' => 'StandardStartTime',
         'startTime' => 'StartTime',
         'subnetId' => 'SubnetId',
+        'subnetName' => 'SubnetName',
         'supportHibernation' => 'SupportHibernation',
         'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskSize' => 'SystemDiskSize',
@@ -852,6 +858,10 @@ class desktops extends Model
             $res['SubnetId'] = $this->subnetId;
         }
 
+        if (null !== $this->subnetName) {
+            $res['SubnetName'] = $this->subnetName;
+        }
+
         if (null !== $this->supportHibernation) {
             $res['SupportHibernation'] = $this->supportHibernation;
         }
@@ -1235,6 +1245,10 @@ class desktops extends Model
 
         if (isset($map['SubnetId'])) {
             $model->subnetId = $map['SubnetId'];
+        }
+
+        if (isset($map['SubnetName'])) {
+            $model->subnetName = $map['SubnetName'];
         }
 
         if (isset($map['SupportHibernation'])) {

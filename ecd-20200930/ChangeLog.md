@@ -1,3 +1,10 @@
+2026-11-03 Version: 5.5.3
+- Update API DescribeDesktops: add response parameters Body.Desktops.$.SubnetName.
+- Update API DescribeDesktops: add response parameters Body.Desktops.$.DesktopDurationList.$.DisableRemainingNotify.
+- Update API DescribeGlobalDesktopRecords: add request parameters OrgIdList.
+- Update API DescribeGlobalDesktopRecords: add response parameters Body.Sessions.$.ManagementFlags.
+
+
 2026-10-29 Version: 5.5.2
 - Update API CreateCenterPolicy: add request parameters AppScreenshotBuckets.
 - Update API CreateCenterPolicy: add request parameters AutoSaveAppScreenshot.

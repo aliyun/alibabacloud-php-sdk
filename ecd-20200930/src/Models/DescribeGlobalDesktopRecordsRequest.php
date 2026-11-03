@@ -59,6 +59,11 @@ class DescribeGlobalDesktopRecordsRequest extends Model
     public $orderBy;
 
     /**
+     * @var string[]
+     */
+    public $orgIdList;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -113,6 +118,7 @@ class DescribeGlobalDesktopRecordsRequest extends Model
         'excludeDesktopStatusList' => 'ExcludeDesktopStatusList',
         'officeSiteId' => 'OfficeSiteId',
         'orderBy' => 'OrderBy',
+        'orgIdList' => 'OrgIdList',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
@@ -134,6 +140,9 @@ class DescribeGlobalDesktopRecordsRequest extends Model
         }
         if (\is_array($this->excludeDesktopStatusList)) {
             Model::validateArray($this->excludeDesktopStatusList);
+        }
+        if (\is_array($this->orgIdList)) {
+            Model::validateArray($this->orgIdList);
         }
         if (\is_array($this->userNames)) {
             Model::validateArray($this->userNames);
@@ -203,6 +212,17 @@ class DescribeGlobalDesktopRecordsRequest extends Model
 
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
+        }
+
+        if (null !== $this->orgIdList) {
+            if (\is_array($this->orgIdList)) {
+                $res['OrgIdList'] = [];
+                $n1 = 0;
+                foreach ($this->orgIdList as $item1) {
+                    $res['OrgIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->pageNumber) {
@@ -318,6 +338,17 @@ class DescribeGlobalDesktopRecordsRequest extends Model
 
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
+        }
+
+        if (isset($map['OrgIdList'])) {
+            if (!empty($map['OrgIdList'])) {
+                $model->orgIdList = [];
+                $n1 = 0;
+                foreach ($map['OrgIdList'] as $item1) {
+                    $model->orgIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['PageNumber'])) {
