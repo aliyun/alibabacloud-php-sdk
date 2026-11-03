@@ -2051,7 +2051,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Get call details.
+     * Retrieves the details of a call.
      *
      * @param request - GetCallDetailRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2094,7 +2094,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Get call details.
+     * Retrieves the details of a call.
      *
      * @param request - GetCallDetailRecordRequest
      *
@@ -4015,7 +4015,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of available voices.
+     * Retrieves the details of an instance.
      *
      * @param request - ListVoicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4035,12 +4035,20 @@ class VoiceNavigator extends OpenApiClient
             @$body['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
         if (null !== $request->nlsAccessType) {
             @$body['NlsAccessType'] = $request->nlsAccessType;
         }
 
         if (null !== $request->nlsEngine) {
             @$body['NlsEngine'] = $request->nlsEngine;
+        }
+
+        if (null !== $request->omniModel) {
+            @$body['OmniModel'] = $request->omniModel;
         }
 
         if (null !== $request->pageNumber) {
@@ -4070,7 +4078,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of available voices.
+     * Retrieves the details of an instance.
      *
      * @param request - ListVoicesRequest
      *

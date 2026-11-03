@@ -16,12 +16,22 @@ class ListVoicesRequest extends Model
     /**
      * @var string
      */
+    public $model;
+
+    /**
+     * @var string
+     */
     public $nlsAccessType;
 
     /**
      * @var string
      */
     public $nlsEngine;
+
+    /**
+     * @var bool
+     */
+    public $omniModel;
 
     /**
      * @var int
@@ -34,8 +44,10 @@ class ListVoicesRequest extends Model
     public $pageSize;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'model' => 'Model',
         'nlsAccessType' => 'NlsAccessType',
         'nlsEngine' => 'NlsEngine',
+        'omniModel' => 'OmniModel',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
     ];
@@ -52,12 +64,20 @@ class ListVoicesRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
+
         if (null !== $this->nlsAccessType) {
             $res['NlsAccessType'] = $this->nlsAccessType;
         }
 
         if (null !== $this->nlsEngine) {
             $res['NlsEngine'] = $this->nlsEngine;
+        }
+
+        if (null !== $this->omniModel) {
+            $res['OmniModel'] = $this->omniModel;
         }
 
         if (null !== $this->pageNumber) {
@@ -83,12 +103,20 @@ class ListVoicesRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
+
         if (isset($map['NlsAccessType'])) {
             $model->nlsAccessType = $map['NlsAccessType'];
         }
 
         if (isset($map['NlsEngine'])) {
             $model->nlsEngine = $map['NlsEngine'];
+        }
+
+        if (isset($map['OmniModel'])) {
+            $model->omniModel = $map['OmniModel'];
         }
 
         if (isset($map['PageNumber'])) {
