@@ -1631,9 +1631,9 @@ class AIDeepSign extends OpenApiClient
      * Queries the task result of a video generation node.
      *
      * @remarks
-     * ## Request description
-     * - Call this operation to query the execution status and result of an asynchronous video generation task created by calling `CreateVideoTask`.
-     * - Poll the task status at an interval of 2 to 5 seconds until the task status changes to `succeeded` or `failed`.
+     * ## Operation description
+     * - You can call this operation to query the execution status and result of an asynchronous video generation task created by calling `CreateVideoTask`.
+     * - Poll the task at an interval of 2 to 5 seconds until the task status changes to `succeeded` or `failed`.
      *
      * @param request - GetVideoTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1675,9 +1675,9 @@ class AIDeepSign extends OpenApiClient
      * Queries the task result of a video generation node.
      *
      * @remarks
-     * ## Request description
-     * - Call this operation to query the execution status and result of an asynchronous video generation task created by calling `CreateVideoTask`.
-     * - Poll the task status at an interval of 2 to 5 seconds until the task status changes to `succeeded` or `failed`.
+     * ## Operation description
+     * - You can call this operation to query the execution status and result of an asynchronous video generation task created by calling `CreateVideoTask`.
+     * - Poll the task at an interval of 2 to 5 seconds until the task status changes to `succeeded` or `failed`.
      *
      * @param request - GetVideoTaskResultRequest
      *
