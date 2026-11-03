@@ -83,6 +83,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $minorVersionReleaseNotes;
+
+    /**
+     * @var string
+     */
     public $natCreatedBy;
 
     /**
@@ -164,6 +169,7 @@ class DescribeAppInstanceAttributeResponseBody extends Model
         'instanceName' => 'InstanceName',
         'loginToken' => 'LoginToken',
         'minorVersionDetail' => 'MinorVersionDetail',
+        'minorVersionReleaseNotes' => 'MinorVersionReleaseNotes',
         'natCreatedBy' => 'NatCreatedBy',
         'natGatewayId' => 'NatGatewayId',
         'natStatus' => 'NatStatus',
@@ -255,6 +261,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (null !== $this->minorVersionDetail) {
             $res['MinorVersionDetail'] = $this->minorVersionDetail;
+        }
+
+        if (null !== $this->minorVersionReleaseNotes) {
+            $res['MinorVersionReleaseNotes'] = $this->minorVersionReleaseNotes;
         }
 
         if (null !== $this->natCreatedBy) {
@@ -392,6 +402,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (isset($map['MinorVersionDetail'])) {
             $model->minorVersionDetail = $map['MinorVersionDetail'];
+        }
+
+        if (isset($map['MinorVersionReleaseNotes'])) {
+            $model->minorVersionReleaseNotes = $map['MinorVersionReleaseNotes'];
         }
 
         if (isset($map['NatCreatedBy'])) {

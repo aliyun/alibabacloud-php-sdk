@@ -292,10 +292,8 @@ class RdsAi extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-wulanchabu' => 'rdsai.aliyuncs.com',
-            'cn-shenzhen' => 'rdsai.aliyuncs.com',
             'cn-beijing' => 'rdsai.aliyuncs.com',
             'cn-shanghai' => 'rdsai.aliyuncs.com',
-            'cn-guangzhou' => 'rdsai.aliyuncs.com',
             'cn-hangzhou' => 'rdsai.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -777,7 +775,7 @@ class RdsAi extends OpenApiClient
      * Creates a custom API key.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateApiKeyRequest
@@ -852,7 +850,7 @@ class RdsAi extends OpenApiClient
      * Creates a custom API key.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateApiKeyRequest
@@ -871,13 +869,13 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates an RDS AI application instance.
+     * Creates an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related documentation
-     * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related feature documentation
+     * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you proceed.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - CreateAppInstanceRequest
@@ -991,13 +989,13 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates an RDS AI application instance.
+     * Creates an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related documentation
-     * >Warning: This API operation incurs fees. Read the related documentation carefully before you perform this operation.
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related feature documentation
+     * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you proceed.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - CreateAppInstanceRequest
@@ -1502,7 +1500,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a user-specific agent.
+     * Creates a custom agent.
      *
      * @param tmpReq - CreateCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1567,7 +1565,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a user-specific agent.
+     * Creates a custom agent.
      *
      * @param request - CreateCustomAgentRequest
      *
@@ -2828,9 +2826,9 @@ class RdsAi extends OpenApiClient
      * Queries the details of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeAppInstanceAttributeRequest
@@ -2881,9 +2879,9 @@ class RdsAi extends OpenApiClient
      * Queries the details of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeAppInstanceAttributeRequest
@@ -2902,10 +2900,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries a list of RDS AI application instances.
+     * Queries the list of RDS AI application instances.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2963,10 +2961,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries a list of RDS AI application instances.
+     * Queries the list of RDS AI application instances.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -3064,7 +3062,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries a list of events.
+     * Queries the event list.
      *
      * @param request - DescribeEventsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3123,7 +3121,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries a list of events.
+     * Queries the event list.
      *
      * @param request - DescribeEventsListRequest
      *
@@ -3144,9 +3142,9 @@ class RdsAi extends OpenApiClient
      * Queries the authentication information of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceAuthInfoRequest
@@ -3197,9 +3195,9 @@ class RdsAi extends OpenApiClient
      * Queries the authentication information of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceAuthInfoRequest
@@ -3441,11 +3439,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the SSL configuration of an RDS AI application instance.
+     * Retrieves the SSL configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engine
-     * RDS PostgreSQL
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
@@ -3494,11 +3492,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the SSL configuration of an RDS AI application instance.
+     * Retrieves the SSL configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engine
-     * RDS PostgreSQL
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
@@ -3521,9 +3519,9 @@ class RdsAi extends OpenApiClient
      * Queries the storage configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      * > Currently, only Object Storage Service (OSS) is supported.
      *
@@ -3575,9 +3573,9 @@ class RdsAi extends OpenApiClient
      * Queries the storage configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      * > Currently, only Object Storage Service (OSS) is supported.
      *
@@ -4012,7 +4010,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the list of sandbox templates used to create Supabase sandboxes.
+     * Queries a list of sandbox templates for creating Supabase sandboxes.
      *
      * @remarks
      * ### Applicable engine
@@ -4085,7 +4083,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the list of sandbox templates used to create Supabase sandboxes.
+     * Queries a list of sandbox templates for creating Supabase sandboxes.
      *
      * @remarks
      * ### Applicable engine
@@ -4174,11 +4172,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Disables the sandbox and Edge Routine capabilities of a Supabase instance. Note: This operation deletes all sandboxes and Edge Routines of the instance. Fully assess the business risks before performing this operation.
+     * Disables the sandbox and Edge Routine capabilities of Supabase. Note: This operation deletes all sandboxes and Edge Routines of the instance. Evaluate business risks before you perform this operation.
      *
      * @remarks
-     * Disables the sandbox and Edge Routine capabilities of a Supabase instance.
-     * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Fully assess the business risks before performing this operation.
+     * Disables the sandbox and Edge Routine capabilities of Supabase.
+     * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Evaluate business risks before you perform this operation.
      *
      * @param request - DisableAgentRuntimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4229,11 +4227,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Disables the sandbox and Edge Routine capabilities of a Supabase instance. Note: This operation deletes all sandboxes and Edge Routines of the instance. Fully assess the business risks before performing this operation.
+     * Disables the sandbox and Edge Routine capabilities of Supabase. Note: This operation deletes all sandboxes and Edge Routines of the instance. Evaluate business risks before you perform this operation.
      *
      * @remarks
-     * Disables the sandbox and Edge Routine capabilities of a Supabase instance.
-     * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Fully assess the business risks before performing this operation.
+     * Disables the sandbox and Edge Routine capabilities of Supabase.
+     * >Notice: This operation deletes all sandboxes and Edge Routines of the Supabase instance. Evaluate business risks before you perform this operation.
      *
      * @param request - DisableAgentRuntimeRequest
      *
@@ -4251,12 +4249,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Enables the sandbox and Edge Routine capabilities for a Supabase instance. Read the operation description before you call this operation.
+     * Enables the sandbox and Edge Routine capabilities for Supabase. Read the operation description carefully before you call this API operation.
      *
      * @remarks
-     * During the public preview, the sandbox and Edge Routine features are free of charge.
+     * During the public preview, the sandbox and Edge Routine features are provided free of charge.
      * ### Before you begin
-     * Before you use this feature, [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
+     * Before you use this feature, you must [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
      *
      * @param request - EnableAgentRuntimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4315,12 +4313,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Enables the sandbox and Edge Routine capabilities for a Supabase instance. Read the operation description before you call this operation.
+     * Enables the sandbox and Edge Routine capabilities for Supabase. Read the operation description carefully before you call this API operation.
      *
      * @remarks
-     * During the public preview, the sandbox and Edge Routine features are free of charge.
+     * During the public preview, the sandbox and Edge Routine features are provided free of charge.
      * ### Before you begin
-     * Before you use this feature, [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
+     * Before you use this feature, you must [authorize the service-linked role](https://api.aliyun.com/api/ResourceManager/2020-03-31/CreateServiceLinkedRole?spm=api-workbench.API%20Document.0.0.4ea75094rJgPzK&RegionId=cn-beijing&tab=DEBUG&params=%7B%2522ServiceName%2522:%2522supabase.rdsai.aliyuncs.com%2522%7D&sdkStyle=old). The service-linked role used is [AliyunServiceRoleForRDSAISupabase](https://www.alibabacloud.com/help/en/ram/product-overview/services-that-work-with-service-linked-roles).
      *
      * @param request - EnableAgentRuntimeRequest
      *
@@ -5332,7 +5330,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves order information for RDS AI Assistant Ultimate Edition.
+     * Retrieves the order information for the RDS AI Assistant Ultimate Edition.
      *
      * @remarks
      * ### Applicable engine
@@ -5375,7 +5373,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves order information for RDS AI Assistant Ultimate Edition.
+     * Retrieves the order information for the RDS AI Assistant Ultimate Edition.
      *
      * @remarks
      * ### Applicable engine
@@ -5462,7 +5460,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
+     * Queries all inspection reports for a specified scheduled task. Supports filtering by time range and pagination.
      *
      * @param request - GetScheduledReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5517,7 +5515,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries all inspection reports under a specified scheduled task, with support for filtering by time range and pagination.
+     * Queries all inspection reports for a specified scheduled task. Supports filtering by time range and pagination.
      *
      * @param request - GetScheduledReportsRequest
      *
@@ -6344,11 +6342,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 列出 Run 日志.
+     * Lists the run logs.
      *
      * @remarks
-     * 列表接口默认分页返回，Page 与 PageSize 为可选参数。
-     * 响应中的 Data 列表字段使用数组返回，Total 表示符合条件的总条数。
+     * The list API returns paginated results by default. Page and PageSize are optional parameters.
+     * The Data list field in the response is returned as an array, and Total indicates the total number of matching entries.
      *
      * @param request - ListContextDatabaseSyncRunLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6399,11 +6397,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 列出 Run 日志.
+     * Lists the run logs.
      *
      * @remarks
-     * 列表接口默认分页返回，Page 与 PageSize 为可选参数。
-     * 响应中的 Data 列表字段使用数组返回，Total 表示符合条件的总条数。
+     * The list API returns paginated results by default. Page and PageSize are optional parameters.
+     * The Data list field in the response is returned as an array, and Total indicates the total number of matching entries.
      *
      * @param request - ListContextDatabaseSyncRunLogsRequest
      *
@@ -7046,7 +7044,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the modules of an RDS AI application instance.
+     * Modifies the modules of an ApsaraDB RDS AI application instance.
      *
      * @remarks
      * ### Applicable engine
@@ -7121,7 +7119,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the modules of an RDS AI application instance.
+     * Modifies the modules of an ApsaraDB RDS AI application instance.
      *
      * @remarks
      * ### Applicable engine
@@ -7145,11 +7143,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the authentication configuration of an RDS AI application instance.
+     * Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
@@ -7208,11 +7206,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the authentication configuration of an RDS AI application instance.
+     * Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
@@ -7232,7 +7230,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the general configurations of an instance, such as network EIP and NAT configurations.
+     * Modifies the general configurations of an instance, such as Elastic IP (EIP) and NAT configurations.
      *
      * @param request - ModifyInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7291,7 +7289,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the general configurations of an instance, such as network EIP and NAT configurations.
+     * Modifies the general configurations of an instance, such as Elastic IP (EIP) and NAT configurations.
      *
      * @param request - ModifyInstanceConfigRequest
      *
@@ -7309,10 +7307,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP whitelist of an RDS AI application instance.
+     * Modifies the IP address whitelist of an RDS AI application instance.
      *
      * @remarks
-     * ### Supported engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -7378,10 +7376,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP whitelist of an RDS AI application instance.
+     * Modifies the IP address whitelist of an RDS AI application instance.
      *
      * @remarks
-     * ### Supported engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -7402,7 +7400,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the RAG Agent configuration of an RDS AI application instance.
+     * Modifies the RAG Agent configuration of an ApsaraDB RDS AI application instance.
      *
      * @param tmpReq - ModifyInstanceRAGConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7467,7 +7465,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the RAG Agent configuration of an RDS AI application instance.
+     * Modifies the RAG Agent configuration of an ApsaraDB RDS AI application instance.
      *
      * @param request - ModifyInstanceRAGConfigRequest
      *
@@ -7488,7 +7486,7 @@ class RdsAi extends OpenApiClient
      * Modifies the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -7557,7 +7555,7 @@ class RdsAi extends OpenApiClient
      * Modifies the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -7581,7 +7579,7 @@ class RdsAi extends OpenApiClient
      * Modifies the storage configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -7649,7 +7647,7 @@ class RdsAi extends OpenApiClient
      * Modifies the storage configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -8401,11 +8399,11 @@ class RdsAi extends OpenApiClient
      * Resets the logon password and database access password of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > Currently, only the password of the RDS Supabase Dashboard user can be modified.
+     * > Currently, only the password of the RDS Supabase Dashboard user can be changed.
      *
      * @param request - ResetInstancePasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8463,11 +8461,11 @@ class RdsAi extends OpenApiClient
      * Resets the logon password and database access password of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > Currently, only the password of the RDS Supabase Dashboard user can be modified.
+     * > Currently, only the password of the RDS Supabase Dashboard user can be changed.
      *
      * @param request - ResetInstancePasswordRequest
      *
@@ -8485,10 +8483,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Restarts an ApsaraDB RDS AI application instance that is in the Running state.
+     * Restarts an RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -8538,10 +8536,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Restarts an ApsaraDB RDS AI application instance that is in the Running state.
+     * Restarts an RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -8562,10 +8560,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 基于快照重试失败明细.
+     * Retries failed items based on a snapshot.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 重试会基于失败项生成新的 Run，原 Run 状态保持不变。
+     * For write operations, you can pass a ClientToken to ensure idempotence. If not provided, the backend automatically generates one. The retry generates a new run based on the failed items, and the status of the original run remains unchanged.
      *
      * @param request - RetryFailedContextDatabaseSyncRunRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8612,10 +8610,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 基于快照重试失败明细.
+     * Retries failed items based on a snapshot.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 重试会基于失败项生成新的 Run，原 Run 状态保持不变。
+     * For write operations, you can pass a ClientToken to ensure idempotence. If not provided, the backend automatically generates one. The retry generates a new run based on the failed items, and the status of the original run remains unchanged.
      *
      * @param request - RetryFailedContextDatabaseSyncRunRequest
      *
@@ -8850,12 +8848,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Starts an RDS AI application instance that is in the Stopped state.
+     * Starts an ApsaraDB RDS AI application instance that is in the Stopped state.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related feature documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StartInstanceRequest
@@ -8903,12 +8901,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Starts an RDS AI application instance that is in the Stopped state.
+     * Starts an ApsaraDB RDS AI application instance that is in the Stopped state.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related feature documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StartInstanceRequest
@@ -9008,11 +9006,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the quota of an API key.
+     * Updates the API key quota.
      *
      * @remarks
      * ### Applicable engine
-     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * [Ultimate Edition of RDS AI Assistant](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param tmpReq - UpdateApiKeyQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9061,11 +9059,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the quota of an API key.
+     * Updates the API key quota.
      *
      * @remarks
      * ### Applicable engine
-     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * [Ultimate Edition of RDS AI Assistant](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - UpdateApiKeyQuotaRequest
      *
@@ -9237,10 +9235,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新连接元数据.
+     * Updates the metadata of a data source.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     * For write operations, you can specify a ClientToken to ensure idempotence. If you do not specify it, the backend automatically generates one.
      *
      * @param request - UpdateContextDatabaseSyncConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9291,10 +9289,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新连接元数据.
+     * Updates the metadata of a data source.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     * For write operations, you can specify a ClientToken to ensure idempotence. If you do not specify it, the backend automatically generates one.
      *
      * @param request - UpdateContextDatabaseSyncConnectionRequest
      *
@@ -9312,10 +9310,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 单独轮换连接凭据.
+     * Rotates the credentials of a data source individually.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     * You can specify the ClientToken parameter to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
      *
      * @param tmpReq - UpdateContextDatabaseSyncConnectionCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9372,10 +9370,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 单独轮换连接凭据.
+     * Rotates the credentials of a data source individually.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     * You can specify the ClientToken parameter to ensure idempotence for write operations. If you do not specify this parameter, the backend automatically generates one.
      *
      * @param request - UpdateContextDatabaseSyncConnectionCredentialRequest
      *
@@ -9393,10 +9391,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新 Job 元数据.
+     * Updates the metadata of an import task.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 Target 为隐含概念，调用方只需传入 KnowledgeBaseId，后端自动创建/匹配 Target。
+     * For write operations, you can pass in a ClientToken to ensure idempotency. If it is not provided, the backend automatically generates one. Target is an implicit concept. The invoker only needs to pass in the KnowledgeBaseId, and the backend performs automatic creation or matching of the target.
      *
      * @param tmpReq - UpdateContextDatabaseSyncJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9469,10 +9467,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新 Job 元数据.
+     * Updates the metadata of an import task.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。 Target 为隐含概念，调用方只需传入 KnowledgeBaseId，后端自动创建/匹配 Target。
+     * For write operations, you can pass in a ClientToken to ensure idempotency. If it is not provided, the backend automatically generates one. Target is an implicit concept. The invoker only needs to pass in the KnowledgeBaseId, and the backend performs automatic creation or matching of the target.
      *
      * @param request - UpdateContextDatabaseSyncJobRequest
      *
@@ -9490,10 +9488,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新 Job 调度配置.
+     * Updates the scheduling configuration of an import task.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     * You can specify a ClientToken for write operations to ensure idempotence. If no ClientToken is provided, the backend automatically generates one.
      *
      * @param tmpReq - UpdateContextDatabaseSyncJobScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9562,10 +9560,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * 更新 Job 调度配置.
+     * Updates the scheduling configuration of an import task.
      *
      * @remarks
-     * 写操作可传入 ClientToken 实现幂等；未传时由后端自动生成。
+     * You can specify a ClientToken for write operations to ensure idempotence. If no ClientToken is provided, the backend automatically generates one.
      *
      * @param request - UpdateContextDatabaseSyncJobScheduleRequest
      *
@@ -9820,7 +9818,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates a Custom Agent.
+     * Updates a custom agent.
      *
      * @param tmpReq - UpdateCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9889,7 +9887,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Updates a Custom Agent.
+     * Updates a custom agent.
      *
      * @param request - UpdateCustomAgentRequest
      *
