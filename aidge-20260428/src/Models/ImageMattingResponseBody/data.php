@@ -24,6 +24,11 @@ class data extends Model
     public $score;
 
     /**
+     * @var mixed
+     */
+    public $structData;
+
+    /**
      * @var int[]
      */
     public $usageMap;
@@ -36,6 +41,7 @@ class data extends Model
         'height' => 'Height',
         'imageUrl' => 'ImageUrl',
         'score' => 'Score',
+        'structData' => 'StructData',
         'usageMap' => 'UsageMap',
         'width' => 'Width',
     ];
@@ -61,6 +67,10 @@ class data extends Model
 
         if (null !== $this->score) {
             $res['Score'] = $this->score;
+        }
+
+        if (null !== $this->structData) {
+            $res['StructData'] = $this->structData;
         }
 
         if (null !== $this->usageMap) {
@@ -97,6 +107,10 @@ class data extends Model
 
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
+        }
+
+        if (isset($map['StructData'])) {
+            $model->structData = $map['StructData'];
         }
 
         if (isset($map['UsageMap'])) {
