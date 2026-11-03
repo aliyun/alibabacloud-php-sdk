@@ -37,6 +37,11 @@ class GetSkillResponseBody extends Model
     /**
      * @var string
      */
+    public $securityScanSuggestions;
+
+    /**
+     * @var string
+     */
     public $skillDescription;
 
     /**
@@ -74,6 +79,7 @@ class GetSkillResponseBody extends Model
         'requestId' => 'RequestId',
         'requiredConnections' => 'RequiredConnections',
         'securityScanStatus' => 'SecurityScanStatus',
+        'securityScanSuggestions' => 'SecurityScanSuggestions',
         'skillDescription' => 'SkillDescription',
         'skillDisplayName' => 'SkillDisplayName',
         'skillId' => 'SkillId',
@@ -132,6 +138,10 @@ class GetSkillResponseBody extends Model
 
         if (null !== $this->securityScanStatus) {
             $res['SecurityScanStatus'] = $this->securityScanStatus;
+        }
+
+        if (null !== $this->securityScanSuggestions) {
+            $res['SecurityScanSuggestions'] = $this->securityScanSuggestions;
         }
 
         if (null !== $this->skillDescription) {
@@ -212,6 +222,10 @@ class GetSkillResponseBody extends Model
 
         if (isset($map['SecurityScanStatus'])) {
             $model->securityScanStatus = $map['SecurityScanStatus'];
+        }
+
+        if (isset($map['SecurityScanSuggestions'])) {
+            $model->securityScanSuggestions = $map['SecurityScanSuggestions'];
         }
 
         if (isset($map['SkillDescription'])) {

@@ -12,8 +12,14 @@ class commodity extends Model
      * @var bool
      */
     public $autoPay;
+
+    /**
+     * @var string
+     */
+    public $couponId;
     protected $_name = [
         'autoPay' => 'AutoPay',
+        'couponId' => 'CouponId',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class commodity extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+
+        if (null !== $this->couponId) {
+            $res['CouponId'] = $this->couponId;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class commodity extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+
+        if (isset($map['CouponId'])) {
+            $model->couponId = $map['CouponId'];
         }
 
         return $model;
