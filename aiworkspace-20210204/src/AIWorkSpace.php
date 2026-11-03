@@ -2333,7 +2333,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
+     * Creates a run. A run belongs to an experiment and can be associated with a specific workload or executed as standalone code.
      *
      * @param request - CreateRunRequest
      * @param headers - map
@@ -2395,7 +2395,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a run. A run belongs to an experiment and can be associated with a specific workload or can be a standalone code execution.
+     * Creates a run. A run belongs to an experiment and can be associated with a specific workload or executed as standalone code.
      *
      * @param request - CreateRunRequest
      *
@@ -5325,7 +5325,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves run details.
+     * Retrieves the details of a run.
      *
      * @param request - GetRunRequest
      * @param headers - map
@@ -5368,7 +5368,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves run details.
+     * Retrieves the details of a run.
      *
      * @param request - GetRunRequest
      *
@@ -5407,6 +5407,10 @@ class AIWorkSpace extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->extraVerboseFields) {
+            @$query['ExtraVerboseFields'] = $request->extraVerboseFields;
+        }
+
         if (null !== $request->verbose) {
             @$query['Verbose'] = $request->verbose;
         }
@@ -5510,7 +5514,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
+     * Queries a list of code configurations with support for pagination, sorting, and conditional filtering.
      *
      * @param request - ListCodeSourcesRequest
      * @param headers - map
@@ -5572,7 +5576,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of code configurations. This operation supports pagination, sorting, and conditional filtering.
+     * Queries a list of code configurations with support for pagination, sorting, and conditional filtering.
      *
      * @param request - ListCodeSourcesRequest
      *
@@ -7432,7 +7436,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of metric records for a run.
+     * Retrieves the list of metric records for a run.
      *
      * @param request - ListRunMetricsRequest
      * @param headers - map
@@ -7483,7 +7487,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of metric records for a run.
+     * Retrieves the list of metric records for a run.
      *
      * @param request - ListRunMetricsRequest
      *
@@ -7503,7 +7507,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of runs.
+     * Queries a list of runs.
      *
      * @param request - ListRunsRequest
      * @param headers - map
@@ -7601,7 +7605,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of runs.
+     * Queries a list of runs.
      *
      * @param request - ListRunsRequest
      *

@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class GetWorkspaceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $extraVerboseFields;
+
+    /**
      * @var bool
      */
     public $verbose;
     protected $_name = [
+        'extraVerboseFields' => 'ExtraVerboseFields',
         'verbose' => 'Verbose',
     ];
 
@@ -24,6 +30,10 @@ class GetWorkspaceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->extraVerboseFields) {
+            $res['ExtraVerboseFields'] = $this->extraVerboseFields;
+        }
+
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
         }
@@ -39,6 +49,10 @@ class GetWorkspaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtraVerboseFields'])) {
+            $model->extraVerboseFields = $map['ExtraVerboseFields'];
+        }
+
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];
         }
