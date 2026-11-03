@@ -17,9 +17,15 @@ class UpdateAdvancedSettingRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var string
+     */
+    public $updateStrategy;
     protected $_name = [
         'body' => 'body',
         'clientToken' => 'clientToken',
+        'updateStrategy' => 'updateStrategy',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class UpdateAdvancedSettingRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->updateStrategy) {
+            $res['updateStrategy'] = $this->updateStrategy;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class UpdateAdvancedSettingRequest extends Model
 
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
+        }
+
+        if (isset($map['updateStrategy'])) {
+            $model->updateStrategy = $map['updateStrategy'];
         }
 
         return $model;
