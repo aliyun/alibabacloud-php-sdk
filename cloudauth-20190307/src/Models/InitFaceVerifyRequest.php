@@ -76,7 +76,17 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $enableAlbumUpload;
+
+    /**
+     * @var string
+     */
     public $enableBeauty;
+
+    /**
+     * @var string
+     */
+    public $enableTts;
 
     /**
      * @var string
@@ -221,7 +231,9 @@ class InitFaceVerifyRequest extends Model
         'certifyUrlStyle' => 'CertifyUrlStyle',
         'certifyUrlType' => 'CertifyUrlType',
         'crop' => 'Crop',
+        'enableAlbumUpload' => 'EnableAlbumUpload',
         'enableBeauty' => 'EnableBeauty',
+        'enableTts' => 'EnableTts',
         'encryptType' => 'EncryptType',
         'faceContrastPicture' => 'FaceContrastPicture',
         'faceContrastPictureUrl' => 'FaceContrastPictureUrl',
@@ -310,8 +322,16 @@ class InitFaceVerifyRequest extends Model
             $res['Crop'] = $this->crop;
         }
 
+        if (null !== $this->enableAlbumUpload) {
+            $res['EnableAlbumUpload'] = $this->enableAlbumUpload;
+        }
+
         if (null !== $this->enableBeauty) {
             $res['EnableBeauty'] = $this->enableBeauty;
+        }
+
+        if (null !== $this->enableTts) {
+            $res['EnableTts'] = $this->enableTts;
         }
 
         if (null !== $this->encryptType) {
@@ -481,8 +501,16 @@ class InitFaceVerifyRequest extends Model
             $model->crop = $map['Crop'];
         }
 
+        if (isset($map['EnableAlbumUpload'])) {
+            $model->enableAlbumUpload = $map['EnableAlbumUpload'];
+        }
+
         if (isset($map['EnableBeauty'])) {
             $model->enableBeauty = $map['EnableBeauty'];
+        }
+
+        if (isset($map['EnableTts'])) {
+            $model->enableTts = $map['EnableTts'];
         }
 
         if (isset($map['EncryptType'])) {

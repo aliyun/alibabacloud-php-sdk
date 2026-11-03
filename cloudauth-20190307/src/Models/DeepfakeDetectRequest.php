@@ -11,6 +11,11 @@ class DeepfakeDetectRequest extends Model
     /**
      * @var string
      */
+    public $faceAttributeCheck;
+
+    /**
+     * @var string
+     */
     public $faceBase64;
 
     /**
@@ -28,6 +33,7 @@ class DeepfakeDetectRequest extends Model
      */
     public $outerOrderNo;
     protected $_name = [
+        'faceAttributeCheck' => 'FaceAttributeCheck',
         'faceBase64' => 'FaceBase64',
         'faceInputType' => 'FaceInputType',
         'faceUrl' => 'FaceUrl',
@@ -42,6 +48,10 @@ class DeepfakeDetectRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->faceAttributeCheck) {
+            $res['FaceAttributeCheck'] = $this->faceAttributeCheck;
+        }
+
         if (null !== $this->faceBase64) {
             $res['FaceBase64'] = $this->faceBase64;
         }
@@ -69,6 +79,10 @@ class DeepfakeDetectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaceAttributeCheck'])) {
+            $model->faceAttributeCheck = $map['FaceAttributeCheck'];
+        }
+
         if (isset($map['FaceBase64'])) {
             $model->faceBase64 = $map['FaceBase64'];
         }

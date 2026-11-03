@@ -11,6 +11,11 @@ class resultObject extends Model
     /**
      * @var string
      */
+    public $faceAttributeInfo;
+
+    /**
+     * @var string
+     */
     public $result;
 
     /**
@@ -23,6 +28,7 @@ class resultObject extends Model
      */
     public $riskTag;
     protected $_name = [
+        'faceAttributeInfo' => 'FaceAttributeInfo',
         'result' => 'Result',
         'riskScore' => 'RiskScore',
         'riskTag' => 'RiskTag',
@@ -39,6 +45,10 @@ class resultObject extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->faceAttributeInfo) {
+            $res['FaceAttributeInfo'] = $this->faceAttributeInfo;
+        }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -67,6 +77,10 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaceAttributeInfo'])) {
+            $model->faceAttributeInfo = $map['FaceAttributeInfo'];
+        }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
