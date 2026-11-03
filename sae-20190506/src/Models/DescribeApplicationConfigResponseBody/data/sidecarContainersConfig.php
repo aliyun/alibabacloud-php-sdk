@@ -85,6 +85,11 @@ class sidecarContainersConfig extends Model
      * @var secretMountDesc[]
      */
     public $secretMountDesc;
+
+    /**
+     * @var string
+     */
+    public $slsConfigs;
     protected $_name = [
         'acrInstanceId' => 'AcrInstanceId',
         'command' => 'Command',
@@ -101,6 +106,7 @@ class sidecarContainersConfig extends Model
         'preStop' => 'PreStop',
         'readiness' => 'Readiness',
         'secretMountDesc' => 'SecretMountDesc',
+        'slsConfigs' => 'SlsConfigs',
     ];
 
     public function validate()
@@ -201,6 +207,10 @@ class sidecarContainersConfig extends Model
             }
         }
 
+        if (null !== $this->slsConfigs) {
+            $res['SlsConfigs'] = $this->slsConfigs;
+        }
+
         return $res;
     }
 
@@ -291,6 +301,10 @@ class sidecarContainersConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SlsConfigs'])) {
+            $model->slsConfigs = $map['SlsConfigs'];
         }
 
         return $model;
