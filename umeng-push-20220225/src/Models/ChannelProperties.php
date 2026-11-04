@@ -86,6 +86,16 @@ class ChannelProperties extends Model
     /**
      * @var string
      */
+    public $vivoTemplateId;
+
+    /**
+     * @var mixed[]
+     */
+    public $vivoTemplateParams;
+
+    /**
+     * @var string
+     */
     public $xiaomiChannelId;
     protected $_name = [
         'channelActivity' => 'channelActivity',
@@ -103,11 +113,16 @@ class ChannelProperties extends Model
         'vivoAddBadge' => 'vivoAddBadge',
         'vivoCategory' => 'vivoCategory',
         'vivoPushMode' => 'vivoPushMode',
+        'vivoTemplateId' => 'vivoTemplateId',
+        'vivoTemplateParams' => 'vivoTemplateParams',
         'xiaomiChannelId' => 'xiaomiChannelId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->vivoTemplateParams)) {
+            Model::validateArray($this->vivoTemplateParams);
+        }
         parent::validate();
     }
 
@@ -172,6 +187,19 @@ class ChannelProperties extends Model
 
         if (null !== $this->vivoPushMode) {
             $res['vivoPushMode'] = $this->vivoPushMode;
+        }
+
+        if (null !== $this->vivoTemplateId) {
+            $res['vivoTemplateId'] = $this->vivoTemplateId;
+        }
+
+        if (null !== $this->vivoTemplateParams) {
+            if (\is_array($this->vivoTemplateParams)) {
+                $res['vivoTemplateParams'] = [];
+                foreach ($this->vivoTemplateParams as $key1 => $value1) {
+                    $res['vivoTemplateParams'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->xiaomiChannelId) {
@@ -247,6 +275,19 @@ class ChannelProperties extends Model
 
         if (isset($map['vivoPushMode'])) {
             $model->vivoPushMode = $map['vivoPushMode'];
+        }
+
+        if (isset($map['vivoTemplateId'])) {
+            $model->vivoTemplateId = $map['vivoTemplateId'];
+        }
+
+        if (isset($map['vivoTemplateParams'])) {
+            if (!empty($map['vivoTemplateParams'])) {
+                $model->vivoTemplateParams = [];
+                foreach ($map['vivoTemplateParams'] as $key1 => $value1) {
+                    $model->vivoTemplateParams[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['xiaomiChannelId'])) {
