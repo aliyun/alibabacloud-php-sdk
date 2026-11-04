@@ -21,6 +21,12 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\CheckUserAuthToMsceneRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CheckUserAuthToMsceneResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateGatewayApiGroupRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateGatewayApiGroupResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateGatewayApiGroupShrinkRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateGatewayApiRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateGatewayApiResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateGatewayApiShrinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateLinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateLinkResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpGroupRequest;
@@ -74,6 +80,10 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteCubecardWhitelistContentRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteCubecardWhitelistContentResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteGatewayApiGroupRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteGatewayApiGroupResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteGatewayApiRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteGatewayApiResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpAimRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpAimResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpCrowdRequest;
@@ -98,6 +108,9 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExistMcubeRsaKeyRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExistMcubeRsaKeyResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportGatewayApisRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportGatewayApisResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportGatewayApisShrinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportMappCenterAppConfigRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportMappCenterAppConfigResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetAuthTokenToMsenceRequest;
@@ -106,6 +119,10 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetFileTokenForUploadToMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetFileTokenForUploadToMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetGameReviewByStatusRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetGameReviewByStatusResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetGatewayApiGroupRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetGatewayApiGroupResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetGatewayApiRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetGatewayApiResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetLogUrlInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetLogUrlInMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMcubeFileTokenRequest;
@@ -128,10 +145,16 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppEnhanceProcessInMsaRequest
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppEnhanceProcessInMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppUploadProcessInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppUploadProcessInMsaResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ImportGatewayApisRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ImportGatewayApisResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListAnalysisCoreIndexRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListAnalysisCoreIndexResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListCubecardAppsRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListCubecardAppsResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListGatewayApiGroupsRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListGatewayApiGroupsResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListGatewayApisRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListGatewayApisResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterAppsResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterWorkspacesResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcdpAimRequest;
@@ -220,6 +243,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsTestreqbodyautogenRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsTestreqbodyautogenResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMiniGameInfoByAppRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMiniGameInfoByAppResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMiniGameQualificationByAppRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMiniGameQualificationByAppResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMpsSchedulerListRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMpsSchedulerListResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMscpRiskInfoRequest;
@@ -248,6 +273,12 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveOrderRelationInfoToMsenceRequest
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveOrderRelationInfoToMsenceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateGatewayApiGroupRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateGatewayApiGroupResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateGatewayApiGroupShrinkRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateGatewayApiRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateGatewayApiResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateGatewayApiShrinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateLinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateLinkResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMcubeHotpatchTaskStatusRequest;
@@ -937,6 +968,344 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->copyMcdpGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建网关 API.
+     *
+     * @param tmpReq - CreateGatewayApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGatewayApiResponse
+     *
+     * @param CreateGatewayApiRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateGatewayApiResponse
+     */
+    public function createGatewayApiWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateGatewayApiShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cacheRule) {
+            $request->cacheRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cacheRule, 'CacheRule', 'json');
+        }
+
+        if (null !== $tmpReq->defaultLimitRule) {
+            $request->defaultLimitRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->defaultLimitRule, 'DefaultLimitRule', 'json');
+        }
+
+        if (null !== $tmpReq->headerRules) {
+            $request->headerRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->headerRules, 'HeaderRules', 'json');
+        }
+
+        if (null !== $tmpReq->limitRule) {
+            $request->limitRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->limitRule, 'LimitRule', 'json');
+        }
+
+        if (null !== $tmpReq->migrateRule) {
+            $request->migrateRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->migrateRule, 'MigrateRule', 'json');
+        }
+
+        if (null !== $tmpReq->mockRule) {
+            $request->mockRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->mockRule, 'MockRule', 'json');
+        }
+
+        if (null !== $tmpReq->requestParams) {
+            $request->requestParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requestParams, 'RequestParams', 'json');
+        }
+
+        if (null !== $tmpReq->rpcParameterTypes) {
+            $request->rpcParameterTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rpcParameterTypes, 'RpcParameterTypes', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->apiName) {
+            @$body['ApiName'] = $request->apiName;
+        }
+
+        if (null !== $request->apiStatus) {
+            @$body['ApiStatus'] = $request->apiStatus;
+        }
+
+        if (null !== $request->apiType) {
+            @$body['ApiType'] = $request->apiType;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->authRuleName) {
+            @$body['AuthRuleName'] = $request->authRuleName;
+        }
+
+        if (null !== $request->cacheRuleShrink) {
+            @$body['CacheRule'] = $request->cacheRuleShrink;
+        }
+
+        if (null !== $request->charset) {
+            @$body['Charset'] = $request->charset;
+        }
+
+        if (null !== $request->contentType) {
+            @$body['ContentType'] = $request->contentType;
+        }
+
+        if (null !== $request->defaultLimitRuleShrink) {
+            @$body['DefaultLimitRule'] = $request->defaultLimitRuleShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->headerRulesShrink) {
+            @$body['HeaderRules'] = $request->headerRulesShrink;
+        }
+
+        if (null !== $request->interfaceType) {
+            @$body['InterfaceType'] = $request->interfaceType;
+        }
+
+        if (null !== $request->limitRuleShrink) {
+            @$body['LimitRule'] = $request->limitRuleShrink;
+        }
+
+        if (null !== $request->method) {
+            @$body['Method'] = $request->method;
+        }
+
+        if (null !== $request->methodName) {
+            @$body['MethodName'] = $request->methodName;
+        }
+
+        if (null !== $request->migrateRuleShrink) {
+            @$body['MigrateRule'] = $request->migrateRuleShrink;
+        }
+
+        if (null !== $request->mockRuleShrink) {
+            @$body['MockRule'] = $request->mockRuleShrink;
+        }
+
+        if (null !== $request->needEncrypt) {
+            @$body['NeedEncrypt'] = $request->needEncrypt;
+        }
+
+        if (null !== $request->needJsonp) {
+            @$body['NeedJsonp'] = $request->needJsonp;
+        }
+
+        if (null !== $request->needSign) {
+            @$body['NeedSign'] = $request->needSign;
+        }
+
+        if (null !== $request->operationType) {
+            @$body['OperationType'] = $request->operationType;
+        }
+
+        if (null !== $request->path) {
+            @$body['Path'] = $request->path;
+        }
+
+        if (null !== $request->requestBodyModel) {
+            @$body['RequestBodyModel'] = $request->requestBodyModel;
+        }
+
+        if (null !== $request->requestParamsShrink) {
+            @$body['RequestParams'] = $request->requestParamsShrink;
+        }
+
+        if (null !== $request->responseBodyModel) {
+            @$body['ResponseBodyModel'] = $request->responseBodyModel;
+        }
+
+        if (null !== $request->rpcParameterTypesShrink) {
+            @$body['RpcParameterTypes'] = $request->rpcParameterTypesShrink;
+        }
+
+        if (null !== $request->serialization) {
+            @$body['Serialization'] = $request->serialization;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGatewayApi',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGatewayApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建网关 API.
+     *
+     * @param request - CreateGatewayApiRequest
+     *
+     * @returns CreateGatewayApiResponse
+     *
+     * @param CreateGatewayApiRequest $request
+     *
+     * @return CreateGatewayApiResponse
+     */
+    public function createGatewayApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGatewayApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建网关 API 分组.
+     *
+     * @param tmpReq - CreateGatewayApiGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGatewayApiGroupResponse
+     *
+     * @param CreateGatewayApiGroupRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateGatewayApiGroupResponse
+     */
+    public function createGatewayApiGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateGatewayApiGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->centers) {
+            $request->centersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->centers, 'Centers', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->centersShrink) {
+            @$body['Centers'] = $request->centersShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->enableMTLS) {
+            @$body['EnableMTLS'] = $request->enableMTLS;
+        }
+
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->host) {
+            @$body['Host'] = $request->host;
+        }
+
+        if (null !== $request->httpsModel) {
+            @$body['HttpsModel'] = $request->httpsModel;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instancePort) {
+            @$body['InstancePort'] = $request->instancePort;
+        }
+
+        if (null !== $request->regionMode) {
+            @$body['RegionMode'] = $request->regionMode;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->upstreamType) {
+            @$body['UpstreamType'] = $request->upstreamType;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vpcModel) {
+            @$body['VpcModel'] = $request->vpcModel;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGatewayApiGroup',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGatewayApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建网关 API 分组.
+     *
+     * @param request - CreateGatewayApiGroupRequest
+     *
+     * @returns CreateGatewayApiGroupResponse
+     *
+     * @param CreateGatewayApiGroupRequest $request
+     *
+     * @return CreateGatewayApiGroupResponse
+     */
+    public function createGatewayApiGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGatewayApiGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -3356,6 +3725,144 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 删除网关 API.
+     *
+     * @param request - DeleteGatewayApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayApiResponse
+     *
+     * @param DeleteGatewayApiRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteGatewayApiResponse
+     */
+    public function deleteGatewayApiWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiId) {
+            @$body['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGatewayApi',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGatewayApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网关 API.
+     *
+     * @param request - DeleteGatewayApiRequest
+     *
+     * @returns DeleteGatewayApiResponse
+     *
+     * @param DeleteGatewayApiRequest $request
+     *
+     * @return DeleteGatewayApiResponse
+     */
+    public function deleteGatewayApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除网关 API 分组.
+     *
+     * @param request - DeleteGatewayApiGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayApiGroupResponse
+     *
+     * @param DeleteGatewayApiGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteGatewayApiGroupResponse
+     */
+    public function deleteGatewayApiGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGatewayApiGroup',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGatewayApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网关 API 分组.
+     *
+     * @param request - DeleteGatewayApiGroupRequest
+     *
+     * @returns DeleteGatewayApiGroupResponse
+     *
+     * @param DeleteGatewayApiGroupRequest $request
+     *
+     * @return DeleteGatewayApiGroupResponse
+     */
+    public function deleteGatewayApiGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteGatewayApiGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DeleteMcdpAimRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4156,6 +4663,81 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 导出网关 API.
+     *
+     * @param tmpReq - ExportGatewayApisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportGatewayApisResponse
+     *
+     * @param ExportGatewayApisRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ExportGatewayApisResponse
+     */
+    public function exportGatewayApisWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ExportGatewayApisShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->apiIds) {
+            $request->apiIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiIds, 'ApiIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->apiIdsShrink) {
+            @$body['ApiIds'] = $request->apiIdsShrink;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExportGatewayApis',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportGatewayApisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导出网关 API.
+     *
+     * @param request - ExportGatewayApisRequest
+     *
+     * @returns ExportGatewayApisResponse
+     *
+     * @param ExportGatewayApisRequest $request
+     *
+     * @return ExportGatewayApisResponse
+     */
+    public function exportGatewayApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportGatewayApisWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - ExportMappCenterAppConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4457,6 +5039,144 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getGameReviewByStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询网关 API 详情.
+     *
+     * @param request - GetGatewayApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGatewayApiResponse
+     *
+     * @param GetGatewayApiRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetGatewayApiResponse
+     */
+    public function getGatewayApiWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiId) {
+            @$body['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetGatewayApi',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGatewayApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关 API 详情.
+     *
+     * @param request - GetGatewayApiRequest
+     *
+     * @returns GetGatewayApiResponse
+     *
+     * @param GetGatewayApiRequest $request
+     *
+     * @return GetGatewayApiResponse
+     */
+    public function getGatewayApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGatewayApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询网关 API 分组详情.
+     *
+     * @param request - GetGatewayApiGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGatewayApiGroupResponse
+     *
+     * @param GetGatewayApiGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetGatewayApiGroupResponse
+     */
+    public function getGatewayApiGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetGatewayApiGroup',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGatewayApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关 API 分组详情.
+     *
+     * @param request - GetGatewayApiGroupRequest
+     *
+     * @returns GetGatewayApiGroupResponse
+     *
+     * @param GetGatewayApiGroupRequest $request
+     *
+     * @return GetGatewayApiGroupResponse
+     */
+    public function getGatewayApiGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getGatewayApiGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -5183,6 +5903,79 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 导入网关 API.
+     *
+     * @param request - ImportGatewayApisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportGatewayApisResponse
+     *
+     * @param ImportGatewayApisRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ImportGatewayApisResponse
+     */
+    public function importGatewayApisWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->importMode) {
+            @$body['ImportMode'] = $request->importMode;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportGatewayApis',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportGatewayApisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入网关 API.
+     *
+     * @param request - ImportGatewayApisRequest
+     *
+     * @returns ImportGatewayApisResponse
+     *
+     * @param ImportGatewayApisRequest $request
+     *
+     * @return ImportGatewayApisResponse
+     */
+    public function importGatewayApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importGatewayApisWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询报表.
      *
      * @param request - ListAnalysisCoreIndexRequest
@@ -5315,6 +6108,180 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCubecardAppsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询网关 API 分组列表.
+     *
+     * @param request - ListGatewayApiGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayApiGroupsResponse
+     *
+     * @param ListGatewayApiGroupsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListGatewayApiGroupsResponse
+     */
+    public function listGatewayApiGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->upstreamType) {
+            @$body['UpstreamType'] = $request->upstreamType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayApiGroups',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayApiGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关 API 分组列表.
+     *
+     * @param request - ListGatewayApiGroupsRequest
+     *
+     * @returns ListGatewayApiGroupsResponse
+     *
+     * @param ListGatewayApiGroupsRequest $request
+     *
+     * @return ListGatewayApiGroupsResponse
+     */
+    public function listGatewayApiGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayApiGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询网关 API 列表.
+     *
+     * @param request - ListGatewayApisRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayApisResponse
+     *
+     * @param ListGatewayApisRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListGatewayApisResponse
+     */
+    public function listGatewayApisWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiStatus) {
+            @$body['ApiStatus'] = $request->apiStatus;
+        }
+
+        if (null !== $request->apiType) {
+            @$body['ApiType'] = $request->apiType;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sysName) {
+            @$body['SysName'] = $request->sysName;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayApis',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayApisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关 API 列表.
+     *
+     * @param request - ListGatewayApisRequest
+     *
+     * @returns ListGatewayApisResponse
+     *
+     * @param ListGatewayApisRequest $request
+     *
+     * @return ListGatewayApisResponse
+     */
+    public function listGatewayApis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGatewayApisWithOptions($request, $runtime);
     }
 
     /**
@@ -8849,6 +9816,75 @@ class MPaaS extends OpenApiClient
     }
 
     /**
+     * 查询小游戏已审核通过的资质信息.
+     *
+     * @param request - QueryMiniGameQualificationByAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMiniGameQualificationByAppResponse
+     *
+     * @param QueryMiniGameQualificationByAppRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return QueryMiniGameQualificationByAppResponse
+     */
+    public function queryMiniGameQualificationByAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->miniProgramCode) {
+            @$body['MiniProgramCode'] = $request->miniProgramCode;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMiniGameQualificationByApp',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMiniGameQualificationByAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询小游戏已审核通过的资质信息.
+     *
+     * @param request - QueryMiniGameQualificationByAppRequest
+     *
+     * @returns QueryMiniGameQualificationByAppResponse
+     *
+     * @param QueryMiniGameQualificationByAppRequest $request
+     *
+     * @return QueryMiniGameQualificationByAppResponse
+     */
+    public function queryMiniGameQualificationByApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMiniGameQualificationByAppWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - QueryMpsSchedulerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9982,6 +11018,352 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startUserAppAsyncEnhanceInMsaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新网关 API.
+     *
+     * @param tmpReq - UpdateGatewayApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayApiResponse
+     *
+     * @param UpdateGatewayApiRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateGatewayApiResponse
+     */
+    public function updateGatewayApiWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateGatewayApiShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cacheRule) {
+            $request->cacheRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cacheRule, 'CacheRule', 'json');
+        }
+
+        if (null !== $tmpReq->defaultLimitRule) {
+            $request->defaultLimitRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->defaultLimitRule, 'DefaultLimitRule', 'json');
+        }
+
+        if (null !== $tmpReq->headerRules) {
+            $request->headerRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->headerRules, 'HeaderRules', 'json');
+        }
+
+        if (null !== $tmpReq->limitRule) {
+            $request->limitRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->limitRule, 'LimitRule', 'json');
+        }
+
+        if (null !== $tmpReq->migrateRule) {
+            $request->migrateRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->migrateRule, 'MigrateRule', 'json');
+        }
+
+        if (null !== $tmpReq->mockRule) {
+            $request->mockRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->mockRule, 'MockRule', 'json');
+        }
+
+        if (null !== $tmpReq->requestParams) {
+            $request->requestParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requestParams, 'RequestParams', 'json');
+        }
+
+        if (null !== $tmpReq->rpcParameterTypes) {
+            $request->rpcParameterTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rpcParameterTypes, 'RpcParameterTypes', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->apiId) {
+            @$body['ApiId'] = $request->apiId;
+        }
+
+        if (null !== $request->apiName) {
+            @$body['ApiName'] = $request->apiName;
+        }
+
+        if (null !== $request->apiStatus) {
+            @$body['ApiStatus'] = $request->apiStatus;
+        }
+
+        if (null !== $request->apiType) {
+            @$body['ApiType'] = $request->apiType;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->authRuleName) {
+            @$body['AuthRuleName'] = $request->authRuleName;
+        }
+
+        if (null !== $request->cacheRuleShrink) {
+            @$body['CacheRule'] = $request->cacheRuleShrink;
+        }
+
+        if (null !== $request->charset) {
+            @$body['Charset'] = $request->charset;
+        }
+
+        if (null !== $request->contentType) {
+            @$body['ContentType'] = $request->contentType;
+        }
+
+        if (null !== $request->defaultLimitRuleShrink) {
+            @$body['DefaultLimitRule'] = $request->defaultLimitRuleShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->headerRulesShrink) {
+            @$body['HeaderRules'] = $request->headerRulesShrink;
+        }
+
+        if (null !== $request->interfaceType) {
+            @$body['InterfaceType'] = $request->interfaceType;
+        }
+
+        if (null !== $request->limitRuleShrink) {
+            @$body['LimitRule'] = $request->limitRuleShrink;
+        }
+
+        if (null !== $request->method) {
+            @$body['Method'] = $request->method;
+        }
+
+        if (null !== $request->methodName) {
+            @$body['MethodName'] = $request->methodName;
+        }
+
+        if (null !== $request->migrateRuleShrink) {
+            @$body['MigrateRule'] = $request->migrateRuleShrink;
+        }
+
+        if (null !== $request->mockRuleShrink) {
+            @$body['MockRule'] = $request->mockRuleShrink;
+        }
+
+        if (null !== $request->needEncrypt) {
+            @$body['NeedEncrypt'] = $request->needEncrypt;
+        }
+
+        if (null !== $request->needJsonp) {
+            @$body['NeedJsonp'] = $request->needJsonp;
+        }
+
+        if (null !== $request->needSign) {
+            @$body['NeedSign'] = $request->needSign;
+        }
+
+        if (null !== $request->operationType) {
+            @$body['OperationType'] = $request->operationType;
+        }
+
+        if (null !== $request->path) {
+            @$body['Path'] = $request->path;
+        }
+
+        if (null !== $request->requestBodyModel) {
+            @$body['RequestBodyModel'] = $request->requestBodyModel;
+        }
+
+        if (null !== $request->requestParamsShrink) {
+            @$body['RequestParams'] = $request->requestParamsShrink;
+        }
+
+        if (null !== $request->responseBodyModel) {
+            @$body['ResponseBodyModel'] = $request->responseBodyModel;
+        }
+
+        if (null !== $request->rpcParameterTypesShrink) {
+            @$body['RpcParameterTypes'] = $request->rpcParameterTypesShrink;
+        }
+
+        if (null !== $request->serialization) {
+            @$body['Serialization'] = $request->serialization;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGatewayApi',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayApiResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网关 API.
+     *
+     * @param request - UpdateGatewayApiRequest
+     *
+     * @returns UpdateGatewayApiResponse
+     *
+     * @param UpdateGatewayApiRequest $request
+     *
+     * @return UpdateGatewayApiResponse
+     */
+    public function updateGatewayApi($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新网关 API 分组.
+     *
+     * @param tmpReq - UpdateGatewayApiGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayApiGroupResponse
+     *
+     * @param UpdateGatewayApiGroupRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateGatewayApiGroupResponse
+     */
+    public function updateGatewayApiGroupWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateGatewayApiGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->centers) {
+            $request->centersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->centers, 'Centers', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->centersShrink) {
+            @$body['Centers'] = $request->centersShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->domainName) {
+            @$body['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->enableMTLS) {
+            @$body['EnableMTLS'] = $request->enableMTLS;
+        }
+
+        if (null !== $request->groupId) {
+            @$body['GroupId'] = $request->groupId;
+        }
+
+        if (null !== $request->groupName) {
+            @$body['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->host) {
+            @$body['Host'] = $request->host;
+        }
+
+        if (null !== $request->httpsModel) {
+            @$body['HttpsModel'] = $request->httpsModel;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instancePort) {
+            @$body['InstancePort'] = $request->instancePort;
+        }
+
+        if (null !== $request->regionMode) {
+            @$body['RegionMode'] = $request->regionMode;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->timeout) {
+            @$body['Timeout'] = $request->timeout;
+        }
+
+        if (null !== $request->upstreamType) {
+            @$body['UpstreamType'] = $request->upstreamType;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->vpcModel) {
+            @$body['VpcModel'] = $request->vpcModel;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGatewayApiGroup',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayApiGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网关 API 分组.
+     *
+     * @param request - UpdateGatewayApiGroupRequest
+     *
+     * @returns UpdateGatewayApiGroupResponse
+     *
+     * @param UpdateGatewayApiGroupRequest $request
+     *
+     * @return UpdateGatewayApiGroupResponse
+     */
+    public function updateGatewayApiGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayApiGroupWithOptions($request, $runtime);
     }
 
     /**

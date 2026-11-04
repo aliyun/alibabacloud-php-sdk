@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMiniGameInfoByAppResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMiniGameInfoByAppResponseBody\content\userProfileData;
 
 class content extends Model
 {
@@ -74,6 +75,11 @@ class content extends Model
     public $slogan;
 
     /**
+     * @var userProfileData
+     */
+    public $userProfileData;
+
+    /**
      * @var string
      */
     public $version;
@@ -91,11 +97,15 @@ class content extends Model
         'miniProgramId' => 'MiniProgramId',
         'miniProgramName' => 'MiniProgramName',
         'slogan' => 'Slogan',
+        'userProfileData' => 'UserProfileData',
         'version' => 'Version',
     ];
 
     public function validate()
     {
+        if (null !== $this->userProfileData) {
+            $this->userProfileData->validate();
+        }
         parent::validate();
     }
 
@@ -152,6 +162,10 @@ class content extends Model
 
         if (null !== $this->slogan) {
             $res['Slogan'] = $this->slogan;
+        }
+
+        if (null !== $this->userProfileData) {
+            $res['UserProfileData'] = null !== $this->userProfileData ? $this->userProfileData->toArray($noStream) : $this->userProfileData;
         }
 
         if (null !== $this->version) {
@@ -219,6 +233,10 @@ class content extends Model
 
         if (isset($map['Slogan'])) {
             $model->slogan = $map['Slogan'];
+        }
+
+        if (isset($map['UserProfileData'])) {
+            $model->userProfileData = userProfileData::fromMap($map['UserProfileData']);
         }
 
         if (isset($map['Version'])) {
