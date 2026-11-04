@@ -31,12 +31,18 @@ class ResetUserPasswordRequest extends Model
     /**
      * @var string
      */
+    public $resetMethod;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'directoryId' => 'DirectoryId',
         'generateRandomPassword' => 'GenerateRandomPassword',
         'password' => 'Password',
         'requirePasswordResetForNextLogin' => 'RequirePasswordResetForNextLogin',
+        'resetMethod' => 'ResetMethod',
         'userId' => 'UserId',
     ];
 
@@ -62,6 +68,10 @@ class ResetUserPasswordRequest extends Model
 
         if (null !== $this->requirePasswordResetForNextLogin) {
             $res['RequirePasswordResetForNextLogin'] = $this->requirePasswordResetForNextLogin;
+        }
+
+        if (null !== $this->resetMethod) {
+            $res['ResetMethod'] = $this->resetMethod;
         }
 
         if (null !== $this->userId) {
@@ -93,6 +103,10 @@ class ResetUserPasswordRequest extends Model
 
         if (isset($map['RequirePasswordResetForNextLogin'])) {
             $model->requirePasswordResetForNextLogin = $map['RequirePasswordResetForNextLogin'];
+        }
+
+        if (isset($map['ResetMethod'])) {
+            $model->resetMethod = $map['ResetMethod'];
         }
 
         if (isset($map['UserId'])) {

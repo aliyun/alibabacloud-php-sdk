@@ -4371,7 +4371,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the relationships between resources and tags.
+     * Queries the associations between resources and tags.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4426,7 +4426,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Queries the relationships between resources and tags.
+     * Queries the associations between resources and tags.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -5113,6 +5113,10 @@ class Cloudsso extends OpenApiClient
             @$query['RequirePasswordResetForNextLogin'] = $request->requirePasswordResetForNextLogin;
         }
 
+        if (null !== $request->resetMethod) {
+            @$query['ResetMethod'] = $request->resetMethod;
+        }
+
         if (null !== $request->userId) {
             @$query['UserId'] = $request->userId;
         }
@@ -5619,7 +5623,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Tags resources.
+     * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5670,7 +5674,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Tags resources.
+     * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -5688,7 +5692,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Untags resources.
+     * Removes tags from resources.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5743,7 +5747,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Untags resources.
+     * Removes tags from resources.
      *
      * @param request - UntagResourcesRequest
      *

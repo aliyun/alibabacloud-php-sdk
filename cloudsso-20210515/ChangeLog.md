@@ -1,3 +1,7 @@
+2026-11-04 Version: 1.7.2
+- Update API ResetUserPassword: add request parameters ResetMethod.
+
+
 2026-11-02 Version: 1.7.1
 - Generated php 2021-05-15 for cloudsso.
 
