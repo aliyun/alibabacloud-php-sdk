@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $adbSparkResourceGroup;
+
+    /**
+     * @var string
+     */
     public $alias;
 
     /**
@@ -128,6 +133,7 @@ class data extends Model
      */
     public $useSsl;
     protected $_name = [
+        'adbSparkResourceGroup' => 'AdbSparkResourceGroup',
         'alias' => 'Alias',
         'authAccount' => 'AuthAccount',
         'authPassword' => 'AuthPassword',
@@ -162,6 +168,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adbSparkResourceGroup) {
+            $res['AdbSparkResourceGroup'] = $this->adbSparkResourceGroup;
+        }
+
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
@@ -269,6 +279,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdbSparkResourceGroup'])) {
+            $model->adbSparkResourceGroup = $map['AdbSparkResourceGroup'];
+        }
+
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }

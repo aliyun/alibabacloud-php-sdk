@@ -325,7 +325,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a data source accessible by the Agent data gateway.
+     * Creates a data source that can be accessed by the Agent data gateway.
      *
      * @remarks
      * Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
@@ -344,6 +344,10 @@ class Dms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->adbSparkResourceGroup) {
+            @$query['AdbSparkResourceGroup'] = $request->adbSparkResourceGroup;
+        }
+
         if (null !== $request->alias) {
             @$query['Alias'] = $request->alias;
         }
@@ -455,7 +459,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a data source accessible by the Agent data gateway.
+     * Creates a data source that can be accessed by the Agent data gateway.
      *
      * @remarks
      * Enter the connection and authentication information for the data source. The connection is automatically tested before saving. If the test succeeds, the data source is created and metadata synchronization starts.
@@ -1832,7 +1836,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a DataAgent workspace.
+     * Creates a DataAgent collaborative workspace.
      *
      * @param request - CreateDataAgentWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1848,6 +1852,10 @@ class Dms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
         if (null !== $request->DMSUnit) {
             @$query['DMSUnit'] = $request->DMSUnit;
         }
@@ -1883,7 +1891,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a DataAgent workspace.
+     * Creates a DataAgent collaborative workspace.
      *
      * @param request - CreateDataAgentWorkspaceRequest
      *
@@ -1989,7 +1997,7 @@ class Dms extends OpenApiClient
      * Deletes a data source and its associated metadata catalog.
      *
      * @remarks
-     * After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+     * After deletion, the data source can no longer establish connections and cannot be recovered by calling the enable API operation.
      *
      * @param request - DeleteAgenticDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2031,7 +2039,7 @@ class Dms extends OpenApiClient
      * Deletes a data source and its associated metadata catalog.
      *
      * @remarks
-     * After deletion, the data source cannot establish connections and cannot be restored by calling the enable API operation.
+     * After deletion, the data source can no longer establish connections and cannot be recovered by calling the enable API operation.
      *
      * @param request - DeleteAgenticDataSourceRequest
      *
@@ -3835,7 +3843,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data source by its UUID.
+     * Queries the details of a data source by UUID.
      *
      * @remarks
      * Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
@@ -3877,7 +3885,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data source by its UUID.
+     * Queries the details of a data source by UUID.
      *
      * @remarks
      * Queries the connection, authentication, status, and metadata catalog information of a specified data source under the current account. Only masked values are returned for passwords.
@@ -4645,7 +4653,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the details of a workspace.
+     * Retrieves the details of a collaborative workspace.
      *
      * @param request - GetDataAgentWorkspaceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4688,7 +4696,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the details of a workspace.
+     * Retrieves the details of a collaborative workspace.
      *
      * @param request - GetDataAgentWorkspaceInfoRequest
      *
@@ -4706,7 +4714,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+     * Queries the connectivity and tool list results of an MCP server based on the session ID returned when the detection was started.
      *
      * @param request - GetListMcpServerToolsResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4753,7 +4761,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
+     * Queries the connectivity and tool list results of an MCP server based on the session ID returned when the detection was started.
      *
      * @param request - GetListMcpServerToolsResultRequest
      *
@@ -5847,12 +5855,12 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+     * Queries the user security policy of the current Alibaba Cloud account by using paging and returns the enabled system default security policy.
      *
      * @remarks
      * This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
-     * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
-     * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+     * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned, and they are not filtered by PolicyStatus or IncludeArchived.
+     * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of entries in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
      * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
      * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
      *
@@ -5905,12 +5913,12 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the user security policy of the current Alibaba Cloud account by page and returns the enabled system default security policy.
+     * Queries the user security policy of the current Alibaba Cloud account by using paging and returns the enabled system default security policy.
      *
      * @remarks
      * This operation returns the enabled system default policies and the user policies of the current Alibaba Cloud account.
-     * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned. They are not filtered by PolicyStatus or IncludeArchived.
-     * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of items in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
+     * - System default policies are placed at the beginning of the list. Only policies in the ON (enabled) state are returned, and they are not filtered by PolicyStatus or IncludeArchived.
+     * - Page and Size are used to paginate user policies. Each call also returns up to Size enabled system default policies. Therefore, the number of entries in Data may be greater than Size, and the same system default policies may be repeatedly returned during pagination.
      * - TotalCount is the sum of the number of all enabled system default policies and the number of user policies that meet the filter conditions.
      * - You can use Readonly to distinguish between the two types of policies: true indicates a system default policy, and false indicates a user policy.
      *
@@ -9489,6 +9497,10 @@ class Dms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->adbSparkResourceGroup) {
+            @$query['AdbSparkResourceGroup'] = $request->adbSparkResourceGroup;
+        }
+
         if (null !== $request->alias) {
             @$query['Alias'] = $request->alias;
         }
@@ -9620,7 +9632,7 @@ class Dms extends OpenApiClient
      * Updates the connection, authentication, or display information of an existing data source.
      *
      * @remarks
-     * Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
+     * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
      *
      * @param request - UpdateAgenticDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9636,6 +9648,10 @@ class Dms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->adbSparkResourceGroup) {
+            @$query['AdbSparkResourceGroup'] = $request->adbSparkResourceGroup;
+        }
+
         if (null !== $request->alias) {
             @$query['Alias'] = $request->alias;
         }
@@ -9738,7 +9754,7 @@ class Dms extends OpenApiClient
      * Updates the connection, authentication, or display information of an existing data source.
      *
      * @remarks
-     * Only the parameters passed in the current request are modified. Unspecified parameters remain unchanged. The data source type cannot be modified.
+     * Only the parameters passed in the current request are modified. Unpassed parameters remain unchanged. The data source type cannot be modified.
      *
      * @param request - UpdateAgenticDataSourceRequest
      *
@@ -10065,7 +10081,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Updates workspace information.
+     * Updates the information of a workspace.
      *
      * @param request - UpdateDataAgentSpaceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10081,6 +10097,10 @@ class Dms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
         if (null !== $request->DMSUnit) {
             @$query['DMSUnit'] = $request->DMSUnit;
         }
@@ -10120,7 +10140,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Updates workspace information.
+     * Updates the information of a workspace.
      *
      * @param request - UpdateDataAgentSpaceInfoRequest
      *

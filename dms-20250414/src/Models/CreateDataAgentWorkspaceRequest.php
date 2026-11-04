@@ -11,6 +11,11 @@ class CreateDataAgentWorkspaceRequest extends Model
     /**
      * @var string
      */
+    public $config;
+
+    /**
+     * @var string
+     */
     public $DMSUnit;
 
     /**
@@ -28,6 +33,7 @@ class CreateDataAgentWorkspaceRequest extends Model
      */
     public $workspaceName;
     protected $_name = [
+        'config' => 'Config',
         'DMSUnit' => 'DMSUnit',
         'isSessionShareEnabled' => 'IsSessionShareEnabled',
         'workspaceDesc' => 'WorkspaceDesc',
@@ -42,6 +48,10 @@ class CreateDataAgentWorkspaceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
+        }
+
         if (null !== $this->DMSUnit) {
             $res['DMSUnit'] = $this->DMSUnit;
         }
@@ -69,6 +79,10 @@ class CreateDataAgentWorkspaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
+
         if (isset($map['DMSUnit'])) {
             $model->DMSUnit = $map['DMSUnit'];
         }

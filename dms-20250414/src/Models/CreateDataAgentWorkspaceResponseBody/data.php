@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $config;
+
+    /**
      * @var int
      */
     public $createTime;
@@ -63,6 +68,7 @@ class data extends Model
      */
     public $workspaceStatus;
     protected $_name = [
+        'config' => 'Config',
         'createTime' => 'CreateTime',
         'creator' => 'Creator',
         'isSessionShareEnabled' => 'IsSessionShareEnabled',
@@ -84,6 +90,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -139,6 +149,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
