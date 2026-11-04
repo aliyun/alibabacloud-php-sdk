@@ -58,6 +58,11 @@ class orderItems extends Model
      * @var string
      */
     public $savingPlanPeriod;
+
+    /**
+     * @var int
+     */
+    public $unifiedExpireDay;
     protected $_name = [
         'amount' => 'Amount',
         'components' => 'Components',
@@ -69,6 +74,7 @@ class orderItems extends Model
         'resourceIds' => 'ResourceIds',
         'resourceType' => 'ResourceType',
         'savingPlanPeriod' => 'SavingPlanPeriod',
+        'unifiedExpireDay' => 'UnifiedExpireDay',
     ];
 
     public function validate()
@@ -149,6 +155,10 @@ class orderItems extends Model
             $res['SavingPlanPeriod'] = $this->savingPlanPeriod;
         }
 
+        if (null !== $this->unifiedExpireDay) {
+            $res['UnifiedExpireDay'] = $this->unifiedExpireDay;
+        }
+
         return $res;
     }
 
@@ -219,6 +229,10 @@ class orderItems extends Model
 
         if (isset($map['SavingPlanPeriod'])) {
             $model->savingPlanPeriod = $map['SavingPlanPeriod'];
+        }
+
+        if (isset($map['UnifiedExpireDay'])) {
+            $model->unifiedExpireDay = $map['UnifiedExpireDay'];
         }
 
         return $model;

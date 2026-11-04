@@ -9,9 +9,24 @@ use AlibabaCloud\Dara\Model;
 class deductions extends Model
 {
     /**
+     * @var string
+     */
+    public $agentType;
+
+    /**
      * @var int
      */
     public $cpu;
+
+    /**
+     * @var string
+     */
+    public $deductionRequestId;
+
+    /**
+     * @var string
+     */
+    public $deductionType;
 
     /**
      * @var string
@@ -61,12 +76,27 @@ class deductions extends Model
     /**
      * @var string
      */
+    public $model;
+
+    /**
+     * @var string
+     */
     public $osType;
 
     /**
      * @var string
      */
+    public $packageId;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceId;
 
     /**
      * @var string
@@ -82,6 +112,11 @@ class deductions extends Model
      * @var string
      */
     public $staTime;
+
+    /**
+     * @var string
+     */
+    public $summary;
 
     /**
      * @var float
@@ -103,7 +138,10 @@ class deductions extends Model
      */
     public $usedTimeWithScale;
     protected $_name = [
+        'agentType' => 'AgentType',
         'cpu' => 'Cpu',
+        'deductionRequestId' => 'DeductionRequestId',
+        'deductionType' => 'DeductionType',
         'desktopId' => 'DesktopId',
         'desktopName' => 'DesktopName',
         'desktopType' => 'DesktopType',
@@ -113,11 +151,15 @@ class deductions extends Model
         'instanceState' => 'InstanceState',
         'instanceType' => 'InstanceType',
         'memory' => 'Memory',
+        'model' => 'Model',
         'osType' => 'OsType',
+        'packageId' => 'PackageId',
         'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
         'sessionId' => 'SessionId',
         'staTime' => 'StaTime',
+        'summary' => 'Summary',
         'usedCoreTime' => 'UsedCoreTime',
         'usedTime' => 'UsedTime',
         'usedTimeDecimal' => 'UsedTimeDecimal',
@@ -132,8 +174,20 @@ class deductions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->deductionRequestId) {
+            $res['DeductionRequestId'] = $this->deductionRequestId;
+        }
+
+        if (null !== $this->deductionType) {
+            $res['DeductionType'] = $this->deductionType;
         }
 
         if (null !== $this->desktopId) {
@@ -172,12 +226,24 @@ class deductions extends Model
             $res['Memory'] = $this->memory;
         }
 
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
+
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
 
+        if (null !== $this->packageId) {
+            $res['PackageId'] = $this->packageId;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         if (null !== $this->resourceType) {
@@ -190,6 +256,10 @@ class deductions extends Model
 
         if (null !== $this->staTime) {
             $res['StaTime'] = $this->staTime;
+        }
+
+        if (null !== $this->summary) {
+            $res['Summary'] = $this->summary;
         }
 
         if (null !== $this->usedCoreTime) {
@@ -219,8 +289,20 @@ class deductions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['DeductionRequestId'])) {
+            $model->deductionRequestId = $map['DeductionRequestId'];
+        }
+
+        if (isset($map['DeductionType'])) {
+            $model->deductionType = $map['DeductionType'];
         }
 
         if (isset($map['DesktopId'])) {
@@ -259,12 +341,24 @@ class deductions extends Model
             $model->memory = $map['Memory'];
         }
 
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
+
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
 
+        if (isset($map['PackageId'])) {
+            $model->packageId = $map['PackageId'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         if (isset($map['ResourceType'])) {
@@ -277,6 +371,10 @@ class deductions extends Model
 
         if (isset($map['StaTime'])) {
             $model->staTime = $map['StaTime'];
+        }
+
+        if (isset($map['Summary'])) {
+            $model->summary = $map['Summary'];
         }
 
         if (isset($map['UsedCoreTime'])) {

@@ -29,6 +29,21 @@ class DescribeRunIdDeductionsRequest extends Model
     public $bizType;
 
     /**
+     * @var string
+     */
+    public $consumeWyId;
+
+    /**
+     * @var string[]
+     */
+    public $consumeWyIds;
+
+    /**
+     * @var string
+     */
+    public $deductionRequestId;
+
+    /**
      * @var string[]
      */
     public $deductionTypes;
@@ -56,6 +71,11 @@ class DescribeRunIdDeductionsRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $instanceIdType;
 
     /**
@@ -67,6 +87,11 @@ class DescribeRunIdDeductionsRequest extends Model
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $model;
 
     /**
      * @var string
@@ -99,6 +124,16 @@ class DescribeRunIdDeductionsRequest extends Model
     public $resourceTypes;
 
     /**
+     * @var string
+     */
+    public $runId;
+
+    /**
+     * @var string[]
+     */
+    public $runIdList;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -112,20 +147,27 @@ class DescribeRunIdDeductionsRequest extends Model
         'agentTypes' => 'AgentTypes',
         'aliUid' => 'AliUid',
         'bizType' => 'BizType',
+        'consumeWyId' => 'ConsumeWyId',
+        'consumeWyIds' => 'ConsumeWyIds',
+        'deductionRequestId' => 'DeductionRequestId',
         'deductionTypes' => 'DeductionTypes',
         'endTime' => 'EndTime',
         'groupByFields' => 'GroupByFields',
         'groupResourceTypes' => 'GroupResourceTypes',
         'groupSeparator' => 'GroupSeparator',
+        'instanceId' => 'InstanceId',
         'instanceIdType' => 'InstanceIdType',
         'instanceIds' => 'InstanceIds',
         'maxResults' => 'MaxResults',
+        'model' => 'Model',
         'nextToken' => 'NextToken',
         'packageIds' => 'PackageIds',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'resourceType' => 'ResourceType',
         'resourceTypes' => 'ResourceTypes',
+        'runId' => 'RunId',
+        'runIdList' => 'RunIdList',
         'startTime' => 'StartTime',
         'wyId' => 'WyId',
     ];
@@ -134,6 +176,9 @@ class DescribeRunIdDeductionsRequest extends Model
     {
         if (\is_array($this->agentTypes)) {
             Model::validateArray($this->agentTypes);
+        }
+        if (\is_array($this->consumeWyIds)) {
+            Model::validateArray($this->consumeWyIds);
         }
         if (\is_array($this->deductionTypes)) {
             Model::validateArray($this->deductionTypes);
@@ -152,6 +197,9 @@ class DescribeRunIdDeductionsRequest extends Model
         }
         if (\is_array($this->resourceTypes)) {
             Model::validateArray($this->resourceTypes);
+        }
+        if (\is_array($this->runIdList)) {
+            Model::validateArray($this->runIdList);
         }
         parent::validate();
     }
@@ -180,6 +228,25 @@ class DescribeRunIdDeductionsRequest extends Model
 
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+
+        if (null !== $this->consumeWyId) {
+            $res['ConsumeWyId'] = $this->consumeWyId;
+        }
+
+        if (null !== $this->consumeWyIds) {
+            if (\is_array($this->consumeWyIds)) {
+                $res['ConsumeWyIds'] = [];
+                $n1 = 0;
+                foreach ($this->consumeWyIds as $item1) {
+                    $res['ConsumeWyIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->deductionRequestId) {
+            $res['DeductionRequestId'] = $this->deductionRequestId;
         }
 
         if (null !== $this->deductionTypes) {
@@ -223,6 +290,10 @@ class DescribeRunIdDeductionsRequest extends Model
             $res['GroupSeparator'] = $this->groupSeparator;
         }
 
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->instanceIdType) {
             $res['InstanceIdType'] = $this->instanceIdType;
         }
@@ -240,6 +311,10 @@ class DescribeRunIdDeductionsRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
         }
 
         if (null !== $this->nextToken) {
@@ -275,6 +350,21 @@ class DescribeRunIdDeductionsRequest extends Model
                 $n1 = 0;
                 foreach ($this->resourceTypes as $item1) {
                     $res['ResourceTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->runId) {
+            $res['RunId'] = $this->runId;
+        }
+
+        if (null !== $this->runIdList) {
+            if (\is_array($this->runIdList)) {
+                $res['RunIdList'] = [];
+                $n1 = 0;
+                foreach ($this->runIdList as $item1) {
+                    $res['RunIdList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -322,6 +412,25 @@ class DescribeRunIdDeductionsRequest extends Model
             $model->bizType = $map['BizType'];
         }
 
+        if (isset($map['ConsumeWyId'])) {
+            $model->consumeWyId = $map['ConsumeWyId'];
+        }
+
+        if (isset($map['ConsumeWyIds'])) {
+            if (!empty($map['ConsumeWyIds'])) {
+                $model->consumeWyIds = [];
+                $n1 = 0;
+                foreach ($map['ConsumeWyIds'] as $item1) {
+                    $model->consumeWyIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['DeductionRequestId'])) {
+            $model->deductionRequestId = $map['DeductionRequestId'];
+        }
+
         if (isset($map['DeductionTypes'])) {
             if (!empty($map['DeductionTypes'])) {
                 $model->deductionTypes = [];
@@ -363,6 +472,10 @@ class DescribeRunIdDeductionsRequest extends Model
             $model->groupSeparator = $map['GroupSeparator'];
         }
 
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['InstanceIdType'])) {
             $model->instanceIdType = $map['InstanceIdType'];
         }
@@ -380,6 +493,10 @@ class DescribeRunIdDeductionsRequest extends Model
 
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
         }
 
         if (isset($map['NextToken'])) {
@@ -415,6 +532,21 @@ class DescribeRunIdDeductionsRequest extends Model
                 $n1 = 0;
                 foreach ($map['ResourceTypes'] as $item1) {
                     $model->resourceTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RunId'])) {
+            $model->runId = $map['RunId'];
+        }
+
+        if (isset($map['RunIdList'])) {
+            if (!empty($map['RunIdList'])) {
+                $model->runIdList = [];
+                $n1 = 0;
+                foreach ($map['RunIdList'] as $item1) {
+                    $model->runIdList[$n1] = $item1;
                     ++$n1;
                 }
             }

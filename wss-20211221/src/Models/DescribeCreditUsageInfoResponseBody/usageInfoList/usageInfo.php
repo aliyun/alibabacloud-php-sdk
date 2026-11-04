@@ -63,7 +63,27 @@ class usageInfo extends Model
     /**
      * @var int
      */
+    public $periodCreditQuota;
+
+    /**
+     * @var int
+     */
+    public $periodPayGoUsedCredit;
+
+    /**
+     * @var int
+     */
+    public $periodSharedUsedCredit;
+
+    /**
+     * @var int
+     */
     public $periodTotalCredit;
+
+    /**
+     * @var int
+     */
+    public $periodTotalUsedCredit;
 
     /**
      * @var int
@@ -120,7 +140,11 @@ class usageInfo extends Model
         'currentUsedCredit' => 'CurrentUsedCredit',
         'dayUsedCredit' => 'DayUsedCredit',
         'lastTriggeredAt' => 'LastTriggeredAt',
+        'periodCreditQuota' => 'PeriodCreditQuota',
+        'periodPayGoUsedCredit' => 'PeriodPayGoUsedCredit',
+        'periodSharedUsedCredit' => 'PeriodSharedUsedCredit',
         'periodTotalCredit' => 'PeriodTotalCredit',
+        'periodTotalUsedCredit' => 'PeriodTotalUsedCredit',
         'periodUsedCredit' => 'PeriodUsedCredit',
         'remainCredit' => 'RemainCredit',
         'remainCreditInfo' => 'RemainCreditInfo',
@@ -203,8 +227,24 @@ class usageInfo extends Model
             $res['LastTriggeredAt'] = $this->lastTriggeredAt;
         }
 
+        if (null !== $this->periodCreditQuota) {
+            $res['PeriodCreditQuota'] = $this->periodCreditQuota;
+        }
+
+        if (null !== $this->periodPayGoUsedCredit) {
+            $res['PeriodPayGoUsedCredit'] = $this->periodPayGoUsedCredit;
+        }
+
+        if (null !== $this->periodSharedUsedCredit) {
+            $res['PeriodSharedUsedCredit'] = $this->periodSharedUsedCredit;
+        }
+
         if (null !== $this->periodTotalCredit) {
             $res['PeriodTotalCredit'] = $this->periodTotalCredit;
+        }
+
+        if (null !== $this->periodTotalUsedCredit) {
+            $res['PeriodTotalUsedCredit'] = $this->periodTotalUsedCredit;
         }
 
         if (null !== $this->periodUsedCredit) {
@@ -308,8 +348,24 @@ class usageInfo extends Model
             $model->lastTriggeredAt = $map['LastTriggeredAt'];
         }
 
+        if (isset($map['PeriodCreditQuota'])) {
+            $model->periodCreditQuota = $map['PeriodCreditQuota'];
+        }
+
+        if (isset($map['PeriodPayGoUsedCredit'])) {
+            $model->periodPayGoUsedCredit = $map['PeriodPayGoUsedCredit'];
+        }
+
+        if (isset($map['PeriodSharedUsedCredit'])) {
+            $model->periodSharedUsedCredit = $map['PeriodSharedUsedCredit'];
+        }
+
         if (isset($map['PeriodTotalCredit'])) {
             $model->periodTotalCredit = $map['PeriodTotalCredit'];
+        }
+
+        if (isset($map['PeriodTotalUsedCredit'])) {
+            $model->periodTotalUsedCredit = $map['PeriodTotalUsedCredit'];
         }
 
         if (isset($map['PeriodUsedCredit'])) {

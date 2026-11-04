@@ -27,11 +27,17 @@ class SetAgentCreditQuotaRequest extends Model
      * @var int
      */
     public $creditQuota;
+
+    /**
+     * @var string
+     */
+    public $sceneType;
     protected $_name = [
         'agentIds' => 'AgentIds',
         'agentType' => 'AgentType',
         'bizType' => 'BizType',
         'creditQuota' => 'CreditQuota',
+        'sceneType' => 'SceneType',
     ];
 
     public function validate()
@@ -68,6 +74,10 @@ class SetAgentCreditQuotaRequest extends Model
             $res['CreditQuota'] = $this->creditQuota;
         }
 
+        if (null !== $this->sceneType) {
+            $res['SceneType'] = $this->sceneType;
+        }
+
         return $res;
     }
 
@@ -100,6 +110,10 @@ class SetAgentCreditQuotaRequest extends Model
 
         if (isset($map['CreditQuota'])) {
             $model->creditQuota = $map['CreditQuota'];
+        }
+
+        if (isset($map['SceneType'])) {
+            $model->sceneType = $map['SceneType'];
         }
 
         return $model;

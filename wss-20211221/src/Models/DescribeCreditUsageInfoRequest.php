@@ -21,10 +21,16 @@ class DescribeCreditUsageInfoRequest extends Model
     /**
      * @var string
      */
+    public $sceneType;
+
+    /**
+     * @var string
+     */
     public $usageType;
     protected $_name = [
         'bizType' => 'BizType',
         'instanceIds' => 'InstanceIds',
+        'sceneType' => 'SceneType',
         'usageType' => 'UsageType',
     ];
 
@@ -52,6 +58,10 @@ class DescribeCreditUsageInfoRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->sceneType) {
+            $res['SceneType'] = $this->sceneType;
         }
 
         if (null !== $this->usageType) {
@@ -82,6 +92,10 @@ class DescribeCreditUsageInfoRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SceneType'])) {
+            $model->sceneType = $map['SceneType'];
         }
 
         if (isset($map['UsageType'])) {

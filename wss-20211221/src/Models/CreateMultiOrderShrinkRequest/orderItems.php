@@ -68,6 +68,11 @@ class orderItems extends Model
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @var int
+     */
+    public $unifiedExpireDay;
     protected $_name = [
         'amount' => 'Amount',
         'autoPay' => 'AutoPay',
@@ -81,6 +86,7 @@ class orderItems extends Model
         'promotionId' => 'PromotionId',
         'resourceIds' => 'ResourceIds',
         'resourceType' => 'ResourceType',
+        'unifiedExpireDay' => 'UnifiedExpireDay',
     ];
 
     public function validate()
@@ -169,6 +175,10 @@ class orderItems extends Model
             $res['ResourceType'] = $this->resourceType;
         }
 
+        if (null !== $this->unifiedExpireDay) {
+            $res['UnifiedExpireDay'] = $this->unifiedExpireDay;
+        }
+
         return $res;
     }
 
@@ -247,6 +257,10 @@ class orderItems extends Model
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+
+        if (isset($map['UnifiedExpireDay'])) {
+            $model->unifiedExpireDay = $map['UnifiedExpireDay'];
         }
 
         return $model;

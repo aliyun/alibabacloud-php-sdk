@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Wss\V20211221\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wss\V20211221\Models\ModifyInstancePropertiesRequest\properties;
 
 class ModifyInstancePropertiesRequest extends Model
 {
@@ -24,6 +25,11 @@ class ModifyInstancePropertiesRequest extends Model
     public $key;
 
     /**
+     * @var properties[]
+     */
+    public $properties;
+
+    /**
      * @var string
      */
     public $resourceType;
@@ -36,6 +42,7 @@ class ModifyInstancePropertiesRequest extends Model
         'instanceId' => 'InstanceId',
         'instanceIds' => 'InstanceIds',
         'key' => 'Key',
+        'properties' => 'Properties',
         'resourceType' => 'ResourceType',
         'value' => 'Value',
     ];
@@ -44,6 +51,9 @@ class ModifyInstancePropertiesRequest extends Model
     {
         if (\is_array($this->instanceIds)) {
             Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
         }
         parent::validate();
     }
@@ -68,6 +78,17 @@ class ModifyInstancePropertiesRequest extends Model
 
         if (null !== $this->key) {
             $res['Key'] = $this->key;
+        }
+
+        if (null !== $this->properties) {
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                $n1 = 0;
+                foreach ($this->properties as $item1) {
+                    $res['Properties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->resourceType) {
@@ -106,6 +127,17 @@ class ModifyInstancePropertiesRequest extends Model
 
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
+        }
+
+        if (isset($map['Properties'])) {
+            if (!empty($map['Properties'])) {
+                $model->properties = [];
+                $n1 = 0;
+                foreach ($map['Properties'] as $item1) {
+                    $model->properties[$n1] = properties::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ResourceType'])) {
