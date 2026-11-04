@@ -34,6 +34,11 @@ class StopDesktopsRequest extends Model
     public $desktopId;
 
     /**
+     * @var bool
+     */
+    public $forceStop;
+
+    /**
      * @var string
      */
     public $loginToken;
@@ -68,6 +73,7 @@ class StopDesktopsRequest extends Model
         'clientToken' => 'ClientToken',
         'clientVersion' => 'ClientVersion',
         'desktopId' => 'DesktopId',
+        'forceStop' => 'ForceStop',
         'loginToken' => 'LoginToken',
         'osUpdate' => 'OsUpdate',
         'regionId' => 'RegionId',
@@ -112,6 +118,10 @@ class StopDesktopsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->forceStop) {
+            $res['ForceStop'] = $this->forceStop;
         }
 
         if (null !== $this->loginToken) {
@@ -174,6 +184,10 @@ class StopDesktopsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ForceStop'])) {
+            $model->forceStop = $map['ForceStop'];
         }
 
         if (isset($map['LoginToken'])) {

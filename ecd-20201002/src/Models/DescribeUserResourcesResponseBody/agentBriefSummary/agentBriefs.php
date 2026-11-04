@@ -41,12 +41,22 @@ class agentBriefs extends Model
     /**
      * @var string
      */
+    public $pcAvatarUrl;
+
+    /**
+     * @var string
+     */
     public $subTitle;
 
     /**
      * @var string
      */
     public $url;
+
+    /**
+     * @var string
+     */
+    public $watermark;
     protected $_name = [
         'agentPlatform' => 'AgentPlatform',
         'agentProvider' => 'AgentProvider',
@@ -54,8 +64,10 @@ class agentBriefs extends Model
         'avatarUrl' => 'AvatarUrl',
         'count' => 'Count',
         'displayName' => 'DisplayName',
+        'pcAvatarUrl' => 'PcAvatarUrl',
         'subTitle' => 'SubTitle',
         'url' => 'Url',
+        'watermark' => 'Watermark',
     ];
 
     public function validate()
@@ -90,12 +102,20 @@ class agentBriefs extends Model
             $res['DisplayName'] = $this->displayName;
         }
 
+        if (null !== $this->pcAvatarUrl) {
+            $res['PcAvatarUrl'] = $this->pcAvatarUrl;
+        }
+
         if (null !== $this->subTitle) {
             $res['SubTitle'] = $this->subTitle;
         }
 
         if (null !== $this->url) {
             $res['Url'] = $this->url;
+        }
+
+        if (null !== $this->watermark) {
+            $res['Watermark'] = $this->watermark;
         }
 
         return $res;
@@ -133,12 +153,20 @@ class agentBriefs extends Model
             $model->displayName = $map['DisplayName'];
         }
 
+        if (isset($map['PcAvatarUrl'])) {
+            $model->pcAvatarUrl = $map['PcAvatarUrl'];
+        }
+
         if (isset($map['SubTitle'])) {
             $model->subTitle = $map['SubTitle'];
         }
 
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
+        }
+
+        if (isset($map['Watermark'])) {
+            $model->watermark = $map['Watermark'];
         }
 
         return $model;

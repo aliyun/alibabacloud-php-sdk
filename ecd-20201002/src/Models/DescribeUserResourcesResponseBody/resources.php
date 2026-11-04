@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\clients;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\desktopDurationList;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\desktopTimers;
+use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\disks;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\fotaUpdate;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\osUpdate;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\sessions;
@@ -23,6 +24,11 @@ class resources extends Model
      * @var string
      */
     public $agentImUrl;
+
+    /**
+     * @var string[]
+     */
+    public $agentProviderList;
 
     /**
      * @var int
@@ -75,6 +81,11 @@ class resources extends Model
     public $connectionProperties;
 
     /**
+     * @var int
+     */
+    public $cpu;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -88,6 +99,11 @@ class resources extends Model
      * @var desktopTimers[]
      */
     public $desktopTimers;
+
+    /**
+     * @var disks[]
+     */
+    public $disks;
 
     /**
      * @var string
@@ -113,6 +129,11 @@ class resources extends Model
      * @var bool
      */
     public $globalStatus;
+
+    /**
+     * @var string
+     */
+    public $gpuSpec;
 
     /**
      * @var bool
@@ -143,6 +164,11 @@ class resources extends Model
      * @var string[]
      */
     public $managementStatuses;
+
+    /**
+     * @var int
+     */
+    public $memory;
 
     /**
      * @var string
@@ -281,6 +307,7 @@ class resources extends Model
     protected $_name = [
         'accessType' => 'AccessType',
         'agentImUrl' => 'AgentImUrl',
+        'agentProviderList' => 'AgentProviderList',
         'aliUid' => 'AliUid',
         'appId' => 'AppId',
         'authMode' => 'AuthMode',
@@ -291,20 +318,24 @@ class resources extends Model
         'chargeType' => 'ChargeType',
         'clients' => 'Clients',
         'connectionProperties' => 'ConnectionProperties',
+        'cpu' => 'Cpu',
         'createTime' => 'CreateTime',
         'desktopDurationList' => 'DesktopDurationList',
         'desktopTimers' => 'DesktopTimers',
+        'disks' => 'Disks',
         'expiredTime' => 'ExpiredTime',
         'externalDomainId' => 'ExternalDomainId',
         'externalUserId' => 'ExternalUserId',
         'fotaUpdate' => 'FotaUpdate',
         'globalStatus' => 'GlobalStatus',
+        'gpuSpec' => 'GpuSpec',
         'hasUpgrade' => 'HasUpgrade',
         'hibernationBeta' => 'HibernationBeta',
         'icon' => 'Icon',
         'lastStartTime' => 'LastStartTime',
         'localName' => 'LocalName',
         'managementStatuses' => 'ManagementStatuses',
+        'memory' => 'Memory',
         'officeSiteId' => 'OfficeSiteId',
         'orderStatus' => 'OrderStatus',
         'os' => 'Os',
@@ -336,6 +367,9 @@ class resources extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentProviderList)) {
+            Model::validateArray($this->agentProviderList);
+        }
         if (\is_array($this->clients)) {
             Model::validateArray($this->clients);
         }
@@ -344,6 +378,9 @@ class resources extends Model
         }
         if (\is_array($this->desktopTimers)) {
             Model::validateArray($this->desktopTimers);
+        }
+        if (\is_array($this->disks)) {
+            Model::validateArray($this->disks);
         }
         if (null !== $this->fotaUpdate) {
             $this->fotaUpdate->validate();
@@ -372,6 +409,17 @@ class resources extends Model
 
         if (null !== $this->agentImUrl) {
             $res['AgentImUrl'] = $this->agentImUrl;
+        }
+
+        if (null !== $this->agentProviderList) {
+            if (\is_array($this->agentProviderList)) {
+                $res['AgentProviderList'] = [];
+                $n1 = 0;
+                foreach ($this->agentProviderList as $item1) {
+                    $res['AgentProviderList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->aliUid) {
@@ -421,6 +469,10 @@ class resources extends Model
             $res['ConnectionProperties'] = $this->connectionProperties;
         }
 
+        if (null !== $this->cpu) {
+            $res['Cpu'] = $this->cpu;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -447,6 +499,17 @@ class resources extends Model
             }
         }
 
+        if (null !== $this->disks) {
+            if (\is_array($this->disks)) {
+                $res['Disks'] = [];
+                $n1 = 0;
+                foreach ($this->disks as $item1) {
+                    $res['Disks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
@@ -465,6 +528,10 @@ class resources extends Model
 
         if (null !== $this->globalStatus) {
             $res['GlobalStatus'] = $this->globalStatus;
+        }
+
+        if (null !== $this->gpuSpec) {
+            $res['GpuSpec'] = $this->gpuSpec;
         }
 
         if (null !== $this->hasUpgrade) {
@@ -496,6 +563,10 @@ class resources extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
         }
 
         if (null !== $this->officeSiteId) {
@@ -639,6 +710,17 @@ class resources extends Model
             $model->agentImUrl = $map['AgentImUrl'];
         }
 
+        if (isset($map['AgentProviderList'])) {
+            if (!empty($map['AgentProviderList'])) {
+                $model->agentProviderList = [];
+                $n1 = 0;
+                foreach ($map['AgentProviderList'] as $item1) {
+                    $model->agentProviderList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
@@ -686,6 +768,10 @@ class resources extends Model
             $model->connectionProperties = $map['ConnectionProperties'];
         }
 
+        if (isset($map['Cpu'])) {
+            $model->cpu = $map['Cpu'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -712,6 +798,17 @@ class resources extends Model
             }
         }
 
+        if (isset($map['Disks'])) {
+            if (!empty($map['Disks'])) {
+                $model->disks = [];
+                $n1 = 0;
+                foreach ($map['Disks'] as $item1) {
+                    $model->disks[$n1] = disks::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
@@ -730,6 +827,10 @@ class resources extends Model
 
         if (isset($map['GlobalStatus'])) {
             $model->globalStatus = $map['GlobalStatus'];
+        }
+
+        if (isset($map['GpuSpec'])) {
+            $model->gpuSpec = $map['GpuSpec'];
         }
 
         if (isset($map['HasUpgrade'])) {
@@ -761,6 +862,10 @@ class resources extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
         }
 
         if (isset($map['OfficeSiteId'])) {

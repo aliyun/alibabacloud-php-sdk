@@ -77,32 +77,6 @@ class Ecd extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'us-west-1' => 'ecd.us-west-1.aliyuncs.com',
-            'us-east-1' => 'ecd.us-east-1.aliyuncs.com',
-            'me-east-1' => 'ecd.me-east-1.aliyuncs.com',
-            'me-central-1' => 'ecd.me-central-1.aliyuncs.com',
-            'eu-west-1' => 'ecd.eu-west-1.aliyuncs.com',
-            'eu-central-1' => 'ecd.eu-central-1.aliyuncs.com',
-            'cn-zhangjiakou' => 'ecd.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'ecd.cn-wulanchabu.aliyuncs.com',
-            'cn-shenzhen' => 'ecd.cn-shenzhen.aliyuncs.com',
-            'cn-shanghai-finance-1' => 'ecd.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-shanghai' => 'ecd.cn-shanghai.aliyuncs.com',
-            'cn-qingdao' => 'ecd.cn-qingdao.aliyuncs.com',
-            'cn-nanjing' => 'ecd.cn-nanjing.aliyuncs.com',
-            'cn-hongkong' => 'ecd.cn-hongkong.aliyuncs.com',
-            'cn-hangzhou-finance' => 'ecd.cn-hangzhou-finance.aliyuncs.com',
-            'cn-hangzhou' => 'ecd.cn-hangzhou.aliyuncs.com',
-            'cn-guangzhou' => 'ecd.cn-guangzhou.aliyuncs.com',
-            'cn-chengdu' => 'ecd.cn-chengdu.aliyuncs.com',
-            'cn-beijing' => 'ecd.cn-beijing.aliyuncs.com',
-            'ap-southeast-7' => 'ecd.ap-southeast-7.aliyuncs.com',
-            'ap-southeast-6' => 'ecd.ap-southeast-6.aliyuncs.com',
-            'ap-southeast-5' => 'ecd.ap-southeast-5.aliyuncs.com',
-            'ap-southeast-1' => 'ecd.ap-southeast-1.aliyuncs.com',
-            'ap-northeast-1' => 'ecd.ap-northeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ecd', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -132,7 +106,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Enables OTA updates for cloud computers.
+     * Allows over-the-air updates for cloud computers.
      *
      * @param request - ApproveFotaUpdateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -199,7 +173,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Enables OTA updates for cloud computers.
+     * Allows over-the-air updates for cloud computers.
      *
      * @param request - ApproveFotaUpdateRequest
      *
@@ -217,7 +191,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Changes the password of a user account.
+     * Modifies the password of a user.
      *
      * @param request - ChangePasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -284,7 +258,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Changes the password of a user account.
+     * Modifies the password of a user.
      *
      * @param request - ChangePasswordRequest
      *
@@ -302,6 +276,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Deletes a specified fingerprint template.
+     *
      * @param request - DeleteFingerPrintTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -359,6 +335,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Deletes a specified fingerprint template.
+     *
      * @param request - DeleteFingerPrintTemplateRequest
      *
      * @returns DeleteFingerPrintTemplateResponse
@@ -509,11 +487,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query detailed information about cloud desktops across multiple regions. You can query only regions in the Chinese mainland (excluding Nanjing – Local Region – Shutting Down).
+     * Queries the details of cloud computers in multiple regions. Currently, only regions in the Chinese mainland are supported.
      *
      * @remarks
-     * - This API uses a centralized domain name with its endpoint in Shanghai. You cannot call this API from other regions.
-     * - The cloud desktop status returned by this API may be delayed by 1 to 3 seconds.
+     * - This API operation uses a centralized domain name. The endpoint is in Shanghai, and calls from other regions are not supported.
+     * - The cloud computer status information in this API operation has a delay of 1 to 3 seconds compared to the actual value.
      *
      * @param request - DescribeGlobalDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -628,11 +606,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Query detailed information about cloud desktops across multiple regions. You can query only regions in the Chinese mainland (excluding Nanjing – Local Region – Shutting Down).
+     * Queries the details of cloud computers in multiple regions. Currently, only regions in the Chinese mainland are supported.
      *
      * @remarks
-     * - This API uses a centralized domain name with its endpoint in Shanghai. You cannot call this API from other regions.
-     * - The cloud desktop status returned by this API may be delayed by 1 to 3 seconds.
+     * - This API operation uses a centralized domain name. The endpoint is in Shanghai, and calls from other regions are not supported.
+     * - The cloud computer status information in this API operation has a delay of 1 to 3 seconds compared to the actual value.
      *
      * @param request - DescribeGlobalDesktopsRequest
      *
@@ -719,6 +697,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries the Alibaba Cloud region information supported by WUYING Workspace by calling DescribeRegions.
+     *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -760,6 +740,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries the Alibaba Cloud region information supported by WUYING Workspace by calling DescribeRegions.
+     *
      * @param request - DescribeRegionsRequest
      *
      * @returns DescribeRegionsResponse
@@ -776,7 +758,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
+     * Queries the list and details of snapshots for a cloud desktop.
      *
      * @param request - DescribeSnapshotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -843,7 +825,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the snapshots that are created based on a cloud computer and the details of the snapshots.
+     * Queries the list and details of snapshots for a cloud desktop.
      *
      * @param request - DescribeSnapshotsRequest
      *
@@ -861,10 +843,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the list of resources owned by a user.
+     * Queries the list of user resources.
      *
      * @remarks
-     * Make sure that you are familiar with the resource types and product types of WUYING before you call this operation.
+     * Before you call this operation, make sure that you fully understand the resource types and product types of WUYING Workspace.
      *
      * @param request - DescribeUserResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -992,6 +974,10 @@ class Ecd extends OpenApiClient
             @$query['SortType'] = $request->sortType;
         }
 
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1011,10 +997,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the list of resources owned by a user.
+     * Queries the list of user resources.
      *
      * @remarks
-     * Make sure that you are familiar with the resource types and product types of WUYING before you call this operation.
+     * Before you call this operation, make sure that you fully understand the resource types and product types of WUYING Workspace.
      *
      * @param request - DescribeUserResourcesRequest
      *
@@ -1032,7 +1018,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Encrypts a password.
+     * Encrypts a user password.
      *
      * @param request - EncryptPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1095,7 +1081,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Encrypts a password.
+     * Encrypts a user password.
      *
      * @param request - EncryptPasswordRequest
      *
@@ -1186,10 +1172,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Obtains a connection ticket for a cloud computer.
+     * Retrieves the connection credentials for a cloud desktop.
      *
      * @remarks
-     * The first time you call this operation, it returns a `TaskID`. You can use this `TaskID` to call the operation again until `TaskStatus` changes to `FINISHED` or `FAILED`. If `TaskStatus` is `FINISHED`, the `Ticket` value is the connection ticket that the client uses to connect to the cloud computer.
+     * When you call this operation for the first time, the system returns a `TaskId`. Use this `TaskId` to continue calling this operation until the value of `TaskStatus` changes to `FINISHED` or `FAILED`. When `TaskStatus` is `FINISHED`, the value of `Ticket` is the ticket that the client uses to connect to the cloud desktop.
      *
      * @param request - GetConnectionTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1292,10 +1278,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Obtains a connection ticket for a cloud computer.
+     * Retrieves the connection credentials for a cloud desktop.
      *
      * @remarks
-     * The first time you call this operation, it returns a `TaskID`. You can use this `TaskID` to call the operation again until `TaskStatus` changes to `FINISHED` or `FAILED`. If `TaskStatus` is `FINISHED`, the `Ticket` value is the connection ticket that the client uses to connect to the cloud computer.
+     * When you call this operation for the first time, the system returns a `TaskId`. Use this `TaskId` to continue calling this operation until the value of `TaskStatus` changes to `FINISHED` or `FAILED`. When `TaskStatus` is `FINISHED`, the value of `Ticket` is the ticket that the client uses to connect to the cloud desktop.
      *
      * @param request - GetConnectionTicketRequest
      *
@@ -1614,10 +1600,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Purge the logon credential.
+     * Refreshes the logon credential.
      *
      * @remarks
-     * The validity period of a logon credential (LoginToken) is 8 hours. If the end user does not log off from the client within 8 hours, the client must purge the logon credential.
+     * A logon credential (LoginToken) is valid for 8 hours. If the end user does not log off from the client within 8 hours, the client must refresh the logon credential.
      *
      * @param request - RefreshLoginTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1680,10 +1666,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Purge the logon credential.
+     * Refreshes the logon credential.
      *
      * @remarks
-     * The validity period of a logon credential (LoginToken) is 8 hours. If the end user does not log off from the client within 8 hours, the client must purge the logon credential.
+     * A logon credential (LoginToken) is valid for 8 hours. If the end user does not log off from the client within 8 hours, the client must refresh the logon credential.
      *
      * @param request - RefreshLoginTokenRequest
      *
@@ -1770,7 +1756,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Report session status.
+     * Reports the session status.
      *
      * @param request - ReportSessionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1829,7 +1815,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Report session status.
+     * Reports the session status.
      *
      * @param request - ReportSessionStatusRequest
      *
@@ -1847,7 +1833,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Resets a password.
+     * Resets a user password.
      *
      * @param request - ResetPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1910,7 +1896,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Resets a password.
+     * Resets a user password.
      *
      * @param request - ResetPasswordRequest
      *
@@ -1928,7 +1914,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Restores the data of a disk from a snapshot.
+     * Restores the disk data corresponding to a snapshot.
      *
      * @param request - ResetSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1991,7 +1977,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Restores the data of a disk from a snapshot.
+     * Restores the disk data corresponding to a snapshot.
      *
      * @param request - ResetSnapshotRequest
      *
@@ -2094,6 +2080,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Sets a fingerprint template.
+     *
      * @param request - SetFingerPrintTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2167,6 +2155,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Sets a fingerprint template.
+     *
      * @param request - SetFingerPrintTemplateRequest
      *
      * @returns SetFingerPrintTemplateResponse
@@ -2183,6 +2173,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Sets the description of a fingerprint template.
+     *
      * @param request - SetFingerPrintTemplateDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2244,6 +2236,8 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Sets the description of a fingerprint template.
+     *
      * @param request - SetFingerPrintTemplateDescriptionRequest
      *
      * @returns SetFingerPrintTemplateDescriptionResponse
@@ -2436,10 +2430,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Stops one or more cloud computers.
+     * Stops one or more cloud desktops.
      *
      * @remarks
-     * You can stop only cloud computers that are in the Running state. After you call this operation, their state changes to Stopped.
+     * The cloud desktop must be in the Running state. After the API operation is called, the state of the cloud desktop changes to Stopped.
      *
      * @param request - StopDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2473,6 +2467,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->desktopId) {
             @$query['DesktopId'] = $request->desktopId;
+        }
+
+        if (null !== $request->forceStop) {
+            @$query['ForceStop'] = $request->forceStop;
         }
 
         if (null !== $request->loginToken) {
@@ -2518,10 +2516,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Stops one or more cloud computers.
+     * Stops one or more cloud desktops.
      *
      * @remarks
-     * You can stop only cloud computers that are in the Running state. After you call this operation, their state changes to Stopped.
+     * The cloud desktop must be in the Running state. After the API operation is called, the state of the cloud desktop changes to Stopped.
      *
      * @param request - StopDesktopsRequest
      *
@@ -2616,7 +2614,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Unbinds end users from cloud computers.
+     * Disassociates a user from a cloud desktop.
      *
      * @param request - UnbindUserDesktopRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2679,7 +2677,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Unbinds end users from cloud computers.
+     * Disassociates a user from a cloud desktop.
      *
      * @param request - UnbindUserDesktopRequest
      *
@@ -2697,7 +2695,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Validates credentials to lock on-premises sessions on clients.
+     * Verifies the credential used to unlock a local session on the client.
      *
      * @param request - VerifyCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2764,7 +2762,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Validates credentials to lock on-premises sessions on clients.
+     * Verifies the credential used to unlock a local session on the client.
      *
      * @param request - VerifyCredentialRequest
      *

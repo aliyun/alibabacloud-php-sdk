@@ -147,6 +147,11 @@ class DescribeUserResourcesRequest extends Model
      * @var string
      */
     public $sortType;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
         'accessType' => 'AccessType',
         'autoRefresh' => 'AutoRefresh',
@@ -176,6 +181,7 @@ class DescribeUserResourcesRequest extends Model
         'searchRegionId' => 'SearchRegionId',
         'sessionId' => 'SessionId',
         'sortType' => 'SortType',
+        'uuid' => 'Uuid',
     ];
 
     public function validate()
@@ -338,6 +344,10 @@ class DescribeUserResourcesRequest extends Model
             $res['SortType'] = $this->sortType;
         }
 
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
+        }
+
         return $res;
     }
 
@@ -487,6 +497,10 @@ class DescribeUserResourcesRequest extends Model
 
         if (isset($map['SortType'])) {
             $model->sortType = $map['SortType'];
+        }
+
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
         }
 
         return $model;
