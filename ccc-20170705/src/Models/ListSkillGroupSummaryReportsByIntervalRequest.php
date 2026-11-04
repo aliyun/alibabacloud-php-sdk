@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSkillGroupSummaryReportsByIntervalRequest extends Model
 {
@@ -43,40 +43,47 @@ class ListSkillGroupSummaryReportsByIntervalRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'       => 'EndTime',
-        'instanceId'    => 'InstanceId',
-        'interval'      => 'Interval',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'interval' => 'Interval',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'skillGroupIds' => 'SkillGroupIds',
-        'startTime'     => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->skillGroupIds) {
             $res['SkillGroupIds'] = $this->skillGroupIds;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -84,32 +91,38 @@ class ListSkillGroupSummaryReportsByIntervalRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSkillGroupSummaryReportsByIntervalRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SkillGroupIds'])) {
             $model->skillGroupIds = $map['SkillGroupIds'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\DownloadAllTypeRecordingResponseBody\mediaDownloadParamList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mediaDownloadParam extends Model
 {
@@ -18,20 +18,22 @@ class mediaDownloadParam extends Model
      */
     public $signatureUrl;
     protected $_name = [
-        'fileName'     => 'FileName',
+        'fileName' => 'FileName',
         'signatureUrl' => 'SignatureUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->signatureUrl) {
             $res['SignatureUrl'] = $this->signatureUrl;
         }
@@ -39,17 +41,18 @@ class mediaDownloadParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediaDownloadParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['SignatureUrl'])) {
             $model->signatureUrl = $map['SignatureUrl'];
         }

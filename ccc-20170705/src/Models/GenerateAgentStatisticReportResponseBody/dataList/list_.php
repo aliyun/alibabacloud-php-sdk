@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\GenerateAgentStatisticReportResponseBody\dataList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GenerateAgentStatisticReportResponseBody\dataList\list_\generateAgentStatistic;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->generateAgentStatistic)) {
+            Model::validateArray($this->generateAgentStatistic);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->generateAgentStatistic) {
-            $res['GenerateAgentStatistic'] = [];
-            if (null !== $this->generateAgentStatistic && \is_array($this->generateAgentStatistic)) {
-                $n = 0;
-                foreach ($this->generateAgentStatistic as $item) {
-                    $res['GenerateAgentStatistic'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->generateAgentStatistic)) {
+                $res['GenerateAgentStatistic'] = [];
+                $n1 = 0;
+                foreach ($this->generateAgentStatistic as $item1) {
+                    $res['GenerateAgentStatistic'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GenerateAgentStatistic'])) {
             if (!empty($map['GenerateAgentStatistic'])) {
                 $model->generateAgentStatistic = [];
-                $n                             = 0;
-                foreach ($map['GenerateAgentStatistic'] as $item) {
-                    $model->generateAgentStatistic[$n++] = null !== $item ? generateAgentStatistic::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GenerateAgentStatistic'] as $item1) {
+                    $model->generateAgentStatistic[$n1] = generateAgentStatistic::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\GetUserByExtensionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetUserByExtensionResponseBody\user\detail;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetUserByExtensionResponseBody\user\roles;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetUserByExtensionResponseBody\user\skillLevels;
-use AlibabaCloud\Tea\Model;
 
 class user extends Model
 {
@@ -41,48 +41,65 @@ class user extends Model
      */
     public $userId;
     protected $_name = [
-        'detail'      => 'Detail',
-        'instanceId'  => 'InstanceId',
-        'ramId'       => 'RamId',
-        'roles'       => 'Roles',
+        'detail' => 'Detail',
+        'instanceId' => 'InstanceId',
+        'ramId' => 'RamId',
+        'roles' => 'Roles',
         'skillLevels' => 'SkillLevels',
-        'userId'      => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        if (null !== $this->detail) {
+            $this->detail->validate();
+        }
+        if (\is_array($this->roles)) {
+            Model::validateArray($this->roles);
+        }
+        if (\is_array($this->skillLevels)) {
+            Model::validateArray($this->skillLevels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detail) {
-            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
+            $res['Detail'] = null !== $this->detail ? $this->detail->toArray($noStream) : $this->detail;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ramId) {
             $res['RamId'] = $this->ramId;
         }
+
         if (null !== $this->roles) {
-            $res['Roles'] = [];
-            if (null !== $this->roles && \is_array($this->roles)) {
-                $n = 0;
-                foreach ($this->roles as $item) {
-                    $res['Roles'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roles)) {
+                $res['Roles'] = [];
+                $n1 = 0;
+                foreach ($this->roles as $item1) {
+                    $res['Roles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->skillLevels) {
-            $res['SkillLevels'] = [];
-            if (null !== $this->skillLevels && \is_array($this->skillLevels)) {
-                $n = 0;
-                foreach ($this->skillLevels as $item) {
-                    $res['SkillLevels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->skillLevels)) {
+                $res['SkillLevels'] = [];
+                $n1 = 0;
+                foreach ($this->skillLevels as $item1) {
+                    $res['SkillLevels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -90,41 +107,48 @@ class user extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return user
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Detail'])) {
             $model->detail = detail::fromMap($map['Detail']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RamId'])) {
             $model->ramId = $map['RamId'];
         }
+
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
                 $model->roles = [];
-                $n            = 0;
-                foreach ($map['Roles'] as $item) {
-                    $model->roles[$n++] = null !== $item ? roles::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Roles'] as $item1) {
+                    $model->roles[$n1] = roles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SkillLevels'])) {
             if (!empty($map['SkillLevels'])) {
                 $model->skillLevels = [];
-                $n                  = 0;
-                foreach ($map['SkillLevels'] as $item) {
-                    $model->skillLevels[$n++] = null !== $item ? skillLevels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SkillLevels'] as $item1) {
+                    $model->skillLevels[$n1] = skillLevels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

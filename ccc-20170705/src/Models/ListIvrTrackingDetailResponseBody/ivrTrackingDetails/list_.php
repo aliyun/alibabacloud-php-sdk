@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListIvrTrackingDetailResponseBody\ivrTrackingDetails;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListIvrTrackingDetailResponseBody\ivrTrackingDetails\list_\ivrTrackingDetail;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->ivrTrackingDetail)) {
+            Model::validateArray($this->ivrTrackingDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ivrTrackingDetail) {
-            $res['IvrTrackingDetail'] = [];
-            if (null !== $this->ivrTrackingDetail && \is_array($this->ivrTrackingDetail)) {
-                $n = 0;
-                foreach ($this->ivrTrackingDetail as $item) {
-                    $res['IvrTrackingDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ivrTrackingDetail)) {
+                $res['IvrTrackingDetail'] = [];
+                $n1 = 0;
+                foreach ($this->ivrTrackingDetail as $item1) {
+                    $res['IvrTrackingDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IvrTrackingDetail'])) {
             if (!empty($map['IvrTrackingDetail'])) {
                 $model->ivrTrackingDetail = [];
-                $n                        = 0;
-                foreach ($map['IvrTrackingDetail'] as $item) {
-                    $model->ivrTrackingDetail[$n++] = null !== $item ? ivrTrackingDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IvrTrackingDetail'] as $item1) {
+                    $model->ivrTrackingDetail[$n1] = ivrTrackingDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

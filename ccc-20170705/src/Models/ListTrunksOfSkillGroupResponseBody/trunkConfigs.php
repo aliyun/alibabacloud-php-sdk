@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListTrunksOfSkillGroupResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class trunkConfigs extends Model
 {
@@ -18,20 +18,22 @@ class trunkConfigs extends Model
      */
     public $providerName;
     protected $_name = [
-        'primary'      => 'Primary',
+        'primary' => 'Primary',
         'providerName' => 'ProviderName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->primary) {
             $res['Primary'] = $this->primary;
         }
+
         if (null !== $this->providerName) {
             $res['ProviderName'] = $this->providerName;
         }
@@ -39,17 +41,18 @@ class trunkConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trunkConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Primary'])) {
             $model->primary = $map['Primary'];
         }
+
         if (isset($map['ProviderName'])) {
             $model->providerName = $map['ProviderName'];
         }

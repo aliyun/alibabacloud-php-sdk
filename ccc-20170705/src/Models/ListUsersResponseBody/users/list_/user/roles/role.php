@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListUsersResponseBody\users\list_\user\roles;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class role extends Model
 {
@@ -28,28 +28,32 @@ class role extends Model
      */
     public $roleName;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'roleDescription' => 'RoleDescription',
-        'roleId'          => 'RoleId',
-        'roleName'        => 'RoleName',
+        'roleId' => 'RoleId',
+        'roleName' => 'RoleName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->roleDescription) {
             $res['RoleDescription'] = $this->roleDescription;
         }
+
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
+
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
@@ -57,23 +61,26 @@ class role extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return role
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RoleDescription'])) {
             $model->roleDescription = $map['RoleDescription'];
         }
+
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
+
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddAgentDeviceRequest extends Model
 {
@@ -34,31 +34,36 @@ class AddAgentDeviceRequest extends Model
     public $remark;
     protected $_name = [
         'browserVersion' => 'BrowserVersion',
-        'clientIp'       => 'ClientIp',
-        'clientPort'     => 'ClientPort',
-        'instanceId'     => 'InstanceId',
-        'remark'         => 'Remark',
+        'clientIp' => 'ClientIp',
+        'clientPort' => 'ClientPort',
+        'instanceId' => 'InstanceId',
+        'remark' => 'Remark',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->browserVersion) {
             $res['BrowserVersion'] = $this->browserVersion;
         }
+
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
+
         if (null !== $this->clientPort) {
             $res['ClientPort'] = $this->clientPort;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -66,26 +71,30 @@ class AddAgentDeviceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddAgentDeviceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BrowserVersion'])) {
             $model->browserVersion = $map['BrowserVersion'];
         }
+
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
+
         if (isset($map['ClientPort'])) {
             $model->clientPort = $map['ClientPort'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

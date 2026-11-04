@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendPredefinedShortMessageRequest extends Model
 {
@@ -28,28 +28,32 @@ class SendPredefinedShortMessageRequest extends Model
      */
     public $templateParam;
     protected $_name = [
-        'configId'      => 'ConfigId',
-        'instanceId'    => 'InstanceId',
-        'phoneNumbers'  => 'PhoneNumbers',
+        'configId' => 'ConfigId',
+        'instanceId' => 'InstanceId',
+        'phoneNumbers' => 'PhoneNumbers',
         'templateParam' => 'TemplateParam',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->phoneNumbers) {
             $res['PhoneNumbers'] = $this->phoneNumbers;
         }
+
         if (null !== $this->templateParam) {
             $res['TemplateParam'] = $this->templateParam;
         }
@@ -57,23 +61,26 @@ class SendPredefinedShortMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendPredefinedShortMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PhoneNumbers'])) {
             $model->phoneNumbers = $map['PhoneNumbers'];
         }
+
         if (isset($map['TemplateParam'])) {
             $model->templateParam = $map['TemplateParam'];
         }

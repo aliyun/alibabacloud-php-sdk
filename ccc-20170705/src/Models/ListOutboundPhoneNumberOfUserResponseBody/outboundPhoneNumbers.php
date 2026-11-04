@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListOutboundPhoneNumberOfUserResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListOutboundPhoneNumberOfUserResponseBody\outboundPhoneNumbers\phoneNumber;
-use AlibabaCloud\Tea\Model;
 
 class outboundPhoneNumbers extends Model
 {
@@ -19,17 +19,22 @@ class outboundPhoneNumbers extends Model
 
     public function validate()
     {
+        if (\is_array($this->phoneNumber)) {
+            Model::validateArray($this->phoneNumber);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = [];
-            if (null !== $this->phoneNumber && \is_array($this->phoneNumber)) {
-                $n = 0;
-                foreach ($this->phoneNumber as $item) {
-                    $res['PhoneNumber'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->phoneNumber)) {
+                $res['PhoneNumber'] = [];
+                $n1 = 0;
+                foreach ($this->phoneNumber as $item1) {
+                    $res['PhoneNumber'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class outboundPhoneNumbers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outboundPhoneNumbers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PhoneNumber'])) {
             if (!empty($map['PhoneNumber'])) {
                 $model->phoneNumber = [];
-                $n                  = 0;
-                foreach ($map['PhoneNumber'] as $item) {
-                    $model->phoneNumber[$n++] = null !== $item ? phoneNumber::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PhoneNumber'] as $item1) {
+                    $model->phoneNumber[$n1] = phoneNumber::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

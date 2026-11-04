@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportByIntervalResponseBody\instanceTimeIntervalReport;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportByIntervalResponseBody\instanceTimeIntervalReport\intervalList\instanceSummaryReport;
-use AlibabaCloud\Tea\Model;
 
 class intervalList extends Model
 {
@@ -19,17 +19,22 @@ class intervalList extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceSummaryReport)) {
+            Model::validateArray($this->instanceSummaryReport);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceSummaryReport) {
-            $res['InstanceSummaryReport'] = [];
-            if (null !== $this->instanceSummaryReport && \is_array($this->instanceSummaryReport)) {
-                $n = 0;
-                foreach ($this->instanceSummaryReport as $item) {
-                    $res['InstanceSummaryReport'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceSummaryReport)) {
+                $res['InstanceSummaryReport'] = [];
+                $n1 = 0;
+                foreach ($this->instanceSummaryReport as $item1) {
+                    $res['InstanceSummaryReport'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class intervalList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return intervalList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceSummaryReport'])) {
             if (!empty($map['InstanceSummaryReport'])) {
                 $model->instanceSummaryReport = [];
-                $n                            = 0;
-                foreach ($map['InstanceSummaryReport'] as $item) {
-                    $model->instanceSummaryReport[$n++] = null !== $item ? instanceSummaryReport::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceSummaryReport'] as $item1) {
+                    $model->instanceSummaryReport[$n1] = instanceSummaryReport::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

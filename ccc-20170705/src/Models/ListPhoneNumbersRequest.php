@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPhoneNumbersRequest extends Model
 {
@@ -18,20 +18,22 @@ class ListPhoneNumbersRequest extends Model
      */
     public $outboundOnly;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'outboundOnly' => 'OutboundOnly',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->outboundOnly) {
             $res['OutboundOnly'] = $this->outboundOnly;
         }
@@ -39,17 +41,18 @@ class ListPhoneNumbersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPhoneNumbersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OutboundOnly'])) {
             $model->outboundOnly = $map['OutboundOnly'];
         }

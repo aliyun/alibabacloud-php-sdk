@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupStatesResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupStatesResponseBody\data\list_\realTimeSkillGroupState;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->realTimeSkillGroupState)) {
+            Model::validateArray($this->realTimeSkillGroupState);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->realTimeSkillGroupState) {
-            $res['RealTimeSkillGroupState'] = [];
-            if (null !== $this->realTimeSkillGroupState && \is_array($this->realTimeSkillGroupState)) {
-                $n = 0;
-                foreach ($this->realTimeSkillGroupState as $item) {
-                    $res['RealTimeSkillGroupState'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->realTimeSkillGroupState)) {
+                $res['RealTimeSkillGroupState'] = [];
+                $n1 = 0;
+                foreach ($this->realTimeSkillGroupState as $item1) {
+                    $res['RealTimeSkillGroupState'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RealTimeSkillGroupState'])) {
             if (!empty($map['RealTimeSkillGroupState'])) {
                 $model->realTimeSkillGroupState = [];
-                $n                              = 0;
-                foreach ($map['RealTimeSkillGroupState'] as $item) {
-                    $model->realTimeSkillGroupState[$n++] = null !== $item ? realTimeSkillGroupState::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RealTimeSkillGroupState'] as $item1) {
+                    $model->realTimeSkillGroupState[$n1] = realTimeSkillGroupState::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

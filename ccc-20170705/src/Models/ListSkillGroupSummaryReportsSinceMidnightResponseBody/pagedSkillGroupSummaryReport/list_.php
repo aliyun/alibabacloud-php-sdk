@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupSummaryReportsSinceMidnightResponseBody\pagedSkillGroupSummaryReport;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupSummaryReportsSinceMidnightResponseBody\pagedSkillGroupSummaryReport\list_\skillGroupSummaryReport;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->skillGroupSummaryReport)) {
+            Model::validateArray($this->skillGroupSummaryReport);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->skillGroupSummaryReport) {
-            $res['SkillGroupSummaryReport'] = [];
-            if (null !== $this->skillGroupSummaryReport && \is_array($this->skillGroupSummaryReport)) {
-                $n = 0;
-                foreach ($this->skillGroupSummaryReport as $item) {
-                    $res['SkillGroupSummaryReport'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->skillGroupSummaryReport)) {
+                $res['SkillGroupSummaryReport'] = [];
+                $n1 = 0;
+                foreach ($this->skillGroupSummaryReport as $item1) {
+                    $res['SkillGroupSummaryReport'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SkillGroupSummaryReport'])) {
             if (!empty($map['SkillGroupSummaryReport'])) {
                 $model->skillGroupSummaryReport = [];
-                $n                              = 0;
-                foreach ($map['SkillGroupSummaryReport'] as $item) {
-                    $model->skillGroupSummaryReport[$n++] = null !== $item ? skillGroupSummaryReport::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SkillGroupSummaryReport'] as $item1) {
+                    $model->skillGroupSummaryReport[$n1] = skillGroupSummaryReport::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

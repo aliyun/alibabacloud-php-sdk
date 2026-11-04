@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListOutboundPhoneNumberOfUserResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class numberList extends Model
 {
@@ -18,29 +18,45 @@ class numberList extends Model
 
     public function validate()
     {
+        if (\is_array($this->number)) {
+            Model::validateArray($this->number);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->number) {
-            $res['Number'] = $this->number;
+            if (\is_array($this->number)) {
+                $res['Number'] = [];
+                $n1 = 0;
+                foreach ($this->number as $item1) {
+                    $res['Number'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return numberList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Number'])) {
             if (!empty($map['Number'])) {
-                $model->number = $map['Number'];
+                $model->number = [];
+                $n1 = 0;
+                foreach ($map['Number'] as $item1) {
+                    $model->number[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

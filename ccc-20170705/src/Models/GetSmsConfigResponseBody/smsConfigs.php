@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\GetSmsConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetSmsConfigResponseBody\smsConfigs\smsConfig;
-use AlibabaCloud\Tea\Model;
 
 class smsConfigs extends Model
 {
@@ -19,17 +19,22 @@ class smsConfigs extends Model
 
     public function validate()
     {
+        if (\is_array($this->smsConfig)) {
+            Model::validateArray($this->smsConfig);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->smsConfig) {
-            $res['SmsConfig'] = [];
-            if (null !== $this->smsConfig && \is_array($this->smsConfig)) {
-                $n = 0;
-                foreach ($this->smsConfig as $item) {
-                    $res['SmsConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->smsConfig)) {
+                $res['SmsConfig'] = [];
+                $n1 = 0;
+                foreach ($this->smsConfig as $item1) {
+                    $res['SmsConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class smsConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return smsConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SmsConfig'])) {
             if (!empty($map['SmsConfig'])) {
                 $model->smsConfig = [];
-                $n                = 0;
-                foreach ($map['SmsConfig'] as $item) {
-                    $model->smsConfig[$n++] = null !== $item ? smsConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SmsConfig'] as $item1) {
+                    $model->smsConfig[$n1] = smsConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

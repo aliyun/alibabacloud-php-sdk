@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListTrunkProvidersResponseBody\trunkProviders;
-use AlibabaCloud\Tea\Model;
 
 class ListTrunkProvidersResponseBody extends Model
 {
@@ -39,42 +39,52 @@ class ListTrunkProvidersResponseBody extends Model
      */
     public $trunkProviders;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'trunkProviders' => 'TrunkProviders',
     ];
 
     public function validate()
     {
+        if (\is_array($this->trunkProviders)) {
+            Model::validateArray($this->trunkProviders);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->trunkProviders) {
-            $res['TrunkProviders'] = [];
-            if (null !== $this->trunkProviders && \is_array($this->trunkProviders)) {
-                $n = 0;
-                foreach ($this->trunkProviders as $item) {
-                    $res['TrunkProviders'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->trunkProviders)) {
+                $res['TrunkProviders'] = [];
+                $n1 = 0;
+                foreach ($this->trunkProviders as $item1) {
+                    $res['TrunkProviders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,35 +92,41 @@ class ListTrunkProvidersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTrunkProvidersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TrunkProviders'])) {
             if (!empty($map['TrunkProviders'])) {
                 $model->trunkProviders = [];
-                $n                     = 0;
-                foreach ($map['TrunkProviders'] as $item) {
-                    $model->trunkProviders[$n++] = null !== $item ? trunkProviders::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TrunkProviders'] as $item1) {
+                    $model->trunkProviders[$n1] = trunkProviders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

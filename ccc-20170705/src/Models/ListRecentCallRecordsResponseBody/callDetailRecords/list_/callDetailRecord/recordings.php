@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListRecentCallRecordsResponseBody\callDetailRecords\list_\callDetailRecord;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRecentCallRecordsResponseBody\callDetailRecords\list_\callDetailRecord\recordings\recording;
-use AlibabaCloud\Tea\Model;
 
 class recordings extends Model
 {
@@ -19,17 +19,22 @@ class recordings extends Model
 
     public function validate()
     {
+        if (\is_array($this->recording)) {
+            Model::validateArray($this->recording);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recording) {
-            $res['Recording'] = [];
-            if (null !== $this->recording && \is_array($this->recording)) {
-                $n = 0;
-                foreach ($this->recording as $item) {
-                    $res['Recording'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recording)) {
+                $res['Recording'] = [];
+                $n1 = 0;
+                foreach ($this->recording as $item1) {
+                    $res['Recording'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class recordings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Recording'])) {
             if (!empty($map['Recording'])) {
                 $model->recording = [];
-                $n                = 0;
-                foreach ($map['Recording'] as $item) {
-                    $model->recording[$n++] = null !== $item ? recording::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Recording'] as $item1) {
+                    $model->recording[$n1] = recording::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DialExRequest extends Model
 {
@@ -39,35 +39,41 @@ class DialExRequest extends Model
     public $routPoint;
     protected $_name = [
         'answerMode' => 'AnswerMode',
-        'callee'     => 'Callee',
-        'caller'     => 'Caller',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
         'instanceId' => 'InstanceId',
-        'provider'   => 'Provider',
-        'routPoint'  => 'RoutPoint',
+        'provider' => 'Provider',
+        'routPoint' => 'RoutPoint',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answerMode) {
             $res['AnswerMode'] = $this->answerMode;
         }
+
         if (null !== $this->callee) {
             $res['Callee'] = $this->callee;
         }
+
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
         }
+
         if (null !== $this->routPoint) {
             $res['RoutPoint'] = $this->routPoint;
         }
@@ -75,29 +81,34 @@ class DialExRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DialExRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnswerMode'])) {
             $model->answerMode = $map['AnswerMode'];
         }
+
         if (isset($map['Callee'])) {
             $model->callee = $map['Callee'];
         }
+
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
         }
+
         if (isset($map['RoutPoint'])) {
             $model->routPoint = $map['RoutPoint'];
         }

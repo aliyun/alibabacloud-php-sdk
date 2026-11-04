@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableTrunkProvidersRequest extends Model
 {
@@ -18,29 +18,45 @@ class DisableTrunkProvidersRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->providerName)) {
+            Model::validateArray($this->providerName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->providerName) {
-            $res['ProviderName'] = $this->providerName;
+            if (\is_array($this->providerName)) {
+                $res['ProviderName'] = [];
+                $n1 = 0;
+                foreach ($this->providerName as $item1) {
+                    $res['ProviderName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableTrunkProvidersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProviderName'])) {
             if (!empty($map['ProviderName'])) {
-                $model->providerName = $map['ProviderName'];
+                $model->providerName = [];
+                $n1 = 0;
+                foreach ($map['ProviderName'] as $item1) {
+                    $model->providerName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

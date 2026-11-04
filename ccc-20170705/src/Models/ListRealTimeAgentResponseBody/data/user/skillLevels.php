@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListRealTimeAgentResponseBody\data\user;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRealTimeAgentResponseBody\data\user\skillLevels\skillLevel;
-use AlibabaCloud\Tea\Model;
 
 class skillLevels extends Model
 {
@@ -19,17 +19,22 @@ class skillLevels extends Model
 
     public function validate()
     {
+        if (\is_array($this->skillLevel)) {
+            Model::validateArray($this->skillLevel);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->skillLevel) {
-            $res['SkillLevel'] = [];
-            if (null !== $this->skillLevel && \is_array($this->skillLevel)) {
-                $n = 0;
-                foreach ($this->skillLevel as $item) {
-                    $res['SkillLevel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->skillLevel)) {
+                $res['SkillLevel'] = [];
+                $n1 = 0;
+                foreach ($this->skillLevel as $item1) {
+                    $res['SkillLevel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class skillLevels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return skillLevels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SkillLevel'])) {
             if (!empty($map['SkillLevel'])) {
                 $model->skillLevel = [];
-                $n                 = 0;
-                foreach ($map['SkillLevel'] as $item) {
-                    $model->skillLevel[$n++] = null !== $item ? skillLevel::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SkillLevel'] as $item1) {
+                    $model->skillLevel[$n1] = skillLevel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

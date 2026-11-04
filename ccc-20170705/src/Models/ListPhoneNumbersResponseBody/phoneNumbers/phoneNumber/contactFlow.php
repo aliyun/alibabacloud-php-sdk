@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListPhoneNumbersResponseBody\phoneNumbers\phoneNumber;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contactFlow extends Model
 {
@@ -34,31 +34,36 @@ class contactFlow extends Model
     public $type;
     protected $_name = [
         'contactFlowDescription' => 'ContactFlowDescription',
-        'contactFlowId'          => 'ContactFlowId',
-        'contactFlowName'        => 'ContactFlowName',
-        'instanceId'             => 'InstanceId',
-        'type'                   => 'Type',
+        'contactFlowId' => 'ContactFlowId',
+        'contactFlowName' => 'ContactFlowName',
+        'instanceId' => 'InstanceId',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactFlowDescription) {
             $res['ContactFlowDescription'] = $this->contactFlowDescription;
         }
+
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
         }
+
         if (null !== $this->contactFlowName) {
             $res['ContactFlowName'] = $this->contactFlowName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -66,26 +71,30 @@ class contactFlow extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactFlow
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactFlowDescription'])) {
             $model->contactFlowDescription = $map['ContactFlowDescription'];
         }
+
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
         }
+
         if (isset($map['ContactFlowName'])) {
             $model->contactFlowName = $map['ContactFlowName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

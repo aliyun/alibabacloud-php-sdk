@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddBulkPhoneNumbersResponseBody\arrearagePhoneNumbers;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddBulkPhoneNumbersResponseBody\failedPhoneNumbers;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddBulkPhoneNumbersResponseBody\phoneNumbers;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddBulkPhoneNumbersResponseBody\userdPhoneNumbers;
-use AlibabaCloud\Tea\Model;
 
 class AddBulkPhoneNumbersResponseBody extends Model
 {
@@ -58,86 +58,115 @@ class AddBulkPhoneNumbersResponseBody extends Model
     public $userdPhoneNumbers;
     protected $_name = [
         'arrearagePhoneNumbers' => 'ArrearagePhoneNumbers',
-        'code'                  => 'Code',
-        'failedPhoneNumbers'    => 'FailedPhoneNumbers',
-        'httpStatusCode'        => 'HttpStatusCode',
-        'message'               => 'Message',
-        'phoneNumbers'          => 'PhoneNumbers',
-        'requestId'             => 'RequestId',
-        'success'               => 'Success',
-        'userdPhoneNumbers'     => 'UserdPhoneNumbers',
+        'code' => 'Code',
+        'failedPhoneNumbers' => 'FailedPhoneNumbers',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message' => 'Message',
+        'phoneNumbers' => 'PhoneNumbers',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'userdPhoneNumbers' => 'UserdPhoneNumbers',
     ];
 
     public function validate()
     {
+        if (null !== $this->arrearagePhoneNumbers) {
+            $this->arrearagePhoneNumbers->validate();
+        }
+        if (null !== $this->failedPhoneNumbers) {
+            $this->failedPhoneNumbers->validate();
+        }
+        if (null !== $this->phoneNumbers) {
+            $this->phoneNumbers->validate();
+        }
+        if (null !== $this->userdPhoneNumbers) {
+            $this->userdPhoneNumbers->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arrearagePhoneNumbers) {
-            $res['ArrearagePhoneNumbers'] = null !== $this->arrearagePhoneNumbers ? $this->arrearagePhoneNumbers->toMap() : null;
+            $res['ArrearagePhoneNumbers'] = null !== $this->arrearagePhoneNumbers ? $this->arrearagePhoneNumbers->toArray($noStream) : $this->arrearagePhoneNumbers;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->failedPhoneNumbers) {
-            $res['FailedPhoneNumbers'] = null !== $this->failedPhoneNumbers ? $this->failedPhoneNumbers->toMap() : null;
+            $res['FailedPhoneNumbers'] = null !== $this->failedPhoneNumbers ? $this->failedPhoneNumbers->toArray($noStream) : $this->failedPhoneNumbers;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->phoneNumbers) {
-            $res['PhoneNumbers'] = null !== $this->phoneNumbers ? $this->phoneNumbers->toMap() : null;
+            $res['PhoneNumbers'] = null !== $this->phoneNumbers ? $this->phoneNumbers->toArray($noStream) : $this->phoneNumbers;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->userdPhoneNumbers) {
-            $res['UserdPhoneNumbers'] = null !== $this->userdPhoneNumbers ? $this->userdPhoneNumbers->toMap() : null;
+            $res['UserdPhoneNumbers'] = null !== $this->userdPhoneNumbers ? $this->userdPhoneNumbers->toArray($noStream) : $this->userdPhoneNumbers;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddBulkPhoneNumbersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArrearagePhoneNumbers'])) {
             $model->arrearagePhoneNumbers = arrearagePhoneNumbers::fromMap($map['ArrearagePhoneNumbers']);
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['FailedPhoneNumbers'])) {
             $model->failedPhoneNumbers = failedPhoneNumbers::fromMap($map['FailedPhoneNumbers']);
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['PhoneNumbers'])) {
             $model->phoneNumbers = phoneNumbers::fromMap($map['PhoneNumbers']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['UserdPhoneNumbers'])) {
             $model->userdPhoneNumbers = userdPhoneNumbers::fromMap($map['UserdPhoneNumbers']);
         }

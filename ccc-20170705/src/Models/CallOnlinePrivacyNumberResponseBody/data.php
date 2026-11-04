@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\CallOnlinePrivacyNumberResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -33,32 +33,37 @@ class data extends Model
      */
     public $telX;
     protected $_name = [
-        'callId'      => 'CallId',
+        'callId' => 'CallId',
         'dateCreated' => 'DateCreated',
-        'represent'   => 'Represent',
-        'statusCode'  => 'StatusCode',
-        'telX'        => 'TelX',
+        'represent' => 'Represent',
+        'statusCode' => 'StatusCode',
+        'telX' => 'TelX',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
+
         if (null !== $this->dateCreated) {
             $res['DateCreated'] = $this->dateCreated;
         }
+
         if (null !== $this->represent) {
             $res['Represent'] = $this->represent;
         }
+
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
         }
+
         if (null !== $this->telX) {
             $res['TelX'] = $this->telX;
         }
@@ -66,26 +71,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
+
         if (isset($map['DateCreated'])) {
             $model->dateCreated = $map['DateCreated'];
         }
+
         if (isset($map['Represent'])) {
             $model->represent = $map['Represent'];
         }
+
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];
         }
+
         if (isset($map['TelX'])) {
             $model->telX = $map['TelX'];
         }

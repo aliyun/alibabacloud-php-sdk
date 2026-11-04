@@ -4,88 +4,53 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\CCC\V20170705\Models\AbortPredictiveJobsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\AbortPredictiveJobsResponse;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddAgentDeviceRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddAgentDeviceResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddBulkPhoneNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddBulkPhoneNumbersResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\AddJobsToPredictiveJobGroupRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\AddJobsToPredictiveJobGroupResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddPhoneNumberRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddPhoneNumberResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddPhoneTagsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddPhoneTagsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\AssignJobsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\AssignJobsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AssignUsersRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AssignUsersResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CallOnlinePrivacyNumberRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CallOnlinePrivacyNumberResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CancelJobsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CancelJobsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CheckNumberAvaliableRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CheckNumberAvaliableResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CommitContactFlowVersionModificationRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CommitContactFlowVersionModificationResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateBatchJobsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateBatchJobsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateCabInstanceRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateCabInstanceResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateContactFlowRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateFaultRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateFaultResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateInstanceResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateJobGroupRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateJobGroupResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateMediaRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateMediaResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreatePredictiveJobGroupRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreatePredictiveJobGroupResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateScenarioFromTemplateRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateScenarioFromTemplateResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateScenarioRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateScenarioResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateSkillGroupResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateSurveyRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\CreateSurveyResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateUserRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateUserResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateVoiceAppraiseRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateVoiceAppraiseResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteInstanceResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteJobGroupRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteJobGroupResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteMediaRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteMediaResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DeletePhoneTagsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DeletePhoneTagsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteSkillGroupResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteSurveyRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DeleteSurveyResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DialExRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DialExResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DialogueRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DialogueResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DisableTrunkProvidersRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DisableTrunkProvidersResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadAllTypeRecordingRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadAllTypeRecordingResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadCabRecordingRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadCabRecordingResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadOriginalStatisticsReportRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadOriginalStatisticsReportResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadRecordingRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadRecordingResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadUnreachableContactsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\DownloadUnreachableContactsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\FindUsersRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\FindUsersResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GenerateAgentStatisticReportRequest;
@@ -96,12 +61,8 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\GetCallMeasureSummaryReportRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetCallMeasureSummaryReportResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetConfigRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetConfigResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetContactInfoByOutboundTaskIdRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetContactInfoByOutboundTaskIdResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetConversationDetailByContactIdRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetConversationDetailByContactIdResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetConversationListRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetConversationListResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceStateRequest;
@@ -112,40 +73,16 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportSinceMidnightRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportSinceMidnightResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobDataUploadParamsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobDataUploadParamsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobFileUploadUrlRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobFileUploadUrlResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobGroupRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobGroupResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobListRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobListResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobStatusByCallIdRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobStatusByCallIdResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobTemplateDownloadParamsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetJobTemplateDownloadParamsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetNumberRegionInfoRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetNumberRegionInfoResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetPredictiveJobGroupRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetPredictiveJobGroupResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetPredictiveTaskDataRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetPredictiveTaskDataResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetRecordOssUploadParamRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetRecordOssUploadParamResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetRoutePointRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetRoutePointResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetScenarioRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetScenarioResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetServiceExtensionsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetServiceExtensionsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetSmsConfigRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetSmsConfigResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetSurveyRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetSurveyResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetTaskListRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\GetTaskListResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetTURNCredentialsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetTURNCredentialsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetTURNServerListRequest;
@@ -154,8 +91,6 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\GetUserByExtensionRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetUserByExtensionResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetUserRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetUserResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\InflightTaskTimeoutRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\InflightTaskTimeoutResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\LaunchAppraiseRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\LaunchAppraiseResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\LaunchShortMessageAppraiseRequest;
@@ -174,8 +109,6 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsSinceMidnightRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsSinceMidnightResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListBasicStatisticsReportSubItemsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListBasicStatisticsReportSubItemsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListCallDetailRecordsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListCallDetailRecordsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListCallEventDetailByContactIdRequest;
@@ -189,12 +122,6 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\ListContactFlowsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListInstancesOfUserResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListIvrTrackingDetailRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListIvrTrackingDetailResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListJobGroupsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListJobGroupsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListJobsByGroupRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListJobsByGroupResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListJobStatusRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListJobStatusResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListMediasRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListMediasResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListOutboundPhoneNumberOfUserRequest;
@@ -215,9 +142,6 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\ListRecordingsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRecordingsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRolesRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRolesResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListScenariosRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListScenariosResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListScenarioTemplatesResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupsOfUserRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupsOfUserResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupsRequest;
@@ -230,15 +154,11 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupSummaryReportsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupSummaryReportsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupSummaryReportsSinceMidnightRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListSkillGroupSummaryReportsSinceMidnightResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListSurveysRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListSurveysResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListTransferableSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListTransferableSkillGroupsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListTrunkProvidersResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListTrunksOfSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListTrunksOfSkillGroupResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListUnreachableContactsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ListUnreachableContactsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListUsersOfSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListUsersOfSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListUsersRequest;
@@ -247,10 +167,6 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\ListVoiceAppraiseRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListVoiceAppraiseResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyAgentDeviceRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyAgentDeviceResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyCabInstanceRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyCabInstanceResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyCallRatioRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyCallRatioResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyPhoneNumberRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyPhoneNumberResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyPhoneTagsRequest;
@@ -259,16 +175,14 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyPrimaryTrunksOfSkillGroupRequest
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyPrimaryTrunksOfSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyPrivacyNumberCallDetailRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyPrivacyNumberCallDetailResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyScenarioRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyScenarioResponse;
+use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySkillGroupBasicInfoRequest;
+use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySkillGroupBasicInfoResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySkillGroupOfUserRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySkillGroupOfUserResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySkillGroupOutboundNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySkillGroupOutboundNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySkillGroupResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySurveyRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ModifySurveyResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyUserRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ModifyUserResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\PickGlobalOutboundNumbersRequest;
@@ -279,10 +193,6 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\PickOutboundNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\PickOutboundNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\PublishContactFlowVersionRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\PublishContactFlowVersionResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\PublishPredictiveJobGroupRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\PublishPredictiveJobGroupResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\PublishSurveyRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\PublishSurveyResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\RefreshTokenRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\RefreshTokenResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\RemovePhoneNumberRequest;
@@ -295,36 +205,16 @@ use AlibabaCloud\SDK\CCC\V20170705\Models\RequestLoginInfoRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\RequestLoginInfoResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ResetUserStatusRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ResetUserStatusResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ResumeJobsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ResumeJobsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ResumePredictiveJobsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\ResumePredictiveJobsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SaveStatsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SaveStatsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SaveTerminalLogRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SaveTerminalLogResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SaveWebRTCStatsRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SaveWebRTCStatsResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SendPredefinedShortMessageRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\SendPredefinedShortMessageResponse;
 use AlibabaCloud\SDK\CCC\V20170705\Models\StartBack2BackCallRequest;
 use AlibabaCloud\SDK\CCC\V20170705\Models\StartBack2BackCallResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\StartJobRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\StartJobResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SubmitBatchJobsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SubmitBatchJobsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SubmitCabRecordingRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SubmitCabRecordingResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SuspendJobsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SuspendJobsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SuspendPredictiveJobsRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\SuspendPredictiveJobsResponse;
-use AlibabaCloud\SDK\CCC\V20170705\Models\TaskPreparingRequest;
-use AlibabaCloud\SDK\CCC\V20170705\Models\TaskPreparingResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class CCC extends OpenApiClient
 {
@@ -332,29 +222,29 @@ class CCC extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'        => 'ccc.aliyuncs.com',
-            'ap-south-1'            => 'ccc.aliyuncs.com',
-            'ap-southeast-1'        => 'ccc.aliyuncs.com',
-            'ap-southeast-2'        => 'ccc.aliyuncs.com',
-            'ap-southeast-3'        => 'ccc.aliyuncs.com',
-            'ap-southeast-5'        => 'ccc.aliyuncs.com',
-            'cn-beijing'            => 'ccc.aliyuncs.com',
-            'cn-chengdu'            => 'ccc.aliyuncs.com',
-            'cn-hongkong'           => 'ccc.aliyuncs.com',
-            'cn-huhehaote'          => 'ccc.aliyuncs.com',
-            'cn-qingdao'            => 'ccc.aliyuncs.com',
-            'cn-shenzhen'           => 'ccc.aliyuncs.com',
-            'cn-zhangjiakou'        => 'ccc.aliyuncs.com',
-            'eu-central-1'          => 'ccc.aliyuncs.com',
-            'eu-west-1'             => 'ccc.aliyuncs.com',
-            'me-east-1'             => 'ccc.aliyuncs.com',
-            'us-east-1'             => 'ccc.aliyuncs.com',
-            'us-west-1'             => 'ccc.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'ccc.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'ccc.aliyuncs.com',
+            'ap-south-1' => 'ccc.aliyuncs.com',
+            'ap-southeast-1' => 'ccc.aliyuncs.com',
+            'ap-southeast-2' => 'ccc.aliyuncs.com',
+            'ap-southeast-3' => 'ccc.aliyuncs.com',
+            'ap-southeast-5' => 'ccc.aliyuncs.com',
+            'cn-beijing' => 'ccc.aliyuncs.com',
+            'cn-chengdu' => 'ccc.aliyuncs.com',
+            'cn-hongkong' => 'ccc.aliyuncs.com',
+            'cn-huhehaote' => 'ccc.aliyuncs.com',
+            'cn-qingdao' => 'ccc.aliyuncs.com',
+            'cn-shenzhen' => 'ccc.aliyuncs.com',
+            'cn-zhangjiakou' => 'ccc.aliyuncs.com',
+            'eu-central-1' => 'ccc.aliyuncs.com',
+            'eu-west-1' => 'ccc.aliyuncs.com',
+            'me-east-1' => 'ccc.aliyuncs.com',
+            'us-east-1' => 'ccc.aliyuncs.com',
+            'us-west-1' => 'ccc.aliyuncs.com',
+            'cn-hangzhou-finance' => 'ccc.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'ccc.aliyuncs.com',
             'cn-shanghai-finance-1' => 'ccc.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'ccc.aliyuncs.com',
+            'cn-north-2-gov-1' => 'ccc.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ccc', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -373,45 +263,25 @@ class CCC extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AbortPredictiveJobsRequest $request
-     * @param RuntimeOptions             $runtime
+     * 添加坐席的设备信息.
      *
-     * @return AbortPredictiveJobsResponse
-     */
-    public function abortPredictiveJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AbortPredictiveJobsResponse::fromMap($this->doRPCRequest('AbortPredictiveJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AbortPredictiveJobsRequest $request
+     * @param request - AddAgentDeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AbortPredictiveJobsResponse
-     */
-    public function abortPredictiveJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->abortPredictiveJobsWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns AddAgentDeviceResponse
+     *
      * @param AddAgentDeviceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -419,15 +289,55 @@ class CCC extends OpenApiClient
      */
     public function addAgentDeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
+        }
+
+        if (null !== $request->clientPort) {
+            @$query['ClientPort'] = $request->clientPort;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->browserVersion) {
+            @$body['BrowserVersion'] = $request->browserVersion;
+        }
+
+        if (null !== $request->remark) {
+            @$body['Remark'] = $request->remark;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddAgentDevice',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return AddAgentDeviceResponse::fromMap($this->doRPCRequest('AddAgentDevice', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddAgentDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 添加坐席的设备信息.
+     *
+     * @param request - AddAgentDeviceRequest
+     *
+     * @returns AddAgentDeviceResponse
+     *
      * @param AddAgentDeviceRequest $request
      *
      * @return AddAgentDeviceResponse
@@ -440,6 +350,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * AddBulkPhoneNumbers.
+     *
+     * @param request - AddBulkPhoneNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddBulkPhoneNumbersResponse
+     *
      * @param AddBulkPhoneNumbersRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -447,15 +364,53 @@ class CCC extends OpenApiClient
      */
     public function addBulkPhoneNumbersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactFlowId) {
+            @$query['ContactFlowId'] = $request->contactFlowId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->usage) {
+            @$query['Usage'] = $request->usage;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddBulkPhoneNumbers',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return AddBulkPhoneNumbersResponse::fromMap($this->doRPCRequest('AddBulkPhoneNumbers', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddBulkPhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * AddBulkPhoneNumbers.
+     *
+     * @param request - AddBulkPhoneNumbersRequest
+     *
+     * @returns AddBulkPhoneNumbersResponse
+     *
      * @param AddBulkPhoneNumbersRequest $request
      *
      * @return AddBulkPhoneNumbersResponse
@@ -468,34 +423,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param AddJobsToPredictiveJobGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * AddPhoneNumber.
      *
-     * @return AddJobsToPredictiveJobGroupResponse
-     */
-    public function addJobsToPredictiveJobGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AddJobsToPredictiveJobGroupResponse::fromMap($this->doRPCRequest('AddJobsToPredictiveJobGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AddJobsToPredictiveJobGroupRequest $request
+     * @param request - AddPhoneNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AddJobsToPredictiveJobGroupResponse
-     */
-    public function addJobsToPredictiveJobGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addJobsToPredictiveJobGroupWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns AddPhoneNumberResponse
+     *
      * @param AddPhoneNumberRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -503,15 +437,49 @@ class CCC extends OpenApiClient
      */
     public function addPhoneNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactFlowId) {
+            @$query['ContactFlowId'] = $request->contactFlowId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->usage) {
+            @$query['Usage'] = $request->usage;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddPhoneNumber',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return AddPhoneNumberResponse::fromMap($this->doRPCRequest('AddPhoneNumber', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * AddPhoneNumber.
+     *
+     * @param request - AddPhoneNumberRequest
+     *
+     * @returns AddPhoneNumberResponse
+     *
      * @param AddPhoneNumberRequest $request
      *
      * @return AddPhoneNumberResponse
@@ -524,6 +492,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * AddPhoneTags.
+     *
+     * @param request - AddPhoneTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddPhoneTagsResponse
+     *
      * @param AddPhoneTagsRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -531,15 +506,69 @@ class CCC extends OpenApiClient
      */
     public function addPhoneTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->concurrency) {
+            @$query['Concurrency'] = $request->concurrency;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phoneNumberList) {
+            @$query['PhoneNumberList'] = $request->phoneNumberList;
+        }
+
+        if (null !== $request->provider) {
+            @$query['Provider'] = $request->provider;
+        }
+
+        if (null !== $request->regionNameCity) {
+            @$query['RegionNameCity'] = $request->regionNameCity;
+        }
+
+        if (null !== $request->regionNameProvince) {
+            @$query['RegionNameProvince'] = $request->regionNameProvince;
+        }
+
+        if (null !== $request->serviceTag) {
+            @$query['ServiceTag'] = $request->serviceTag;
+        }
+
+        if (null !== $request->sipTag) {
+            @$query['SipTag'] = $request->sipTag;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddPhoneTags',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return AddPhoneTagsResponse::fromMap($this->doRPCRequest('AddPhoneTags', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AddPhoneTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * AddPhoneTags.
+     *
+     * @param request - AddPhoneTagsRequest
+     *
+     * @returns AddPhoneTagsResponse
+     *
      * @param AddPhoneTagsRequest $request
      *
      * @return AddPhoneTagsResponse
@@ -552,34 +581,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param AssignJobsRequest $request
-     * @param RuntimeOptions    $runtime
+     * 把目录服务中的一组用户添加到一个呼叫中心实例中。添加完成后，需要为每一个用户分配一个分机号码
      *
-     * @return AssignJobsResponse
-     */
-    public function assignJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return AssignJobsResponse::fromMap($this->doRPCRequest('AssignJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param AssignJobsRequest $request
+     * @param request - AssignUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AssignJobsResponse
-     */
-    public function assignJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->assignJobsWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns AssignUsersResponse
+     *
      * @param AssignUsersRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -587,15 +595,53 @@ class CCC extends OpenApiClient
      */
     public function assignUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->roleId) {
+            @$query['RoleId'] = $request->roleId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->skillLevel) {
+            @$query['SkillLevel'] = $request->skillLevel;
+        }
+
+        if (null !== $request->userRamId) {
+            @$query['UserRamId'] = $request->userRamId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AssignUsers',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return AssignUsersResponse::fromMap($this->doRPCRequest('AssignUsers', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return AssignUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 把目录服务中的一组用户添加到一个呼叫中心实例中。添加完成后，需要为每一个用户分配一个分机号码
+     *
+     * @param request - AssignUsersRequest
+     *
+     * @returns AssignUsersResponse
+     *
      * @param AssignUsersRequest $request
      *
      * @return AssignUsersResponse
@@ -608,6 +654,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * CallOnlinePrivacyNumber.
+     *
+     * @param request - CallOnlinePrivacyNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CallOnlinePrivacyNumberResponse
+     *
      * @param CallOnlinePrivacyNumberRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -615,15 +668,45 @@ class CCC extends OpenApiClient
      */
     public function callOnlinePrivacyNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
+        }
+
+        if (null !== $request->telB) {
+            @$query['TelB'] = $request->telB;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CallOnlinePrivacyNumber',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CallOnlinePrivacyNumberResponse::fromMap($this->doRPCRequest('CallOnlinePrivacyNumber', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CallOnlinePrivacyNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CallOnlinePrivacyNumber.
+     *
+     * @param request - CallOnlinePrivacyNumberRequest
+     *
+     * @returns CallOnlinePrivacyNumberResponse
+     *
      * @param CallOnlinePrivacyNumberRequest $request
      *
      * @return CallOnlinePrivacyNumberResponse
@@ -636,34 +719,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param CancelJobsRequest $request
-     * @param RuntimeOptions    $runtime
+     * CheckNumberAvaliable.
      *
-     * @return CancelJobsResponse
-     */
-    public function cancelJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CancelJobsResponse::fromMap($this->doRPCRequest('CancelJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CancelJobsRequest $request
+     * @param request - CheckNumberAvaliableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CancelJobsResponse
-     */
-    public function cancelJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->cancelJobsWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns CheckNumberAvaliableResponse
+     *
      * @param CheckNumberAvaliableRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -671,15 +733,45 @@ class CCC extends OpenApiClient
      */
     public function checkNumberAvaliableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->callee) {
+            @$query['Callee'] = $request->callee;
+        }
+
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckNumberAvaliable',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CheckNumberAvaliableResponse::fromMap($this->doRPCRequest('CheckNumberAvaliable', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CheckNumberAvaliableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CheckNumberAvaliable.
+     *
+     * @param request - CheckNumberAvaliableRequest
+     *
+     * @returns CheckNumberAvaliableResponse
+     *
      * @param CheckNumberAvaliableRequest $request
      *
      * @return CheckNumberAvaliableResponse
@@ -692,6 +784,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * CommitContactFlowVersionModification.
+     *
+     * @param request - CommitContactFlowVersionModificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CommitContactFlowVersionModificationResponse
+     *
      * @param CommitContactFlowVersionModificationRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -699,15 +798,51 @@ class CCC extends OpenApiClient
      */
     public function commitContactFlowVersionModificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactFlowVersionId) {
+            @$query['ContactFlowVersionId'] = $request->contactFlowVersionId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->canvas) {
+            @$body['Canvas'] = $request->canvas;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CommitContactFlowVersionModification',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CommitContactFlowVersionModificationResponse::fromMap($this->doRPCRequest('CommitContactFlowVersionModification', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CommitContactFlowVersionModificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CommitContactFlowVersionModification.
+     *
+     * @param request - CommitContactFlowVersionModificationRequest
+     *
+     * @returns CommitContactFlowVersionModificationResponse
+     *
      * @param CommitContactFlowVersionModificationRequest $request
      *
      * @return CommitContactFlowVersionModificationResponse
@@ -720,62 +855,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param CreateBatchJobsRequest $request
-     * @param RuntimeOptions         $runtime
+     * CreateContactFlow.
      *
-     * @return CreateBatchJobsResponse
-     */
-    public function createBatchJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateBatchJobsResponse::fromMap($this->doRPCRequest('CreateBatchJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateBatchJobsRequest $request
+     * @param request - CreateContactFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateBatchJobsResponse
-     */
-    public function createBatchJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createBatchJobsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateCabInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @returns CreateContactFlowResponse
      *
-     * @return CreateCabInstanceResponse
-     */
-    public function createCabInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateCabInstanceResponse::fromMap($this->doRPCRequest('CreateCabInstance', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateCabInstanceRequest $request
-     *
-     * @return CreateCabInstanceResponse
-     */
-    public function createCabInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createCabInstanceWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateContactFlowRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -783,15 +869,59 @@ class CCC extends OpenApiClient
      */
     public function createContactFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $body = [];
+        if (null !== $request->canvas) {
+            @$body['Canvas'] = $request->canvas;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContactFlow',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CreateContactFlowResponse::fromMap($this->doRPCRequest('CreateContactFlow', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateContactFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CreateContactFlow.
+     *
+     * @param request - CreateContactFlowRequest
+     *
+     * @returns CreateContactFlowResponse
+     *
      * @param CreateContactFlowRequest $request
      *
      * @return CreateContactFlowResponse
@@ -804,6 +934,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * CreateFault.
+     *
+     * @param request - CreateFaultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFaultResponse
+     *
      * @param CreateFaultRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -811,15 +948,113 @@ class CCC extends OpenApiClient
      */
     public function createFaultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentFilePath) {
+            @$query['AgentFilePath'] = $request->agentFilePath;
+        }
+
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentOssFileName) {
+            @$query['AgentOssFileName'] = $request->agentOssFileName;
+        }
+
+        if (null !== $request->browserVersion) {
+            @$query['BrowserVersion'] = $request->browserVersion;
+        }
+
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
+        }
+
+        if (null !== $request->clientPort) {
+            @$query['ClientPort'] = $request->clientPort;
+        }
+
+        if (null !== $request->connectId) {
+            @$query['ConnectId'] = $request->connectId;
+        }
+
+        if (null !== $request->customFilePath) {
+            @$query['CustomFilePath'] = $request->customFilePath;
+        }
+
+        if (null !== $request->customOssFileName) {
+            @$query['CustomOssFileName'] = $request->customOssFileName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->microphoneEquipment) {
+            @$query['MicrophoneEquipment'] = $request->microphoneEquipment;
+        }
+
+        if (null !== $request->microphoneList) {
+            @$query['MicrophoneList'] = $request->microphoneList;
+        }
+
+        if (null !== $request->operatingSystemVersion) {
+            @$query['OperatingSystemVersion'] = $request->operatingSystemVersion;
+        }
+
+        if (null !== $request->serviceIp) {
+            @$query['ServiceIp'] = $request->serviceIp;
+        }
+
+        if (null !== $request->servicePort) {
+            @$query['ServicePort'] = $request->servicePort;
+        }
+
+        if (null !== $request->speakerEquipment) {
+            @$query['SpeakerEquipment'] = $request->speakerEquipment;
+        }
+
+        if (null !== $request->speakerList) {
+            @$query['SpeakerList'] = $request->speakerList;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFault',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CreateFaultResponse::fromMap($this->doRPCRequest('CreateFault', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFaultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CreateFault.
+     *
+     * @param request - CreateFaultRequest
+     *
+     * @returns CreateFaultResponse
+     *
      * @param CreateFaultRequest $request
      *
      * @return CreateFaultResponse
@@ -832,6 +1067,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * CreateInstance.
+     *
+     * @param request - CreateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceResponse
+     *
      * @param CreateInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -839,15 +1081,73 @@ class CCC extends OpenApiClient
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->adminRamId) {
+            @$query['AdminRamId'] = $request->adminRamId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->phoneNumbers) {
+            @$query['PhoneNumbers'] = $request->phoneNumbers;
+        }
+
+        if (null !== $request->storageMaxDays) {
+            @$query['StorageMaxDays'] = $request->storageMaxDays;
+        }
+
+        if (null !== $request->storageMaxSize) {
+            @$query['StorageMaxSize'] = $request->storageMaxSize;
+        }
+
+        if (null !== $request->userObject) {
+            @$query['UserObject'] = $request->userObject;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstance',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CreateInstanceResponse::fromMap($this->doRPCRequest('CreateInstance', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CreateInstance.
+     *
+     * @param request - CreateInstanceRequest
+     *
+     * @returns CreateInstanceResponse
+     *
      * @param CreateInstanceRequest $request
      *
      * @return CreateInstanceResponse
@@ -860,34 +1160,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param CreateJobGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * CreateMedia.
      *
-     * @return CreateJobGroupResponse
-     */
-    public function createJobGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateJobGroupResponse::fromMap($this->doRPCRequest('CreateJobGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateJobGroupRequest $request
+     * @param request - CreateMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateJobGroupResponse
-     */
-    public function createJobGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createJobGroupWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns CreateMediaResponse
+     *
      * @param CreateMediaRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -895,15 +1174,69 @@ class CCC extends OpenApiClient
      */
     public function createMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ossFileName) {
+            @$query['OssFileName'] = $request->ossFileName;
+        }
+
+        if (null !== $request->ossFilePath) {
+            @$query['OssFilePath'] = $request->ossFilePath;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->uploadResult) {
+            @$query['UploadResult'] = $request->uploadResult;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMedia',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CreateMediaResponse::fromMap($this->doRPCRequest('CreateMedia', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CreateMedia.
+     *
+     * @param request - CreateMediaRequest
+     *
+     * @returns CreateMediaResponse
+     *
      * @param CreateMediaRequest $request
      *
      * @return CreateMediaResponse
@@ -916,90 +1249,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param CreatePredictiveJobGroupRequest $request
-     * @param RuntimeOptions                  $runtime
+     * CreateSkillGroup.
      *
-     * @return CreatePredictiveJobGroupResponse
-     */
-    public function createPredictiveJobGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreatePredictiveJobGroupResponse::fromMap($this->doRPCRequest('CreatePredictiveJobGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreatePredictiveJobGroupRequest $request
+     * @param request - CreateSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreatePredictiveJobGroupResponse
-     */
-    public function createPredictiveJobGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createPredictiveJobGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateScenarioRequest $request
-     * @param RuntimeOptions        $runtime
+     * @returns CreateSkillGroupResponse
      *
-     * @return CreateScenarioResponse
-     */
-    public function createScenarioWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateScenarioResponse::fromMap($this->doRPCRequest('CreateScenario', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateScenarioRequest $request
-     *
-     * @return CreateScenarioResponse
-     */
-    public function createScenario($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createScenarioWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateScenarioFromTemplateRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateScenarioFromTemplateResponse
-     */
-    public function createScenarioFromTemplateWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateScenarioFromTemplateResponse::fromMap($this->doRPCRequest('CreateScenarioFromTemplate', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateScenarioFromTemplateRequest $request
-     *
-     * @return CreateScenarioFromTemplateResponse
-     */
-    public function createScenarioFromTemplate($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createScenarioFromTemplateWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateSkillGroupRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1007,15 +1263,65 @@ class CCC extends OpenApiClient
      */
     public function createSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowPrivateOutboundNumber) {
+            @$query['AllowPrivateOutboundNumber'] = $request->allowPrivateOutboundNumber;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->outboundPhoneNumberId) {
+            @$query['OutboundPhoneNumberId'] = $request->outboundPhoneNumberId;
+        }
+
+        if (null !== $request->routingStrategy) {
+            @$query['RoutingStrategy'] = $request->routingStrategy;
+        }
+
+        if (null !== $request->skillLevel) {
+            @$query['SkillLevel'] = $request->skillLevel;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSkillGroup',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CreateSkillGroupResponse::fromMap($this->doRPCRequest('CreateSkillGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CreateSkillGroup.
+     *
+     * @param request - CreateSkillGroupRequest
+     *
+     * @returns CreateSkillGroupResponse
+     *
      * @param CreateSkillGroupRequest $request
      *
      * @return CreateSkillGroupResponse
@@ -1028,34 +1334,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param CreateSurveyRequest $request
-     * @param RuntimeOptions      $runtime
+     * CreateUser.
      *
-     * @return CreateSurveyResponse
-     */
-    public function createSurveyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return CreateSurveyResponse::fromMap($this->doRPCRequest('CreateSurvey', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param CreateSurveyRequest $request
+     * @param request - CreateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateSurveyResponse
-     */
-    public function createSurvey($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSurveyWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns CreateUserResponse
+     *
      * @param CreateUserRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -1063,15 +1348,69 @@ class CCC extends OpenApiClient
      */
     public function createUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->loginName) {
+            @$query['LoginName'] = $request->loginName;
+        }
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
+        }
+
+        if (null !== $request->privateOutboundNumberId) {
+            @$query['PrivateOutboundNumberId'] = $request->privateOutboundNumberId;
+        }
+
+        if (null !== $request->roleId) {
+            @$query['RoleId'] = $request->roleId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->skillLevel) {
+            @$query['SkillLevel'] = $request->skillLevel;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUser',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CreateUserResponse::fromMap($this->doRPCRequest('CreateUser', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CreateUser.
+     *
+     * @param request - CreateUserRequest
+     *
+     * @returns CreateUserResponse
+     *
      * @param CreateUserRequest $request
      *
      * @return CreateUserResponse
@@ -1084,6 +1423,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * CreateVoiceAppraise.
+     *
+     * @param request - CreateVoiceAppraiseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVoiceAppraiseResponse
+     *
      * @param CreateVoiceAppraiseRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1091,15 +1437,51 @@ class CCC extends OpenApiClient
      */
     public function createVoiceAppraiseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactFlowVersionId) {
+            @$query['ContactFlowVersionId'] = $request->contactFlowVersionId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->isAppraise) {
+            @$query['IsAppraise'] = $request->isAppraise;
+        }
+
+        $body = [];
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVoiceAppraise',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return CreateVoiceAppraiseResponse::fromMap($this->doRPCRequest('CreateVoiceAppraise', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateVoiceAppraiseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * CreateVoiceAppraise.
+     *
+     * @param request - CreateVoiceAppraiseRequest
+     *
+     * @returns CreateVoiceAppraiseResponse
+     *
      * @param CreateVoiceAppraiseRequest $request
      *
      * @return CreateVoiceAppraiseResponse
@@ -1112,6 +1494,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * DeleteInstance.
+     *
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
      * @param DeleteInstanceRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1119,15 +1508,37 @@ class CCC extends OpenApiClient
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstance',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return DeleteInstanceResponse::fromMap($this->doRPCRequest('DeleteInstance', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * DeleteInstance.
+     *
+     * @param request - DeleteInstanceRequest
+     *
+     * @returns DeleteInstanceResponse
+     *
      * @param DeleteInstanceRequest $request
      *
      * @return DeleteInstanceResponse
@@ -1140,34 +1551,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param DeleteJobGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * DeleteMedia.
      *
-     * @return DeleteJobGroupResponse
-     */
-    public function deleteJobGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteJobGroupResponse::fromMap($this->doRPCRequest('DeleteJobGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteJobGroupRequest $request
+     * @param request - DeleteMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteJobGroupResponse
-     */
-    public function deleteJobGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteJobGroupWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns DeleteMediaResponse
+     *
      * @param DeleteMediaRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1175,15 +1565,41 @@ class CCC extends OpenApiClient
      */
     public function deleteMediaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMedia',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return DeleteMediaResponse::fromMap($this->doRPCRequest('DeleteMedia', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteMediaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * DeleteMedia.
+     *
+     * @param request - DeleteMediaRequest
+     *
+     * @returns DeleteMediaResponse
+     *
      * @param DeleteMediaRequest $request
      *
      * @return DeleteMediaResponse
@@ -1196,6 +1612,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * DeletePhoneTags.
+     *
+     * @param request - DeletePhoneTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePhoneTagsResponse
+     *
      * @param DeletePhoneTagsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1203,15 +1626,41 @@ class CCC extends OpenApiClient
      */
     public function deletePhoneTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phoneNumberList) {
+            @$query['PhoneNumberList'] = $request->phoneNumberList;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePhoneTags',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return DeletePhoneTagsResponse::fromMap($this->doRPCRequest('DeletePhoneTags', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeletePhoneTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * DeletePhoneTags.
+     *
+     * @param request - DeletePhoneTagsRequest
+     *
+     * @returns DeletePhoneTagsResponse
+     *
      * @param DeletePhoneTagsRequest $request
      *
      * @return DeletePhoneTagsResponse
@@ -1224,6 +1673,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * DeleteSkillGroup.
+     *
+     * @param request - DeleteSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSkillGroupResponse
+     *
      * @param DeleteSkillGroupRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1231,15 +1687,41 @@ class CCC extends OpenApiClient
      */
     public function deleteSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSkillGroup',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return DeleteSkillGroupResponse::fromMap($this->doRPCRequest('DeleteSkillGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DeleteSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * DeleteSkillGroup.
+     *
+     * @param request - DeleteSkillGroupRequest
+     *
+     * @returns DeleteSkillGroupResponse
+     *
      * @param DeleteSkillGroupRequest $request
      *
      * @return DeleteSkillGroupResponse
@@ -1252,34 +1734,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param DeleteSurveyRequest $request
-     * @param RuntimeOptions      $runtime
+     * DialEx.
      *
-     * @return DeleteSurveyResponse
-     */
-    public function deleteSurveyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DeleteSurveyResponse::fromMap($this->doRPCRequest('DeleteSurvey', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DeleteSurveyRequest $request
+     * @param request - DialExRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteSurveyResponse
-     */
-    public function deleteSurvey($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSurveyWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns DialExResponse
+     *
      * @param DialExRequest  $request
      * @param RuntimeOptions $runtime
      *
@@ -1287,15 +1748,57 @@ class CCC extends OpenApiClient
      */
     public function dialExWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->answerMode) {
+            @$query['AnswerMode'] = $request->answerMode;
+        }
+
+        if (null !== $request->callee) {
+            @$query['Callee'] = $request->callee;
+        }
+
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->provider) {
+            @$query['Provider'] = $request->provider;
+        }
+
+        if (null !== $request->routPoint) {
+            @$query['RoutPoint'] = $request->routPoint;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DialEx',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return DialExResponse::fromMap($this->doRPCRequest('DialEx', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DialExResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * DialEx.
+     *
+     * @param request - DialExRequest
+     *
+     * @returns DialExResponse
+     *
      * @param DialExRequest $request
      *
      * @return DialExResponse
@@ -1308,34 +1811,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param DialogueRequest $request
-     * @param RuntimeOptions  $runtime
+     * DisableTrunkProviders.
      *
-     * @return DialogueResponse
-     */
-    public function dialogueWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DialogueResponse::fromMap($this->doRPCRequest('Dialogue', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DialogueRequest $request
+     * @param request - DisableTrunkProvidersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DialogueResponse
-     */
-    public function dialogue($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->dialogueWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns DisableTrunkProvidersResponse
+     *
      * @param DisableTrunkProvidersRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1343,15 +1825,37 @@ class CCC extends OpenApiClient
      */
     public function disableTrunkProvidersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->providerName) {
+            @$query['ProviderName'] = $request->providerName;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableTrunkProviders',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return DisableTrunkProvidersResponse::fromMap($this->doRPCRequest('DisableTrunkProviders', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DisableTrunkProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * DisableTrunkProviders.
+     *
+     * @param request - DisableTrunkProvidersRequest
+     *
+     * @returns DisableTrunkProvidersResponse
+     *
      * @param DisableTrunkProvidersRequest $request
      *
      * @return DisableTrunkProvidersResponse
@@ -1364,6 +1868,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 下载MKV音频文件.
+     *
+     * @param request - DownloadAllTypeRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DownloadAllTypeRecordingResponse
+     *
      * @param DownloadAllTypeRecordingRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1371,15 +1882,45 @@ class CCC extends OpenApiClient
      */
     public function downloadAllTypeRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadAllTypeRecording',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return DownloadAllTypeRecordingResponse::fromMap($this->doRPCRequest('DownloadAllTypeRecording', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DownloadAllTypeRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 下载MKV音频文件.
+     *
+     * @param request - DownloadAllTypeRecordingRequest
+     *
+     * @returns DownloadAllTypeRecordingResponse
+     *
      * @param DownloadAllTypeRecordingRequest $request
      *
      * @return DownloadAllTypeRecordingResponse
@@ -1392,62 +1933,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param DownloadCabRecordingRequest $request
-     * @param RuntimeOptions              $runtime
+     * 下载录音文件.
      *
-     * @return DownloadCabRecordingResponse
-     */
-    public function downloadCabRecordingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DownloadCabRecordingResponse::fromMap($this->doRPCRequest('DownloadCabRecording', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DownloadCabRecordingRequest $request
+     * @param request - DownloadRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DownloadCabRecordingResponse
-     */
-    public function downloadCabRecording($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->downloadCabRecordingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DownloadOriginalStatisticsReportRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @returns DownloadRecordingResponse
      *
-     * @return DownloadOriginalStatisticsReportResponse
-     */
-    public function downloadOriginalStatisticsReportWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DownloadOriginalStatisticsReportResponse::fromMap($this->doRPCRequest('DownloadOriginalStatisticsReport', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DownloadOriginalStatisticsReportRequest $request
-     *
-     * @return DownloadOriginalStatisticsReportResponse
-     */
-    public function downloadOriginalStatisticsReport($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->downloadOriginalStatisticsReportWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DownloadRecordingRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1455,15 +1947,45 @@ class CCC extends OpenApiClient
      */
     public function downloadRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadRecording',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return DownloadRecordingResponse::fromMap($this->doRPCRequest('DownloadRecording', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DownloadRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 下载录音文件.
+     *
+     * @param request - DownloadRecordingRequest
+     *
+     * @returns DownloadRecordingResponse
+     *
      * @param DownloadRecordingRequest $request
      *
      * @return DownloadRecordingResponse
@@ -1476,34 +1998,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param DownloadUnreachableContactsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * FindUsers.
      *
-     * @return DownloadUnreachableContactsResponse
-     */
-    public function downloadUnreachableContactsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DownloadUnreachableContactsResponse::fromMap($this->doRPCRequest('DownloadUnreachableContacts', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DownloadUnreachableContactsRequest $request
+     * @param request - FindUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DownloadUnreachableContactsResponse
-     */
-    public function downloadUnreachableContacts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->downloadUnreachableContactsWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns FindUsersResponse
+     *
      * @param FindUsersRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1511,15 +2012,49 @@ class CCC extends OpenApiClient
      */
     public function findUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->criteria) {
+            @$query['Criteria'] = $request->criteria;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FindUsers',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return FindUsersResponse::fromMap($this->doRPCRequest('FindUsers', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return FindUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * FindUsers.
+     *
+     * @param request - FindUsersRequest
+     *
+     * @returns FindUsersResponse
+     *
      * @param FindUsersRequest $request
      *
      * @return FindUsersResponse
@@ -1532,6 +2067,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GenerateAgentStatisticReport.
+     *
+     * @param request - GenerateAgentStatisticReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateAgentStatisticReportResponse
+     *
      * @param GenerateAgentStatisticReportRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -1539,15 +2081,57 @@ class CCC extends OpenApiClient
      */
     public function generateAgentStatisticReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateAgentStatisticReport',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GenerateAgentStatisticReportResponse::fromMap($this->doRPCRequest('GenerateAgentStatisticReport', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GenerateAgentStatisticReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GenerateAgentStatisticReport.
+     *
+     * @param request - GenerateAgentStatisticReportRequest
+     *
+     * @returns GenerateAgentStatisticReportResponse
+     *
      * @param GenerateAgentStatisticReportRequest $request
      *
      * @return GenerateAgentStatisticReportResponse
@@ -1560,6 +2144,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetAgentData.
+     *
+     * @param request - GetAgentDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentDataResponse
+     *
      * @param GetAgentDataRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -1567,15 +2158,57 @@ class CCC extends OpenApiClient
      */
     public function getAgentDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDay) {
+            @$query['EndDay'] = $request->endDay;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startDay) {
+            @$query['StartDay'] = $request->startDay;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentData',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetAgentDataResponse::fromMap($this->doRPCRequest('GetAgentData', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetAgentDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetAgentData.
+     *
+     * @param request - GetAgentDataRequest
+     *
+     * @returns GetAgentDataResponse
+     *
      * @param GetAgentDataRequest $request
      *
      * @return GetAgentDataResponse
@@ -1588,6 +2221,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetCallMeasureSummaryReport.
+     *
+     * @param request - GetCallMeasureSummaryReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCallMeasureSummaryReportResponse
+     *
      * @param GetCallMeasureSummaryReportRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1595,15 +2235,57 @@ class CCC extends OpenApiClient
      */
     public function getCallMeasureSummaryReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->day) {
+            @$query['Day'] = $request->day;
+        }
+
+        if (null !== $request->intervalType) {
+            @$query['IntervalType'] = $request->intervalType;
+        }
+
+        if (null !== $request->month) {
+            @$query['Month'] = $request->month;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->year) {
+            @$query['Year'] = $request->year;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCallMeasureSummaryReport',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetCallMeasureSummaryReportResponse::fromMap($this->doRPCRequest('GetCallMeasureSummaryReport', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetCallMeasureSummaryReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetCallMeasureSummaryReport.
+     *
+     * @param request - GetCallMeasureSummaryReportRequest
+     *
+     * @returns GetCallMeasureSummaryReportResponse
+     *
      * @param GetCallMeasureSummaryReportRequest $request
      *
      * @return GetCallMeasureSummaryReportResponse
@@ -1616,6 +2298,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetConfig.
+     *
+     * @param request - GetConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConfigResponse
+     *
      * @param GetConfigRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -1623,15 +2312,49 @@ class CCC extends OpenApiClient
      */
     public function getConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
+        }
+
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetConfig',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetConfigResponse::fromMap($this->doRPCRequest('GetConfig', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetConfig.
+     *
+     * @param request - GetConfigRequest
+     *
+     * @returns GetConfigResponse
+     *
      * @param GetConfigRequest $request
      *
      * @return GetConfigResponse
@@ -1644,34 +2367,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetContactInfoByOutboundTaskIdRequest $request
-     * @param RuntimeOptions                        $runtime
+     * GetConversationDetailByContactId.
      *
-     * @return GetContactInfoByOutboundTaskIdResponse
-     */
-    public function getContactInfoByOutboundTaskIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetContactInfoByOutboundTaskIdResponse::fromMap($this->doRPCRequest('GetContactInfoByOutboundTaskId', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetContactInfoByOutboundTaskIdRequest $request
+     * @param request - GetConversationDetailByContactIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetContactInfoByOutboundTaskIdResponse
-     */
-    public function getContactInfoByOutboundTaskId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getContactInfoByOutboundTaskIdWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns GetConversationDetailByContactIdResponse
+     *
      * @param GetConversationDetailByContactIdRequest $request
      * @param RuntimeOptions                          $runtime
      *
@@ -1679,15 +2381,49 @@ class CCC extends OpenApiClient
      */
     public function getConversationDetailByContactIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetConversationDetailByContactId',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetConversationDetailByContactIdResponse::fromMap($this->doRPCRequest('GetConversationDetailByContactId', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetConversationDetailByContactIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetConversationDetailByContactId.
+     *
+     * @param request - GetConversationDetailByContactIdRequest
+     *
+     * @returns GetConversationDetailByContactIdResponse
+     *
      * @param GetConversationDetailByContactIdRequest $request
      *
      * @return GetConversationDetailByContactIdResponse
@@ -1700,34 +2436,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetConversationListRequest $request
-     * @param RuntimeOptions             $runtime
+     * GetInstance.
      *
-     * @return GetConversationListResponse
-     */
-    public function getConversationListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetConversationListResponse::fromMap($this->doRPCRequest('GetConversationList', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetConversationListRequest $request
+     * @param request - GetInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetConversationListResponse
-     */
-    public function getConversationList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getConversationListWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns GetInstanceResponse
+     *
      * @param GetInstanceRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1735,15 +2450,37 @@ class CCC extends OpenApiClient
      */
     public function getInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstance',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetInstanceResponse::fromMap($this->doRPCRequest('GetInstance', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetInstance.
+     *
+     * @param request - GetInstanceRequest
+     *
+     * @returns GetInstanceResponse
+     *
      * @param GetInstanceRequest $request
      *
      * @return GetInstanceResponse
@@ -1756,6 +2493,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetInstanceState.
+     *
+     * @param request - GetInstanceStateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceStateResponse
+     *
      * @param GetInstanceStateRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1763,15 +2507,37 @@ class CCC extends OpenApiClient
      */
     public function getInstanceStateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceState',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetInstanceStateResponse::fromMap($this->doRPCRequest('GetInstanceState', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceStateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetInstanceState.
+     *
+     * @param request - GetInstanceStateRequest
+     *
+     * @returns GetInstanceStateResponse
+     *
      * @param GetInstanceStateRequest $request
      *
      * @return GetInstanceStateResponse
@@ -1784,6 +2550,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetInstanceSummaryReport.
+     *
+     * @param request - GetInstanceSummaryReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceSummaryReportResponse
+     *
      * @param GetInstanceSummaryReportRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1791,15 +2564,53 @@ class CCC extends OpenApiClient
      */
     public function getInstanceSummaryReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceSummaryReport',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetInstanceSummaryReportResponse::fromMap($this->doRPCRequest('GetInstanceSummaryReport', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceSummaryReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetInstanceSummaryReport.
+     *
+     * @param request - GetInstanceSummaryReportRequest
+     *
+     * @returns GetInstanceSummaryReportResponse
+     *
      * @param GetInstanceSummaryReportRequest $request
      *
      * @return GetInstanceSummaryReportResponse
@@ -1812,6 +2623,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetInstanceSummaryReportByInterval.
+     *
+     * @param request - GetInstanceSummaryReportByIntervalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceSummaryReportByIntervalResponse
+     *
      * @param GetInstanceSummaryReportByIntervalRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -1819,15 +2637,57 @@ class CCC extends OpenApiClient
      */
     public function getInstanceSummaryReportByIntervalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceSummaryReportByInterval',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetInstanceSummaryReportByIntervalResponse::fromMap($this->doRPCRequest('GetInstanceSummaryReportByInterval', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceSummaryReportByIntervalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetInstanceSummaryReportByInterval.
+     *
+     * @param request - GetInstanceSummaryReportByIntervalRequest
+     *
+     * @returns GetInstanceSummaryReportByIntervalResponse
+     *
      * @param GetInstanceSummaryReportByIntervalRequest $request
      *
      * @return GetInstanceSummaryReportByIntervalResponse
@@ -1840,6 +2700,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetInstanceSummaryReportSinceMidnight.
+     *
+     * @param request - GetInstanceSummaryReportSinceMidnightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceSummaryReportSinceMidnightResponse
+     *
      * @param GetInstanceSummaryReportSinceMidnightRequest $request
      * @param RuntimeOptions                               $runtime
      *
@@ -1847,15 +2714,45 @@ class CCC extends OpenApiClient
      */
     public function getInstanceSummaryReportSinceMidnightWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceSummaryReportSinceMidnight',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetInstanceSummaryReportSinceMidnightResponse::fromMap($this->doRPCRequest('GetInstanceSummaryReportSinceMidnight', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetInstanceSummaryReportSinceMidnightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetInstanceSummaryReportSinceMidnight.
+     *
+     * @param request - GetInstanceSummaryReportSinceMidnightRequest
+     *
+     * @returns GetInstanceSummaryReportSinceMidnightResponse
+     *
      * @param GetInstanceSummaryReportSinceMidnightRequest $request
      *
      * @return GetInstanceSummaryReportSinceMidnightResponse
@@ -1868,202 +2765,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetJobRequest  $request
-     * @param RuntimeOptions $runtime
+     * GetNumberRegionInfo.
      *
-     * @return GetJobResponse
-     */
-    public function getJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetJobResponse::fromMap($this->doRPCRequest('GetJob', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetJobRequest $request
+     * @param request - GetNumberRegionInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetJobResponse
-     */
-    public function getJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetJobDataUploadParamsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @returns GetNumberRegionInfoResponse
      *
-     * @return GetJobDataUploadParamsResponse
-     */
-    public function getJobDataUploadParamsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetJobDataUploadParamsResponse::fromMap($this->doRPCRequest('GetJobDataUploadParams', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetJobDataUploadParamsRequest $request
-     *
-     * @return GetJobDataUploadParamsResponse
-     */
-    public function getJobDataUploadParams($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getJobDataUploadParamsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetJobFileUploadUrlRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetJobFileUploadUrlResponse
-     */
-    public function getJobFileUploadUrlWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetJobFileUploadUrlResponse::fromMap($this->doRPCRequest('GetJobFileUploadUrl', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetJobFileUploadUrlRequest $request
-     *
-     * @return GetJobFileUploadUrlResponse
-     */
-    public function getJobFileUploadUrl($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getJobFileUploadUrlWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetJobGroupRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetJobGroupResponse
-     */
-    public function getJobGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetJobGroupResponse::fromMap($this->doRPCRequest('GetJobGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetJobGroupRequest $request
-     *
-     * @return GetJobGroupResponse
-     */
-    public function getJobGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getJobGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetJobListRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetJobListResponse
-     */
-    public function getJobListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetJobListResponse::fromMap($this->doRPCRequest('GetJobList', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetJobListRequest $request
-     *
-     * @return GetJobListResponse
-     */
-    public function getJobList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getJobListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetJobStatusByCallIdRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetJobStatusByCallIdResponse
-     */
-    public function getJobStatusByCallIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetJobStatusByCallIdResponse::fromMap($this->doRPCRequest('GetJobStatusByCallId', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetJobStatusByCallIdRequest $request
-     *
-     * @return GetJobStatusByCallIdResponse
-     */
-    public function getJobStatusByCallId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getJobStatusByCallIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetJobTemplateDownloadParamsRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return GetJobTemplateDownloadParamsResponse
-     */
-    public function getJobTemplateDownloadParamsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetJobTemplateDownloadParamsResponse::fromMap($this->doRPCRequest('GetJobTemplateDownloadParams', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetJobTemplateDownloadParamsRequest $request
-     *
-     * @return GetJobTemplateDownloadParamsResponse
-     */
-    public function getJobTemplateDownloadParams($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getJobTemplateDownloadParamsWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetNumberRegionInfoRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2071,15 +2779,41 @@ class CCC extends OpenApiClient
      */
     public function getNumberRegionInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNumberRegionInfo',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetNumberRegionInfoResponse::fromMap($this->doRPCRequest('GetNumberRegionInfo', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetNumberRegionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetNumberRegionInfo.
+     *
+     * @param request - GetNumberRegionInfoRequest
+     *
+     * @returns GetNumberRegionInfoResponse
+     *
      * @param GetNumberRegionInfoRequest $request
      *
      * @return GetNumberRegionInfoResponse
@@ -2092,63 +2826,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetPredictiveJobGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * GetRecordOssUploadParam.
      *
-     * @return GetPredictiveJobGroupResponse
-     */
-    public function getPredictiveJobGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetPredictiveJobGroupResponse::fromMap($this->doRPCRequest('GetPredictiveJobGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetPredictiveJobGroupRequest $request
+     * @param request - GetRecordOssUploadParamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetPredictiveJobGroupResponse
-     */
-    public function getPredictiveJobGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPredictiveJobGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetPredictiveTaskDataRequest $request
-     * @param RuntimeOptions               $runtime
+     * @returns GetRecordOssUploadParamResponse
      *
-     * @return GetPredictiveTaskDataResponse
-     */
-    public function getPredictiveTaskDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => $query,
-        ]);
-
-        return GetPredictiveTaskDataResponse::fromMap($this->doRPCRequest('GetPredictiveTaskData', '2017-07-05', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetPredictiveTaskDataRequest $request
-     *
-     * @return GetPredictiveTaskDataResponse
-     */
-    public function getPredictiveTaskData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPredictiveTaskDataWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetRecordOssUploadParamRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2156,15 +2840,41 @@ class CCC extends OpenApiClient
      */
     public function getRecordOssUploadParamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRecordOssUploadParam',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetRecordOssUploadParamResponse::fromMap($this->doRPCRequest('GetRecordOssUploadParam', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRecordOssUploadParamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetRecordOssUploadParam.
+     *
+     * @param request - GetRecordOssUploadParamRequest
+     *
+     * @returns GetRecordOssUploadParamResponse
+     *
      * @param GetRecordOssUploadParamRequest $request
      *
      * @return GetRecordOssUploadParamResponse
@@ -2177,6 +2887,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetRoutePoint.
+     *
+     * @param request - GetRoutePointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRoutePointResponse
+     *
      * @param GetRoutePointRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2184,15 +2901,41 @@ class CCC extends OpenApiClient
      */
     public function getRoutePointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactFlowId) {
+            @$query['ContactFlowId'] = $request->contactFlowId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRoutePoint',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetRoutePointResponse::fromMap($this->doRPCRequest('GetRoutePoint', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetRoutePointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetRoutePoint.
+     *
+     * @param request - GetRoutePointRequest
+     *
+     * @returns GetRoutePointResponse
+     *
      * @param GetRoutePointRequest $request
      *
      * @return GetRoutePointResponse
@@ -2205,34 +2948,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetScenarioRequest $request
-     * @param RuntimeOptions     $runtime
+     * 获取服务号码，比如满意度调查分机号码（实际是满意度调查IVR的路由点，该路由点由ACC核心服务根据IVR的Project ID提供），或者是其他技能组号码。
      *
-     * @return GetScenarioResponse
-     */
-    public function getScenarioWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetScenarioResponse::fromMap($this->doRPCRequest('GetScenario', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetScenarioRequest $request
+     * @param request - GetServiceExtensionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetScenarioResponse
-     */
-    public function getScenario($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getScenarioWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns GetServiceExtensionsResponse
+     *
      * @param GetServiceExtensionsRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2240,15 +2962,41 @@ class CCC extends OpenApiClient
      */
     public function getServiceExtensionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->serviceType) {
+            @$query['ServiceType'] = $request->serviceType;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceExtensions',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetServiceExtensionsResponse::fromMap($this->doRPCRequest('GetServiceExtensions', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetServiceExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取服务号码，比如满意度调查分机号码（实际是满意度调查IVR的路由点，该路由点由ACC核心服务根据IVR的Project ID提供），或者是其他技能组号码。
+     *
+     * @param request - GetServiceExtensionsRequest
+     *
+     * @returns GetServiceExtensionsResponse
+     *
      * @param GetServiceExtensionsRequest $request
      *
      * @return GetServiceExtensionsResponse
@@ -2261,6 +3009,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetSmsConfig.
+     *
+     * @param request - GetSmsConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSmsConfigResponse
+     *
      * @param GetSmsConfigRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2268,15 +3023,41 @@ class CCC extends OpenApiClient
      */
     public function getSmsConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scenario) {
+            @$query['Scenario'] = $request->scenario;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSmsConfig',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetSmsConfigResponse::fromMap($this->doRPCRequest('GetSmsConfig', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetSmsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetSmsConfig.
+     *
+     * @param request - GetSmsConfigRequest
+     *
+     * @returns GetSmsConfigResponse
+     *
      * @param GetSmsConfigRequest $request
      *
      * @return GetSmsConfigResponse
@@ -2289,34 +3070,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetSurveyRequest $request
-     * @param RuntimeOptions   $runtime
+     * GetTURNCredentials.
      *
-     * @return GetSurveyResponse
-     */
-    public function getSurveyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetSurveyResponse::fromMap($this->doRPCRequest('GetSurvey', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetSurveyRequest $request
+     * @param request - GetTURNCredentialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetSurveyResponse
-     */
-    public function getSurvey($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSurveyWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns GetTURNCredentialsResponse
+     *
      * @param GetTURNCredentialsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2324,15 +3084,41 @@ class CCC extends OpenApiClient
      */
     public function getTURNCredentialsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTURNCredentials',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetTURNCredentialsResponse::fromMap($this->doRPCRequest('GetTURNCredentials', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTURNCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetTURNCredentials.
+     *
+     * @param request - GetTURNCredentialsRequest
+     *
+     * @returns GetTURNCredentialsResponse
+     *
      * @param GetTURNCredentialsRequest $request
      *
      * @return GetTURNCredentialsResponse
@@ -2345,6 +3131,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetTURNServerList.
+     *
+     * @param request - GetTURNServerListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTURNServerListResponse
+     *
      * @param GetTURNServerListRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2352,15 +3145,37 @@ class CCC extends OpenApiClient
      */
     public function getTURNServerListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTURNServerList',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetTURNServerListResponse::fromMap($this->doRPCRequest('GetTURNServerList', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetTURNServerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetTURNServerList.
+     *
+     * @param request - GetTURNServerListRequest
+     *
+     * @returns GetTURNServerListResponse
+     *
      * @param GetTURNServerListRequest $request
      *
      * @return GetTURNServerListResponse
@@ -2373,34 +3188,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param GetTaskListRequest $request
-     * @param RuntimeOptions     $runtime
+     * GetUser.
      *
-     * @return GetTaskListResponse
-     */
-    public function getTaskListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return GetTaskListResponse::fromMap($this->doRPCRequest('GetTaskList', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param GetTaskListRequest $request
+     * @param request - GetUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetTaskListResponse
-     */
-    public function getTaskList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getTaskListWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns GetUserResponse
+     *
      * @param GetUserRequest $request
      * @param RuntimeOptions $runtime
      *
@@ -2408,15 +3202,41 @@ class CCC extends OpenApiClient
      */
     public function getUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUser',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetUserResponse::fromMap($this->doRPCRequest('GetUser', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetUser.
+     *
+     * @param request - GetUserRequest
+     *
+     * @returns GetUserResponse
+     *
      * @param GetUserRequest $request
      *
      * @return GetUserResponse
@@ -2429,6 +3249,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * GetUserByExtension.
+     *
+     * @param request - GetUserByExtensionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserByExtensionResponse
+     *
      * @param GetUserByExtensionRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2436,15 +3263,41 @@ class CCC extends OpenApiClient
      */
     public function getUserByExtensionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->extension) {
+            @$query['Extension'] = $request->extension;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserByExtension',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return GetUserByExtensionResponse::fromMap($this->doRPCRequest('GetUserByExtension', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return GetUserByExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * GetUserByExtension.
+     *
+     * @param request - GetUserByExtensionRequest
+     *
+     * @returns GetUserByExtensionResponse
+     *
      * @param GetUserByExtensionRequest $request
      *
      * @return GetUserByExtensionResponse
@@ -2457,34 +3310,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param InflightTaskTimeoutRequest $request
-     * @param RuntimeOptions             $runtime
+     * LaunchAppraise.
      *
-     * @return InflightTaskTimeoutResponse
-     */
-    public function inflightTaskTimeoutWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return InflightTaskTimeoutResponse::fromMap($this->doRPCRequest('InflightTaskTimeout', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param InflightTaskTimeoutRequest $request
+     * @param request - LaunchAppraiseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return InflightTaskTimeoutResponse
-     */
-    public function inflightTaskTimeout($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->inflightTaskTimeoutWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns LaunchAppraiseResponse
+     *
      * @param LaunchAppraiseRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2492,15 +3324,41 @@ class CCC extends OpenApiClient
      */
     public function launchAppraiseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->acid) {
+            @$query['Acid'] = $request->acid;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LaunchAppraise',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return LaunchAppraiseResponse::fromMap($this->doRPCRequest('LaunchAppraise', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return LaunchAppraiseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * LaunchAppraise.
+     *
+     * @param request - LaunchAppraiseRequest
+     *
+     * @returns LaunchAppraiseResponse
+     *
      * @param LaunchAppraiseRequest $request
      *
      * @return LaunchAppraiseResponse
@@ -2513,6 +3371,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * LaunchShortMessageAppraise.
+     *
+     * @param request - LaunchShortMessageAppraiseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LaunchShortMessageAppraiseResponse
+     *
      * @param LaunchShortMessageAppraiseRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -2520,15 +3385,53 @@ class CCC extends OpenApiClient
      */
     public function launchShortMessageAppraiseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->acid) {
+            @$query['Acid'] = $request->acid;
+        }
+
+        if (null !== $request->contactType) {
+            @$query['ContactType'] = $request->contactType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phoneNumbers) {
+            @$query['PhoneNumbers'] = $request->phoneNumbers;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LaunchShortMessageAppraise',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return LaunchShortMessageAppraiseResponse::fromMap($this->doRPCRequest('LaunchShortMessageAppraise', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return LaunchShortMessageAppraiseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * LaunchShortMessageAppraise.
+     *
+     * @param request - LaunchShortMessageAppraiseRequest
+     *
+     * @returns LaunchShortMessageAppraiseResponse
+     *
      * @param LaunchShortMessageAppraiseRequest $request
      *
      * @return LaunchShortMessageAppraiseResponse
@@ -2541,6 +3444,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListAgentDevices.
+     *
+     * @param request - ListAgentDevicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentDevicesResponse
+     *
      * @param ListAgentDevicesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2548,15 +3458,49 @@ class CCC extends OpenApiClient
      */
     public function listAgentDevicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ramIds) {
+            @$query['RamIds'] = $request->ramIds;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->stopTime) {
+            @$query['StopTime'] = $request->stopTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentDevices',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListAgentDevicesResponse::fromMap($this->doRPCRequest('ListAgentDevices', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAgentDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListAgentDevices.
+     *
+     * @param request - ListAgentDevicesRequest
+     *
+     * @returns ListAgentDevicesResponse
+     *
      * @param ListAgentDevicesRequest $request
      *
      * @return ListAgentDevicesResponse
@@ -2569,6 +3513,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 获取坐席的事件信息.
+     *
+     * @param request - ListAgentEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentEventsResponse
+     *
      * @param ListAgentEventsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2576,15 +3527,53 @@ class CCC extends OpenApiClient
      */
     public function listAgentEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->event) {
+            @$query['Event'] = $request->event;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ramId) {
+            @$query['RamId'] = $request->ramId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->stopTime) {
+            @$query['StopTime'] = $request->stopTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentEvents',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListAgentEventsResponse::fromMap($this->doRPCRequest('ListAgentEvents', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAgentEventsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取坐席的事件信息.
+     *
+     * @param request - ListAgentEventsRequest
+     *
+     * @returns ListAgentEventsResponse
+     *
      * @param ListAgentEventsRequest $request
      *
      * @return ListAgentEventsResponse
@@ -2597,6 +3586,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListAgentStateLogs.
+     *
+     * @param request - ListAgentStateLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentStateLogsResponse
+     *
      * @param ListAgentStateLogsRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2604,15 +3600,57 @@ class CCC extends OpenApiClient
      */
     public function listAgentStateLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->ramId) {
+            @$query['RamId'] = $request->ramId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentStateLogs',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListAgentStateLogsResponse::fromMap($this->doRPCRequest('ListAgentStateLogs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAgentStateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListAgentStateLogs.
+     *
+     * @param request - ListAgentStateLogsRequest
+     *
+     * @returns ListAgentStateLogsResponse
+     *
      * @param ListAgentStateLogsRequest $request
      *
      * @return ListAgentStateLogsResponse
@@ -2625,6 +3663,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListAgentStates.
+     *
+     * @param request - ListAgentStatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentStatesResponse
+     *
      * @param ListAgentStatesRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2632,15 +3677,57 @@ class CCC extends OpenApiClient
      */
     public function listAgentStatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentIds) {
+            @$query['AgentIds'] = $request->agentIds;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentStates',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListAgentStatesResponse::fromMap($this->doRPCRequest('ListAgentStates', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAgentStatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListAgentStates.
+     *
+     * @param request - ListAgentStatesRequest
+     *
+     * @returns ListAgentStatesResponse
+     *
      * @param ListAgentStatesRequest $request
      *
      * @return ListAgentStatesResponse
@@ -2653,6 +3740,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListAgentSummaryReports.
+     *
+     * @param request - ListAgentSummaryReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentSummaryReportsResponse
+     *
      * @param ListAgentSummaryReportsRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -2660,15 +3754,61 @@ class CCC extends OpenApiClient
      */
     public function listAgentSummaryReportsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentIds) {
+            @$query['AgentIds'] = $request->agentIds;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentSummaryReports',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListAgentSummaryReportsResponse::fromMap($this->doRPCRequest('ListAgentSummaryReports', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAgentSummaryReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListAgentSummaryReports.
+     *
+     * @param request - ListAgentSummaryReportsRequest
+     *
+     * @returns ListAgentSummaryReportsResponse
+     *
      * @param ListAgentSummaryReportsRequest $request
      *
      * @return ListAgentSummaryReportsResponse
@@ -2681,6 +3821,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListAgentSummaryReportsByInterval.
+     *
+     * @param request - ListAgentSummaryReportsByIntervalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentSummaryReportsByIntervalResponse
+     *
      * @param ListAgentSummaryReportsByIntervalRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -2688,15 +3835,65 @@ class CCC extends OpenApiClient
      */
     public function listAgentSummaryReportsByIntervalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentIds) {
+            @$query['AgentIds'] = $request->agentIds;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentSummaryReportsByInterval',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListAgentSummaryReportsByIntervalResponse::fromMap($this->doRPCRequest('ListAgentSummaryReportsByInterval', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAgentSummaryReportsByIntervalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListAgentSummaryReportsByInterval.
+     *
+     * @param request - ListAgentSummaryReportsByIntervalRequest
+     *
+     * @returns ListAgentSummaryReportsByIntervalResponse
+     *
      * @param ListAgentSummaryReportsByIntervalRequest $request
      *
      * @return ListAgentSummaryReportsByIntervalResponse
@@ -2709,6 +3906,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListAgentSummaryReportsSinceMidnight.
+     *
+     * @param request - ListAgentSummaryReportsSinceMidnightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentSummaryReportsSinceMidnightResponse
+     *
      * @param ListAgentSummaryReportsSinceMidnightRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -2716,15 +3920,53 @@ class CCC extends OpenApiClient
      */
     public function listAgentSummaryReportsSinceMidnightWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentIds) {
+            @$query['AgentIds'] = $request->agentIds;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentSummaryReportsSinceMidnight',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListAgentSummaryReportsSinceMidnightResponse::fromMap($this->doRPCRequest('ListAgentSummaryReportsSinceMidnight', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListAgentSummaryReportsSinceMidnightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListAgentSummaryReportsSinceMidnight.
+     *
+     * @param request - ListAgentSummaryReportsSinceMidnightRequest
+     *
+     * @returns ListAgentSummaryReportsSinceMidnightResponse
+     *
      * @param ListAgentSummaryReportsSinceMidnightRequest $request
      *
      * @return ListAgentSummaryReportsSinceMidnightResponse
@@ -2737,34 +3979,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListBasicStatisticsReportSubItemsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * 获取通话详单。
      *
-     * @return ListBasicStatisticsReportSubItemsResponse
-     */
-    public function listBasicStatisticsReportSubItemsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListBasicStatisticsReportSubItemsResponse::fromMap($this->doRPCRequest('ListBasicStatisticsReportSubItems', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListBasicStatisticsReportSubItemsRequest $request
+     * @param request - ListCallDetailRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListBasicStatisticsReportSubItemsResponse
-     */
-    public function listBasicStatisticsReportSubItems($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listBasicStatisticsReportSubItemsWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns ListCallDetailRecordsResponse
+     *
      * @param ListCallDetailRecordsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2772,15 +3993,81 @@ class CCC extends OpenApiClient
      */
     public function listCallDetailRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactDisposition) {
+            @$query['ContactDisposition'] = $request->contactDisposition;
+        }
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->contactType) {
+            @$query['ContactType'] = $request->contactType;
+        }
+
+        if (null !== $request->criteria) {
+            @$query['Criteria'] = $request->criteria;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->stopTime) {
+            @$query['StopTime'] = $request->stopTime;
+        }
+
+        if (null !== $request->withRecording) {
+            @$query['WithRecording'] = $request->withRecording;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCallDetailRecords',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListCallDetailRecordsResponse::fromMap($this->doRPCRequest('ListCallDetailRecords', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCallDetailRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 获取通话详单。
+     *
+     * @param request - ListCallDetailRecordsRequest
+     *
+     * @returns ListCallDetailRecordsResponse
+     *
      * @param ListCallDetailRecordsRequest $request
      *
      * @return ListCallDetailRecordsResponse
@@ -2793,6 +4080,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListCallEventDetailByContactId.
+     *
+     * @param request - ListCallEventDetailByContactIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCallEventDetailByContactIdResponse
+     *
      * @param ListCallEventDetailByContactIdRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -2800,15 +4094,41 @@ class CCC extends OpenApiClient
      */
     public function listCallEventDetailByContactIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCallEventDetailByContactId',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListCallEventDetailByContactIdResponse::fromMap($this->doRPCRequest('ListCallEventDetailByContactId', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCallEventDetailByContactIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListCallEventDetailByContactId.
+     *
+     * @param request - ListCallEventDetailByContactIdRequest
+     *
+     * @returns ListCallEventDetailByContactIdResponse
+     *
      * @param ListCallEventDetailByContactIdRequest $request
      *
      * @return ListCallEventDetailByContactIdResponse
@@ -2821,6 +4141,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListCallMeasureSummaryReports.
+     *
+     * @param request - ListCallMeasureSummaryReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCallMeasureSummaryReportsResponse
+     *
      * @param ListCallMeasureSummaryReportsRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2828,15 +4155,37 @@ class CCC extends OpenApiClient
      */
     public function listCallMeasureSummaryReportsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->intervalType) {
+            @$query['IntervalType'] = $request->intervalType;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCallMeasureSummaryReports',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListCallMeasureSummaryReportsResponse::fromMap($this->doRPCRequest('ListCallMeasureSummaryReports', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListCallMeasureSummaryReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListCallMeasureSummaryReports.
+     *
+     * @param request - ListCallMeasureSummaryReportsRequest
+     *
+     * @returns ListCallMeasureSummaryReportsResponse
+     *
      * @param ListCallMeasureSummaryReportsRequest $request
      *
      * @return ListCallMeasureSummaryReportsResponse
@@ -2849,6 +4198,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListConfig.
+     *
+     * @param request - ListConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConfigResponse
+     *
      * @param ListConfigRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2856,15 +4212,41 @@ class CCC extends OpenApiClient
      */
     public function listConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->configItem) {
+            @$query['ConfigItem'] = $request->configItem;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConfig',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListConfigResponse::fromMap($this->doRPCRequest('ListConfig', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListConfig.
+     *
+     * @param request - ListConfigRequest
+     *
+     * @returns ListConfigResponse
+     *
      * @param ListConfigRequest $request
      *
      * @return ListConfigResponse
@@ -2877,6 +4259,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListContactFlows.
+     *
+     * @param request - ListContactFlowsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContactFlowsResponse
+     *
      * @param ListContactFlowsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2884,15 +4273,37 @@ class CCC extends OpenApiClient
      */
     public function listContactFlowsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContactFlows',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListContactFlowsResponse::fromMap($this->doRPCRequest('ListContactFlows', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListContactFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListContactFlows.
+     *
+     * @param request - ListContactFlowsRequest
+     *
+     * @returns ListContactFlowsResponse
+     *
      * @param ListContactFlowsRequest $request
      *
      * @return ListContactFlowsResponse
@@ -2905,6 +4316,12 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListInstancesOfUser.
+     *
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesOfUserResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return ListInstancesOfUserResponse
@@ -2912,11 +4329,26 @@ class CCC extends OpenApiClient
     public function listInstancesOfUserWithOptions($runtime)
     {
         $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListInstancesOfUser',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
 
-        return ListInstancesOfUserResponse::fromMap($this->doRPCRequest('ListInstancesOfUser', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListInstancesOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListInstancesOfUser.
+     *
+     * @returns ListInstancesOfUserResponse
+     *
      * @return ListInstancesOfUserResponse
      */
     public function listInstancesOfUser()
@@ -2927,6 +4359,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListIvrTrackingDetail.
+     *
+     * @param request - ListIvrTrackingDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIvrTrackingDetailResponse
+     *
      * @param ListIvrTrackingDetailRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2934,15 +4373,65 @@ class CCC extends OpenApiClient
      */
     public function listIvrTrackingDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
+        }
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
+        }
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->stopTime) {
+            @$query['StopTime'] = $request->stopTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIvrTrackingDetail',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListIvrTrackingDetailResponse::fromMap($this->doRPCRequest('ListIvrTrackingDetail', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListIvrTrackingDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListIvrTrackingDetail.
+     *
+     * @param request - ListIvrTrackingDetailRequest
+     *
+     * @returns ListIvrTrackingDetailResponse
+     *
      * @param ListIvrTrackingDetailRequest $request
      *
      * @return ListIvrTrackingDetailResponse
@@ -2955,90 +4444,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListJobGroupsRequest $request
-     * @param RuntimeOptions       $runtime
+     * ListMedias.
      *
-     * @return ListJobGroupsResponse
-     */
-    public function listJobGroupsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListJobGroupsResponse::fromMap($this->doRPCRequest('ListJobGroups', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListJobGroupsRequest $request
+     * @param request - ListMediasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListJobGroupsResponse
-     */
-    public function listJobGroups($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listJobGroupsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListJobStatusRequest $request
-     * @param RuntimeOptions       $runtime
+     * @returns ListMediasResponse
      *
-     * @return ListJobStatusResponse
-     */
-    public function listJobStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListJobStatusResponse::fromMap($this->doRPCRequest('ListJobStatus', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListJobStatusRequest $request
-     *
-     * @return ListJobStatusResponse
-     */
-    public function listJobStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listJobStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListJobsByGroupRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListJobsByGroupResponse
-     */
-    public function listJobsByGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListJobsByGroupResponse::fromMap($this->doRPCRequest('ListJobsByGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListJobsByGroupRequest $request
-     *
-     * @return ListJobsByGroupResponse
-     */
-    public function listJobsByGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listJobsByGroupWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListMediasRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -3046,15 +4458,49 @@ class CCC extends OpenApiClient
      */
     public function listMediasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->namePrefix) {
+            @$query['NamePrefix'] = $request->namePrefix;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMedias',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListMediasResponse::fromMap($this->doRPCRequest('ListMedias', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListMediasResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListMedias.
+     *
+     * @param request - ListMediasRequest
+     *
+     * @returns ListMediasResponse
+     *
      * @param ListMediasRequest $request
      *
      * @return ListMediasResponse
@@ -3067,6 +4513,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListOutboundPhoneNumberOfUser.
+     *
+     * @param request - ListOutboundPhoneNumberOfUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOutboundPhoneNumberOfUserResponse
+     *
      * @param ListOutboundPhoneNumberOfUserRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -3074,15 +4527,49 @@ class CCC extends OpenApiClient
      */
     public function listOutboundPhoneNumberOfUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOutboundPhoneNumberOfUser',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListOutboundPhoneNumberOfUserResponse::fromMap($this->doRPCRequest('ListOutboundPhoneNumberOfUser', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListOutboundPhoneNumberOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListOutboundPhoneNumberOfUser.
+     *
+     * @param request - ListOutboundPhoneNumberOfUserRequest
+     *
+     * @returns ListOutboundPhoneNumberOfUserResponse
+     *
      * @param ListOutboundPhoneNumberOfUserRequest $request
      *
      * @return ListOutboundPhoneNumberOfUserResponse
@@ -3095,6 +4582,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListPhoneNumbers.
+     *
+     * @param request - ListPhoneNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPhoneNumbersResponse
+     *
      * @param ListPhoneNumbersRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3102,15 +4596,41 @@ class CCC extends OpenApiClient
      */
     public function listPhoneNumbersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->outboundOnly) {
+            @$query['OutboundOnly'] = $request->outboundOnly;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPhoneNumbers',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListPhoneNumbersResponse::fromMap($this->doRPCRequest('ListPhoneNumbers', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPhoneNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListPhoneNumbers.
+     *
+     * @param request - ListPhoneNumbersRequest
+     *
+     * @returns ListPhoneNumbersResponse
+     *
      * @param ListPhoneNumbersRequest $request
      *
      * @return ListPhoneNumbersResponse
@@ -3123,6 +4643,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListPhoneTags.
+     *
+     * @param request - ListPhoneTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPhoneTagsResponse
+     *
      * @param ListPhoneTagsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3130,15 +4657,57 @@ class CCC extends OpenApiClient
      */
     public function listPhoneTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
+        }
+
+        if (null !== $request->numberGroupIds) {
+            @$query['NumberGroupIds'] = $request->numberGroupIds;
+        }
+
+        if (null !== $request->outboundOnly) {
+            @$query['OutboundOnly'] = $request->outboundOnly;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPhoneTags',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListPhoneTagsResponse::fromMap($this->doRPCRequest('ListPhoneTags', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListPhoneTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListPhoneTags.
+     *
+     * @param request - ListPhoneTagsRequest
+     *
+     * @returns ListPhoneTagsResponse
+     *
      * @param ListPhoneTagsRequest $request
      *
      * @return ListPhoneTagsResponse
@@ -3151,6 +4720,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListRealTimeAgent.
+     *
+     * @param request - ListRealTimeAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRealTimeAgentResponse
+     *
      * @param ListRealTimeAgentRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3158,15 +4734,37 @@ class CCC extends OpenApiClient
      */
     public function listRealTimeAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRealTimeAgent',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListRealTimeAgentResponse::fromMap($this->doRPCRequest('ListRealTimeAgent', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRealTimeAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListRealTimeAgent.
+     *
+     * @param request - ListRealTimeAgentRequest
+     *
+     * @returns ListRealTimeAgentResponse
+     *
      * @param ListRealTimeAgentRequest $request
      *
      * @return ListRealTimeAgentResponse
@@ -3179,6 +4777,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListRecentCallRecords.
+     *
+     * @param request - ListRecentCallRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecentCallRecordsResponse
+     *
      * @param ListRecentCallRecordsRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3186,15 +4791,57 @@ class CCC extends OpenApiClient
      */
     public function listRecentCallRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->criteria) {
+            @$query['Criteria'] = $request->criteria;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->stopTime) {
+            @$query['StopTime'] = $request->stopTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecentCallRecords',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListRecentCallRecordsResponse::fromMap($this->doRPCRequest('ListRecentCallRecords', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRecentCallRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListRecentCallRecords.
+     *
+     * @param request - ListRecentCallRecordsRequest
+     *
+     * @returns ListRecentCallRecordsResponse
+     *
      * @param ListRecentCallRecordsRequest $request
      *
      * @return ListRecentCallRecordsResponse
@@ -3207,6 +4854,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListRecordingOfDualTrack.
+     *
+     * @param request - ListRecordingOfDualTrackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecordingOfDualTrackResponse
+     *
      * @param ListRecordingOfDualTrackRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -3214,15 +4868,69 @@ class CCC extends OpenApiClient
      */
     public function listRecordingOfDualTrackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
+        }
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
+        }
+
+        if (null !== $request->connectId) {
+            @$query['ConnectId'] = $request->connectId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->stopTime) {
+            @$query['StopTime'] = $request->stopTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecordingOfDualTrack',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListRecordingOfDualTrackResponse::fromMap($this->doRPCRequest('ListRecordingOfDualTrack', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRecordingOfDualTrackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListRecordingOfDualTrack.
+     *
+     * @param request - ListRecordingOfDualTrackRequest
+     *
+     * @returns ListRecordingOfDualTrackResponse
+     *
      * @param ListRecordingOfDualTrackRequest $request
      *
      * @return ListRecordingOfDualTrackResponse
@@ -3235,6 +4943,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListRecordings.
+     *
+     * @param request - ListRecordingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecordingsResponse
+     *
      * @param ListRecordingsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -3242,15 +4957,65 @@ class CCC extends OpenApiClient
      */
     public function listRecordingsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->criteria) {
+            @$query['Criteria'] = $request->criteria;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->stopTime) {
+            @$query['StopTime'] = $request->stopTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecordings',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListRecordingsResponse::fromMap($this->doRPCRequest('ListRecordings', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRecordingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListRecordings.
+     *
+     * @param request - ListRecordingsRequest
+     *
+     * @returns ListRecordingsResponse
+     *
      * @param ListRecordingsRequest $request
      *
      * @return ListRecordingsResponse
@@ -3263,6 +5028,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListRecordingsByContactId.
+     *
+     * @param request - ListRecordingsByContactIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRecordingsByContactIdResponse
+     *
      * @param ListRecordingsByContactIdRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -3270,15 +5042,41 @@ class CCC extends OpenApiClient
      */
     public function listRecordingsByContactIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRecordingsByContactId',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListRecordingsByContactIdResponse::fromMap($this->doRPCRequest('ListRecordingsByContactId', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRecordingsByContactIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListRecordingsByContactId.
+     *
+     * @param request - ListRecordingsByContactIdRequest
+     *
+     * @returns ListRecordingsByContactIdResponse
+     *
      * @param ListRecordingsByContactIdRequest $request
      *
      * @return ListRecordingsByContactIdResponse
@@ -3291,6 +5089,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListRoles.
+     *
+     * @param request - ListRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRolesResponse
+     *
      * @param ListRolesRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -3298,15 +5103,37 @@ class CCC extends OpenApiClient
      */
     public function listRolesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRoles',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListRolesResponse::fromMap($this->doRPCRequest('ListRoles', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListRoles.
+     *
+     * @param request - ListRolesRequest
+     *
+     * @returns ListRolesResponse
+     *
      * @param ListRolesRequest $request
      *
      * @return ListRolesResponse
@@ -3319,56 +5146,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * ListSkillGroupStates.
      *
-     * @return ListScenarioTemplatesResponse
-     */
-    public function listScenarioTemplatesWithOptions($runtime)
-    {
-        $req = new OpenApiRequest([]);
-
-        return ListScenarioTemplatesResponse::fromMap($this->doRPCRequest('ListScenarioTemplates', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @return ListScenarioTemplatesResponse
-     */
-    public function listScenarioTemplates()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listScenarioTemplatesWithOptions($runtime);
-    }
-
-    /**
-     * @param ListScenariosRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param request - ListSkillGroupStatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListScenariosResponse
-     */
-    public function listScenariosWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListScenariosResponse::fromMap($this->doRPCRequest('ListScenarios', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListScenariosRequest $request
+     * @returns ListSkillGroupStatesResponse
      *
-     * @return ListScenariosResponse
-     */
-    public function listScenarios($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listScenariosWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListSkillGroupStatesRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3376,15 +5160,49 @@ class CCC extends OpenApiClient
      */
     public function listSkillGroupStatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillGroupIds) {
+            @$query['SkillGroupIds'] = $request->skillGroupIds;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkillGroupStates',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListSkillGroupStatesResponse::fromMap($this->doRPCRequest('ListSkillGroupStates', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSkillGroupStatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListSkillGroupStates.
+     *
+     * @param request - ListSkillGroupStatesRequest
+     *
+     * @returns ListSkillGroupStatesResponse
+     *
      * @param ListSkillGroupStatesRequest $request
      *
      * @return ListSkillGroupStatesResponse
@@ -3397,6 +5215,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListSkillGroupSummaryReports.
+     *
+     * @param request - ListSkillGroupSummaryReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillGroupSummaryReportsResponse
+     *
      * @param ListSkillGroupSummaryReportsRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -3404,15 +5229,57 @@ class CCC extends OpenApiClient
      */
     public function listSkillGroupSummaryReportsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillGroupIds) {
+            @$query['SkillGroupIds'] = $request->skillGroupIds;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkillGroupSummaryReports',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListSkillGroupSummaryReportsResponse::fromMap($this->doRPCRequest('ListSkillGroupSummaryReports', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSkillGroupSummaryReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListSkillGroupSummaryReports.
+     *
+     * @param request - ListSkillGroupSummaryReportsRequest
+     *
+     * @returns ListSkillGroupSummaryReportsResponse
+     *
      * @param ListSkillGroupSummaryReportsRequest $request
      *
      * @return ListSkillGroupSummaryReportsResponse
@@ -3425,6 +5292,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListSkillGroupSummaryReportsByInterval.
+     *
+     * @param request - ListSkillGroupSummaryReportsByIntervalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillGroupSummaryReportsByIntervalResponse
+     *
      * @param ListSkillGroupSummaryReportsByIntervalRequest $request
      * @param RuntimeOptions                                $runtime
      *
@@ -3432,15 +5306,61 @@ class CCC extends OpenApiClient
      */
     public function listSkillGroupSummaryReportsByIntervalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillGroupIds) {
+            @$query['SkillGroupIds'] = $request->skillGroupIds;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkillGroupSummaryReportsByInterval',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListSkillGroupSummaryReportsByIntervalResponse::fromMap($this->doRPCRequest('ListSkillGroupSummaryReportsByInterval', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSkillGroupSummaryReportsByIntervalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListSkillGroupSummaryReportsByInterval.
+     *
+     * @param request - ListSkillGroupSummaryReportsByIntervalRequest
+     *
+     * @returns ListSkillGroupSummaryReportsByIntervalResponse
+     *
      * @param ListSkillGroupSummaryReportsByIntervalRequest $request
      *
      * @return ListSkillGroupSummaryReportsByIntervalResponse
@@ -3453,6 +5373,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListSkillGroupSummaryReportsByInterval.
+     *
+     * @param request - ListSkillGroupSummaryReportsSinceMidnightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillGroupSummaryReportsSinceMidnightResponse
+     *
      * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request
      * @param RuntimeOptions                                   $runtime
      *
@@ -3460,15 +5387,49 @@ class CCC extends OpenApiClient
      */
     public function listSkillGroupSummaryReportsSinceMidnightWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillGroups) {
+            @$query['SkillGroups'] = $request->skillGroups;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkillGroupSummaryReportsSinceMidnight',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListSkillGroupSummaryReportsSinceMidnightResponse::fromMap($this->doRPCRequest('ListSkillGroupSummaryReportsSinceMidnight', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSkillGroupSummaryReportsSinceMidnightResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListSkillGroupSummaryReportsByInterval.
+     *
+     * @param request - ListSkillGroupSummaryReportsSinceMidnightRequest
+     *
+     * @returns ListSkillGroupSummaryReportsSinceMidnightResponse
+     *
      * @param ListSkillGroupSummaryReportsSinceMidnightRequest $request
      *
      * @return ListSkillGroupSummaryReportsSinceMidnightResponse
@@ -3481,6 +5442,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListSkillGroups.
+     *
+     * @param request - ListSkillGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillGroupsResponse
+     *
      * @param ListSkillGroupsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3488,15 +5456,45 @@ class CCC extends OpenApiClient
      */
     public function listSkillGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->skillGroupName) {
+            @$query['SkillGroupName'] = $request->skillGroupName;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkillGroups',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListSkillGroupsResponse::fromMap($this->doRPCRequest('ListSkillGroups', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListSkillGroups.
+     *
+     * @param request - ListSkillGroupsRequest
+     *
+     * @returns ListSkillGroupsResponse
+     *
      * @param ListSkillGroupsRequest $request
      *
      * @return ListSkillGroupsResponse
@@ -3509,6 +5507,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListSkillGroupsOfUser.
+     *
+     * @param request - ListSkillGroupsOfUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillGroupsOfUserResponse
+     *
      * @param ListSkillGroupsOfUserRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3516,15 +5521,41 @@ class CCC extends OpenApiClient
      */
     public function listSkillGroupsOfUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkillGroupsOfUser',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListSkillGroupsOfUserResponse::fromMap($this->doRPCRequest('ListSkillGroupsOfUser', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListSkillGroupsOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListSkillGroupsOfUser.
+     *
+     * @param request - ListSkillGroupsOfUserRequest
+     *
+     * @returns ListSkillGroupsOfUserResponse
+     *
      * @param ListSkillGroupsOfUserRequest $request
      *
      * @return ListSkillGroupsOfUserResponse
@@ -3537,34 +5568,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListSurveysRequest $request
-     * @param RuntimeOptions     $runtime
+     * ListTransferableSkillGroups.
      *
-     * @return ListSurveysResponse
-     */
-    public function listSurveysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListSurveysResponse::fromMap($this->doRPCRequest('ListSurveys', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListSurveysRequest $request
+     * @param request - ListTransferableSkillGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListSurveysResponse
-     */
-    public function listSurveys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSurveysWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns ListTransferableSkillGroupsResponse
+     *
      * @param ListTransferableSkillGroupsRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -3572,15 +5582,37 @@ class CCC extends OpenApiClient
      */
     public function listTransferableSkillGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTransferableSkillGroups',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListTransferableSkillGroupsResponse::fromMap($this->doRPCRequest('ListTransferableSkillGroups', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTransferableSkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListTransferableSkillGroups.
+     *
+     * @param request - ListTransferableSkillGroupsRequest
+     *
+     * @returns ListTransferableSkillGroupsResponse
+     *
      * @param ListTransferableSkillGroupsRequest $request
      *
      * @return ListTransferableSkillGroupsResponse
@@ -3593,6 +5625,12 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListTrunkProviders.
+     *
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrunkProvidersResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return ListTrunkProvidersResponse
@@ -3600,11 +5638,26 @@ class CCC extends OpenApiClient
     public function listTrunkProvidersWithOptions($runtime)
     {
         $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListTrunkProviders',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
 
-        return ListTrunkProvidersResponse::fromMap($this->doRPCRequest('ListTrunkProviders', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTrunkProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListTrunkProviders.
+     *
+     * @returns ListTrunkProvidersResponse
+     *
      * @return ListTrunkProvidersResponse
      */
     public function listTrunkProviders()
@@ -3615,6 +5668,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListTrunksOfSkillGroup.
+     *
+     * @param request - ListTrunksOfSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTrunksOfSkillGroupResponse
+     *
      * @param ListTrunksOfSkillGroupRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3622,15 +5682,41 @@ class CCC extends OpenApiClient
      */
     public function listTrunksOfSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTrunksOfSkillGroup',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListTrunksOfSkillGroupResponse::fromMap($this->doRPCRequest('ListTrunksOfSkillGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListTrunksOfSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListTrunksOfSkillGroup.
+     *
+     * @param request - ListTrunksOfSkillGroupRequest
+     *
+     * @returns ListTrunksOfSkillGroupResponse
+     *
      * @param ListTrunksOfSkillGroupRequest $request
      *
      * @return ListTrunksOfSkillGroupResponse
@@ -3643,34 +5729,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ListUnreachableContactsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ListUsers.
      *
-     * @return ListUnreachableContactsResponse
-     */
-    public function listUnreachableContactsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListUnreachableContactsResponse::fromMap($this->doRPCRequest('ListUnreachableContacts', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListUnreachableContactsRequest $request
+     * @param request - ListUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListUnreachableContactsResponse
-     */
-    public function listUnreachableContacts($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listUnreachableContactsWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns ListUsersResponse
+     *
      * @param ListUsersRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -3678,15 +5743,45 @@ class CCC extends OpenApiClient
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUsers',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListUsersResponse::fromMap($this->doRPCRequest('ListUsers', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListUsers.
+     *
+     * @param request - ListUsersRequest
+     *
+     * @returns ListUsersResponse
+     *
      * @param ListUsersRequest $request
      *
      * @return ListUsersResponse
@@ -3699,6 +5794,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListUsersOfSkillGroup.
+     *
+     * @param request - ListUsersOfSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsersOfSkillGroupResponse
+     *
      * @param ListUsersOfSkillGroupRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3706,15 +5808,49 @@ class CCC extends OpenApiClient
      */
     public function listUsersOfSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUsersOfSkillGroup',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListUsersOfSkillGroupResponse::fromMap($this->doRPCRequest('ListUsersOfSkillGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListUsersOfSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListUsersOfSkillGroup.
+     *
+     * @param request - ListUsersOfSkillGroupRequest
+     *
+     * @returns ListUsersOfSkillGroupResponse
+     *
      * @param ListUsersOfSkillGroupRequest $request
      *
      * @return ListUsersOfSkillGroupResponse
@@ -3727,6 +5863,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ListVoiceAppraise.
+     *
+     * @param request - ListVoiceAppraiseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVoiceAppraiseResponse
+     *
      * @param ListVoiceAppraiseRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3734,15 +5877,37 @@ class CCC extends OpenApiClient
      */
     public function listVoiceAppraiseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVoiceAppraise',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ListVoiceAppraiseResponse::fromMap($this->doRPCRequest('ListVoiceAppraise', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ListVoiceAppraiseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ListVoiceAppraise.
+     *
+     * @param request - ListVoiceAppraiseRequest
+     *
+     * @returns ListVoiceAppraiseResponse
+     *
      * @param ListVoiceAppraiseRequest $request
      *
      * @return ListVoiceAppraiseResponse
@@ -3755,6 +5920,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ModifyAgentDevice.
+     *
+     * @param request - ModifyAgentDeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAgentDeviceResponse
+     *
      * @param ModifyAgentDeviceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3762,15 +5934,45 @@ class CCC extends OpenApiClient
      */
     public function modifyAgentDeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentDeviceId) {
+            @$query['AgentDeviceId'] = $request->agentDeviceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->isLogin) {
+            @$query['IsLogin'] = $request->isLogin;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAgentDevice',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ModifyAgentDeviceResponse::fromMap($this->doRPCRequest('ModifyAgentDevice', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyAgentDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ModifyAgentDevice.
+     *
+     * @param request - ModifyAgentDeviceRequest
+     *
+     * @returns ModifyAgentDeviceResponse
+     *
      * @param ModifyAgentDeviceRequest $request
      *
      * @return ModifyAgentDeviceResponse
@@ -3783,62 +5985,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ModifyCabInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * ModifyPhoneNumber.
      *
-     * @return ModifyCabInstanceResponse
-     */
-    public function modifyCabInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyCabInstanceResponse::fromMap($this->doRPCRequest('ModifyCabInstance', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyCabInstanceRequest $request
+     * @param request - ModifyPhoneNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyCabInstanceResponse
-     */
-    public function modifyCabInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyCabInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyCallRatioRequest $request
-     * @param RuntimeOptions         $runtime
+     * @returns ModifyPhoneNumberResponse
      *
-     * @return ModifyCallRatioResponse
-     */
-    public function modifyCallRatioWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyCallRatioResponse::fromMap($this->doRPCRequest('ModifyCallRatio', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyCallRatioRequest $request
-     *
-     * @return ModifyCallRatioResponse
-     */
-    public function modifyCallRatio($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyCallRatioWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ModifyPhoneNumberRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3846,15 +5999,53 @@ class CCC extends OpenApiClient
      */
     public function modifyPhoneNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactFlowId) {
+            @$query['ContactFlowId'] = $request->contactFlowId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phoneNumberId) {
+            @$query['PhoneNumberId'] = $request->phoneNumberId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->usage) {
+            @$query['Usage'] = $request->usage;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPhoneNumber',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ModifyPhoneNumberResponse::fromMap($this->doRPCRequest('ModifyPhoneNumber', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ModifyPhoneNumber.
+     *
+     * @param request - ModifyPhoneNumberRequest
+     *
+     * @returns ModifyPhoneNumberResponse
+     *
      * @param ModifyPhoneNumberRequest $request
      *
      * @return ModifyPhoneNumberResponse
@@ -3867,6 +6058,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ModifyPhoneTags.
+     *
+     * @param request - ModifyPhoneTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPhoneTagsResponse
+     *
      * @param ModifyPhoneTagsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -3874,15 +6072,45 @@ class CCC extends OpenApiClient
      */
     public function modifyPhoneTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->serviceTag) {
+            @$query['ServiceTag'] = $request->serviceTag;
+        }
+
+        if (null !== $request->skillGroupIdList) {
+            @$query['SkillGroupIdList'] = $request->skillGroupIdList;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPhoneTags',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ModifyPhoneTagsResponse::fromMap($this->doRPCRequest('ModifyPhoneTags', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPhoneTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ModifyPhoneTags.
+     *
+     * @param request - ModifyPhoneTagsRequest
+     *
+     * @returns ModifyPhoneTagsResponse
+     *
      * @param ModifyPhoneTagsRequest $request
      *
      * @return ModifyPhoneTagsResponse
@@ -3895,6 +6123,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ModifyPrimaryTrunksOfSkillGroup.
+     *
+     * @param request - ModifyPrimaryTrunksOfSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPrimaryTrunksOfSkillGroupResponse
+     *
      * @param ModifyPrimaryTrunksOfSkillGroupRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -3902,15 +6137,45 @@ class CCC extends OpenApiClient
      */
     public function modifyPrimaryTrunksOfSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->primaryProviderName) {
+            @$query['PrimaryProviderName'] = $request->primaryProviderName;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPrimaryTrunksOfSkillGroup',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ModifyPrimaryTrunksOfSkillGroupResponse::fromMap($this->doRPCRequest('ModifyPrimaryTrunksOfSkillGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPrimaryTrunksOfSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ModifyPrimaryTrunksOfSkillGroup.
+     *
+     * @param request - ModifyPrimaryTrunksOfSkillGroupRequest
+     *
+     * @returns ModifyPrimaryTrunksOfSkillGroupResponse
+     *
      * @param ModifyPrimaryTrunksOfSkillGroupRequest $request
      *
      * @return ModifyPrimaryTrunksOfSkillGroupResponse
@@ -3923,6 +6188,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ModifyPrivacyNumberCallDetail.
+     *
+     * @param request - ModifyPrivacyNumberCallDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPrivacyNumberCallDetailResponse
+     *
      * @param ModifyPrivacyNumberCallDetailRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -3930,15 +6202,45 @@ class CCC extends OpenApiClient
      */
     public function modifyPrivacyNumberCallDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
+        }
+
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPrivacyNumberCallDetail',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ModifyPrivacyNumberCallDetailResponse::fromMap($this->doRPCRequest('ModifyPrivacyNumberCallDetail', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyPrivacyNumberCallDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ModifyPrivacyNumberCallDetail.
+     *
+     * @param request - ModifyPrivacyNumberCallDetailRequest
+     *
+     * @returns ModifyPrivacyNumberCallDetailResponse
+     *
      * @param ModifyPrivacyNumberCallDetailRequest $request
      *
      * @return ModifyPrivacyNumberCallDetailResponse
@@ -3951,34 +6253,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ModifyScenarioRequest $request
-     * @param RuntimeOptions        $runtime
+     * ModifySkillGroup.
      *
-     * @return ModifyScenarioResponse
-     */
-    public function modifyScenarioWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyScenarioResponse::fromMap($this->doRPCRequest('ModifyScenario', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyScenarioRequest $request
+     * @param request - ModifySkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyScenarioResponse
-     */
-    public function modifyScenario($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyScenarioWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns ModifySkillGroupResponse
+     *
      * @param ModifySkillGroupRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3986,15 +6267,69 @@ class CCC extends OpenApiClient
      */
     public function modifySkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowPrivateOutboundNumber) {
+            @$query['AllowPrivateOutboundNumber'] = $request->allowPrivateOutboundNumber;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->outboundPhoneNumberId) {
+            @$query['OutboundPhoneNumberId'] = $request->outboundPhoneNumberId;
+        }
+
+        if (null !== $request->routingStrategy) {
+            @$query['RoutingStrategy'] = $request->routingStrategy;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->skillLevel) {
+            @$query['SkillLevel'] = $request->skillLevel;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySkillGroup',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ModifySkillGroupResponse::fromMap($this->doRPCRequest('ModifySkillGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ModifySkillGroup.
+     *
+     * @param request - ModifySkillGroupRequest
+     *
+     * @returns ModifySkillGroupResponse
+     *
      * @param ModifySkillGroupRequest $request
      *
      * @return ModifySkillGroupResponse
@@ -4007,6 +6342,90 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改技能组基础信息,包括技能组名称、技能组描述、匹配模式、个人外呼号码标识等基础信息.
+     *
+     * @param request - ModifySkillGroupBasicInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySkillGroupBasicInfoResponse
+     *
+     * @param ModifySkillGroupBasicInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifySkillGroupBasicInfoResponse
+     */
+    public function modifySkillGroupBasicInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowPrivateOutboundNumber) {
+            @$query['AllowPrivateOutboundNumber'] = $request->allowPrivateOutboundNumber;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->routingStrategy) {
+            @$query['RoutingStrategy'] = $request->routingStrategy;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySkillGroupBasicInfo',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySkillGroupBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改技能组基础信息,包括技能组名称、技能组描述、匹配模式、个人外呼号码标识等基础信息.
+     *
+     * @param request - ModifySkillGroupBasicInfoRequest
+     *
+     * @returns ModifySkillGroupBasicInfoResponse
+     *
+     * @param ModifySkillGroupBasicInfoRequest $request
+     *
+     * @return ModifySkillGroupBasicInfoResponse
+     */
+    public function modifySkillGroupBasicInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySkillGroupBasicInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * ModifySkillGroupOfUser.
+     *
+     * @param request - ModifySkillGroupOfUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySkillGroupOfUserResponse
+     *
      * @param ModifySkillGroupOfUserRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -4014,15 +6433,53 @@ class CCC extends OpenApiClient
      */
     public function modifySkillGroupOfUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->roleId) {
+            @$query['RoleId'] = $request->roleId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->skillLevel) {
+            @$query['SkillLevel'] = $request->skillLevel;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySkillGroupOfUser',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ModifySkillGroupOfUserResponse::fromMap($this->doRPCRequest('ModifySkillGroupOfUser', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySkillGroupOfUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ModifySkillGroupOfUser.
+     *
+     * @param request - ModifySkillGroupOfUserRequest
+     *
+     * @returns ModifySkillGroupOfUserResponse
+     *
      * @param ModifySkillGroupOfUserRequest $request
      *
      * @return ModifySkillGroupOfUserResponse
@@ -4035,6 +6492,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ModifySkillGroupOutboundNumbers.
+     *
+     * @param request - ModifySkillGroupOutboundNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySkillGroupOutboundNumbersResponse
+     *
      * @param ModifySkillGroupOutboundNumbersRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -4042,15 +6506,49 @@ class CCC extends OpenApiClient
      */
     public function modifySkillGroupOutboundNumbersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->operationType) {
+            @$query['OperationType'] = $request->operationType;
+        }
+
+        if (null !== $request->outboundPhoneNumberId) {
+            @$query['OutboundPhoneNumberId'] = $request->outboundPhoneNumberId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySkillGroupOutboundNumbers',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ModifySkillGroupOutboundNumbersResponse::fromMap($this->doRPCRequest('ModifySkillGroupOutboundNumbers', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifySkillGroupOutboundNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ModifySkillGroupOutboundNumbers.
+     *
+     * @param request - ModifySkillGroupOutboundNumbersRequest
+     *
+     * @returns ModifySkillGroupOutboundNumbersResponse
+     *
      * @param ModifySkillGroupOutboundNumbersRequest $request
      *
      * @return ModifySkillGroupOutboundNumbersResponse
@@ -4063,34 +6561,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ModifySurveyRequest $request
-     * @param RuntimeOptions      $runtime
+     * ModifyUser.
      *
-     * @return ModifySurveyResponse
-     */
-    public function modifySurveyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifySurveyResponse::fromMap($this->doRPCRequest('ModifySurvey', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifySurveyRequest $request
+     * @param request - ModifyUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifySurveyResponse
-     */
-    public function modifySurvey($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifySurveyWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns ModifyUserResponse
+     *
      * @param ModifyUserRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -4098,15 +6575,69 @@ class CCC extends OpenApiClient
      */
     public function modifyUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
+        }
+
+        if (null !== $request->privateOutboundNumberId) {
+            @$query['PrivateOutboundNumberId'] = $request->privateOutboundNumberId;
+        }
+
+        if (null !== $request->roleId) {
+            @$query['RoleId'] = $request->roleId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->skillLevel) {
+            @$query['SkillLevel'] = $request->skillLevel;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyUser',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ModifyUserResponse::fromMap($this->doRPCRequest('ModifyUser', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ModifyUser.
+     *
+     * @param request - ModifyUserRequest
+     *
+     * @returns ModifyUserResponse
+     *
      * @param ModifyUserRequest $request
      *
      * @return ModifyUserResponse
@@ -4119,6 +6650,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * PickGlobalOutboundNumbers.
+     *
+     * @param request - PickGlobalOutboundNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PickGlobalOutboundNumbersResponse
+     *
      * @param PickGlobalOutboundNumbersRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4126,15 +6664,53 @@ class CCC extends OpenApiClient
      */
     public function pickGlobalOutboundNumbersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->calleeNumber) {
+            @$query['CalleeNumber'] = $request->calleeNumber;
+        }
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->isVirtual) {
+            @$query['IsVirtual'] = $request->isVirtual;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PickGlobalOutboundNumbers',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return PickGlobalOutboundNumbersResponse::fromMap($this->doRPCRequest('PickGlobalOutboundNumbers', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PickGlobalOutboundNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * PickGlobalOutboundNumbers.
+     *
+     * @param request - PickGlobalOutboundNumbersRequest
+     *
+     * @returns PickGlobalOutboundNumbersResponse
+     *
      * @param PickGlobalOutboundNumbersRequest $request
      *
      * @return PickGlobalOutboundNumbersResponse
@@ -4147,6 +6723,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * PickLocalNumber.
+     *
+     * @param request - PickLocalNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PickLocalNumberResponse
+     *
      * @param PickLocalNumberRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4154,15 +6737,45 @@ class CCC extends OpenApiClient
      */
     public function pickLocalNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->calleeNumber) {
+            @$query['CalleeNumber'] = $request->calleeNumber;
+        }
+
+        if (null !== $request->candidateNumber) {
+            @$query['CandidateNumber'] = $request->candidateNumber;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PickLocalNumber',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return PickLocalNumberResponse::fromMap($this->doRPCRequest('PickLocalNumber', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PickLocalNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * PickLocalNumber.
+     *
+     * @param request - PickLocalNumberRequest
+     *
+     * @returns PickLocalNumberResponse
+     *
      * @param PickLocalNumberRequest $request
      *
      * @return PickLocalNumberResponse
@@ -4175,6 +6788,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * PickOutboundNumbers.
+     *
+     * @param request - PickOutboundNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PickOutboundNumbersResponse
+     *
      * @param PickOutboundNumbersRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -4182,15 +6802,49 @@ class CCC extends OpenApiClient
      */
     public function pickOutboundNumbersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->calleeNumber) {
+            @$query['CalleeNumber'] = $request->calleeNumber;
+        }
+
+        if (null !== $request->candidateNumber) {
+            @$query['CandidateNumber'] = $request->candidateNumber;
+        }
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PickOutboundNumbers',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return PickOutboundNumbersResponse::fromMap($this->doRPCRequest('PickOutboundNumbers', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PickOutboundNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * PickOutboundNumbers.
+     *
+     * @param request - PickOutboundNumbersRequest
+     *
+     * @returns PickOutboundNumbersResponse
+     *
      * @param PickOutboundNumbersRequest $request
      *
      * @return PickOutboundNumbersResponse
@@ -4203,6 +6857,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * PublishContactFlowVersion.
+     *
+     * @param request - PublishContactFlowVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishContactFlowVersionResponse
+     *
      * @param PublishContactFlowVersionRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4210,15 +6871,45 @@ class CCC extends OpenApiClient
      */
     public function publishContactFlowVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactFlowVersionId) {
+            @$query['ContactFlowVersionId'] = $request->contactFlowVersionId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->useTianGong) {
+            @$query['UseTianGong'] = $request->useTianGong;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PublishContactFlowVersion',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return PublishContactFlowVersionResponse::fromMap($this->doRPCRequest('PublishContactFlowVersion', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return PublishContactFlowVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * PublishContactFlowVersion.
+     *
+     * @param request - PublishContactFlowVersionRequest
+     *
+     * @returns PublishContactFlowVersionResponse
+     *
      * @param PublishContactFlowVersionRequest $request
      *
      * @return PublishContactFlowVersionResponse
@@ -4231,62 +6922,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param PublishPredictiveJobGroupRequest $request
-     * @param RuntimeOptions                   $runtime
+     * RefreshToken.
      *
-     * @return PublishPredictiveJobGroupResponse
-     */
-    public function publishPredictiveJobGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PublishPredictiveJobGroupResponse::fromMap($this->doRPCRequest('PublishPredictiveJobGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PublishPredictiveJobGroupRequest $request
+     * @param request - RefreshTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PublishPredictiveJobGroupResponse
-     */
-    public function publishPredictiveJobGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->publishPredictiveJobGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PublishSurveyRequest $request
-     * @param RuntimeOptions       $runtime
+     * @returns RefreshTokenResponse
      *
-     * @return PublishSurveyResponse
-     */
-    public function publishSurveyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return PublishSurveyResponse::fromMap($this->doRPCRequest('PublishSurvey', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param PublishSurveyRequest $request
-     *
-     * @return PublishSurveyResponse
-     */
-    public function publishSurvey($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->publishSurveyWithOptions($request, $runtime);
-    }
-
-    /**
      * @param RefreshTokenRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -4294,15 +6936,37 @@ class CCC extends OpenApiClient
      */
     public function refreshTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshToken',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return RefreshTokenResponse::fromMap($this->doRPCRequest('RefreshToken', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RefreshTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * RefreshToken.
+     *
+     * @param request - RefreshTokenRequest
+     *
+     * @returns RefreshTokenResponse
+     *
      * @param RefreshTokenRequest $request
      *
      * @return RefreshTokenResponse
@@ -4315,6 +6979,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 移除电话号码
+     *
+     * @param request - RemovePhoneNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemovePhoneNumberResponse
+     *
      * @param RemovePhoneNumberRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4322,15 +6993,41 @@ class CCC extends OpenApiClient
      */
     public function removePhoneNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phoneNumberId) {
+            @$query['PhoneNumberId'] = $request->phoneNumberId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemovePhoneNumber',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return RemovePhoneNumberResponse::fromMap($this->doRPCRequest('RemovePhoneNumber', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemovePhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 移除电话号码
+     *
+     * @param request - RemovePhoneNumberRequest
+     *
+     * @returns RemovePhoneNumberResponse
+     *
      * @param RemovePhoneNumberRequest $request
      *
      * @return RemovePhoneNumberResponse
@@ -4343,6 +7040,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * RemoveUsers.
+     *
+     * @param request - RemoveUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUsersResponse
+     *
      * @param RemoveUsersRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -4350,15 +7054,41 @@ class CCC extends OpenApiClient
      */
     public function removeUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveUsers',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return RemoveUsersResponse::fromMap($this->doRPCRequest('RemoveUsers', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * RemoveUsers.
+     *
+     * @param request - RemoveUsersRequest
+     *
+     * @returns RemoveUsersResponse
+     *
      * @param RemoveUsersRequest $request
      *
      * @return RemoveUsersResponse
@@ -4371,6 +7101,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * RemoveUsersFromSkillGroup.
+     *
+     * @param request - RemoveUsersFromSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUsersFromSkillGroupResponse
+     *
      * @param RemoveUsersFromSkillGroupRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -4378,15 +7115,45 @@ class CCC extends OpenApiClient
      */
     public function removeUsersFromSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveUsersFromSkillGroup',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return RemoveUsersFromSkillGroupResponse::fromMap($this->doRPCRequest('RemoveUsersFromSkillGroup', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RemoveUsersFromSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * RemoveUsersFromSkillGroup.
+     *
+     * @param request - RemoveUsersFromSkillGroupRequest
+     *
+     * @returns RemoveUsersFromSkillGroupResponse
+     *
      * @param RemoveUsersFromSkillGroupRequest $request
      *
      * @return RemoveUsersFromSkillGroupResponse
@@ -4399,6 +7166,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * RequestLoginInfo.
+     *
+     * @param request - RequestLoginInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RequestLoginInfoResponse
+     *
      * @param RequestLoginInfoRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4406,15 +7180,41 @@ class CCC extends OpenApiClient
      */
     public function requestLoginInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RequestLoginInfo',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return RequestLoginInfoResponse::fromMap($this->doRPCRequest('RequestLoginInfo', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return RequestLoginInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * RequestLoginInfo.
+     *
+     * @param request - RequestLoginInfoRequest
+     *
+     * @returns RequestLoginInfoResponse
+     *
      * @param RequestLoginInfoRequest $request
      *
      * @return RequestLoginInfoResponse
@@ -4427,6 +7227,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * ResetUserStatus.
+     *
+     * @param request - ResetUserStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetUserStatusResponse
+     *
      * @param ResetUserStatusRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4434,15 +7241,41 @@ class CCC extends OpenApiClient
      */
     public function resetUserStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ramIdList) {
+            @$query['RamIdList'] = $request->ramIdList;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetUserStatus',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return ResetUserStatusResponse::fromMap($this->doRPCRequest('ResetUserStatus', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ResetUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * ResetUserStatus.
+     *
+     * @param request - ResetUserStatusRequest
+     *
+     * @returns ResetUserStatusResponse
+     *
      * @param ResetUserStatusRequest $request
      *
      * @return ResetUserStatusResponse
@@ -4455,118 +7288,13 @@ class CCC extends OpenApiClient
     }
 
     /**
-     * @param ResumeJobsRequest $request
-     * @param RuntimeOptions    $runtime
+     * SaveWebRTCStats.
      *
-     * @return ResumeJobsResponse
-     */
-    public function resumeJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ResumeJobsResponse::fromMap($this->doRPCRequest('ResumeJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ResumeJobsRequest $request
+     * @param request - SaveWebRTCStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ResumeJobsResponse
-     */
-    public function resumeJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resumeJobsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ResumePredictiveJobsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @returns SaveWebRTCStatsResponse
      *
-     * @return ResumePredictiveJobsResponse
-     */
-    public function resumePredictiveJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ResumePredictiveJobsResponse::fromMap($this->doRPCRequest('ResumePredictiveJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ResumePredictiveJobsRequest $request
-     *
-     * @return ResumePredictiveJobsResponse
-     */
-    public function resumePredictiveJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->resumePredictiveJobsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveStatsRequest $request
-     * @param RuntimeOptions   $runtime
-     *
-     * @return SaveStatsResponse
-     */
-    public function saveStatsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveStatsResponse::fromMap($this->doRPCRequest('SaveStats', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveStatsRequest $request
-     *
-     * @return SaveStatsResponse
-     */
-    public function saveStats($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveStatsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SaveTerminalLogRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SaveTerminalLogResponse
-     */
-    public function saveTerminalLogWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SaveTerminalLogResponse::fromMap($this->doRPCRequest('SaveTerminalLog', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SaveTerminalLogRequest $request
-     *
-     * @return SaveTerminalLogResponse
-     */
-    public function saveTerminalLog($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->saveTerminalLogWithOptions($request, $runtime);
-    }
-
-    /**
      * @param SaveWebRTCStatsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4574,15 +7302,69 @@ class CCC extends OpenApiClient
      */
     public function saveWebRTCStatsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
+        }
+
+        if (null !== $request->callStartTime) {
+            @$query['CallStartTime'] = $request->callStartTime;
+        }
+
+        if (null !== $request->calleeNumber) {
+            @$query['CalleeNumber'] = $request->calleeNumber;
+        }
+
+        if (null !== $request->callerNumber) {
+            @$query['CallerNumber'] = $request->callerNumber;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->recordTime) {
+            @$query['RecordTime'] = $request->recordTime;
+        }
+
+        if (null !== $request->stats) {
+            @$query['Stats'] = $request->stats;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SaveWebRTCStats',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return SaveWebRTCStatsResponse::fromMap($this->doRPCRequest('SaveWebRTCStats', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SaveWebRTCStatsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * SaveWebRTCStats.
+     *
+     * @param request - SaveWebRTCStatsRequest
+     *
+     * @returns SaveWebRTCStatsResponse
+     *
      * @param SaveWebRTCStatsRequest $request
      *
      * @return SaveWebRTCStatsResponse
@@ -4595,6 +7377,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * SendPredefinedShortMessage.
+     *
+     * @param request - SendPredefinedShortMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendPredefinedShortMessageResponse
+     *
      * @param SendPredefinedShortMessageRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -4602,15 +7391,49 @@ class CCC extends OpenApiClient
      */
     public function sendPredefinedShortMessageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->phoneNumbers) {
+            @$query['PhoneNumbers'] = $request->phoneNumbers;
+        }
+
+        if (null !== $request->templateParam) {
+            @$query['TemplateParam'] = $request->templateParam;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SendPredefinedShortMessage',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return SendPredefinedShortMessageResponse::fromMap($this->doRPCRequest('SendPredefinedShortMessage', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return SendPredefinedShortMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * SendPredefinedShortMessage.
+     *
+     * @param request - SendPredefinedShortMessageRequest
+     *
+     * @returns SendPredefinedShortMessageResponse
+     *
      * @param SendPredefinedShortMessageRequest $request
      *
      * @return SendPredefinedShortMessageResponse
@@ -4623,6 +7446,13 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 发起双向呼叫.
+     *
+     * @param request - StartBack2BackCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartBack2BackCallResponse
+     *
      * @param StartBack2BackCallRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4630,15 +7460,53 @@ class CCC extends OpenApiClient
      */
     public function startBack2BackCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
+        $query = [];
+        if (null !== $request->callCenterNumber) {
+            @$query['CallCenterNumber'] = $request->callCenterNumber;
+        }
+
+        if (null !== $request->callee) {
+            @$query['Callee'] = $request->callee;
+        }
+
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartBack2BackCall',
+            'version' => '2017-07-05',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
 
-        return StartBack2BackCallResponse::fromMap($this->doRPCRequest('StartBack2BackCall', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartBack2BackCallResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * 发起双向呼叫.
+     *
+     * @param request - StartBack2BackCallRequest
+     *
+     * @returns StartBack2BackCallResponse
+     *
      * @param StartBack2BackCallRequest $request
      *
      * @return StartBack2BackCallResponse
@@ -4648,173 +7516,5 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startBack2BackCallWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StartJobRequest $request
-     * @param RuntimeOptions  $runtime
-     *
-     * @return StartJobResponse
-     */
-    public function startJobWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartJobResponse::fromMap($this->doRPCRequest('StartJob', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartJobRequest $request
-     *
-     * @return StartJobResponse
-     */
-    public function startJob($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startJobWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitBatchJobsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return SubmitBatchJobsResponse
-     */
-    public function submitBatchJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitBatchJobsResponse::fromMap($this->doRPCRequest('SubmitBatchJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitBatchJobsRequest $request
-     *
-     * @return SubmitBatchJobsResponse
-     */
-    public function submitBatchJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitBatchJobsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitCabRecordingRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SubmitCabRecordingResponse
-     */
-    public function submitCabRecordingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SubmitCabRecordingResponse::fromMap($this->doRPCRequest('SubmitCabRecording', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SubmitCabRecordingRequest $request
-     *
-     * @return SubmitCabRecordingResponse
-     */
-    public function submitCabRecording($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitCabRecordingWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SuspendJobsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return SuspendJobsResponse
-     */
-    public function suspendJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SuspendJobsResponse::fromMap($this->doRPCRequest('SuspendJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SuspendJobsRequest $request
-     *
-     * @return SuspendJobsResponse
-     */
-    public function suspendJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->suspendJobsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SuspendPredictiveJobsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return SuspendPredictiveJobsResponse
-     */
-    public function suspendPredictiveJobsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return SuspendPredictiveJobsResponse::fromMap($this->doRPCRequest('SuspendPredictiveJobs', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param SuspendPredictiveJobsRequest $request
-     *
-     * @return SuspendPredictiveJobsResponse
-     */
-    public function suspendPredictiveJobs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->suspendPredictiveJobsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TaskPreparingRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return TaskPreparingResponse
-     */
-    public function taskPreparingWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TaskPreparingResponse::fromMap($this->doRPCRequest('TaskPreparing', '2017-07-05', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TaskPreparingRequest $request
-     *
-     * @return TaskPreparingResponse
-     */
-    public function taskPreparing($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->taskPreparingWithOptions($request, $runtime);
     }
 }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsResponseBody\pagedAgentSummaryReport;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsResponseBody\pagedAgentSummaryReport\list_\agentSummaryReport;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentSummaryReport)) {
+            Model::validateArray($this->agentSummaryReport);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentSummaryReport) {
-            $res['AgentSummaryReport'] = [];
-            if (null !== $this->agentSummaryReport && \is_array($this->agentSummaryReport)) {
-                $n = 0;
-                foreach ($this->agentSummaryReport as $item) {
-                    $res['AgentSummaryReport'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->agentSummaryReport)) {
+                $res['AgentSummaryReport'] = [];
+                $n1 = 0;
+                foreach ($this->agentSummaryReport as $item1) {
+                    $res['AgentSummaryReport'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentSummaryReport'])) {
             if (!empty($map['AgentSummaryReport'])) {
                 $model->agentSummaryReport = [];
-                $n                         = 0;
-                foreach ($map['AgentSummaryReport'] as $item) {
-                    $model->agentSummaryReport[$n++] = null !== $item ? agentSummaryReport::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AgentSummaryReport'] as $item1) {
+                    $model->agentSummaryReport[$n1] = agentSummaryReport::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

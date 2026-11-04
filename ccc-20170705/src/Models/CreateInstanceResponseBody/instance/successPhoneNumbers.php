@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\CreateInstanceResponseBody\instance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class successPhoneNumbers extends Model
 {
@@ -18,29 +18,45 @@ class successPhoneNumbers extends Model
 
     public function validate()
     {
+        if (\is_array($this->successPhoneNumber)) {
+            Model::validateArray($this->successPhoneNumber);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->successPhoneNumber) {
-            $res['SuccessPhoneNumber'] = $this->successPhoneNumber;
+            if (\is_array($this->successPhoneNumber)) {
+                $res['SuccessPhoneNumber'] = [];
+                $n1 = 0;
+                foreach ($this->successPhoneNumber as $item1) {
+                    $res['SuccessPhoneNumber'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return successPhoneNumbers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SuccessPhoneNumber'])) {
             if (!empty($map['SuccessPhoneNumber'])) {
-                $model->successPhoneNumber = $map['SuccessPhoneNumber'];
+                $model->successPhoneNumber = [];
+                $n1 = 0;
+                foreach ($map['SuccessPhoneNumber'] as $item1) {
+                    $model->successPhoneNumber[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

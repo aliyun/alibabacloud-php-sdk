@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentEventsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentEventsResponseBody\agentEventList\agentEvent;
-use AlibabaCloud\Tea\Model;
 
 class agentEventList extends Model
 {
@@ -19,17 +19,22 @@ class agentEventList extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentEvent)) {
+            Model::validateArray($this->agentEvent);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentEvent) {
-            $res['AgentEvent'] = [];
-            if (null !== $this->agentEvent && \is_array($this->agentEvent)) {
-                $n = 0;
-                foreach ($this->agentEvent as $item) {
-                    $res['AgentEvent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->agentEvent)) {
+                $res['AgentEvent'] = [];
+                $n1 = 0;
+                foreach ($this->agentEvent as $item1) {
+                    $res['AgentEvent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class agentEventList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return agentEventList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentEvent'])) {
             if (!empty($map['AgentEvent'])) {
                 $model->agentEvent = [];
-                $n                 = 0;
-                foreach ($map['AgentEvent'] as $item) {
-                    $model->agentEvent[$n++] = null !== $item ? agentEvent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AgentEvent'] as $item1) {
+                    $model->agentEvent[$n1] = agentEvent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

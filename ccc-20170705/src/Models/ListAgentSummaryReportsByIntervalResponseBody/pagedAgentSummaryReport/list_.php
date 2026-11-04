@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsByIntervalResponseBody\pagedAgentSummaryReport;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsByIntervalResponseBody\pagedAgentSummaryReport\list_\agentTimeIntervalReport;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentTimeIntervalReport)) {
+            Model::validateArray($this->agentTimeIntervalReport);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentTimeIntervalReport) {
-            $res['AgentTimeIntervalReport'] = [];
-            if (null !== $this->agentTimeIntervalReport && \is_array($this->agentTimeIntervalReport)) {
-                $n = 0;
-                foreach ($this->agentTimeIntervalReport as $item) {
-                    $res['AgentTimeIntervalReport'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->agentTimeIntervalReport)) {
+                $res['AgentTimeIntervalReport'] = [];
+                $n1 = 0;
+                foreach ($this->agentTimeIntervalReport as $item1) {
+                    $res['AgentTimeIntervalReport'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentTimeIntervalReport'])) {
             if (!empty($map['AgentTimeIntervalReport'])) {
                 $model->agentTimeIntervalReport = [];
-                $n                              = 0;
-                foreach ($map['AgentTimeIntervalReport'] as $item) {
-                    $model->agentTimeIntervalReport[$n++] = null !== $item ? agentTimeIntervalReport::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AgentTimeIntervalReport'] as $item1) {
+                    $model->agentTimeIntervalReport[$n1] = agentTimeIntervalReport::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddBulkPhoneNumbersRequest extends Model
 {
@@ -34,31 +34,56 @@ class AddBulkPhoneNumbersRequest extends Model
     public $usage;
     protected $_name = [
         'contactFlowId' => 'ContactFlowId',
-        'instanceId'    => 'InstanceId',
-        'phoneNumber'   => 'PhoneNumber',
-        'skillGroupId'  => 'SkillGroupId',
-        'usage'         => 'Usage',
+        'instanceId' => 'InstanceId',
+        'phoneNumber' => 'PhoneNumber',
+        'skillGroupId' => 'SkillGroupId',
+        'usage' => 'Usage',
     ];
 
     public function validate()
     {
+        if (\is_array($this->phoneNumber)) {
+            Model::validateArray($this->phoneNumber);
+        }
+        if (\is_array($this->skillGroupId)) {
+            Model::validateArray($this->skillGroupId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->phoneNumber) {
-            $res['PhoneNumber'] = $this->phoneNumber;
+            if (\is_array($this->phoneNumber)) {
+                $res['PhoneNumber'] = [];
+                $n1 = 0;
+                foreach ($this->phoneNumber as $item1) {
+                    $res['PhoneNumber'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
+            if (\is_array($this->skillGroupId)) {
+                $res['SkillGroupId'] = [];
+                $n1 = 0;
+                foreach ($this->skillGroupId as $item1) {
+                    $res['SkillGroupId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -66,30 +91,44 @@ class AddBulkPhoneNumbersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddBulkPhoneNumbersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PhoneNumber'])) {
             if (!empty($map['PhoneNumber'])) {
-                $model->phoneNumber = $map['PhoneNumber'];
+                $model->phoneNumber = [];
+                $n1 = 0;
+                foreach ($map['PhoneNumber'] as $item1) {
+                    $model->phoneNumber[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SkillGroupId'])) {
             if (!empty($map['SkillGroupId'])) {
-                $model->skillGroupId = $map['SkillGroupId'];
+                $model->skillGroupId = [];
+                $n1 = 0;
+                foreach ($map['SkillGroupId'] as $item1) {
+                    $model->skillGroupId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

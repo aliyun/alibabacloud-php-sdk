@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListInstancesOfUserResponseBody\instances\callCenterInstance\admin;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListInstancesOfUserResponseBody\instances\callCenterInstance\admin\user\detail;
-use AlibabaCloud\Tea\Model;
 
 class user extends Model
 {
@@ -29,28 +29,35 @@ class user extends Model
      */
     public $userId;
     protected $_name = [
-        'detail'     => 'Detail',
+        'detail' => 'Detail',
         'instanceId' => 'InstanceId',
-        'ramId'      => 'RamId',
-        'userId'     => 'UserId',
+        'ramId' => 'RamId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        if (null !== $this->detail) {
+            $this->detail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detail) {
-            $res['Detail'] = null !== $this->detail ? $this->detail->toMap() : null;
+            $res['Detail'] = null !== $this->detail ? $this->detail->toArray($noStream) : $this->detail;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ramId) {
             $res['RamId'] = $this->ramId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -58,23 +65,26 @@ class user extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return user
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Detail'])) {
             $model->detail = detail::fromMap($map['Detail']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RamId'])) {
             $model->ramId = $map['RamId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPhoneTagsRequest extends Model
 {
@@ -38,36 +38,52 @@ class ListPhoneTagsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
-        'instanceId'     => 'InstanceId',
-        'number'         => 'Number',
+        'currentPage' => 'CurrentPage',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
         'numberGroupIds' => 'NumberGroupIds',
-        'outboundOnly'   => 'OutboundOnly',
-        'pageSize'       => 'PageSize',
+        'outboundOnly' => 'OutboundOnly',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
     {
+        if (\is_array($this->numberGroupIds)) {
+            Model::validateArray($this->numberGroupIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->numberGroupIds) {
-            $res['NumberGroupIds'] = $this->numberGroupIds;
+            if (\is_array($this->numberGroupIds)) {
+                $res['NumberGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->numberGroupIds as $item1) {
+                    $res['NumberGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->outboundOnly) {
             $res['OutboundOnly'] = $this->outboundOnly;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -75,31 +91,41 @@ class ListPhoneTagsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPhoneTagsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['NumberGroupIds'])) {
             if (!empty($map['NumberGroupIds'])) {
-                $model->numberGroupIds = $map['NumberGroupIds'];
+                $model->numberGroupIds = [];
+                $n1 = 0;
+                foreach ($map['NumberGroupIds'] as $item1) {
+                    $model->numberGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OutboundOnly'])) {
             $model->outboundOnly = $map['OutboundOnly'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

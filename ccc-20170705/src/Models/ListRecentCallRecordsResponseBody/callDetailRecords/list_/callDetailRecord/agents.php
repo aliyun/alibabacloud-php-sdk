@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListRecentCallRecordsResponseBody\callDetailRecords\list_\callDetailRecord;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListRecentCallRecordsResponseBody\callDetailRecords\list_\callDetailRecord\agents\callDetailAgent;
-use AlibabaCloud\Tea\Model;
 
 class agents extends Model
 {
@@ -19,17 +19,22 @@ class agents extends Model
 
     public function validate()
     {
+        if (\is_array($this->callDetailAgent)) {
+            Model::validateArray($this->callDetailAgent);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callDetailAgent) {
-            $res['CallDetailAgent'] = [];
-            if (null !== $this->callDetailAgent && \is_array($this->callDetailAgent)) {
-                $n = 0;
-                foreach ($this->callDetailAgent as $item) {
-                    $res['CallDetailAgent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->callDetailAgent)) {
+                $res['CallDetailAgent'] = [];
+                $n1 = 0;
+                foreach ($this->callDetailAgent as $item1) {
+                    $res['CallDetailAgent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class agents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return agents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallDetailAgent'])) {
             if (!empty($map['CallDetailAgent'])) {
                 $model->callDetailAgent = [];
-                $n                      = 0;
-                foreach ($map['CallDetailAgent'] as $item) {
-                    $model->callDetailAgent[$n++] = null !== $item ? callDetailAgent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CallDetailAgent'] as $item1) {
+                    $model->callDetailAgent[$n1] = callDetailAgent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

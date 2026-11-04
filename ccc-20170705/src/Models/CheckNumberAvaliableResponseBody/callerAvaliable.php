@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\CheckNumberAvaliableResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class callerAvaliable extends Model
 {
@@ -19,19 +19,21 @@ class callerAvaliable extends Model
     public $reason;
     protected $_name = [
         'avaliable' => 'Avaliable',
-        'reason'    => 'Reason',
+        'reason' => 'Reason',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avaliable) {
             $res['Avaliable'] = $this->avaliable;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -39,17 +41,18 @@ class callerAvaliable extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return callerAvaliable
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Avaliable'])) {
             $model->avaliable = $map['Avaliable'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

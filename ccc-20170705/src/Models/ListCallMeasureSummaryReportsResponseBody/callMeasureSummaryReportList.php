@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListCallMeasureSummaryReportsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListCallMeasureSummaryReportsResponseBody\callMeasureSummaryReportList\callMeasureSummaryReport;
-use AlibabaCloud\Tea\Model;
 
 class callMeasureSummaryReportList extends Model
 {
@@ -19,17 +19,22 @@ class callMeasureSummaryReportList extends Model
 
     public function validate()
     {
+        if (\is_array($this->callMeasureSummaryReport)) {
+            Model::validateArray($this->callMeasureSummaryReport);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callMeasureSummaryReport) {
-            $res['CallMeasureSummaryReport'] = [];
-            if (null !== $this->callMeasureSummaryReport && \is_array($this->callMeasureSummaryReport)) {
-                $n = 0;
-                foreach ($this->callMeasureSummaryReport as $item) {
-                    $res['CallMeasureSummaryReport'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->callMeasureSummaryReport)) {
+                $res['CallMeasureSummaryReport'] = [];
+                $n1 = 0;
+                foreach ($this->callMeasureSummaryReport as $item1) {
+                    $res['CallMeasureSummaryReport'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class callMeasureSummaryReportList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return callMeasureSummaryReportList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallMeasureSummaryReport'])) {
             if (!empty($map['CallMeasureSummaryReport'])) {
                 $model->callMeasureSummaryReport = [];
-                $n                               = 0;
-                foreach ($map['CallMeasureSummaryReport'] as $item) {
-                    $model->callMeasureSummaryReport[$n++] = null !== $item ? callMeasureSummaryReport::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CallMeasureSummaryReport'] as $item1) {
+                    $model->callMeasureSummaryReport[$n1] = callMeasureSummaryReport::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

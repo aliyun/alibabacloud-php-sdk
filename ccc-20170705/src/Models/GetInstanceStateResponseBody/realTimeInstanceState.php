@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceStateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceStateResponseBody\realTimeInstanceState\agentStateDistributions;
-use AlibabaCloud\Tea\Model;
 
 class realTimeInstanceState extends Model
 {
@@ -19,23 +19,27 @@ class realTimeInstanceState extends Model
 
     public function validate()
     {
+        if (null !== $this->agentStateDistributions) {
+            $this->agentStateDistributions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentStateDistributions) {
-            $res['AgentStateDistributions'] = null !== $this->agentStateDistributions ? $this->agentStateDistributions->toMap() : null;
+            $res['AgentStateDistributions'] = null !== $this->agentStateDistributions ? $this->agentStateDistributions->toArray($noStream) : $this->agentStateDistributions;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return realTimeInstanceState
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

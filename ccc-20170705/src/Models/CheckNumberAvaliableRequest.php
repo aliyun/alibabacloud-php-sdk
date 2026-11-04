@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckNumberAvaliableRequest extends Model
 {
@@ -23,24 +23,27 @@ class CheckNumberAvaliableRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'callee'     => 'Callee',
-        'caller'     => 'Caller',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
         'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callee) {
             $res['Callee'] = $this->callee;
         }
+
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -48,20 +51,22 @@ class CheckNumberAvaliableRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckNumberAvaliableRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Callee'])) {
             $model->callee = $map['Callee'];
         }
+
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

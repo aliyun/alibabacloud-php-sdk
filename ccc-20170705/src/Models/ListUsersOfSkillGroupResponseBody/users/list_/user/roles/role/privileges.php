@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListUsersOfSkillGroupResponseBody\users\list_\user\roles\role;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListUsersOfSkillGroupResponseBody\users\list_\user\roles\role\privileges\privilege;
-use AlibabaCloud\Tea\Model;
 
 class privileges extends Model
 {
@@ -19,17 +19,22 @@ class privileges extends Model
 
     public function validate()
     {
+        if (\is_array($this->privilege)) {
+            Model::validateArray($this->privilege);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privilege) {
-            $res['Privilege'] = [];
-            if (null !== $this->privilege && \is_array($this->privilege)) {
-                $n = 0;
-                foreach ($this->privilege as $item) {
-                    $res['Privilege'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->privilege)) {
+                $res['Privilege'] = [];
+                $n1 = 0;
+                foreach ($this->privilege as $item1) {
+                    $res['Privilege'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class privileges extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privileges
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Privilege'])) {
             if (!empty($map['Privilege'])) {
                 $model->privilege = [];
-                $n                = 0;
-                foreach ($map['Privilege'] as $item) {
-                    $model->privilege[$n++] = null !== $item ? privilege::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Privilege'] as $item1) {
+                    $model->privilege[$n1] = privilege::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

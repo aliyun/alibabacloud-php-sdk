@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\CreateContactFlowResponseBody\contactFlow;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\CreateContactFlowResponseBody\contactFlow\versions\contactFlowVersion;
-use AlibabaCloud\Tea\Model;
 
 class versions extends Model
 {
@@ -19,17 +19,22 @@ class versions extends Model
 
     public function validate()
     {
+        if (\is_array($this->contactFlowVersion)) {
+            Model::validateArray($this->contactFlowVersion);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactFlowVersion) {
-            $res['ContactFlowVersion'] = [];
-            if (null !== $this->contactFlowVersion && \is_array($this->contactFlowVersion)) {
-                $n = 0;
-                foreach ($this->contactFlowVersion as $item) {
-                    $res['ContactFlowVersion'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contactFlowVersion)) {
+                $res['ContactFlowVersion'] = [];
+                $n1 = 0;
+                foreach ($this->contactFlowVersion as $item1) {
+                    $res['ContactFlowVersion'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class versions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return versions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactFlowVersion'])) {
             if (!empty($map['ContactFlowVersion'])) {
                 $model->contactFlowVersion = [];
-                $n                         = 0;
-                foreach ($map['ContactFlowVersion'] as $item) {
-                    $model->contactFlowVersion[$n++] = null !== $item ? contactFlowVersion::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContactFlowVersion'] as $item1) {
+                    $model->contactFlowVersion[$n1] = contactFlowVersion::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\AddPhoneNumberResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\AddPhoneNumberResponseBody\phoneNumber\contactFlow;
-use AlibabaCloud\Tea\Model;
 
 class phoneNumber extends Model
 {
@@ -59,52 +59,65 @@ class phoneNumber extends Model
      */
     public $usage;
     protected $_name = [
-        'allowOutbound'          => 'AllowOutbound',
-        'contactFlow'            => 'ContactFlow',
-        'instanceId'             => 'InstanceId',
-        'number'                 => 'Number',
+        'allowOutbound' => 'AllowOutbound',
+        'contactFlow' => 'ContactFlow',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
         'phoneNumberDescription' => 'PhoneNumberDescription',
-        'phoneNumberId'          => 'PhoneNumberId',
-        'remainingTime'          => 'RemainingTime',
-        'testOnly'               => 'TestOnly',
-        'trunks'                 => 'Trunks',
-        'usage'                  => 'Usage',
+        'phoneNumberId' => 'PhoneNumberId',
+        'remainingTime' => 'RemainingTime',
+        'testOnly' => 'TestOnly',
+        'trunks' => 'Trunks',
+        'usage' => 'Usage',
     ];
 
     public function validate()
     {
+        if (null !== $this->contactFlow) {
+            $this->contactFlow->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowOutbound) {
             $res['AllowOutbound'] = $this->allowOutbound;
         }
+
         if (null !== $this->contactFlow) {
-            $res['ContactFlow'] = null !== $this->contactFlow ? $this->contactFlow->toMap() : null;
+            $res['ContactFlow'] = null !== $this->contactFlow ? $this->contactFlow->toArray($noStream) : $this->contactFlow;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->phoneNumberDescription) {
             $res['PhoneNumberDescription'] = $this->phoneNumberDescription;
         }
+
         if (null !== $this->phoneNumberId) {
             $res['PhoneNumberId'] = $this->phoneNumberId;
         }
+
         if (null !== $this->remainingTime) {
             $res['RemainingTime'] = $this->remainingTime;
         }
+
         if (null !== $this->testOnly) {
             $res['TestOnly'] = $this->testOnly;
         }
+
         if (null !== $this->trunks) {
             $res['Trunks'] = $this->trunks;
         }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -112,41 +125,50 @@ class phoneNumber extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return phoneNumber
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowOutbound'])) {
             $model->allowOutbound = $map['AllowOutbound'];
         }
+
         if (isset($map['ContactFlow'])) {
             $model->contactFlow = contactFlow::fromMap($map['ContactFlow']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['PhoneNumberDescription'])) {
             $model->phoneNumberDescription = $map['PhoneNumberDescription'];
         }
+
         if (isset($map['PhoneNumberId'])) {
             $model->phoneNumberId = $map['PhoneNumberId'];
         }
+
         if (isset($map['RemainingTime'])) {
             $model->remainingTime = $map['RemainingTime'];
         }
+
         if (isset($map['TestOnly'])) {
             $model->testOnly = $map['TestOnly'];
         }
+
         if (isset($map['Trunks'])) {
             $model->trunks = $map['Trunks'];
         }
+
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

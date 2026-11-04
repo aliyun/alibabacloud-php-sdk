@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CallOnlinePrivacyNumberRequest extends Model
 {
@@ -24,23 +24,26 @@ class CallOnlinePrivacyNumberRequest extends Model
     public $telB;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'telA'       => 'TelA',
-        'telB'       => 'TelB',
+        'telA' => 'TelA',
+        'telB' => 'TelB',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->telA) {
             $res['TelA'] = $this->telA;
         }
+
         if (null !== $this->telB) {
             $res['TelB'] = $this->telB;
         }
@@ -48,20 +51,22 @@ class CallOnlinePrivacyNumberRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CallOnlinePrivacyNumberRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TelA'])) {
             $model->telA = $map['TelA'];
         }
+
         if (isset($map['TelB'])) {
             $model->telB = $map['TelB'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\RefreshTokenResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class token extends Model
 {
@@ -18,20 +18,22 @@ class token extends Model
      */
     public $signature;
     protected $_name = [
-        'signData'  => 'SignData',
+        'signData' => 'SignData',
         'signature' => 'Signature',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->signData) {
             $res['SignData'] = $this->signData;
         }
+
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
         }
@@ -39,17 +41,18 @@ class token extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return token
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SignData'])) {
             $model->signData = $map['SignData'];
         }
+
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];
         }

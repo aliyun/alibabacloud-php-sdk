@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartBack2BackCallRequest extends Model
 {
@@ -34,31 +34,36 @@ class StartBack2BackCallRequest extends Model
     public $workflowId;
     protected $_name = [
         'callCenterNumber' => 'CallCenterNumber',
-        'callee'           => 'Callee',
-        'caller'           => 'Caller',
-        'instanceId'       => 'InstanceId',
-        'workflowId'       => 'WorkflowId',
+        'callee' => 'Callee',
+        'caller' => 'Caller',
+        'instanceId' => 'InstanceId',
+        'workflowId' => 'WorkflowId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callCenterNumber) {
             $res['CallCenterNumber'] = $this->callCenterNumber;
         }
+
         if (null !== $this->callee) {
             $res['Callee'] = $this->callee;
         }
+
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->workflowId) {
             $res['WorkflowId'] = $this->workflowId;
         }
@@ -66,26 +71,30 @@ class StartBack2BackCallRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartBack2BackCallRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallCenterNumber'])) {
             $model->callCenterNumber = $map['CallCenterNumber'];
         }
+
         if (isset($map['Callee'])) {
             $model->callee = $map['Callee'];
         }
+
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['WorkflowId'])) {
             $model->workflowId = $map['WorkflowId'];
         }

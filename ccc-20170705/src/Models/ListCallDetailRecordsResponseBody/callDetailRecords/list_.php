@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListCallDetailRecordsResponseBody\callDetailRecords;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListCallDetailRecordsResponseBody\callDetailRecords\list_\callDetailRecord;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->callDetailRecord)) {
+            Model::validateArray($this->callDetailRecord);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callDetailRecord) {
-            $res['CallDetailRecord'] = [];
-            if (null !== $this->callDetailRecord && \is_array($this->callDetailRecord)) {
-                $n = 0;
-                foreach ($this->callDetailRecord as $item) {
-                    $res['CallDetailRecord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->callDetailRecord)) {
+                $res['CallDetailRecord'] = [];
+                $n1 = 0;
+                foreach ($this->callDetailRecord as $item1) {
+                    $res['CallDetailRecord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallDetailRecord'])) {
             if (!empty($map['CallDetailRecord'])) {
                 $model->callDetailRecord = [];
-                $n                       = 0;
-                foreach ($map['CallDetailRecord'] as $item) {
-                    $model->callDetailRecord[$n++] = null !== $item ? callDetailRecord::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CallDetailRecord'] as $item1) {
+                    $model->callDetailRecord[$n1] = callDetailRecord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

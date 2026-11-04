@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\AddBulkPhoneNumbersResponseBody\phoneNumbers\phoneNumber\skillGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class skillGroup extends Model
 {
@@ -18,20 +18,22 @@ class skillGroup extends Model
      */
     public $skillGroupName;
     protected $_name = [
-        'skillGroupId'   => 'SkillGroupId',
+        'skillGroupId' => 'SkillGroupId',
         'skillGroupName' => 'SkillGroupName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
+
         if (null !== $this->skillGroupName) {
             $res['SkillGroupName'] = $this->skillGroupName;
         }
@@ -39,17 +41,18 @@ class skillGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return skillGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
+
         if (isset($map['SkillGroupName'])) {
             $model->skillGroupName = $map['SkillGroupName'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssignUsersRequest extends Model
 {
@@ -33,68 +33,137 @@ class AssignUsersRequest extends Model
      */
     public $userRamId;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'roleId'       => 'RoleId',
+        'instanceId' => 'InstanceId',
+        'roleId' => 'RoleId',
         'skillGroupId' => 'SkillGroupId',
-        'skillLevel'   => 'SkillLevel',
-        'userRamId'    => 'UserRamId',
+        'skillLevel' => 'SkillLevel',
+        'userRamId' => 'UserRamId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->roleId)) {
+            Model::validateArray($this->roleId);
+        }
+        if (\is_array($this->skillGroupId)) {
+            Model::validateArray($this->skillGroupId);
+        }
+        if (\is_array($this->skillLevel)) {
+            Model::validateArray($this->skillLevel);
+        }
+        if (\is_array($this->userRamId)) {
+            Model::validateArray($this->userRamId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->roleId) {
-            $res['RoleId'] = $this->roleId;
+            if (\is_array($this->roleId)) {
+                $res['RoleId'] = [];
+                $n1 = 0;
+                foreach ($this->roleId as $item1) {
+                    $res['RoleId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->skillGroupId) {
-            $res['SkillGroupId'] = $this->skillGroupId;
+            if (\is_array($this->skillGroupId)) {
+                $res['SkillGroupId'] = [];
+                $n1 = 0;
+                foreach ($this->skillGroupId as $item1) {
+                    $res['SkillGroupId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->skillLevel) {
-            $res['SkillLevel'] = $this->skillLevel;
+            if (\is_array($this->skillLevel)) {
+                $res['SkillLevel'] = [];
+                $n1 = 0;
+                foreach ($this->skillLevel as $item1) {
+                    $res['SkillLevel'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->userRamId) {
-            $res['UserRamId'] = $this->userRamId;
+            if (\is_array($this->userRamId)) {
+                $res['UserRamId'] = [];
+                $n1 = 0;
+                foreach ($this->userRamId as $item1) {
+                    $res['UserRamId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssignUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RoleId'])) {
             if (!empty($map['RoleId'])) {
-                $model->roleId = $map['RoleId'];
+                $model->roleId = [];
+                $n1 = 0;
+                foreach ($map['RoleId'] as $item1) {
+                    $model->roleId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SkillGroupId'])) {
             if (!empty($map['SkillGroupId'])) {
-                $model->skillGroupId = $map['SkillGroupId'];
+                $model->skillGroupId = [];
+                $n1 = 0;
+                foreach ($map['SkillGroupId'] as $item1) {
+                    $model->skillGroupId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SkillLevel'])) {
             if (!empty($map['SkillLevel'])) {
-                $model->skillLevel = $map['SkillLevel'];
+                $model->skillLevel = [];
+                $n1 = 0;
+                foreach ($map['SkillLevel'] as $item1) {
+                    $model->skillLevel[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['UserRamId'])) {
             if (!empty($map['UserRamId'])) {
-                $model->userRamId = $map['UserRamId'];
+                $model->userRamId = [];
+                $n1 = 0;
+                foreach ($map['UserRamId'] as $item1) {
+                    $model->userRamId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

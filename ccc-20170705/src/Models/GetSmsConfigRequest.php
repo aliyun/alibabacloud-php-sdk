@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSmsConfigRequest extends Model
 {
@@ -19,40 +19,58 @@ class GetSmsConfigRequest extends Model
     public $scenario;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'scenario'   => 'Scenario',
+        'scenario' => 'Scenario',
     ];
 
     public function validate()
     {
+        if (\is_array($this->scenario)) {
+            Model::validateArray($this->scenario);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->scenario) {
-            $res['Scenario'] = $this->scenario;
+            if (\is_array($this->scenario)) {
+                $res['Scenario'] = [];
+                $n1 = 0;
+                foreach ($this->scenario as $item1) {
+                    $res['Scenario'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSmsConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Scenario'])) {
             if (!empty($map['Scenario'])) {
-                $model->scenario = $map['Scenario'];
+                $model->scenario = [];
+                $n1 = 0;
+                foreach ($map['Scenario'] as $item1) {
+                    $model->scenario[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListUsersOfSkillGroupResponseBody\users\list_\user\skillLevels;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListUsersOfSkillGroupResponseBody\users\list_\user\skillLevels\skillLevel\skill;
-use AlibabaCloud\Tea\Model;
 
 class skillLevel extends Model
 {
@@ -24,24 +24,30 @@ class skillLevel extends Model
      */
     public $skillLevelId;
     protected $_name = [
-        'level'        => 'Level',
-        'skill'        => 'Skill',
+        'level' => 'Level',
+        'skill' => 'Skill',
         'skillLevelId' => 'SkillLevelId',
     ];
 
     public function validate()
     {
+        if (null !== $this->skill) {
+            $this->skill->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->skill) {
-            $res['Skill'] = null !== $this->skill ? $this->skill->toMap() : null;
+            $res['Skill'] = null !== $this->skill ? $this->skill->toArray($noStream) : $this->skill;
         }
+
         if (null !== $this->skillLevelId) {
             $res['SkillLevelId'] = $this->skillLevelId;
         }
@@ -49,20 +55,22 @@ class skillLevel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return skillLevel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['Skill'])) {
             $model->skill = skill::fromMap($map['Skill']);
         }
+
         if (isset($map['SkillLevelId'])) {
             $model->skillLevelId = $map['SkillLevelId'];
         }

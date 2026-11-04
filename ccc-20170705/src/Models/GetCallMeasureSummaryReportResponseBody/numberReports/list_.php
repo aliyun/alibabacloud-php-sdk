@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\GetCallMeasureSummaryReportResponseBody\numberReports;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetCallMeasureSummaryReportResponseBody\numberReports\list_\numberReport;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,22 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->numberReport)) {
+            Model::validateArray($this->numberReport);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->numberReport) {
-            $res['NumberReport'] = [];
-            if (null !== $this->numberReport && \is_array($this->numberReport)) {
-                $n = 0;
-                foreach ($this->numberReport as $item) {
-                    $res['NumberReport'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->numberReport)) {
+                $res['NumberReport'] = [];
+                $n1 = 0;
+                foreach ($this->numberReport as $item1) {
+                    $res['NumberReport'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NumberReport'])) {
             if (!empty($map['NumberReport'])) {
                 $model->numberReport = [];
-                $n                   = 0;
-                foreach ($map['NumberReport'] as $item) {
-                    $model->numberReport[$n++] = null !== $item ? numberReport::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NumberReport'] as $item1) {
+                    $model->numberReport[$n1] = numberReport::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

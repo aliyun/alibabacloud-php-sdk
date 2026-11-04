@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListInstancesOfUserResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListInstancesOfUserResponseBody\instances\callCenterInstance;
-use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
@@ -19,17 +19,22 @@ class instances extends Model
 
     public function validate()
     {
+        if (\is_array($this->callCenterInstance)) {
+            Model::validateArray($this->callCenterInstance);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callCenterInstance) {
-            $res['CallCenterInstance'] = [];
-            if (null !== $this->callCenterInstance && \is_array($this->callCenterInstance)) {
-                $n = 0;
-                foreach ($this->callCenterInstance as $item) {
-                    $res['CallCenterInstance'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->callCenterInstance)) {
+                $res['CallCenterInstance'] = [];
+                $n1 = 0;
+                foreach ($this->callCenterInstance as $item1) {
+                    $res['CallCenterInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class instances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallCenterInstance'])) {
             if (!empty($map['CallCenterInstance'])) {
                 $model->callCenterInstance = [];
-                $n                         = 0;
-                foreach ($map['CallCenterInstance'] as $item) {
-                    $model->callCenterInstance[$n++] = null !== $item ? callCenterInstance::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CallCenterInstance'] as $item1) {
+                    $model->callCenterInstance[$n1] = callCenterInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

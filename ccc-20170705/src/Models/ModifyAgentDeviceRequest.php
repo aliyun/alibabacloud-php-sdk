@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAgentDeviceRequest extends Model
 {
@@ -24,23 +24,26 @@ class ModifyAgentDeviceRequest extends Model
     public $isLogin;
     protected $_name = [
         'agentDeviceId' => 'AgentDeviceId',
-        'instanceId'    => 'InstanceId',
-        'isLogin'       => 'IsLogin',
+        'instanceId' => 'InstanceId',
+        'isLogin' => 'IsLogin',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentDeviceId) {
             $res['AgentDeviceId'] = $this->agentDeviceId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->isLogin) {
             $res['IsLogin'] = $this->isLogin;
         }
@@ -48,20 +51,22 @@ class ModifyAgentDeviceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAgentDeviceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentDeviceId'])) {
             $model->agentDeviceId = $map['AgentDeviceId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IsLogin'])) {
             $model->isLogin = $map['IsLogin'];
         }

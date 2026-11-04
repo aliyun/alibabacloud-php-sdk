@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSkillGroupRequest extends Model
 {
@@ -49,86 +49,146 @@ class CreateSkillGroupRequest extends Model
     public $userId;
     protected $_name = [
         'allowPrivateOutboundNumber' => 'AllowPrivateOutboundNumber',
-        'description'                => 'Description',
-        'instanceId'                 => 'InstanceId',
-        'name'                       => 'Name',
-        'outboundPhoneNumberId'      => 'OutboundPhoneNumberId',
-        'routingStrategy'            => 'RoutingStrategy',
-        'skillLevel'                 => 'SkillLevel',
-        'userId'                     => 'UserId',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'outboundPhoneNumberId' => 'OutboundPhoneNumberId',
+        'routingStrategy' => 'RoutingStrategy',
+        'skillLevel' => 'SkillLevel',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->outboundPhoneNumberId)) {
+            Model::validateArray($this->outboundPhoneNumberId);
+        }
+        if (\is_array($this->skillLevel)) {
+            Model::validateArray($this->skillLevel);
+        }
+        if (\is_array($this->userId)) {
+            Model::validateArray($this->userId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowPrivateOutboundNumber) {
             $res['AllowPrivateOutboundNumber'] = $this->allowPrivateOutboundNumber;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->outboundPhoneNumberId) {
-            $res['OutboundPhoneNumberId'] = $this->outboundPhoneNumberId;
+            if (\is_array($this->outboundPhoneNumberId)) {
+                $res['OutboundPhoneNumberId'] = [];
+                $n1 = 0;
+                foreach ($this->outboundPhoneNumberId as $item1) {
+                    $res['OutboundPhoneNumberId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->routingStrategy) {
             $res['RoutingStrategy'] = $this->routingStrategy;
         }
+
         if (null !== $this->skillLevel) {
-            $res['SkillLevel'] = $this->skillLevel;
+            if (\is_array($this->skillLevel)) {
+                $res['SkillLevel'] = [];
+                $n1 = 0;
+                foreach ($this->skillLevel as $item1) {
+                    $res['SkillLevel'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+            if (\is_array($this->userId)) {
+                $res['UserId'] = [];
+                $n1 = 0;
+                foreach ($this->userId as $item1) {
+                    $res['UserId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSkillGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowPrivateOutboundNumber'])) {
             $model->allowPrivateOutboundNumber = $map['AllowPrivateOutboundNumber'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OutboundPhoneNumberId'])) {
             if (!empty($map['OutboundPhoneNumberId'])) {
-                $model->outboundPhoneNumberId = $map['OutboundPhoneNumberId'];
+                $model->outboundPhoneNumberId = [];
+                $n1 = 0;
+                foreach ($map['OutboundPhoneNumberId'] as $item1) {
+                    $model->outboundPhoneNumberId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RoutingStrategy'])) {
             $model->routingStrategy = $map['RoutingStrategy'];
         }
+
         if (isset($map['SkillLevel'])) {
             if (!empty($map['SkillLevel'])) {
-                $model->skillLevel = $map['SkillLevel'];
+                $model->skillLevel = [];
+                $n1 = 0;
+                foreach ($map['SkillLevel'] as $item1) {
+                    $model->skillLevel[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['UserId'])) {
             if (!empty($map['UserId'])) {
-                $model->userId = $map['UserId'];
+                $model->userId = [];
+                $n1 = 0;
+                foreach ($map['UserId'] as $item1) {
+                    $model->userId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

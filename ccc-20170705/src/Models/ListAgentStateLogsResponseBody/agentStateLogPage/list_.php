@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentStateLogsResponseBody\agentStateLogPage;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
@@ -53,48 +53,57 @@ class list_ extends Model
      */
     public $stateTime;
     protected $_name = [
-        'connectId'     => 'ConnectId',
-        'contactId'     => 'ContactId',
-        'counterParty'  => 'CounterParty',
-        'instanceId'    => 'InstanceId',
-        'ramId'         => 'RamId',
+        'connectId' => 'ConnectId',
+        'contactId' => 'ContactId',
+        'counterParty' => 'CounterParty',
+        'instanceId' => 'InstanceId',
+        'ramId' => 'RamId',
         'skillGroupIds' => 'SkillGroupIds',
-        'state'         => 'State',
-        'stateCode'     => 'StateCode',
-        'stateTime'     => 'StateTime',
+        'state' => 'State',
+        'stateCode' => 'StateCode',
+        'stateTime' => 'StateTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectId) {
             $res['ConnectId'] = $this->connectId;
         }
+
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->counterParty) {
             $res['CounterParty'] = $this->counterParty;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ramId) {
             $res['RamId'] = $this->ramId;
         }
+
         if (null !== $this->skillGroupIds) {
             $res['SkillGroupIds'] = $this->skillGroupIds;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->stateCode) {
             $res['StateCode'] = $this->stateCode;
         }
+
         if (null !== $this->stateTime) {
             $res['StateTime'] = $this->stateTime;
         }
@@ -102,38 +111,46 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectId'])) {
             $model->connectId = $map['ConnectId'];
         }
+
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['CounterParty'])) {
             $model->counterParty = $map['CounterParty'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RamId'])) {
             $model->ramId = $map['RamId'];
         }
+
         if (isset($map['SkillGroupIds'])) {
             $model->skillGroupIds = $map['SkillGroupIds'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['StateCode'])) {
             $model->stateCode = $map['StateCode'];
         }
+
         if (isset($map['StateTime'])) {
             $model->stateTime = $map['StateTime'];
         }

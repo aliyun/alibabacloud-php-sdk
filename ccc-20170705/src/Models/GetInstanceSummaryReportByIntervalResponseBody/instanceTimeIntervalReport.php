@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportByIntervalResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceSummaryReportByIntervalResponseBody\instanceTimeIntervalReport\intervalList;
-use AlibabaCloud\Tea\Model;
 
 class instanceTimeIntervalReport extends Model
 {
@@ -19,38 +19,44 @@ class instanceTimeIntervalReport extends Model
      */
     public $intervalList;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'intervalList' => 'IntervalList',
     ];
 
     public function validate()
     {
+        if (null !== $this->intervalList) {
+            $this->intervalList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->intervalList) {
-            $res['IntervalList'] = null !== $this->intervalList ? $this->intervalList->toMap() : null;
+            $res['IntervalList'] = null !== $this->intervalList ? $this->intervalList->toArray($noStream) : $this->intervalList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceTimeIntervalReport
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IntervalList'])) {
             $model->intervalList = intervalList::fromMap($map['IntervalList']);
         }

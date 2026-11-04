@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\GenerateAgentStatisticReportResponseBody\dataList\list_\generateAgentStatistic;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class overall extends Model
 {
@@ -73,64 +73,77 @@ class overall extends Model
      */
     public $totalWorkTime;
     protected $_name = [
-        'averageHoldTime'              => 'AverageHoldTime',
-        'averageTalkTime'              => 'AverageTalkTime',
-        'averageWorkTime'              => 'AverageWorkTime',
-        'maxHoldTime'                  => 'MaxHoldTime',
-        'maxTalkTime'                  => 'MaxTalkTime',
-        'maxWorkTime'                  => 'MaxWorkTime',
-        'satisfactionIndex'            => 'SatisfactionIndex',
-        'satisfactionSurveysOffered'   => 'SatisfactionSurveysOffered',
+        'averageHoldTime' => 'AverageHoldTime',
+        'averageTalkTime' => 'AverageTalkTime',
+        'averageWorkTime' => 'AverageWorkTime',
+        'maxHoldTime' => 'MaxHoldTime',
+        'maxTalkTime' => 'MaxTalkTime',
+        'maxWorkTime' => 'MaxWorkTime',
+        'satisfactionIndex' => 'SatisfactionIndex',
+        'satisfactionSurveysOffered' => 'SatisfactionSurveysOffered',
         'satisfactionSurveysResponded' => 'SatisfactionSurveysResponded',
-        'totalCalls'                   => 'TotalCalls',
-        'totalHoldTime'                => 'TotalHoldTime',
-        'totalTalkTime'                => 'TotalTalkTime',
-        'totalWorkTime'                => 'TotalWorkTime',
+        'totalCalls' => 'TotalCalls',
+        'totalHoldTime' => 'TotalHoldTime',
+        'totalTalkTime' => 'TotalTalkTime',
+        'totalWorkTime' => 'TotalWorkTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->averageHoldTime) {
             $res['AverageHoldTime'] = $this->averageHoldTime;
         }
+
         if (null !== $this->averageTalkTime) {
             $res['AverageTalkTime'] = $this->averageTalkTime;
         }
+
         if (null !== $this->averageWorkTime) {
             $res['AverageWorkTime'] = $this->averageWorkTime;
         }
+
         if (null !== $this->maxHoldTime) {
             $res['MaxHoldTime'] = $this->maxHoldTime;
         }
+
         if (null !== $this->maxTalkTime) {
             $res['MaxTalkTime'] = $this->maxTalkTime;
         }
+
         if (null !== $this->maxWorkTime) {
             $res['MaxWorkTime'] = $this->maxWorkTime;
         }
+
         if (null !== $this->satisfactionIndex) {
             $res['SatisfactionIndex'] = $this->satisfactionIndex;
         }
+
         if (null !== $this->satisfactionSurveysOffered) {
             $res['SatisfactionSurveysOffered'] = $this->satisfactionSurveysOffered;
         }
+
         if (null !== $this->satisfactionSurveysResponded) {
             $res['SatisfactionSurveysResponded'] = $this->satisfactionSurveysResponded;
         }
+
         if (null !== $this->totalCalls) {
             $res['TotalCalls'] = $this->totalCalls;
         }
+
         if (null !== $this->totalHoldTime) {
             $res['TotalHoldTime'] = $this->totalHoldTime;
         }
+
         if (null !== $this->totalTalkTime) {
             $res['TotalTalkTime'] = $this->totalTalkTime;
         }
+
         if (null !== $this->totalWorkTime) {
             $res['TotalWorkTime'] = $this->totalWorkTime;
         }
@@ -138,50 +151,62 @@ class overall extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return overall
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AverageHoldTime'])) {
             $model->averageHoldTime = $map['AverageHoldTime'];
         }
+
         if (isset($map['AverageTalkTime'])) {
             $model->averageTalkTime = $map['AverageTalkTime'];
         }
+
         if (isset($map['AverageWorkTime'])) {
             $model->averageWorkTime = $map['AverageWorkTime'];
         }
+
         if (isset($map['MaxHoldTime'])) {
             $model->maxHoldTime = $map['MaxHoldTime'];
         }
+
         if (isset($map['MaxTalkTime'])) {
             $model->maxTalkTime = $map['MaxTalkTime'];
         }
+
         if (isset($map['MaxWorkTime'])) {
             $model->maxWorkTime = $map['MaxWorkTime'];
         }
+
         if (isset($map['SatisfactionIndex'])) {
             $model->satisfactionIndex = $map['SatisfactionIndex'];
         }
+
         if (isset($map['SatisfactionSurveysOffered'])) {
             $model->satisfactionSurveysOffered = $map['SatisfactionSurveysOffered'];
         }
+
         if (isset($map['SatisfactionSurveysResponded'])) {
             $model->satisfactionSurveysResponded = $map['SatisfactionSurveysResponded'];
         }
+
         if (isset($map['TotalCalls'])) {
             $model->totalCalls = $map['TotalCalls'];
         }
+
         if (isset($map['TotalHoldTime'])) {
             $model->totalHoldTime = $map['TotalHoldTime'];
         }
+
         if (isset($map['TotalTalkTime'])) {
             $model->totalTalkTime = $map['TotalTalkTime'];
         }
+
         if (isset($map['TotalWorkTime'])) {
             $model->totalWorkTime = $map['TotalWorkTime'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListVoiceAppraiseResponseBody\contactFlow\phoneNumbers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class phoneNumber extends Model
 {
@@ -38,36 +38,42 @@ class phoneNumber extends Model
      */
     public $trunks;
     protected $_name = [
-        'instanceId'             => 'InstanceId',
-        'number'                 => 'Number',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
         'phoneNumberDescription' => 'PhoneNumberDescription',
-        'phoneNumberId'          => 'PhoneNumberId',
-        'remainingTime'          => 'RemainingTime',
-        'trunks'                 => 'Trunks',
+        'phoneNumberId' => 'PhoneNumberId',
+        'remainingTime' => 'RemainingTime',
+        'trunks' => 'Trunks',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->phoneNumberDescription) {
             $res['PhoneNumberDescription'] = $this->phoneNumberDescription;
         }
+
         if (null !== $this->phoneNumberId) {
             $res['PhoneNumberId'] = $this->phoneNumberId;
         }
+
         if (null !== $this->remainingTime) {
             $res['RemainingTime'] = $this->remainingTime;
         }
+
         if (null !== $this->trunks) {
             $res['Trunks'] = $this->trunks;
         }
@@ -75,29 +81,34 @@ class phoneNumber extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return phoneNumber
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['PhoneNumberDescription'])) {
             $model->phoneNumberDescription = $map['PhoneNumberDescription'];
         }
+
         if (isset($map['PhoneNumberId'])) {
             $model->phoneNumberId = $map['PhoneNumberId'];
         }
+
         if (isset($map['RemainingTime'])) {
             $model->remainingTime = $map['RemainingTime'];
         }
+
         if (isset($map['Trunks'])) {
             $model->trunks = $map['Trunks'];
         }

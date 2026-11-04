@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListContactFlowsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListContactFlowsResponseBody\contactFlows\contactFlow;
-use AlibabaCloud\Tea\Model;
 
 class contactFlows extends Model
 {
@@ -19,17 +19,22 @@ class contactFlows extends Model
 
     public function validate()
     {
+        if (\is_array($this->contactFlow)) {
+            Model::validateArray($this->contactFlow);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactFlow) {
-            $res['ContactFlow'] = [];
-            if (null !== $this->contactFlow && \is_array($this->contactFlow)) {
-                $n = 0;
-                foreach ($this->contactFlow as $item) {
-                    $res['ContactFlow'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contactFlow)) {
+                $res['ContactFlow'] = [];
+                $n1 = 0;
+                foreach ($this->contactFlow as $item1) {
+                    $res['ContactFlow'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class contactFlows extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactFlows
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactFlow'])) {
             if (!empty($map['ContactFlow'])) {
                 $model->contactFlow = [];
-                $n                  = 0;
-                foreach ($map['ContactFlow'] as $item) {
-                    $model->contactFlow[$n++] = null !== $item ? contactFlow::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContactFlow'] as $item1) {
+                    $model->contactFlow[$n1] = contactFlow::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

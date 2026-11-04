@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAgentDevicesRequest extends Model
 {
@@ -29,27 +29,31 @@ class ListAgentDevicesRequest extends Model
     public $stopTime;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'ramIds'     => 'RamIds',
-        'startTime'  => 'StartTime',
-        'stopTime'   => 'StopTime',
+        'ramIds' => 'RamIds',
+        'startTime' => 'StartTime',
+        'stopTime' => 'StopTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ramIds) {
             $res['RamIds'] = $this->ramIds;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->stopTime) {
             $res['StopTime'] = $this->stopTime;
         }
@@ -57,23 +61,26 @@ class ListAgentDevicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAgentDevicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RamIds'])) {
             $model->ramIds = $map['RamIds'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StopTime'])) {
             $model->stopTime = $map['StopTime'];
         }

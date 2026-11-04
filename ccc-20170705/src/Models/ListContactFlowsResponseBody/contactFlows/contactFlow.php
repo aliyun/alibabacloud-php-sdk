@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListContactFlowsResponseBody\contactFlows;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListContactFlowsResponseBody\contactFlows\contactFlow\phoneNumbers;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListContactFlowsResponseBody\contactFlows\contactFlow\versions;
-use AlibabaCloud\Tea\Model;
 
 class contactFlow extends Model
 {
@@ -50,80 +50,101 @@ class contactFlow extends Model
      */
     public $versions;
     protected $_name = [
-        'appliedVersion'         => 'AppliedVersion',
+        'appliedVersion' => 'AppliedVersion',
         'contactFlowDescription' => 'ContactFlowDescription',
-        'contactFlowId'          => 'ContactFlowId',
-        'contactFlowName'        => 'ContactFlowName',
-        'instanceId'             => 'InstanceId',
-        'phoneNumbers'           => 'PhoneNumbers',
-        'type'                   => 'Type',
-        'versions'               => 'Versions',
+        'contactFlowId' => 'ContactFlowId',
+        'contactFlowName' => 'ContactFlowName',
+        'instanceId' => 'InstanceId',
+        'phoneNumbers' => 'PhoneNumbers',
+        'type' => 'Type',
+        'versions' => 'Versions',
     ];
 
     public function validate()
     {
+        if (null !== $this->phoneNumbers) {
+            $this->phoneNumbers->validate();
+        }
+        if (null !== $this->versions) {
+            $this->versions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appliedVersion) {
             $res['AppliedVersion'] = $this->appliedVersion;
         }
+
         if (null !== $this->contactFlowDescription) {
             $res['ContactFlowDescription'] = $this->contactFlowDescription;
         }
+
         if (null !== $this->contactFlowId) {
             $res['ContactFlowId'] = $this->contactFlowId;
         }
+
         if (null !== $this->contactFlowName) {
             $res['ContactFlowName'] = $this->contactFlowName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->phoneNumbers) {
-            $res['PhoneNumbers'] = null !== $this->phoneNumbers ? $this->phoneNumbers->toMap() : null;
+            $res['PhoneNumbers'] = null !== $this->phoneNumbers ? $this->phoneNumbers->toArray($noStream) : $this->phoneNumbers;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->versions) {
-            $res['Versions'] = null !== $this->versions ? $this->versions->toMap() : null;
+            $res['Versions'] = null !== $this->versions ? $this->versions->toArray($noStream) : $this->versions;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactFlow
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppliedVersion'])) {
             $model->appliedVersion = $map['AppliedVersion'];
         }
+
         if (isset($map['ContactFlowDescription'])) {
             $model->contactFlowDescription = $map['ContactFlowDescription'];
         }
+
         if (isset($map['ContactFlowId'])) {
             $model->contactFlowId = $map['ContactFlowId'];
         }
+
         if (isset($map['ContactFlowName'])) {
             $model->contactFlowName = $map['ContactFlowName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PhoneNumbers'])) {
             $model->phoneNumbers = phoneNumbers::fromMap($map['PhoneNumbers']);
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Versions'])) {
             $model->versions = versions::fromMap($map['Versions']);
         }

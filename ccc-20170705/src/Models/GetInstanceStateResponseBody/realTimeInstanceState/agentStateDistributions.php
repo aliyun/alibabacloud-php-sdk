@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceStateResponseBody\realTimeInstanceState;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\GetInstanceStateResponseBody\realTimeInstanceState\agentStateDistributions\agentStateCount;
-use AlibabaCloud\Tea\Model;
 
 class agentStateDistributions extends Model
 {
@@ -19,17 +19,22 @@ class agentStateDistributions extends Model
 
     public function validate()
     {
+        if (\is_array($this->agentStateCount)) {
+            Model::validateArray($this->agentStateCount);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentStateCount) {
-            $res['AgentStateCount'] = [];
-            if (null !== $this->agentStateCount && \is_array($this->agentStateCount)) {
-                $n = 0;
-                foreach ($this->agentStateCount as $item) {
-                    $res['AgentStateCount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->agentStateCount)) {
+                $res['AgentStateCount'] = [];
+                $n1 = 0;
+                foreach ($this->agentStateCount as $item1) {
+                    $res['AgentStateCount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class agentStateDistributions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return agentStateDistributions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentStateCount'])) {
             if (!empty($map['AgentStateCount'])) {
                 $model->agentStateCount = [];
-                $n                      = 0;
-                foreach ($map['AgentStateCount'] as $item) {
-                    $model->agentStateCount[$n++] = null !== $item ? agentStateCount::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AgentStateCount'] as $item1) {
+                    $model->agentStateCount[$n1] = agentStateCount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

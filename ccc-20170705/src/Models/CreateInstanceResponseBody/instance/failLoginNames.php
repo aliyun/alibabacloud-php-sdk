@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\CreateInstanceResponseBody\instance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failLoginNames extends Model
 {
@@ -18,29 +18,45 @@ class failLoginNames extends Model
 
     public function validate()
     {
+        if (\is_array($this->failLoginName)) {
+            Model::validateArray($this->failLoginName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failLoginName) {
-            $res['FailLoginName'] = $this->failLoginName;
+            if (\is_array($this->failLoginName)) {
+                $res['FailLoginName'] = [];
+                $n1 = 0;
+                foreach ($this->failLoginName as $item1) {
+                    $res['FailLoginName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failLoginNames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailLoginName'])) {
             if (!empty($map['FailLoginName'])) {
-                $model->failLoginName = $map['FailLoginName'];
+                $model->failLoginName = [];
+                $n1 = 0;
+                foreach ($map['FailLoginName'] as $item1) {
+                    $model->failLoginName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

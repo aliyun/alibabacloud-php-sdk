@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsByIntervalResponseBody\pagedAgentSummaryReport\list_;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CCC\V20170705\Models\ListAgentSummaryReportsByIntervalResponseBody\pagedAgentSummaryReport\list_\agentTimeIntervalReport\intervalList;
-use AlibabaCloud\Tea\Model;
 
 class agentTimeIntervalReport extends Model
 {
@@ -19,38 +19,44 @@ class agentTimeIntervalReport extends Model
      */
     public $intervalList;
     protected $_name = [
-        'agentId'      => 'AgentId',
+        'agentId' => 'AgentId',
         'intervalList' => 'IntervalList',
     ];
 
     public function validate()
     {
+        if (null !== $this->intervalList) {
+            $this->intervalList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
+
         if (null !== $this->intervalList) {
-            $res['IntervalList'] = null !== $this->intervalList ? $this->intervalList->toMap() : null;
+            $res['IntervalList'] = null !== $this->intervalList ? $this->intervalList->toArray($noStream) : $this->intervalList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return agentTimeIntervalReport
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
+
         if (isset($map['IntervalList'])) {
             $model->intervalList = intervalList::fromMap($map['IntervalList']);
         }

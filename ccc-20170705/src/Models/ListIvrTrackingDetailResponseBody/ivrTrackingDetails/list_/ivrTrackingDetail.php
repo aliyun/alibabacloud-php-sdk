@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models\ListIvrTrackingDetailResponseBody\ivrTrackingDetails\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ivrTrackingDetail extends Model
 {
@@ -78,68 +78,82 @@ class ivrTrackingDetail extends Model
      */
     public $tenantId;
     protected $_name = [
-        'calledNumber'  => 'CalledNumber',
+        'calledNumber' => 'CalledNumber',
         'callingNumber' => 'CallingNumber',
-        'contactId'     => 'ContactId',
-        'description'   => 'Description',
-        'deviceID'      => 'DeviceID',
-        'flowName'      => 'FlowName',
-        'inputData'     => 'InputData',
-        'nodeName'      => 'NodeName',
-        'nodeType'      => 'NodeType',
-        'outputData'    => 'OutputData',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
-        'stopTime'      => 'StopTime',
-        'tenantId'      => 'TenantId',
+        'contactId' => 'ContactId',
+        'description' => 'Description',
+        'deviceID' => 'DeviceID',
+        'flowName' => 'FlowName',
+        'inputData' => 'InputData',
+        'nodeName' => 'NodeName',
+        'nodeType' => 'NodeType',
+        'outputData' => 'OutputData',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'stopTime' => 'StopTime',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->calledNumber) {
             $res['CalledNumber'] = $this->calledNumber;
         }
+
         if (null !== $this->callingNumber) {
             $res['CallingNumber'] = $this->callingNumber;
         }
+
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->deviceID) {
             $res['DeviceID'] = $this->deviceID;
         }
+
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
+
         if (null !== $this->inputData) {
             $res['InputData'] = $this->inputData;
         }
+
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
+
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
+
         if (null !== $this->outputData) {
             $res['OutputData'] = $this->outputData;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->stopTime) {
             $res['StopTime'] = $this->stopTime;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -147,53 +161,66 @@ class ivrTrackingDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ivrTrackingDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CalledNumber'])) {
             $model->calledNumber = $map['CalledNumber'];
         }
+
         if (isset($map['CallingNumber'])) {
             $model->callingNumber = $map['CallingNumber'];
         }
+
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DeviceID'])) {
             $model->deviceID = $map['DeviceID'];
         }
+
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
+
         if (isset($map['InputData'])) {
             $model->inputData = $map['InputData'];
         }
+
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
+
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
+
         if (isset($map['OutputData'])) {
             $model->outputData = $map['OutputData'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['StopTime'])) {
             $model->stopTime = $map['StopTime'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

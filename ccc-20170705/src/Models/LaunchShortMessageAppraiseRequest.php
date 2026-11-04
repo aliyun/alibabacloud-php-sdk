@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CCC\V20170705\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LaunchShortMessageAppraiseRequest extends Model
 {
@@ -33,32 +33,37 @@ class LaunchShortMessageAppraiseRequest extends Model
      */
     public $skillGroupId;
     protected $_name = [
-        'acid'         => 'Acid',
-        'contactType'  => 'ContactType',
-        'instanceId'   => 'InstanceId',
+        'acid' => 'Acid',
+        'contactType' => 'ContactType',
+        'instanceId' => 'InstanceId',
         'phoneNumbers' => 'PhoneNumbers',
         'skillGroupId' => 'SkillGroupId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acid) {
             $res['Acid'] = $this->acid;
         }
+
         if (null !== $this->contactType) {
             $res['ContactType'] = $this->contactType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->phoneNumbers) {
             $res['PhoneNumbers'] = $this->phoneNumbers;
         }
+
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
@@ -66,26 +71,30 @@ class LaunchShortMessageAppraiseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LaunchShortMessageAppraiseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Acid'])) {
             $model->acid = $map['Acid'];
         }
+
         if (isset($map['ContactType'])) {
             $model->contactType = $map['ContactType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PhoneNumbers'])) {
             $model->phoneNumbers = $map['PhoneNumbers'];
         }
+
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }
