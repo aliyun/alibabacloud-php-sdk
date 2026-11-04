@@ -110,6 +110,11 @@ class clusters extends Model
     public $state;
 
     /**
+     * @var string
+     */
+    public $supportPolicy;
+
+    /**
      * @var Tag[]
      */
     public $tags;
@@ -154,6 +159,7 @@ class clusters extends Model
         'serviceCidr' => 'service_cidr',
         'size' => 'size',
         'state' => 'state',
+        'supportPolicy' => 'support_policy',
         'tags' => 'tags',
         'timezone' => 'timezone',
         'updated' => 'updated',
@@ -253,6 +259,10 @@ class clusters extends Model
 
         if (null !== $this->state) {
             $res['state'] = $this->state;
+        }
+
+        if (null !== $this->supportPolicy) {
+            $res['support_policy'] = $this->supportPolicy;
         }
 
         if (null !== $this->tags) {
@@ -378,6 +388,10 @@ class clusters extends Model
 
         if (isset($map['state'])) {
             $model->state = $map['state'];
+        }
+
+        if (isset($map['support_policy'])) {
+            $model->supportPolicy = $map['support_policy'];
         }
 
         if (isset($map['tags'])) {

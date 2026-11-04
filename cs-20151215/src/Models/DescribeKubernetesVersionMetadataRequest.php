@@ -41,6 +41,11 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     /**
      * @var string
      */
+    public $supportPolicy;
+
+    /**
+     * @var string
+     */
     public $runtime;
     protected $_name = [
         'clusterType' => 'ClusterType',
@@ -49,6 +54,7 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         'profile' => 'Profile',
         'queryUpgradableVersion' => 'QueryUpgradableVersion',
         'region' => 'Region',
+        'supportPolicy' => 'SupportPolicy',
         'runtime' => 'runtime',
     ];
 
@@ -82,6 +88,10 @@ class DescribeKubernetesVersionMetadataRequest extends Model
 
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+
+        if (null !== $this->supportPolicy) {
+            $res['SupportPolicy'] = $this->supportPolicy;
         }
 
         if (null !== $this->runtime) {
@@ -121,6 +131,10 @@ class DescribeKubernetesVersionMetadataRequest extends Model
 
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['SupportPolicy'])) {
+            $model->supportPolicy = $map['SupportPolicy'];
         }
 
         if (isset($map['runtime'])) {

@@ -16,6 +16,21 @@ class body extends Model
     public $capabilities;
 
     /**
+     * @var bool
+     */
+    public $creatable;
+
+    /**
+     * @var string
+     */
+    public $expirationDate;
+
+    /**
+     * @var string
+     */
+    public $extendedExpirationDate;
+
+    /**
      * @var images[]
      */
     public $images;
@@ -26,6 +41,11 @@ class body extends Model
     public $metaData;
 
     /**
+     * @var string
+     */
+    public $releaseDate;
+
+    /**
      * @var Runtime[]
      */
     public $runtimes;
@@ -33,37 +53,29 @@ class body extends Model
     /**
      * @var string
      */
-    public $version;
-
-    /**
-     * @var string
-     */
-    public $releaseDate;
-
-    /**
-     * @var string
-     */
-    public $expirationDate;
-
-    /**
-     * @var bool
-     */
-    public $creatable;
+    public $supportPolicy;
 
     /**
      * @var string[]
      */
     public $upgradableVersions;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'capabilities' => 'capabilities',
+        'creatable' => 'creatable',
+        'expirationDate' => 'expiration_date',
+        'extendedExpirationDate' => 'extended_expiration_date',
         'images' => 'images',
         'metaData' => 'meta_data',
-        'runtimes' => 'runtimes',
-        'version' => 'version',
         'releaseDate' => 'release_date',
-        'expirationDate' => 'expiration_date',
-        'creatable' => 'creatable',
+        'runtimes' => 'runtimes',
+        'supportPolicy' => 'support_policy',
         'upgradableVersions' => 'upgradable_versions',
+        'version' => 'version',
     ];
 
     public function validate()
@@ -98,6 +110,18 @@ class body extends Model
             }
         }
 
+        if (null !== $this->creatable) {
+            $res['creatable'] = $this->creatable;
+        }
+
+        if (null !== $this->expirationDate) {
+            $res['expiration_date'] = $this->expirationDate;
+        }
+
+        if (null !== $this->extendedExpirationDate) {
+            $res['extended_expiration_date'] = $this->extendedExpirationDate;
+        }
+
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['images'] = [];
@@ -118,6 +142,10 @@ class body extends Model
             }
         }
 
+        if (null !== $this->releaseDate) {
+            $res['release_date'] = $this->releaseDate;
+        }
+
         if (null !== $this->runtimes) {
             if (\is_array($this->runtimes)) {
                 $res['runtimes'] = [];
@@ -129,20 +157,8 @@ class body extends Model
             }
         }
 
-        if (null !== $this->version) {
-            $res['version'] = $this->version;
-        }
-
-        if (null !== $this->releaseDate) {
-            $res['release_date'] = $this->releaseDate;
-        }
-
-        if (null !== $this->expirationDate) {
-            $res['expiration_date'] = $this->expirationDate;
-        }
-
-        if (null !== $this->creatable) {
-            $res['creatable'] = $this->creatable;
+        if (null !== $this->supportPolicy) {
+            $res['support_policy'] = $this->supportPolicy;
         }
 
         if (null !== $this->upgradableVersions) {
@@ -154,6 +170,10 @@ class body extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -176,6 +196,18 @@ class body extends Model
             }
         }
 
+        if (isset($map['creatable'])) {
+            $model->creatable = $map['creatable'];
+        }
+
+        if (isset($map['expiration_date'])) {
+            $model->expirationDate = $map['expiration_date'];
+        }
+
+        if (isset($map['extended_expiration_date'])) {
+            $model->extendedExpirationDate = $map['extended_expiration_date'];
+        }
+
         if (isset($map['images'])) {
             if (!empty($map['images'])) {
                 $model->images = [];
@@ -196,6 +228,10 @@ class body extends Model
             }
         }
 
+        if (isset($map['release_date'])) {
+            $model->releaseDate = $map['release_date'];
+        }
+
         if (isset($map['runtimes'])) {
             if (!empty($map['runtimes'])) {
                 $model->runtimes = [];
@@ -207,20 +243,8 @@ class body extends Model
             }
         }
 
-        if (isset($map['version'])) {
-            $model->version = $map['version'];
-        }
-
-        if (isset($map['release_date'])) {
-            $model->releaseDate = $map['release_date'];
-        }
-
-        if (isset($map['expiration_date'])) {
-            $model->expirationDate = $map['expiration_date'];
-        }
-
-        if (isset($map['creatable'])) {
-            $model->creatable = $map['creatable'];
+        if (isset($map['support_policy'])) {
+            $model->supportPolicy = $map['support_policy'];
         }
 
         if (isset($map['upgradable_versions'])) {
@@ -232,6 +256,10 @@ class body extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

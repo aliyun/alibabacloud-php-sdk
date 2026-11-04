@@ -426,6 +426,11 @@ class CreateClusterRequest extends Model
     public $sshFlags;
 
     /**
+     * @var string
+     */
+    public $supportPolicy;
+
+    /**
      * @var Tag[]
      */
     public $tags;
@@ -617,6 +622,7 @@ class CreateClusterRequest extends Model
         'snatEntry' => 'snat_entry',
         'socEnabled' => 'soc_enabled',
         'sshFlags' => 'ssh_flags',
+        'supportPolicy' => 'support_policy',
         'tags' => 'tags',
         'taints' => 'taints',
         'timeoutMins' => 'timeout_mins',
@@ -1130,6 +1136,10 @@ class CreateClusterRequest extends Model
 
         if (null !== $this->sshFlags) {
             $res['ssh_flags'] = $this->sshFlags;
+        }
+
+        if (null !== $this->supportPolicy) {
+            $res['support_policy'] = $this->supportPolicy;
         }
 
         if (null !== $this->tags) {
@@ -1683,6 +1693,10 @@ class CreateClusterRequest extends Model
 
         if (isset($map['ssh_flags'])) {
             $model->sshFlags = $map['ssh_flags'];
+        }
+
+        if (isset($map['support_policy'])) {
+            $model->supportPolicy = $map['support_policy'];
         }
 
         if (isset($map['tags'])) {

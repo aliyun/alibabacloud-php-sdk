@@ -194,6 +194,11 @@ class DescribeClusterDetailResponseBody extends Model
     public $subnetCidr;
 
     /**
+     * @var string
+     */
+    public $supportPolicy;
+
+    /**
      * @var Tag[]
      */
     public $tags;
@@ -269,6 +274,7 @@ class DescribeClusterDetailResponseBody extends Model
         'size' => 'size',
         'state' => 'state',
         'subnetCidr' => 'subnet_cidr',
+        'supportPolicy' => 'support_policy',
         'tags' => 'tags',
         'timezone' => 'timezone',
         'updated' => 'updated',
@@ -471,6 +477,10 @@ class DescribeClusterDetailResponseBody extends Model
 
         if (null !== $this->subnetCidr) {
             $res['subnet_cidr'] = $this->subnetCidr;
+        }
+
+        if (null !== $this->supportPolicy) {
+            $res['support_policy'] = $this->supportPolicy;
         }
 
         if (null !== $this->tags) {
@@ -684,6 +694,10 @@ class DescribeClusterDetailResponseBody extends Model
 
         if (isset($map['subnet_cidr'])) {
             $model->subnetCidr = $map['subnet_cidr'];
+        }
+
+        if (isset($map['support_policy'])) {
+            $model->supportPolicy = $map['support_policy'];
         }
 
         if (isset($map['tags'])) {

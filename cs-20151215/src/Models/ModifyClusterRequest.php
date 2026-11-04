@@ -104,6 +104,11 @@ class ModifyClusterRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var string
+     */
+    public $supportPolicy;
+
+    /**
      * @var systemEventsLogging
      */
     public $systemEventsLogging;
@@ -136,6 +141,7 @@ class ModifyClusterRequest extends Model
         'operationPolicy' => 'operation_policy',
         'resourceGroupId' => 'resource_group_id',
         'securityGroupId' => 'security_group_id',
+        'supportPolicy' => 'support_policy',
         'systemEventsLogging' => 'system_events_logging',
         'timezone' => 'timezone',
         'vswitchIds' => 'vswitch_ids',
@@ -252,6 +258,10 @@ class ModifyClusterRequest extends Model
             $res['security_group_id'] = $this->securityGroupId;
         }
 
+        if (null !== $this->supportPolicy) {
+            $res['support_policy'] = $this->supportPolicy;
+        }
+
         if (null !== $this->systemEventsLogging) {
             $res['system_events_logging'] = null !== $this->systemEventsLogging ? $this->systemEventsLogging->toArray($noStream) : $this->systemEventsLogging;
         }
@@ -359,6 +369,10 @@ class ModifyClusterRequest extends Model
 
         if (isset($map['security_group_id'])) {
             $model->securityGroupId = $map['security_group_id'];
+        }
+
+        if (isset($map['support_policy'])) {
+            $model->supportPolicy = $map['support_policy'];
         }
 
         if (isset($map['system_events_logging'])) {
