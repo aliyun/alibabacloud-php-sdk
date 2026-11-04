@@ -11,6 +11,11 @@ class GenerateDataKeyRequest extends Model
     /**
      * @var string
      */
+    public $dataKeyName;
+
+    /**
+     * @var string
+     */
     public $dryRun;
 
     /**
@@ -26,7 +31,17 @@ class GenerateDataKeyRequest extends Model
     /**
      * @var string
      */
+    public $keyMaterial;
+
+    /**
+     * @var string
+     */
     public $keySpec;
+
+    /**
+     * @var bool
+     */
+    public $managedByKms;
 
     /**
      * @var int
@@ -38,10 +53,13 @@ class GenerateDataKeyRequest extends Model
      */
     public $recipient;
     protected $_name = [
+        'dataKeyName' => 'DataKeyName',
         'dryRun' => 'DryRun',
         'encryptionContext' => 'EncryptionContext',
         'keyId' => 'KeyId',
+        'keyMaterial' => 'KeyMaterial',
         'keySpec' => 'KeySpec',
+        'managedByKms' => 'ManagedByKms',
         'numberOfBytes' => 'NumberOfBytes',
         'recipient' => 'Recipient',
     ];
@@ -57,6 +75,10 @@ class GenerateDataKeyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dataKeyName) {
+            $res['DataKeyName'] = $this->dataKeyName;
+        }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
@@ -74,8 +96,16 @@ class GenerateDataKeyRequest extends Model
             $res['KeyId'] = $this->keyId;
         }
 
+        if (null !== $this->keyMaterial) {
+            $res['KeyMaterial'] = $this->keyMaterial;
+        }
+
         if (null !== $this->keySpec) {
             $res['KeySpec'] = $this->keySpec;
+        }
+
+        if (null !== $this->managedByKms) {
+            $res['ManagedByKms'] = $this->managedByKms;
         }
 
         if (null !== $this->numberOfBytes) {
@@ -97,6 +127,10 @@ class GenerateDataKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataKeyName'])) {
+            $model->dataKeyName = $map['DataKeyName'];
+        }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
@@ -114,8 +148,16 @@ class GenerateDataKeyRequest extends Model
             $model->keyId = $map['KeyId'];
         }
 
+        if (isset($map['KeyMaterial'])) {
+            $model->keyMaterial = $map['KeyMaterial'];
+        }
+
         if (isset($map['KeySpec'])) {
             $model->keySpec = $map['KeySpec'];
+        }
+
+        if (isset($map['ManagedByKms'])) {
+            $model->managedByKms = $map['ManagedByKms'];
         }
 
         if (isset($map['NumberOfBytes'])) {

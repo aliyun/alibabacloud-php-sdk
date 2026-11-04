@@ -21,6 +21,21 @@ class GenerateDataKeyResponseBody extends Model
     /**
      * @var string
      */
+    public $dataKeyName;
+
+    /**
+     * @var string
+     */
+    public $dataKeyVersionId;
+
+    /**
+     * @var string
+     */
+    public $dataKeyVersionName;
+
+    /**
+     * @var string
+     */
     public $keyId;
 
     /**
@@ -40,6 +55,9 @@ class GenerateDataKeyResponseBody extends Model
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
         'ciphertextForRecipient' => 'CiphertextForRecipient',
+        'dataKeyName' => 'DataKeyName',
+        'dataKeyVersionId' => 'DataKeyVersionId',
+        'dataKeyVersionName' => 'DataKeyVersionName',
         'keyId' => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
         'plaintext' => 'Plaintext',
@@ -60,6 +78,18 @@ class GenerateDataKeyResponseBody extends Model
 
         if (null !== $this->ciphertextForRecipient) {
             $res['CiphertextForRecipient'] = $this->ciphertextForRecipient;
+        }
+
+        if (null !== $this->dataKeyName) {
+            $res['DataKeyName'] = $this->dataKeyName;
+        }
+
+        if (null !== $this->dataKeyVersionId) {
+            $res['DataKeyVersionId'] = $this->dataKeyVersionId;
+        }
+
+        if (null !== $this->dataKeyVersionName) {
+            $res['DataKeyVersionName'] = $this->dataKeyVersionName;
         }
 
         if (null !== $this->keyId) {
@@ -95,6 +125,18 @@ class GenerateDataKeyResponseBody extends Model
 
         if (isset($map['CiphertextForRecipient'])) {
             $model->ciphertextForRecipient = $map['CiphertextForRecipient'];
+        }
+
+        if (isset($map['DataKeyName'])) {
+            $model->dataKeyName = $map['DataKeyName'];
+        }
+
+        if (isset($map['DataKeyVersionId'])) {
+            $model->dataKeyVersionId = $map['DataKeyVersionId'];
+        }
+
+        if (isset($map['DataKeyVersionName'])) {
+            $model->dataKeyVersionName = $map['DataKeyVersionName'];
         }
 
         if (isset($map['KeyId'])) {
