@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeCloudConnectNetworks
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeCloudConnectNetworksResponseBody\cloudConnectNetworks\cloudConnectNetwork\tags;
+use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeCloudConnectNetworksResponseBody\cloudConnectNetworks\cloudConnectNetwork\trNetworkConfig;
+use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeCloudConnectNetworksResponseBody\cloudConnectNetworks\cloudConnectNetwork\vpcNetworkConfig;
 
 class cloudConnectNetwork extends Model
 {
@@ -22,7 +24,17 @@ class cloudConnectNetwork extends Model
     /**
      * @var string
      */
+    public $associatedCenStatus;
+
+    /**
+     * @var string
+     */
     public $associatedCloudBoxCount;
+
+    /**
+     * @var string
+     */
+    public $associatedVpcStatus;
 
     /**
      * @var string
@@ -33,6 +45,16 @@ class cloudConnectNetwork extends Model
      * @var string
      */
     public $ccnId;
+
+    /**
+     * @var string
+     */
+    public $cenStatusErrorCode;
+
+    /**
+     * @var string
+     */
+    public $cenStatusErrorMessage;
 
     /**
      * @var string
@@ -67,6 +89,11 @@ class cloudConnectNetwork extends Model
     /**
      * @var string
      */
+    public $processingCenId;
+
+    /**
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
@@ -83,28 +110,63 @@ class cloudConnectNetwork extends Model
      * @var tags
      */
     public $tags;
+
+    /**
+     * @var trNetworkConfig
+     */
+    public $trNetworkConfig;
+
+    /**
+     * @var vpcNetworkConfig
+     */
+    public $vpcNetworkConfig;
+
+    /**
+     * @var string
+     */
+    public $vpcStatusErrorCode;
+
+    /**
+     * @var string
+     */
+    public $vpcStatusErrorMessage;
     protected $_name = [
         'associatedCenId' => 'AssociatedCenId',
         'associatedCenOwnerId' => 'AssociatedCenOwnerId',
+        'associatedCenStatus' => 'AssociatedCenStatus',
         'associatedCloudBoxCount' => 'AssociatedCloudBoxCount',
+        'associatedVpcStatus' => 'AssociatedVpcStatus',
         'availableCloudBoxCount' => 'AvailableCloudBoxCount',
         'ccnId' => 'CcnId',
+        'cenStatusErrorCode' => 'CenStatusErrorCode',
+        'cenStatusErrorMessage' => 'CenStatusErrorMessage',
         'cidrBlock' => 'CidrBlock',
         'createTime' => 'CreateTime',
         'description' => 'Description',
         'interworkingStatus' => 'InterworkingStatus',
         'name' => 'Name',
         'newAgw' => 'NewAgw',
+        'processingCenId' => 'ProcessingCenId',
         'resourceGroupId' => 'ResourceGroupId',
         'snatCidrBlock' => 'SnatCidrBlock',
         'subnet' => 'Subnet',
         'tags' => 'Tags',
+        'trNetworkConfig' => 'TrNetworkConfig',
+        'vpcNetworkConfig' => 'VpcNetworkConfig',
+        'vpcStatusErrorCode' => 'VpcStatusErrorCode',
+        'vpcStatusErrorMessage' => 'VpcStatusErrorMessage',
     ];
 
     public function validate()
     {
         if (null !== $this->tags) {
             $this->tags->validate();
+        }
+        if (null !== $this->trNetworkConfig) {
+            $this->trNetworkConfig->validate();
+        }
+        if (null !== $this->vpcNetworkConfig) {
+            $this->vpcNetworkConfig->validate();
         }
         parent::validate();
     }
@@ -120,8 +182,16 @@ class cloudConnectNetwork extends Model
             $res['AssociatedCenOwnerId'] = $this->associatedCenOwnerId;
         }
 
+        if (null !== $this->associatedCenStatus) {
+            $res['AssociatedCenStatus'] = $this->associatedCenStatus;
+        }
+
         if (null !== $this->associatedCloudBoxCount) {
             $res['AssociatedCloudBoxCount'] = $this->associatedCloudBoxCount;
+        }
+
+        if (null !== $this->associatedVpcStatus) {
+            $res['AssociatedVpcStatus'] = $this->associatedVpcStatus;
         }
 
         if (null !== $this->availableCloudBoxCount) {
@@ -130,6 +200,14 @@ class cloudConnectNetwork extends Model
 
         if (null !== $this->ccnId) {
             $res['CcnId'] = $this->ccnId;
+        }
+
+        if (null !== $this->cenStatusErrorCode) {
+            $res['CenStatusErrorCode'] = $this->cenStatusErrorCode;
+        }
+
+        if (null !== $this->cenStatusErrorMessage) {
+            $res['CenStatusErrorMessage'] = $this->cenStatusErrorMessage;
         }
 
         if (null !== $this->cidrBlock) {
@@ -156,6 +234,10 @@ class cloudConnectNetwork extends Model
             $res['NewAgw'] = $this->newAgw;
         }
 
+        if (null !== $this->processingCenId) {
+            $res['ProcessingCenId'] = $this->processingCenId;
+        }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -170,6 +252,22 @@ class cloudConnectNetwork extends Model
 
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
+        }
+
+        if (null !== $this->trNetworkConfig) {
+            $res['TrNetworkConfig'] = null !== $this->trNetworkConfig ? $this->trNetworkConfig->toArray($noStream) : $this->trNetworkConfig;
+        }
+
+        if (null !== $this->vpcNetworkConfig) {
+            $res['VpcNetworkConfig'] = null !== $this->vpcNetworkConfig ? $this->vpcNetworkConfig->toArray($noStream) : $this->vpcNetworkConfig;
+        }
+
+        if (null !== $this->vpcStatusErrorCode) {
+            $res['VpcStatusErrorCode'] = $this->vpcStatusErrorCode;
+        }
+
+        if (null !== $this->vpcStatusErrorMessage) {
+            $res['VpcStatusErrorMessage'] = $this->vpcStatusErrorMessage;
         }
 
         return $res;
@@ -191,8 +289,16 @@ class cloudConnectNetwork extends Model
             $model->associatedCenOwnerId = $map['AssociatedCenOwnerId'];
         }
 
+        if (isset($map['AssociatedCenStatus'])) {
+            $model->associatedCenStatus = $map['AssociatedCenStatus'];
+        }
+
         if (isset($map['AssociatedCloudBoxCount'])) {
             $model->associatedCloudBoxCount = $map['AssociatedCloudBoxCount'];
+        }
+
+        if (isset($map['AssociatedVpcStatus'])) {
+            $model->associatedVpcStatus = $map['AssociatedVpcStatus'];
         }
 
         if (isset($map['AvailableCloudBoxCount'])) {
@@ -201,6 +307,14 @@ class cloudConnectNetwork extends Model
 
         if (isset($map['CcnId'])) {
             $model->ccnId = $map['CcnId'];
+        }
+
+        if (isset($map['CenStatusErrorCode'])) {
+            $model->cenStatusErrorCode = $map['CenStatusErrorCode'];
+        }
+
+        if (isset($map['CenStatusErrorMessage'])) {
+            $model->cenStatusErrorMessage = $map['CenStatusErrorMessage'];
         }
 
         if (isset($map['CidrBlock'])) {
@@ -227,6 +341,10 @@ class cloudConnectNetwork extends Model
             $model->newAgw = $map['NewAgw'];
         }
 
+        if (isset($map['ProcessingCenId'])) {
+            $model->processingCenId = $map['ProcessingCenId'];
+        }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -241,6 +359,22 @@ class cloudConnectNetwork extends Model
 
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+
+        if (isset($map['TrNetworkConfig'])) {
+            $model->trNetworkConfig = trNetworkConfig::fromMap($map['TrNetworkConfig']);
+        }
+
+        if (isset($map['VpcNetworkConfig'])) {
+            $model->vpcNetworkConfig = vpcNetworkConfig::fromMap($map['VpcNetworkConfig']);
+        }
+
+        if (isset($map['VpcStatusErrorCode'])) {
+            $model->vpcStatusErrorCode = $map['VpcStatusErrorCode'];
+        }
+
+        if (isset($map['VpcStatusErrorMessage'])) {
+            $model->vpcStatusErrorMessage = $map['VpcStatusErrorMessage'];
         }
 
         return $model;

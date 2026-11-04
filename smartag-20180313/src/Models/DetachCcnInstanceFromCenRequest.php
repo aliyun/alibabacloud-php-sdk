@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Smartag\V20180313\Models\DetachCcnInstanceFromCenRequest\regionBindingList;
 
 class DetachCcnInstanceFromCenRequest extends Model
 {
@@ -19,17 +20,26 @@ class DetachCcnInstanceFromCenRequest extends Model
     public $cenId;
 
     /**
+     * @var regionBindingList[]
+     */
+    public $regionBindingList;
+
+    /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'ccnId' => 'CcnId',
         'cenId' => 'CenId',
+        'regionBindingList' => 'RegionBindingList',
         'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->regionBindingList)) {
+            Model::validateArray($this->regionBindingList);
+        }
         parent::validate();
     }
 
@@ -42,6 +52,17 @@ class DetachCcnInstanceFromCenRequest extends Model
 
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
+        }
+
+        if (null !== $this->regionBindingList) {
+            if (\is_array($this->regionBindingList)) {
+                $res['RegionBindingList'] = [];
+                $n1 = 0;
+                foreach ($this->regionBindingList as $item1) {
+                    $res['RegionBindingList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->regionId) {
@@ -65,6 +86,17 @@ class DetachCcnInstanceFromCenRequest extends Model
 
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
+        }
+
+        if (isset($map['RegionBindingList'])) {
+            if (!empty($map['RegionBindingList'])) {
+                $model->regionBindingList = [];
+                $n1 = 0;
+                foreach ($map['RegionBindingList'] as $item1) {
+                    $model->regionBindingList[$n1] = regionBindingList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RegionId'])) {

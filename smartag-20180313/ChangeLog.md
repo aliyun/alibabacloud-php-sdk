@@ -1,3 +1,18 @@
+2026-11-04 Version: 1.1.2
+- Update API AttachCcnInstanceToCen: add request parameters CidrAllocationMode.
+- Update API AttachCcnInstanceToCen: add request parameters RegionBindingList.
+- Update API DescribeCloudConnectNetworks: add response parameters Body.CloudConnectNetworks.$.AssociatedCenStatus.
+- Update API DescribeCloudConnectNetworks: add response parameters Body.CloudConnectNetworks.$.AssociatedVpcStatus.
+- Update API DescribeCloudConnectNetworks: add response parameters Body.CloudConnectNetworks.$.CenStatusErrorCode.
+- Update API DescribeCloudConnectNetworks: add response parameters Body.CloudConnectNetworks.$.CenStatusErrorMessage.
+- Update API DescribeCloudConnectNetworks: add response parameters Body.CloudConnectNetworks.$.ProcessingCenId.
+- Update API DescribeCloudConnectNetworks: add response parameters Body.CloudConnectNetworks.$.TrNetworkConfig.
+- Update API DescribeCloudConnectNetworks: add response parameters Body.CloudConnectNetworks.$.VpcNetworkConfig.
+- Update API DescribeCloudConnectNetworks: add response parameters Body.CloudConnectNetworks.$.VpcStatusErrorCode.
+- Update API DescribeCloudConnectNetworks: add response parameters Body.CloudConnectNetworks.$.VpcStatusErrorMessage.
+- Update API DetachCcnInstanceFromCen: add request parameters RegionBindingList.
+
+
 2026-07-31 Version: 1.1.1
 - Generated php 2018-03-13 for Smartag.
 

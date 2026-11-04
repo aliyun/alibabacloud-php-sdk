@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Smartag\V20180313\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Smartag\V20180313\Models\AttachCcnInstanceToCenRequest\regionBindingList;
 
 class AttachCcnInstanceToCenRequest extends Model
 {
@@ -21,6 +22,16 @@ class AttachCcnInstanceToCenRequest extends Model
     /**
      * @var string
      */
+    public $cidrAllocationMode;
+
+    /**
+     * @var regionBindingList[]
+     */
+    public $regionBindingList;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -30,12 +41,17 @@ class AttachCcnInstanceToCenRequest extends Model
     protected $_name = [
         'ccnId' => 'CcnId',
         'cenId' => 'CenId',
+        'cidrAllocationMode' => 'CidrAllocationMode',
+        'regionBindingList' => 'RegionBindingList',
         'regionId' => 'RegionId',
         'subnet' => 'Subnet',
     ];
 
     public function validate()
     {
+        if (\is_array($this->regionBindingList)) {
+            Model::validateArray($this->regionBindingList);
+        }
         parent::validate();
     }
 
@@ -48,6 +64,21 @@ class AttachCcnInstanceToCenRequest extends Model
 
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
+        }
+
+        if (null !== $this->cidrAllocationMode) {
+            $res['CidrAllocationMode'] = $this->cidrAllocationMode;
+        }
+
+        if (null !== $this->regionBindingList) {
+            if (\is_array($this->regionBindingList)) {
+                $res['RegionBindingList'] = [];
+                $n1 = 0;
+                foreach ($this->regionBindingList as $item1) {
+                    $res['RegionBindingList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->regionId) {
@@ -75,6 +106,21 @@ class AttachCcnInstanceToCenRequest extends Model
 
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
+        }
+
+        if (isset($map['CidrAllocationMode'])) {
+            $model->cidrAllocationMode = $map['CidrAllocationMode'];
+        }
+
+        if (isset($map['RegionBindingList'])) {
+            if (!empty($map['RegionBindingList'])) {
+                $model->regionBindingList = [];
+                $n1 = 0;
+                foreach ($map['RegionBindingList'] as $item1) {
+                    $model->regionBindingList[$n1] = regionBindingList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RegionId'])) {
