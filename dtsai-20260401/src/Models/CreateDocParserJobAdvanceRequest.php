@@ -35,6 +35,11 @@ class CreateDocParserJobAdvanceRequest extends Model
     public $chunkSummary;
 
     /**
+     * @var bool
+     */
+    public $documentStructure;
+
+    /**
      * @var string
      */
     public $fileFormat;
@@ -134,6 +139,7 @@ class CreateDocParserJobAdvanceRequest extends Model
         'audioClipOutput' => 'AudioClipOutput',
         'audioWindowSeconds' => 'AudioWindowSeconds',
         'chunkSummary' => 'ChunkSummary',
+        'documentStructure' => 'DocumentStructure',
         'fileFormat' => 'FileFormat',
         'fileName' => 'FileName',
         'fileUrlObject' => 'FileUrl',
@@ -181,6 +187,10 @@ class CreateDocParserJobAdvanceRequest extends Model
 
         if (null !== $this->chunkSummary) {
             $res['ChunkSummary'] = $this->chunkSummary;
+        }
+
+        if (null !== $this->documentStructure) {
+            $res['DocumentStructure'] = $this->documentStructure;
         }
 
         if (null !== $this->fileFormat) {
@@ -288,6 +298,10 @@ class CreateDocParserJobAdvanceRequest extends Model
 
         if (isset($map['ChunkSummary'])) {
             $model->chunkSummary = $map['ChunkSummary'];
+        }
+
+        if (isset($map['DocumentStructure'])) {
+            $model->documentStructure = $map['DocumentStructure'];
         }
 
         if (isset($map['FileFormat'])) {

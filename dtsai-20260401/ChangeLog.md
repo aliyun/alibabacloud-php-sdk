@@ -1,3 +1,7 @@
+2026-11-05 Version: 1.1.3
+- Update API CreateDocParserJob: add request parameters DocumentStructure.
+
+
 2026-08-28 Version: 1.1.2
 - Generated php 2026-04-01 for DtsAI.
 

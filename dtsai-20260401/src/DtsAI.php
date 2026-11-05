@@ -27,6 +27,7 @@ use AlibabaCloud\SDK\DtsAI\V20260401\Models\WebFetchRequest;
 use AlibabaCloud\SDK\DtsAI\V20260401\Models\WebFetchResponse;
 use AlibabaCloud\SDK\DtsAI\V20260401\Models\WebSearchRequest;
 use AlibabaCloud\SDK\DtsAI\V20260401\Models\WebSearchResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -39,10 +40,10 @@ class DtsAI extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'DtsAI';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-beijing' => 'dtsai.cn-beijing.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dtsai', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -169,7 +170,7 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+     * Grants OSS PostObject direct upload authorization for callers to upload files directly to the specified bucket and object key, and then use the object URL as OssFileUrl to create a parsing task.
      *
      * @param Request - AuthorizeFileUploadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -220,7 +221,7 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * Uploads a file directly to the Bucket/ObjectKey specified in the response, and then uses the object URL as OssFileUrl to create a parsing task.
+     * Grants OSS PostObject direct upload authorization for callers to upload files directly to the specified bucket and object key, and then use the object URL as OssFileUrl to create a parsing task.
      *
      * @param Request - AuthorizeFileUploadRequest
      *
@@ -242,7 +243,7 @@ class DtsAI extends OpenApiClient
      *
      * @remarks
      * - Region: Only China (Beijing) is supported.
-     * - Fees: The service is free of charge during the public preview period.
+     * - Billing: Free to use during the public preview. No fees are charged.
      *
      * @param Request - CreateDocParserJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -276,6 +277,10 @@ class DtsAI extends OpenApiClient
 
         if (null !== $request->chunkSummary) {
             @$query['ChunkSummary'] = $request->chunkSummary;
+        }
+
+        if (null !== $request->documentStructure) {
+            @$query['DocumentStructure'] = $request->documentStructure;
         }
 
         if (null !== $request->fileFormat) {
@@ -377,7 +382,7 @@ class DtsAI extends OpenApiClient
      *
      * @remarks
      * - Region: Only China (Beijing) is supported.
-     * - Fees: The service is free of charge during the public preview period.
+     * - Billing: Free to use during the public preview. No fees are charged.
      *
      * @param Request - CreateDocParserJobRequest
      *
@@ -639,11 +644,17 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * Retrieves the content of a web page.
+     * Retrieves web page content.
      *
      * @remarks
-     * - Region: Only China (Beijing) and Singapore regions are supported.
-     * - Fees: Free of charge during the public preview period.
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: The service is free of charge during the public preview period.
+     * General notes:
+     * - WebFetch and WebSearch are AI-based automated information retrieval tools. Search keywords, target web pages, and content extraction results are automatically generated and processed by DTS based on your instruction intent. Understanding deviations, omissions, or errors may occur.
+     * - The information returned by both features is sourced from third-party public networks. DTS does not verify, review, or endorse such content. The content does not represent the views or positions of DTS. The original source is responsible for its authenticity, accuracy, completeness, timeliness, and legality.
+     * - DTS makes no express or implied warranties regarding the accuracy, completeness, timeliness, legality, security, or fitness for a particular purpose of the search and retrieval results. DTS does not guarantee that the service is always available, uninterrupted, or error-free.
+     * - You are responsible for evaluating and assuming the risks of using the results. Before using the results for decision-making, citation, public release, commercial use, or other scenarios, verify the content independently and comply with applicable laws, regulations, and the terms and intellectual property requirements of third-party websites. You assume all liability for any losses or disputes arising from the use of the results.
+     * - The results do not constitute opinions or advice in professional fields such as law, medicine, finance, or investment. For significant matters, consult qualified professionals.
      *
      * @param Request - WebFetchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -694,11 +705,17 @@ class DtsAI extends OpenApiClient
     }
 
     /**
-     * Retrieves the content of a web page.
+     * Retrieves web page content.
      *
      * @remarks
-     * - Region: Only China (Beijing) and Singapore regions are supported.
-     * - Fees: Free of charge during the public preview period.
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: The service is free of charge during the public preview period.
+     * General notes:
+     * - WebFetch and WebSearch are AI-based automated information retrieval tools. Search keywords, target web pages, and content extraction results are automatically generated and processed by DTS based on your instruction intent. Understanding deviations, omissions, or errors may occur.
+     * - The information returned by both features is sourced from third-party public networks. DTS does not verify, review, or endorse such content. The content does not represent the views or positions of DTS. The original source is responsible for its authenticity, accuracy, completeness, timeliness, and legality.
+     * - DTS makes no express or implied warranties regarding the accuracy, completeness, timeliness, legality, security, or fitness for a particular purpose of the search and retrieval results. DTS does not guarantee that the service is always available, uninterrupted, or error-free.
+     * - You are responsible for evaluating and assuming the risks of using the results. Before using the results for decision-making, citation, public release, commercial use, or other scenarios, verify the content independently and comply with applicable laws, regulations, and the terms and intellectual property requirements of third-party websites. You assume all liability for any losses or disputes arising from the use of the results.
+     * - The results do not constitute opinions or advice in professional fields such as law, medicine, finance, or investment. For significant matters, consult qualified professionals.
      *
      * @param Request - WebFetchRequest
      *
@@ -719,8 +736,15 @@ class DtsAI extends OpenApiClient
      * Performs a web search.
      *
      * @remarks
-     * - Region: Only China (Beijing) and Singapore regions are supported.
-     * - Fees: Free during the public preview period. No fees are charged.
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: This feature is free of charge during the public preview period.
+     * - SLA: This feature is not covered by the DTS Service Level Agreement (SLA).
+     * General notes:
+     * - WebFetch and WebSearch are AI-based automated information retrieval tools. Search keywords, target web pages, and content extraction results are automatically generated and processed by DTS based on the intent of your instructions. Understanding deviations, omissions, or errors may occur.
+     * - The information returned by both features is sourced from third-party public networks. DTS does not verify, review, or endorse the information. The content does not represent the views or positions of DTS. The original source is responsible for the authenticity, accuracy, completeness, timeliness, and legality of the content.
+     * - DTS makes no express or implied warranties regarding the accuracy, completeness, timeliness, legality, security, or fitness for a particular purpose of the search and retrieval results. DTS does not guarantee that the service is always available, uninterrupted, or error-free.
+     * - You are responsible for evaluating and assuming the risks of using the results. Before using the results for decision-making, citation, public release, commercial use, or other scenarios, verify the content and comply with applicable laws, regulations, and the terms and intellectual property requirements of third-party websites. You assume all liability for any losses or disputes arising from the use of the results.
+     * - The results do not constitute opinions or advice in professional fields such as law, medicine, finance, or investment. For significant matters, consult qualified professionals.
      *
      * @param Request - WebSearchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -782,8 +806,15 @@ class DtsAI extends OpenApiClient
      * Performs a web search.
      *
      * @remarks
-     * - Region: Only China (Beijing) and Singapore regions are supported.
-     * - Fees: Free during the public preview period. No fees are charged.
+     * - Region: Only China (Beijing) is supported.
+     * - Fees: This feature is free of charge during the public preview period.
+     * - SLA: This feature is not covered by the DTS Service Level Agreement (SLA).
+     * General notes:
+     * - WebFetch and WebSearch are AI-based automated information retrieval tools. Search keywords, target web pages, and content extraction results are automatically generated and processed by DTS based on the intent of your instructions. Understanding deviations, omissions, or errors may occur.
+     * - The information returned by both features is sourced from third-party public networks. DTS does not verify, review, or endorse the information. The content does not represent the views or positions of DTS. The original source is responsible for the authenticity, accuracy, completeness, timeliness, and legality of the content.
+     * - DTS makes no express or implied warranties regarding the accuracy, completeness, timeliness, legality, security, or fitness for a particular purpose of the search and retrieval results. DTS does not guarantee that the service is always available, uninterrupted, or error-free.
+     * - You are responsible for evaluating and assuming the risks of using the results. Before using the results for decision-making, citation, public release, commercial use, or other scenarios, verify the content and comply with applicable laws, regulations, and the terms and intellectual property requirements of third-party websites. You assume all liability for any losses or disputes arising from the use of the results.
+     * - The results do not constitute opinions or advice in professional fields such as law, medicine, finance, or investment. For significant matters, consult qualified professionals.
      *
      * @param Request - WebSearchRequest
      *
