@@ -1,3 +1,22 @@
+2026-11-05 Version: 3.6.0
+- Support API CreateApplicationAssignment.
+- Support API DeleteApplicationAssignment.
+- Support API ListApplicationAssignments.
+- Support API ListApplicationAssignmentsForPrincipal.
+- Update API CreateApplication: add request parameters AssignmentType.
+- Update API CreateApplication: add request parameters NeedPrincipalConsent.
+- Update API CreateApplication: add response parameters Body.Application.AssignmentType.
+- Update API CreateApplication: add response parameters Body.Application.NeedPrincipalConsent.
+- Update API GetApplication: add response parameters Body.Application.AssignmentType.
+- Update API GetApplication: add response parameters Body.Application.NeedPrincipalConsent.
+- Update API ListApplications: add response parameters Body.Applications.$.AssignmentType.
+- Update API ListApplications: add response parameters Body.Applications.$.NeedPrincipalConsent.
+- Update API UpdateApplication: add request parameters NewAssignmentType.
+- Update API UpdateApplication: add request parameters NewNeedPrincipalConsent.
+- Update API UpdateApplication: add response parameters Body.Application.AssignmentType.
+- Update API UpdateApplication: add response parameters Body.Application.NeedPrincipalConsent.
+
+
 2026-10-21 Version: 3.5.0
 - Support API GetAccessKeyPolicyForAccount.
 - Support API SetAccessKeyPolicyForAccount.

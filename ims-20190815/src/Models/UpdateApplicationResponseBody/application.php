@@ -38,6 +38,11 @@ class application extends Model
     /**
      * @var string
      */
+    public $assignmentType;
+
+    /**
+     * @var string
+     */
     public $createDate;
 
     /**
@@ -54,6 +59,11 @@ class application extends Model
      * @var bool
      */
     public $isMultiTenant;
+
+    /**
+     * @var bool
+     */
+    public $needPrincipalConsent;
 
     /**
      * @var string
@@ -85,10 +95,12 @@ class application extends Model
         'appId' => 'AppId',
         'appName' => 'AppName',
         'appType' => 'AppType',
+        'assignmentType' => 'AssignmentType',
         'createDate' => 'CreateDate',
         'delegatedScope' => 'DelegatedScope',
         'displayName' => 'DisplayName',
         'isMultiTenant' => 'IsMultiTenant',
+        'needPrincipalConsent' => 'NeedPrincipalConsent',
         'protocolVersion' => 'ProtocolVersion',
         'redirectUris' => 'RedirectUris',
         'refreshTokenValidity' => 'RefreshTokenValidity',
@@ -130,6 +142,10 @@ class application extends Model
             $res['AppType'] = $this->appType;
         }
 
+        if (null !== $this->assignmentType) {
+            $res['AssignmentType'] = $this->assignmentType;
+        }
+
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
@@ -144,6 +160,10 @@ class application extends Model
 
         if (null !== $this->isMultiTenant) {
             $res['IsMultiTenant'] = $this->isMultiTenant;
+        }
+
+        if (null !== $this->needPrincipalConsent) {
+            $res['NeedPrincipalConsent'] = $this->needPrincipalConsent;
         }
 
         if (null !== $this->protocolVersion) {
@@ -197,6 +217,10 @@ class application extends Model
             $model->appType = $map['AppType'];
         }
 
+        if (isset($map['AssignmentType'])) {
+            $model->assignmentType = $map['AssignmentType'];
+        }
+
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
@@ -211,6 +235,10 @@ class application extends Model
 
         if (isset($map['IsMultiTenant'])) {
             $model->isMultiTenant = $map['IsMultiTenant'];
+        }
+
+        if (isset($map['NeedPrincipalConsent'])) {
+            $model->needPrincipalConsent = $map['NeedPrincipalConsent'];
         }
 
         if (isset($map['ProtocolVersion'])) {

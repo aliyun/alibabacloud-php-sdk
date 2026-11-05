@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\ChangePasswordRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ChangePasswordResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateAccessKeyRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateAccessKeyResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\CreateApplicationAssignmentRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\CreateApplicationAssignmentResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateAppSecretRequest;
@@ -39,6 +41,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteAccessKeyInRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteAccessKeyInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteAccessKeyRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteAccessKeyResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteApplicationAssignmentRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteApplicationAssignmentResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteAppSecretRequest;
@@ -119,6 +123,10 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysInRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListAccessKeysResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationAssignmentsForPrincipalRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationAssignmentsForPrincipalResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationAssignmentsRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationAssignmentsResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationProvisionInfosRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationProvisionInfosResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListApplicationsResponse;
@@ -582,7 +590,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * Creates an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
      *
      * @param request - CreateAccessKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -621,7 +629,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     * Creates an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
      *
      * @param request - CreateAccessKeyRequest
      *
@@ -639,7 +647,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an application secret for an application.
+     * Creates an application secret for a specified application.
      *
      * @param request - CreateAppSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -678,7 +686,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates an application secret for an application.
+     * Creates an application secret for a specified application.
      *
      * @param request - CreateAppSecretRequest
      *
@@ -724,12 +732,20 @@ class Ims extends OpenApiClient
             @$query['AppType'] = $request->appType;
         }
 
+        if (null !== $request->assignmentType) {
+            @$query['AssignmentType'] = $request->assignmentType;
+        }
+
         if (null !== $request->displayName) {
             @$query['DisplayName'] = $request->displayName;
         }
 
         if (null !== $request->isMultiTenant) {
             @$query['IsMultiTenant'] = $request->isMultiTenant;
+        }
+
+        if (null !== $request->needPrincipalConsent) {
+            @$query['NeedPrincipalConsent'] = $request->needPrincipalConsent;
         }
 
         if (null !== $request->predefinedScopes) {
@@ -793,7 +809,72 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) user group.
+     * Creates an application assignment record to grant a specified principal the permissions to use a specified application.
+     *
+     * @param request - CreateApplicationAssignmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationAssignmentResponse
+     *
+     * @param CreateApplicationAssignmentRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateApplicationAssignmentResponse
+     */
+    public function createApplicationAssignmentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->principalName) {
+            @$query['PrincipalName'] = $request->principalName;
+        }
+
+        if (null !== $request->principalType) {
+            @$query['PrincipalType'] = $request->principalType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationAssignment',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationAssignmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an application assignment record to grant a specified principal the permissions to use a specified application.
+     *
+     * @param request - CreateApplicationAssignmentRequest
+     *
+     * @returns CreateApplicationAssignmentResponse
+     *
+     * @param CreateApplicationAssignmentRequest $request
+     *
+     * @return CreateApplicationAssignmentResponse
+     */
+    public function createApplicationAssignment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationAssignmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a user group.
      *
      * @param request - CreateGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -840,7 +921,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a Resource Access Management (RAM) user group.
+     * Creates a user group.
      *
      * @param request - CreateGroupRequest
      *
@@ -858,7 +939,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a logon configuration for a Resource Access Management (RAM) user.
+     * Creates a logon profile for a Resource Access Management (RAM) user.
      *
      * @param request - CreateLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -913,7 +994,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a logon configuration for a Resource Access Management (RAM) user.
+     * Creates a logon profile for a Resource Access Management (RAM) user.
      *
      * @param request - CreateLoginProfileRequest
      *
@@ -1166,10 +1247,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a RAM user.
-     *
-     * @remarks
-     * This topic provides an example on how to create a RAM user named `test`.
+     * Creates a Resource Access Management (RAM) user.
      *
      * @param request - CreateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1228,10 +1306,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Creates a RAM user.
-     *
-     * @remarks
-     * This topic provides an example on how to create a RAM user named `test`.
+     * Creates a Resource Access Management (RAM) user.
      *
      * @param request - CreateUserRequest
      *
@@ -1543,6 +1618,71 @@ class Ims extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an application assignment record and revokes the access of a specified principal to a specified application.
+     *
+     * @param request - DeleteApplicationAssignmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApplicationAssignmentResponse
+     *
+     * @param DeleteApplicationAssignmentRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteApplicationAssignmentResponse
+     */
+    public function deleteApplicationAssignmentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->principalName) {
+            @$query['PrincipalName'] = $request->principalName;
+        }
+
+        if (null !== $request->principalType) {
+            @$query['PrincipalType'] = $request->principalType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApplicationAssignment',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApplicationAssignmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an application assignment record and revokes the access of a specified principal to a specified application.
+     *
+     * @param request - DeleteApplicationAssignmentRequest
+     *
+     * @returns DeleteApplicationAssignmentResponse
+     *
+     * @param DeleteApplicationAssignmentRequest $request
+     *
+     * @return DeleteApplicationAssignmentResponse
+     */
+    public function deleteApplicationAssignment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationAssignmentWithOptions($request, $runtime);
     }
 
     /**
@@ -2093,11 +2233,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Uninstalls an external application or an internal application of the ServerApp type.
+     * Uninstalls an installed external application or an internal application of the ServerApp type.
      *
      * @remarks
-     * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-     * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+     * When you uninstall an internal application, the application must be of the **ServerApp** type. Otherwise, the call fails.
+     * > Among **internal applications**, only applications of the ServerApp type require the **provisioning** operation. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not require and cannot be uninstalled**.
      *
      * @param request - DeprovisionApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2136,11 +2276,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Uninstalls an external application or an internal application of the ServerApp type.
+     * Uninstalls an installed external application or an internal application of the ServerApp type.
      *
      * @remarks
-     * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-     * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+     * When you uninstall an internal application, the application must be of the **ServerApp** type. Otherwise, the call fails.
+     * > Among **internal applications**, only applications of the ServerApp type require the **provisioning** operation. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not require and cannot be uninstalled**.
      *
      * @param request - DeprovisionApplicationRequest
      *
@@ -2158,7 +2298,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an installed external application.
+     * Uninstalls an installed external application.
      *
      * @param request - DeprovisionExternalApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2197,7 +2337,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Deletes an installed external application.
+     * Uninstalls an installed external application.
      *
      * @param request - DeprovisionExternalApplicationRequest
      *
@@ -2358,7 +2498,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+     * Queries the details of a specified revoked access key that belongs to a Resource Access Management (RAM) user.
      *
      * @param request - GetAccessKeyInfoInRecycleBinRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2397,7 +2537,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
+     * Queries the details of a specified revoked access key that belongs to a Resource Access Management (RAM) user.
      *
      * @param request - GetAccessKeyInfoInRecycleBinRequest
      *
@@ -2415,7 +2555,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the time when an AccessKey pair was used for the last time.
+     * Queries the last used time of a specified access key.
      *
      * @param request - GetAccessKeyLastUsedRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2458,7 +2598,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the time when an AccessKey pair was used for the last time.
+     * Queries the last used time of a specified access key.
      *
      * @param request - GetAccessKeyLastUsedRequest
      *
@@ -2716,7 +2856,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of an application secret.
+     * Queries the app secret information of a specified application.
      *
      * @param request - GetAppSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2759,7 +2899,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of an application secret.
+     * Queries the app secret information of a specified application.
      *
      * @param request - GetAppSecretRequest
      *
@@ -2777,10 +2917,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information of an application.
+     * Queries the configuration information of a specified application.
      *
      * @remarks
-     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     * This topic provides an example to query the configuration information of the application `472457090344041****`.
      *
      * @param request - GetApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2819,10 +2959,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information of an application.
+     * Queries the configuration information of a specified application.
      *
      * @remarks
-     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     * This topic provides an example to query the configuration information of the application `472457090344041****`.
      *
      * @param request - GetApplicationRequest
      *
@@ -2903,7 +3043,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the user credential reports of an Alibaba Cloud account.
+     * Queries the user credential report for an Alibaba Cloud account.
      *
      * @param request - GetCredentialReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2946,7 +3086,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the user credential reports of an Alibaba Cloud account.
+     * Queries the user credential report for an Alibaba Cloud account.
      *
      * @param request - GetCredentialReportRequest
      *
@@ -3178,7 +3318,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Resource Access Management (RAM) user group.
+     * Queries the details of a specified user group.
      *
      * @param request - GetGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3217,7 +3357,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Resource Access Management (RAM) user group.
+     * Queries the details of a specified user group.
      *
      * @param request - GetGroupRequest
      *
@@ -3235,10 +3375,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the console logon settings for a Resource Access Management (RAM) user.
+     * Queries the logon information of a specified Resource Access Management (RAM) user.
      *
      * @remarks
-     * 查询前，目标 RAM 用户必须已有控制台登录配置（`LoginProfile`）；如果尚未配置，需先调用 `CreateLoginProfile` 创建登录配置。
+     * Before querying, the target RAM user must have a console logon profile (LoginProfile). If the profile is not configured, call CreateLoginProfile to create a logon profile first.
      *
      * @param request - GetLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3277,10 +3417,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the console logon settings for a Resource Access Management (RAM) user.
+     * Queries the logon information of a specified Resource Access Management (RAM) user.
      *
      * @remarks
-     * 查询前，目标 RAM 用户必须已有控制台登录配置（`LoginProfile`）；如果尚未配置，需先调用 `CreateLoginProfile` 创建登录配置。
+     * Before querying, the target RAM user must have a console logon profile (LoginProfile). If the profile is not configured, call CreateLoginProfile to create a logon profile first.
      *
      * @param request - GetLoginProfileRequest
      *
@@ -3567,7 +3707,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a RAM user.
+     * Queries the details of a specified Resource Access Management (RAM) user.
      *
      * @param request - GetUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3614,7 +3754,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the information about a RAM user.
+     * Queries the details of a specified Resource Access Management (RAM) user.
      *
      * @param request - GetUserRequest
      *
@@ -4021,6 +4161,140 @@ class Ims extends OpenApiClient
     }
 
     /**
+     * Lists the assignment records of a specified application.
+     *
+     * @param request - ListApplicationAssignmentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationAssignmentsResponse
+     *
+     * @param ListApplicationAssignmentsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListApplicationAssignmentsResponse
+     */
+    public function listApplicationAssignmentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationAssignments',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationAssignmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the assignment records of a specified application.
+     *
+     * @param request - ListApplicationAssignmentsRequest
+     *
+     * @returns ListApplicationAssignmentsResponse
+     *
+     * @param ListApplicationAssignmentsRequest $request
+     *
+     * @return ListApplicationAssignmentsResponse
+     */
+    public function listApplicationAssignments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationAssignmentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the application assignment records for a specified identity principal.
+     *
+     * @param request - ListApplicationAssignmentsForPrincipalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationAssignmentsForPrincipalResponse
+     *
+     * @param ListApplicationAssignmentsForPrincipalRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListApplicationAssignmentsForPrincipalResponse
+     */
+    public function listApplicationAssignmentsForPrincipalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->principalName) {
+            @$query['PrincipalName'] = $request->principalName;
+        }
+
+        if (null !== $request->principalType) {
+            @$query['PrincipalType'] = $request->principalType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationAssignmentsForPrincipal',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationAssignmentsForPrincipalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the application assignment records for a specified identity principal.
+     *
+     * @param request - ListApplicationAssignmentsForPrincipalRequest
+     *
+     * @returns ListApplicationAssignmentsForPrincipalResponse
+     *
+     * @param ListApplicationAssignmentsForPrincipalRequest $request
+     *
+     * @return ListApplicationAssignmentsForPrincipalResponse
+     */
+    public function listApplicationAssignmentsForPrincipal($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationAssignmentsForPrincipalWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the installation information of all installed applications.
      *
      * @param request - ListApplicationProvisionInfosRequest
@@ -4078,10 +4352,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Lists the applications that you have created.
+     * Lists the applications.
      *
      * @remarks
-     * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
+     * This topic provides an example of querying the applications within the current account. The response indicates that the current account has only one application named `myapp`.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4110,10 +4384,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Lists the applications that you have created.
+     * Lists the applications.
      *
      * @remarks
-     * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
+     * This topic provides an example of querying the applications within the current account. The response indicates that the current account has only one application named `myapp`.
      *
      * @returns ListApplicationsResponse
      *
@@ -6001,7 +6275,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Binds a mobile phone or email to a Resource Access Management (RAM) user.
+     * Attaches a secure phone or security email address to a Resource Access Management (RAM) user.
      *
      * @param request - SetVerificationInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6052,7 +6326,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Binds a mobile phone or email to a Resource Access Management (RAM) user.
+     * Attaches a secure phone or security email address to a Resource Access Management (RAM) user.
      *
      * @param request - SetVerificationInfoRequest
      *
@@ -6196,7 +6470,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+     * Unbinds a secure phone or security email address from a Resource Access Management (RAM) user.
      *
      * @param request - UnbindVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6247,7 +6521,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
+     * Unbinds a secure phone or security email address from a Resource Access Management (RAM) user.
      *
      * @param request - UnbindVerificationRequest
      *
@@ -6403,7 +6677,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified application.
+     * Modifies the configuration information of a specified application.
      *
      * @param request - UpdateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6427,12 +6701,20 @@ class Ims extends OpenApiClient
             @$query['NewAccessTokenValidity'] = $request->newAccessTokenValidity;
         }
 
+        if (null !== $request->newAssignmentType) {
+            @$query['NewAssignmentType'] = $request->newAssignmentType;
+        }
+
         if (null !== $request->newDisplayName) {
             @$query['NewDisplayName'] = $request->newDisplayName;
         }
 
         if (null !== $request->newIsMultiTenant) {
             @$query['NewIsMultiTenant'] = $request->newIsMultiTenant;
+        }
+
+        if (null !== $request->newNeedPrincipalConsent) {
+            @$query['NewNeedPrincipalConsent'] = $request->newNeedPrincipalConsent;
         }
 
         if (null !== $request->newPredefinedScopes) {
@@ -6474,7 +6756,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified application.
+     * Modifies the configuration information of a specified application.
      *
      * @param request - UpdateApplicationRequest
      *

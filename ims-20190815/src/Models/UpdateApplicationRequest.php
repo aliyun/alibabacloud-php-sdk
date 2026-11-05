@@ -21,12 +21,22 @@ class UpdateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $newAssignmentType;
+
+    /**
+     * @var string
+     */
     public $newDisplayName;
 
     /**
      * @var bool
      */
     public $newIsMultiTenant;
+
+    /**
+     * @var bool
+     */
+    public $newNeedPrincipalConsent;
 
     /**
      * @var string
@@ -55,8 +65,10 @@ class UpdateApplicationRequest extends Model
     protected $_name = [
         'appId' => 'AppId',
         'newAccessTokenValidity' => 'NewAccessTokenValidity',
+        'newAssignmentType' => 'NewAssignmentType',
         'newDisplayName' => 'NewDisplayName',
         'newIsMultiTenant' => 'NewIsMultiTenant',
+        'newNeedPrincipalConsent' => 'NewNeedPrincipalConsent',
         'newPredefinedScopes' => 'NewPredefinedScopes',
         'newRedirectUris' => 'NewRedirectUris',
         'newRefreshTokenValidity' => 'NewRefreshTokenValidity',
@@ -80,12 +92,20 @@ class UpdateApplicationRequest extends Model
             $res['NewAccessTokenValidity'] = $this->newAccessTokenValidity;
         }
 
+        if (null !== $this->newAssignmentType) {
+            $res['NewAssignmentType'] = $this->newAssignmentType;
+        }
+
         if (null !== $this->newDisplayName) {
             $res['NewDisplayName'] = $this->newDisplayName;
         }
 
         if (null !== $this->newIsMultiTenant) {
             $res['NewIsMultiTenant'] = $this->newIsMultiTenant;
+        }
+
+        if (null !== $this->newNeedPrincipalConsent) {
+            $res['NewNeedPrincipalConsent'] = $this->newNeedPrincipalConsent;
         }
 
         if (null !== $this->newPredefinedScopes) {
@@ -127,12 +147,20 @@ class UpdateApplicationRequest extends Model
             $model->newAccessTokenValidity = $map['NewAccessTokenValidity'];
         }
 
+        if (isset($map['NewAssignmentType'])) {
+            $model->newAssignmentType = $map['NewAssignmentType'];
+        }
+
         if (isset($map['NewDisplayName'])) {
             $model->newDisplayName = $map['NewDisplayName'];
         }
 
         if (isset($map['NewIsMultiTenant'])) {
             $model->newIsMultiTenant = $map['NewIsMultiTenant'];
+        }
+
+        if (isset($map['NewNeedPrincipalConsent'])) {
+            $model->newNeedPrincipalConsent = $map['NewNeedPrincipalConsent'];
         }
 
         if (isset($map['NewPredefinedScopes'])) {

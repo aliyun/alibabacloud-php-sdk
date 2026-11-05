@@ -26,12 +26,22 @@ class CreateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $assignmentType;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
      * @var bool
      */
     public $isMultiTenant;
+
+    /**
+     * @var bool
+     */
+    public $needPrincipalConsent;
 
     /**
      * @var string
@@ -66,8 +76,10 @@ class CreateApplicationRequest extends Model
         'accessTokenValidity' => 'AccessTokenValidity',
         'appName' => 'AppName',
         'appType' => 'AppType',
+        'assignmentType' => 'AssignmentType',
         'displayName' => 'DisplayName',
         'isMultiTenant' => 'IsMultiTenant',
+        'needPrincipalConsent' => 'NeedPrincipalConsent',
         'predefinedScopes' => 'PredefinedScopes',
         'protocolVersion' => 'ProtocolVersion',
         'redirectUris' => 'RedirectUris',
@@ -96,12 +108,20 @@ class CreateApplicationRequest extends Model
             $res['AppType'] = $this->appType;
         }
 
+        if (null !== $this->assignmentType) {
+            $res['AssignmentType'] = $this->assignmentType;
+        }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
 
         if (null !== $this->isMultiTenant) {
             $res['IsMultiTenant'] = $this->isMultiTenant;
+        }
+
+        if (null !== $this->needPrincipalConsent) {
+            $res['NeedPrincipalConsent'] = $this->needPrincipalConsent;
         }
 
         if (null !== $this->predefinedScopes) {
@@ -151,12 +171,20 @@ class CreateApplicationRequest extends Model
             $model->appType = $map['AppType'];
         }
 
+        if (isset($map['AssignmentType'])) {
+            $model->assignmentType = $map['AssignmentType'];
+        }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
 
         if (isset($map['IsMultiTenant'])) {
             $model->isMultiTenant = $map['IsMultiTenant'];
+        }
+
+        if (isset($map['NeedPrincipalConsent'])) {
+            $model->needPrincipalConsent = $map['NeedPrincipalConsent'];
         }
 
         if (isset($map['PredefinedScopes'])) {
