@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteRequest\backendConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteRequest\dfpConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRouteRequest\mcpRouteConfig;
 
 class CreateHttpApiRouteRequest extends Model
@@ -24,6 +25,11 @@ class CreateHttpApiRouteRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var dfpConfig
+     */
+    public $dfpConfig;
 
     /**
      * @var string[]
@@ -58,6 +64,7 @@ class CreateHttpApiRouteRequest extends Model
         'backendConfig' => 'backendConfig',
         'deployConfigs' => 'deployConfigs',
         'description' => 'description',
+        'dfpConfig' => 'dfpConfig',
         'domainIds' => 'domainIds',
         'environmentId' => 'environmentId',
         'match' => 'match',
@@ -73,6 +80,9 @@ class CreateHttpApiRouteRequest extends Model
         }
         if (\is_array($this->deployConfigs)) {
             Model::validateArray($this->deployConfigs);
+        }
+        if (null !== $this->dfpConfig) {
+            $this->dfpConfig->validate();
         }
         if (\is_array($this->domainIds)) {
             Model::validateArray($this->domainIds);
@@ -109,6 +119,10 @@ class CreateHttpApiRouteRequest extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->dfpConfig) {
+            $res['dfpConfig'] = null !== $this->dfpConfig ? $this->dfpConfig->toArray($noStream) : $this->dfpConfig;
         }
 
         if (null !== $this->domainIds) {
@@ -177,6 +191,10 @@ class CreateHttpApiRouteRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['dfpConfig'])) {
+            $model->dfpConfig = dfpConfig::fromMap($map['dfpConfig']);
         }
 
         if (isset($map['domainIds'])) {

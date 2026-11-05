@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\Service\outlierDetection;
 use AlibabaCloud\SDK\APIG\V20240327\Models\Service\ports;
+use AlibabaCloud\SDK\APIG\V20240327\Models\Service\serviceMetaData;
 use AlibabaCloud\SDK\APIG\V20240327\Models\Service\versions;
 
 class Service extends Model
@@ -132,6 +133,11 @@ class Service extends Model
     public $serviceId;
 
     /**
+     * @var serviceMetaData
+     */
+    public $serviceMetaData;
+
+    /**
      * @var string
      */
     public $sourceType;
@@ -175,6 +181,7 @@ class Service extends Model
         'runtimeDetailErrorCode' => 'runtimeDetailErrorCode',
         'runtimeDetailStatus' => 'runtimeDetailStatus',
         'serviceId' => 'serviceId',
+        'serviceMetaData' => 'serviceMetaData',
         'sourceType' => 'sourceType',
         'unhealthyEndpoints' => 'unhealthyEndpoints',
         'updateTimestamp' => 'updateTimestamp',
@@ -209,6 +216,9 @@ class Service extends Model
         }
         if (\is_array($this->ports)) {
             Model::validateArray($this->ports);
+        }
+        if (null !== $this->serviceMetaData) {
+            $this->serviceMetaData->validate();
         }
         if (\is_array($this->unhealthyEndpoints)) {
             Model::validateArray($this->unhealthyEndpoints);
@@ -351,6 +361,10 @@ class Service extends Model
 
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->serviceMetaData) {
+            $res['serviceMetaData'] = null !== $this->serviceMetaData ? $this->serviceMetaData->toArray($noStream) : $this->serviceMetaData;
         }
 
         if (null !== $this->sourceType) {
@@ -523,6 +537,10 @@ class Service extends Model
 
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
+        }
+
+        if (isset($map['serviceMetaData'])) {
+            $model->serviceMetaData = serviceMetaData::fromMap($map['serviceMetaData']);
         }
 
         if (isset($map['sourceType'])) {

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\customDomainInfos;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\dfpConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\envDomainInfos;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\serviceConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\subDomains;
@@ -36,6 +37,11 @@ class HttpApiDeployConfig extends Model
      * @var customDomainInfos[]
      */
     public $customDomainInfos;
+
+    /**
+     * @var dfpConfig
+     */
+    public $dfpConfig;
 
     /**
      * @var bool
@@ -112,6 +118,7 @@ class HttpApiDeployConfig extends Model
         'builtinRouteNames' => 'builtinRouteNames',
         'customDomainIds' => 'customDomainIds',
         'customDomainInfos' => 'customDomainInfos',
+        'dfpConfig' => 'dfpConfig',
         'enableSystemModels' => 'enableSystemModels',
         'envDomainIds' => 'envDomainIds',
         'envDomainInfos' => 'envDomainInfos',
@@ -138,6 +145,9 @@ class HttpApiDeployConfig extends Model
         }
         if (\is_array($this->customDomainInfos)) {
             Model::validateArray($this->customDomainInfos);
+        }
+        if (null !== $this->dfpConfig) {
+            $this->dfpConfig->validate();
         }
         if (\is_array($this->envDomainIds)) {
             Model::validateArray($this->envDomainIds);
@@ -211,6 +221,10 @@ class HttpApiDeployConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dfpConfig) {
+            $res['dfpConfig'] = null !== $this->dfpConfig ? $this->dfpConfig->toArray($noStream) : $this->dfpConfig;
         }
 
         if (null !== $this->enableSystemModels) {
@@ -361,6 +375,10 @@ class HttpApiDeployConfig extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['dfpConfig'])) {
+            $model->dfpConfig = dfpConfig::fromMap($map['dfpConfig']);
         }
 
         if (isset($map['enableSystemModels'])) {

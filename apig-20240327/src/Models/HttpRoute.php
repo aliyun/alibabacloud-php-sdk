@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\dfpConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\domainInfos;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\environmentInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute\mcpServerInfo;
@@ -35,6 +36,11 @@ class HttpRoute extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var dfpConfig
+     */
+    public $dfpConfig;
 
     /**
      * @var domainInfos[]
@@ -81,6 +87,7 @@ class HttpRoute extends Model
         'createTimestamp' => 'createTimestamp',
         'deployStatus' => 'deployStatus',
         'description' => 'description',
+        'dfpConfig' => 'dfpConfig',
         'domainInfos' => 'domainInfos',
         'environmentInfo' => 'environmentInfo',
         'gatewayStatus' => 'gatewayStatus',
@@ -95,6 +102,9 @@ class HttpRoute extends Model
     {
         if (null !== $this->backend) {
             $this->backend->validate();
+        }
+        if (null !== $this->dfpConfig) {
+            $this->dfpConfig->validate();
         }
         if (\is_array($this->domainInfos)) {
             Model::validateArray($this->domainInfos);
@@ -135,6 +145,10 @@ class HttpRoute extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->dfpConfig) {
+            $res['dfpConfig'] = null !== $this->dfpConfig ? $this->dfpConfig->toArray($noStream) : $this->dfpConfig;
         }
 
         if (null !== $this->domainInfos) {
@@ -210,6 +224,10 @@ class HttpRoute extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['dfpConfig'])) {
+            $model->dfpConfig = dfpConfig::fromMap($map['dfpConfig']);
         }
 
         if (isset($map['domainInfos'])) {

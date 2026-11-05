@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\backendConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\dfpConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRouteRequest\mcpRouteConfig;
 
 class UpdateHttpApiRouteRequest extends Model
@@ -19,6 +20,11 @@ class UpdateHttpApiRouteRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var dfpConfig
+     */
+    public $dfpConfig;
 
     /**
      * @var string[]
@@ -47,6 +53,7 @@ class UpdateHttpApiRouteRequest extends Model
     protected $_name = [
         'backendConfig' => 'backendConfig',
         'description' => 'description',
+        'dfpConfig' => 'dfpConfig',
         'domainIds' => 'domainIds',
         'environmentId' => 'environmentId',
         'match' => 'match',
@@ -58,6 +65,9 @@ class UpdateHttpApiRouteRequest extends Model
     {
         if (null !== $this->backendConfig) {
             $this->backendConfig->validate();
+        }
+        if (null !== $this->dfpConfig) {
+            $this->dfpConfig->validate();
         }
         if (\is_array($this->domainIds)) {
             Model::validateArray($this->domainIds);
@@ -83,6 +93,10 @@ class UpdateHttpApiRouteRequest extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->dfpConfig) {
+            $res['dfpConfig'] = null !== $this->dfpConfig ? $this->dfpConfig->toArray($noStream) : $this->dfpConfig;
         }
 
         if (null !== $this->domainIds) {
@@ -136,6 +150,10 @@ class UpdateHttpApiRouteRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['dfpConfig'])) {
+            $model->dfpConfig = dfpConfig::fromMap($map['dfpConfig']);
         }
 
         if (isset($map['domainIds'])) {

@@ -1,3 +1,9 @@
+2026-11-05 Version: 11.8.0
+- Support API GetGatewayDfpExtProcService.
+- Update API CreateHttpApiRoute: add request parameters body.dfpConfig.
+- Update API UpdateHttpApiRoute: add request parameters body.dfpConfig.
+
+
 2026-11-02 Version: 11.7.0
 - Support API ListPrivateLinkSecurityGroups.
 - Support API RevealServiceCredential.

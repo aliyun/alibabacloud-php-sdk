@@ -163,6 +163,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayDfpExtProcServiceRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayDfpExtProcServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayElasticPolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayElasticPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleRequest;
@@ -442,6 +444,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\VerifyMigrationTaskRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\VerifyMigrationTaskResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -452,6 +455,9 @@ class APIG extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'APIG';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('apig', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -485,15 +491,15 @@ class APIG extends OpenApiClient
      * Creates a gateway quota throttling rule.
      *
      * @remarks
-     * This operation adds a quota rule based on consumers or consumer groups to an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
+     * This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
      * >
-     * >  Recommended call logic:
+     * > Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
      * > - - Set dryRun=true.
-     * > - - The response returns a conflict preview containing a conflictHash.
+     * > - - The response returns a conflict preview containing conflictHash.
      * > - 2. Formally submit the request after confirmation.
-     * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
-     * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
+     * > - - If no conflict exists: Set dryRun=false and overwrite=false.
+     * > - - If a conflict exists and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
      *
      * @param request - AddGatewayQuotaRuleRequest
      * @param headers - map
@@ -587,15 +593,15 @@ class APIG extends OpenApiClient
      * Creates a gateway quota throttling rule.
      *
      * @remarks
-     * This operation adds a quota rule based on consumers or consumer groups to an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
+     * This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
      * >
-     * >  Recommended call logic:
+     * > Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
      * > - - Set dryRun=true.
-     * > - - The response returns a conflict preview containing a conflictHash.
+     * > - - The response returns a conflict preview containing conflictHash.
      * > - 2. Formally submit the request after confirmation.
-     * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
-     * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
+     * > - - If no conflict exists: Set dryRun=false and overwrite=false.
+     * > - - If a conflict exists and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
      *
      * @param request - AddGatewayQuotaRuleRequest
      *
@@ -2414,7 +2420,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates operations for an HTTP API.
+     * Creates an API operation for an HTTP API.
      *
      * @param request - CreateHttpApiOperationRequest
      * @param headers - map
@@ -2457,7 +2463,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates operations for an HTTP API.
+     * Creates an API operation for an HTTP API.
      *
      * @param request - CreateHttpApiOperationRequest
      *
@@ -2506,6 +2512,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->dfpConfig) {
+            @$body['dfpConfig'] = $request->dfpConfig;
         }
 
         if (null !== $request->domainIds) {
@@ -6603,6 +6613,69 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * Retrieves the dynamic forwarding ExtProc service bound to the gateway.
+     *
+     * @remarks
+     * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, the operation returns bound=false.
+     *
+     * @param request - GetGatewayDfpExtProcServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGatewayDfpExtProcServiceResponse
+     *
+     * @param string                             $gatewayId
+     * @param GetGatewayDfpExtProcServiceRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetGatewayDfpExtProcServiceResponse
+     */
+    public function getGatewayDfpExtProcServiceWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetGatewayDfpExtProcService',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/dfp-ext-proc-service',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGatewayDfpExtProcServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the dynamic forwarding ExtProc service bound to the gateway.
+     *
+     * @remarks
+     * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, the operation returns bound=false.
+     *
+     * @param request - GetGatewayDfpExtProcServiceRequest
+     *
+     * @returns GetGatewayDfpExtProcServiceResponse
+     *
+     * @param string                             $gatewayId
+     * @param GetGatewayDfpExtProcServiceRequest $request
+     *
+     * @return GetGatewayDfpExtProcServiceResponse
+     */
+    public function getGatewayDfpExtProcService($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGatewayDfpExtProcServiceWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the elastic scaling rule of a gateway.
      *
      * @param request - GetGatewayElasticPolicyRequest
@@ -7074,7 +7147,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an API operation.
+     * Retrieves API operation information.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7109,7 +7182,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an API operation.
+     * Retrieves API operation information.
      *
      * @returns GetHttpApiOperationResponse
      *
@@ -8314,7 +8387,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API by importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST APIs.
+     * Imports an HTTP API and supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST APIs.
      *
      * @param request - ImportHttpApiRequest
      * @param headers - map
@@ -8408,7 +8481,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API by importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST APIs.
+     * Imports an HTTP API and supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST APIs.
      *
      * @param request - ImportHttpApiRequest
      *
@@ -10665,7 +10738,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API operations.
+     * Retrieves the list of API operations.
      *
      * @param request - ListHttpApiOperationsRequest
      * @param headers - map
@@ -10756,7 +10829,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API operations.
+     * Retrieves the list of API operations.
      *
      * @param request - ListHttpApiOperationsRequest
      *
@@ -10776,7 +10849,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the route list of an HTTP API.
+     * Queries the routes of an HTTP API.
      *
      * @param request - ListHttpApiRoutesRequest
      * @param headers - map
@@ -10875,7 +10948,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the route list of an HTTP API.
+     * Queries the routes of an HTTP API.
      *
      * @param request - ListHttpApiRoutesRequest
      *
@@ -11485,7 +11558,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of plugin mounts.
+     * Retrieves the plugin mount list.
      *
      * @param request - ListPluginAttachmentsRequest
      * @param headers - map
@@ -11559,7 +11632,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of plugin mounts.
+     * Retrieves the plugin mount list.
      *
      * @param request - ListPluginAttachmentsRequest
      *
@@ -12893,7 +12966,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of services.
+     * Retrieves a list of services.
      *
      * @param request - ListServicesRequest
      * @param headers - map
@@ -12959,7 +13032,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of services.
+     * Retrieves a list of services.
      *
      * @param request - ListServicesRequest
      *
@@ -13524,7 +13597,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of consumer authorization rules.
+     * Queries consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -13618,7 +13691,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of consumer authorization rules.
+     * Queries consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      *
@@ -13915,10 +13988,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the currently active credentials for the AI service.
+     * Queries the currently active credentials for an AI service.
      *
      * @remarks
-     * Queries the currently active credentials for the AI service.
+     * Queries the currently active credentials for an AI service.
      *
      * @param request - RevealServiceCredentialRequest
      * @param headers - map
@@ -13955,10 +14028,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the currently active credentials for the AI service.
+     * Queries the currently active credentials for an AI service.
      *
      * @remarks
-     * Queries the currently active credentials for the AI service.
+     * Queries the currently active credentials for an AI service.
      *
      * @param request - RevealServiceCredentialRequest
      *
@@ -16139,6 +16212,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->dfpConfig) {
+            @$body['dfpConfig'] = $request->dfpConfig;
         }
 
         if (null !== $request->domainIds) {
