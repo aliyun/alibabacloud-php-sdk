@@ -1,3 +1,6 @@
+2026-11-05 Version: 7.11.7
+- Generated php 2014-05-26 for Ecs.
+
 2026-10-26 Version: 7.11.6
 - Update API CreateImagePipeline: add request parameters ImageSecurityOptions.
 - Update API DescribeImagePipelines: add response parameters Body.ImagePipeline.$.ImageSecurityOptions.
