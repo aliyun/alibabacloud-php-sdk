@@ -117,6 +117,11 @@ class AppInstanceAggregate extends Model
     public $name;
 
     /**
+     * @var bool
+     */
+    public $offline;
+
+    /**
      * @var partnerDetail
      */
     public $partnerDetail;
@@ -207,6 +212,7 @@ class AppInstanceAggregate extends Model
         'gmtPublish' => 'GmtPublish',
         'iconUrl' => 'IconUrl',
         'name' => 'Name',
+        'offline' => 'Offline',
         'partnerDetail' => 'PartnerDetail',
         'profile' => 'Profile',
         'resourceGroupId' => 'ResourceGroupId',
@@ -351,6 +357,10 @@ class AppInstanceAggregate extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->offline) {
+            $res['Offline'] = $this->offline;
         }
 
         if (null !== $this->partnerDetail) {
@@ -523,6 +533,10 @@ class AppInstanceAggregate extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Offline'])) {
+            $model->offline = $map['Offline'];
         }
 
         if (isset($map['PartnerDetail'])) {

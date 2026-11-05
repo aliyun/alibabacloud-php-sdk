@@ -66,6 +66,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $schemaName;
+
+    /**
+     * @var string
+     */
     public $serviceKey;
 
     /**
@@ -121,6 +126,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $tenantMode;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'anonKey' => 'AnonKey',
@@ -134,6 +144,7 @@ class module extends Model
         'instanceCreateStatus' => 'InstanceCreateStatus',
         'isDeleted' => 'IsDeleted',
         'rdsDatabasePassword' => 'RdsDatabasePassword',
+        'schemaName' => 'SchemaName',
         'serviceKey' => 'ServiceKey',
         'status' => 'Status',
         'supabaseDashboardPassword' => 'SupabaseDashboardPassword',
@@ -145,6 +156,7 @@ class module extends Model
         'supabasePublicIp' => 'SupabasePublicIp',
         'supabasePublicUrl' => 'SupabasePublicUrl',
         'tenantId' => 'TenantId',
+        'tenantMode' => 'TenantMode',
         'userId' => 'UserId',
     ];
 
@@ -200,6 +212,10 @@ class module extends Model
             $res['RdsDatabasePassword'] = $this->rdsDatabasePassword;
         }
 
+        if (null !== $this->schemaName) {
+            $res['SchemaName'] = $this->schemaName;
+        }
+
         if (null !== $this->serviceKey) {
             $res['ServiceKey'] = $this->serviceKey;
         }
@@ -242,6 +258,10 @@ class module extends Model
 
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->tenantMode) {
+            $res['TenantMode'] = $this->tenantMode;
         }
 
         if (null !== $this->userId) {
@@ -303,6 +323,10 @@ class module extends Model
             $model->rdsDatabasePassword = $map['RdsDatabasePassword'];
         }
 
+        if (isset($map['SchemaName'])) {
+            $model->schemaName = $map['SchemaName'];
+        }
+
         if (isset($map['ServiceKey'])) {
             $model->serviceKey = $map['ServiceKey'];
         }
@@ -345,6 +369,10 @@ class module extends Model
 
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+
+        if (isset($map['TenantMode'])) {
+            $model->tenantMode = $map['TenantMode'];
         }
 
         if (isset($map['UserId'])) {

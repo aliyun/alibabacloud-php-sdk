@@ -433,10 +433,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Performs resource allocation for a Supabase instance.
+     * Allocates a Supabase instance to a resource allocation.
      *
      * @remarks
-     * Queries the information about the Supabase instance associated with a resource.
+     * Queries the Supabase instance information of a resource.
      *
      * @param request - AllocateSupabaseForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -499,10 +499,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Performs resource allocation for a Supabase instance.
+     * Allocates a Supabase instance to a resource allocation.
      *
      * @remarks
-     * Queries the information about the Supabase instance associated with a resource.
+     * Queries the Supabase instance information of a resource.
      *
      * @param request - AllocateSupabaseForAdminRequest
      *
@@ -523,7 +523,7 @@ class WebsiteBuild extends OpenApiClient
      * Grants a role to a user.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - AssignRbacUserRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -569,7 +569,7 @@ class WebsiteBuild extends OpenApiClient
      * Grants a role to a user.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - AssignRbacUserRoleRequest
      *
@@ -2564,10 +2564,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates an RBAC permission.
+     * Creates RBAC permissions.
      *
      * @remarks
-     * Creates an AI conversation session through Wanxiaozhi 2.0.
+     * The Wanxiaozhi 2.0 API operation for creating an AI session.
      *
      * @param request - CreateRbacPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2610,10 +2610,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates an RBAC permission.
+     * Creates RBAC permissions.
      *
      * @remarks
-     * Creates an AI conversation session through Wanxiaozhi 2.0.
+     * The Wanxiaozhi 2.0 API operation for creating an AI session.
      *
      * @param request - CreateRbacPermissionRequest
      *
@@ -3411,10 +3411,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Deletes an RBAC permission.
+     * Deletes RBAC permissions.
      *
      * @remarks
-     * Creates an AI conversation session for WanXiaoZhi 2.0.
+     * The API operation for creating an AI session in Wanxiaozhi 2.0.
      *
      * @param request - DeleteRbacPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3457,10 +3457,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Deletes an RBAC permission.
+     * Deletes RBAC permissions.
      *
      * @remarks
-     * Creates an AI conversation session for WanXiaoZhi 2.0.
+     * The API operation for creating an AI session in Wanxiaozhi 2.0.
      *
      * @param request - DeleteRbacPermissionRequest
      *
@@ -3481,7 +3481,7 @@ class WebsiteBuild extends OpenApiClient
      * Deletes an RBAC role.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - DeleteRbacRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3527,7 +3527,7 @@ class WebsiteBuild extends OpenApiClient
      * Deletes an RBAC role.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - DeleteRbacRoleRequest
      *
@@ -3826,7 +3826,7 @@ class WebsiteBuild extends OpenApiClient
      * Exports the RBAC configuration.
      *
      * @remarks
-     * Queries the Supabase instance configuration information corresponding to a resource.
+     * Queries the Supabase instance configuration for a resource.
      *
      * @param request - ExportRbacConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3868,7 +3868,7 @@ class WebsiteBuild extends OpenApiClient
      * Exports the RBAC configuration.
      *
      * @remarks
-     * Queries the Supabase instance configuration information corresponding to a resource.
+     * Queries the Supabase instance configuration for a resource.
      *
      * @param request - ExportRbacConfigRequest
      *
@@ -5285,10 +5285,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a Supabase instance.
+     * Retrieves the information about a Supabase instance.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information about an application instance.
      *
      * @param request - GetAppSupabaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5327,10 +5327,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a Supabase instance.
+     * Retrieves the information about a Supabase instance.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information about an application instance.
      *
      * @param request - GetAppSupabaseInstanceRequest
      *
@@ -6136,12 +6136,18 @@ class WebsiteBuild extends OpenApiClient
     public function getTempDownloadUrlWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
         $body = [];
         if (null !== $request->ossKey) {
             @$body['OssKey'] = $request->ossKey;
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -7280,7 +7286,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries a list of application instances.
+     * Queries the list of application instances.
      *
      * @param tmpReq - ListAppInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7306,6 +7312,10 @@ class WebsiteBuild extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
         if (null !== $request->bizId) {
             @$query['BizId'] = $request->bizId;
         }
@@ -7381,7 +7391,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries a list of application instances.
+     * Queries the list of application instances.
      *
      * @param request - ListAppInstancesRequest
      *
@@ -8529,10 +8539,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the RBAC permission list.
+     * Queries the RBAC permissions.
      *
      * @remarks
-     * Creates an AI conversation session through WanXiaoZhi 2.0.
+     * Creates an AI session in Wanxiaozhi 2.0.
      *
      * @param request - ListRbacPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8595,10 +8605,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the RBAC permission list.
+     * Queries the RBAC permissions.
      *
      * @remarks
-     * Creates an AI conversation session through WanXiaoZhi 2.0.
+     * Creates an AI session in Wanxiaozhi 2.0.
      *
      * @param request - ListRbacPermissionsRequest
      *
@@ -8619,7 +8629,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the RBAC role hierarchy.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - ListRbacRoleHierarchyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8685,7 +8695,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the RBAC role hierarchy.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - ListRbacRoleHierarchyRequest
      *
@@ -8703,10 +8713,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of RBAC roles.
+     * Queries a list of RBAC roles.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - ListRbacRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8769,10 +8779,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of RBAC roles.
+     * Queries a list of RBAC roles.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - ListRbacRolesRequest
      *
@@ -10686,7 +10696,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries a single RBAC role.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information of an application instance.
      *
      * @param request - QueryRbacRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10732,7 +10742,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries a single RBAC role.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the information of an application instance.
      *
      * @param request - QueryRbacRoleRequest
      *
@@ -10750,10 +10760,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of role permissions.
+     * Queries the role permission list.
      *
      * @remarks
-     * Creates an AI conversation session for Wan Xiaozhi 2.0.
+     * The API operation to create an AI session for Wanxiaozhi 2.0.
      *
      * @param request - QueryRbacRolePermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10812,10 +10822,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the list of role permissions.
+     * Queries the role permission list.
      *
      * @remarks
-     * Creates an AI conversation session for Wan Xiaozhi 2.0.
+     * The API operation to create an AI session for Wanxiaozhi 2.0.
      *
      * @param request - QueryRbacRolePermissionsRequest
      *
@@ -11457,10 +11467,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Removes an RBAC role hierarchy.
+     * Removes the RBAC role hierarchy.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - RemoveRbacRoleHierarchyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11507,10 +11517,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Removes an RBAC role hierarchy.
+     * Removes the RBAC role hierarchy.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - RemoveRbacRoleHierarchyRequest
      *
@@ -12581,7 +12591,7 @@ class WebsiteBuild extends OpenApiClient
      * Sets the RBAC role hierarchy.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - SetRbacRoleHierarchyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12631,7 +12641,7 @@ class WebsiteBuild extends OpenApiClient
      * Sets the RBAC role hierarchy.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plugin.
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - SetRbacRoleHierarchyRequest
      *
@@ -13936,10 +13946,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Updates an RBAC role.
+     * Updates the RBAC role.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - UpdateRbacRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13986,10 +13996,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Updates an RBAC role.
+     * Updates the RBAC role.
      *
      * @remarks
-     * Retrieves the configuration information of the code generation plug-in.
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - UpdateRbacRoleRequest
      *

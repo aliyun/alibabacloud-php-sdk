@@ -1,3 +1,14 @@
+2026-11-05 Version: 2.38.8
+- Update API AllocateSupabaseForAdmin: add response parameters Body.Module.SchemaName.
+- Update API AllocateSupabaseForAdmin: add response parameters Body.Module.TenantMode.
+- Update API GetAppSupabaseInstance: add response parameters Body.Module.SchemaName.
+- Update API GetAppSupabaseInstance: add response parameters Body.Module.TenantMode.
+- Update API GetTempDownloadUrl: add request parameters BizId.
+- Update API ListAppInstances: add request parameters ApplicationType.
+- Update API QuerySupabaseInstanceInfoForAdmin: add response parameters Body.Module.SchemaName.
+- Update API QuerySupabaseInstanceInfoForAdmin: add response parameters Body.Module.TenantMode.
+
+
 2026-10-26 Version: 2.38.7
 - Generated php 2025-04-29 for WebsiteBuild.
 

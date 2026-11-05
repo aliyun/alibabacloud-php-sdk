@@ -11,6 +11,11 @@ class ListAppInstancesRequest extends Model
     /**
      * @var string
      */
+    public $applicationType;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
@@ -78,6 +83,7 @@ class ListAppInstancesRequest extends Model
      */
     public $statusList;
     protected $_name = [
+        'applicationType' => 'ApplicationType',
         'bizId' => 'BizId',
         'bizIds' => 'BizIds',
         'endTimeBegin' => 'EndTimeBegin',
@@ -108,6 +114,10 @@ class ListAppInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationType) {
+            $res['ApplicationType'] = $this->applicationType;
+        }
+
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
         }
@@ -189,6 +199,10 @@ class ListAppInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationType'])) {
+            $model->applicationType = $map['ApplicationType'];
+        }
+
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
         }

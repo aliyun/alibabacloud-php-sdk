@@ -36,6 +36,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $schemaName;
+
+    /**
+     * @var string
+     */
     public $serviceKey;
 
     /**
@@ -52,16 +57,23 @@ class module extends Model
      * @var string
      */
     public $supabasePublicUrl;
+
+    /**
+     * @var string
+     */
+    public $tenantMode;
     protected $_name = [
         'anonKey' => 'AnonKey',
         'bizId' => 'BizId',
         'dbInstanceId' => 'DbInstanceId',
         'dbPublicUrl' => 'DbPublicUrl',
         'instanceCreateStatus' => 'InstanceCreateStatus',
+        'schemaName' => 'SchemaName',
         'serviceKey' => 'ServiceKey',
         'status' => 'Status',
         'supabaseInstanceId' => 'SupabaseInstanceId',
         'supabasePublicUrl' => 'SupabasePublicUrl',
+        'tenantMode' => 'TenantMode',
     ];
 
     public function validate()
@@ -92,6 +104,10 @@ class module extends Model
             $res['InstanceCreateStatus'] = $this->instanceCreateStatus;
         }
 
+        if (null !== $this->schemaName) {
+            $res['SchemaName'] = $this->schemaName;
+        }
+
         if (null !== $this->serviceKey) {
             $res['ServiceKey'] = $this->serviceKey;
         }
@@ -106,6 +122,10 @@ class module extends Model
 
         if (null !== $this->supabasePublicUrl) {
             $res['SupabasePublicUrl'] = $this->supabasePublicUrl;
+        }
+
+        if (null !== $this->tenantMode) {
+            $res['TenantMode'] = $this->tenantMode;
         }
 
         return $res;
@@ -139,6 +159,10 @@ class module extends Model
             $model->instanceCreateStatus = $map['InstanceCreateStatus'];
         }
 
+        if (isset($map['SchemaName'])) {
+            $model->schemaName = $map['SchemaName'];
+        }
+
         if (isset($map['ServiceKey'])) {
             $model->serviceKey = $map['ServiceKey'];
         }
@@ -153,6 +177,10 @@ class module extends Model
 
         if (isset($map['SupabasePublicUrl'])) {
             $model->supabasePublicUrl = $map['SupabasePublicUrl'];
+        }
+
+        if (isset($map['TenantMode'])) {
+            $model->tenantMode = $map['TenantMode'];
         }
 
         return $model;
