@@ -148,6 +148,7 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\UpdateWhitelistTemplateRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\UpdateWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\UpgradeMinorVersionRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\UpgradeMinorVersionResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -158,6 +159,9 @@ class Clickhouse extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'clickhouse';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-2-pop' => 'clickhouse.aliyuncs.com',
@@ -205,6 +209,7 @@ class Clickhouse extends OpenApiClient
             'us-east-1' => 'clickhouse.aliyuncs.com',
             'us-west-1' => 'clickhouse.aliyuncs.com',
             'ap-southeast-3' => 'clickhouse.aliyuncs.com',
+            'ap-southeast-7' => 'clickhouse.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('clickhouse', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -235,7 +240,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Attaches a whitelist template to instances.
+     * Associates a whitelist template with instances.
      *
      * @param request - AttachWhitelistTemplateToInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -282,7 +287,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Attaches a whitelist template to instances.
+     * Associates a whitelist template with instances.
      *
      * @param request - AttachWhitelistTemplateToInstanceRequest
      *
@@ -300,7 +305,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Changes the resource group of a ClickHouse Enterprise instance.
+     * Modifies the resource group of a ClickHouse Enterprise instance.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -351,7 +356,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Changes the resource group of a ClickHouse Enterprise instance.
+     * Modifies the resource group of a ClickHouse Enterprise instance.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -460,7 +465,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
+     * Creates a backup policy for a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - CreateBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -515,7 +520,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
+     * Creates a backup policy for a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - CreateBackupPolicyRequest
      *
@@ -602,7 +607,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
+     * Creates an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param tmpReq - CreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -735,7 +740,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
+     * Creates an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - CreateDBInstanceRequest
      *
@@ -753,7 +758,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint that provides a public address to access a cluster.
+     * Allocates a public endpoint.
      *
      * @param request - CreateEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -808,7 +813,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint that provides a public address to access a cluster.
+     * Allocates a public endpoint.
      *
      * @param request - CreateEndpointRequest
      *
@@ -1053,6 +1058,10 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->allowOrgCreation) {
+            @$query['AllowOrgCreation'] = $request->allowOrgCreation;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -1185,7 +1194,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes a database account from an ApsaraDB for ClickHouse cluster.
+     * Deletes an account.
      *
      * @param request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1236,7 +1245,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes a database account from an ApsaraDB for ClickHouse cluster.
+     * Deletes an account.
      *
      * @param request - DeleteAccountRequest
      *
@@ -1254,7 +1263,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
+     * Deletes the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DeleteBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1297,7 +1306,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
+     * Deletes the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DeleteBackupPolicyRequest
      *
@@ -1315,7 +1324,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call this operation to delete a database.
+     * Deletes a database.
      *
      * @param request - DeleteDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1362,7 +1371,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call this operation to delete a database.
+     * Deletes a database.
      *
      * @param request - DeleteDBRequest
      *
@@ -1912,7 +1921,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call the DescribeAccountAuthority operation to query the permissions of an account.
+     * Queries the permissions of an account.
      *
      * @param request - DescribeAccountAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1959,7 +1968,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call the DescribeAccountAuthority operation to query the permissions of an account.
+     * Queries the permissions of an account.
      *
      * @param request - DescribeAccountAuthorityRequest
      *
@@ -2111,7 +2120,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of a ClickHouse Enterprise Edition cluster.
+     * Queries the backup sets of an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2174,7 +2183,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of a ClickHouse Enterprise Edition cluster.
+     * Queries the backup sets of an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DescribeBackupsRequest
      *
@@ -2306,7 +2315,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the parameter configuration records of an instance.
+     * Queries the parameter settings change records of an instance.
      *
      * @param request - DescribeDBInstanceConfigChangeLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2341,7 +2350,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the parameter configuration records of an instance.
+     * Queries the parameter settings change records of an instance.
      *
      * @param request - DescribeDBInstanceConfigChangeLogRequest
      *
@@ -2643,7 +2652,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the member information of a Langfuse organization.
+     * Queries the members of a Langfuse organization.
      *
      * @param request - DescribeLangfuseOrgMembershipsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2698,7 +2707,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the member information of a Langfuse organization.
+     * Queries the members of a Langfuse organization.
      *
      * @param request - DescribeLangfuseOrgMembershipsRequest
      *
@@ -2716,7 +2725,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the list of organizations for a Langfuse instance.
+     * Queries the organizations of a Langfuse instance.
      *
      * @param request - DescribeLangfuseOrgsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2767,7 +2776,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the list of organizations for a Langfuse instance.
+     * Queries the organizations of a Langfuse instance.
      *
      * @param request - DescribeLangfuseOrgsRequest
      *
@@ -3229,7 +3238,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Returns information about the available regions and zones for ApsaraDB for ClickHouse.
+     * Queries the information about all regions and zones of ApsaraDB for ClickHouse Enterprise Edition.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3258,7 +3267,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Returns information about the available regions and zones for ApsaraDB for ClickHouse.
+     * Queries the information about all regions and zones of ApsaraDB for ClickHouse Enterprise Edition.
      *
      * @returns DescribeRegionsResponse
      *
@@ -3891,7 +3900,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the permissions of a database account.
+     * Modifies the authorization information of an account.
      *
      * @param tmpReq - ModifyAccountAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3948,7 +3957,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the permissions of a database account.
+     * Modifies the authorization information of an account.
      *
      * @param request - ModifyAccountAuthorityRequest
      *
@@ -4035,10 +4044,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+     * Modifies the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @remarks
-     * >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
+     * > ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4093,10 +4102,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+     * Modifies the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @remarks
-     * >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
+     * > ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
      *
      * @param request - ModifyBackupPolicyRequest
      *
@@ -4114,7 +4123,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
+     * Modifies the configuration attributes of a cluster.
      *
      * @param request - ModifyDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4169,7 +4178,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
+     * Modifies the configuration attributes of a cluster.
      *
      * @param request - ModifyDBInstanceAttributeRequest
      *
@@ -4187,7 +4196,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
+     * Modifies the elastic configuration of a cluster.
      *
      * @remarks
      * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
@@ -4275,7 +4284,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
+     * Modifies the elastic configuration of a cluster.
      *
      * @remarks
      * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
@@ -5132,7 +5141,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
+     * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - UpgradeMinorVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5187,7 +5196,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
+     * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - UpgradeMinorVersionRequest
      *

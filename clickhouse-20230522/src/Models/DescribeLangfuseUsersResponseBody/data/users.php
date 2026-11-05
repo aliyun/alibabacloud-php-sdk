@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class users extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowOrgCreation;
+
+    /**
      * @var string
      */
     public $createdAt;
@@ -23,6 +28,7 @@ class users extends Model
      */
     public $name;
     protected $_name = [
+        'allowOrgCreation' => 'AllowOrgCreation',
         'createdAt' => 'CreatedAt',
         'email' => 'Email',
         'name' => 'Name',
@@ -36,6 +42,10 @@ class users extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowOrgCreation) {
+            $res['AllowOrgCreation'] = $this->allowOrgCreation;
+        }
+
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
@@ -59,6 +69,10 @@ class users extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowOrgCreation'])) {
+            $model->allowOrgCreation = $map['AllowOrgCreation'];
+        }
+
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }

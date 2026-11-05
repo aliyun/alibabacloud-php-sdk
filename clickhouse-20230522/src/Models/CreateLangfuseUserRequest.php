@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateLangfuseUserRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowOrgCreation;
+
+    /**
      * @var string
      */
     public $DBInstanceId;
@@ -43,6 +48,7 @@ class CreateLangfuseUserRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'allowOrgCreation' => 'AllowOrgCreation',
         'DBInstanceId' => 'DBInstanceId',
         'email' => 'Email',
         'name' => 'Name',
@@ -60,6 +66,10 @@ class CreateLangfuseUserRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowOrgCreation) {
+            $res['AllowOrgCreation'] = $this->allowOrgCreation;
+        }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -99,6 +109,10 @@ class CreateLangfuseUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowOrgCreation'])) {
+            $model->allowOrgCreation = $map['AllowOrgCreation'];
+        }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

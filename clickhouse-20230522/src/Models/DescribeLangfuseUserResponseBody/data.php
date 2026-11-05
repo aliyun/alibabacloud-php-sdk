@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseUserResponseBod
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowOrgCreation;
+
+    /**
      * @var string
      */
     public $createdAt;
@@ -34,6 +39,7 @@ class data extends Model
      */
     public $updatedAt;
     protected $_name = [
+        'allowOrgCreation' => 'AllowOrgCreation',
         'createdAt' => 'CreatedAt',
         'email' => 'Email',
         'memberships' => 'Memberships',
@@ -52,6 +58,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowOrgCreation) {
+            $res['AllowOrgCreation'] = $this->allowOrgCreation;
+        }
+
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
@@ -90,6 +100,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowOrgCreation'])) {
+            $model->allowOrgCreation = $map['AllowOrgCreation'];
+        }
+
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
