@@ -23,6 +23,11 @@ class ChangeCheckConfigShrinkRequest extends Model
     /**
      * @var string
      */
+    public $configId;
+
+    /**
+     * @var string
+     */
     public $configRequirementIdsShrink;
 
     /**
@@ -39,6 +44,11 @@ class ChangeCheckConfigShrinkRequest extends Model
      * @var int[]
      */
     public $cycleDays;
+
+    /**
+     * @var int[]
+     */
+    public $daysOfMonth;
 
     /**
      * @var bool
@@ -59,6 +69,16 @@ class ChangeCheckConfigShrinkRequest extends Model
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var int
+     */
+    public $endTimeSeconds;
+
+    /**
+     * @var string
+     */
+    public $frequency;
 
     /**
      * @var string
@@ -86,6 +106,16 @@ class ChangeCheckConfigShrinkRequest extends Model
     public $startTime;
 
     /**
+     * @var int
+     */
+    public $startTimeSeconds;
+
+    /**
+     * @var string
+     */
+    public $strategyName;
+
+    /**
      * @var bool
      */
     public $systemConfig;
@@ -97,19 +127,25 @@ class ChangeCheckConfigShrinkRequest extends Model
     protected $_name = [
         'addedCheck' => 'AddedCheck',
         'clientToken' => 'ClientToken',
+        'configId' => 'ConfigId',
         'configRequirementIdsShrink' => 'ConfigRequirementIds',
         'configStandardIdsShrink' => 'ConfigStandardIds',
         'configure' => 'Configure',
         'cycleDays' => 'CycleDays',
+        'daysOfMonth' => 'DaysOfMonth',
         'dryRun' => 'DryRun',
         'enableAddCheck' => 'EnableAddCheck',
         'enableAutoCheck' => 'EnableAutoCheck',
         'endTime' => 'EndTime',
+        'endTimeSeconds' => 'EndTimeSeconds',
+        'frequency' => 'Frequency',
         'regionId' => 'RegionId',
         'removedCheck' => 'RemovedCheck',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'standardIds' => 'StandardIds',
         'startTime' => 'StartTime',
+        'startTimeSeconds' => 'StartTimeSeconds',
+        'strategyName' => 'StrategyName',
         'systemConfig' => 'SystemConfig',
         'vendors' => 'Vendors',
     ];
@@ -121,6 +157,9 @@ class ChangeCheckConfigShrinkRequest extends Model
         }
         if (\is_array($this->cycleDays)) {
             Model::validateArray($this->cycleDays);
+        }
+        if (\is_array($this->daysOfMonth)) {
+            Model::validateArray($this->daysOfMonth);
         }
         if (\is_array($this->removedCheck)) {
             Model::validateArray($this->removedCheck);
@@ -152,6 +191,10 @@ class ChangeCheckConfigShrinkRequest extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
+        }
+
         if (null !== $this->configRequirementIdsShrink) {
             $res['ConfigRequirementIds'] = $this->configRequirementIdsShrink;
         }
@@ -175,6 +218,17 @@ class ChangeCheckConfigShrinkRequest extends Model
             }
         }
 
+        if (null !== $this->daysOfMonth) {
+            if (\is_array($this->daysOfMonth)) {
+                $res['DaysOfMonth'] = [];
+                $n1 = 0;
+                foreach ($this->daysOfMonth as $item1) {
+                    $res['DaysOfMonth'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
@@ -189,6 +243,14 @@ class ChangeCheckConfigShrinkRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->endTimeSeconds) {
+            $res['EndTimeSeconds'] = $this->endTimeSeconds;
+        }
+
+        if (null !== $this->frequency) {
+            $res['Frequency'] = $this->frequency;
         }
 
         if (null !== $this->regionId) {
@@ -223,6 +285,14 @@ class ChangeCheckConfigShrinkRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->startTimeSeconds) {
+            $res['StartTimeSeconds'] = $this->startTimeSeconds;
+        }
+
+        if (null !== $this->strategyName) {
+            $res['StrategyName'] = $this->strategyName;
         }
 
         if (null !== $this->systemConfig) {
@@ -266,6 +336,10 @@ class ChangeCheckConfigShrinkRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
+        }
+
         if (isset($map['ConfigRequirementIds'])) {
             $model->configRequirementIdsShrink = $map['ConfigRequirementIds'];
         }
@@ -289,6 +363,17 @@ class ChangeCheckConfigShrinkRequest extends Model
             }
         }
 
+        if (isset($map['DaysOfMonth'])) {
+            if (!empty($map['DaysOfMonth'])) {
+                $model->daysOfMonth = [];
+                $n1 = 0;
+                foreach ($map['DaysOfMonth'] as $item1) {
+                    $model->daysOfMonth[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
@@ -303,6 +388,14 @@ class ChangeCheckConfigShrinkRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['EndTimeSeconds'])) {
+            $model->endTimeSeconds = $map['EndTimeSeconds'];
+        }
+
+        if (isset($map['Frequency'])) {
+            $model->frequency = $map['Frequency'];
         }
 
         if (isset($map['RegionId'])) {
@@ -337,6 +430,14 @@ class ChangeCheckConfigShrinkRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['StartTimeSeconds'])) {
+            $model->startTimeSeconds = $map['StartTimeSeconds'];
+        }
+
+        if (isset($map['StrategyName'])) {
+            $model->strategyName = $map['StrategyName'];
         }
 
         if (isset($map['SystemConfig'])) {

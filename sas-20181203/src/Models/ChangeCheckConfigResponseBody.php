@@ -11,8 +11,14 @@ class ChangeCheckConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $configId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
+        'configId' => 'ConfigId',
         'requestId' => 'RequestId',
     ];
 
@@ -24,6 +30,10 @@ class ChangeCheckConfigResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,6 +49,10 @@ class ChangeCheckConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

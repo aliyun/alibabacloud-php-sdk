@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class GetCheckConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $configId;
+
+    /**
      * @var int
      */
     public $resourceDirectoryAccountId;
     protected $_name = [
+        'configId' => 'ConfigId',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
     ];
 
@@ -24,6 +30,10 @@ class GetCheckConfigRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
+        }
+
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
@@ -39,6 +49,10 @@ class GetCheckConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
+        }
+
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }

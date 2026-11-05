@@ -26,6 +26,11 @@ class ModifyPostPayModuleSwitchRequest extends Model
     public $edrModuleSwitch;
 
     /**
+     * @var bool
+     */
+    public $freeTrial;
+
+    /**
      * @var int
      */
     public $postPaidHostAutoBind;
@@ -53,6 +58,7 @@ class ModifyPostPayModuleSwitchRequest extends Model
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'edrModuleSwitch' => 'EdrModuleSwitch',
+        'freeTrial' => 'FreeTrial',
         'postPaidHostAutoBind' => 'PostPaidHostAutoBind',
         'postPaidHostAutoBindVersion' => 'PostPaidHostAutoBindVersion',
         'postPayInstanceId' => 'PostPayInstanceId',
@@ -84,6 +90,10 @@ class ModifyPostPayModuleSwitchRequest extends Model
 
         if (null !== $this->edrModuleSwitch) {
             $res['EdrModuleSwitch'] = null !== $this->edrModuleSwitch ? $this->edrModuleSwitch->toArray($noStream) : $this->edrModuleSwitch;
+        }
+
+        if (null !== $this->freeTrial) {
+            $res['FreeTrial'] = $this->freeTrial;
         }
 
         if (null !== $this->postPaidHostAutoBind) {
@@ -127,6 +137,10 @@ class ModifyPostPayModuleSwitchRequest extends Model
 
         if (isset($map['EdrModuleSwitch'])) {
             $model->edrModuleSwitch = edrModuleSwitch::fromMap($map['EdrModuleSwitch']);
+        }
+
+        if (isset($map['FreeTrial'])) {
+            $model->freeTrial = $map['FreeTrial'];
         }
 
         if (isset($map['PostPaidHostAutoBind'])) {

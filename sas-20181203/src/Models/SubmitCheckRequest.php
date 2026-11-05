@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SubmitCheckRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $configId;
+
+    /**
      * @var int
      */
     public $resourceDirectoryAccountId;
@@ -23,6 +28,7 @@ class SubmitCheckRequest extends Model
      */
     public $taskSource;
     protected $_name = [
+        'configId' => 'ConfigId',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'scanRange' => 'ScanRange',
         'taskSource' => 'TaskSource',
@@ -36,6 +42,10 @@ class SubmitCheckRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
+        }
+
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
@@ -59,6 +69,10 @@ class SubmitCheckRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
+        }
+
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }

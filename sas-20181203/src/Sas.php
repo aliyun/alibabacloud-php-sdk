@@ -1886,6 +1886,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\VerifyCheckInstanceResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\VerifyCheckInstanceResultResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\VerifyCheckResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\VerifyCheckResultResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -1896,6 +1897,9 @@ class Sas extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Sas';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-qingdao' => 'tds.cn-shanghai.aliyuncs.com',
@@ -2117,7 +2121,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds instances to the whitelist at the instance level for a specific check item in cloud platform configuration checks.
+     * Adds instances to the whitelist for a check item in cloud platform configuration checks.
      *
      * @param request - AddCheckInstanceResultWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2184,7 +2188,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Adds instances to the whitelist at the instance level for a specific check item in cloud platform configuration checks.
+     * Adds instances to the whitelist for a check item in cloud platform configuration checks.
      *
      * @param request - AddCheckInstanceResultWhiteListRequest
      *
@@ -2404,7 +2408,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates multi-cloud asset configuration information.
+     * Adds multi-cloud asset configuration information.
      *
      * @param request - AddCloudVendorAccountAKRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2472,6 +2476,10 @@ class Sas extends OpenApiClient
             @$query['VendorAuthAlias'] = $request->vendorAuthAlias;
         }
 
+        if (null !== $request->vendorUserName) {
+            @$query['VendorUserName'] = $request->vendorUserName;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2491,7 +2499,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates multi-cloud asset configuration information.
+     * Adds multi-cloud asset configuration information.
      *
      * @param request - AddCloudVendorAccountAKRequest
      *
@@ -4375,6 +4383,9 @@ class Sas extends OpenApiClient
     /**
      * Modifies the configuration items for cloud platform configuration checks.
      *
+     * @remarks
+     * Modifies the configuration of an existing check policy. This operation only modifies policies and does not create new ones. Breaking change: If any multi-policy field (such as StrategyName, Frequency, or DaysOfMonth) is provided, ConfigId is required. If ConfigId is missing, the system returns IllegalParam (paramName=configId). If ConfigId is not provided and no system default policy exists under the account, the system no longer silently creates a policy and returns success. Instead, it returns NoDefaultStrategy. In this case, use CreateCheckConfig to create a policy. If Frequency is not provided, the current value of the policy is retained. If Frequency is provided, time window parameters must also be provided. The time window supports two sets of parameters: hour-level (StartTime and EndTime) and second-level (StartTimeSeconds and EndTimeSeconds). If both sets are provided, the second-level parameters take precedence. If neither set is provided, the current value of the policy is retained. The frequency of the system default policy (ConfigId=default) is always 6HOURLY and cannot be switched. The system only accepts 6HOURLY and four on-the-hour time windows for requests to the default policy, and will deny requests with multi-policy frequencies or second-level parameters. The ConfigId in the response returns the actual ID of the modified policy. Timed scheduling will execute tasks sequentially by second within the same minute, and the concurrency is 1. During periods of high concurrency, the system may skip and not execute some policies in the current run without makeup runs on the same day. Callers that have strong consistency requirements for the time to execute should avoid peak hours.
+     *
      * @param tmpReq - ChangeCheckConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4407,6 +4418,10 @@ class Sas extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
         if (null !== $request->configRequirementIdsShrink) {
             @$query['ConfigRequirementIds'] = $request->configRequirementIdsShrink;
         }
@@ -4423,6 +4438,10 @@ class Sas extends OpenApiClient
             @$query['CycleDays'] = $request->cycleDays;
         }
 
+        if (null !== $request->daysOfMonth) {
+            @$query['DaysOfMonth'] = $request->daysOfMonth;
+        }
+
         if (null !== $request->dryRun) {
             @$query['DryRun'] = $request->dryRun;
         }
@@ -4437,6 +4456,14 @@ class Sas extends OpenApiClient
 
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->endTimeSeconds) {
+            @$query['EndTimeSeconds'] = $request->endTimeSeconds;
+        }
+
+        if (null !== $request->frequency) {
+            @$query['Frequency'] = $request->frequency;
         }
 
         if (null !== $request->regionId) {
@@ -4457,6 +4484,14 @@ class Sas extends OpenApiClient
 
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->startTimeSeconds) {
+            @$query['StartTimeSeconds'] = $request->startTimeSeconds;
+        }
+
+        if (null !== $request->strategyName) {
+            @$query['StrategyName'] = $request->strategyName;
         }
 
         if (null !== $request->systemConfig) {
@@ -4487,6 +4522,9 @@ class Sas extends OpenApiClient
 
     /**
      * Modifies the configuration items for cloud platform configuration checks.
+     *
+     * @remarks
+     * Modifies the configuration of an existing check policy. This operation only modifies policies and does not create new ones. Breaking change: If any multi-policy field (such as StrategyName, Frequency, or DaysOfMonth) is provided, ConfigId is required. If ConfigId is missing, the system returns IllegalParam (paramName=configId). If ConfigId is not provided and no system default policy exists under the account, the system no longer silently creates a policy and returns success. Instead, it returns NoDefaultStrategy. In this case, use CreateCheckConfig to create a policy. If Frequency is not provided, the current value of the policy is retained. If Frequency is provided, time window parameters must also be provided. The time window supports two sets of parameters: hour-level (StartTime and EndTime) and second-level (StartTimeSeconds and EndTimeSeconds). If both sets are provided, the second-level parameters take precedence. If neither set is provided, the current value of the policy is retained. The frequency of the system default policy (ConfigId=default) is always 6HOURLY and cannot be switched. The system only accepts 6HOURLY and four on-the-hour time windows for requests to the default policy, and will deny requests with multi-policy frequencies or second-level parameters. The ConfigId in the response returns the actual ID of the modified policy. Timed scheduling will execute tasks sequentially by second within the same minute, and the concurrency is 1. During periods of high concurrency, the system may skip and not execute some policies in the current run without makeup runs on the same day. Callers that have strong consistency requirements for the time to execute should avoid peak hours.
      *
      * @param request - ChangeCheckConfigRequest
      *
@@ -4573,7 +4611,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the check scope configuration instance.
+     * Modifies the instances in a check scope configuration.
      *
      * @param request - ChangeCheckScopeConfigInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4624,7 +4662,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the check scope configuration instance.
+     * Modifies the instances in a check scope configuration.
      *
      * @param request - ChangeCheckScopeConfigInstanceRequest
      *
@@ -4772,7 +4810,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Checks whether one or more alerts are generated on a specified server based on alert IDs.
+     * Verifies whether one or more alert event IDs belong to a specified server.
      *
      * @param request - CheckSecurityEventIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4815,7 +4853,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Checks whether one or more alerts are generated on a specified server based on alert IDs.
+     * Verifies whether one or more alert event IDs belong to a specified server.
      *
      * @param request - CheckSecurityEventIdRequest
      *
@@ -6309,7 +6347,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
+     * Creates an epoch scan node, including image scans, emergency vulnerability scanning, and virus scans.
      *
      * @param request - CreateCycleTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6392,7 +6430,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
+     * Creates an epoch scan node, including image scans, emergency vulnerability scanning, and virus scans.
      *
      * @param request - CreateCycleTaskRequest
      *
@@ -6480,17 +6518,17 @@ class Sas extends OpenApiClient
      *
      * @remarks
      * Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
-     * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
-     * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
+     * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the corresponding alert details. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+     * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phase. Valid values for the event name (event):
      * - accepted: The request is accepted.
      * - authorized: The purchase verification for the source is passed.
      * - alertResolved: The file hash is parsed from the alert or input parameters.
      * - fileReady: The file download link is ready.
      * - dispatched: The file is delivered to the detection engine, including the requestId.
-     * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
-     * - done: The current analysis process is completed.
+     * - result: The analysis result is matched. This is optional and pushed after asynchronous processing is complete.
+     * - done: The current analysis process is complete.
      * - error: A processing exception occurs, including the error code and message.
-     * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+     * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
      *
      * @param request - CreateFileDeepAnalyzeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6562,17 +6600,17 @@ class Sas extends OpenApiClient
      *
      * @remarks
      * Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
-     * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
-     * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
+     * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the corresponding alert details. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+     * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phase. Valid values for the event name (event):
      * - accepted: The request is accepted.
      * - authorized: The purchase verification for the source is passed.
      * - alertResolved: The file hash is parsed from the alert or input parameters.
      * - fileReady: The file download link is ready.
      * - dispatched: The file is delivered to the detection engine, including the requestId.
-     * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
-     * - done: The current analysis process is completed.
+     * - result: The analysis result is matched. This is optional and pushed after asynchronous processing is complete.
+     * - done: The current analysis process is complete.
      * - error: A processing exception occurs, including the error code and message.
-     * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+     * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
      *
      * @param request - CreateFileDeepAnalyzeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6631,17 +6669,17 @@ class Sas extends OpenApiClient
      *
      * @remarks
      * Initiates deep analysis for a specified file and streams the progress of each analysis phase in real time by using Server-Sent Events (SSE).
-     * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the details of the corresponding alert. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial edition verification based on the source.
-     * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phases. Valid values for the event name (event):
+     * [Input parameters] You must provide at least one of the Hash and EventId parameters. If EventId is provided, the file hash is preferentially parsed from the corresponding alert details. Otherwise, the provided Hash (MD5 or SHA-256) is used. The Source parameter identifies the call source and is used for commercial verification based on the source.
+     * [Response] The response is of the text/event-stream type. The server pushes events sequentially based on the processing phase. Valid values for the event name (event):
      * - accepted: The request is accepted.
      * - authorized: The purchase verification for the source is passed.
      * - alertResolved: The file hash is parsed from the alert or input parameters.
      * - fileReady: The file download link is ready.
      * - dispatched: The file is delivered to the detection engine, including the requestId.
-     * - result: The analysis result is matched. This parameter is optional and pushed after the asynchronous result is ready.
-     * - done: The current analysis process is completed.
+     * - result: The analysis result is matched. This is optional and pushed after asynchronous processing is complete.
+     * - done: The current analysis process is complete.
      * - error: A processing exception occurs, including the error code and message.
-     * The data payload of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
+     * The data body of each event is a JSON object in the data field. The fields vary depending on the event type. For more information, see the response structure description.
      *
      * @param request - CreateFileDeepAnalyzeRequest
      *
@@ -6772,12 +6810,15 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the parameters that are required to upload a file for detection.
+     * Retrieves file upload parameters.
      *
      * @remarks
-     * You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
-     * The form upload method is provided by OSS. For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
-     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+     * Retrieves file upload parameters. If the value of FileExist in the response parameters is true, the file to be checked already exists in the cloud and does not need to be uploaded. You can directly push the file for checking. If the value of FileExist is false, you must use the parameters returned by this operation to upload the file to the specified storage location by using form upload.
+     * The form upload service is provided by Object Storage Service (OSS). For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
+     * All file check-related operations include the HashKey parameter, which indicates the unique identifier of the file. Only the MD5 or SHA-256 hash value of the complete file content is supported. Calculate this value before you call the operation. Note that the push and query operations for a single file check must use the same HashKey. Otherwise, the check cannot be pushed and the results cannot be queried correctly.
+     * You can calculate the MD5 or SHA-256 hash value of the file content by performing the following steps:
+     * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available tool libraries include the MessageDigest tool in Java and the hashlib library in Python.
+     * 2. Encode the generated hash value into a hexadecimal string. Available tool libraries include the Codec tool in Java and the hex function in Python. Make sure that the final string is a combination of digits and lowercase letters. The MD5 string contains 32 characters, and the SHA-256 string contains 64 characters.
      *
      * @param request - CreateFileDetectUploadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6824,12 +6865,15 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the parameters that are required to upload a file for detection.
+     * Retrieves file upload parameters.
      *
      * @remarks
-     * You can call this operation to query the parameters that are required to upload a file for detection. If the value of the response parameter FileExist is true, the file that you want to upload for detection already exists in the cloud. In this case, you can directly push the file for detection. If the value of the response parameter FileExist is false, you must use the form upload method to upload the file to the specified Object Storage Service (OSS) bucket based on the response parameters of this operation.
-     * The form upload method is provided by OSS. For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
-     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
+     * Retrieves file upload parameters. If the value of FileExist in the response parameters is true, the file to be checked already exists in the cloud and does not need to be uploaded. You can directly push the file for checking. If the value of FileExist is false, you must use the parameters returned by this operation to upload the file to the specified storage location by using form upload.
+     * The form upload service is provided by Object Storage Service (OSS). For more information, see [Form upload](https://help.aliyun.com/document_detail/84788.html).
+     * All file check-related operations include the HashKey parameter, which indicates the unique identifier of the file. Only the MD5 or SHA-256 hash value of the complete file content is supported. Calculate this value before you call the operation. Note that the push and query operations for a single file check must use the same HashKey. Otherwise, the check cannot be pushed and the results cannot be queried correctly.
+     * You can calculate the MD5 or SHA-256 hash value of the file content by performing the following steps:
+     * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available tool libraries include the MessageDigest tool in Java and the hashlib library in Python.
+     * 2. Encode the generated hash value into a hexadecimal string. Available tool libraries include the Codec tool in Java and the hex function in Python. Make sure that the final string is a combination of digits and lowercase letters. The MD5 string contains 32 characters, and the SHA-256 string contains 64 characters.
      *
      * @param request - CreateFileDetectUploadUrlRequest
      *
@@ -7039,7 +7083,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Specifies the queries per second (QPS) limit on the files uploaded from the client.
+     * Sets the maximum QPS for client file uploads.
      *
      * @param request - CreateFileUploadLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7078,7 +7122,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Specifies the queries per second (QPS) limit on the files uploaded from the client.
+     * Sets the maximum QPS for client file uploads.
      *
      * @param request - CreateFileUploadLimitRequest
      *
@@ -8703,10 +8747,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+     * Creates a scan policy for detecting malicious files in Object Storage Service (OSS).
      *
      * @remarks
-     * Before you call this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images that the image scan task covers and the number of authorizations consumed. Make sure that sufficient authorizations are available for the image scan task to prevent the image scan task from being overwritten due to insufficient authorizations.
+     * Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the container image security scan and the number of consumed authorizations. Ensure that you have sufficient authorizations to prevent the image scan node from being interrupted due to insufficient authorizations.
      *
      * @param request - CreateOssScanConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8813,10 +8857,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
+     * Creates a scan policy for detecting malicious files in Object Storage Service (OSS).
      *
      * @remarks
-     * Before you call this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images that the image scan task covers and the number of authorizations consumed. Make sure that sufficient authorizations are available for the image scan task to prevent the image scan task from being overwritten due to insufficient authorizations.
+     * Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the container image security scan and the number of consumed authorizations. Ensure that you have sufficient authorizations to prevent the image scan node from being interrupted due to insufficient authorizations.
      *
      * @param request - CreateOssScanConfigRequest
      *
@@ -9151,10 +9195,10 @@ class Sas extends OpenApiClient
      * Creates a service trail.
      *
      * @remarks
-     * The **ActionTrail data delivery** feature requires Cloud Security Posture Management (CSPM) and security alerting to read ActionTrail data. To use this feature, enable the **ActionTrail data delivery** toggle in the Security Center console and authorize the service-linked role **AliyunServiceRoleForSas** for Security Center. After authorization, ActionTrail data is delivered to the LogStore of Security Center.
-     * For more information about the service-linked role **AliyunServiceRoleForSas** for Security Center, see [Service-linked role for Security Center](https://help.aliyun.com/document_detail/460226.html).
+     * The **ActionTrail data delivery** feature requires authorization for Cloud Security Posture Management (CSPM) and security alerts to read ActionTrail data. Therefore, you must turn on the **ActionTrail data delivery** switch in the Security Center console and authorize the service-linked role for Security Center (**AliyunServiceRoleForSas**) to deliver ActionTrail data to the Logstore of Security Center.
+     * For more information about the **AliyunServiceRoleForSas** service-linked role for Security Center, see [Service-linked role for Security Center](https://help.aliyun.com/document_detail/460226.html).
      * ### Before you begin ###
-     * Before calling this operation, enable the **ActionTrail data delivery** toggle. For more information, see [Access control](https://help.aliyun.com/document_detail/197302.html).
+     * Before you call this operation, make sure that the **ActionTrail data delivery** switch is turned on. For more information, see [Access control](https://help.aliyun.com/document_detail/197302.html).
      *
      * @param request - CreateServiceTrailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9196,10 +9240,10 @@ class Sas extends OpenApiClient
      * Creates a service trail.
      *
      * @remarks
-     * The **ActionTrail data delivery** feature requires Cloud Security Posture Management (CSPM) and security alerting to read ActionTrail data. To use this feature, enable the **ActionTrail data delivery** toggle in the Security Center console and authorize the service-linked role **AliyunServiceRoleForSas** for Security Center. After authorization, ActionTrail data is delivered to the LogStore of Security Center.
-     * For more information about the service-linked role **AliyunServiceRoleForSas** for Security Center, see [Service-linked role for Security Center](https://help.aliyun.com/document_detail/460226.html).
+     * The **ActionTrail data delivery** feature requires authorization for Cloud Security Posture Management (CSPM) and security alerts to read ActionTrail data. Therefore, you must turn on the **ActionTrail data delivery** switch in the Security Center console and authorize the service-linked role for Security Center (**AliyunServiceRoleForSas**) to deliver ActionTrail data to the Logstore of Security Center.
+     * For more information about the **AliyunServiceRoleForSas** service-linked role for Security Center, see [Service-linked role for Security Center](https://help.aliyun.com/document_detail/460226.html).
      * ### Before you begin ###
-     * Before calling this operation, enable the **ActionTrail data delivery** toggle. For more information, see [Access control](https://help.aliyun.com/document_detail/197302.html).
+     * Before you call this operation, make sure that the **ActionTrail data delivery** switch is turned on. For more information, see [Access control](https://help.aliyun.com/document_detail/197302.html).
      *
      * @param request - CreateServiceTrailRequest
      *
@@ -12845,7 +12889,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Deletes an ActionTrail data delivery configuration.
+     * Deletes ActionTrail data delivery.
      *
      * @param request - DeleteServiceTrailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12884,7 +12928,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Deletes an ActionTrail data delivery configuration.
+     * Deletes ActionTrail data delivery.
      *
      * @param request - DeleteServiceTrailRequest
      *
@@ -15131,10 +15175,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries servers that have the anti-ransomware client installed in a specified region.
+     * Queries the servers on which the anti-ransomware client is installed in a specified region.
      *
      * @remarks
-     * Queries servers that have the anti-ransomware client installed in a specified region.
+     * This operation queries the servers on which the anti-ransomware client is installed in a specified region.
      *
      * @param request - DescribeBackupClientsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15173,10 +15217,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries servers that have the anti-ransomware client installed in a specified region.
+     * Queries the servers on which the anti-ransomware client is installed in a specified region.
      *
      * @remarks
-     * Queries servers that have the anti-ransomware client installed in a specified region.
+     * This operation queries the servers on which the anti-ransomware client is installed in a specified region.
      *
      * @param request - DescribeBackupClientsRequest
      *
@@ -16757,7 +16801,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the resource configuration information of a client.
+     * Queries the resource configuration information of the client.
      *
      * @param request - DescribeClientConfSetupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16800,7 +16844,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the resource configuration information of a client.
+     * Queries the resource configuration information of the client.
      *
      * @param request - DescribeClientConfSetupRequest
      *
@@ -17957,7 +18001,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configured asset information for a specific switch type.
+     * Queries the servers configured for a specified switch type.
      *
      * @param request - DescribeCommonTargetResultListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18000,7 +18044,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configured asset information for a specific switch type.
+     * Queries the servers configured for a specified switch type.
      *
      * @param request - DescribeCommonTargetResultListRequest
      *
@@ -22274,7 +22318,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of clients connected to a specified hybrid cloud proxy by paging. This operation is part of the hybrid cloud proxy feature.
+     * Queries the list of clients connected to a specified hybrid cloud proxy by using paging. This API operation is part of the hybrid cloud proxy feature.
      *
      * @param request - DescribeHybridProxyLinkedClientListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22333,7 +22377,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of clients connected to a specified hybrid cloud proxy by paging. This operation is part of the hybrid cloud proxy feature.
+     * Queries the list of clients connected to a specified hybrid cloud proxy by using paging. This API operation is part of the hybrid cloud proxy feature.
      *
      * @param request - DescribeHybridProxyLinkedClientListRequest
      *
@@ -22923,7 +22967,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of baseline check results for image scanning.
+     * Queries the details of image scan baseline check results.
      *
      * @param request - DescribeImageBaselineDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22970,7 +23014,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of baseline check results for image scanning.
+     * Queries the details of image scan baseline check results.
      *
      * @param request - DescribeImageBaselineDetailRequest
      *
@@ -26420,7 +26464,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries a list of client tasks.
+     * Queries the list of client tasks.
      *
      * @param request - DescribeOnceTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26487,7 +26531,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries a list of client tasks.
+     * Queries the list of client tasks.
      *
      * @param request - DescribeOnceTaskRequest
      *
@@ -26594,7 +26638,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries statistics on the client plug-in installation status.
+     * Queries the statistics on the installation status of client plug-ins.
      *
      * @param request - DescribePluginSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26637,7 +26681,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries statistics on the client plug-in installation status.
+     * Queries the statistics on the installation status of client plug-ins.
      *
      * @param request - DescribePluginSummaryRequest
      *
@@ -27884,7 +27928,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the Asset Fingerprints information of account assets on a server.
+     * Queries the asset fingerprint information of server accounts.
      *
      * @param request - DescribePropertyUserDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27967,7 +28011,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the Asset Fingerprints information of account assets on a server.
+     * Queries the asset fingerprint information of server accounts.
      *
      * @param request - DescribePropertyUserDetailRequest
      *
@@ -31476,7 +31520,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of a specified feature.
+     * Queries the configuration of proactive defense switches.
      *
      * @param request - DescribeSuspiciousOverallConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31519,7 +31563,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of a specified feature.
+     * Queries the configuration of proactive defense switches.
      *
      * @param request - DescribeSuspiciousOverallConfigRequest
      *
@@ -31580,7 +31624,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
+     * Queries the UUIDs of assets for which proactive defense is enabled based on the defense type.
      *
      * @param request - DescribeSuspiciousUUIDConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31619,7 +31663,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the UUIDs of servers on which proactive defense of a specified type takes effect.
+     * Queries the UUIDs of assets for which proactive defense is enabled based on the defense type.
      *
      * @param request - DescribeSuspiciousUUIDConfigRequest
      *
@@ -33441,10 +33485,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the progress of a vulnerability export task.
+     * Retrieves the progress of a vulnerability export task.
      *
      * @remarks
-     * A download link is returned when the export task status is success.
+     * Returns a download link when the export task status is success.
      *
      * @param request - DescribeVulExportInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33487,10 +33531,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the progress of a vulnerability export task.
+     * Retrieves the progress of a vulnerability export task.
      *
      * @remarks
-     * A download link is returned when the export task status is success.
+     * Returns a download link when the export task status is success.
      *
      * @param request - DescribeVulExportInfoRequest
      *
@@ -36599,7 +36643,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves information about network connectivity between two nodes.
+     * Retrieves the network connectivity information between two nodes.
      *
      * @param tmpReq - FindContainerNetworkConnectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36672,7 +36716,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves information about network connectivity between two nodes.
+     * Retrieves the network connectivity information between two nodes.
      *
      * @param request - FindContainerNetworkConnectRequest
      *
@@ -37185,7 +37229,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a container anti-escape rule.
+     * Queries the details of a container escape prevention rule.
      *
      * @remarks
      * Only users of the Ultimate edition of Security Center can call this operation.
@@ -37235,7 +37279,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a container anti-escape rule.
+     * Queries the details of a container escape prevention rule.
      *
      * @remarks
      * Only users of the Ultimate edition of Security Center can call this operation.
@@ -38605,7 +38649,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the check item configurations for cloud platform configuration checks.
+     * Retrieves the configuration items for cloud platform configuration checks.
+     *
+     * @remarks
+     * Queries the check configuration of a specified policy. Behavior change: When the policy corresponding to ConfigId does not exist, IllegalParam is no longer returned. Instead, a success response is returned with empty configuration fields and Exists set to false. Callers must determine whether the policy exists based on Exists. API contract: When ConfigId is not passed (or an empty string or default is passed), only the system default policy configuration is returned. When a specific UUID ConfigId is explicitly passed, the specified policy is returned. Time field description: StartTimeSeconds and EndTimeSeconds are authoritative values in seconds and are directly passed through from the database. StartTime and EndTime on multi-policy rows are derived approximate values obtained by rounding the second-level values and are not active for reverse-engineering the exact window. For the system default policy (Frequency=6HOURLY) row, the second-level output parameters are always null (not 0), and callers must perform null checks. Timed scheduling executes sequentially by second within the same minute with a concurrency of 1. During periods of high concurrency, the current execution of some policies may be skipped without makeup runs on the same day. Callers with strong consistency requirements for execution time should avoid concentrated periods such as the top of the hour.
      *
      * @param request - GetCheckConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -38621,6 +38668,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
         if (null !== $request->resourceDirectoryAccountId) {
             @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
@@ -38644,7 +38695,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the check item configurations for cloud platform configuration checks.
+     * Retrieves the configuration items for cloud platform configuration checks.
+     *
+     * @remarks
+     * Queries the check configuration of a specified policy. Behavior change: When the policy corresponding to ConfigId does not exist, IllegalParam is no longer returned. Instead, a success response is returned with empty configuration fields and Exists set to false. Callers must determine whether the policy exists based on Exists. API contract: When ConfigId is not passed (or an empty string or default is passed), only the system default policy configuration is returned. When a specific UUID ConfigId is explicitly passed, the specified policy is returned. Time field description: StartTimeSeconds and EndTimeSeconds are authoritative values in seconds and are directly passed through from the database. StartTime and EndTime on multi-policy rows are derived approximate values obtained by rounding the second-level values and are not active for reverse-engineering the exact window. For the system default policy (Frequency=6HOURLY) row, the second-level output parameters are always null (not 0), and callers must perform null checks. Timed scheduling executes sequentially by second within the same minute with a concurrency of 1. During periods of high concurrency, the current execution of some policies may be skipped without makeup runs on the same day. Callers with strong consistency requirements for execution time should avoid concentrated periods such as the top of the hour.
      *
      * @param request - GetCheckConfigRequest
      *
@@ -39192,7 +39246,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the time trend pass rate statistics for Cloud Security Posture Management (CSPM) risk items.
+     * Retrieves the time-series pass rate statistics for Cloud Security Posture Management (CSPM) risk items.
      *
      * @param request - GetCheckTimeDimensionStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39247,7 +39301,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the time trend pass rate statistics for Cloud Security Posture Management (CSPM) risk items.
+     * Retrieves the time-series pass rate statistics for Cloud Security Posture Management (CSPM) risk items.
      *
      * @param request - GetCheckTimeDimensionStatisticRequest
      *
@@ -39926,7 +39980,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of a common switch.
+     * Retrieves the general switch configuration.
      *
      * @param request - GetCommonSwitchConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39965,7 +40019,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the configuration of a common switch.
+     * Retrieves the general switch configuration.
      *
      * @param request - GetCommonSwitchConfigRequest
      *
@@ -40044,7 +40098,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a defense rule for non-image programs.
+     * Retrieves the details of a non-image program defense rule.
      *
      * @param request - GetContainerDefenseRuleDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40087,7 +40141,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a defense rule for non-image programs.
+     * Retrieves the details of a non-image program defense rule.
      *
      * @param request - GetContainerDefenseRuleDetailRequest
      *
@@ -40264,7 +40318,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the rankings of images across different dimensions.
+     * Queries the rankings of images across various dimensions.
      *
      * @param request - GetDockerhubImageRiskRankInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40303,7 +40357,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the rankings of images across different dimensions.
+     * Queries the rankings of images across various dimensions.
      *
      * @param request - GetDockerhubImageRiskRankInfoRequest
      *
@@ -41026,7 +41080,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the queries per second (QPS) limit on the files uploaded from the client.
+     * Retrieves the QPS limit for file uploads configured by the user.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -41055,7 +41109,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the queries per second (QPS) limit on the files uploaded from the client.
+     * Retrieves the QPS limit for file uploads configured by the user.
      *
      * @returns GetFileUploadLimitResponse
      *
@@ -41069,7 +41123,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the trial eligibility status of a feature.
+     * Retrieves the status of feature trial eligibility.
      *
      * @param request - GetFunctionTrialStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41108,7 +41162,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the trial eligibility status of a feature.
+     * Retrieves the status of feature trial eligibility.
      *
      * @param request - GetFunctionTrialStatusRequest
      *
@@ -43884,7 +43938,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the audit trail delivery configuration.
+     * Retrieves ActionTrail data delivery.
      *
      * @param request - GetServiceTrailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -43923,7 +43977,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the audit trail delivery configuration.
+     * Retrieves ActionTrail data delivery.
      *
      * @param request - GetServiceTrailRequest
      *
@@ -46329,7 +46383,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of vulnerable servers detected by agentless detection.
+     * Retrieves a list of vulnerable servers detected by agentless detection.
      *
      * @param request - ListAgentlessRiskUuidRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -46408,7 +46462,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of vulnerable servers detected by agentless detection.
+     * Retrieves a list of vulnerable servers detected by agentless detection.
      *
      * @param request - ListAgentlessRiskUuidRequest
      *
@@ -47446,7 +47500,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves instances that failed a cloud platform configuration check item.
+     * Queries the instances that failed the cloud platform configuration check items.
      *
      * @param request - ListCheckInstanceResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -47521,7 +47575,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Retrieves instances that failed a cloud platform configuration check item.
+     * Queries the instances that failed the cloud platform configuration check items.
      *
      * @param request - ListCheckInstanceResultRequest
      *
@@ -48333,7 +48387,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of assets. The default alert setting for assets is balance mode. Only strict mode returns a detailed asset list.
+     * Queries the alert settings of assets. The default alert setting is balance mode. A detailed asset list is returned only in strict mode.
      *
      * @param request - ListClientAlertModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -48368,7 +48422,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of assets. The default alert setting for assets is balance mode. Only strict mode returns a detailed asset list.
+     * Queries the alert settings of assets. The default alert setting is balance mode. A detailed asset list is returned only in strict mode.
      *
      * @param request - ListClientAlertModeRequest
      *
@@ -51980,10 +52034,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a one-click fix or rollback task for cloud platform configuration checks.
+     * Queries the details of a one-click repair or rollback task for cloud platform configuration checks.
      *
      * @remarks
-     * Only users who have purchased the cloud platform configuration check quota or enabled pay-as-you-go billing for cloud platform configuration checks can call this operation.
+     * Only users who have purchased cloud platform configuration check quotas or enabled the pay-as-you-go billing method for cloud platform configuration checks can call this operation.
      *
      * @param request - ListOperationCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -52018,10 +52072,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a one-click fix or rollback task for cloud platform configuration checks.
+     * Queries the details of a one-click repair or rollback task for cloud platform configuration checks.
      *
      * @remarks
-     * Only users who have purchased the cloud platform configuration check quota or enabled pay-as-you-go billing for cloud platform configuration checks can call this operation.
+     * Only users who have purchased cloud platform configuration check quotas or enabled the pay-as-you-go billing method for cloud platform configuration checks can call this operation.
      *
      * @param request - ListOperationCheckRequest
      *
@@ -53500,7 +53554,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * List Database Backup Records.
+     * Queries the list of database backup records.
      *
      * @param request - ListUniBackupRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -53555,7 +53609,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * List Database Backup Records.
+     * Queries the list of database backup records.
      *
      * @param request - ListUniBackupRecordRequest
      *
@@ -53751,7 +53805,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of machines for intelligent behavior analytics.
+     * Queries the list of servers for intelligent behavior analytics.
      *
      * @param request - ListUnknownThreatDetectMachineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -53822,7 +53876,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the list of machines for intelligent behavior analytics.
+     * Queries the list of servers for intelligent behavior analytics.
      *
      * @param request - ListUnknownThreatDetectMachineRequest
      *
@@ -55671,7 +55725,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies a client configuration policy.
+     * Modifies the client configuration policy.
      *
      * @param request - ModifyClientConfStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -55726,7 +55780,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies a client configuration policy.
+     * Modifies the client configuration policy.
      *
      * @param request - ModifyClientConfStrategyRequest
      *
@@ -55935,6 +55989,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->vendorAuthAlias) {
             @$query['VendorAuthAlias'] = $request->vendorAuthAlias;
+        }
+
+        if (null !== $request->vendorUserName) {
+            @$query['VendorUserName'] = $request->vendorUserName;
         }
 
         $req = new OpenApiRequest([
@@ -58056,6 +58114,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->edrModuleSwitchShrink) {
             @$query['EdrModuleSwitch'] = $request->edrModuleSwitchShrink;
+        }
+
+        if (null !== $request->freeTrial) {
+            @$query['FreeTrial'] = $request->freeTrial;
         }
 
         if (null !== $request->postPaidHostAutoBind) {
@@ -60696,7 +60758,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Sets the global switch based on the specified type.
+     * Sets a global switch based on the type.
      *
      * @param request - OperateCommonOverallConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -60755,7 +60817,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Sets the global switch based on the specified type.
+     * Sets a global switch based on the type.
      *
      * @param request - OperateCommonOverallConfigRequest
      *
@@ -60773,7 +60835,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Configures the general switch for a feature module by type, including image scanning, endpoint engine detection, container network visualization, and container escape prevention.
+     * Configures the general switches for feature modules by type, including image scanning, endpoint engine detection, container network visualization, and container escape prevention.
      *
      * @param request - OperateCommonTargetConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -60832,7 +60894,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Configures the general switch for a feature module by type, including image scanning, endpoint engine detection, container network visualization, and container escape prevention.
+     * Configures the general switches for feature modules by type, including image scanning, endpoint engine detection, container network visualization, and container escape prevention.
      *
      * @param request - OperateCommonTargetConfigRequest
      *
@@ -60988,7 +61050,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Sets the global configuration for abnormal events.
+     * Configures the global settings for anomaly events.
      *
      * @param request - OperateSuspiciousOverallConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -61043,7 +61105,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Sets the global configuration for abnormal events.
+     * Configures the global settings for anomaly events.
      *
      * @param request - OperateSuspiciousOverallConfigRequest
      *
@@ -61061,7 +61123,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Configures the scope on which proactive defense takes effect.
+     * Manages the defense scope of proactive defense.
      *
      * @param request - OperateSuspiciousTargetConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -61116,7 +61178,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Configures the scope on which proactive defense takes effect.
+     * Manages the defense scope of proactive defense.
      *
      * @param request - OperateSuspiciousTargetConfigRequest
      *
@@ -64875,6 +64937,9 @@ class Sas extends OpenApiClient
     /**
      * Submits a cloud service configuration check.
      *
+     * @remarks
+     * Commits a cloud service configuration check task. When ScanRange is set to POLICY, you can specify ConfigId to trigger a scan based on a specific check policy: If this parameter is not specified or is set to default, the scan is triggered based on the system default policy. If the system default policy does not exist in the account, NoDefaultStrategy is returned and no policy records are added. If another value is specified, the scan is triggered based on the check items of the specified policy. If the policy does not exist or does not belong to the current account, IllegalParam (paramName=configId) is returned. If the hit policy does not have scheduled scanning enabled (EnableAutoCheck=false), requests from timed scheduling (SCHEDULE) return StrategyAutoCheckDisabled, while requests manually triggered from the console (CONSOLE) are processed normally. When ScanRange is set to FULL or FREE, the behavior is independent of ConfigId and remains unchanged. Note: The scan results in the current phase do not include the policy dimension. The check results and task lists are not categorized by policy. ThrottlingTimeSecond indicates that throttling is triggered, and you must retry after the specified number of seconds.
+     *
      * @param request - SubmitCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -64889,6 +64954,10 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
         if (null !== $request->resourceDirectoryAccountId) {
             @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
@@ -64921,6 +64990,9 @@ class Sas extends OpenApiClient
 
     /**
      * Submits a cloud service configuration check.
+     *
+     * @remarks
+     * Commits a cloud service configuration check task. When ScanRange is set to POLICY, you can specify ConfigId to trigger a scan based on a specific check policy: If this parameter is not specified or is set to default, the scan is triggered based on the system default policy. If the system default policy does not exist in the account, NoDefaultStrategy is returned and no policy records are added. If another value is specified, the scan is triggered based on the check items of the specified policy. If the policy does not exist or does not belong to the current account, IllegalParam (paramName=configId) is returned. If the hit policy does not have scheduled scanning enabled (EnableAutoCheck=false), requests from timed scheduling (SCHEDULE) return StrategyAutoCheckDisabled, while requests manually triggered from the console (CONSOLE) are processed normally. When ScanRange is set to FULL or FREE, the behavior is independent of ConfigId and remains unchanged. Note: The scan results in the current phase do not include the policy dimension. The check results and task lists are not categorized by policy. ThrottlingTimeSecond indicates that throttling is triggered, and you must retry after the specified number of seconds.
      *
      * @param request - SubmitCheckRequest
      *
@@ -65290,7 +65362,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Uninstalls the anti-ransomware agent.
+     * Uninstalls the anti-ransomware client.
      *
      * @param request - UninstallBackupClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -65337,7 +65409,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Uninstalls the anti-ransomware agent.
+     * Uninstalls the anti-ransomware client.
      *
      * @param request - UninstallBackupClientRequest
      *
@@ -65971,7 +66043,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the alert settings for servers.
+     * Modifies the alert settings for a server.
      *
      * @param request - UpdateClientAlertModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -66014,7 +66086,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the alert settings for servers.
+     * Modifies the alert settings for a server.
      *
      * @param request - UpdateClientAlertModeRequest
      *
@@ -66032,7 +66104,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the settings of common switches.
+     * Modifies the general switch configuration.
      *
      * @param request - UpdateCommonSwitchConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -66075,7 +66147,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Updates the settings of common switches.
+     * Modifies the general switch configuration.
      *
      * @param request - UpdateCommonSwitchConfigRequest
      *
@@ -68331,7 +68403,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the strict mode configuration, including whether to enable alerting in strict mode. This is a full-update operation.
+     * Modifies the strict mode configuration to specify whether alerts are enabled in strict mode. This API operation performs a full update.
      *
      * @param request - UpdateStrictEventNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -68378,7 +68450,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Modifies the strict mode configuration, including whether to enable alerting in strict mode. This is a full-update operation.
+     * Modifies the strict mode configuration to specify whether alerts are enabled in strict mode. This API operation performs a full update.
      *
      * @param request - UpdateStrictEventNameRequest
      *
@@ -69185,7 +69257,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Performs instance-level verification for a check item.
+     * Validates the instance dimension under a check item.
      *
      * @param request - VerifyCheckInstanceResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -69244,7 +69316,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Performs instance-level verification for a check item.
+     * Validates the instance dimension under a check item.
      *
      * @param request - VerifyCheckInstanceResultRequest
      *

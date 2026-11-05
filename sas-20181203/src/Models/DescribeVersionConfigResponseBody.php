@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigResponseBody\hybridPaidGrayStatus;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVersionConfigResponseBody\trialModuleList;
 
 class DescribeVersionConfigResponseBody extends Model
@@ -75,12 +76,12 @@ class DescribeVersionConfigResponseBody extends Model
     public $honeypotCapacity;
 
     /**
-     * @var string
+     * @var hybridPaidGrayStatus
      */
     public $hybridPaidGrayStatus;
 
     /**
-     * @var int
+     * @var string
      */
     public $hybridPaidModuleSwitchMap;
 
@@ -409,6 +410,9 @@ class DescribeVersionConfigResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->hybridPaidGrayStatus) {
+            $this->hybridPaidGrayStatus->validate();
+        }
         if (\is_array($this->trialModuleList)) {
             Model::validateArray($this->trialModuleList);
         }
@@ -471,7 +475,7 @@ class DescribeVersionConfigResponseBody extends Model
         }
 
         if (null !== $this->hybridPaidGrayStatus) {
-            $res['HybridPaidGrayStatus'] = $this->hybridPaidGrayStatus;
+            $res['HybridPaidGrayStatus'] = null !== $this->hybridPaidGrayStatus ? $this->hybridPaidGrayStatus->toArray($noStream) : $this->hybridPaidGrayStatus;
         }
 
         if (null !== $this->hybridPaidModuleSwitchMap) {
@@ -753,7 +757,7 @@ class DescribeVersionConfigResponseBody extends Model
         }
 
         if (isset($map['HybridPaidGrayStatus'])) {
-            $model->hybridPaidGrayStatus = $map['HybridPaidGrayStatus'];
+            $model->hybridPaidGrayStatus = hybridPaidGrayStatus::fromMap($map['HybridPaidGrayStatus']);
         }
 
         if (isset($map['HybridPaidModuleSwitchMap'])) {

@@ -24,6 +24,11 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
     public $edrModuleSwitchShrink;
 
     /**
+     * @var bool
+     */
+    public $freeTrial;
+
+    /**
      * @var int
      */
     public $postPaidHostAutoBind;
@@ -51,6 +56,7 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'edrModuleSwitchShrink' => 'EdrModuleSwitch',
+        'freeTrial' => 'FreeTrial',
         'postPaidHostAutoBind' => 'PostPaidHostAutoBind',
         'postPaidHostAutoBindVersion' => 'PostPaidHostAutoBindVersion',
         'postPayInstanceId' => 'PostPayInstanceId',
@@ -76,6 +82,10 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
 
         if (null !== $this->edrModuleSwitchShrink) {
             $res['EdrModuleSwitch'] = $this->edrModuleSwitchShrink;
+        }
+
+        if (null !== $this->freeTrial) {
+            $res['FreeTrial'] = $this->freeTrial;
         }
 
         if (null !== $this->postPaidHostAutoBind) {
@@ -119,6 +129,10 @@ class ModifyPostPayModuleSwitchShrinkRequest extends Model
 
         if (isset($map['EdrModuleSwitch'])) {
             $model->edrModuleSwitchShrink = $map['EdrModuleSwitch'];
+        }
+
+        if (isset($map['FreeTrial'])) {
+            $model->freeTrial = $map['FreeTrial'];
         }
 
         if (isset($map['PostPaidHostAutoBind'])) {

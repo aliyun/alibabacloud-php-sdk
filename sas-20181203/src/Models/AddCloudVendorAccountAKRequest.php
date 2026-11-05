@@ -72,6 +72,11 @@ class AddCloudVendorAccountAKRequest extends Model
      * @var string
      */
     public $vendorAuthAlias;
+
+    /**
+     * @var string
+     */
+    public $vendorUserName;
     protected $_name = [
         'akType' => 'AkType',
         'authModules' => 'AuthModules',
@@ -86,6 +91,7 @@ class AddCloudVendorAccountAKRequest extends Model
         'tenantId' => 'TenantId',
         'vendor' => 'Vendor',
         'vendorAuthAlias' => 'VendorAuthAlias',
+        'vendorUserName' => 'VendorUserName',
     ];
 
     public function validate()
@@ -178,6 +184,10 @@ class AddCloudVendorAccountAKRequest extends Model
             $res['VendorAuthAlias'] = $this->vendorAuthAlias;
         }
 
+        if (null !== $this->vendorUserName) {
+            $res['VendorUserName'] = $this->vendorUserName;
+        }
+
         return $res;
     }
 
@@ -260,6 +270,10 @@ class AddCloudVendorAccountAKRequest extends Model
 
         if (isset($map['VendorAuthAlias'])) {
             $model->vendorAuthAlias = $map['VendorAuthAlias'];
+        }
+
+        if (isset($map['VendorUserName'])) {
+            $model->vendorUserName = $map['VendorUserName'];
         }
 
         return $model;
