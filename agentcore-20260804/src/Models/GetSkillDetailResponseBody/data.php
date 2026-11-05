@@ -30,6 +30,11 @@ class data extends Model
     public $draftMode;
 
     /**
+     * @var bool
+     */
+    public $editable;
+
+    /**
      * @var string
      */
     public $editingVersion;
@@ -98,6 +103,7 @@ class data extends Model
         'description' => 'description',
         'downloadCount' => 'downloadCount',
         'draftMode' => 'draftMode',
+        'editable' => 'editable',
         'editingVersion' => 'editingVersion',
         'enable' => 'enable',
         'from' => 'from',
@@ -141,6 +147,10 @@ class data extends Model
 
         if (null !== $this->draftMode) {
             $res['draftMode'] = $this->draftMode;
+        }
+
+        if (null !== $this->editable) {
+            $res['editable'] = $this->editable;
         }
 
         if (null !== $this->editingVersion) {
@@ -232,6 +242,10 @@ class data extends Model
 
         if (isset($map['draftMode'])) {
             $model->draftMode = $map['draftMode'];
+        }
+
+        if (isset($map['editable'])) {
+            $model->editable = $map['editable'];
         }
 
         if (isset($map['editingVersion'])) {
