@@ -8,7 +8,12 @@ use AlibabaCloud\Dara\Model;
 
 class GetDatasetRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
+        'version' => 'version',
     ];
 
     public function validate()
@@ -18,7 +23,12 @@ class GetDatasetRequest extends Model
 
     public function toArray($noStream = false)
     {
-        return [];
+        $res = [];
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
+        }
+
+        return $res;
     }
 
     public function toMap($noStream = false)
@@ -28,6 +38,11 @@ class GetDatasetRequest extends Model
 
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
+        }
+
+        return $model;
     }
 }

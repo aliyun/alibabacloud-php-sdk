@@ -1,3 +1,7 @@
+2026-11-05 Version: 2.0.13
+- Update API GetDataset: add request parameters version.
+
+
 2026-11-03 Version: 2.0.12
 - Update API GetContextStore: add response parameters Body.config.auditLogStore.
 - Update API GetContextStore: add response parameters Body.config.runtimeRecallEnabled.

@@ -157,6 +157,7 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateOptimizeTaskRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateOptimizeTaskResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -167,6 +168,9 @@ class AgentLoop extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'AgentLoop';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agentloop', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -2535,8 +2539,14 @@ class AgentLoop extends OpenApiClient
     public function getDatasetWithOptions($agentSpace, $datasetName, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDataset',
