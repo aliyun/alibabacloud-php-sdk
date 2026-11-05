@@ -1,4 +1,7 @@
 2026-11-05 Version: 2.0.0
+- Generated php 2026-06-30 for AgenticBAS.
+
+2026-11-05 Version: 2.0.0
 - Update API CreatePentestTask: add request parameters OperationInput.Credentials.
 - Update API CreatePentestTask: add request parameters OperationInput.CreditsLimitAction.
 - Update API CreatePentestTask: add request parameters OperationInput.MaxCredits.
