@@ -4,26 +4,28 @@
 
 namespace AlibabaCloud\SDK\DdosDiversion\V20230701;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\DdosDiversion\V20230701\Models\ConfigNetStatusRequest;
 use AlibabaCloud\SDK\DdosDiversion\V20230701\Models\ConfigNetStatusResponse;
 use AlibabaCloud\SDK\DdosDiversion\V20230701\Models\ListInstanceRequest;
 use AlibabaCloud\SDK\DdosDiversion\V20230701\Models\ListInstanceResponse;
 use AlibabaCloud\SDK\DdosDiversion\V20230701\Models\QueryNetListRequest;
 use AlibabaCloud\SDK\DdosDiversion\V20230701\Models\QueryNetListResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class DdosDiversion extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_productId = 'DdosDiversion';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ddosdiversion', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -41,67 +43,82 @@ class DdosDiversion extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Configures the advertising of a CIDR block.
-     *  *
-     * @param ConfigNetStatusRequest $request ConfigNetStatusRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Configures the advertising of a CIDR block.
      *
-     * @return ConfigNetStatusResponse ConfigNetStatusResponse
+     * @param request - ConfigNetStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigNetStatusResponse
+     *
+     * @param ConfigNetStatusRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ConfigNetStatusResponse
      */
     public function configNetStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->net)) {
-            $query['Net'] = $request->net;
+        if (null !== $request->net) {
+            @$query['Net'] = $request->net;
         }
-        if (!Utils::isUnset($request->regions)) {
-            $query['Regions'] = $request->regions;
+
+        if (null !== $request->regions) {
+            @$query['Regions'] = $request->regions;
         }
-        if (!Utils::isUnset($request->saleId)) {
-            $query['SaleId'] = $request->saleId;
+
+        if (null !== $request->saleId) {
+            @$query['SaleId'] = $request->saleId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->subNets)) {
-            $query['SubNets'] = $request->subNets;
+
+        if (null !== $request->subNets) {
+            @$query['SubNets'] = $request->subNets;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigNetStatus',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigNetStatus',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConfigNetStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the advertising of a CIDR block.
-     *  *
-     * @param ConfigNetStatusRequest $request ConfigNetStatusRequest
+     * Configures the advertising of a CIDR block.
      *
-     * @return ConfigNetStatusResponse ConfigNetStatusResponse
+     * @param request - ConfigNetStatusRequest
+     *
+     * @returns ConfigNetStatusResponse
+     *
+     * @param ConfigNetStatusRequest $request
+     *
+     * @return ConfigNetStatusResponse
      */
     public function configNetStatus($request)
     {
@@ -111,56 +128,70 @@ class DdosDiversion extends OpenApiClient
     }
 
     /**
-     * @summary Queries anti-DDoS diversion instances.
-     *  *
-     * @param ListInstanceRequest $request ListInstanceRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of instances.
      *
-     * @return ListInstanceResponse ListInstanceResponse
+     * @param request - ListInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceResponse
+     *
+     * @param ListInstanceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListInstanceResponse
      */
     public function listInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->num)) {
-            $query['Num'] = $request->num;
+
+        if (null !== $request->num) {
+            @$query['Num'] = $request->num;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->saleId)) {
-            $query['SaleId'] = $request->saleId;
+
+        if (null !== $request->saleId) {
+            @$query['SaleId'] = $request->saleId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstance',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstance',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries anti-DDoS diversion instances.
-     *  *
-     * @param ListInstanceRequest $request ListInstanceRequest
+     * Queries a list of instances.
      *
-     * @return ListInstanceResponse ListInstanceResponse
+     * @param request - ListInstanceRequest
+     *
+     * @returns ListInstanceResponse
+     *
+     * @param ListInstanceRequest $request
+     *
+     * @return ListInstanceResponse
      */
     public function listInstance($request)
     {
@@ -170,59 +201,74 @@ class DdosDiversion extends OpenApiClient
     }
 
     /**
-     * @summary Queries the CIDR blocks of an anti-DDoS diversion instance.
-     *  *
-     * @param QueryNetListRequest $request QueryNetListRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the CIDR blocks of an anti-DDoS diversion instance.
      *
-     * @return QueryNetListResponse QueryNetListResponse
+     * @param request - QueryNetListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryNetListResponse
+     *
+     * @param QueryNetListRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryNetListResponse
      */
     public function queryNetListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mainNet)) {
-            $query['MainNet'] = $request->mainNet;
+        if (null !== $request->mainNet) {
+            @$query['MainNet'] = $request->mainNet;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->net)) {
-            $query['Net'] = $request->net;
+
+        if (null !== $request->net) {
+            @$query['Net'] = $request->net;
         }
-        if (!Utils::isUnset($request->num)) {
-            $query['Num'] = $request->num;
+
+        if (null !== $request->num) {
+            @$query['Num'] = $request->num;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->saleId)) {
-            $query['SaleId'] = $request->saleId;
+
+        if (null !== $request->saleId) {
+            @$query['SaleId'] = $request->saleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryNetList',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryNetList',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryNetListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the CIDR blocks of an anti-DDoS diversion instance.
-     *  *
-     * @param QueryNetListRequest $request QueryNetListRequest
+     * Queries the CIDR blocks of an anti-DDoS diversion instance.
      *
-     * @return QueryNetListResponse QueryNetListResponse
+     * @param request - QueryNetListRequest
+     *
+     * @returns QueryNetListResponse
+     *
+     * @param QueryNetListRequest $request
+     *
+     * @return QueryNetListResponse
      */
     public function queryNetList($request)
     {

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\DdosDiversion\V20230701\Models\QueryNetListResponseBody\data\nets\DDoSDefense;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cleanTh extends Model
 {
     /**
-     * @description The traffic scrubbing threshold in Mbit/s.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $mbps;
 
     /**
-     * @description The traffic scrubbing threshold in packets per second (pps)
-     *
-     * @example 0
-     *
      * @var int
      */
     public $pps;
     protected $_name = [
         'mbps' => 'Mbps',
-        'pps'  => 'Pps',
+        'pps' => 'Pps',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mbps) {
             $res['Mbps'] = $this->mbps;
         }
+
         if (null !== $this->pps) {
             $res['Pps'] = $this->pps;
         }
@@ -47,17 +41,18 @@ class cleanTh extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cleanTh
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mbps'])) {
             $model->mbps = $map['Mbps'];
         }
+
         if (isset($map['Pps'])) {
             $model->pps = $map['Pps'];
         }

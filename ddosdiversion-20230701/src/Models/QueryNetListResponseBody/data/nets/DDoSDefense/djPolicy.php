@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\DdosDiversion\V20230701\Models\QueryNetListResponseBody\data\nets\DDoSDefense;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class djPolicy extends Model
 {
     /**
-     * @description The name of the mitigation policy.
-     *
-     * @example test_polilciy-xxx
-     *
      * @var string
      */
     public $policyName;
@@ -22,9 +18,10 @@ class djPolicy extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyName) {
@@ -34,11 +31,11 @@ class djPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return djPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

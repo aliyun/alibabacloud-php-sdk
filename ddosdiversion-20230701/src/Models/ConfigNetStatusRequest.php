@@ -4,116 +4,132 @@
 
 namespace AlibabaCloud\SDK\DdosDiversion\V20230701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigNetStatusRequest extends Model
 {
     /**
-     * @description The CIDR block of the anti-DDoS diversion instance.
-     *
-     * This parameter is required.
-     * @example 192.168.XX.XX/22
-     *
      * @var string
      */
     public $net;
 
     /**
-     * @description The regions in which the CIDR block needs to be advertised or withdrawn from advertising. If you leave this parameter empty, the CIDR blocks in all regions are configured.
-     *
-     * >  You can call the [QueryNetList](https://help.aliyun.com/document_detail/2639086.html) operation to obtain the regions of the CIDR blocks.
      * @var string[]
      */
     public $regions;
 
     /**
-     * @description The ID of the anti-DDoS diversion instance.
-     *
-     * This parameter is required.
-     * @example ddos_diversion_public_cn-xxxxxxxxxxxxx
-     *
      * @var string
      */
     public $saleId;
 
     /**
-     * @description The status of the CIDR block. Valid values:
-     *
-     *   enable: advertises the CIDR block.
-     *   disable: withdraws the advertising of the CIDR block.
-     *
-     * This parameter is required.
-     * @example enable
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The subnet CIDR blocks of the CIDR block.
-     *
      * @var string[]
      */
     public $subNets;
     protected $_name = [
-        'net'     => 'Net',
+        'net' => 'Net',
         'regions' => 'Regions',
-        'saleId'  => 'SaleId',
-        'status'  => 'Status',
+        'saleId' => 'SaleId',
+        'status' => 'Status',
         'subNets' => 'SubNets',
     ];
 
     public function validate()
     {
+        if (\is_array($this->regions)) {
+            Model::validateArray($this->regions);
+        }
+        if (\is_array($this->subNets)) {
+            Model::validateArray($this->subNets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->net) {
             $res['Net'] = $this->net;
         }
+
         if (null !== $this->regions) {
-            $res['Regions'] = $this->regions;
+            if (\is_array($this->regions)) {
+                $res['Regions'] = [];
+                $n1 = 0;
+                foreach ($this->regions as $item1) {
+                    $res['Regions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->saleId) {
             $res['SaleId'] = $this->saleId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->subNets) {
-            $res['SubNets'] = $this->subNets;
+            if (\is_array($this->subNets)) {
+                $res['SubNets'] = [];
+                $n1 = 0;
+                foreach ($this->subNets as $item1) {
+                    $res['SubNets'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigNetStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Net'])) {
             $model->net = $map['Net'];
         }
+
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
-                $model->regions = $map['Regions'];
+                $model->regions = [];
+                $n1 = 0;
+                foreach ($map['Regions'] as $item1) {
+                    $model->regions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SaleId'])) {
             $model->saleId = $map['SaleId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SubNets'])) {
             if (!empty($map['SubNets'])) {
-                $model->subNets = $map['SubNets'];
+                $model->subNets = [];
+                $n1 = 0;
+                foreach ($map['SubNets'] as $item1) {
+                    $model->subNets[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

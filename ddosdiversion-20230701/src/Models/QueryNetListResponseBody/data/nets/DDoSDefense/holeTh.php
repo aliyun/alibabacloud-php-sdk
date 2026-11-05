@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\DdosDiversion\V20230701\Models\QueryNetListResponseBody\data\nets\DDoSDefense;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class holeTh extends Model
 {
     /**
-     * @description The blackhole filtering threshold.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $threshMbps;
@@ -22,9 +18,10 @@ class holeTh extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->threshMbps) {
@@ -34,11 +31,11 @@ class holeTh extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return holeTh
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
