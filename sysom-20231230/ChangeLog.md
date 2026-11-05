@@ -1,3 +1,9 @@
+2026-11-05 Version: 2.2.0
+- Support API ListCopilotSessionMessages.
+- Support API ListCopilotSessions.
+- Support API UpdateCopilotSession.
+
+
 2026-10-30 Version: 2.2.0
 - Support API CreateCopilotSession.
 - Support API DeleteCopilotSession.
