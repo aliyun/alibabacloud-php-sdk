@@ -1262,7 +1262,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Queries the list of teams by using paging.
+     * Queries the team list by using paging.
      *
      * @param request - ListTeamsRequest
      * @param headers - map
@@ -1320,7 +1320,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Queries the list of teams by using paging.
+     * Queries the team list by using paging.
      *
      * @param request - ListTeamsRequest
      *

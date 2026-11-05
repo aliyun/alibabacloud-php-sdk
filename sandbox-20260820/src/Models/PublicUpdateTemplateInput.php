@@ -14,11 +14,17 @@ class PublicUpdateTemplateInput extends Model
     public $buildConfig;
 
     /**
+     * @var string
+     */
+    public $plan;
+
+    /**
      * @var PublicUpdateTemplateRuntimeConfig
      */
     public $runtimeConfig;
     protected $_name = [
         'buildConfig' => 'buildConfig',
+        'plan' => 'plan',
         'runtimeConfig' => 'runtimeConfig',
     ];
 
@@ -40,6 +46,10 @@ class PublicUpdateTemplateInput extends Model
             $res['buildConfig'] = null !== $this->buildConfig ? $this->buildConfig->toArray($noStream) : $this->buildConfig;
         }
 
+        if (null !== $this->plan) {
+            $res['plan'] = $this->plan;
+        }
+
         if (null !== $this->runtimeConfig) {
             $res['runtimeConfig'] = null !== $this->runtimeConfig ? $this->runtimeConfig->toArray($noStream) : $this->runtimeConfig;
         }
@@ -57,6 +67,10 @@ class PublicUpdateTemplateInput extends Model
         $model = new self();
         if (isset($map['buildConfig'])) {
             $model->buildConfig = PublicUpdateTemplateBuildConfig::fromMap($map['buildConfig']);
+        }
+
+        if (isset($map['plan'])) {
+            $model->plan = $map['plan'];
         }
 
         if (isset($map['runtimeConfig'])) {
