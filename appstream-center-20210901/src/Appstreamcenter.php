@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeliverToUserSlsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeliverToUserSlsResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeEventsRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeEventsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerRequest;
@@ -137,6 +139,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTenantConfigResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerWorkloadTemplateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerWorkloadTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListZonesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListZonesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\LogOffAllSessionsInAppInstanceGroupRequest;
@@ -164,6 +168,26 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyWuyingServerAttribut
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyWuyingServerAttributeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\PageListAppInstanceGroupUserResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryAppInstanceGroupReportListRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryAppInstanceGroupReportListResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryConnectionReportRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryConnectionReportResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryDauReportDataRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryDauReportDataResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryMauReportDataRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryMauReportDataResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryNetworkRttReportRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryNetworkRttReportResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryNodeReportDataRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryNodeReportDataResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QuerySessionReportDataRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QuerySessionReportDataResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryUserAppUsageAggregateByHourRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryUserAppUsageAggregateByHourResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryUserAppUsageTimeRankRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryUserAppUsageTimeRankResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryUserUsageReportRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryUserUsageReportResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RemoveResourceGroupModelTemplateRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RemoveResourceGroupModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RemoveRuntimeChannelRequest;
@@ -2435,6 +2459,129 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deliverToUserSlsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the resource and session events of the current account within the last 30 days by using paging.
+     *
+     * @remarks
+     * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified at the same time, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+     *
+     * @param request - DescribeEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventsResponse
+     *
+     * @param DescribeEventsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeEventsResponse
+     */
+    public function describeEventsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->appInstanceGroupName) {
+            @$body['AppInstanceGroupName'] = $request->appInstanceGroupName;
+        }
+
+        if (null !== $request->appInstanceId) {
+            @$body['AppInstanceId'] = $request->appInstanceId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->eventId) {
+            @$body['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->eventType) {
+            @$body['EventType'] = $request->eventType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->memberEniIp) {
+            @$body['MemberEniIp'] = $request->memberEniIp;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$body['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEvents',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the resource and session events of the current account within the last 30 days by using paging.
+     *
+     * @remarks
+     * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified at the same time, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+     *
+     * @param request - DescribeEventsRequest
+     *
+     * @returns DescribeEventsResponse
+     *
+     * @param DescribeEventsRequest $request
+     *
+     * @return DescribeEventsResponse
+     */
+    public function describeEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEventsWithOptions($request, $runtime);
     }
 
     /**
@@ -6169,6 +6316,77 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Queries the available Wuying Workstation workload templates for a specified virtual node pool.
+     *
+     * @remarks
+     * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the VirtualNodePoolId under the current account. This operation verifies the ownership of the node pool and returns up to 100 records sorted by the template configuration order. The template content is Base64-encoded after being UTF-8 encoded. You must perform Base64 decoding before use. The current version does not use MaxResults and NextToken for pagination.
+     *
+     * @param request - ListWuyingServerWorkloadTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWuyingServerWorkloadTemplateResponse
+     *
+     * @param ListWuyingServerWorkloadTemplateRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListWuyingServerWorkloadTemplateResponse
+     */
+    public function listWuyingServerWorkloadTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->virtualNodePoolId) {
+            @$query['VirtualNodePoolId'] = $request->virtualNodePoolId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWuyingServerWorkloadTemplate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWuyingServerWorkloadTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the available Wuying Workstation workload templates for a specified virtual node pool.
+     *
+     * @remarks
+     * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the VirtualNodePoolId under the current account. This operation verifies the ownership of the node pool and returns up to 100 records sorted by the template configuration order. The template content is Base64-encoded after being UTF-8 encoded. You must perform Base64 decoding before use. The current version does not use MaxResults and NextToken for pagination.
+     *
+     * @param request - ListWuyingServerWorkloadTemplateRequest
+     *
+     * @returns ListWuyingServerWorkloadTemplateResponse
+     *
+     * @param ListWuyingServerWorkloadTemplateRequest $request
+     *
+     * @return ListWuyingServerWorkloadTemplateResponse
+     */
+    public function listWuyingServerWorkloadTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWuyingServerWorkloadTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of available zone IDs for a specified region, product type, and operating system type.
      *
      * @remarks
@@ -6800,7 +7018,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Shares an image with other WUYING users or cancels the sharing of a shared image.
+     * Shares an image with other WUYING users or unshares a shared image.
      *
      * @param request - ModifyShareImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6855,7 +7073,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Shares an image with other WUYING users or cancels the sharing of a shared image.
+     * Shares an image with other WUYING users or unshares a shared image.
      *
      * @param request - ModifyShareImageRequest
      *
@@ -7069,6 +7287,900 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pageListAppInstanceGroupUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries delivery group reports by region, delivery group, status, user authorization relationship, or statistical date.
+     *
+     * @remarks
+     * Queries the delivery group ID, name, and status in delivery group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business region, and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the delivery group. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are passed at the same time, the intersection is taken. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be passed in pairs to represent a closed interval. If both a single day and an interval are passed, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+     *
+     * @param request - QueryAppInstanceGroupReportListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAppInstanceGroupReportListResponse
+     *
+     * @param QueryAppInstanceGroupReportListRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return QueryAppInstanceGroupReportListResponse
+     */
+    public function queryAppInstanceGroupReportListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->appInstanceGroupName) {
+            @$body['AppInstanceGroupName'] = $request->appInstanceGroupName;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->endUserId) {
+            @$body['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->statDate) {
+            @$body['StatDate'] = $request->statDate;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAppInstanceGroupReportList',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAppInstanceGroupReportListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries delivery group reports by region, delivery group, status, user authorization relationship, or statistical date.
+     *
+     * @remarks
+     * Queries the delivery group ID, name, and status in delivery group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business region, and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the delivery group. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are passed at the same time, the intersection is taken. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be passed in pairs to represent a closed interval. If both a single day and an interval are passed, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+     *
+     * @param request - QueryAppInstanceGroupReportListRequest
+     *
+     * @returns QueryAppInstanceGroupReportListResponse
+     *
+     * @param QueryAppInstanceGroupReportListRequest $request
+     *
+     * @return QueryAppInstanceGroupReportListResponse
+     */
+    public function queryAppInstanceGroupReportList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAppInstanceGroupReportListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
+     *
+     * @remarks
+     * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+     *
+     * @param request - QueryConnectionReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryConnectionReportResponse
+     *
+     * @param QueryConnectionReportRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryConnectionReportResponse
+     */
+    public function queryConnectionReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryConnectionReport',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryConnectionReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
+     *
+     * @remarks
+     * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+     *
+     * @param request - QueryConnectionReportRequest
+     *
+     * @returns QueryConnectionReportResponse
+     *
+     * @param QueryConnectionReportRequest $request
+     *
+     * @return QueryConnectionReportResponse
+     */
+    public function queryConnectionReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryConnectionReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the number of daily active users and streaming daily active users by date.
+     *
+     * @remarks
+     * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to `CloudApp`. You can use BizRegionId and AppInstanceGroupId to narrow the scope. If neither is specified, the query returns aggregated data for all business regions. Results are paginated, with a maximum of 1,500 records per page.
+     *
+     * @param request - QueryDauReportDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDauReportDataResponse
+     *
+     * @param QueryDauReportDataRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryDauReportDataResponse
+     */
+    public function queryDauReportDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryDauReportData',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryDauReportDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the number of daily active users and streaming daily active users by date.
+     *
+     * @remarks
+     * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to `CloudApp`. You can use BizRegionId and AppInstanceGroupId to narrow the scope. If neither is specified, the query returns aggregated data for all business regions. Results are paginated, with a maximum of 1,500 records per page.
+     *
+     * @param request - QueryDauReportDataRequest
+     *
+     * @returns QueryDauReportDataResponse
+     *
+     * @param QueryDauReportDataRequest $request
+     *
+     * @return QueryDauReportDataResponse
+     */
+    public function queryDauReportData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDauReportDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the number of monthly active users for each month within a specified time range.
+     *
+     * @remarks
+     * Queries the monthly active user (MAU) report. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation, and the time span cannot exceed 60 months. The API returns statistical values by month. To adapt to offline data generated on the next day, the last month in the query range uses the day before `EndDate` as the statistical cutoff date. Results are returned in pages, with a maximum of 1,500 entries per page.
+     *
+     * @param request - QueryMauReportDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMauReportDataResponse
+     *
+     * @param QueryMauReportDataRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryMauReportDataResponse
+     */
+    public function queryMauReportDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMauReportData',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMauReportDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the number of monthly active users for each month within a specified time range.
+     *
+     * @remarks
+     * Queries the monthly active user (MAU) report. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation, and the time span cannot exceed 60 months. The API returns statistical values by month. To adapt to offline data generated on the next day, the last month in the query range uses the day before `EndDate` as the statistical cutoff date. Results are returned in pages, with a maximum of 1,500 entries per page.
+     *
+     * @param request - QueryMauReportDataRequest
+     *
+     * @returns QueryMauReportDataResponse
+     *
+     * @param QueryMauReportDataRequest $request
+     *
+     * @return QueryMauReportDataResponse
+     */
+    public function queryMauReportData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMauReportDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the network RTT and low-RTT user statistics within a specified time range.
+     *
+     * @remarks
+     * Queries network round-trip time (RTT) reports. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`. The minimum, maximum, and average RTT values are measured in milliseconds. The low-RTT threshold is determined by the report statistical caliber, and the current API operation does not return this threshold. Results are returned in pages, with a maximum of 1,500 entries per page.
+     *
+     * @param request - QueryNetworkRttReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryNetworkRttReportResponse
+     *
+     * @param QueryNetworkRttReportRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryNetworkRttReportResponse
+     */
+    public function queryNetworkRttReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryNetworkRttReport',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryNetworkRttReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the network RTT and low-RTT user statistics within a specified time range.
+     *
+     * @remarks
+     * Queries network round-trip time (RTT) reports. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`. The minimum, maximum, and average RTT values are measured in milliseconds. The low-RTT threshold is determined by the report statistical caliber, and the current API operation does not return this threshold. Results are returned in pages, with a maximum of 1,500 entries per page.
+     *
+     * @param request - QueryNetworkRttReportRequest
+     *
+     * @returns QueryNetworkRttReportResponse
+     *
+     * @param QueryNetworkRttReportRequest $request
+     *
+     * @return QueryNetworkRttReportResponse
+     */
+    public function queryNetworkRttReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryNetworkRttReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
+     *
+     * @remarks
+     * Queries the node quantity report. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+     *
+     * @param request - QueryNodeReportDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryNodeReportDataResponse
+     *
+     * @param QueryNodeReportDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryNodeReportDataResponse
+     */
+    public function queryNodeReportDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->statDateType) {
+            @$body['StatDateType'] = $request->statDateType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryNodeReportData',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryNodeReportDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
+     *
+     * @remarks
+     * Queries the node quantity report. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+     *
+     * @param request - QueryNodeReportDataRequest
+     *
+     * @returns QueryNodeReportDataResponse
+     *
+     * @param QueryNodeReportDataRequest $request
+     *
+     * @return QueryNodeReportDataResponse
+     */
+    public function queryNodeReportData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryNodeReportDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the total number of sessions, connected sessions, and streaming sessions by statistical granularity.
+     *
+     * @remarks
+     * Queries session quantity reports. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 records per page.
+     *
+     * @param request - QuerySessionReportDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySessionReportDataResponse
+     *
+     * @param QuerySessionReportDataRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QuerySessionReportDataResponse
+     */
+    public function querySessionReportDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->statDateType) {
+            @$body['StatDateType'] = $request->statDateType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySessionReportData',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySessionReportDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the total number of sessions, connected sessions, and streaming sessions by statistical granularity.
+     *
+     * @remarks
+     * Queries session quantity reports. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 records per page.
+     *
+     * @param request - QuerySessionReportDataRequest
+     *
+     * @returns QuerySessionReportDataResponse
+     *
+     * @param QuerySessionReportDataRequest $request
+     *
+     * @return QuerySessionReportDataResponse
+     */
+    public function querySessionReportData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySessionReportDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
+     *
+     * @remarks
+     * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. A maximum of the top five applications by usage duration are returned for each hour.
+     *
+     * @param request - QueryUserAppUsageAggregateByHourRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUserAppUsageAggregateByHourResponse
+     *
+     * @param QueryUserAppUsageAggregateByHourRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return QueryUserAppUsageAggregateByHourResponse
+     */
+    public function queryUserAppUsageAggregateByHourWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryUserAppUsageAggregateByHour',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryUserAppUsageAggregateByHourResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
+     *
+     * @remarks
+     * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. A maximum of the top five applications by usage duration are returned for each hour.
+     *
+     * @param request - QueryUserAppUsageAggregateByHourRequest
+     *
+     * @returns QueryUserAppUsageAggregateByHourResponse
+     *
+     * @param QueryUserAppUsageAggregateByHourRequest $request
+     *
+     * @return QueryUserAppUsageAggregateByHourResponse
+     */
+    public function queryUserAppUsageAggregateByHour($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserAppUsageAggregateByHourWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the ranking of cumulative application usage duration for a specified user within a date range.
+     *
+     * @remarks
+     * Queries the ranking of application usage duration for a specified user within a statistical range. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+     *
+     * @param request - QueryUserAppUsageTimeRankRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUserAppUsageTimeRankResponse
+     *
+     * @param QueryUserAppUsageTimeRankRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryUserAppUsageTimeRankResponse
+     */
+    public function queryUserAppUsageTimeRankWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryUserAppUsageTimeRank',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryUserAppUsageTimeRankResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the ranking of cumulative application usage duration for a specified user within a date range.
+     *
+     * @remarks
+     * Queries the ranking of application usage duration for a specified user within a statistical range. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+     *
+     * @param request - QueryUserAppUsageTimeRankRequest
+     *
+     * @returns QueryUserAppUsageTimeRankResponse
+     *
+     * @param QueryUserAppUsageTimeRankRequest $request
+     *
+     * @return QueryUserAppUsageTimeRankResponse
+     */
+    public function queryUserAppUsageTimeRank($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserAppUsageTimeRankWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
+     *
+     * @remarks
+     * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated based on a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+     *
+     * @param request - QueryUserUsageReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryUserUsageReportResponse
+     *
+     * @param QueryUserUsageReportRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryUserUsageReportResponse
+     */
+    public function queryUserUsageReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->connectionStatus) {
+            @$body['ConnectionStatus'] = $request->connectionStatus;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
+        }
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryUserUsageReport',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryUserUsageReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
+     *
+     * @remarks
+     * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated based on a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+     *
+     * @param request - QueryUserUsageReportRequest
+     *
+     * @returns QueryUserUsageReportResponse
+     *
+     * @param QueryUserUsageReportRequest $request
+     *
+     * @return QueryUserUsageReportResponse
+     */
+    public function queryUserUsageReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryUserUsageReportWithOptions($request, $runtime);
     }
 
     /**
