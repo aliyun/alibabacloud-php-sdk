@@ -34,6 +34,11 @@ class CreateFileSystemRequest extends Model
     public $inputRegionId;
 
     /**
+     * @var string
+     */
+    public $meteringMode;
+
+    /**
      * @var int
      */
     public $partitionNumber;
@@ -78,6 +83,7 @@ class CreateFileSystemRequest extends Model
         'description' => 'Description',
         'fileSystemName' => 'FileSystemName',
         'inputRegionId' => 'InputRegionId',
+        'meteringMode' => 'MeteringMode',
         'partitionNumber' => 'PartitionNumber',
         'protocolType' => 'ProtocolType',
         'provisionedThroughputInMiBps' => 'ProvisionedThroughputInMiBps',
@@ -114,6 +120,10 @@ class CreateFileSystemRequest extends Model
 
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
+        }
+
+        if (null !== $this->meteringMode) {
+            $res['MeteringMode'] = $this->meteringMode;
         }
 
         if (null !== $this->partitionNumber) {
@@ -177,6 +187,10 @@ class CreateFileSystemRequest extends Model
 
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
+        }
+
+        if (isset($map['MeteringMode'])) {
+            $model->meteringMode = $map['MeteringMode'];
         }
 
         if (isset($map['PartitionNumber'])) {

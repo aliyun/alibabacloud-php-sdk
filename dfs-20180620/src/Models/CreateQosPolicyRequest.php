@@ -57,6 +57,11 @@ class CreateQosPolicyRequest extends Model
      * @var string[]
      */
     public $zoneIds;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'description' => 'Description',
         'federationId' => 'FederationId',
@@ -68,6 +73,7 @@ class CreateQosPolicyRequest extends Model
         'maxMetaQps' => 'MaxMetaQps',
         'reqTags' => 'ReqTags',
         'zoneIds' => 'ZoneIds',
+        'storageType' => 'storageType',
     ];
 
     public function validate()
@@ -148,6 +154,10 @@ class CreateQosPolicyRequest extends Model
             }
         }
 
+        if (null !== $this->storageType) {
+            $res['storageType'] = $this->storageType;
+        }
+
         return $res;
     }
 
@@ -218,6 +228,10 @@ class CreateQosPolicyRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['storageType'])) {
+            $model->storageType = $map['storageType'];
         }
 
         return $model;

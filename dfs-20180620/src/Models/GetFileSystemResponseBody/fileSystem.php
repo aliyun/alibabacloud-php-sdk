@@ -29,6 +29,11 @@ class fileSystem extends Model
     public $fileSystemName;
 
     /**
+     * @var string
+     */
+    public $meteringMode;
+
+    /**
      * @var float
      */
     public $meteringSpaceSize;
@@ -102,6 +107,7 @@ class fileSystem extends Model
         'description' => 'Description',
         'fileSystemId' => 'FileSystemId',
         'fileSystemName' => 'FileSystemName',
+        'meteringMode' => 'MeteringMode',
         'meteringSpaceSize' => 'MeteringSpaceSize',
         'mountPointCount' => 'MountPointCount',
         'numberOfDirectories' => 'NumberOfDirectories',
@@ -140,6 +146,10 @@ class fileSystem extends Model
 
         if (null !== $this->fileSystemName) {
             $res['FileSystemName'] = $this->fileSystemName;
+        }
+
+        if (null !== $this->meteringMode) {
+            $res['MeteringMode'] = $this->meteringMode;
         }
 
         if (null !== $this->meteringSpaceSize) {
@@ -223,6 +233,10 @@ class fileSystem extends Model
 
         if (isset($map['FileSystemName'])) {
             $model->fileSystemName = $map['FileSystemName'];
+        }
+
+        if (isset($map['MeteringMode'])) {
+            $model->meteringMode = $map['MeteringMode'];
         }
 
         if (isset($map['MeteringSpaceSize'])) {

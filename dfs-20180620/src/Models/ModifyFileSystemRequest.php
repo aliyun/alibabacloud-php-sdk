@@ -29,6 +29,11 @@ class ModifyFileSystemRequest extends Model
     public $inputRegionId;
 
     /**
+     * @var string
+     */
+    public $meteringMode;
+
+    /**
      * @var int
      */
     public $provisionedThroughputInMiBps;
@@ -47,6 +52,7 @@ class ModifyFileSystemRequest extends Model
         'fileSystemId' => 'FileSystemId',
         'fileSystemName' => 'FileSystemName',
         'inputRegionId' => 'InputRegionId',
+        'meteringMode' => 'MeteringMode',
         'provisionedThroughputInMiBps' => 'ProvisionedThroughputInMiBps',
         'spaceCapacity' => 'SpaceCapacity',
         'throughputMode' => 'ThroughputMode',
@@ -74,6 +80,10 @@ class ModifyFileSystemRequest extends Model
 
         if (null !== $this->inputRegionId) {
             $res['InputRegionId'] = $this->inputRegionId;
+        }
+
+        if (null !== $this->meteringMode) {
+            $res['MeteringMode'] = $this->meteringMode;
         }
 
         if (null !== $this->provisionedThroughputInMiBps) {
@@ -113,6 +123,10 @@ class ModifyFileSystemRequest extends Model
 
         if (isset($map['InputRegionId'])) {
             $model->inputRegionId = $map['InputRegionId'];
+        }
+
+        if (isset($map['MeteringMode'])) {
+            $model->meteringMode = $map['MeteringMode'];
         }
 
         if (isset($map['ProvisionedThroughputInMiBps'])) {

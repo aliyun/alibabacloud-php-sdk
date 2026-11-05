@@ -1,3 +1,11 @@
+2026-11-05 Version: 1.2.1
+- Update API CreateFileSystem: add request parameters MeteringMode.
+- Update API CreateQosPolicy: add request parameters storageType.
+- Update API GetFileSystem: add response parameters Body.FileSystem.MeteringMode.
+- Update API ListFileSystems: add response parameters Body.FileSystems.$.MeteringMode.
+- Update API ModifyFileSystem: add request parameters MeteringMode.
+
+
 2026-05-18 Version: 1.2.0
 - Support API DetachVscFromMountPoints.
 

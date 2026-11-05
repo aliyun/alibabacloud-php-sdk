@@ -102,7 +102,7 @@ class DFS extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dfs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -132,7 +132,7 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 挂载VSC挂载点.
+     * Adds compute instances to a mount point.
      *
      * @remarks
      *
@@ -215,7 +215,7 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 挂载VSC挂载点.
+     * Adds compute instances to a mount point.
      *
      * @remarks
      *
@@ -235,7 +235,10 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 批量挂载VSC挂载点.
+     * Mounts multiple VSC mount points.
+     *
+     * @remarks
+     * Currently, only one VSC can be associated with multiple mount points. Specifically, the values of AttachInfos.InstanceId or AttachInfos.VscId must be equal.
      *
      * @param tmpReq - AttachVscToMountPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -288,7 +291,10 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 批量挂载VSC挂载点.
+     * Mounts multiple VSC mount points.
+     *
+     * @remarks
+     * Currently, only one VSC can be associated with multiple mount points. Specifically, the values of AttachInfos.InstanceId or AttachInfos.VscId must be equal.
      *
      * @param request - AttachVscToMountPointsRequest
      *
@@ -306,6 +312,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Associates a VSC mount point alias with a file system.
+     *
      * @param request - BindVscMountPointAliasRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -355,6 +363,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Associates a VSC mount point alias with a file system.
+     *
      * @param request - BindVscMountPointAliasRequest
      *
      * @returns BindVscMountPointAliasResponse
@@ -371,6 +381,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates an access group.
+     *
      * @param request - CreateAccessGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -420,6 +432,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates an access group.
+     *
      * @param request - CreateAccessGroupRequest
      *
      * @returns CreateAccessGroupResponse
@@ -436,6 +450,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates an access group rule.
+     *
      * @param request - CreateAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -493,6 +509,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates an access group rule.
+     *
      * @param request - CreateAccessRuleRequest
      *
      * @returns CreateAccessRuleResponse
@@ -509,6 +527,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates a file system.
+     *
+     * @remarks
+     * Before you create a file system, learn about the [billing methods](https://help.aliyun.com/document_detail/419020.html) and [pricing of Apsara File Storage for HDFS](https://www.aliyun.com/price/product?spm=a2c4g.11186623.0.0.476a13d7VQohVH#/alidfs/detail/alidfs).
+     *
      * @param request - CreateFileSystemRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -541,6 +564,10 @@ class DFS extends OpenApiClient
 
         if (null !== $request->inputRegionId) {
             @$query['InputRegionId'] = $request->inputRegionId;
+        }
+
+        if (null !== $request->meteringMode) {
+            @$query['MeteringMode'] = $request->meteringMode;
         }
 
         if (null !== $request->partitionNumber) {
@@ -594,6 +621,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates a file system.
+     *
+     * @remarks
+     * Before you create a file system, learn about the [billing methods](https://help.aliyun.com/document_detail/419020.html) and [pricing of Apsara File Storage for HDFS](https://www.aliyun.com/price/product?spm=a2c4g.11186623.0.0.476a13d7VQohVH#/alidfs/detail/alidfs).
+     *
      * @param request - CreateFileSystemRequest
      *
      * @returns CreateFileSystemResponse
@@ -610,6 +642,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates a mount target.
+     *
      * @param request - CreateMountPointRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -675,6 +709,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates a mount target.
+     *
      * @param request - CreateMountPointRequest
      *
      * @returns CreateMountPointResponse
@@ -761,6 +797,10 @@ class DFS extends OpenApiClient
             @$query['ZoneIds'] = $request->zoneIdsShrink;
         }
 
+        if (null !== $request->storageType) {
+            @$query['storageType'] = $request->storageType;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -798,7 +838,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 创建 ugo.
+     * Creates a user and group mapping for an Apsara File Storage for HDFS file system instance.
+     *
+     * @remarks
+     * - The user and group mapping feature is currently in invitational preview. To use this feature, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c4g.11186623.0.0.24241ee9gQPwnE).
+     * - File system permission management in Apsara File Storage for HDFS relies on the users and groups of files. You must manage user and group mappings by calling API operations. For more information about the directory and file access permissions of Apsara File Storage for HDFS file systems, see [Directory and file access permissions](https://help.aliyun.com/document_detail/430865.html).
+     * - The number of users and groups in a single file system is subject to the following limits:
+     *   - A single file system can have a maximum of 1,000 users.
+     *   - A single file system can have a maximum of 30 groups.
+     *   - Each user can belong to a maximum of 10 groups.
      *
      * @param tmpReq - CreateUserGroupsMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -839,7 +887,15 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 创建 ugo.
+     * Creates a user and group mapping for an Apsara File Storage for HDFS file system instance.
+     *
+     * @remarks
+     * - The user and group mapping feature is currently in invitational preview. To use this feature, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c4g.11186623.0.0.24241ee9gQPwnE).
+     * - File system permission management in Apsara File Storage for HDFS relies on the users and groups of files. You must manage user and group mappings by calling API operations. For more information about the directory and file access permissions of Apsara File Storage for HDFS file systems, see [Directory and file access permissions](https://help.aliyun.com/document_detail/430865.html).
+     * - The number of users and groups in a single file system is subject to the following limits:
+     *   - A single file system can have a maximum of 1,000 users.
+     *   - A single file system can have a maximum of 30 groups.
+     *   - Each user can belong to a maximum of 10 groups.
      *
      * @param request - CreateUserGroupsMappingRequest
      *
@@ -857,6 +913,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates a VSC mount target.
+     *
      * @param tmpReq - CreateVscMountPointRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -912,6 +970,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Creates a VSC mount target.
+     *
      * @param request - CreateVscMountPointRequest
      *
      * @returns CreateVscMountPointResponse
@@ -928,6 +988,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Deletes a permission group.
+     *
+     * @remarks
+     * The default VPC permission group (DefaultAccessGroupName) cannot be deleted.
+     *
      * @param request - DeleteAccessGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -969,6 +1034,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Deletes a permission group.
+     *
+     * @remarks
+     * The default VPC permission group (DefaultAccessGroupName) cannot be deleted.
+     *
      * @param request - DeleteAccessGroupRequest
      *
      * @returns DeleteAccessGroupResponse
@@ -985,6 +1055,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Deletes a permission group rule.
+     *
      * @param request - DeleteAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1030,6 +1102,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Deletes a permission group rule.
+     *
      * @param request - DeleteAccessRuleRequest
      *
      * @returns DeleteAccessRuleResponse
@@ -1046,6 +1120,12 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Deletes an existing file system.
+     *
+     * @remarks
+     * - You can delete a file system instance only when the number of mount targets for the file system is 0.
+     * - Once a file system instance is deleted, its data cannot be recovered. Proceed with caution.
+     *
      * @param request - DeleteFileSystemRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1087,6 +1167,12 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Deletes an existing file system.
+     *
+     * @remarks
+     * - You can delete a file system instance only when the number of mount targets for the file system is 0.
+     * - Once a file system instance is deleted, its data cannot be recovered. Proceed with caution.
+     *
      * @param request - DeleteFileSystemRequest
      *
      * @returns DeleteFileSystemResponse
@@ -1103,6 +1189,12 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Delete a mount target.
+     *
+     * @remarks
+     * ### API Guide
+     * After a mount target is deleted, it cannot be recovered. Proceed with caution.
+     *
      * @param request - DeleteMountPointRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1148,6 +1240,12 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Delete a mount target.
+     *
+     * @remarks
+     * ### API Guide
+     * After a mount target is deleted, it cannot be recovered. Proceed with caution.
+     *
      * @param request - DeleteMountPointRequest
      *
      * @returns DeleteMountPointResponse
@@ -1233,7 +1331,12 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 删除 ugo.
+     * Deletes the mappings between users and groups for an Apsara File Storage for HDFS file system instance.
+     *
+     * @remarks
+     * - The user and group mapping feature is currently in invitational preview. To use this feature, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c4g.11186623.0.0.24241ee9gQPwnE).
+     * - Permission management for Apsara File Storage for HDFS file systems relies on file users and groups. You must manage user and group mappings by using OpenAPI. For more information about directory and file access permissions in Apsara File Storage for HDFS, see [Directory and file access permissions](https://help.aliyun.com/document_detail/430865.html).
+     * - You cannot delete users and groups from a file system. You can only delete the mappings between users and groups. Once a user or group is added to a file system in any way, it cannot be deleted.
      *
      * @param tmpReq - DeleteUserGroupsMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1274,7 +1377,12 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 删除 ugo.
+     * Deletes the mappings between users and groups for an Apsara File Storage for HDFS file system instance.
+     *
+     * @remarks
+     * - The user and group mapping feature is currently in invitational preview. To use this feature, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket?spm=a2c4g.11186623.0.0.24241ee9gQPwnE).
+     * - Permission management for Apsara File Storage for HDFS file systems relies on file users and groups. You must manage user and group mappings by using OpenAPI. For more information about directory and file access permissions in Apsara File Storage for HDFS, see [Directory and file access permissions](https://help.aliyun.com/document_detail/430865.html).
+     * - You cannot delete users and groups from a file system. You can only delete the mappings between users and groups. Once a user or group is added to a file system in any way, it cannot be deleted.
      *
      * @param request - DeleteUserGroupsMappingRequest
      *
@@ -1292,6 +1400,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Deletes an existing VSC mount point.
+     *
      * @param request - DeleteVscMountPointRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1337,6 +1447,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Deletes an existing VSC mount point.
+     *
      * @param request - DeleteVscMountPointRequest
      *
      * @returns DeleteVscMountPointResponse
@@ -1353,7 +1465,10 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 批量挂载VSC挂载点.
+     * Queries the mount information of VSCs in batches.
+     *
+     * @remarks
+     * Supports only one-to-many mappings from a storage resource (MountPointId) to multiple compute resources (InstanceId and VscId), and one-to-many mappings from a compute resource (InstanceId and VscId) to multiple storage resources (MountPointId).
      *
      * @param tmpReq - DescribeMountPointsVscAttachInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1414,7 +1529,10 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 批量挂载VSC挂载点.
+     * Queries the mount information of VSCs in batches.
+     *
+     * @remarks
+     * Supports only one-to-many mappings from a storage resource (MountPointId) to multiple compute resources (InstanceId and VscId), and one-to-many mappings from a compute resource (InstanceId and VscId) to multiple storage resources (MountPointId).
      *
      * @param request - DescribeMountPointsVscAttachInfoRequest
      *
@@ -1432,6 +1550,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the available Alibaba Cloud regions.
+     *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1473,6 +1593,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the available Alibaba Cloud regions.
+     *
      * @param request - DescribeRegionsRequest
      *
      * @returns DescribeRegionsResponse
@@ -1489,7 +1611,7 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 查询VSC挂载信息.
+     * Retrieves a list of VSC mount points.
      *
      * @param request - DescribeVscMountPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1548,7 +1670,7 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 查询VSC挂载信息.
+     * Retrieves a list of VSC mount points.
      *
      * @param request - DescribeVscMountPointsRequest
      *
@@ -1566,7 +1688,7 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 批量卸载VSC 挂载点.
+     * Unmounts multiple VSC mount points.
      *
      * @param tmpReq - DetachVscFromMountPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1619,7 +1741,7 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * 批量卸载VSC 挂载点.
+     * Unmounts multiple VSC mount points.
      *
      * @param request - DetachVscFromMountPointsRequest
      *
@@ -1637,6 +1759,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Disassociates compute instances from a mount point.
+     *
      * @param tmpReq - DetachVscMountPointRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1708,6 +1832,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Disassociates compute instances from a mount point.
+     *
      * @param request - DetachVscMountPointRequest
      *
      * @returns DetachVscMountPointResponse
@@ -1724,6 +1850,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Retrieves the information about an access group.
+     *
      * @param request - GetAccessGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1765,6 +1893,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Retrieves the information about an access group.
+     *
      * @param request - GetAccessGroupRequest
      *
      * @returns GetAccessGroupResponse
@@ -1781,6 +1911,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Query permission group rule information.
+     *
      * @param request - GetAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1826,6 +1958,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Query permission group rule information.
+     *
      * @param request - GetAccessRuleRequest
      *
      * @returns GetAccessRuleResponse
@@ -1842,6 +1976,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the file system information.
+     *
      * @param request - GetFileSystemRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1883,6 +2019,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the file system information.
+     *
      * @param request - GetFileSystemRequest
      *
      * @returns GetFileSystemResponse
@@ -1899,6 +2037,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the details of a mount point.
+     *
      * @param request - GetMountPointRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1944,6 +2084,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the details of a mount point.
+     *
      * @param request - GetMountPointRequest
      *
      * @returns GetMountPointResponse
@@ -1960,6 +2102,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the configuration information for each zone in a specified region.
+     *
      * @param request - GetRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1997,6 +2141,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the configuration information for each zone in a specified region.
+     *
      * @param request - GetRegionRequest
      *
      * @returns GetRegionResponse
@@ -2013,6 +2159,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the details of access groups in batches.
+     *
      * @param request - ListAccessGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2070,6 +2218,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the details of access groups in batches.
+     *
      * @param request - ListAccessGroupsRequest
      *
      * @returns ListAccessGroupsResponse
@@ -2086,6 +2236,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries access group rules.
+     *
      * @param request - ListAccessRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2147,6 +2299,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries access group rules.
+     *
      * @param request - ListAccessRulesRequest
      *
      * @returns ListAccessRulesResponse
@@ -2236,6 +2390,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the details of multiple file systems.
+     *
      * @param request - ListFileSystemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2293,6 +2449,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries the details of multiple file systems.
+     *
      * @param request - ListFileSystemsRequest
      *
      * @returns ListFileSystemsResponse
@@ -2309,6 +2467,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries mount point information in batches.
+     *
      * @param request - ListMountPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2370,6 +2530,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Queries mount point information in batches.
+     *
      * @param request - ListMountPointsRequest
      *
      * @returns ListMountPointsResponse
@@ -2459,7 +2621,14 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * list ugm.
+     * Queries the user and group mappings of an Apsara File Storage for HDFS file system instance.
+     *
+     * @remarks
+     * The permission management of Apsara File Storage for HDFS file systems relies on file users and groups. You must manage user and group mappings by calling API operations. For more information about directory and file access permissions in Apsara File Storage for HDFS, see [Directory and file access permissions](https://help.aliyun.com/document_detail/430865.html).
+     * The number of users and groups in a single file system is subject to the following limits:
+     * - A single file system supports up to 1,000 users.
+     * - A single file system supports up to 30 groups.
+     * - Each user can belong to up to 10 groups.
      *
      * @param request - ListUserGroupsMappingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2510,7 +2679,14 @@ class DFS extends OpenApiClient
     }
 
     /**
-     * list ugm.
+     * Queries the user and group mappings of an Apsara File Storage for HDFS file system instance.
+     *
+     * @remarks
+     * The permission management of Apsara File Storage for HDFS file systems relies on file users and groups. You must manage user and group mappings by calling API operations. For more information about directory and file access permissions in Apsara File Storage for HDFS, see [Directory and file access permissions](https://help.aliyun.com/document_detail/430865.html).
+     * The number of users and groups in a single file system is subject to the following limits:
+     * - A single file system supports up to 1,000 users.
+     * - A single file system supports up to 30 groups.
+     * - Each user can belong to up to 10 groups.
      *
      * @param request - ListUserGroupsMappingsRequest
      *
@@ -2528,6 +2704,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Modifies the information of a permission group.
+     *
+     * @remarks
+     * The default VPC permission group (DefaultAccessGroupName) cannot be modified.
+     *
      * @param request - ModifyAccessGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2577,6 +2758,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Modifies the information of a permission group.
+     *
+     * @remarks
+     * The default VPC permission group (DefaultAccessGroupName) cannot be modified.
+     *
      * @param request - ModifyAccessGroupRequest
      *
      * @returns ModifyAccessGroupResponse
@@ -2593,6 +2779,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Modifies a permission group rule.
+     *
+     * @remarks
+     * Rules in the default VPC permission group (DefaultAccessGroupName) cannot be modified.
+     *
      * @param request - ModifyAccessRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2650,6 +2841,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Modifies a permission group rule.
+     *
+     * @remarks
+     * Rules in the default VPC permission group (DefaultAccessGroupName) cannot be modified.
+     *
      * @param request - ModifyAccessRuleRequest
      *
      * @returns ModifyAccessRuleResponse
@@ -2666,6 +2862,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Modifies the attributes of a file system.
+     *
+     * @remarks
+     * Before modifying a file system, review the [billing methods](https://help.aliyun.com/document_detail/419020.html) and [pricing of Apsara File Storage for HDFS](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.3fbc281fRrtedx#/alidfs/detail/alidfs).
+     *
      * @param request - ModifyFileSystemRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2694,6 +2895,10 @@ class DFS extends OpenApiClient
 
         if (null !== $request->inputRegionId) {
             @$query['InputRegionId'] = $request->inputRegionId;
+        }
+
+        if (null !== $request->meteringMode) {
+            @$query['MeteringMode'] = $request->meteringMode;
         }
 
         if (null !== $request->provisionedThroughputInMiBps) {
@@ -2727,6 +2932,11 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Modifies the attributes of a file system.
+     *
+     * @remarks
+     * Before modifying a file system, review the [billing methods](https://help.aliyun.com/document_detail/419020.html) and [pricing of Apsara File Storage for HDFS](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.3fbc281fRrtedx#/alidfs/detail/alidfs).
+     *
      * @param request - ModifyFileSystemRequest
      *
      * @returns ModifyFileSystemResponse
@@ -2743,6 +2953,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Modifies the information of a mount point.
+     *
      * @param request - ModifyMountPointRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2800,6 +3012,8 @@ class DFS extends OpenApiClient
     }
 
     /**
+     * Modifies the information of a mount point.
+     *
      * @param request - ModifyMountPointRequest
      *
      * @returns ModifyMountPointResponse

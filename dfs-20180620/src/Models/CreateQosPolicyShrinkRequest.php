@@ -57,6 +57,11 @@ class CreateQosPolicyShrinkRequest extends Model
      * @var string
      */
     public $zoneIdsShrink;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'description' => 'Description',
         'federationId' => 'FederationId',
@@ -68,6 +73,7 @@ class CreateQosPolicyShrinkRequest extends Model
         'maxMetaQps' => 'MaxMetaQps',
         'reqTagsShrink' => 'ReqTags',
         'zoneIdsShrink' => 'ZoneIds',
+        'storageType' => 'storageType',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class CreateQosPolicyShrinkRequest extends Model
 
         if (null !== $this->zoneIdsShrink) {
             $res['ZoneIds'] = $this->zoneIdsShrink;
+        }
+
+        if (null !== $this->storageType) {
+            $res['storageType'] = $this->storageType;
         }
 
         return $res;
@@ -167,6 +177,10 @@ class CreateQosPolicyShrinkRequest extends Model
 
         if (isset($map['ZoneIds'])) {
             $model->zoneIdsShrink = $map['ZoneIds'];
+        }
+
+        if (isset($map['storageType'])) {
+            $model->storageType = $map['storageType'];
         }
 
         return $model;
