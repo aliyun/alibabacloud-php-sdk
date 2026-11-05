@@ -17,12 +17,17 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeUsersForAppRespon
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeUsersForAppShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BatchCreateLlmTemplatesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BatchCreateLlmTemplatesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BuilderImageByParentRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BuilderImageByParentResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\BuilderImageByParentShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigResourceGroupModelTemplateRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigResourceGroupModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeChannelRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeChannelResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeModelTemplateRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ConfigRuntimeModelTemplateResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAndBindAppRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAndBindAppResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupShrinkRequest;
@@ -39,10 +44,14 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateModelTemplateRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAdaptorRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAdaptorResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppInstancesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteLlmTemplateRequest;
@@ -63,6 +72,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerReques
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAuthCodeRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAuthCodeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetBrowserInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetBrowserInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest;
@@ -75,20 +86,31 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetModelProviderTemplateRe
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetModelProviderTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetOtaTaskByTaskIdResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceModifyPriceRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceModifyPriceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceQuotaRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceQuotaResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeChannelRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeChannelResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetTaskRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceTypeRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceTypeResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppsByAppInstanceGroupIdRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppsByAppInstanceGroupIdResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedAppInstanceGroupByUserRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedAppInstanceGroupByUserResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedAppsByUserRequest;
@@ -130,12 +152,16 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListPublishedAppInstanceGr
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListPublishedAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListPublishedAppsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListPublishedAppsResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionIdRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionIdResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagCloudResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTaskStepRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTaskStepResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTenantConfigResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponse;
@@ -148,6 +174,9 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\LogOffAllSessionsInAppInst
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupChargeTypeRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupChargeTypeResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupChargeTypeShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyShrinkRequest;
@@ -213,14 +242,23 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnassignWuyingServerPrivateAddressesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnassignWuyingServerPrivateAddressesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindAppRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindAppResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAdaptorRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAdaptorResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAdaptorShrinkRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateAppInstanceGroupImageResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateImageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateImageResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateImageTaskRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateImageTaskResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelProviderTemplateRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelProviderTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelProviderTemplateShrinkRequest;
@@ -228,6 +266,7 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelTemplateRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateWuyingServerImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateWuyingServerImageResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -238,6 +277,9 @@ class Appstreamcenter extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'appstream-center';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('appstream-center', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -702,6 +744,163 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Creates a custom image based on an existing image and starts an image creation task.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the parent image is available and that an available image distribution record exists in the region where the image is to be created.
+     * 1. Call ListImage to obtain the parent image ID.
+     * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
+     * 3. Save the returned ImageId, VersionId, and TaskId.
+     * 4. Call GetTask to query the creation progress. **A successful request does not indicate that the image creation is complete.**
+     *
+     * @param tmpReq - BuilderImageByParentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BuilderImageByParentResponse
+     *
+     * @param BuilderImageByParentRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return BuilderImageByParentResponse
+     */
+    public function builderImageByParentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BuilderImageByParentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->propertyMap) {
+            $request->propertyMapShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->propertyMap, 'PropertyMap', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->dataDiskSize) {
+            @$body['DataDiskSize'] = $request->dataDiskSize;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->distro) {
+            @$body['Distro'] = $request->distro;
+        }
+
+        if (null !== $request->driverIdList) {
+            @$body['DriverIdList'] = $request->driverIdList;
+        }
+
+        if (null !== $request->imageCreateMode) {
+            @$body['ImageCreateMode'] = $request->imageCreateMode;
+        }
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->language) {
+            @$body['Language'] = $request->language;
+        }
+
+        if (null !== $request->nodeInstanceType) {
+            @$body['NodeInstanceType'] = $request->nodeInstanceType;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$body['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->packageType) {
+            @$body['PackageType'] = $request->packageType;
+        }
+
+        if (null !== $request->parentImageId) {
+            @$body['ParentImageId'] = $request->parentImageId;
+        }
+
+        if (null !== $request->performanceType) {
+            @$body['PerformanceType'] = $request->performanceType;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->propertyMapShrink) {
+            @$body['PropertyMap'] = $request->propertyMapShrink;
+        }
+
+        if (null !== $request->resourceList) {
+            @$body['ResourceList'] = $request->resourceList;
+        }
+
+        if (null !== $request->runMode) {
+            @$body['RunMode'] = $request->runMode;
+        }
+
+        if (null !== $request->sourceRegion) {
+            @$body['SourceRegion'] = $request->sourceRegion;
+        }
+
+        if (null !== $request->systemDiskSize) {
+            @$body['SystemDiskSize'] = $request->systemDiskSize;
+        }
+
+        if (null !== $request->vSwitchIdList) {
+            @$body['VSwitchIdList'] = $request->vSwitchIdList;
+        }
+
+        if (null !== $request->versionName) {
+            @$body['VersionName'] = $request->versionName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BuilderImageByParent',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BuilderImageByParentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom image based on an existing image and starts an image creation task.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the parent image is available and that an available image distribution record exists in the region where the image is to be created.
+     * 1. Call ListImage to obtain the parent image ID.
+     * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
+     * 3. Save the returned ImageId, VersionId, and TaskId.
+     * 4. Call GetTask to query the creation progress. **A successful request does not indicate that the image creation is complete.**
+     *
+     * @param request - BuilderImageByParentRequest
+     *
+     * @returns BuilderImageByParentResponse
+     *
+     * @param BuilderImageByParentRequest $request
+     *
+     * @return BuilderImageByParentResponse
+     */
+    public function builderImageByParent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->builderImageByParentWithOptions($request, $runtime);
+    }
+
+    /**
      * Configures the model group for a resource group.
      *
      * @remarks
@@ -936,6 +1135,95 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->configRuntimeModelTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an application and binds it to a specified image version.
+     *
+     * @remarks
+     * Only custom images and community images that can be managed by the current account are supported. If VersionId is omitted, the current active version of the image is used. If specified, the version must belong to the image specified by ImageId.
+     * Call ListImage first to select an image. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
+     *
+     * @param request - CreateAndBindAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAndBindAppResponse
+     *
+     * @param CreateAndBindAppRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAndBindAppResponse
+     */
+    public function createAndBindAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appIconUrl) {
+            @$body['AppIconUrl'] = $request->appIconUrl;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->originAppType) {
+            @$body['OriginAppType'] = $request->originAppType;
+        }
+
+        if (null !== $request->port) {
+            @$body['Port'] = $request->port;
+        }
+
+        if (null !== $request->urlSuffix) {
+            @$body['UrlSuffix'] = $request->urlSuffix;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAndBindApp',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAndBindAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an application and binds it to a specified image version.
+     *
+     * @remarks
+     * Only custom images and community images that can be managed by the current account are supported. If VersionId is omitted, the current active version of the image is used. If specified, the version must belong to the image specified by ImageId.
+     * Call ListImage first to select an image. After the application is created, save the returned AppId, AppVersionId, ImageId, and VersionId. To dissociate the application, call UnbindApp.
+     *
+     * @param request - CreateAndBindAppRequest
+     *
+     * @returns CreateAndBindAppResponse
+     *
+     * @param CreateAndBindAppRequest $request
+     *
+     * @return CreateAndBindAppResponse
+     */
+    public function createAndBindApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAndBindAppWithOptions($request, $runtime);
     }
 
     /**
@@ -1919,6 +2207,166 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Deletes a specified application adapter, or dissociates the adapter from a specified image version.
+     *
+     * @remarks
+     * *Confirm the deletion scope.**
+     * - If both ImageId and VersionId are specified: The adapter is only dissociated from the specified image version.
+     * - If ImageId and VersionId are not both specified: The adapter deletion process is initiated. An adapter cannot be deleted if it is still referenced by multiple images. If the application has other adapters, the application cannot be deleted along with the adapter.
+     * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adapter.** Verify these identifiers by checking the application and image query results first.
+     *
+     * @param request - DeleteAdaptorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAdaptorResponse
+     *
+     * @param DeleteAdaptorRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAdaptorResponse
+     */
+    public function deleteAdaptorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->adaptorId) {
+            @$body['AdaptorId'] = $request->adaptorId;
+        }
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appVersionId) {
+            @$body['AppVersionId'] = $request->appVersionId;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAdaptor',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAdaptorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified application adapter, or dissociates the adapter from a specified image version.
+     *
+     * @remarks
+     * *Confirm the deletion scope.**
+     * - If both ImageId and VersionId are specified: The adapter is only dissociated from the specified image version.
+     * - If ImageId and VersionId are not both specified: The adapter deletion process is initiated. An adapter cannot be deleted if it is still referenced by multiple images. If the application has other adapters, the application cannot be deleted along with the adapter.
+     * **AdaptorId, AppVersionId, and AppId must be provided together and correspond to the same application adapter.** Verify these identifiers by checking the application and image query results first.
+     *
+     * @param request - DeleteAdaptorRequest
+     *
+     * @returns DeleteAdaptorResponse
+     *
+     * @param DeleteAdaptorRequest $request
+     *
+     * @return DeleteAdaptorResponse
+     */
+    public function deleteAdaptor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAdaptorWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a specified application version, or deletes the entire application and its adapters if the version ID is omitted.
+     *
+     * @remarks
+     * *You must dissociate all image associations from the target application or version before deletion.**
+     * 1. Call ListApp to obtain the AppId and confirm whether the application can be deleted.
+     * 2. Use UnbindApp or DeleteAdaptor to dissociate related image associations.
+     * 3. Specify AppVersionId to delete a single application version, or omit this parameter to delete the entire application.
+     * After an application version is deleted, if the application has no other valid adapters, the application record is also deleted.
+     *
+     * @param request - DeleteAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppResponse
+     *
+     * @param DeleteAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appVersionId) {
+            @$body['AppVersionId'] = $request->appVersionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApp',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified application version, or deletes the entire application and its adapters if the version ID is omitted.
+     *
+     * @remarks
+     * *You must dissociate all image associations from the target application or version before deletion.**
+     * 1. Call ListApp to obtain the AppId and confirm whether the application can be deleted.
+     * 2. Use UnbindApp or DeleteAdaptor to dissociate related image associations.
+     * 3. Specify AppVersionId to delete a single application version, or omit this parameter to delete the entire application.
+     * After an application version is deleted, if the application has no other valid adapters, the application record is also deleted.
+     *
+     * @param request - DeleteAppRequest
+     *
+     * @returns DeleteAppResponse
+     *
+     * @param DeleteAppRequest $request
+     *
+     * @return DeleteAppResponse
+     */
+    public function deleteApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a resource-based pay-as-you-go delivery group.
      *
      * @remarks
@@ -2462,10 +2910,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the resource and session events of the current account within the last 30 days by using paging.
+     * Performs a paged query for the resource and session events of the current account within the last 30 days. Paging is supported.
      *
      * @remarks
-     * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified at the same time, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+     * Queries the resource and session events of the current account. Both StartTime and EndTime must be specified, and the time range is inclusive. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is applied. The results are returned in descending order of the event log time. For pagination, specify PageSize and PageNumber. The current version does not use MaxResults and NextToken.
      *
      * @param request - DescribeEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2564,10 +3012,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the resource and session events of the current account within the last 30 days by using paging.
+     * Performs a paged query for the resource and session events of the current account within the last 30 days. Paging is supported.
      *
      * @remarks
-     * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified at the same time, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+     * Queries the resource and session events of the current account. Both StartTime and EndTime must be specified, and the time range is inclusive. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is applied. The results are returned in descending order of the event log time. For pagination, specify PageSize and PageNumber. The current version does not use MaxResults and NextToken.
      *
      * @param request - DescribeEventsRequest
      *
@@ -2761,6 +3209,97 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the connection authorization code and required resource information for an existing image or application building task.
+     *
+     * @remarks
+     * Before calling this operation, you must create a task, and the building or validation resources corresponding to the task must be available.
+     * 1. Obtain TaskId and the actual TaskType from the response of the task creation operation or GetTask.
+     * 2. Specify ResourceType to obtain the connection information for the building or validation environment.
+     * 3. Use the returned authorization code along with the user, resource group, and application identifiers in the same response for connection.
+     * The authorization code is a sensitive connection credential. Do not record it in public documents or logs. When specifying AppId, you must also specify the matching AppVersionId.
+     *
+     * @param request - GetAuthCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuthCodeResponse
+     *
+     * @param GetAuthCodeRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetAuthCodeResponse
+     */
+    public function getAuthCodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appVersionId) {
+            @$body['AppVersionId'] = $request->appVersionId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAuthCode',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAuthCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the connection authorization code and required resource information for an existing image or application building task.
+     *
+     * @remarks
+     * Before calling this operation, you must create a task, and the building or validation resources corresponding to the task must be available.
+     * 1. Obtain TaskId and the actual TaskType from the response of the task creation operation or GetTask.
+     * 2. Specify ResourceType to obtain the connection information for the building or validation environment.
+     * 3. Use the returned authorization code along with the user, resource group, and application identifiers in the same response for connection.
+     * The authorization code is a sensitive connection credential. Do not record it in public documents or logs. When specifying AppId, you must also specify the matching AppVersionId.
+     *
+     * @param request - GetAuthCodeRequest
+     *
+     * @returns GetAuthCodeResponse
+     *
+     * @param GetAuthCodeRequest $request
+     *
+     * @return GetAuthCodeResponse
+     */
+    public function getAuthCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthCodeWithOptions($request, $runtime);
     }
 
     /**
@@ -3216,6 +3755,107 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Queries the pricing and discount information for scaling out a subscription delivery group to a specified total number of nodes.
+     *
+     * @remarks
+     * This operation queries the resource scale-out pricing for an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
+     * **Before you call this operation, verify the following conditions:**
+     * - The delivery group belongs to the current account and is located in a supported region in the Chinese mainland.
+     * - The product type is Wuying Cloud App or Cloud Browser, and the billing method is subscription and purchased by node. This operation does not apply to browser groups that use the pay-as-you-go billing method or are billed by monthly active users (MAU).
+     * - The order status of the delivery group is normal, a resource node pool is associated, and no paid but ineffective renewal or scale-in orders exist.
+     * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the corresponding region, product, and billing method under the account.
+     * **Parameter relationships:**
+     * - ProductType, AppInstanceGroupId, and Amount are all required parameters and must be specified together.
+     * - ProductType must match the product corresponding to AppInstanceGroupId.
+     * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be passed separately.
+     * **Call sequence:**
+     * 1. First, confirm the target delivery group and the current number of purchased nodes. For Cloud App Common scenarios, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and NodePool.NodeAmount.
+     * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the pricing, coupons, and pricing calculation rules.
+     * 3. After confirming the quote, if you need to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and fill in the target total number in NodePool.NodeAmount as required by the operation. **A successful pricing query does not mean that an order has been created or the scale-out has been completed.**
+     * **Example scenario:**
+     * If a cloud app delivery group currently has 1 purchased subscription node and the target is to scale out to 2 nodes, set ProductType to CloudApp, AppInstanceGroupId to the ID of the delivery group, and Amount to 2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The pricing examples only illustrate the relationship among the original price, discount amount, and discounted price, and do not represent the fixed selling price of the specifications.
+     *
+     * @param request - GetResourceModifyPriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceModifyPriceResponse
+     *
+     * @param GetResourceModifyPriceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetResourceModifyPriceResponse
+     */
+    public function getResourceModifyPriceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->appInstanceGroupId) {
+            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetResourceModifyPrice',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceModifyPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the pricing and discount information for scaling out a subscription delivery group to a specified total number of nodes.
+     *
+     * @remarks
+     * This operation queries the resource scale-out pricing for an existing delivery group. A successful call returns only a quote and does not create an order or add nodes.
+     * **Before you call this operation, verify the following conditions:**
+     * - The delivery group belongs to the current account and is located in a supported region in the Chinese mainland.
+     * - The product type is Wuying Cloud App or Cloud Browser, and the billing method is subscription and purchased by node. This operation does not apply to browser groups that use the pay-as-you-go billing method or are billed by monthly active users (MAU).
+     * - The order status of the delivery group is normal, a resource node pool is associated, and no paid but ineffective renewal or scale-in orders exist.
+     * - The target total number of nodes is greater than the current number of purchased nodes and does not exceed the node quota for the corresponding region, product, and billing method under the account.
+     * **Parameter relationships:**
+     * - ProductType, AppInstanceGroupId, and Amount are all required parameters and must be specified together.
+     * - ProductType must match the product corresponding to AppInstanceGroupId.
+     * - **Amount is the total number of nodes after the scale-out, not the number of nodes added in this operation.** The region, node specifications, and billing method are determined by the existing delivery group and do not need to be passed separately.
+     * **Call sequence:**
+     * 1. First, confirm the target delivery group and the current number of purchased nodes. For Cloud App Common scenarios, you can first invoke [ListAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/ListAppInstanceGroup) to obtain the identity, and then invoke [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query the configuration and NodePool.NodeAmount.
+     * 2. Invoke this operation with the same product type, delivery group identity, and target total number of nodes to read the pricing, coupons, and pricing calculation rules.
+     * 3. After confirming the quote, if you need to execute the scale-out, you can invoke [ModifyNodePoolAmount](https://api.aliyun.com/document/appstream-center/2021-09-01/ModifyNodePoolAmount) and fill in the target total number in NodePool.NodeAmount as required by the operation. **A successful pricing query does not mean that an order has been created or the scale-out has been completed.**
+     * **Example scenario:**
+     * If a cloud app delivery group currently has 1 purchased subscription node and the target is to scale out to 2 nodes, set ProductType to CloudApp, AppInstanceGroupId to the ID of the delivery group, and Amount to 2. Replace the masked resource IDs with the actual values under the current account. The example quantities do not represent default values or quota limits. The pricing examples only illustrate the relationship among the original price, discount amount, and discounted price, and do not represent the fixed selling price of the specifications.
+     *
+     * @param request - GetResourceModifyPriceRequest
+     *
+     * @returns GetResourceModifyPriceResponse
+     *
+     * @param GetResourceModifyPriceRequest $request
+     *
+     * @return GetResourceModifyPriceResponse
+     */
+    public function getResourceModifyPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceModifyPriceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the price information of a resource.
      *
      * @param request - GetResourcePriceRequest
@@ -3298,6 +3938,101 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getResourcePriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the maximum quantity quota applicable to the current account for a specified product, resource type, business region, and billing method.
+     *
+     * @remarks
+     * This operation queries the maximum quantity quota. It does not query the used quota, remaining quota, or real-time resource inventory.
+     * **Parameter relationships:**
+     * - `ResourceType` and `ProductType` are required.
+     * - `BizRegionId` and `ChargeType` are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
+     * - If the region or billing method is omitted, the general quota for the corresponding dimension is queried. The quotas of different regions or billing methods are not added together.
+     * - If multiple quotas apply at the same time, the larger limit is returned.
+     * **Call sequence:**
+     * 1. Select the resource type, product, business region, and billing method of the payer based on subsequent business needs.
+     * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before adding an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
+     * 3. Query the current usage in combination with the resources, and then verify the current operation by using subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
+     * `Data=2147483647` indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
+     *
+     * @param request - GetResourceQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceQuotaResponse
+     *
+     * @param GetResourceQuotaRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetResourceQuotaResponse
+     */
+    public function getResourceQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetResourceQuota',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the maximum quantity quota applicable to the current account for a specified product, resource type, business region, and billing method.
+     *
+     * @remarks
+     * This operation queries the maximum quantity quota. It does not query the used quota, remaining quota, or real-time resource inventory.
+     * **Parameter relationships:**
+     * - `ResourceType` and `ProductType` are required.
+     * - `BizRegionId` and `ChargeType` are optional query conditions and can be specified at the same time. They must be consistent with subsequent purchase or authorization operations.
+     * - If the region or billing method is omitted, the general quota for the corresponding dimension is queried. The quotas of different regions or billing methods are not added together.
+     * - If multiple quotas apply at the same time, the larger limit is returned.
+     * **Call sequence:**
+     * 1. Select the resource type, product, business region, and billing method of the payer based on subsequent business needs.
+     * 2. Invoke this operation to read `Data`. Query `AppInstanceGroup` before creating a delivery group, query `AppAuthUser` before adding an authorized user, and query `PoolNodeAmount` before purchasing or scaling out nodes.
+     * 3. Query the current usage in combination with the resources, and then verify the current operation by using subsequent creation, authorization, or scale-out operations. **This query does not reserve quotas or guarantee the success of subsequent purchases.**
+     * `Data=2147483647` indicates that no smaller quota limit is obtained in this query. It does not mean that the physical inventory is unlimited.
+     *
+     * @param request - GetResourceQuotaRequest
+     *
+     * @returns GetResourceQuotaResponse
+     *
+     * @param GetResourceQuotaRequest $request
+     *
+     * @return GetResourceQuotaResponse
+     */
+    public function getResourceQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceQuotaWithOptions($request, $runtime);
     }
 
     /**
@@ -3534,6 +4269,214 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Queries the details of a task by task ID, or by resource information and task category.
+     *
+     * @remarks
+     * Supports two query methods:
+     * - **Query by task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
+     * - **Query by resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters. You can use the EntityVersionId parameter to specify the resource version.
+     * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not indicate the success of the entire task. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
+     *
+     * @param request - GetTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTaskResponse
+     */
+    public function getTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->entityId) {
+            @$body['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->entityVersionId) {
+            @$body['EntityVersionId'] = $request->entityVersionId;
+        }
+
+        if (null !== $request->taskCategory) {
+            @$body['TaskCategory'] = $request->taskCategory;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTask',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a task by task ID, or by resource information and task category.
+     *
+     * @remarks
+     * Supports two query methods:
+     * - **Query by task ID**: Pass the TaskId parameter. This method takes precedence over querying by resource information.
+     * - **Query by resource**: Omit the TaskId parameter, and pass the EntityId, EntityType, and TaskCategory parameters. You can use the EntityVersionId parameter to specify the resource version.
+     * The API returns the current task status and recorded step information. Determine the overall task result based on the Status parameter. The success of a single step does not indicate the success of the entire task. You can call the ListTaskStep operation to query the names and categories of image creation and application adaptation steps.
+     *
+     * @param request - GetTaskRequest
+     *
+     * @returns GetTaskResponse
+     *
+     * @param GetTaskRequest $request
+     *
+     * @return GetTaskResponse
+     */
+    public function getTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paging query on the valid applications of the current account based on conditions such as the application ID, name, type, and associated product.
+     *
+     * @remarks
+     * When multiple filter conditions are specified simultaneously, they take effect together. AppName supports partial match. When a single-value filter and the corresponding list filter are specified simultaneously, the intersection is used. To avoid empty results, select only one of the formats.
+     * If PageSize is omitted, the value is 10. Query pages sequentially starting from PageNumber 1 until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
+     *
+     * @param tmpReq - ListAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppResponse
+     *
+     * @param ListAppRequest $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAppResponse
+     */
+    public function listAppWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAppShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizTypeList) {
+            $request->bizTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizTypeList, 'BizTypeList', 'json');
+        }
+
+        if (null !== $tmpReq->productTypeList) {
+            $request->productTypeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->productTypeList, 'ProductTypeList', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->appType) {
+            @$body['AppType'] = $request->appType;
+        }
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->bizTypeListShrink) {
+            @$body['BizTypeList'] = $request->bizTypeListShrink;
+        }
+
+        if (null !== $request->originAppType) {
+            @$body['OriginAppType'] = $request->originAppType;
+        }
+
+        if (null !== $request->osType) {
+            @$body['OsType'] = $request->osType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->productTypeListShrink) {
+            @$body['ProductTypeList'] = $request->productTypeListShrink;
+        }
+
+        if (null !== $request->subAppType) {
+            @$body['SubAppType'] = $request->subAppType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListApp',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query on the valid applications of the current account based on conditions such as the application ID, name, type, and associated product.
+     *
+     * @remarks
+     * When multiple filter conditions are specified simultaneously, they take effect together. AppName supports partial match. When a single-value filter and the corresponding list filter are specified simultaneously, the intersection is used. To avoid empty results, select only one of the formats.
+     * If PageSize is omitted, the value is 10. Query pages sequentially starting from PageNumber 1 until the number of retrieved records reaches Count. Before deleting an application, check Deletable.
+     *
+     * @param request - ListAppRequest
+     *
+     * @returns ListAppResponse
+     *
+     * @param ListAppRequest $request
+     *
+     * @return ListAppResponse
+     */
+    public function listApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of multiple delivery groups. This operation queries all delivery groups that meet the specified conditions instead of a specific delivery group.
      *
      * @param request - ListAppInstanceGroupRequest
@@ -3642,6 +4585,153 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the available session instance types for the current account by paging based on the product, region, operating system, and instance type conditions.
+     *
+     * @remarks
+     * This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types of the account and the business region. An empty result does not indicate a request failure.
+     * **Filtering and pagination:**
+     * - ProductType is required. Explicitly specify BizRegionId, PageNumber, and PageSize.
+     * - If BizRegionId is not provided, the region of the current request is used. You can call [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) to obtain the business region.
+     * - AppInstanceType and AppInstanceTypeList can be specified at the same time. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
+     * - Instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
+     * - PageNumber starts from 1. Use TotalCount, PageSize, and PageNumber to continue pagination until all matching results are read.
+     * **Inventory and subsequent calls:**
+     * - Inventory is queried only when QueryInventory is set to true. If inventory information is not obtained, do not assume that the inventory is 0.
+     * - The inventory reflects the current query result and does not indicate a successful reservation.
+     * - After obtaining the AppInstanceType, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
+     * - The current query does not use AppCenterImageId to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
+     * Field examples are used to demonstrate how to specify parameters and do not guarantee that the example instance types exist in the selected region or account. The GPU count field does not currently provide values. Use the GPU memory field to understand the instance type.
+     *
+     * @param request - ListAppInstanceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppInstanceTypeResponse
+     *
+     * @param ListAppInstanceTypeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAppInstanceTypeResponse
+     */
+    public function listAppInstanceTypeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appCenterImageId) {
+            @$query['AppCenterImageId'] = $request->appCenterImageId;
+        }
+
+        if (null !== $request->appInstanceType) {
+            @$query['AppInstanceType'] = $request->appInstanceType;
+        }
+
+        if (null !== $request->appInstanceTypeFamily) {
+            @$query['AppInstanceTypeFamily'] = $request->appInstanceTypeFamily;
+        }
+
+        if (null !== $request->appInstanceTypeList) {
+            @$query['AppInstanceTypeList'] = $request->appInstanceTypeList;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->cpu) {
+            @$query['Cpu'] = $request->cpu;
+        }
+
+        if (null !== $request->gpuMemory) {
+            @$query['GpuMemory'] = $request->gpuMemory;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->memory) {
+            @$query['Memory'] = $request->memory;
+        }
+
+        if (null !== $request->osType) {
+            @$query['OsType'] = $request->osType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->queryInventory) {
+            @$query['QueryInventory'] = $request->queryInventory;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppInstanceType',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppInstanceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the available session instance types for the current account by paging based on the product, region, operating system, and instance type conditions.
+     *
+     * @remarks
+     * This operation is used to select session instance types and does not create resources. The returned results are affected by the available instance types of the account and the business region. An empty result does not indicate a request failure.
+     * **Filtering and pagination:**
+     * - ProductType is required. Explicitly specify BizRegionId, PageNumber, and PageSize.
+     * - If BizRegionId is not provided, the region of the current request is used. You can call [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) to obtain the business region.
+     * - AppInstanceType and AppInstanceTypeList can be specified at the same time. In this case, only the instance types that meet both conditions are returned. Neither parameter overrides the other. The list can contain up to 100 items.
+     * - Instance type family, CPU, memory, GPU memory, operating system, and category conditions are filtered by intersection. The union is not automatically applied.
+     * - PageNumber starts from 1. Use TotalCount, PageSize, and PageNumber to continue pagination until all matching results are read.
+     * **Inventory and subsequent calls:**
+     * - Inventory is queried only when QueryInventory is set to true. If inventory information is not obtained, do not assume that the inventory is 0.
+     * - The inventory reflects the current query result and does not indicate a successful reservation.
+     * - After obtaining the AppInstanceType, you can query the price based on the session instance type parameter requirements of [GetResourcePrice](https://api.aliyun.com/document/appstream-center/2021-09-01/GetResourcePrice).
+     * - The current query does not use AppCenterImageId to filter instance types. Do not use this parameter to determine the compatibility between images and instance types.
+     * Field examples are used to demonstrate how to specify parameters and do not guarantee that the example instance types exist in the selected region or account. The GPU count field does not currently provide values. Use the GPU memory field to understand the instance type.
+     *
+     * @param request - ListAppInstanceTypeRequest
+     *
+     * @returns ListAppInstanceTypeResponse
+     *
+     * @param ListAppInstanceTypeRequest $request
+     *
+     * @return ListAppInstanceTypeResponse
+     */
+    public function listAppInstanceType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppInstanceTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -5867,6 +6957,71 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Queries the list of region IDs available for image services under a specified product for the current account.
+     *
+     * @remarks
+     * The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query defaults to CloudApp.
+     * This operation returns the regions available for image services. You cannot use this information to determine whether a specific image has been distributed to these regions. Before you create or distribute an image based on a parent image, you must also check the region information of the destination image.
+     *
+     * @param request - ListRegionIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRegionIdResponse
+     *
+     * @param ListRegionIdRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListRegionIdResponse
+     */
+    public function listRegionIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListRegionId',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRegionIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of region IDs available for image services under a specified product for the current account.
+     *
+     * @remarks
+     * The returned results are affected by the available region configurations of the account and the product type. If ProductType is omitted, the query defaults to CloudApp.
+     * This operation returns the regions available for image services. You cannot use this information to determine whether a specific image has been distributed to these regions. Before you create or distribute an image based on a parent image, you must also check the region information of the destination image.
+     *
+     * @param request - ListRegionIdRequest
+     *
+     * @returns ListRegionIdResponse
+     *
+     * @param ListRegionIdRequest $request
+     *
+     * @return ListRegionIdResponse
+     */
+    public function listRegionId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRegionIdWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the regions supported by WUYING Cloud Application.
      *
      * @remarks
@@ -6127,6 +7282,71 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Queries the step identifiers, step categories, and interaction methods for application adaptation or image creation tasks.
+     *
+     * @remarks
+     * Returns application adaptation steps when Type is set to ADAPTOR, and image creation steps when Type is set to IMAGE.
+     * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not treat the step index as a completion percentage.
+     *
+     * @param request - ListTaskStepRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTaskStepResponse
+     *
+     * @param ListTaskStepRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListTaskStepResponse
+     */
+    public function listTaskStepWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTaskStep',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTaskStepResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the step identifiers, step categories, and interaction methods for application adaptation or image creation tasks.
+     *
+     * @remarks
+     * Returns application adaptation steps when Type is set to ADAPTOR, and image creation steps when Type is set to IMAGE.
+     * This operation returns step definitions, not the actual progress of a specific task. Read the step definitions first, and then combine them with the current step and step status returned by GetTask to display the task progress. The step sets vary across different task types. Do not treat the step index as a completion percentage.
+     *
+     * @param request - ListTaskStepRequest
+     *
+     * @returns ListTaskStepResponse
+     *
+     * @param ListTaskStepRequest $request
+     *
+     * @return ListTaskStepResponse
+     */
+    public function listTaskStep($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTaskStepWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the configuration information of an administrator account, such as whether resource expiration reminders are enabled.
      *
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6316,10 +7536,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the available Wuying Workstation workload templates for a specified virtual node pool.
+     * Queries the Wuying Workstation workload templates available for a specified virtual node pool.
      *
      * @remarks
-     * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the VirtualNodePoolId under the current account. This operation verifies the ownership of the node pool and returns up to 100 records sorted by the template configuration order. The template content is Base64-encoded after being UTF-8 encoded. You must perform Base64 decoding before use. The current version does not use MaxResults and NextToken for pagination.
+     * Queries the workload templates available for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the `VirtualNodePoolId` of the current account. The operation verifies the ownership of the node pool and returns up to 100 records sorted by template configuration order. The template content is Base64-encoded after being encoded in UTF-8. You must decode the Base64 string before use. The current version does not use `MaxResults` and `NextToken` for pagination.
      *
      * @param request - ListWuyingServerWorkloadTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6366,10 +7586,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the available Wuying Workstation workload templates for a specified virtual node pool.
+     * Queries the Wuying Workstation workload templates available for a specified virtual node pool.
      *
      * @remarks
-     * Queries the available workload templates for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the VirtualNodePoolId under the current account. This operation verifies the ownership of the node pool and returns up to 100 records sorted by the template configuration order. The template content is Base64-encoded after being UTF-8 encoded. You must perform Base64 decoding before use. The current version does not use MaxResults and NextToken for pagination.
+     * Queries the workload templates available for a specified virtual node pool. Before calling this operation, call [ListWuyingServer](~~ListWuyingServer~~) to obtain the `VirtualNodePoolId` of the current account. The operation verifies the ownership of the node pool and returns up to 100 records sorted by template configuration order. The template content is Base64-encoded after being encoded in UTF-8. You must decode the Base64 string before use. The current version does not use `MaxResults` and `NextToken` for pagination.
      *
      * @param request - ListWuyingServerWorkloadTemplateRequest
      *
@@ -6661,6 +7881,129 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAppInstanceGroupAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Changes the billing method of a specified delivery group to the target billing method and returns the ID of the billing conversion task to be created.
+     *
+     * @remarks
+     * This operation performs billing method conversion, which may create orders and trigger subsequent billing changes. **A successful response or a returned task ID does not indicate that the new billing method has taken effect.**
+     * **Before you begin:**
+     * - The resources belong to the current account, and the product and business region match those in the request. Only one delivery group can be specified per request.
+     * - The target billing method must be different from the current one, and the target resource specifications must support the corresponding sales and Billable methods.
+     * - Delivery groups that have been added to a valid collection cannot be converted to a different billing method individually.
+     * - Multiple delivery groups created in the same batch of orders cannot be converted to different Billable methods separately.
+     * **Parameter relationships and call sequence:**
+     * 1. Query the resource details first to confirm the product, business region, and current `ChargeType`. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
+     * 2. Explicitly specify the target `ChargeType`. If you need to purchase a subscription, specify the purchase duration by combining `Period` and `PeriodUnit`. The period combination must comply with the sales rules currently supported by the resource.
+     * 3. Set `AutoPay` based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set `AutoRenew`.
+     * 4. After the call, save the returned `AppInstanceGroupModel.TaskId`. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
+     * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for actual task IDs.
+     *
+     * @param tmpReq - ModifyAppInstanceGroupChargeTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppInstanceGroupChargeTypeResponse
+     *
+     * @param ModifyAppInstanceGroupChargeTypeRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyAppInstanceGroupChargeTypeResponse
+     */
+    public function modifyAppInstanceGroupChargeTypeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyAppInstanceGroupChargeTypeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->appInstanceGroupIds) {
+            $request->appInstanceGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->appInstanceGroupIds, 'AppInstanceGroupIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->appInstanceGroupIdsShrink) {
+            @$body['AppInstanceGroupIds'] = $request->appInstanceGroupIdsShrink;
+        }
+
+        if (null !== $request->autoPay) {
+            @$body['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$body['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->chargeType) {
+            @$body['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$body['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->promotionId) {
+            @$body['PromotionId'] = $request->promotionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAppInstanceGroupChargeType',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAppInstanceGroupChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Changes the billing method of a specified delivery group to the target billing method and returns the ID of the billing conversion task to be created.
+     *
+     * @remarks
+     * This operation performs billing method conversion, which may create orders and trigger subsequent billing changes. **A successful response or a returned task ID does not indicate that the new billing method has taken effect.**
+     * **Before you begin:**
+     * - The resources belong to the current account, and the product and business region match those in the request. Only one delivery group can be specified per request.
+     * - The target billing method must be different from the current one, and the target resource specifications must support the corresponding sales and Billable methods.
+     * - Delivery groups that have been added to a valid collection cannot be converted to a different billing method individually.
+     * - Multiple delivery groups created in the same batch of orders cannot be converted to different Billable methods separately.
+     * **Parameter relationships and call sequence:**
+     * 1. Query the resource details first to confirm the product, business region, and current `ChargeType`. You can use [GetAppInstanceGroup](https://api.aliyun.com/document/appstream-center/2021-09-01/GetAppInstanceGroup) to query cloud application delivery groups.
+     * 2. Explicitly specify the target `ChargeType`. If you need to purchase a subscription, specify the purchase duration by combining `Period` and `PeriodUnit`. The period combination must comply with the sales rules currently supported by the resource.
+     * 3. Set `AutoPay` based on whether automatic payment is allowed. If auto-renewal is involved, explicitly set `AutoRenew`.
+     * 4. After the call, save the returned `AppInstanceGroupModel.TaskId`. If there are unpaid orders, complete the payment first, and then query the resource details again to confirm that the billing method has been changed.
+     * This operation does not accept an expiration time parameter. Do not pass the expiration time from other operations into this request. The task examples only illustrate the purpose of the ID and do not define a fixed prefix or length for actual task IDs.
+     *
+     * @param request - ModifyAppInstanceGroupChargeTypeRequest
+     *
+     * @returns ModifyAppInstanceGroupChargeTypeResponse
+     *
+     * @param ModifyAppInstanceGroupChargeTypeRequest $request
+     *
+     * @return ModifyAppInstanceGroupChargeTypeResponse
+     */
+    public function modifyAppInstanceGroupChargeType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAppInstanceGroupChargeTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -7290,10 +8633,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries delivery group reports by region, delivery group, status, user authorization relationship, or statistical date.
+     * Queries app instance group reports by region, app instance group, status, user authorization relationship, or statistical date.
      *
      * @remarks
-     * Queries the delivery group ID, name, and status in delivery group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business region, and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the delivery group. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are passed at the same time, the intersection is taken. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be passed in pairs to represent a closed interval. If both a single day and an interval are passed, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+     * Queries the IDs, names, and statuses of app instance groups in app instance group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business regions and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the app instance groups. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are specified at the same time, the intersection is used. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be specified in pairs to represent a closed interval. If both a single day and an interval are specified, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
      *
      * @param request - QueryAppInstanceGroupReportListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7372,10 +8715,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries delivery group reports by region, delivery group, status, user authorization relationship, or statistical date.
+     * Queries app instance group reports by region, app instance group, status, user authorization relationship, or statistical date.
      *
      * @remarks
-     * Queries the delivery group ID, name, and status in delivery group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business region, and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the delivery group. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are passed at the same time, the intersection is taken. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be passed in pairs to represent a closed interval. If both a single day and an interval are passed, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
+     * Queries the IDs, names, and statuses of app instance groups in app instance group reports. You can call [ListRegions](~~ListRegions~~) to obtain the business regions and then call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the app instance groups. `AppInstanceGroupId` matches the exact ID, and `AppInstanceGroupName` filters by inclusion. If multiple filter conditions are specified at the same time, the intersection is used. When filtering by date, `StatDate` specifies a single day, and `StartDate` and `EndDate` must be specified in pairs to represent a closed interval. If both a single day and an interval are specified, the results must meet both conditions. Before using `EndUserId`, make sure that the user has a valid authorization relationship.
      *
      * @param request - QueryAppInstanceGroupReportListRequest
      *
@@ -7396,7 +8739,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
      *
      * @remarks
-     * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+     * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. The `ProductType`, `StartDate`, and `EndDate` parameters are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
      *
      * @param request - QueryConnectionReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7462,7 +8805,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the number of successful connections, the number of failed connections, the success rate, and the average connection duration within a specified time range.
      *
      * @remarks
-     * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. `ProductType`, `StartDate`, and `EndDate` are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
+     * Queries connection statistical reports. Before you invoke this operation, you can invoke [ListRegions](~~ListRegions~~) and [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the `BizRegionId` and `AppInstanceGroupId` parameters. The `ProductType`, `StartDate`, and `EndDate` parameters are required for server-side validation. The statistical interval is `[StartDate, EndDate)`, which includes the start time but excludes the end time. Results are returned by page, with a maximum of 1,500 entries per page.
      *
      * @param request - QueryConnectionReportRequest
      *
@@ -7483,7 +8826,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the number of daily active users and streaming daily active users by date.
      *
      * @remarks
-     * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to `CloudApp`. You can use BizRegionId and AppInstanceGroupId to narrow the scope. If neither is specified, the query returns aggregated data for all business regions. Results are paginated, with a maximum of 1,500 records per page.
+     * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to CloudApp. You can use BizRegionId and AppInstanceGroupId to narrow down the scope. If neither is specified, the query returns aggregated data for all business regions. Results are returned in pages, with a maximum of 1,500 records per page.
      *
      * @param request - QueryDauReportDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7549,7 +8892,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the number of daily active users and streaming daily active users by date.
      *
      * @remarks
-     * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to `CloudApp`. You can use BizRegionId and AppInstanceGroupId to narrow the scope. If neither is specified, the query returns aggregated data for all business regions. Results are paginated, with a maximum of 1,500 records per page.
+     * Queries the daily active user (DAU) report. StartDate and EndDate are required. The date range is inclusive and cannot exceed 180 days. If ProductType is not specified or is unrecognized, the query defaults to CloudApp. You can use BizRegionId and AppInstanceGroupId to narrow down the scope. If neither is specified, the query returns aggregated data for all business regions. Results are returned in pages, with a maximum of 1,500 records per page.
      *
      * @param request - QueryDauReportDataRequest
      *
@@ -7744,7 +9087,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
      *
      * @remarks
-     * Queries the node quantity report. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+     * Queries node quantity reports. StartDate, EndDate, and StatDateType are required. The query span limit is determined by the statistical granularity: up to 1 day for 1m and 30m, up to 15 days for 6h, and up to 180 days for 1d. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
      *
      * @param request - QueryNodeReportDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7814,7 +9157,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the total number of nodes, the number of subscription nodes, and the number of pay-as-you-go nodes by statistical granularity.
      *
      * @remarks
-     * Queries the node quantity report. `StartDate`, `EndDate`, and `StatDateType` are required. The query span limit is determined by the statistical granularity: up to 1 day for `1m` and `30m`, up to 15 days for `6h`, and up to 180 days for `1d`. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
+     * Queries node quantity reports. StartDate, EndDate, and StatDateType are required. The query span limit is determined by the statistical granularity: up to 1 day for 1m and 30m, up to 15 days for 6h, and up to 180 days for 1d. Both the start and end boundaries are included in the query range. Results are returned in pages, with a maximum of 1,500 entries per page.
      *
      * @param request - QueryNodeReportDataRequest
      *
@@ -7926,7 +9269,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
      *
      * @remarks
-     * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. A maximum of the top five applications by usage duration are returned for each hour.
+     * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to query. A maximum of the top five applications by usage duration are returned for each hour.
      *
      * @param request - QueryUserAppUsageAggregateByHourRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7988,7 +9331,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the cumulative duration of application usage by a specified user on an hourly basis and returns the top five applications for each hour.
      *
      * @remarks
-     * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. A maximum of the top five applications by usage duration are returned for each hour.
+     * Queries the application usage of a specified user on an hourly basis. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to query. A maximum of the top five applications by usage duration are returned for each hour.
      *
      * @param request - QueryUserAppUsageAggregateByHourRequest
      *
@@ -8009,7 +9352,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the ranking of cumulative application usage duration for a specified user within a date range.
      *
      * @remarks
-     * Queries the ranking of application usage duration for a specified user within a statistical range. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+     * Queries the ranking of application usage duration for a specified user within a statistical range. `StartDate` and `EndDate` use the `yyyyMMdd` format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. `UserId` must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
      *
      * @param request - QueryUserAppUsageTimeRankRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8071,7 +9414,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the ranking of cumulative application usage duration for a specified user within a date range.
      *
      * @remarks
-     * Queries the ranking of application usage duration for a specified user within a statistical range. StartDate and EndDate use the yyyyMMdd format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. UserId must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
+     * Queries the ranking of application usage duration for a specified user within a statistical range. `StartDate` and `EndDate` use the `yyyyMMdd` format. If either parameter is not provided, it defaults to yesterday. Both dates must be within the last 90 days, and the start date cannot be later than the end date. The query range includes the start and end dates. `UserId` must be set to the ID of the user to be queried. The results are sorted in descending order of cumulative application usage duration.
      *
      * @param request - QueryUserAppUsageTimeRankRequest
      *
@@ -8092,7 +9435,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
      *
      * @remarks
-     * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated based on a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+     * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to `yyyyMMdd` and aggregated by natural days in a closed interval. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
      *
      * @param request - QueryUserUsageReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8166,7 +9509,7 @@ class Appstreamcenter extends OpenApiClient
      * Queries the connection status, last connection time, cumulative usage duration, and session persistence duration of users.
      *
      * @remarks
-     * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to the `yyyyMMdd` format and aggregated based on a closed interval of natural days. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
+     * Queries user usage reports. ProductType, StartDate, and EndDate are required for server-side validation, and the time span cannot exceed 60 months. During the query, the start and end times are converted to `yyyyMMdd` and aggregated by natural days in a closed interval. The results are paginated in descending order of cumulative usage duration, with a maximum of 1,500 records per page. You can combine ConnectionStatus, UserId, BizRegionId, and AppInstanceGroupId for filtering.
      *
      * @param request - QueryUserUsageReportRequest
      *
@@ -9172,6 +10515,80 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Dissociates multiple applications from a specified image version.
+     *
+     * @remarks
+     * This operation supports only custom images and community images that the current account can manage. If you omit VersionId, the current effective version is used. If you specify VersionId, it must belong to the image specified by ImageId. Verify the associations between the applications and the version by querying the image before you submit AppIdList. **Dissociating applications does not directly delete the application records.** To delete an application, call DeleteApp.
+     *
+     * @param request - UnbindAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindAppResponse
+     *
+     * @param UnbindAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UnbindAppResponse
+     */
+    public function unbindAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->appIdList) {
+            @$bodyFlat['AppIdList'] = $request->appIdList;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UnbindApp',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnbindAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Dissociates multiple applications from a specified image version.
+     *
+     * @remarks
+     * This operation supports only custom images and community images that the current account can manage. If you omit VersionId, the current effective version is used. If you specify VersionId, it must belong to the image specified by ImageId. Verify the associations between the applications and the version by querying the image before you submit AppIdList. **Dissociating applications does not directly delete the application records.** To delete an application, call DeleteApp.
+     *
+     * @param request - UnbindAppRequest
+     *
+     * @returns UnbindAppResponse
+     *
+     * @param UnbindAppRequest $request
+     *
+     * @return UnbindAppResponse
+     */
+    public function unbindApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindAppWithOptions($request, $runtime);
+    }
+
+    /**
      * Unbinds tags from cloud resources in a unified manner.
      *
      * @param request - UntagCloudResourcesRequest
@@ -9352,6 +10769,97 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Modifies the runtime parameters, optimization configurations, and user configurations of a specified application adapter.
+     *
+     * @remarks
+     * The AdaptorId must correspond to a valid application adapter manageable by the current account. Pass only the configurations that need to be modified in this request.
+     * SilenceParam is used for application startup parameters. UserConfig is used for application runtime configurations. **This operation does not support modifying application scripts or executable file paths through AppScript or ExecuteFileAddress. Do not pass these two parameters.**
+     *
+     * @param tmpReq - UpdateAdaptorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAdaptorResponse
+     *
+     * @param UpdateAdaptorRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateAdaptorResponse
+     */
+    public function updateAdaptorWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAdaptorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userConfig) {
+            $request->userConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userConfig, 'UserConfig', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->adaptorId) {
+            @$body['AdaptorId'] = $request->adaptorId;
+        }
+
+        if (null !== $request->appScript) {
+            @$body['AppScript'] = $request->appScript;
+        }
+
+        if (null !== $request->executeFileAddress) {
+            @$body['ExecuteFileAddress'] = $request->executeFileAddress;
+        }
+
+        if (null !== $request->optimizeParam) {
+            @$body['OptimizeParam'] = $request->optimizeParam;
+        }
+
+        if (null !== $request->silenceParam) {
+            @$body['SilenceParam'] = $request->silenceParam;
+        }
+
+        if (null !== $request->userConfigShrink) {
+            @$body['UserConfig'] = $request->userConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAdaptor',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAdaptorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the runtime parameters, optimization configurations, and user configurations of a specified application adapter.
+     *
+     * @remarks
+     * The AdaptorId must correspond to a valid application adapter manageable by the current account. Pass only the configurations that need to be modified in this request.
+     * SilenceParam is used for application startup parameters. UserConfig is used for application runtime configurations. **This operation does not support modifying application scripts or executable file paths through AppScript or ExecuteFileAddress. Do not pass these two parameters.**
+     *
+     * @param request - UpdateAdaptorRequest
+     *
+     * @returns UpdateAdaptorResponse
+     *
+     * @param UpdateAdaptorRequest $request
+     *
+     * @return UpdateAdaptorResponse
+     */
+    public function updateAdaptor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAdaptorWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the image of a delivery group.
      *
      * @remarks
@@ -9428,6 +10936,186 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAppInstanceGroupImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the name, description, version information, and associated application adaptations of an image.
+     *
+     * @remarks
+     * You can only modify images that are owned by the current account and allow modifications. Modifying images shared with the current account is not supported.
+     * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adaptation relationships of the selected version based on the complete list. Make sure to include the adaptations that you still want to retain.
+     *
+     * @param request - UpdateImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateImageResponse
+     *
+     * @param UpdateImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateImageResponse
+     */
+    public function updateImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->adaptorIdList) {
+            @$body['AdaptorIdList'] = $request->adaptorIdList;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->distro) {
+            @$body['Distro'] = $request->distro;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->language) {
+            @$body['Language'] = $request->language;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        if (null !== $request->versionName) {
+            @$body['VersionName'] = $request->versionName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateImage',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the name, description, version information, and associated application adaptations of an image.
+     *
+     * @remarks
+     * You can only modify images that are owned by the current account and allow modifications. Modifying images shared with the current account is not supported.
+     * You must provide at least one of ImageId and VersionId. If both are provided, they must point to the same image. If VersionId is omitted, the current effective version of the image is used. Passing a non-empty AdaptorIdList updates the application adaptation relationships of the selected version based on the complete list. Make sure to include the adaptations that you still want to retain.
+     *
+     * @param request - UpdateImageRequest
+     *
+     * @returns UpdateImageResponse
+     *
+     * @param UpdateImageRequest $request
+     *
+     * @return UpdateImageResponse
+     */
+    public function updateImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sends a status update request for an existing image creation task to the corresponding creation resource.
+     *
+     * @remarks
+     * The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. TaskType must match the actual type of the task. **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that this status update call is completed. To query the final status of the task, call GetTask.
+     *
+     * @param request - UpdateImageTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateImageTaskResponse
+     *
+     * @param UpdateImageTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateImageTaskResponse
+     */
+    public function updateImageTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->code) {
+            @$body['Code'] = $request->code;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->taskStep) {
+            @$body['TaskStep'] = $request->taskStep;
+        }
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateImageTask',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sends a status update request for an existing image creation task to the corresponding creation resource.
+     *
+     * @remarks
+     * The task must exist before you call this operation, and the corresponding creation resource and resource node must be available. TaskType must match the actual type of the task. **This operation does not support modifying the task step, image version, or destination region by using TaskStep, VersionId, or BizRegionId. Do not pass these three parameters.** A successful request only indicates that this status update call is completed. To query the final status of the task, call GetTask.
+     *
+     * @param request - UpdateImageTaskRequest
+     *
+     * @returns UpdateImageTaskResponse
+     *
+     * @param UpdateImageTaskRequest $request
+     *
+     * @return UpdateImageTaskResponse
+     */
+    public function updateImageTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateImageTaskWithOptions($request, $runtime);
     }
 
     /**

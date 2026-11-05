@@ -1,3 +1,23 @@
+2026-11-05 Version: 5.12.0
+- Support API BuilderImageByParent.
+- Support API CreateAndBindApp.
+- Support API DeleteAdaptor.
+- Support API DeleteApp.
+- Support API GetAuthCode.
+- Support API GetResourceModifyPrice.
+- Support API GetResourceQuota.
+- Support API GetTask.
+- Support API ListApp.
+- Support API ListAppInstanceType.
+- Support API ListRegionId.
+- Support API ListTaskStep.
+- Support API ModifyAppInstanceGroupChargeType.
+- Support API UnbindApp.
+- Support API UpdateAdaptor.
+- Support API UpdateImage.
+- Support API UpdateImageTask.
+
+
 2026-11-05 Version: 5.11.0
 - Support API DescribeEvents.
 - Support API ListWuyingServerWorkloadTemplate.
