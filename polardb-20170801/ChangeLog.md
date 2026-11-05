@@ -1,3 +1,6 @@
+2026-11-05 Version: 9.2.4
+- Generated php 2017-08-01 for polardb.
+
 2026-11-03 Version: 9.2.3
 - Update API CreateAgenticDBTenantApiKey: add request parameters TenantId.
 - Update API CreateBatchTask: add request parameters InstanceParams.

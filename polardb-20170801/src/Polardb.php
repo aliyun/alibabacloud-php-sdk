@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckPolarClawSkillRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckPolarClawSkillResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckPolarFsQuotaConsistencyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckPolarFsQuotaConsistencyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckServiceLinkedRoleRequest;
@@ -95,6 +97,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationAgentRelationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationAgentRelationResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationBackupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationPromptRequest;
@@ -125,6 +129,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDatabaseZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDataProcessJobRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDataProcessJobResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDataProcessJobTemplateRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDataProcessJobTemplateResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterEndpointRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterEndpointResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBClusterEndpointZonalRequest;
@@ -149,12 +157,16 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateInspectionTaskRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateInspectionTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKBSyncLinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKBSyncLinkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeSpaceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateKnowledgeSpaceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateLakebaseMountParameterGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateLakebaseMountParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateLakebaseS3AccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelApiRequest;
@@ -175,6 +187,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawChannelShrinkReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawCronJobRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawCronJobResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawCronJobShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawSkillRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawSkillResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawSkillTemplateRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarClawSkillTemplateResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsRequest;
@@ -233,6 +249,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDataProcessJobTemplateRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDataProcessJobTemplateResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBClusterEndpointRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBClusterEndpointResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDBClusterEndpointZonalRequest;
@@ -265,6 +283,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseFileRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseFileResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteLakebaseMountParameterGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteLakebaseMountParameterGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteLakebaseS3AccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteMaskingRulesRequest;
@@ -283,6 +303,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawChannelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawChannelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawCronJobRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawCronJobResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawSkillRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarClawSkillResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsObjectsShrinkRequest;
@@ -310,6 +332,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationMaintainConfRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationMaintainConfResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTaskRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchEndpointsRequest;
@@ -334,6 +358,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBTenantApiKeysRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBTenantApiKeysResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIAgentOrderRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIAgentOrderResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterApiKeysRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterApiKeysResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeRequest;
@@ -342,6 +368,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterDatasetsRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterDatasetsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterPerformanceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterResourceUsageRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterResourceUsageResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClustersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClustersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTaskAttributeRequest;
@@ -358,6 +386,17 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApikeyAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApikeyAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAvailableModelsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAvailableModelsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAvailableVersionRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAvailableVersionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAvailableVersionShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationBackupPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationBackupPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationBackupsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationBackupsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationComponentPerformanceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationComponentPerformanceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationLogsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationLogsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationParametersRequest;
@@ -372,6 +411,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationServerlessConfR
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationServerlessConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionIdsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionIdsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionLogsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionLogsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSSLRequest;
@@ -403,6 +444,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBatchTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBatchTasksShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBudgetPoliciesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBudgetPoliciesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBudgetUsageRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeBudgetUsageResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCharacterSetNameRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeCharacterSetNameResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeClassListRequest;
@@ -429,6 +472,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDatabasesZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDataProcessJobAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDataProcessJobAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDataProcessJobsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDataProcessJobsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDataProcessJobTemplatesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDataProcessJobTemplatesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAccessWhitelistRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAccessWhitelistResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAttributeRequest;
@@ -449,6 +498,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEndpointsZonalReq
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEndpointsZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterMigrationRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterMigrationResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterModelEnhancementRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterModelEnhancementResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterMonitorRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterMonitorResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterNetInfoRequest;
@@ -482,6 +533,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInitializeVariableReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInitializeVariableResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInstancePerformanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInstancePerformanceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInstancesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBLinksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBLinksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBLogFilesRequest;
@@ -496,12 +549,16 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBProxyPerformanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBProxyPerformanceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDetachedBackupsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDetachedBackupsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeEdgeCloudRegionRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeEdgeCloudRegionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeEncryptionDBRolePrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeEncryptionDBRolePrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeEncryptionDBSecretRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeEncryptionDBSecretResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeExtensionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeExtensionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeFileSystemsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeFileSystemsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeFirewallRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayApikeyListRequest;
@@ -524,10 +581,20 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHALogsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHALogsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryEventsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryEventsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryEventsStatRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryEventsStatResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksStatRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeHistoryTasksStatResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeInspectionReportListRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeInspectionReportListResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeInspectionTaskAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeInspectionTaskAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeInspectionTaskListRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeInspectionTaskListResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeInstanceReportAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeInstanceReportAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKBSyncLinkAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKBSyncLinkAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKBSyncLinksRequest;
@@ -544,6 +611,18 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBasesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeBasesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeSpaceAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKnowledgeSpaceAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKVCacheInstanceAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKVCacheInstanceAttributeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKVCacheInstancesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeKVCacheInstancesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseMountParameterGroupChangeLogsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseMountParameterGroupChangeLogsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseMountParameterGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseMountParameterGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseMountParameterGroupsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseMountParameterGroupsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseMountParameterTemplateListRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseMountParameterTemplateListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseS3AccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseS3AccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLicenseOrderDetailsRequest;
@@ -599,8 +678,18 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawMCPServersRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawMCPServersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawPluginsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawPluginsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillAssessmentRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillAssessmentResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillDetailRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillDetailResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillsMarketRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillsMarketResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillTemplateRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillTemplateResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillTemplatesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillTemplatesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawTaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeRequest;
@@ -609,6 +698,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsMappingRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsMappingResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsObjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsObjectsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsPerformanceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsPerformanceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaListRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaRequest;
@@ -625,17 +716,29 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRdsVSwitchsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRdsVSwitchsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeReplicationSlotsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeReplicationSlotsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeResourcePackagesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeScheduleTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeScheduleTasksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSearchModifyParameterLogRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSearchModifyParameterLogResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSearchParametersRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSearchParametersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSharedBackupsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSharedBackupsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerRetentionRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLExplorerRetentionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSQLRateLimitingRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeStoragePlanRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeStoragePlanResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeUpgradeReportRequest;
@@ -650,6 +753,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchListRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterCTableRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterCTableResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterDocumentDBRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterDocumentDBResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterDynamoDBRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterDynamoDBResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisableDBClusterOrcaRequest;
@@ -662,6 +769,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawCronJobRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawCronJobResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawPluginRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DisablePolarClawPluginResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableAIDBClusterDatasetServiceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableAIDBClusterDatasetServiceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterCTableRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterCTableResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterDocumentDBRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterDocumentDBResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterDynamoDBRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterDynamoDBResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableDBClusterOrcaRequest;
@@ -694,6 +807,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarAgentRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarAgentResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarClawConfigRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarClawConfigResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarClawSkillRegionRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarClawSkillRegionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeZonalRequest;
@@ -739,6 +854,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterDescriptionReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterDescriptionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterModelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterModelResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterTaskRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterTaskResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationBackupPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationEndpointAddressRequest;
@@ -776,6 +895,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterArchRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterArchResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAuditLogCollectorRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAuditLogCollectorResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAutoUpgradeMinorVersionRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterAutoUpgradeMinorVersionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDeletionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDeletionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterDescriptionRequest;
@@ -828,6 +949,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeDescriptionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeHotReplicaModeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeHotReplicaModeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeRouterWeightRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeRouterWeightResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeSccModeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeSccModeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesClassRequest;
@@ -848,6 +971,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupRelatio
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupRelationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLakebaseMountParameterGroupRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLakebaseMountParameterGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLakebaseS3AccountPolicyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLakebaseS3AccountPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyLogBackupPolicyShrinkRequest;
@@ -859,8 +986,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyModelServiceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyModelServiceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarClawSkillRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarClawSkillResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarFsInstanceDescriptionRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarFsInstanceDescriptionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarFsMappingAuthRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarFsMappingAuthResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarFsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPolarFsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyRateLimitPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyRateLimitPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourceControlRequest;
@@ -869,8 +1002,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourcePackageRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourcePackageResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyScheduleTaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyScheduleTaskResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifySearchParametersRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifySearchParametersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifySecurityIpsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifySecurityIpsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifySQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifySQLRateLimitingRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyTaskInfoRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyTaskInfoResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\MovePolarFsObjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\MovePolarFsObjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\OpenAITaskRequest;
@@ -884,6 +1023,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ReactivateDBClusterBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshDBClusterStorageUsageResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshProxyLevelRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RefreshProxyLevelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterAIDBClusterCustomModelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterAIDBClusterCustomModelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RegisterAIDBClusterCustomModelShrinkRequest;
@@ -908,6 +1049,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAgenticDBTenantApiKeyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAgenticDBTenantApiKeyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetApplicationAccountPasswordRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetApplicationAccountPasswordResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkRequest;
@@ -916,6 +1059,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ResizeAIDBClusterModelRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResizeAIDBClusterModelResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartAIDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartAIDBClusterResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBClusterRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBLinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBLinkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeRequest;
@@ -924,6 +1069,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartPolarClawGatewayRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartPolarClawGatewayResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreApplicationByBackupSetRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreApplicationByBackupSetResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreTableRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreTableResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RetrievalKnowledgeBaseRequest;
@@ -958,6 +1105,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindResourceControlRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindResourceControlResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UninstallPolarClawPluginRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UninstallPolarClawPluginResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UninstallPolarClawSkillsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UninstallPolarClawSkillsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateApplicationEnvironmentVariablesRequest;
@@ -1005,6 +1154,7 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawSkillsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawSkillsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\VerifyAgenticDBTenantApiKeyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\VerifyAgenticDBTenantApiKeyResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -1015,6 +1165,9 @@ class Polardb extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'polardb';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-qingdao' => 'polardb.aliyuncs.com',
@@ -1430,6 +1583,9 @@ class Polardb extends OpenApiClient
     /**
      * Adds a transparent acceleration path.
      *
+     * @remarks
+     * Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
+     *
      * @param request - AddPolarFsPathMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1476,6 +1632,9 @@ class Polardb extends OpenApiClient
 
     /**
      * Adds a transparent acceleration path.
+     *
+     * @remarks
+     * Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
      *
      * @param request - AddPolarFsPathMappingRequest
      *
@@ -1823,11 +1982,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Applies prompts to an application instance.
+     * Applies a prompt policy to an instance.
      *
      * @remarks
-     * ## Request
-     * - Applies prompts to a specified application instance.
+     * Before you begin: This operation applies only to mem0 applications created by calling CreateApplication with MemApplicationSpec specified. Create a mem0 application, call CreateApplicationPrompt to create a prompt, and then call this operation to apply the prompt policy.
      *
      * @param tmpReq - ApplyApplicationPromptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1884,11 +2042,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Applies prompts to an application instance.
+     * Applies a prompt policy to an instance.
      *
      * @remarks
-     * ## Request
-     * - Applies prompts to a specified application instance.
+     * Before you begin: This operation applies only to mem0 applications created by calling CreateApplication with MemApplicationSpec specified. Create a mem0 application, call CreateApplicationPrompt to create a prompt, and then call this operation to apply the prompt policy.
      *
      * @param request - ApplyApplicationPromptsRequest
      *
@@ -3051,6 +3208,103 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Prechecks a skill.
+     *
+     * @remarks
+     * ## Request description
+     * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+     *
+     * @param request - CheckPolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckPolarClawSkillResponse
+     *
+     * @param CheckPolarClawSkillRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CheckPolarClawSkillResponse
+     */
+    public function checkPolarClawSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucketRegionId) {
+            @$query['BucketRegionId'] = $request->bucketRegionId;
+        }
+
+        if (null !== $request->bucketType) {
+            @$query['BucketType'] = $request->bucketType;
+        }
+
+        if (null !== $request->OSSBucket) {
+            @$query['OSSBucket'] = $request->OSSBucket;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->skillVersion) {
+            @$query['SkillVersion'] = $request->skillVersion;
+        }
+
+        if (null !== $request->summary) {
+            @$query['Summary'] = $request->summary;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckPolarClawSkill',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckPolarClawSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Prechecks a skill.
+     *
+     * @remarks
+     * ## Request description
+     * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+     *
+     * @param request - CheckPolarClawSkillRequest
+     *
+     * @returns CheckPolarClawSkillResponse
+     *
+     * @param CheckPolarClawSkillRequest $request
+     *
+     * @return CheckPolarClawSkillResponse
+     */
+    public function checkPolarClawSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkPolarClawSkillWithOptions($request, $runtime);
+    }
+
+    /**
      * Checks the consistency of quota settings in a PolarFS instance.
      *
      * @remarks
@@ -3734,7 +3988,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model creation service API key.
+     * Creates an API key for the model creation service.
      *
      * @param request - CreateAIDBClusterApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3781,7 +4035,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model creation service API key.
+     * Creates an API key for the model creation service.
      *
      * @param request - CreateAIDBClusterApiKeyRequest
      *
@@ -5051,6 +5305,75 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Creates a backup for a specified PolarDB application and returns the backup job ID and workflow task ID.
+     *
+     * @param request - CreateApplicationBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationBackupResponse
+     *
+     * @param CreateApplicationBackupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateApplicationBackupResponse
+     */
+    public function createApplicationBackupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->jobMode) {
+            @$query['JobMode'] = $request->jobMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationBackup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a backup for a specified PolarDB application and returns the backup job ID and workflow task ID.
+     *
+     * @param request - CreateApplicationBackupRequest
+     *
+     * @returns CreateApplicationBackupResponse
+     *
+     * @param CreateApplicationBackupRequest $request
+     *
+     * @return CreateApplicationBackupResponse
+     */
+    public function createApplicationBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationBackupWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a connection address for a specified application.
      *
      * @param request - CreateApplicationEndpointAddressRequest
@@ -5276,12 +5599,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates multiple API keys.
+     * Creates API keys in batches.
      *
      * @remarks
-     * > * A maximum of three manually created backups can exist for each cluster at the same time.
-     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
+     * Prerequisites: Call CreateGwConsumerOrder first, providing GatewayId, PackageSpec, KeyCount, RegionId, and ExpireTime to obtain a CreditToken, and then call this operation to create consumers in batches. Before the call, you must also obtain a valid ConsumerGroupId by calling DescribeConsumerGroups with GwClusterId and RegionId, and explicitly pass it in.
      *
      * @param request - CreateBatchConsumerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5344,12 +5665,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates multiple API keys.
+     * Creates API keys in batches.
      *
      * @remarks
-     * > * A maximum of three manually created backups can exist for each cluster at the same time.
-     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
+     * Prerequisites: Call CreateGwConsumerOrder first, providing GatewayId, PackageSpec, KeyCount, RegionId, and ExpireTime to obtain a CreditToken, and then call this operation to create consumers in batches. Before the call, you must also obtain a valid ConsumerGroupId by calling DescribeConsumerGroups with GwClusterId and RegionId, and explicitly pass it in.
      *
      * @param request - CreateBatchConsumerRequest
      *
@@ -6940,6 +7259,196 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+     *
+     * @param request - CreateDataProcessJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataProcessJobResponse
+     *
+     * @param CreateDataProcessJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDataProcessJobResponse
+     */
+    public function createDataProcessJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->destinationConfig) {
+            @$query['DestinationConfig'] = $request->destinationConfig;
+        }
+
+        if (null !== $request->destinationId) {
+            @$query['DestinationId'] = $request->destinationId;
+        }
+
+        if (null !== $request->destinationPath) {
+            @$query['DestinationPath'] = $request->destinationPath;
+        }
+
+        if (null !== $request->destinationType) {
+            @$query['DestinationType'] = $request->destinationType;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->processingMode) {
+            @$query['ProcessingMode'] = $request->processingMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceConfig) {
+            @$query['SourceConfig'] = $request->sourceConfig;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->sourcePath) {
+            @$query['SourcePath'] = $request->sourcePath;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataProcessJob',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataProcessJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+     *
+     * @param request - CreateDataProcessJobRequest
+     *
+     * @returns CreateDataProcessJobResponse
+     *
+     * @param CreateDataProcessJobRequest $request
+     *
+     * @return CreateDataProcessJobResponse
+     */
+    public function createDataProcessJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataProcessJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a task template for image data processing in a specified region.
+     *
+     * @param request - CreateDataProcessJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataProcessJobTemplateResponse
+     *
+     * @param CreateDataProcessJobTemplateRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateDataProcessJobTemplateResponse
+     */
+    public function createDataProcessJobTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->captioning) {
+            @$query['Captioning'] = $request->captioning;
+        }
+
+        if (null !== $request->captioningPrompt) {
+            @$query['CaptioningPrompt'] = $request->captioningPrompt;
+        }
+
+        if (null !== $request->embedding) {
+            @$query['Embedding'] = $request->embedding;
+        }
+
+        if (null !== $request->embeddingDimension) {
+            @$query['EmbeddingDimension'] = $request->embeddingDimension;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataProcessJobTemplate',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataProcessJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a task template for image data processing in a specified region.
+     *
+     * @param request - CreateDataProcessJobTemplateRequest
+     *
+     * @returns CreateDataProcessJobTemplateResponse
+     *
+     * @param CreateDataProcessJobTemplateRequest $request
+     *
+     * @return CreateDataProcessJobTemplateResponse
+     */
+    public function createDataProcessJobTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataProcessJobTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a database for a PolarDB cluster.
      *
      * @remarks
@@ -7726,6 +8235,83 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Creates a periodic inspection task for specified PolarDB clusters.
+     *
+     * @param request - CreateInspectionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInspectionTaskResponse
+     *
+     * @param CreateInspectionTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateInspectionTaskResponse
+     */
+    public function createInspectionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cronExpression) {
+            @$query['CronExpression'] = $request->cronExpression;
+        }
+
+        if (null !== $request->DBClusterList) {
+            @$query['DBClusterList'] = $request->DBClusterList;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->spaceId) {
+            @$query['SpaceId'] = $request->spaceId;
+        }
+
+        if (null !== $request->taskDescription) {
+            @$query['TaskDescription'] = $request->taskDescription;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInspectionTask',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInspectionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a periodic inspection task for specified PolarDB clusters.
+     *
+     * @param request - CreateInspectionTaskRequest
+     *
+     * @returns CreateInspectionTaskResponse
+     *
+     * @param CreateInspectionTaskRequest $request
+     *
+     * @return CreateInspectionTaskResponse
+     */
+    public function createInspectionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a knowledge base synchronization link.
      *
      * @param request - CreateKBSyncLinkRequest
@@ -7922,6 +8508,9 @@ class Polardb extends OpenApiClient
     /**
      * Creates a knowledge space.
      *
+     * @remarks
+     * Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+     *
      * @param request - CreateKnowledgeSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8029,6 +8618,9 @@ class Polardb extends OpenApiClient
     /**
      * Creates a knowledge space.
      *
+     * @remarks
+     * Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+     *
      * @param request - CreateKnowledgeSpaceRequest
      *
      * @returns CreateKnowledgeSpaceResponse
@@ -8042,6 +8634,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createKnowledgeSpaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a Lakebase parameter template.
+     *
+     * @param request - CreateLakebaseMountParameterGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLakebaseMountParameterGroupResponse
+     *
+     * @param CreateLakebaseMountParameterGroupRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateLakebaseMountParameterGroupResponse
+     */
+    public function createLakebaseMountParameterGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->paramGroupCategory) {
+            @$query['ParamGroupCategory'] = $request->paramGroupCategory;
+        }
+
+        if (null !== $request->parameterGroupDesc) {
+            @$query['ParameterGroupDesc'] = $request->parameterGroupDesc;
+        }
+
+        if (null !== $request->parameterGroupName) {
+            @$query['ParameterGroupName'] = $request->parameterGroupName;
+        }
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLakebaseMountParameterGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLakebaseMountParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a Lakebase parameter template.
+     *
+     * @param request - CreateLakebaseMountParameterGroupRequest
+     *
+     * @returns CreateLakebaseMountParameterGroupResponse
+     *
+     * @param CreateLakebaseMountParameterGroupRequest $request
+     *
+     * @return CreateLakebaseMountParameterGroupResponse
+     */
+    public function createLakebaseMountParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLakebaseMountParameterGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -8215,7 +8884,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model service.
+     * Creates a model creation service.
      *
      * @param request - CreateModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8294,7 +8963,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model service.
+     * Creates a model creation service.
      *
      * @param request - CreateModelServiceRequest
      *
@@ -8781,7 +9450,7 @@ class Polardb extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
+     * This API allows you to define and create a new scheduled task (cron job). The task is triggered periodically based on a given schedule and carries specific messages or instructions. It supports advanced options such as customizing the execution frequency, time zone settings, and alert mechanisms for failures. In addition, you can configure detailed information such as the message content, destination channel, and recipients.
      *
      * @param tmpReq - CreatePolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8898,7 +9567,7 @@ class Polardb extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
+     * This API allows you to define and create a new scheduled task (cron job). The task is triggered periodically based on a given schedule and carries specific messages or instructions. It supports advanced options such as customizing the execution frequency, time zone settings, and alert mechanisms for failures. In addition, you can configure detailed information such as the message content, destination channel, and recipients.
      *
      * @param request - CreatePolarClawCronJobRequest
      *
@@ -8913,6 +9582,176 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPolarClawCronJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传skill.
+     *
+     * @param request - CreatePolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolarClawSkillResponse
+     *
+     * @param CreatePolarClawSkillRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreatePolarClawSkillResponse
+     */
+    public function createPolarClawSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucketRegionId) {
+            @$query['BucketRegionId'] = $request->bucketRegionId;
+        }
+
+        if (null !== $request->bucketType) {
+            @$query['BucketType'] = $request->bucketType;
+        }
+
+        if (null !== $request->OSSBucket) {
+            @$query['OSSBucket'] = $request->OSSBucket;
+        }
+
+        if (null !== $request->OSSPrefix) {
+            @$query['OSSPrefix'] = $request->OSSPrefix;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->skillVersion) {
+            @$query['SkillVersion'] = $request->skillVersion;
+        }
+
+        if (null !== $request->summary) {
+            @$query['Summary'] = $request->summary;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePolarClawSkill',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePolarClawSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传skill.
+     *
+     * @param request - CreatePolarClawSkillRequest
+     *
+     * @returns CreatePolarClawSkillResponse
+     *
+     * @param CreatePolarClawSkillRequest $request
+     *
+     * @return CreatePolarClawSkillResponse
+     */
+    public function createPolarClawSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolarClawSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a PolarClaw skill template.
+     *
+     * @param request - CreatePolarClawSkillTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolarClawSkillTemplateResponse
+     *
+     * @param CreatePolarClawSkillTemplateRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreatePolarClawSkillTemplateResponse
+     */
+    public function createPolarClawSkillTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skillTemplateDesc) {
+            @$query['SkillTemplateDesc'] = $request->skillTemplateDesc;
+        }
+
+        if (null !== $request->skillTemplateName) {
+            @$query['SkillTemplateName'] = $request->skillTemplateName;
+        }
+
+        if (null !== $request->skillTemplateParam) {
+            @$query['SkillTemplateParam'] = $request->skillTemplateParam;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePolarClawSkillTemplate',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePolarClawSkillTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a PolarClaw skill template.
+     *
+     * @param request - CreatePolarClawSkillTemplateRequest
+     *
+     * @returns CreatePolarClawSkillTemplateResponse
+     *
+     * @param CreatePolarClawSkillTemplateRequest $request
+     *
+     * @return CreatePolarClawSkillTemplateResponse
+     */
+    public function createPolarClawSkillTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolarClawSkillTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -9541,7 +10380,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes an API key for a model service.
+     * Deletes an API key for the model service.
      *
      * @param request - DeleteAIDBClusterApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9588,7 +10427,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes an API key for a model service.
+     * Deletes an API key for the model service.
      *
      * @param request - DeleteAIDBClusterApiKeyRequest
      *
@@ -10272,7 +11111,7 @@ class Polardb extends OpenApiClient
      * Deletes an AgenticDB tenant.
      *
      * @remarks
-     * Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+     * You can only delete a tenant whose projects and branches have been cleaned up. After the tenant is deleted, all its API keys become invalid. This operation does not automatically clean up projects, branches, or storage.
      *
      * @param request - DeleteAgenticDBTenantRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10322,7 +11161,7 @@ class Polardb extends OpenApiClient
      * Deletes an AgenticDB tenant.
      *
      * @remarks
-     * Only tenants whose projects and branches have been completely cleaned up can be deleted. After a successful deletion, all API keys associated with the tenant become invalid. This operation does not automatically clean up projects, branches, or storage.
+     * You can only delete a tenant whose projects and branches have been cleaned up. After the tenant is deleted, all its API keys become invalid. This operation does not automatically clean up projects, branches, or storage.
      *
      * @param request - DeleteAgenticDBTenantRequest
      *
@@ -11362,7 +12201,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes read-only nodes from a PolarDB cluster.
+     * Deletes a read-only node from a PolarDB cluster.
+     *
+     * @remarks
+     * Deletes a read-only node from a PolarDB cluster. Before you call this operation, the cluster must be in the Running state. You can call the DescribeDBClusters operation to query the DBClusterStatus parameter and check the cluster state. If the cluster is in a transitional state such as DBNodeCreating or DBNodeDeleting, wait until the cluster returns to the Running state before you call this operation.
      *
      * @param request - DeleteDBNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11433,7 +12275,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes read-only nodes from a PolarDB cluster.
+     * Deletes a read-only node from a PolarDB cluster.
+     *
+     * @remarks
+     * Deletes a read-only node from a PolarDB cluster. Before you call this operation, the cluster must be in the Running state. You can call the DescribeDBClusters operation to query the DBClusterStatus parameter and check the cluster state. If the cluster is in a transitional state such as DBNodeCreating or DBNodeDeleting, wait until the cluster returns to the Running state before you call this operation.
      *
      * @param request - DeleteDBNodesRequest
      *
@@ -11448,6 +12293,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a data processing task template in a specified region.
+     *
+     * @param request - DeleteDataProcessJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataProcessJobTemplateResponse
+     *
+     * @param DeleteDataProcessJobTemplateRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteDataProcessJobTemplateResponse
+     */
+    public function deleteDataProcessJobTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataProcessJobTemplate',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataProcessJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a data processing task template in a specified region.
+     *
+     * @param request - DeleteDataProcessJobTemplateRequest
+     *
+     * @returns DeleteDataProcessJobTemplateResponse
+     *
+     * @param DeleteDataProcessJobTemplateRequest $request
+     *
+     * @return DeleteDataProcessJobTemplateResponse
+     */
+    public function deleteDataProcessJobTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataProcessJobTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -12355,6 +13261,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Deletes a parameter template mounted to Lakebase.
+     *
+     * @param request - DeleteLakebaseMountParameterGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLakebaseMountParameterGroupResponse
+     *
+     * @param DeleteLakebaseMountParameterGroupRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteLakebaseMountParameterGroupResponse
+     */
+    public function deleteLakebaseMountParameterGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->parameterGroupId) {
+            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLakebaseMountParameterGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLakebaseMountParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a parameter template mounted to Lakebase.
+     *
+     * @param request - DeleteLakebaseMountParameterGroupRequest
+     *
+     * @returns DeleteLakebaseMountParameterGroupResponse
+     *
+     * @param DeleteLakebaseMountParameterGroupRequest $request
+     *
+     * @return DeleteLakebaseMountParameterGroupResponse
+     */
+    public function deleteLakebaseMountParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLakebaseMountParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a PolarFS S3 account.
      *
      * @param request - DeleteLakebaseS3AccountRequest
@@ -13028,6 +13999,67 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Deletes a PolarClaw skill.
+     *
+     * @param request - DeletePolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolarClawSkillResponse
+     *
+     * @param DeletePolarClawSkillRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeletePolarClawSkillResponse
+     */
+    public function deletePolarClawSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolarClawSkill',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolarClawSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a PolarClaw skill.
+     *
+     * @param request - DeletePolarClawSkillRequest
+     *
+     * @returns DeletePolarClawSkillResponse
+     *
+     * @param DeletePolarClawSkillRequest $request
+     *
+     * @return DeletePolarClawSkillResponse
+     */
+    public function deletePolarClawSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolarClawSkillWithOptions($request, $runtime);
+    }
+
+    /**
      * Releases a pay-as-you-go PolarFs instance.
      *
      * @param request - DeletePolarFsRequest
@@ -13604,6 +14636,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the AI assistant order information for the current account, including the order status, version, capacity package, and expiration time.
+     *
+     * @param request - DescribeAIAgentOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIAgentOrderResponse
+     *
+     * @param DescribeAIAgentOrderRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAIAgentOrderResponse
+     */
+    public function describeAIAgentOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeAIAgentOrder',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIAgentOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the AI assistant order information for the current account, including the order status, version, capacity package, and expiration time.
+     *
+     * @param request - DescribeAIAgentOrderRequest
+     *
+     * @returns DescribeAIAgentOrderResponse
+     *
+     * @param DescribeAIAgentOrderRequest $request
+     *
+     * @return DescribeAIAgentOrderResponse
+     */
+    public function describeAIAgentOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIAgentOrderWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the API keys for the model service.
      *
      * @param request - DescribeAIDBClusterApiKeysRequest
@@ -13839,7 +14921,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the performance metrics of an AI container.
+     * Retrieves AI container performance metrics.
      *
      * @param request - DescribeAIDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13894,7 +14976,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the performance metrics of an AI container.
+     * Retrieves AI container performance metrics.
      *
      * @param request - DescribeAIDBClusterPerformanceRequest
      *
@@ -13909,6 +14991,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAIDBClusterPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the node resource usage and pod resource requests in an AI database cluster.
+     *
+     * @param request - DescribeAIDBClusterResourceUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIDBClusterResourceUsageResponse
+     *
+     * @param DescribeAIDBClusterResourceUsageRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeAIDBClusterResourceUsageResponse
+     */
+    public function describeAIDBClusterResourceUsageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAIDBClusterResourceUsage',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIDBClusterResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the node resource usage and pod resource requests in an AI database cluster.
+     *
+     * @param request - DescribeAIDBClusterResourceUsageRequest
+     *
+     * @returns DescribeAIDBClusterResourceUsageResponse
+     *
+     * @param DescribeAIDBClusterResourceUsageRequest $request
+     *
+     * @return DescribeAIDBClusterResourceUsageResponse
+     */
+    public function describeAIDBClusterResourceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIDBClusterResourceUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -14859,6 +16018,103 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the details of pending tasks.
+     *
+     * @param request - DescribeActiveOperationTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeActiveOperationTaskResponse
+     *
+     * @param DescribeActiveOperationTaskRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeActiveOperationTaskResponse
+     */
+    public function describeActiveOperationTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->isHistory) {
+            @$query['IsHistory'] = $request->isHistory;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
+        }
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeActiveOperationTask',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of pending tasks.
+     *
+     * @param request - DescribeActiveOperationTaskRequest
+     *
+     * @returns DescribeActiveOperationTaskResponse
+     *
+     * @param DescribeActiveOperationTaskRequest $request
+     *
+     * @return DescribeActiveOperationTaskResponse
+     */
+    public function describeActiveOperationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries operation and maintenance events for instances.
      *
      * @param request - DescribeActiveOperationTasksRequest
@@ -15045,7 +16301,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the branch connection information of an AgenticDB cluster.
+     * Queries the connection information of an AgenticDB branch.
      *
      * @param request - DescribeAgenticDBBranchEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15100,7 +16356,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the branch connection information of an AgenticDB cluster.
+     * Queries the connection information of an AgenticDB branch.
      *
      * @param request - DescribeAgenticDBBranchEndpointsRequest
      *
@@ -15965,6 +17221,373 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the available models, default models, and memory capability configurations for a specified region and application type.
+     *
+     * @param request - DescribeApplicationAvailableModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationAvailableModelsResponse
+     *
+     * @param DescribeApplicationAvailableModelsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeApplicationAvailableModelsResponse
+     */
+    public function describeApplicationAvailableModelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationAvailableModels',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationAvailableModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the available models, default models, and memory capability configurations for a specified region and application type.
+     *
+     * @param request - DescribeApplicationAvailableModelsRequest
+     *
+     * @returns DescribeApplicationAvailableModelsResponse
+     *
+     * @param DescribeApplicationAvailableModelsRequest $request
+     *
+     * @return DescribeApplicationAvailableModelsResponse
+     */
+    public function describeApplicationAvailableModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationAvailableModelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of versions to which a specified application type can be upgraded.
+     *
+     * @param tmpReq - DescribeApplicationAvailableVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationAvailableVersionResponse
+     *
+     * @param DescribeApplicationAvailableVersionRequest $tmpReq
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeApplicationAvailableVersionResponse
+     */
+    public function describeApplicationAvailableVersionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeApplicationAvailableVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->components) {
+            $request->componentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->components, 'Components', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->componentsShrink) {
+            @$query['Components'] = $request->componentsShrink;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationAvailableVersion',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationAvailableVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of versions to which a specified application type can be upgraded.
+     *
+     * @param request - DescribeApplicationAvailableVersionRequest
+     *
+     * @returns DescribeApplicationAvailableVersionResponse
+     *
+     * @param DescribeApplicationAvailableVersionRequest $request
+     *
+     * @return DescribeApplicationAvailableVersionResponse
+     */
+    public function describeApplicationAvailableVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationAvailableVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - DescribeApplicationBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationBackupPolicyResponse
+     *
+     * @param DescribeApplicationBackupPolicyRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeApplicationBackupPolicyResponse
+     */
+    public function describeApplicationBackupPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationBackupPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - DescribeApplicationBackupPolicyRequest
+     *
+     * @returns DescribeApplicationBackupPolicyResponse
+     *
+     * @param DescribeApplicationBackupPolicyRequest $request
+     *
+     * @return DescribeApplicationBackupPolicyResponse
+     */
+    public function describeApplicationBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+     *
+     * @param request - DescribeApplicationBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationBackupsResponse
+     *
+     * @param DescribeApplicationBackupsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeApplicationBackupsResponse
+     */
+    public function describeApplicationBackupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->backupStatus) {
+            @$query['BackupStatus'] = $request->backupStatus;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationBackups',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+     *
+     * @param request - DescribeApplicationBackupsRequest
+     *
+     * @returns DescribeApplicationBackupsResponse
+     *
+     * @param DescribeApplicationBackupsRequest $request
+     *
+     * @return DescribeApplicationBackupsResponse
+     */
+    public function describeApplicationBackups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationBackupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the performance metrics and sample data of a specified application component within a specified time range.
+     *
+     * @param request - DescribeApplicationComponentPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationComponentPerformanceResponse
+     *
+     * @param DescribeApplicationComponentPerformanceRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeApplicationComponentPerformanceResponse
+     */
+    public function describeApplicationComponentPerformanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->componentId) {
+            @$query['ComponentId'] = $request->componentId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationComponentPerformance',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationComponentPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the performance metrics and sample data of a specified application component within a specified time range.
+     *
+     * @param request - DescribeApplicationComponentPerformanceRequest
+     *
+     * @returns DescribeApplicationComponentPerformanceResponse
+     *
+     * @param DescribeApplicationComponentPerformanceRequest $request
+     *
+     * @return DescribeApplicationComponentPerformanceResponse
+     */
+    public function describeApplicationComponentPerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationComponentPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of AI application logs.
      *
      * @param request - DescribeApplicationLogsRequest
@@ -16141,7 +17764,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance of a PolarDB AI application.
+     * Queries the performance of PolarDB AI applications.
      *
      * @param tmpReq - DescribeApplicationPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16234,7 +17857,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance of a PolarDB AI application.
+     * Queries the performance of PolarDB AI applications.
      *
      * @param request - DescribeApplicationPerformanceRequest
      *
@@ -16252,7 +17875,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the Application Prompts for a specific Application.
+     * Queries all application prompt policies for the current application.
+     *
+     * @remarks
+     * Prerequisites: First, create a PostgreSQL cluster, and then call the CreateApplication operation to create an application with ApplicationType set to mem0. When creating the application, you must prepare a VPC, a vSwitch, and a security group. After obtaining the ApplicationId, call this operation to query application prompts. Call sequence: CreateDBCluster → CreateApplication → DescribeApplicationPrompts.
      *
      * @param request - DescribeApplicationPromptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16299,7 +17925,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the Application Prompts for a specific Application.
+     * Queries all application prompt policies for the current application.
+     *
+     * @remarks
+     * Prerequisites: First, create a PostgreSQL cluster, and then call the CreateApplication operation to create an application with ApplicationType set to mem0. When creating the application, you must prepare a VPC, a vSwitch, and a security group. After obtaining the ApplicationId, call this operation to query application prompts. Call sequence: CreateDBCluster → CreateApplication → DescribeApplicationPrompts.
      *
      * @param request - DescribeApplicationPromptsRequest
      *
@@ -16517,6 +18146,117 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApplicationSessionIdsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
+     *
+     * @remarks
+     * Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+     *
+     * @param request - DescribeApplicationSessionLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationSessionLogsResponse
+     *
+     * @param DescribeApplicationSessionLogsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeApplicationSessionLogsResponse
+     */
+    public function describeApplicationSessionLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agent) {
+            @$query['Agent'] = $request->agent;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationSessionLogs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationSessionLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
+     *
+     * @remarks
+     * Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+     *
+     * @param request - DescribeApplicationSessionLogsRequest
+     *
+     * @returns DescribeApplicationSessionLogsResponse
+     *
+     * @param DescribeApplicationSessionLogsRequest $request
+     *
+     * @return DescribeApplicationSessionLogsResponse
+     */
+    public function describeApplicationSessionLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationSessionLogsWithOptions($request, $runtime);
     }
 
     /**
@@ -17609,6 +19349,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBudgetPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the used quota, statistical window, and associated budget policies for a PolarDB gateway instance by budget dimension.
+     *
+     * @param request - DescribeBudgetUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBudgetUsageResponse
+     *
+     * @param DescribeBudgetUsageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBudgetUsageResponse
+     */
+    public function describeBudgetUsageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->budgetDimensionRefId) {
+            @$query['BudgetDimensionRefId'] = $request->budgetDimensionRefId;
+        }
+
+        if (null !== $request->budgetDimensionType) {
+            @$query['BudgetDimensionType'] = $request->budgetDimensionType;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBudgetUsage',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBudgetUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the used quota, statistical window, and associated budget policies for a PolarDB gateway instance by budget dimension.
+     *
+     * @param request - DescribeBudgetUsageRequest
+     *
+     * @returns DescribeBudgetUsageResponse
+     *
+     * @param DescribeBudgetUsageRequest $request
+     *
+     * @return DescribeBudgetUsageResponse
+     */
+    public function describeBudgetUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBudgetUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -19155,6 +20964,63 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the model enhancement status and the list of API keys for a specified PolarDB cluster.
+     *
+     * @param request - DescribeDBClusterModelEnhancementRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBClusterModelEnhancementResponse
+     *
+     * @param DescribeDBClusterModelEnhancementRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDBClusterModelEnhancementResponse
+     */
+    public function describeDBClusterModelEnhancementWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBClusterModelEnhancement',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBClusterModelEnhancementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the model enhancement status and the list of API keys for a specified PolarDB cluster.
+     *
+     * @param request - DescribeDBClusterModelEnhancementRequest
+     *
+     * @returns DescribeDBClusterModelEnhancementResponse
+     *
+     * @param DescribeDBClusterModelEnhancementRequest $request
+     *
+     * @return DescribeDBClusterModelEnhancementResponse
+     */
+    public function describeDBClusterModelEnhancement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterModelEnhancementWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the interval at which the monitoring data of a PolarDB cluster is collected.
      *
      * @param request - DescribeDBClusterMonitorRequest
@@ -19385,18 +21251,18 @@ class Polardb extends OpenApiClient
      * Queries the performance data of a PolarDB cluster.
      *
      * @remarks
-     * - If the monitoring frequency is once every 5 seconds:
-     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * - If the monitoring frequency is once every 60 seconds:
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
+     * If the monitoring frequency is 5 seconds:
+     *     - When the query time range is less than or equal to 1 hour, the display granularity is 5 seconds.
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * * If the monitoring frequency is 60 seconds:
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * > The default monitoring frequency is 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19462,18 +21328,18 @@ class Polardb extends OpenApiClient
      * Queries the performance data of a PolarDB cluster.
      *
      * @remarks
-     * - If the monitoring frequency is once every 5 seconds:
-     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * - If the monitoring frequency is once every 60 seconds:
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
+     * If the monitoring frequency is 5 seconds:
+     *     - When the query time range is less than or equal to 1 hour, the display granularity is 5 seconds.
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * * If the monitoring frequency is 60 seconds:
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * > The default monitoring frequency is 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      *
@@ -20647,6 +22513,95 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the list of instances.
+     *
+     * @param request - DescribeDBInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstancesResponse
+     *
+     * @param DescribeDBInstancesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDBInstancesResponse
+     */
+    public function describeDBInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->instanceNetworkType) {
+            @$query['InstanceNetworkType'] = $request->instanceNetworkType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBInstances',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of instances.
+     *
+     * @param request - DescribeDBInstancesRequest
+     *
+     * @returns DescribeDBInstancesResponse
+     *
+     * @param DescribeDBInstancesRequest $request
+     *
+     * @return DescribeDBInstancesResponse
+     */
+    public function describeDBInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the database links of a PolarDB for Oracle cluster.
      *
      * @remarks
@@ -21274,6 +23229,213 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+     *
+     * @param request - DescribeDataProcessJobAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataProcessJobAttributeResponse
+     *
+     * @param DescribeDataProcessJobAttributeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDataProcessJobAttributeResponse
+     */
+    public function describeDataProcessJobAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDataProcessJobAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDataProcessJobAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+     *
+     * @param request - DescribeDataProcessJobAttributeRequest
+     *
+     * @returns DescribeDataProcessJobAttributeResponse
+     *
+     * @param DescribeDataProcessJobAttributeRequest $request
+     *
+     * @return DescribeDataProcessJobAttributeResponse
+     */
+    public function describeDataProcessJobAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataProcessJobAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries data processing task templates by region, template ID, or type, and returns paginated template configurations.
+     *
+     * @param request - DescribeDataProcessJobTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataProcessJobTemplatesResponse
+     *
+     * @param DescribeDataProcessJobTemplatesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDataProcessJobTemplatesResponse
+     */
+    public function describeDataProcessJobTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDataProcessJobTemplates',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDataProcessJobTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries data processing task templates by region, template ID, or type, and returns paginated template configurations.
+     *
+     * @param request - DescribeDataProcessJobTemplatesRequest
+     *
+     * @returns DescribeDataProcessJobTemplatesResponse
+     *
+     * @param DescribeDataProcessJobTemplatesRequest $request
+     *
+     * @return DescribeDataProcessJobTemplatesResponse
+     */
+    public function describeDataProcessJobTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataProcessJobTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+     *
+     * @param request - DescribeDataProcessJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataProcessJobsResponse
+     *
+     * @param DescribeDataProcessJobsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDataProcessJobsResponse
+     */
+    public function describeDataProcessJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['SourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDataProcessJobs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDataProcessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+     *
+     * @param request - DescribeDataProcessJobsRequest
+     *
+     * @returns DescribeDataProcessJobsResponse
+     *
+     * @param DescribeDataProcessJobsRequest $request
+     *
+     * @return DescribeDataProcessJobsResponse
+     */
+    public function describeDataProcessJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataProcessJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries for the details of databases in a specified PolarDB cluster.
      *
      * @param request - DescribeDatabasesRequest
@@ -21642,6 +23804,56 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the available edge cloud regions for the current account, including their central control regions and standby edge cloud regions.
+     *
+     * @param request - DescribeEdgeCloudRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEdgeCloudRegionResponse
+     *
+     * @param DescribeEdgeCloudRegionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeEdgeCloudRegionResponse
+     */
+    public function describeEdgeCloudRegionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeEdgeCloudRegion',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEdgeCloudRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the available edge cloud regions for the current account, including their central control regions and standby edge cloud regions.
+     *
+     * @param request - DescribeEdgeCloudRegionRequest
+     *
+     * @returns DescribeEdgeCloudRegionResponse
+     *
+     * @param DescribeEdgeCloudRegionRequest $request
+     *
+     * @return DescribeEdgeCloudRegionResponse
+     */
+    public function describeEdgeCloudRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEdgeCloudRegionWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of permissions for a database role.
      *
      * @param request - DescribeEncryptionDBRolePrivilegeRequest
@@ -21857,6 +24069,75 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the file information under a specified path of a PolarFS instance and uses a pagination token to retrieve subsequent results.
+     *
+     * @param request - DescribeFileSystemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFileSystemsResponse
+     *
+     * @param DescribeFileSystemsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeFileSystemsResponse
+     */
+    public function describeFileSystemsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFileSystems',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFileSystemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the file information under a specified path of a PolarFS instance and uses a pagination token to retrieve subsequent results.
+     *
+     * @param request - DescribeFileSystemsRequest
+     *
+     * @returns DescribeFileSystemsResponse
+     *
+     * @param DescribeFileSystemsRequest $request
+     *
+     * @return DescribeFileSystemsResponse
+     */
+    public function describeFileSystems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFileSystemsWithOptions($request, $runtime);
+    }
+
+    /**
      * Describes SQL firewall rules.
      *
      * @param request - DescribeFirewallRulesRequest
@@ -21934,7 +24215,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries all API keys under the current UID.
+     * Queries all API keys for the specified UID.
      *
      * @param request - DescribeGatewayApikeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21981,7 +24262,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries all API keys under the current UID.
+     * Queries all API keys for the specified UID.
      *
      * @param request - DescribeGatewayApikeyListRequest
      *
@@ -22633,7 +24914,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the historical events in Event Center.
+     * Queries the list of events in Event Center.
      *
      * @param request - DescribeHistoryEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22728,7 +25009,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the historical events in Event Center.
+     * Queries the list of events in Event Center.
      *
      * @param request - DescribeHistoryEventsRequest
      *
@@ -22743,6 +25024,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHistoryEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the number of events in the Event Center by event category.
+     *
+     * @param request - DescribeHistoryEventsStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHistoryEventsStatResponse
+     *
+     * @param DescribeHistoryEventsStatRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeHistoryEventsStatResponse
+     */
+    public function describeHistoryEventsStatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->archiveStatus) {
+            @$query['ArchiveStatus'] = $request->archiveStatus;
+        }
+
+        if (null !== $request->fromStartTime) {
+            @$query['FromStartTime'] = $request->fromStartTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->toStartTime) {
+            @$query['ToStartTime'] = $request->toStartTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeHistoryEventsStat',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeHistoryEventsStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the number of events in the Event Center by event category.
+     *
+     * @param request - DescribeHistoryEventsStatRequest
+     *
+     * @returns DescribeHistoryEventsStatResponse
+     *
+     * @param DescribeHistoryEventsStatRequest $request
+     *
+     * @return DescribeHistoryEventsStatResponse
+     */
+    public function describeHistoryEventsStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryEventsStatWithOptions($request, $runtime);
     }
 
     /**
@@ -22976,6 +25326,274 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+     *
+     * @param request - DescribeInspectionReportListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInspectionReportListResponse
+     *
+     * @param DescribeInspectionReportListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeInspectionReportListResponse
+     */
+    public function describeInspectionReportListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInspectionReportList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInspectionReportListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+     *
+     * @param request - DescribeInspectionReportListRequest
+     *
+     * @returns DescribeInspectionReportListResponse
+     *
+     * @param DescribeInspectionReportListRequest $request
+     *
+     * @return DescribeInspectionReportListResponse
+     */
+    public function describeInspectionReportList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInspectionReportListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the execution plan, associated clusters, and validity period of a specified inspection task.
+     *
+     * @param request - DescribeInspectionTaskAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInspectionTaskAttributeResponse
+     *
+     * @param DescribeInspectionTaskAttributeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeInspectionTaskAttributeResponse
+     */
+    public function describeInspectionTaskAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInspectionTaskAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInspectionTaskAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the execution plan, associated clusters, and validity period of a specified inspection task.
+     *
+     * @param request - DescribeInspectionTaskAttributeRequest
+     *
+     * @returns DescribeInspectionTaskAttributeResponse
+     *
+     * @param DescribeInspectionTaskAttributeRequest $request
+     *
+     * @return DescribeInspectionTaskAttributeResponse
+     */
+    public function describeInspectionTaskAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInspectionTaskAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+     *
+     * @param request - DescribeInspectionTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInspectionTaskListResponse
+     *
+     * @param DescribeInspectionTaskListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeInspectionTaskListResponse
+     */
+    public function describeInspectionTaskListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->spaceId) {
+            @$query['SpaceId'] = $request->spaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInspectionTaskList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInspectionTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+     *
+     * @param request - DescribeInspectionTaskListRequest
+     *
+     * @returns DescribeInspectionTaskListResponse
+     *
+     * @param DescribeInspectionTaskListRequest $request
+     *
+     * @return DescribeInspectionTaskListResponse
+     */
+    public function describeInspectionTaskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInspectionTaskListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+     *
+     * @param request - DescribeInstanceReportAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceReportAttributeResponse
+     *
+     * @param DescribeInstanceReportAttributeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeInstanceReportAttributeResponse
+     */
+    public function describeInstanceReportAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceReportAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceReportAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+     *
+     * @param request - DescribeInstanceReportAttributeRequest
+     *
+     * @returns DescribeInstanceReportAttributeResponse
+     *
+     * @param DescribeInstanceReportAttributeRequest $request
+     *
+     * @return DescribeInstanceReportAttributeResponse
+     */
+    public function describeInstanceReportAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceReportAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a knowledge base synchronization link.
      *
      * @param request - DescribeKBSyncLinkAttributeRequest
@@ -23111,6 +25729,140 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeKBSyncLinksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the region, status, capacity, network, billing method, and expiration information of a specified KVCache instance.
+     *
+     * @param request - DescribeKVCacheInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKVCacheInstanceAttributeResponse
+     *
+     * @param DescribeKVCacheInstanceAttributeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeKVCacheInstanceAttributeResponse
+     */
+    public function describeKVCacheInstanceAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->KVCacheInstanceId) {
+            @$query['KVCacheInstanceId'] = $request->KVCacheInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKVCacheInstanceAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKVCacheInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the region, status, capacity, network, billing method, and expiration information of a specified KVCache instance.
+     *
+     * @param request - DescribeKVCacheInstanceAttributeRequest
+     *
+     * @returns DescribeKVCacheInstanceAttributeResponse
+     *
+     * @param DescribeKVCacheInstanceAttributeRequest $request
+     *
+     * @return DescribeKVCacheInstanceAttributeResponse
+     */
+    public function describeKVCacheInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKVCacheInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries KVCache instances filtered by region, associated cluster, or instance ID, and returns paginated instance details.
+     *
+     * @param request - DescribeKVCacheInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKVCacheInstancesResponse
+     *
+     * @param DescribeKVCacheInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeKVCacheInstancesResponse
+     */
+    public function describeKVCacheInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->KVCacheInstanceDescription) {
+            @$query['KVCacheInstanceDescription'] = $request->KVCacheInstanceDescription;
+        }
+
+        if (null !== $request->KVCacheInstanceIds) {
+            @$query['KVCacheInstanceIds'] = $request->KVCacheInstanceIds;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relativeDBClusterId) {
+            @$query['RelativeDBClusterId'] = $request->relativeDBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKVCacheInstances',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKVCacheInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries KVCache instances filtered by region, associated cluster, or instance ID, and returns paginated instance details.
+     *
+     * @param request - DescribeKVCacheInstancesRequest
+     *
+     * @returns DescribeKVCacheInstancesResponse
+     *
+     * @param DescribeKVCacheInstancesRequest $request
+     *
+     * @return DescribeKVCacheInstancesResponse
+     */
+    public function describeKVCacheInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKVCacheInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -23533,6 +26285,282 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeKnowledgeSpaceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a parameter template attached to Lakebase.
+     *
+     * @param request - DescribeLakebaseMountParameterGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLakebaseMountParameterGroupResponse
+     *
+     * @param DescribeLakebaseMountParameterGroupRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeLakebaseMountParameterGroupResponse
+     */
+    public function describeLakebaseMountParameterGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->parameterGroupId) {
+            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLakebaseMountParameterGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLakebaseMountParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a parameter template attached to Lakebase.
+     *
+     * @param request - DescribeLakebaseMountParameterGroupRequest
+     *
+     * @returns DescribeLakebaseMountParameterGroupResponse
+     *
+     * @param DescribeLakebaseMountParameterGroupRequest $request
+     *
+     * @return DescribeLakebaseMountParameterGroupResponse
+     */
+    public function describeLakebaseMountParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLakebaseMountParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the change history of parameter templates mounted to Lakebase.
+     *
+     * @param request - DescribeLakebaseMountParameterGroupChangeLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLakebaseMountParameterGroupChangeLogsResponse
+     *
+     * @param DescribeLakebaseMountParameterGroupChangeLogsRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return DescribeLakebaseMountParameterGroupChangeLogsResponse
+     */
+    public function describeLakebaseMountParameterGroupChangeLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->parameterGroupId) {
+            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLakebaseMountParameterGroupChangeLogs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLakebaseMountParameterGroupChangeLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the change history of parameter templates mounted to Lakebase.
+     *
+     * @param request - DescribeLakebaseMountParameterGroupChangeLogsRequest
+     *
+     * @returns DescribeLakebaseMountParameterGroupChangeLogsResponse
+     *
+     * @param DescribeLakebaseMountParameterGroupChangeLogsRequest $request
+     *
+     * @return DescribeLakebaseMountParameterGroupChangeLogsResponse
+     */
+    public function describeLakebaseMountParameterGroupChangeLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLakebaseMountParameterGroupChangeLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of parameter templates associated with Lakebase.
+     *
+     * @param request - DescribeLakebaseMountParameterGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLakebaseMountParameterGroupsResponse
+     *
+     * @param DescribeLakebaseMountParameterGroupsRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeLakebaseMountParameterGroupsResponse
+     */
+    public function describeLakebaseMountParameterGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->paramGroupCategory) {
+            @$query['ParamGroupCategory'] = $request->paramGroupCategory;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLakebaseMountParameterGroups',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLakebaseMountParameterGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of parameter templates associated with Lakebase.
+     *
+     * @param request - DescribeLakebaseMountParameterGroupsRequest
+     *
+     * @returns DescribeLakebaseMountParameterGroupsResponse
+     *
+     * @param DescribeLakebaseMountParameterGroupsRequest $request
+     *
+     * @return DescribeLakebaseMountParameterGroupsResponse
+     */
+    public function describeLakebaseMountParameterGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLakebaseMountParameterGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the parameter dictionary supported by Lakebase mounted parameter templates.
+     *
+     * @param request - DescribeLakebaseMountParameterTemplateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLakebaseMountParameterTemplateListResponse
+     *
+     * @param DescribeLakebaseMountParameterTemplateListRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return DescribeLakebaseMountParameterTemplateListResponse
+     */
+    public function describeLakebaseMountParameterTemplateListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->paramGroupCategory) {
+            @$query['ParamGroupCategory'] = $request->paramGroupCategory;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLakebaseMountParameterTemplateList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLakebaseMountParameterTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the parameter dictionary supported by Lakebase mounted parameter templates.
+     *
+     * @param request - DescribeLakebaseMountParameterTemplateListRequest
+     *
+     * @returns DescribeLakebaseMountParameterTemplateListResponse
+     *
+     * @param DescribeLakebaseMountParameterTemplateListRequest $request
+     *
+     * @return DescribeLakebaseMountParameterTemplateListResponse
+     */
+    public function describeLakebaseMountParameterTemplateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLakebaseMountParameterTemplateListWithOptions($request, $runtime);
     }
 
     /**
@@ -24176,7 +27204,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the model service list.
+     * Queries the list of model services.
      *
      * @param request - DescribeModelServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24247,7 +27275,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the model service list.
+     * Queries the list of model services.
      *
      * @param request - DescribeModelServicesRequest
      *
@@ -24892,7 +27920,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the chat records of a specified session.
+     * Queries the details of a specified session.
+     *
+     * @remarks
+     * Prerequisites: Use Signature Version 3.0 to call GetPolarAgent to initiate a conversation and obtain the SessionId from the returned stream. Then, call this operation to query the chat history of the session.
      *
      * @param request - DescribePolarAgentChatRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24935,7 +27966,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the chat records of a specified session.
+     * Queries the details of a specified session.
+     *
+     * @remarks
+     * Prerequisites: Use Signature Version 3.0 to call GetPolarAgent to initiate a conversation and obtain the SessionId from the returned stream. Then, call this operation to query the chat history of the session.
      *
      * @param request - DescribePolarAgentChatRecordsRequest
      *
@@ -25335,12 +28369,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Query all or specific scheduled tasks in PolarClaw and their details.
+     * Queries all or specified scheduled jobs and their details in PolarClaw.
      *
      * @remarks
      * ## Request description
-     * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
-     * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
+     * - You can use this API operation to retrieve all scheduled jobs in a PolarClaw application, or filter specific jobs by using the JobIdList parameter.
+     * - If the JobIdList parameter is not provided, all scheduled jobs in the application are returned.
+     * Before you begin: Call DescribeApplications to filter applications where ApplicationType is polardb_polarclaw, obtain the ApplicationId, and then call this operation to query scheduled jobs.
      *
      * @param tmpReq - DescribePolarClawCronJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25401,12 +28436,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Query all or specific scheduled tasks in PolarClaw and their details.
+     * Queries all or specified scheduled jobs and their details in PolarClaw.
      *
      * @remarks
      * ## Request description
-     * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
-     * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
+     * - You can use this API operation to retrieve all scheduled jobs in a PolarClaw application, or filter specific jobs by using the JobIdList parameter.
+     * - If the JobIdList parameter is not provided, all scheduled jobs in the application are returned.
+     * Before you begin: Call DescribeApplications to filter applications where ApplicationType is polardb_polarclaw, obtain the ApplicationId, and then call this operation to query scheduled jobs.
      *
      * @param request - DescribePolarClawCronJobsRequest
      *
@@ -25485,12 +28521,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists all installed PolarClaw plugins and their status.
+     * Lists all installed PolarClaw plugins and their status information.
      *
      * @remarks
-     * ## Request
-     * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
-     * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
+     * ## Request description
+     * - Retrieves information about all plugins in a specified application, including built-in and user-installed plugins.
+     * - You can use the PluginList parameter to request information about specific plugins. If this parameter is not provided, details of all plugins are returned.
      *
      * @param request - DescribePolarClawPluginsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25533,12 +28569,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists all installed PolarClaw plugins and their status.
+     * Lists all installed PolarClaw plugins and their status information.
      *
      * @remarks
-     * ## Request
-     * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
-     * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
+     * ## Request description
+     * - Retrieves information about all plugins in a specified application, including built-in and user-installed plugins.
+     * - You can use the PluginList parameter to request information about specific plugins. If this parameter is not provided, details of all plugins are returned.
      *
      * @param request - DescribePolarClawPluginsRequest
      *
@@ -25553,6 +28589,79 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolarClawPluginsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a PolarClaw skill security assessment.
+     *
+     * @param request - DescribePolarClawSkillAssessmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawSkillAssessmentResponse
+     *
+     * @param DescribePolarClawSkillAssessmentRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribePolarClawSkillAssessmentResponse
+     */
+    public function describePolarClawSkillAssessmentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->skillVersion) {
+            @$query['SkillVersion'] = $request->skillVersion;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawSkillAssessment',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawSkillAssessmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a PolarClaw skill security assessment.
+     *
+     * @param request - DescribePolarClawSkillAssessmentRequest
+     *
+     * @returns DescribePolarClawSkillAssessmentResponse
+     *
+     * @param DescribePolarClawSkillAssessmentRequest $request
+     *
+     * @return DescribePolarClawSkillAssessmentResponse
+     */
+    public function describePolarClawSkillAssessment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawSkillAssessmentWithOptions($request, $runtime);
     }
 
     /**
@@ -25617,6 +28726,320 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the details of a PolarClaw skill template.
+     *
+     * @remarks
+     * Queries the PolarClaw skill templates associated with a specified application. You must provide ApplicationId when calling this operation. If this parameter is not specified, InvalidApplicationId.Malformed is returned. The SkillTemplates field in the response is a list of templates, and Skills is a map of keys to strings. Each string can be parsed into an array of skill details, where each array element contains skillName and version.
+     *
+     * @param request - DescribePolarClawSkillTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawSkillTemplateResponse
+     *
+     * @param DescribePolarClawSkillTemplateRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribePolarClawSkillTemplateResponse
+     */
+    public function describePolarClawSkillTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skillTemplateId) {
+            @$query['SkillTemplateId'] = $request->skillTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawSkillTemplate',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawSkillTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a PolarClaw skill template.
+     *
+     * @remarks
+     * Queries the PolarClaw skill templates associated with a specified application. You must provide ApplicationId when calling this operation. If this parameter is not specified, InvalidApplicationId.Malformed is returned. The SkillTemplates field in the response is a list of templates, and Skills is a map of keys to strings. Each string can be parsed into an array of skill details, where each array element contains skillName and version.
+     *
+     * @param request - DescribePolarClawSkillTemplateRequest
+     *
+     * @returns DescribePolarClawSkillTemplateResponse
+     *
+     * @param DescribePolarClawSkillTemplateRequest $request
+     *
+     * @return DescribePolarClawSkillTemplateResponse
+     */
+    public function describePolarClawSkillTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawSkillTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+     *
+     * @param request - DescribePolarClawSkillTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawSkillTemplatesResponse
+     *
+     * @param DescribePolarClawSkillTemplatesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribePolarClawSkillTemplatesResponse
+     */
+    public function describePolarClawSkillTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skillTemplateId) {
+            @$query['SkillTemplateId'] = $request->skillTemplateId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawSkillTemplates',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawSkillTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+     *
+     * @param request - DescribePolarClawSkillTemplatesRequest
+     *
+     * @returns DescribePolarClawSkillTemplatesResponse
+     *
+     * @param DescribePolarClawSkillTemplatesRequest $request
+     *
+     * @return DescribePolarClawSkillTemplatesResponse
+     */
+    public function describePolarClawSkillTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawSkillTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries PolarClaw skills.
+     *
+     * @param request - DescribePolarClawSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawSkillsResponse
+     *
+     * @param DescribePolarClawSkillsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePolarClawSkillsResponse
+     */
+    public function describePolarClawSkillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawSkills',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries PolarClaw skills.
+     *
+     * @param request - DescribePolarClawSkillsRequest
+     *
+     * @returns DescribePolarClawSkillsResponse
+     *
+     * @param DescribePolarClawSkillsRequest $request
+     *
+     * @return DescribePolarClawSkillsResponse
+     */
+    public function describePolarClawSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawSkillsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the PolarClaw skills marketplace.
+     *
+     * @param request - DescribePolarClawSkillsMarketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawSkillsMarketResponse
+     *
+     * @param DescribePolarClawSkillsMarketRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePolarClawSkillsMarketResponse
+     */
+    public function describePolarClawSkillsMarketWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchBySkillName) {
+            @$query['SearchBySkillName'] = $request->searchBySkillName;
+        }
+
+        if (null !== $request->searchByTagName) {
+            @$query['SearchByTagName'] = $request->searchByTagName;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawSkillsMarket',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawSkillsMarketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the PolarClaw skills marketplace.
+     *
+     * @param request - DescribePolarClawSkillsMarketRequest
+     *
+     * @returns DescribePolarClawSkillsMarketResponse
+     *
+     * @param DescribePolarClawSkillsMarketRequest $request
+     *
+     * @return DescribePolarClawSkillsMarketResponse
+     */
+    public function describePolarClawSkillsMarket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawSkillsMarketWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the status of a PolarClaw asynchronous task.
      *
      * @param request - DescribePolarClawTaskRequest
@@ -25678,7 +29101,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the PolarFS information.
+     * Queries PolarFS information.
      *
      * @param request - DescribePolarFsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25753,7 +29176,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the PolarFS information.
+     * Queries PolarFS information.
      *
      * @param request - DescribePolarFsRequest
      *
@@ -25905,14 +29328,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the files and subdirectories under a specified path.
+     * Lists the files and subdirectories in a specified path.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path** 参数必须提供一个绝对路径。
-     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
-     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
-     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     * ## Request description
+     * - The **Path** parameter must be an absolute path.
+     * - The **Recursive** parameter defaults to `false`. If set to `true`, the contents of all subdirectories are listed recursively.
+     * - The **Depth** parameter limits the recursion depth. Default value: `1`.
+     * - The **Filter** parameter supports wildcards or regular expressions to filter results.
      *
      * @param request - DescribePolarFsObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25955,14 +29378,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the files and subdirectories under a specified path.
+     * Lists the files and subdirectories in a specified path.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path** 参数必须提供一个绝对路径。
-     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
-     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
-     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     * ## Request description
+     * - The **Path** parameter must be an absolute path.
+     * - The **Recursive** parameter defaults to `false`. If set to `true`, the contents of all subdirectories are listed recursively.
+     * - The **Depth** parameter limits the recursion depth. Default value: `1`.
+     * - The **Filter** parameter supports wildcards or regular expressions to filter results.
      *
      * @param request - DescribePolarFsObjectsRequest
      *
@@ -25977,6 +29400,93 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolarFsObjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the performance metrics and sampling data of a specified PolarFS instance within a specified time range.
+     *
+     * @remarks
+     * Use Key to specify the metric group to query and Interval to specify the sampling granularity. The end time of the query must not be earlier than the start time, and the start time must not be later than the current time.
+     *
+     * @param request - DescribePolarFsPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarFsPerformanceResponse
+     *
+     * @param DescribePolarFsPerformanceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribePolarFsPerformanceResponse
+     */
+    public function describePolarFsPerformanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarFsPerformance',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarFsPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the performance metrics and sampling data of a specified PolarFS instance within a specified time range.
+     *
+     * @remarks
+     * Use Key to specify the metric group to query and Interval to specify the sampling granularity. The end time of the query must not be earlier than the start time, and the start time must not be later than the current time.
+     *
+     * @param request - DescribePolarFsPerformanceRequest
+     *
+     * @returns DescribePolarFsPerformanceResponse
+     *
+     * @param DescribePolarFsPerformanceRequest $request
+     *
+     * @return DescribePolarFsPerformanceResponse
+     */
+    public function describePolarFsPerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarFsPerformanceWithOptions($request, $runtime);
     }
 
     /**
@@ -26069,7 +29579,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the quota list.
+     * Queries the list of quotas.
      *
      * @param request - DescribePolarFsQuotaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26128,7 +29638,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the quota list.
+     * Queries the list of quotas.
      *
      * @param request - DescribePolarFsQuotaListRequest
      *
@@ -26527,6 +30037,67 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of a distributed instance.
+     *
+     * @param request - DescribeReplicationSlotsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeReplicationSlotsResponse
+     *
+     * @param DescribeReplicationSlotsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeReplicationSlotsResponse
+     */
+    public function describeReplicationSlotsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->subGroupName) {
+            @$query['SubGroupName'] = $request->subGroupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeReplicationSlots',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeReplicationSlotsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of a distributed instance.
+     *
+     * @param request - DescribeReplicationSlotsRequest
+     *
+     * @returns DescribeReplicationSlotsResponse
+     *
+     * @param DescribeReplicationSlotsRequest $request
+     *
+     * @return DescribeReplicationSlotsResponse
+     */
+    public function describeReplicationSlots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeReplicationSlotsWithOptions($request, $runtime);
+    }
+
+    /**
      * Describes cross-cloud resource plans.
      *
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26567,6 +30138,160 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeResourcePackagesWithOptions($runtime);
+    }
+
+    /**
+     * Checks whether the SQL Explorer feature is enabled for the specified cluster.
+     *
+     * @param request - DescribeSQLExplorerPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSQLExplorerPolicyResponse
+     *
+     * @param DescribeSQLExplorerPolicyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSQLExplorerPolicyResponse
+     */
+    public function describeSQLExplorerPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSQLExplorerPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSQLExplorerPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Checks whether the SQL Explorer feature is enabled for the specified cluster.
+     *
+     * @param request - DescribeSQLExplorerPolicyRequest
+     *
+     * @returns DescribeSQLExplorerPolicyResponse
+     *
+     * @param DescribeSQLExplorerPolicyRequest $request
+     *
+     * @return DescribeSQLExplorerPolicyResponse
+     */
+    public function describeSQLExplorerPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLExplorerPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the SQL Explorer log retention period for a PolarDB cluster.
+     *
+     * @param request - DescribeSQLExplorerRetentionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSQLExplorerRetentionResponse
+     *
+     * @param DescribeSQLExplorerRetentionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSQLExplorerRetentionResponse
+     */
+    public function describeSQLExplorerRetentionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSQLExplorerRetention',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSQLExplorerRetentionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the SQL Explorer log retention period for a PolarDB cluster.
+     *
+     * @param request - DescribeSQLExplorerRetentionRequest
+     *
+     * @returns DescribeSQLExplorerRetentionResponse
+     *
+     * @param DescribeSQLExplorerRetentionRequest $request
+     *
+     * @return DescribeSQLExplorerRetentionResponse
+     */
+    public function describeSQLExplorerRetention($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLExplorerRetentionWithOptions($request, $runtime);
     }
 
     /**
@@ -26765,6 +30490,128 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeScheduleTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the parameter modification history of PolarDB Search.
+     *
+     * @param request - DescribeSearchModifyParameterLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSearchModifyParameterLogResponse
+     *
+     * @param DescribeSearchModifyParameterLogRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeSearchModifyParameterLogResponse
+     */
+    public function describeSearchModifyParameterLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSearchModifyParameterLog',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSearchModifyParameterLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the parameter modification history of PolarDB Search.
+     *
+     * @param request - DescribeSearchModifyParameterLogRequest
+     *
+     * @returns DescribeSearchModifyParameterLogResponse
+     *
+     * @param DescribeSearchModifyParameterLogRequest $request
+     *
+     * @return DescribeSearchModifyParameterLogResponse
+     */
+    public function describeSearchModifyParameterLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSearchModifyParameterLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the parameters of a PolarDB Search cluster.
+     *
+     * @param request - DescribeSearchParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSearchParametersResponse
+     *
+     * @param DescribeSearchParametersRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeSearchParametersResponse
+     */
+    public function describeSearchParametersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSearchParameters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSearchParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the parameters of a PolarDB Search cluster.
+     *
+     * @param request - DescribeSearchParametersRequest
+     *
+     * @returns DescribeSearchParametersResponse
+     *
+     * @param DescribeSearchParametersRequest $request
+     *
+     * @return DescribeSearchParametersResponse
+     */
+    public function describeSearchParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSearchParametersWithOptions($request, $runtime);
     }
 
     /**
@@ -27090,6 +30937,93 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSlowLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of storage plans.
+     *
+     * @remarks
+     * > This operation is supported only in regions where the endpoint is polardb.aliyuncs.com.
+     *
+     * @param request - DescribeStoragePlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeStoragePlanResponse
+     *
+     * @param DescribeStoragePlanRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeStoragePlanResponse
+     */
+    public function describeStoragePlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeStoragePlan',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeStoragePlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of storage plans.
+     *
+     * @remarks
+     * > This operation is supported only in regions where the endpoint is polardb.aliyuncs.com.
+     *
+     * @param request - DescribeStoragePlanRequest
+     *
+     * @returns DescribeStoragePlanResponse
+     *
+     * @param DescribeStoragePlanRequest $request
+     *
+     * @return DescribeStoragePlanResponse
+     */
+    public function describeStoragePlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStoragePlanWithOptions($request, $runtime);
     }
 
     /**
@@ -27691,7 +31625,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the available zones.
+     * Queries zones.
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27742,7 +31676,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the available zones.
+     * Queries zones.
      *
      * @param request - DescribeZonesRequest
      *
@@ -27757,6 +31691,120 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeZonesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Disables the column store table feature for a specified PolarDB cluster.
+     *
+     * @param request - DisableDBClusterCTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableDBClusterCTableResponse
+     *
+     * @param DisableDBClusterCTableRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DisableDBClusterCTableResponse
+     */
+    public function disableDBClusterCTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableDBClusterCTable',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableDBClusterCTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables the column store table feature for a specified PolarDB cluster.
+     *
+     * @param request - DisableDBClusterCTableRequest
+     *
+     * @returns DisableDBClusterCTableResponse
+     *
+     * @param DisableDBClusterCTableRequest $request
+     *
+     * @return DisableDBClusterCTableResponse
+     */
+    public function disableDBClusterCTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDBClusterCTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * Disables document database support for a specified PolarDB cluster.
+     *
+     * @param request - DisableDBClusterDocumentDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableDBClusterDocumentDBResponse
+     *
+     * @param DisableDBClusterDocumentDBRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DisableDBClusterDocumentDBResponse
+     */
+    public function disableDBClusterDocumentDBWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableDBClusterDocumentDB',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableDBClusterDocumentDBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables document database support for a specified PolarDB cluster.
+     *
+     * @param request - DisableDBClusterDocumentDBRequest
+     *
+     * @returns DisableDBClusterDocumentDBResponse
+     *
+     * @param DisableDBClusterDocumentDBRequest $request
+     *
+     * @return DisableDBClusterDocumentDBResponse
+     */
+    public function disableDBClusterDocumentDB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDBClusterDocumentDBWithOptions($request, $runtime);
     }
 
     /**
@@ -28179,6 +32227,201 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->disablePolarClawPluginWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables the dataset service for a cold storage instance.
+     *
+     * @param request - EnableAIDBClusterDatasetServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableAIDBClusterDatasetServiceResponse
+     *
+     * @param EnableAIDBClusterDatasetServiceRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return EnableAIDBClusterDatasetServiceResponse
+     */
+    public function enableAIDBClusterDatasetServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relativeDBClusterId) {
+            @$query['RelativeDBClusterId'] = $request->relativeDBClusterId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableAIDBClusterDatasetService',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableAIDBClusterDatasetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables the dataset service for a cold storage instance.
+     *
+     * @param request - EnableAIDBClusterDatasetServiceRequest
+     *
+     * @returns EnableAIDBClusterDatasetServiceResponse
+     *
+     * @param EnableAIDBClusterDatasetServiceRequest $request
+     *
+     * @return EnableAIDBClusterDatasetServiceResponse
+     */
+    public function enableAIDBClusterDatasetService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableAIDBClusterDatasetServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables the column store table feature for the specified PolarDB cluster.
+     *
+     * @param request - EnableDBClusterCTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableDBClusterCTableResponse
+     *
+     * @param EnableDBClusterCTableRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return EnableDBClusterCTableResponse
+     */
+    public function enableDBClusterCTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableDBClusterCTable',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableDBClusterCTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables the column store table feature for the specified PolarDB cluster.
+     *
+     * @param request - EnableDBClusterCTableRequest
+     *
+     * @returns EnableDBClusterCTableResponse
+     *
+     * @param EnableDBClusterCTableRequest $request
+     *
+     * @return EnableDBClusterCTableResponse
+     */
+    public function enableDBClusterCTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDBClusterCTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables document database support for an instance.
+     *
+     * @param request - EnableDBClusterDocumentDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableDBClusterDocumentDBResponse
+     *
+     * @param EnableDBClusterDocumentDBRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableDBClusterDocumentDBResponse
+     */
+    public function enableDBClusterDocumentDBWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableDBClusterDocumentDB',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableDBClusterDocumentDBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables document database support for an instance.
+     *
+     * @param request - EnableDBClusterDocumentDBRequest
+     *
+     * @returns EnableDBClusterDocumentDBResponse
+     *
+     * @param EnableDBClusterDocumentDBRequest $request
+     *
+     * @return EnableDBClusterDocumentDBResponse
+     */
+    public function enableDBClusterDocumentDB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDBClusterDocumentDBWithOptions($request, $runtime);
     }
 
     /**
@@ -29233,6 +33476,9 @@ class Polardb extends OpenApiClient
     /**
      * Retrieves the Lakebase tenant token (SPG tenant mount URL).
      *
+     * @remarks
+     * Retrieves the token required for mounting a Lakebase tenant. Only PolarFS instances whose CreationCategory is basic (Basic Edition) are supported. The server verifies the instance category before calling the backend, and returns OperationDenied.PolarFsCategory for other categories. Before calling this operation, provide PolarFsInstanceId and specify the associated DBClusterId, mount subdirectory, and tenant identifier as needed.
+     *
      * @param request - GetLakebaseTenantTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -29283,6 +33529,9 @@ class Polardb extends OpenApiClient
 
     /**
      * Retrieves the Lakebase tenant token (SPG tenant mount URL).
+     *
+     * @remarks
+     * Retrieves the token required for mounting a Lakebase tenant. Only PolarFS instances whose CreationCategory is basic (Basic Edition) are supported. The server verifies the instance category before calling the backend, and returns OperationDenied.PolarFsCategory for other categories. Before calling this operation, provide PolarFsInstanceId and specify the associated DBClusterId, mount subdirectory, and tenant identifier as needed.
      *
      * @param request - GetLakebaseTenantTokenRequest
      *
@@ -29491,6 +33740,77 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPolarClawConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the central bucket for polarClawSkill.
+     *
+     * @remarks
+     * ## Request description
+     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when no rules exist.
+     * ### Important notes
+     * - The maximum length of the `FilePathQuotas` list is 21.
+     * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+     *
+     * @param request - GetPolarClawSkillRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPolarClawSkillRegionResponse
+     *
+     * @param GetPolarClawSkillRegionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetPolarClawSkillRegionResponse
+     */
+    public function getPolarClawSkillRegionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPolarClawSkillRegion',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPolarClawSkillRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the central bucket for polarClawSkill.
+     *
+     * @remarks
+     * ## Request description
+     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when no rules exist.
+     * ### Important notes
+     * - The maximum length of the `FilePathQuotas` list is 21.
+     * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
+     *
+     * @param request - GetPolarClawSkillRegionRequest
+     *
+     * @returns GetPolarClawSkillRegionResponse
+     *
+     * @param GetPolarClawSkillRegionRequest $request
+     *
+     * @return GetPolarClawSkillRegionResponse
+     */
+    public function getPolarClawSkillRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPolarClawSkillRegionWithOptions($request, $runtime);
     }
 
     /**
@@ -30130,7 +34450,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
+     * Queries the tags bound to one or more PolarDB clusters, or the PolarDB clusters bound to one or more tags.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30201,7 +34521,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
+     * Queries the tags bound to one or more PolarDB clusters, or the PolarDB clusters bound to one or more tags.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -30219,7 +34539,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are attached to resources in a specified region.
+     * Queries the resource tags in a region.
      *
      * @param request - ListTagResourcesForRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30282,7 +34602,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are attached to resources in a specified region.
+     * Queries the resource tags in a region.
      *
      * @param request - ListTagResourcesForRegionRequest
      *
@@ -30593,6 +34913,91 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAIDBClusterModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a task.
+     *
+     * @param request - ModifyAIDBClusterTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAIDBClusterTaskResponse
+     *
+     * @param ModifyAIDBClusterTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAIDBClusterTaskResponse
+     */
+    public function modifyAIDBClusterTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relativeDBClusterId) {
+            @$query['RelativeDBClusterId'] = $request->relativeDBClusterId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAIDBClusterTask',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAIDBClusterTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a task.
+     *
+     * @param request - ModifyAIDBClusterTaskRequest
+     *
+     * @returns ModifyAIDBClusterTaskResponse
+     *
+     * @param ModifyAIDBClusterTaskRequest $request
+     *
+     * @return ModifyAIDBClusterTaskResponse
+     */
+    public function modifyAIDBClusterTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAIDBClusterTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -31215,7 +35620,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the history retention window of an AgenticDB project.
+     * Modifies the history retention window for an AgenticDB project.
      *
      * @param request - ModifyAgenticDBProjectHistoryRetentionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31270,7 +35675,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the history retention window of an AgenticDB project.
+     * Modifies the history retention window for an AgenticDB project.
      *
      * @param request - ModifyAgenticDBProjectHistoryRetentionRequest
      *
@@ -31285,6 +35690,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAgenticDBProjectHistoryRetentionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - ModifyApplicationBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyApplicationBackupPolicyResponse
+     *
+     * @param ModifyApplicationBackupPolicyRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyApplicationBackupPolicyResponse
+     */
+    public function modifyApplicationBackupPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->preferredBackupPeriod) {
+            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        }
+
+        if (null !== $request->preferredBackupRetentionPeriod) {
+            @$query['PreferredBackupRetentionPeriod'] = $request->preferredBackupRetentionPeriod;
+        }
+
+        if (null !== $request->preferredBackupTime) {
+            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyApplicationBackupPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyApplicationBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - ModifyApplicationBackupPolicyRequest
+     *
+     * @returns ModifyApplicationBackupPolicyResponse
+     *
+     * @param ModifyApplicationBackupPolicyRequest $request
+     *
+     * @return ModifyApplicationBackupPolicyResponse
+     */
+    public function modifyApplicationBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApplicationBackupPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -32906,6 +37388,67 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Modifies the minor engine version update policy for a specified PolarDB cluster.
+     *
+     * @param request - ModifyDBClusterAutoUpgradeMinorVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBClusterAutoUpgradeMinorVersionResponse
+     *
+     * @param ModifyDBClusterAutoUpgradeMinorVersionRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ModifyDBClusterAutoUpgradeMinorVersionResponse
+     */
+    public function modifyDBClusterAutoUpgradeMinorVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoUpgradeMinorVersion) {
+            @$query['AutoUpgradeMinorVersion'] = $request->autoUpgradeMinorVersion;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBClusterAutoUpgradeMinorVersion',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBClusterAutoUpgradeMinorVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the minor engine version update policy for a specified PolarDB cluster.
+     *
+     * @param request - ModifyDBClusterAutoUpgradeMinorVersionRequest
+     *
+     * @returns ModifyDBClusterAutoUpgradeMinorVersionResponse
+     *
+     * @param ModifyDBClusterAutoUpgradeMinorVersionRequest $request
+     *
+     * @return ModifyDBClusterAutoUpgradeMinorVersionResponse
+     */
+    public function modifyDBClusterAutoUpgradeMinorVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterAutoUpgradeMinorVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * Enables or disables the cluster lock.
      *
      * @param request - ModifyDBClusterDeletionRequest
@@ -34020,7 +38563,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+     * Enables or performs a shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34103,7 +38646,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+     * Enables or performs a shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      *
@@ -34458,12 +39001,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * ModifyDBClusterTDE.
+     * Enables Transparent Data Encryption (TDE) for a specified PolarDB cluster. You must activate Key Management Service (KMS) before you enable TDE. TDE cannot be disabled after it is enabled.
      *
      * @remarks
-     * > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
-     * >
-     * > - You cannot disable transparent data encryption (TDE) after you enable it.
+     * >* You must activate KMS before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * >* TDE cannot be disabled after it is enabled.
+     * Before you call this operation, call the OpenKmsService operation of KMS (version 2016-01-20) to activate KMS, and then call this operation to enable TDE for the cluster.
      *
      * @param request - ModifyDBClusterTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34538,12 +39081,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * ModifyDBClusterTDE.
+     * Enables Transparent Data Encryption (TDE) for a specified PolarDB cluster. You must activate Key Management Service (KMS) before you enable TDE. TDE cannot be disabled after it is enabled.
      *
      * @remarks
-     * > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
-     * >
-     * > - You cannot disable transparent data encryption (TDE) after you enable it.
+     * >* You must activate KMS before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * >* TDE cannot be disabled after it is enabled.
+     * Before you call this operation, call the OpenKmsService operation of KMS (version 2016-01-20) to activate KMS, and then call this operation to enable TDE for the cluster.
      *
      * @param request - ModifyDBClusterTDERequest
      *
@@ -35274,6 +39817,87 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBNodeHotReplicaModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the routing access weights of nodes.
+     *
+     * @param request - ModifyDBNodeRouterWeightRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDBNodeRouterWeightResponse
+     *
+     * @param ModifyDBNodeRouterWeightRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDBNodeRouterWeightResponse
+     */
+    public function modifyDBNodeRouterWeightWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBNodeWeights) {
+            @$query['DBNodeWeights'] = $request->DBNodeWeights;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBNodeRouterWeight',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBNodeRouterWeightResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the routing access weights of nodes.
+     *
+     * @param request - ModifyDBNodeRouterWeightRequest
+     *
+     * @returns ModifyDBNodeRouterWeightResponse
+     *
+     * @param ModifyDBNodeRouterWeightRequest $request
+     *
+     * @return ModifyDBNodeRouterWeightResponse
+     */
+    public function modifyDBNodeRouterWeight($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBNodeRouterWeightWithOptions($request, $runtime);
     }
 
     /**
@@ -36175,6 +40799,152 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Modifies a mounted parameter template for Lakebase.
+     *
+     * @param request - ModifyLakebaseMountParameterGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyLakebaseMountParameterGroupResponse
+     *
+     * @param ModifyLakebaseMountParameterGroupRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyLakebaseMountParameterGroupResponse
+     */
+    public function modifyLakebaseMountParameterGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deleteParameters) {
+            @$query['DeleteParameters'] = $request->deleteParameters;
+        }
+
+        if (null !== $request->parameterGroupId) {
+            @$query['ParameterGroupId'] = $request->parameterGroupId;
+        }
+
+        if (null !== $request->parameterGroupName) {
+            @$query['ParameterGroupName'] = $request->parameterGroupName;
+        }
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyLakebaseMountParameterGroup',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyLakebaseMountParameterGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a mounted parameter template for Lakebase.
+     *
+     * @param request - ModifyLakebaseMountParameterGroupRequest
+     *
+     * @returns ModifyLakebaseMountParameterGroupResponse
+     *
+     * @param ModifyLakebaseMountParameterGroupRequest $request
+     *
+     * @return ModifyLakebaseMountParameterGroupResponse
+     */
+    public function modifyLakebaseMountParameterGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLakebaseMountParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the PolarFS S3 account policy.
+     *
+     * @param request - ModifyLakebaseS3AccountPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyLakebaseS3AccountPolicyResponse
+     *
+     * @param ModifyLakebaseS3AccountPolicyRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyLakebaseS3AccountPolicyResponse
+     */
+    public function modifyLakebaseS3AccountPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userAccAk) {
+            @$query['UserAccAk'] = $request->userAccAk;
+        }
+
+        if (null !== $request->userAccPolicy) {
+            @$query['UserAccPolicy'] = $request->userAccPolicy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyLakebaseS3AccountPolicy',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyLakebaseS3AccountPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the PolarFS S3 account policy.
+     *
+     * @param request - ModifyLakebaseS3AccountPolicyRequest
+     *
+     * @returns ModifyLakebaseS3AccountPolicyResponse
+     *
+     * @param ModifyLakebaseS3AccountPolicyRequest $request
+     *
+     * @return ModifyLakebaseS3AccountPolicyResponse
+     */
+    public function modifyLakebaseS3AccountPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLakebaseS3AccountPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the log backup retention policy of a PolarDB cluster.
      *
      * @param tmpReq - ModifyLogBackupPolicyRequest
@@ -36635,6 +41405,227 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPendingMaintenanceActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a PolarClaw skill.
+     *
+     * @remarks
+     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     *
+     * @param request - ModifyPolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPolarClawSkillResponse
+     *
+     * @param ModifyPolarClawSkillRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyPolarClawSkillResponse
+     */
+    public function modifyPolarClawSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->modifyType) {
+            @$query['ModifyType'] = $request->modifyType;
+        }
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->skillVersion) {
+            @$query['SkillVersion'] = $request->skillVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPolarClawSkill',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyPolarClawSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a PolarClaw skill.
+     *
+     * @remarks
+     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     *
+     * @param request - ModifyPolarClawSkillRequest
+     *
+     * @returns ModifyPolarClawSkillResponse
+     *
+     * @param ModifyPolarClawSkillRequest $request
+     *
+     * @return ModifyPolarClawSkillResponse
+     */
+    public function modifyPolarClawSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPolarClawSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the PolarFs configuration.
+     *
+     * @param request - ModifyPolarFsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPolarFsResponse
+     *
+     * @param ModifyPolarFsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyPolarFsResponse
+     */
+    public function modifyPolarFsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customOssAk) {
+            @$query['CustomOssAk'] = $request->customOssAk;
+        }
+
+        if (null !== $request->customOssSk) {
+            @$query['CustomOssSk'] = $request->customOssSk;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPolarFs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyPolarFsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the PolarFs configuration.
+     *
+     * @param request - ModifyPolarFsRequest
+     *
+     * @returns ModifyPolarFsResponse
+     *
+     * @param ModifyPolarFsRequest $request
+     *
+     * @return ModifyPolarFsResponse
+     */
+    public function modifyPolarFs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPolarFsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the description of a PolarFS instance.
+     *
+     * @param request - ModifyPolarFsInstanceDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPolarFsInstanceDescriptionResponse
+     *
+     * @param ModifyPolarFsInstanceDescriptionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyPolarFsInstanceDescriptionResponse
+     */
+    public function modifyPolarFsInstanceDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceDescription) {
+            @$query['PolarFsInstanceDescription'] = $request->polarFsInstanceDescription;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPolarFsInstanceDescription',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyPolarFsInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the description of a PolarFS instance.
+     *
+     * @param request - ModifyPolarFsInstanceDescriptionRequest
+     *
+     * @returns ModifyPolarFsInstanceDescriptionResponse
+     *
+     * @param ModifyPolarFsInstanceDescriptionRequest $request
+     *
+     * @return ModifyPolarFsInstanceDescriptionResponse
+     */
+    public function modifyPolarFsInstanceDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPolarFsInstanceDescriptionWithOptions($request, $runtime);
     }
 
     /**
@@ -37110,6 +42101,237 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Modifies the parameters of a PolarDB Search cluster.
+     *
+     * @param request - ModifySearchParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySearchParametersResponse
+     *
+     * @param ModifySearchParametersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifySearchParametersResponse
+     */
+    public function modifySearchParametersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySearchParameters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySearchParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the parameters of a PolarDB Search cluster.
+     *
+     * @param request - ModifySearchParametersRequest
+     *
+     * @returns ModifySearchParametersResponse
+     *
+     * @param ModifySearchParametersRequest $request
+     *
+     * @return ModifySearchParametersResponse
+     */
+    public function modifySearchParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySearchParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the IP address whitelist of a specified PolarDB cluster.
+     *
+     * @param request - ModifySecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySecurityIpsResponse
+     *
+     * @param ModifySecurityIpsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifySecurityIpsResponse
+     */
+    public function modifySecurityIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterIPArrayAttribute) {
+            @$query['DBClusterIPArrayAttribute'] = $request->DBClusterIPArrayAttribute;
+        }
+
+        if (null !== $request->DBClusterIPArrayName) {
+            @$query['DBClusterIPArrayName'] = $request->DBClusterIPArrayName;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityIps) {
+            @$query['SecurityIps'] = $request->securityIps;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySecurityIps',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the IP address whitelist of a specified PolarDB cluster.
+     *
+     * @param request - ModifySecurityIpsRequest
+     *
+     * @returns ModifySecurityIpsResponse
+     *
+     * @param ModifySecurityIpsRequest $request
+     *
+     * @return ModifySecurityIpsResponse
+     */
+    public function modifySecurityIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates task information in the task center.
+     *
+     * @param request - ModifyTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyTaskInfoResponse
+     *
+     * @param ModifyTaskInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyTaskInfoResponse
+     */
+    public function modifyTaskInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionParams) {
+            @$query['ActionParams'] = $request->actionParams;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->stepName) {
+            @$query['StepName'] = $request->stepName;
+        }
+
+        if (null !== $request->taskAction) {
+            @$query['TaskAction'] = $request->taskAction;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyTaskInfo',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates task information in the task center.
+     *
+     * @param request - ModifyTaskInfoRequest
+     *
+     * @returns ModifyTaskInfoResponse
+     *
+     * @param ModifyTaskInfoRequest $request
+     *
+     * @return ModifyTaskInfoResponse
+     */
+    public function modifyTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Renames or moves files in a PolarFs instance.
      *
      * @param request - MovePolarFsObjectsRequest
@@ -37523,6 +42745,99 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->refreshDBClusterStorageUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+     *
+     * @param request - RefreshProxyLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshProxyLevelResponse
+     *
+     * @param RefreshProxyLevelRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RefreshProxyLevelResponse
+     */
+    public function refreshProxyLevelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->fromTimeService) {
+            @$query['FromTimeService'] = $request->fromTimeService;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->plannedEndTime) {
+            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        }
+
+        if (null !== $request->plannedStartTime) {
+            @$query['PlannedStartTime'] = $request->plannedStartTime;
+        }
+
+        if (null !== $request->proxyTargetClass) {
+            @$query['ProxyTargetClass'] = $request->proxyTargetClass;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshProxyLevel',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RefreshProxyLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+     *
+     * @param request - RefreshProxyLevelRequest
+     *
+     * @returns RefreshProxyLevelResponse
+     *
+     * @param RefreshProxyLevelRequest $request
+     *
+     * @return RefreshProxyLevelResponse
+     */
+    public function refreshProxyLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshProxyLevelWithOptions($request, $runtime);
     }
 
     /**
@@ -38381,6 +43696,79 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Resets the password of an application account.
+     *
+     * @remarks
+     * > * Only privileged accounts of PolarDB for MySQL clusters can be reset.
+     * > * If the privileged account encounters issues, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore normal access.
+     *
+     * @param request - ResetApplicationAccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetApplicationAccountPasswordResponse
+     *
+     * @param ResetApplicationAccountPasswordRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ResetApplicationAccountPasswordResponse
+     */
+    public function resetApplicationAccountPasswordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->newAccountPassword) {
+            @$query['NewAccountPassword'] = $request->newAccountPassword;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetApplicationAccountPassword',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetApplicationAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resets the password of an application account.
+     *
+     * @remarks
+     * > * Only privileged accounts of PolarDB for MySQL clusters can be reset.
+     * > * If the privileged account encounters issues, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore normal access.
+     *
+     * @param request - ResetApplicationAccountPasswordRequest
+     *
+     * @returns ResetApplicationAccountPasswordResponse
+     *
+     * @param ResetApplicationAccountPasswordRequest $request
+     *
+     * @return ResetApplicationAccountPasswordResponse
+     */
+    public function resetApplicationAccountPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetApplicationAccountPasswordWithOptions($request, $runtime);
+    }
+
+    /**
      * Resets an API key.
      *
      * @param request - ResetConsumerApiKeyRequest
@@ -38654,6 +44042,87 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartAIDBClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Restarts a specified PolarDB cluster.
+     *
+     * @param request - RestartDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartDBClusterResponse
+     *
+     * @param RestartDBClusterRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RestartDBClusterResponse
+     */
+    public function restartDBClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartDBCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restarts a specified PolarDB cluster.
+     *
+     * @param request - RestartDBClusterRequest
+     *
+     * @returns RestartDBClusterResponse
+     *
+     * @param RestartDBClusterRequest $request
+     *
+     * @return RestartDBClusterResponse
+     */
+    public function restartDBCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartDBClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -38962,6 +44431,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartPolarClawGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * Restores a PolarDB application from a specified backup set.
+     *
+     * @param request - RestoreApplicationByBackupSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreApplicationByBackupSetResponse
+     *
+     * @param RestoreApplicationByBackupSetRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RestoreApplicationByBackupSetResponse
+     */
+    public function restoreApplicationByBackupSetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->backupSetId) {
+            @$query['BackupSetId'] = $request->backupSetId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestoreApplicationByBackupSet',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestoreApplicationByBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restores a PolarDB application from a specified backup set.
+     *
+     * @param request - RestoreApplicationByBackupSetRequest
+     *
+     * @returns RestoreApplicationByBackupSetResponse
+     *
+     * @param RestoreApplicationByBackupSetRequest $request
+     *
+     * @return RestoreApplicationByBackupSetResponse
+     */
+    public function restoreApplicationByBackupSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restoreApplicationByBackupSetWithOptions($request, $runtime);
     }
 
     /**
@@ -39771,7 +45309,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Adds tags to PolarDB clusters.
+     * Adds tags to an instance.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -39838,7 +45376,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Adds tags to PolarDB clusters.
+     * Adds tags to an instance.
      *
      * @param request - TagResourcesRequest
      *
@@ -40366,7 +45904,92 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Detaches tags from a PolarDB cluster.
+     * Uninstalls a PolarClaw skill.
+     *
+     * @remarks
+     * ## Request description
+     * - PolarFsInstanceId is required to identify the Polarlakebase instance to operate.
+     * - The FilePathIds parameter is also required. It accepts a list of file path IDs in string format, which correspond to the specific file paths whose quota rules are to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+     * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
+     *
+     * @param request - UninstallPolarClawSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallPolarClawSkillsResponse
+     *
+     * @param UninstallPolarClawSkillsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UninstallPolarClawSkillsResponse
+     */
+    public function uninstallPolarClawSkillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
+        }
+
+        if (null !== $request->uninstallSkillNames) {
+            @$query['UninstallSkillNames'] = $request->uninstallSkillNames;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UninstallPolarClawSkills',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UninstallPolarClawSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Uninstalls a PolarClaw skill.
+     *
+     * @remarks
+     * ## Request description
+     * - PolarFsInstanceId is required to identify the Polarlakebase instance to operate.
+     * - The FilePathIds parameter is also required. It accepts a list of file path IDs in string format, which correspond to the specific file paths whose quota rules are to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+     * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
+     *
+     * @param request - UninstallPolarClawSkillsRequest
+     *
+     * @returns UninstallPolarClawSkillsResponse
+     *
+     * @param UninstallPolarClawSkillsRequest $request
+     *
+     * @return UninstallPolarClawSkillsResponse
+     */
+    public function uninstallPolarClawSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallPolarClawSkillsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes tags from one or more PolarDB clusters.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40437,7 +46060,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Detaches tags from a PolarDB cluster.
+     * Removes tags from one or more PolarDB clusters.
      *
      * @param request - UntagResourcesRequest
      *
@@ -40627,7 +46250,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates a knowledge base synchronization link.
+     * Updates the synchronization link for a knowledge base.
      *
      * @param request - UpdateKBSyncLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40714,7 +46337,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates a knowledge base synchronization link.
+     * Updates the synchronization link for a knowledge base.
      *
      * @param request - UpdateKBSyncLinkRequest
      *

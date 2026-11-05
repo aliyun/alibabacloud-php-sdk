@@ -91,6 +91,11 @@ class DescribeGatewayAttributeResponseBody extends Model
     public $securityIPArrays;
 
     /**
+     * @var bool
+     */
+    public $semanticCacheEnabled;
+
+    /**
      * @var string
      */
     public $status;
@@ -121,6 +126,7 @@ class DescribeGatewayAttributeResponseBody extends Model
         'requestId' => 'RequestId',
         'runningVersion' => 'RunningVersion',
         'securityIPArrays' => 'SecurityIPArrays',
+        'semanticCacheEnabled' => 'SemanticCacheEnabled',
         'status' => 'Status',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -216,6 +222,10 @@ class DescribeGatewayAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->semanticCacheEnabled) {
+            $res['SemanticCacheEnabled'] = $this->semanticCacheEnabled;
         }
 
         if (null !== $this->status) {
@@ -317,6 +327,10 @@ class DescribeGatewayAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SemanticCacheEnabled'])) {
+            $model->semanticCacheEnabled = $map['SemanticCacheEnabled'];
         }
 
         if (isset($map['Status'])) {

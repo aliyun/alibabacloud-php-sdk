@@ -1,0 +1,146 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeLakebaseMountParameterGroupsResponseBody;
+
+use AlibabaCloud\Dara\Model;
+
+class parameterGroups extends Model
+{
+    /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @var string
+     */
+    public $isApply;
+
+    /**
+     * @var string
+     */
+    public $modifyTime;
+
+    /**
+     * @var int
+     */
+    public $parameterCounts;
+
+    /**
+     * @var string
+     */
+    public $parameterGroupDesc;
+
+    /**
+     * @var string
+     */
+    public $parameterGroupId;
+
+    /**
+     * @var string
+     */
+    public $parameterGroupName;
+
+    /**
+     * @var string
+     */
+    public $parameterGroupType;
+    protected $_name = [
+        'createTime' => 'CreateTime',
+        'isApply' => 'IsApply',
+        'modifyTime' => 'ModifyTime',
+        'parameterCounts' => 'ParameterCounts',
+        'parameterGroupDesc' => 'ParameterGroupDesc',
+        'parameterGroupId' => 'ParameterGroupId',
+        'parameterGroupName' => 'ParameterGroupName',
+        'parameterGroupType' => 'ParameterGroupType',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->isApply) {
+            $res['IsApply'] = $this->isApply;
+        }
+
+        if (null !== $this->modifyTime) {
+            $res['ModifyTime'] = $this->modifyTime;
+        }
+
+        if (null !== $this->parameterCounts) {
+            $res['ParameterCounts'] = $this->parameterCounts;
+        }
+
+        if (null !== $this->parameterGroupDesc) {
+            $res['ParameterGroupDesc'] = $this->parameterGroupDesc;
+        }
+
+        if (null !== $this->parameterGroupId) {
+            $res['ParameterGroupId'] = $this->parameterGroupId;
+        }
+
+        if (null !== $this->parameterGroupName) {
+            $res['ParameterGroupName'] = $this->parameterGroupName;
+        }
+
+        if (null !== $this->parameterGroupType) {
+            $res['ParameterGroupType'] = $this->parameterGroupType;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['IsApply'])) {
+            $model->isApply = $map['IsApply'];
+        }
+
+        if (isset($map['ModifyTime'])) {
+            $model->modifyTime = $map['ModifyTime'];
+        }
+
+        if (isset($map['ParameterCounts'])) {
+            $model->parameterCounts = $map['ParameterCounts'];
+        }
+
+        if (isset($map['ParameterGroupDesc'])) {
+            $model->parameterGroupDesc = $map['ParameterGroupDesc'];
+        }
+
+        if (isset($map['ParameterGroupId'])) {
+            $model->parameterGroupId = $map['ParameterGroupId'];
+        }
+
+        if (isset($map['ParameterGroupName'])) {
+            $model->parameterGroupName = $map['ParameterGroupName'];
+        }
+
+        if (isset($map['ParameterGroupType'])) {
+            $model->parameterGroupType = $map['ParameterGroupType'];
+        }
+
+        return $model;
+    }
+}
