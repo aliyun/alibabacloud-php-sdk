@@ -11,6 +11,11 @@ class CreateC2paSignTaskRequest extends Model
     /**
      * @var string
      */
+    public $customAssertions;
+
+    /**
+     * @var string
+     */
     public $fileUrl;
 
     /**
@@ -23,6 +28,7 @@ class CreateC2paSignTaskRequest extends Model
      */
     public $sourceType;
     protected $_name = [
+        'customAssertions' => 'CustomAssertions',
         'fileUrl' => 'FileUrl',
         'softwareAgent' => 'SoftwareAgent',
         'sourceType' => 'SourceType',
@@ -36,6 +42,10 @@ class CreateC2paSignTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customAssertions) {
+            $res['CustomAssertions'] = $this->customAssertions;
+        }
+
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
@@ -59,6 +69,10 @@ class CreateC2paSignTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomAssertions'])) {
+            $model->customAssertions = $map['CustomAssertions'];
+        }
+
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
         }

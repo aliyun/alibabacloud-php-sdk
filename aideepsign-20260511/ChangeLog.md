@@ -1,3 +1,8 @@
+2026-11-05 Version: 2.0.2
+- Update API CreateC2paBucketSignTask: add request parameters CustomAssertions.
+- Update API CreateC2paSignTask: add request parameters CustomAssertions.
+
+
 2026-11-03 Version: 2.0.1
 - Update API CreateVideoTask: add request parameters Media.10.Type.
 - Update API CreateVideoTask: add request parameters Media.10.Url.

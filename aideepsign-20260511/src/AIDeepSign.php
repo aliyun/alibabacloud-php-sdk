@@ -57,6 +57,7 @@ use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\SignUserImageRequest;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\SignUserImageResponse;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\VerifyImageSignatureRequest;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\VerifyImageSignatureResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -67,6 +68,9 @@ class AIDeepSign extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'AIDeepSign';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aideepsign', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -166,18 +170,16 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Creates a batch C2PA content credential signing task for objects in a specified OSS bucket.
+     * Creates a batch C2PA content credential signing task for files in a specified OSS bucket.
      *
      * @remarks
-     * ## Operation description
-     * - This operation creates a batch C2PA content credential signing task for files under a specified source prefix in an OSS bucket. It supports JPEG, JPG, PNG, MP4, FLAC, M4A, MP3, and WAV formats, and allows mixed processing under the same prefix.
-     * - `SourcePrefix` must be `ai-deepsign/` or its subdirectory, and must not overlap with the output prefix `ai-deepsign-signed/`.
-     * - By default, a single task processes up to 20,000 non-directory objects. The size of a single file must not exceed 800 MiB.
-     * - The RAM identity of the caller must have permissions to call this operation. The service-linked role `AliyunServiceRoleForAIDeepSign` must have access permissions to the specified bucket and associated paths.
-     * - File name extensions are case-insensitive. Files in unsupported formats are recorded as failed, but this does not abort the processing of other files.
-     * - The signing results are written to the `ai-deepsign-signed/<TaskId>/` directory in the same bucket. The subdirectories relative to `SourcePrefix` and the source file name extensions are preserved, and `_signed` is added before the file name extension. The processing report is `c2pa_report.json` in the task directory.
-     * - For example, if `SourcePrefix=ai-deepsign/images/`, the signing result for the source file `ai-deepsign/images/audio/demo.m4a` is `ai-deepsign-signed/<TaskId>/audio/demo_signed.m4a`.
-     * - A successful creation only indicates that the task has been accepted. Call `GetC2paSignResult` to query the results. A `SUCCEEDED` status for a batch task does not mean that every file was signed successfully. Check the final statistics and processing report for file-by-file results.
+     * ## Request description
+     * - **BucketRegionId** and **BucketName** must match the actual OSS bucket information.
+     * - **SourcePrefix** must be located in `ai-deepsign/` or its subdirectories, and cannot overlap with the reserved output prefix `ai-deepsign-signed/`.
+     * - Supports processing JPEG/JPG, PNG, MP4, and audio files in FLAC, M4A, MP3, and WAV formats.
+     * - A single task includes up to 20,000 non-directory objects by default, and each file size cannot exceed 800 MiB.
+     * - Make sure that the service-linked role `AliyunServiceRoleForAIDeepSign` has been granted access permissions to the specified bucket and related paths.
+     * - The optional parameters `SourceType` and `SoftwareAgent` are used to declare the content source and software name. `CustomAssertions` is used to add custom assertions.
      *
      * @param request - CreateC2paBucketSignTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -199,6 +201,10 @@ class AIDeepSign extends OpenApiClient
 
         if (null !== $request->bucketRegionId) {
             @$query['BucketRegionId'] = $request->bucketRegionId;
+        }
+
+        if (null !== $request->customAssertions) {
+            @$query['CustomAssertions'] = $request->customAssertions;
         }
 
         if (null !== $request->softwareAgent) {
@@ -232,18 +238,16 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Creates a batch C2PA content credential signing task for objects in a specified OSS bucket.
+     * Creates a batch C2PA content credential signing task for files in a specified OSS bucket.
      *
      * @remarks
-     * ## Operation description
-     * - This operation creates a batch C2PA content credential signing task for files under a specified source prefix in an OSS bucket. It supports JPEG, JPG, PNG, MP4, FLAC, M4A, MP3, and WAV formats, and allows mixed processing under the same prefix.
-     * - `SourcePrefix` must be `ai-deepsign/` or its subdirectory, and must not overlap with the output prefix `ai-deepsign-signed/`.
-     * - By default, a single task processes up to 20,000 non-directory objects. The size of a single file must not exceed 800 MiB.
-     * - The RAM identity of the caller must have permissions to call this operation. The service-linked role `AliyunServiceRoleForAIDeepSign` must have access permissions to the specified bucket and associated paths.
-     * - File name extensions are case-insensitive. Files in unsupported formats are recorded as failed, but this does not abort the processing of other files.
-     * - The signing results are written to the `ai-deepsign-signed/<TaskId>/` directory in the same bucket. The subdirectories relative to `SourcePrefix` and the source file name extensions are preserved, and `_signed` is added before the file name extension. The processing report is `c2pa_report.json` in the task directory.
-     * - For example, if `SourcePrefix=ai-deepsign/images/`, the signing result for the source file `ai-deepsign/images/audio/demo.m4a` is `ai-deepsign-signed/<TaskId>/audio/demo_signed.m4a`.
-     * - A successful creation only indicates that the task has been accepted. Call `GetC2paSignResult` to query the results. A `SUCCEEDED` status for a batch task does not mean that every file was signed successfully. Check the final statistics and processing report for file-by-file results.
+     * ## Request description
+     * - **BucketRegionId** and **BucketName** must match the actual OSS bucket information.
+     * - **SourcePrefix** must be located in `ai-deepsign/` or its subdirectories, and cannot overlap with the reserved output prefix `ai-deepsign-signed/`.
+     * - Supports processing JPEG/JPG, PNG, MP4, and audio files in FLAC, M4A, MP3, and WAV formats.
+     * - A single task includes up to 20,000 non-directory objects by default, and each file size cannot exceed 800 MiB.
+     * - Make sure that the service-linked role `AliyunServiceRoleForAIDeepSign` has been granted access permissions to the specified bucket and related paths.
+     * - The optional parameters `SourceType` and `SoftwareAgent` are used to declare the content source and software name. `CustomAssertions` is used to add custom assertions.
      *
      * @param request - CreateC2paBucketSignTaskRequest
      *
@@ -265,14 +269,12 @@ class AIDeepSign extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This operation adds standard C2PA content credentials to a single JPEG/JPG, PNG, MP4, FLAC, M4A, MP3, or WAV file.
-     * - `FileUrl` must be an absolute HTTP or HTTPS URL accessible by the service and cannot contain a username or password.
-     * - File name extensions are case-insensitive, and URL query parameters are not used for file name identification. For example, the file name for `https://example.com/media/demo.m4a?token=xxx` is `demo.m4a`.
-     * - The source URL must directly return an HTTP 200 status code. Redirect URLs are not supported.
-     * - The size of a single file cannot exceed 800 MiB. Provide a valid file in a supported format. Changing only the file name extension does not transform the file format.
-     * - The signing result retains the source file name extension and adds `_signed` before the extension. For example, `demo.m4a` becomes `demo_signed.m4a`.
-     * - Unsupported file name extensions return `InvalidParam`, and the error message is `FileUrl only supports files with .jpg, .jpeg, .png, .mp4, .flac, .m4a, .mp3, or .wav extensions`.
-     * - A successful creation only indicates that the task has been accepted. Save the returned `TaskId` and invoke `GetC2paSignResult` to query the task status and final result.
+     * - This operation adds standard C2PA content credentials to a single JPEG, JPG, PNG, MP4, FLAC, M4A, MP3, or WAV file.
+     * - The operation receives the HTTP or HTTPS URL of the file, asynchronously retrieves the file and signs the content credentials, and returns a TaskId for subsequent queries.
+     * - The FileUrl must be an accessible absolute URL and cannot contain a userinfo component.
+     * - You can provide additional content source, software information, and custom assertions by using the SourceType, SoftwareAgent, and CustomAssertions parameters.
+     * - The size of a single file cannot exceed 800 MiB, and only specific file formats are supported.
+     * - Do not repeatedly create tasks before confirming the task results to avoid duplicate signing and metering.
      *
      * @param request - CreateC2paSignTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -288,6 +290,10 @@ class AIDeepSign extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->customAssertions) {
+            @$query['CustomAssertions'] = $request->customAssertions;
+        }
+
         if (null !== $request->fileUrl) {
             @$query['FileUrl'] = $request->fileUrl;
         }
@@ -323,14 +329,12 @@ class AIDeepSign extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This operation adds standard C2PA content credentials to a single JPEG/JPG, PNG, MP4, FLAC, M4A, MP3, or WAV file.
-     * - `FileUrl` must be an absolute HTTP or HTTPS URL accessible by the service and cannot contain a username or password.
-     * - File name extensions are case-insensitive, and URL query parameters are not used for file name identification. For example, the file name for `https://example.com/media/demo.m4a?token=xxx` is `demo.m4a`.
-     * - The source URL must directly return an HTTP 200 status code. Redirect URLs are not supported.
-     * - The size of a single file cannot exceed 800 MiB. Provide a valid file in a supported format. Changing only the file name extension does not transform the file format.
-     * - The signing result retains the source file name extension and adds `_signed` before the extension. For example, `demo.m4a` becomes `demo_signed.m4a`.
-     * - Unsupported file name extensions return `InvalidParam`, and the error message is `FileUrl only supports files with .jpg, .jpeg, .png, .mp4, .flac, .m4a, .mp3, or .wav extensions`.
-     * - A successful creation only indicates that the task has been accepted. Save the returned `TaskId` and invoke `GetC2paSignResult` to query the task status and final result.
+     * - This operation adds standard C2PA content credentials to a single JPEG, JPG, PNG, MP4, FLAC, M4A, MP3, or WAV file.
+     * - The operation receives the HTTP or HTTPS URL of the file, asynchronously retrieves the file and signs the content credentials, and returns a TaskId for subsequent queries.
+     * - The FileUrl must be an accessible absolute URL and cannot contain a userinfo component.
+     * - You can provide additional content source, software information, and custom assertions by using the SourceType, SoftwareAgent, and CustomAssertions parameters.
+     * - The size of a single file cannot exceed 800 MiB, and only specific file formats are supported.
+     * - Do not repeatedly create tasks before confirming the task results to avoid duplicate signing and metering.
      *
      * @param request - CreateC2paSignTaskRequest
      *

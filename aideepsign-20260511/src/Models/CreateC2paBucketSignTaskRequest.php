@@ -21,6 +21,11 @@ class CreateC2paBucketSignTaskRequest extends Model
     /**
      * @var string
      */
+    public $customAssertions;
+
+    /**
+     * @var string
+     */
     public $softwareAgent;
 
     /**
@@ -35,6 +40,7 @@ class CreateC2paBucketSignTaskRequest extends Model
     protected $_name = [
         'bucketName' => 'BucketName',
         'bucketRegionId' => 'BucketRegionId',
+        'customAssertions' => 'CustomAssertions',
         'softwareAgent' => 'SoftwareAgent',
         'sourcePrefix' => 'SourcePrefix',
         'sourceType' => 'SourceType',
@@ -54,6 +60,10 @@ class CreateC2paBucketSignTaskRequest extends Model
 
         if (null !== $this->bucketRegionId) {
             $res['BucketRegionId'] = $this->bucketRegionId;
+        }
+
+        if (null !== $this->customAssertions) {
+            $res['CustomAssertions'] = $this->customAssertions;
         }
 
         if (null !== $this->softwareAgent) {
@@ -85,6 +95,10 @@ class CreateC2paBucketSignTaskRequest extends Model
 
         if (isset($map['BucketRegionId'])) {
             $model->bucketRegionId = $map['BucketRegionId'];
+        }
+
+        if (isset($map['CustomAssertions'])) {
+            $model->customAssertions = $map['CustomAssertions'];
         }
 
         if (isset($map['SoftwareAgent'])) {
