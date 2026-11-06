@@ -79,6 +79,11 @@ class ListDetectionRulesShrinkRequest extends Model
     public $logSchemaId;
 
     /**
+     * @var string
+     */
+    public $logSchemaIdsShrink;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -132,6 +137,7 @@ class ListDetectionRulesShrinkRequest extends Model
         'lang' => 'Lang',
         'logCategoryId' => 'LogCategoryId',
         'logSchemaId' => 'LogSchemaId',
+        'logSchemaIdsShrink' => 'LogSchemaIds',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'orderDirection' => 'OrderDirection',
@@ -204,6 +210,10 @@ class ListDetectionRulesShrinkRequest extends Model
 
         if (null !== $this->logSchemaId) {
             $res['LogSchemaId'] = $this->logSchemaId;
+        }
+
+        if (null !== $this->logSchemaIdsShrink) {
+            $res['LogSchemaIds'] = $this->logSchemaIdsShrink;
         }
 
         if (null !== $this->maxResults) {
@@ -303,6 +313,10 @@ class ListDetectionRulesShrinkRequest extends Model
 
         if (isset($map['LogSchemaId'])) {
             $model->logSchemaId = $map['LogSchemaId'];
+        }
+
+        if (isset($map['LogSchemaIds'])) {
+            $model->logSchemaIdsShrink = $map['LogSchemaIds'];
         }
 
         if (isset($map['MaxResults'])) {

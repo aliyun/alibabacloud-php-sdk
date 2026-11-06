@@ -79,6 +79,11 @@ class ListDetectionRulesRequest extends Model
     public $logSchemaId;
 
     /**
+     * @var string[]
+     */
+    public $logSchemaIds;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -132,6 +137,7 @@ class ListDetectionRulesRequest extends Model
         'lang' => 'Lang',
         'logCategoryId' => 'LogCategoryId',
         'logSchemaId' => 'LogSchemaId',
+        'logSchemaIds' => 'LogSchemaIds',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'orderDirection' => 'OrderDirection',
@@ -146,6 +152,9 @@ class ListDetectionRulesRequest extends Model
     {
         if (\is_array($this->detectionRuleIds)) {
             Model::validateArray($this->detectionRuleIds);
+        }
+        if (\is_array($this->logSchemaIds)) {
+            Model::validateArray($this->logSchemaIds);
         }
         parent::validate();
     }
@@ -214,6 +223,17 @@ class ListDetectionRulesRequest extends Model
 
         if (null !== $this->logSchemaId) {
             $res['LogSchemaId'] = $this->logSchemaId;
+        }
+
+        if (null !== $this->logSchemaIds) {
+            if (\is_array($this->logSchemaIds)) {
+                $res['LogSchemaIds'] = [];
+                $n1 = 0;
+                foreach ($this->logSchemaIds as $item1) {
+                    $res['LogSchemaIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->maxResults) {
@@ -320,6 +340,17 @@ class ListDetectionRulesRequest extends Model
 
         if (isset($map['LogSchemaId'])) {
             $model->logSchemaId = $map['LogSchemaId'];
+        }
+
+        if (isset($map['LogSchemaIds'])) {
+            if (!empty($map['LogSchemaIds'])) {
+                $model->logSchemaIds = [];
+                $n1 = 0;
+                foreach ($map['LogSchemaIds'] as $item1) {
+                    $model->logSchemaIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['MaxResults'])) {
