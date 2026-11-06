@@ -21,6 +21,11 @@ class CreateCustomAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $createFrom;
+
+    /**
+     * @var string
+     */
     public $DMSUnit;
 
     /**
@@ -105,6 +110,7 @@ class CreateCustomAgentShrinkRequest extends Model
     protected $_name = [
         'agentType' => 'AgentType',
         'callbackConfigShrink' => 'CallbackConfig',
+        'createFrom' => 'CreateFrom',
         'DMSUnit' => 'DMSUnit',
         'dataJson' => 'DataJson',
         'description' => 'Description',
@@ -138,6 +144,10 @@ class CreateCustomAgentShrinkRequest extends Model
 
         if (null !== $this->callbackConfigShrink) {
             $res['CallbackConfig'] = $this->callbackConfigShrink;
+        }
+
+        if (null !== $this->createFrom) {
+            $res['CreateFrom'] = $this->createFrom;
         }
 
         if (null !== $this->DMSUnit) {
@@ -225,6 +235,10 @@ class CreateCustomAgentShrinkRequest extends Model
 
         if (isset($map['CallbackConfig'])) {
             $model->callbackConfigShrink = $map['CallbackConfig'];
+        }
+
+        if (isset($map['CreateFrom'])) {
+            $model->createFrom = $map['CreateFrom'];
         }
 
         if (isset($map['DMSUnit'])) {

@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\d
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\chatHistoryLocations;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\dataSources;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\messages;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\previewCustomAgent;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\recallResults;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\sessionConfig;
 
@@ -66,6 +67,11 @@ class data extends Model
     public $messages;
 
     /**
+     * @var previewCustomAgent
+     */
+    public $previewCustomAgent;
+
+    /**
      * @var recallResults[]
      */
     public $recallResults;
@@ -110,6 +116,7 @@ class data extends Model
         'favoriteInWorkspace' => 'FavoriteInWorkspace',
         'file' => 'File',
         'messages' => 'Messages',
+        'previewCustomAgent' => 'PreviewCustomAgent',
         'recallResults' => 'RecallResults',
         'saved' => 'Saved',
         'sessionConfig' => 'SessionConfig',
@@ -135,6 +142,9 @@ class data extends Model
         }
         if (\is_array($this->messages)) {
             Model::validateArray($this->messages);
+        }
+        if (null !== $this->previewCustomAgent) {
+            $this->previewCustomAgent->validate();
         }
         if (\is_array($this->recallResults)) {
             Model::validateArray($this->recallResults);
@@ -221,6 +231,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->previewCustomAgent) {
+            $res['PreviewCustomAgent'] = null !== $this->previewCustomAgent ? $this->previewCustomAgent->toArray($noStream) : $this->previewCustomAgent;
         }
 
         if (null !== $this->recallResults) {
@@ -342,6 +356,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PreviewCustomAgent'])) {
+            $model->previewCustomAgent = previewCustomAgent::fromMap($map['PreviewCustomAgent']);
         }
 
         if (isset($map['RecallResults'])) {

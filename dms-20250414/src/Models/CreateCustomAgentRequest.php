@@ -26,6 +26,11 @@ class CreateCustomAgentRequest extends Model
     /**
      * @var string
      */
+    public $createFrom;
+
+    /**
+     * @var string
+     */
     public $DMSUnit;
 
     /**
@@ -110,6 +115,7 @@ class CreateCustomAgentRequest extends Model
     protected $_name = [
         'agentType' => 'AgentType',
         'callbackConfig' => 'CallbackConfig',
+        'createFrom' => 'CreateFrom',
         'DMSUnit' => 'DMSUnit',
         'dataJson' => 'DataJson',
         'description' => 'Description',
@@ -164,6 +170,10 @@ class CreateCustomAgentRequest extends Model
 
         if (null !== $this->callbackConfig) {
             $res['CallbackConfig'] = null !== $this->callbackConfig ? $this->callbackConfig->toArray($noStream) : $this->callbackConfig;
+        }
+
+        if (null !== $this->createFrom) {
+            $res['CreateFrom'] = $this->createFrom;
         }
 
         if (null !== $this->DMSUnit) {
@@ -279,6 +289,10 @@ class CreateCustomAgentRequest extends Model
 
         if (isset($map['CallbackConfig'])) {
             $model->callbackConfig = callbackConfig::fromMap($map['CallbackConfig']);
+        }
+
+        if (isset($map['CreateFrom'])) {
+            $model->createFrom = $map['CreateFrom'];
         }
 
         if (isset($map['DMSUnit'])) {

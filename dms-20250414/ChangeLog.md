@@ -1,3 +1,12 @@
+2026-11-06 Version: 4.5.0
+- Support API DeleteAgenticVpcEndpoint.
+- Update API CreateCustomAgent: add request parameters CreateFrom.
+- Update API DescribeDataAgentSession: add response parameters Body.Data.PreviewCustomAgent.
+- Update API UpdateAgenticDataSource: add request parameters VSwitchId.
+- Update API UpdateAgenticDataSource: add request parameters VpcId.
+- Update API UpdateAgenticDataSource: add request parameters ZoneId.
+
+
 2026-11-04 Version: 4.4.2
 - Update API AddAgenticDataSource: add request parameters AdbSparkResourceGroup.
 - Update API AddAgenticDataSource: add response parameters Body.Data.AdbSparkResourceGroup.

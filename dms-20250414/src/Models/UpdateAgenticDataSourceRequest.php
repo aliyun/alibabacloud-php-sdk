@@ -112,6 +112,21 @@ class UpdateAgenticDataSourceRequest extends Model
      * @var int
      */
     public $useSsl;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'adbSparkResourceGroup' => 'AdbSparkResourceGroup',
         'alias' => 'Alias',
@@ -134,6 +149,9 @@ class UpdateAgenticDataSourceRequest extends Model
         'snowflakeWarehouse' => 'SnowflakeWarehouse',
         'syncAlias' => 'SyncAlias',
         'useSsl' => 'UseSsl',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -226,6 +244,18 @@ class UpdateAgenticDataSourceRequest extends Model
 
         if (null !== $this->useSsl) {
             $res['UseSsl'] = $this->useSsl;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -321,6 +351,18 @@ class UpdateAgenticDataSourceRequest extends Model
 
         if (isset($map['UseSsl'])) {
             $model->useSsl = $map['UseSsl'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

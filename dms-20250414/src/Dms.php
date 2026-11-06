@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateOneMetaSqlTemplateRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateOneMetaSqlTemplateResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAgenticDataSourceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAgenticDataSourceResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAgenticVpcEndpointRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAgenticVpcEndpointResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteCustomAgentRequest;
@@ -285,6 +287,7 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceActionStatusRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceActionStatusResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceCodePublishRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceCodePublishResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -295,6 +298,9 @@ class Dms extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Dms';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dms', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1231,6 +1237,10 @@ class Dms extends OpenApiClient
             @$query['CallbackConfig'] = $request->callbackConfigShrink;
         }
 
+        if (null !== $request->createFrom) {
+            @$query['CreateFrom'] = $request->createFrom;
+        }
+
         if (null !== $request->DMSUnit) {
             @$query['DMSUnit'] = $request->DMSUnit;
         }
@@ -2054,6 +2064,69 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAgenticDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
+     *
+     * @remarks
+     * After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+     *
+     * @param request - DeleteAgenticVpcEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgenticVpcEndpointResponse
+     *
+     * @param DeleteAgenticVpcEndpointRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteAgenticVpcEndpointResponse
+     */
+    public function deleteAgenticVpcEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgenticVpcEndpoint',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgenticVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
+     *
+     * @remarks
+     * After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+     *
+     * @param request - DeleteAgenticVpcEndpointRequest
+     *
+     * @returns DeleteAgenticVpcEndpointResponse
+     *
+     * @param DeleteAgenticVpcEndpointRequest $request
+     *
+     * @return DeleteAgenticVpcEndpointResponse
+     */
+    public function deleteAgenticVpcEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgenticVpcEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -9730,6 +9803,18 @@ class Dms extends OpenApiClient
 
         if (null !== $request->useSsl) {
             @$query['UseSsl'] = $request->useSsl;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
 
         $req = new OpenApiRequest([
