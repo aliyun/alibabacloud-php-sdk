@@ -1,3 +1,6 @@
+2026-11-06 Version: 9.2.6
+- Generated php 2017-08-01 for polardb.
+
 2026-11-06 Version: 9.2.5
 - Generated php 2017-08-01 for polardb.
 
