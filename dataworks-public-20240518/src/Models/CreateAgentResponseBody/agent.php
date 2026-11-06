@@ -16,12 +16,12 @@ class agent extends Model
     public $expertSuites;
 
     /**
-     * @var string
+     * @var int
      */
     public $gmtCreateTime;
 
     /**
-     * @var string
+     * @var int
      */
     public $gmtModifiedTime;
 

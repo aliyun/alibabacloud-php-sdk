@@ -25,6 +25,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApplyResourceAccessPermiss
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApplyResourceAccessPermissionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApproveProcessInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApproveProcessInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ArchiveAgentSessionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ArchiveAgentSessionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ArchiveAgentSessionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToImageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupRequest;
@@ -64,6 +67,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCalendarRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCalendarResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCalendarShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCodeReviewRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCodeReviewResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComponentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComputeResourceRequest;
@@ -196,6 +201,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesRes
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAgentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAgentResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAgentSessionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAgentSessionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAgentSessionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteBusinessRequest;
@@ -324,6 +332,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionEventsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionEventsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionTokenUsageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionTokenUsageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionTokenUsageShrinkRequest;
@@ -341,6 +351,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCertificateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCertificateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCodeReviewRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCodeReviewResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetColumnRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetColumnResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComponentRequest;
@@ -508,6 +520,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCatalogsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCertificatesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCertificatesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCodeReviewsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCodeReviewsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListColumnsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListColumnsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComponentsRequest;
@@ -729,6 +743,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\MoveWorkflowDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PreviewDatasetVersionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PreviewDatasetVersionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PreviewTaskParametersRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PreviewTaskParametersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PromptAgentSessionShrinkRequest;
@@ -815,9 +831,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\TriggerSchedulerTaskInstan
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UnTagDataAssetsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UnTagDataAssetsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UnTagDataAssetsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAgentRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAgentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAgentSessionTitleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAgentSessionTitleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAgentSessionTitleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAgentShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleShrinkRequest;
@@ -826,6 +845,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCalendarRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCalendarResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCalendarShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCodeReviewRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCodeReviewResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataShrinkRequest;
@@ -947,6 +968,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateWorkflowShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UploadSemanticFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UploadSemanticFileResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -959,6 +981,9 @@ class Dataworkspublic extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'dataworks-public';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-1' => 'dataworks.ap-northeast-1.aliyuncs.com',
@@ -1530,6 +1555,87 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->approveProcessInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sets the archive status of a specified agent session to archived or unarchived. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+     *
+     * @remarks
+     * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+     * Archiving only modifies the archive flag of the session and does not stop or delete the session. If Archived is set to true, the session is archived. If Archived is set to false, the session is unarchived. If this parameter is omitted, the default value true is used. You can use the Archived parameter of ListAgentSessions to query archived and unarchived sessions separately.
+     * The caller must have access permissions on the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate that the business operation is successful. You must check JsonRpcResponse.Error. The successful result is located in JsonRpcResponse.Result.
+     *
+     * @param tmpReq - ArchiveAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ArchiveAgentSessionResponse
+     *
+     * @param ArchiveAgentSessionRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ArchiveAgentSessionResponse
+     */
+    public function archiveAgentSessionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ArchiveAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ArchiveAgentSession',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ArchiveAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets the archive status of a specified agent session to archived or unarchived. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+     *
+     * @remarks
+     * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the destination region.
+     * Archiving only modifies the archive flag of the session and does not stop or delete the session. If Archived is set to true, the session is archived. If Archived is set to false, the session is unarchived. If this parameter is omitted, the default value true is used. You can use the Archived parameter of ListAgentSessions to query archived and unarchived sessions separately.
+     * The caller must have access permissions on the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate that the business operation is successful. You must check JsonRpcResponse.Error. The successful result is located in JsonRpcResponse.Result.
+     *
+     * @param Request - ArchiveAgentSessionRequest
+     *
+     * @returns ArchiveAgentSessionResponse
+     *
+     * @param ArchiveAgentSessionRequest $request
+     *
+     * @return ArchiveAgentSessionResponse
+     */
+    public function archiveAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->archiveAgentSessionWithOptions($request, $runtime);
     }
 
     /**
@@ -2267,12 +2373,12 @@ class Dataworkspublic extends OpenApiClient
      * Creates an agent.
      *
      * @remarks
-     * ## Request instructions
+     * ## Request description
      * - **Agent name**: Must be unique within the current account.
-     * - **Model configuration**: Optional parameter used to specify the model used by the agent and its related settings.
-     * - **Visibility level**: Defines who can access the agent. Supports visibility within the account, project, or specific users.
-     * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must further specify the specific project IDs or user ID lists.
-     * - **Other parameters**: Display name and description are optional and can be filled in as needed.
+     * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
+     * - **Visibility level**: Defines who can access the agent. Supports account-wide, project-specific, or user-specific visibility.
+     * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
+     * - **Other parameters**: Parameters such as the display name and description are optional. Specify them as needed.
      *
      * @param tmpReq - CreateAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2392,12 +2498,12 @@ class Dataworkspublic extends OpenApiClient
      * Creates an agent.
      *
      * @remarks
-     * ## Request instructions
+     * ## Request description
      * - **Agent name**: Must be unique within the current account.
-     * - **Model configuration**: Optional parameter used to specify the model used by the agent and its related settings.
-     * - **Visibility level**: Defines who can access the agent. Supports visibility within the account, project, or specific users.
-     * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must further specify the specific project IDs or user ID lists.
-     * - **Other parameters**: Display name and description are optional and can be filled in as needed.
+     * - **Model configuration**: Optional. Specifies the model used by the agent and its related settings.
+     * - **Visibility level**: Defines who can access the agent. Supports account-wide, project-specific, or user-specific visibility.
+     * - **Visibility scope**: When `PROJECT` or `USER` is selected as the visibility level, you must specify the specific project IDs or user IDs.
+     * - **Other parameters**: Parameters such as the display name and description are optional. Specify them as needed.
      *
      * @param Request - CreateAgentRequest
      *
@@ -2415,17 +2521,18 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates an agent session and returns the session ID.
+     * Creates a new agent session and returns the session ID.
      *
      * @remarks
      * ## Request description
-     * - This operation creates an agent session.
-     * - You must specify the name of the bound agent by using `_meta.agent.agentName`. This parameter is required.
+     * - This operation creates a new agent session.
+     * - Specify the name of the bound agent by using `Params.Meta.Agent.AgentName`. This parameter is required.
      *   - dataworks_data_agent: DataWorks built-in agent - Data Agent. It provides AI capabilities for the entire data development lifecycle, including data integration, development, O&M, governance, and analysis.
      *   - dataworks_chatbi_agent: DataWorks built-in agent - ChatBI. Based on natural language processing and intelligent analysis technologies, it automates the entire analysis process from requirement parsing, data extraction, and automatic code generation to visual report output through conversational interaction.
      *   - dataworks_ai_assistant_agent: DataWorks built-in agent - AI Assistant. An enterprise-grade AI assistant for DataWorks built on open-source frameworks such as OpenClaw and Hermes Agent.
-     * - You can pass through the session source identifier by using `_meta.config.sessionSource` to facilitate subsequent retrieval by source.
-     * - You can pass session tags by using `_meta.config.sessionTags[].sessionTagCode`.
+     * - You can specify the session source by using `Params.Meta.Config.SessionSource` to facilitate subsequent retrieval by source.
+     * - You can pass session tags by using `Params.Meta.Config.SessionTags[].SessionTagCode`.
+     * - Set optional initial session configurations by using `Params.Meta.InitialConfigOptions`. Use `Model`, `Mode`, and `ReasoningEffort` for the model, authorization mode, and reasoning configuration, respectively. After the session is created, save the session ID from the response to send prompts or subscribe to session events later.
      *
      * @param tmpReq - CreateAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2478,17 +2585,18 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates an agent session and returns the session ID.
+     * Creates a new agent session and returns the session ID.
      *
      * @remarks
      * ## Request description
-     * - This operation creates an agent session.
-     * - You must specify the name of the bound agent by using `_meta.agent.agentName`. This parameter is required.
+     * - This operation creates a new agent session.
+     * - Specify the name of the bound agent by using `Params.Meta.Agent.AgentName`. This parameter is required.
      *   - dataworks_data_agent: DataWorks built-in agent - Data Agent. It provides AI capabilities for the entire data development lifecycle, including data integration, development, O&M, governance, and analysis.
      *   - dataworks_chatbi_agent: DataWorks built-in agent - ChatBI. Based on natural language processing and intelligent analysis technologies, it automates the entire analysis process from requirement parsing, data extraction, and automatic code generation to visual report output through conversational interaction.
      *   - dataworks_ai_assistant_agent: DataWorks built-in agent - AI Assistant. An enterprise-grade AI assistant for DataWorks built on open-source frameworks such as OpenClaw and Hermes Agent.
-     * - You can pass through the session source identifier by using `_meta.config.sessionSource` to facilitate subsequent retrieval by source.
-     * - You can pass session tags by using `_meta.config.sessionTags[].sessionTagCode`.
+     * - You can specify the session source by using `Params.Meta.Config.SessionSource` to facilitate subsequent retrieval by source.
+     * - You can pass session tags by using `Params.Meta.Config.SessionTags[].SessionTagCode`.
+     * - Set optional initial session configurations by using `Params.Meta.InitialConfigOptions`. Use `Model`, `Mode`, and `ReasoningEffort` for the model, authorization mode, and reasoning configuration, respectively. After the session is created, save the session ID from the response to send prompts or subscribe to session events later.
      *
      * @param Request - CreateAgentSessionRequest
      *
@@ -2783,6 +2891,75 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Creates a code review.
+     *
+     * @param Request - CreateCodeReviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCodeReviewResponse
+     *
+     * @param CreateCodeReviewRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateCodeReviewResponse
+     */
+    public function createCodeReviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->pipelineRunId) {
+            @$body['PipelineRunId'] = $request->pipelineRunId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->reviewers) {
+            @$body['Reviewers'] = $request->reviewers;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCodeReview',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCodeReviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a code review.
+     *
+     * @param Request - CreateCodeReviewRequest
+     *
+     * @returns CreateCodeReviewResponse
+     *
+     * @param CreateCodeReviewRequest $request
+     *
+     * @return CreateCodeReviewResponse
+     */
+    public function createCodeReview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCodeReviewWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a component.
      *
      * @remarks
@@ -3064,10 +3241,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a cross-workspace deployment flow.
+     * Creates a cross-workspace deployment pipeline.
      *
      * @remarks
-     * Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+     * Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
      *
      * @param tmpReq - CreateCrossProjectPipelineRunRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3128,10 +3305,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Creates a cross-workspace deployment flow.
+     * Creates a cross-workspace deployment pipeline.
      *
      * @remarks
-     * Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+     * Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
      *
      * @param Request - CreateCrossProjectPipelineRunRequest
      *
@@ -6609,9 +6786,9 @@ class Dataworkspublic extends OpenApiClient
      * Creates a resource group.
      *
      * @remarks
-     * 1. DataWorks Basic Edition or later is required.
-     * 2. **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
-     * 3. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+     * 2. **Before you call this API operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
+     * 3. **Before you call this API operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
      *
      * @param tmpReq - CreateResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6703,9 +6880,9 @@ class Dataworkspublic extends OpenApiClient
      * Creates a resource group.
      *
      * @remarks
-     * 1. DataWorks Basic Edition or later is required.
-     * 2. **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
-     * 3. **Before you call this operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
+     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
+     * 2. **Before you call this API operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/2680173.html) of DataWorks general-purpose resource groups.**
+     * 3. **Before you call this API operation, make sure that you have created the service-linked role AliyunServiceRoleForDataWorks.**
      *
      * @param Request - CreateResourceGroupRequest
      *
@@ -7611,6 +7788,87 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a specified agent session. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+     *
+     * @remarks
+     * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+     * Verify the target session before proceeding. A deleted session cannot be recovered by unarchiving it through ArchiveAgentSession. To temporarily hide a session, use ArchiveAgentSession. To stop the current execution, use CancelAgentSession.
+     * The caller must have access permissions for the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate a successful business operation. You must check JsonRpcResponse.Error for errors. Successful results are located in JsonRpcResponse.Result.
+     *
+     * @param tmpReq - DeleteAgentSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentSessionResponse
+     *
+     * @param DeleteAgentSessionRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAgentSessionResponse
+     */
+    public function deleteAgentSessionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteAgentSessionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'Params', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->jsonrpc) {
+            @$body['Jsonrpc'] = $request->jsonrpc;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$body['Params'] = $request->paramsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgentSession',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified agent session. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+     *
+     * @remarks
+     * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+     * Verify the target session before proceeding. A deleted session cannot be recovered by unarchiving it through ArchiveAgentSession. To temporarily hide a session, use ArchiveAgentSession. To stop the current execution, use CancelAgentSession.
+     * The caller must have access permissions for the current session and the corresponding OpenAPI action permissions. An HTTP 200 status code does not indicate a successful business operation. You must check JsonRpcResponse.Error for errors. Successful results are located in JsonRpcResponse.Result.
+     *
+     * @param Request - DeleteAgentSessionRequest
+     *
+     * @returns DeleteAgentSessionResponse
+     *
+     * @param DeleteAgentSessionRequest $request
+     *
+     * @return DeleteAgentSessionResponse
+     */
+    public function deleteAgentSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgentSessionWithOptions($request, $runtime);
     }
 
     /**
@@ -10450,7 +10708,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a specified task.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or later to use this feature.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
      *
      * @param Request - DeleteTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10496,7 +10754,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a specified task.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or later to use this feature.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this feature.
      *
      * @param Request - DeleteTaskRequest
      *
@@ -11678,8 +11936,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of an agent.
      *
      * @remarks
-     * ## Operation description
-     * This operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
+     * ## Request description
+     * This API operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
      *
      * @param Request - GetAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11725,8 +11983,8 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of an agent.
      *
      * @remarks
-     * ## Operation description
-     * This operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
+     * ## Request description
+     * This API operation retrieves the detailed configuration information of an agent by its name, including but not limited to model configurations, system prompts, and tool lists. You must provide the exact agent name as a parameter in the request.
      *
      * @param Request - GetAgentRequest
      *
@@ -11822,6 +12080,147 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAgentSessionArtifactMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * Subscribes to real-time Server-Sent Events (SSE) for a specified agent session independently, with support for resumption using a remote cursor. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+     *
+     * @remarks
+     * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+     * This API operation provides a read-only SSE subscription and does not submit questions. Use a GET request and maintain streaming reads. Do not read the response as a standard JSON object at once. For long-running tasks that may exceed the timeout of a single request, establish an independent event subscription before calling PromptAgentSession. After creating a session, set SessionCode to the SessionId and read both streams in parallel. The Events stream displays real-time progress, while the built-in SSE of the Prompt stream is used to read the final state and business errors of the current turn.
+     * Events display messages, tool invoke, and execution progress. The establishment of a subscription connection, heartbeats, or an HTTP 200 status code does not indicate task completion. Determine task completion based on the actual final state events and the Prompt invoke results.
+     * When resuming after a disconnection, pass the ID of the last consumed remote event as Last-Event-Id. Also, save and pass back the EventEpoch of the same event stream if the server has returned it. When subscribing for the first time without a cursor, omit these two parameters to receive only real-time events after the subscription is established. Explicitly setting Last-Event-Id to 0 attempts to replay from the starting point still in the cache, which does not mean the complete history can be retrieved. Retrieve the complete history by calling LoadAgentSession. Do not generate cursors or epochs yourself, or use local message sequence numbers as replacements.
+     * The event cache is bounded. If you receive a resynchronization prompt such as state_resync_required or the cursor is no longer available, restore the history by calling LoadAgentSession and then re-establish the subscription. LoadAgentSession is used for refreshing and exception recovery, and should not be called repeatedly to replace real-time event subscriptions. If the Prompt stream times out or disconnects before receiving the business final state, the result of the current turn is unknown, and you can continue to observe the progress through the Events stream. Avoid automatically resending the Prompt. Closing the Events subscription does not trigger CancelAgentSession.
+     * Servers that support epoch information return eventEpoch in the data of the stream_open control frame and provide a mapping between the business sessionId and nativeSessionId. Save the identifiers returned by the server. Do not assume that the business session ID is the same as the native session ID. The cursor and eventEpoch must come from the same event stream epoch of the same native session, and cannot be reused across native sessions or epochs. Do not advance the cursor when the control frame does not have an ID.
+     *
+     * @param Request - GetAgentSessionEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentSessionEventsResponse
+     *
+     * @param GetAgentSessionEventsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAgentSessionEventsResponse
+     */
+    public function getAgentSessionEventsWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventEpoch) {
+            @$query['EventEpoch'] = $request->eventEpoch;
+        }
+
+        if (null !== $request->sessionCode) {
+            @$query['SessionCode'] = $request->sessionCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentSessionEvents',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield GetAgentSessionEventsResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Subscribes to real-time Server-Sent Events (SSE) for a specified agent session independently, with support for resumption using a remote cursor. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+     *
+     * @remarks
+     * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+     * This API operation provides a read-only SSE subscription and does not submit questions. Use a GET request and maintain streaming reads. Do not read the response as a standard JSON object at once. For long-running tasks that may exceed the timeout of a single request, establish an independent event subscription before calling PromptAgentSession. After creating a session, set SessionCode to the SessionId and read both streams in parallel. The Events stream displays real-time progress, while the built-in SSE of the Prompt stream is used to read the final state and business errors of the current turn.
+     * Events display messages, tool invoke, and execution progress. The establishment of a subscription connection, heartbeats, or an HTTP 200 status code does not indicate task completion. Determine task completion based on the actual final state events and the Prompt invoke results.
+     * When resuming after a disconnection, pass the ID of the last consumed remote event as Last-Event-Id. Also, save and pass back the EventEpoch of the same event stream if the server has returned it. When subscribing for the first time without a cursor, omit these two parameters to receive only real-time events after the subscription is established. Explicitly setting Last-Event-Id to 0 attempts to replay from the starting point still in the cache, which does not mean the complete history can be retrieved. Retrieve the complete history by calling LoadAgentSession. Do not generate cursors or epochs yourself, or use local message sequence numbers as replacements.
+     * The event cache is bounded. If you receive a resynchronization prompt such as state_resync_required or the cursor is no longer available, restore the history by calling LoadAgentSession and then re-establish the subscription. LoadAgentSession is used for refreshing and exception recovery, and should not be called repeatedly to replace real-time event subscriptions. If the Prompt stream times out or disconnects before receiving the business final state, the result of the current turn is unknown, and you can continue to observe the progress through the Events stream. Avoid automatically resending the Prompt. Closing the Events subscription does not trigger CancelAgentSession.
+     * Servers that support epoch information return eventEpoch in the data of the stream_open control frame and provide a mapping between the business sessionId and nativeSessionId. Save the identifiers returned by the server. Do not assume that the business session ID is the same as the native session ID. The cursor and eventEpoch must come from the same event stream epoch of the same native session, and cannot be reused across native sessions or epochs. Do not advance the cursor when the control frame does not have an ID.
+     *
+     * @param Request - GetAgentSessionEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentSessionEventsResponse
+     *
+     * @param GetAgentSessionEventsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAgentSessionEventsResponse
+     */
+    public function getAgentSessionEventsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventEpoch) {
+            @$query['EventEpoch'] = $request->eventEpoch;
+        }
+
+        if (null !== $request->sessionCode) {
+            @$query['SessionCode'] = $request->sessionCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentSessionEvents',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentSessionEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Subscribes to real-time Server-Sent Events (SSE) for a specified agent session independently, with support for resumption using a remote cursor. This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+     *
+     * @remarks
+     * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the corresponding canary release is enabled for your account and the target region.
+     * This API operation provides a read-only SSE subscription and does not submit questions. Use a GET request and maintain streaming reads. Do not read the response as a standard JSON object at once. For long-running tasks that may exceed the timeout of a single request, establish an independent event subscription before calling PromptAgentSession. After creating a session, set SessionCode to the SessionId and read both streams in parallel. The Events stream displays real-time progress, while the built-in SSE of the Prompt stream is used to read the final state and business errors of the current turn.
+     * Events display messages, tool invoke, and execution progress. The establishment of a subscription connection, heartbeats, or an HTTP 200 status code does not indicate task completion. Determine task completion based on the actual final state events and the Prompt invoke results.
+     * When resuming after a disconnection, pass the ID of the last consumed remote event as Last-Event-Id. Also, save and pass back the EventEpoch of the same event stream if the server has returned it. When subscribing for the first time without a cursor, omit these two parameters to receive only real-time events after the subscription is established. Explicitly setting Last-Event-Id to 0 attempts to replay from the starting point still in the cache, which does not mean the complete history can be retrieved. Retrieve the complete history by calling LoadAgentSession. Do not generate cursors or epochs yourself, or use local message sequence numbers as replacements.
+     * The event cache is bounded. If you receive a resynchronization prompt such as state_resync_required or the cursor is no longer available, restore the history by calling LoadAgentSession and then re-establish the subscription. LoadAgentSession is used for refreshing and exception recovery, and should not be called repeatedly to replace real-time event subscriptions. If the Prompt stream times out or disconnects before receiving the business final state, the result of the current turn is unknown, and you can continue to observe the progress through the Events stream. Avoid automatically resending the Prompt. Closing the Events subscription does not trigger CancelAgentSession.
+     * Servers that support epoch information return eventEpoch in the data of the stream_open control frame and provide a mapping between the business sessionId and nativeSessionId. Save the identifiers returned by the server. Do not assume that the business session ID is the same as the native session ID. The cursor and eventEpoch must come from the same event stream epoch of the same native session, and cannot be reused across native sessions or epochs. Do not advance the cursor when the control frame does not have an ID.
+     *
+     * @param Request - GetAgentSessionEventsRequest
+     *
+     * @returns GetAgentSessionEventsResponse
+     *
+     * @param GetAgentSessionEventsRequest $request
+     *
+     * @return GetAgentSessionEventsResponse
+     */
+    public function getAgentSessionEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentSessionEventsWithOptions($request, $runtime);
     }
 
     /**
@@ -12330,6 +12729,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the metadata of a code review.
+     *
+     * @param Request - GetCodeReviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCodeReviewResponse
+     *
+     * @param GetCodeReviewRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetCodeReviewResponse
+     */
+    public function getCodeReviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCodeReview',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCodeReviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the metadata of a code review.
+     *
+     * @param Request - GetCodeReviewRequest
+     *
+     * @returns GetCodeReviewResponse
+     *
+     * @param GetCodeReviewRequest $request
+     *
+     * @return GetCodeReviewResponse
+     */
+    public function getCodeReview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCodeReviewWithOptions($request, $runtime);
     }
 
     /**
@@ -16377,7 +16837,7 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of a specified workflow.
      *
      * @remarks
-     * This feature requires DataWorks Basic Edition or later.
+     * This feature requires DataWorks Basic Edition or a higher edition.
      *
      * @param Request - GetWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16415,7 +16875,7 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the details of a specified workflow.
      *
      * @remarks
-     * This feature requires DataWorks Basic Edition or later.
+     * This feature requires DataWorks Basic Edition or a higher edition.
      *
      * @param Request - GetWorkflowRequest
      *
@@ -17037,12 +17497,11 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the conversation history list of agent sessions.
      *
      * @remarks
-     * ## Request description
-     * - You must specify at least one of agentName and sessionSourceList.
-     * - You can combine tagList, sessionId, and sessionTitle for filtering.
-     * - The response follows the Alibaba Cloud OpenAPI paging specification, including totalCount, maxResults, nextToken, and sessionList.
-     * - If nextToken is an invalid string, it is processed as 1 by default.
-     * - By default, 50 records are returned per page. You can adjust this by using the maxResults parameter.
+     * ## Request instructions
+     * - You must specify at least one of `Params.AgentName` and `Params.SessionSourceList`. You can also filter sessions by `Params.TagList`, `Params.SessionId`, and `Params.SessionTitle`.
+     * - If `Params.Archived` is set to `true`, only archived sessions are queried. If it is set to `false` or omitted, only unarchived sessions are queried. To query both types of sessions, send separate requests and handle the pagination for each.
+     * - The session list is located in `JsonRpcResponse.Result.AgentSessions`. The pagination information is located in `TotalCount`, `MaxResults`, and `NextToken` under the same `Result`.
+     * - The default value of `Params.MaxResults` is 50. For the first page, you can pass `Params.NextToken=1`. For subsequent pages, pass the `NextToken` value from the response as is.
      *
      * @param tmpReq - ListAgentSessionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17098,12 +17557,11 @@ class Dataworkspublic extends OpenApiClient
      * Retrieves the conversation history list of agent sessions.
      *
      * @remarks
-     * ## Request description
-     * - You must specify at least one of agentName and sessionSourceList.
-     * - You can combine tagList, sessionId, and sessionTitle for filtering.
-     * - The response follows the Alibaba Cloud OpenAPI paging specification, including totalCount, maxResults, nextToken, and sessionList.
-     * - If nextToken is an invalid string, it is processed as 1 by default.
-     * - By default, 50 records are returned per page. You can adjust this by using the maxResults parameter.
+     * ## Request instructions
+     * - You must specify at least one of `Params.AgentName` and `Params.SessionSourceList`. You can also filter sessions by `Params.TagList`, `Params.SessionId`, and `Params.SessionTitle`.
+     * - If `Params.Archived` is set to `true`, only archived sessions are queried. If it is set to `false` or omitted, only unarchived sessions are queried. To query both types of sessions, send separate requests and handle the pagination for each.
+     * - The session list is located in `JsonRpcResponse.Result.AgentSessions`. The pagination information is located in `TotalCount`, `MaxResults`, and `NextToken` under the same `Result`.
+     * - The default value of `Params.MaxResults` is 50. For the first page, you can pass `Params.NextToken=1`. For subsequent pages, pass the `NextToken` value from the response as is.
      *
      * @param Request - ListAgentSessionsRequest
      *
@@ -17646,6 +18104,83 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Performs a paging query of code reviews.
+     *
+     * @param Request - ListCodeReviewsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCodeReviewsResponse
+     *
+     * @param ListCodeReviewsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCodeReviewsResponse
+     */
+    public function listCodeReviewsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->creator) {
+            @$query['Creator'] = $request->creator;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->reviewer) {
+            @$query['Reviewer'] = $request->reviewer;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCodeReviews',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCodeReviewsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query of code reviews.
+     *
+     * @param Request - ListCodeReviewsRequest
+     *
+     * @returns ListCodeReviewsResponse
+     *
+     * @param ListCodeReviewsRequest $request
+     *
+     * @return ListCodeReviewsResponse
+     */
+    public function listCodeReviews($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCodeReviewsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the columns of a specified table in DataWorks Data Map.
      *
      * @remarks
@@ -18142,7 +18677,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries cross-workspace deployment candidate objects.
+     * Queries cross-workspace deployment candidates.
      *
      * @param Request - ListCrossProjectDeploymentCandidatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18221,7 +18756,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries cross-workspace deployment candidate objects.
+     * Queries cross-workspace deployment candidates.
      *
      * @param Request - ListCrossProjectDeploymentCandidatesRequest
      *
@@ -18304,7 +18839,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the publish items of a cross-workspace publish pipeline.
+     * Queries the deployment items of a cross-workspace deployment pipeline.
      *
      * @param Request - ListCrossProjectPipelineRunItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18355,7 +18890,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the publish items of a cross-workspace publish pipeline.
+     * Queries the deployment items of a cross-workspace deployment pipeline.
      *
      * @param Request - ListCrossProjectPipelineRunItemsRequest
      *
@@ -18944,7 +19479,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of tags.
      *
      * @remarks
-     * DataWorks Enterprise Edition or a higher edition is required.
+     * You must purchase DataWorks Enterprise Edition or higher to use this operation.
      *
      * @param Request - ListDataAssetTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18982,7 +19517,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of tags.
      *
      * @remarks
-     * DataWorks Enterprise Edition or a higher edition is required.
+     * You must purchase DataWorks Enterprise Edition or higher to use this operation.
      *
      * @param Request - ListDataAssetTagsRequest
      *
@@ -19212,10 +19747,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the data quality monitoring task list.
+     * Queries the data quality monitoring task list by page.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or later to use this feature.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
      *
      * @deprecated openAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead
      *
@@ -19253,10 +19788,10 @@ class Dataworkspublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Performs a paging query on the data quality monitoring task list.
+     * Queries the data quality monitoring task list by page.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or later to use this feature.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
      *
      * @deprecated openAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead
      *
@@ -20363,10 +20898,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of downstream nodes for a specified node.
+     * Retrieves a paginated list of downstream tasks for a specified task.
      *
      * @remarks
-     * DataWorks Basic Edition or later is required.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
      *
      * @param Request - ListDownstreamTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20401,10 +20936,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of downstream nodes for a specified node.
+     * Retrieves a paginated list of downstream tasks for a specified task.
      *
      * @remarks
-     * DataWorks Basic Edition or later is required.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
      *
      * @param Request - ListDownstreamTasksRequest
      *
@@ -22192,12 +22727,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
+     * Queries the partitions of a specified table in DataWorks Data Map. MaxCompute and HMS (EMR cluster) tables are supported.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-     * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
-     * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
+     * 1. DataWorks Basic Edition or a higher edition is required.
+     * 2. Currently, only MaxCompute and HMS (EMR cluster) tables are supported.
+     * 3. Before you call this API operation, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, and then call ListDatabases to obtain the database ID. For MaxCompute projects with the schema feature enabled, call ListSchemas to obtain the schema ID. Then, call ListTables to obtain the TableId, and pass the returned table ID to this API operation.
      *
      * @param Request - ListPartitionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22232,12 +22767,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the partition list of a specified table in DataWorks Data Map. Currently supports MaxCompute and HMS (EMR cluster) types.
+     * Queries the partitions of a specified table in DataWorks Data Map. MaxCompute and HMS (EMR cluster) tables are supported.
      *
      * @remarks
-     * 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
-     * 2. Only MaxCompute and HMS (EMR cluster) table types are supported.
-     * 3. Before calling this API, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, then call ListDatabases to obtain the database ID. For MaxCompute projects with Schema enabled, call ListSchemas to obtain the schema ID. Then call ListTables to obtain the TableId, and pass the returned table ID to this API.
+     * 1. DataWorks Basic Edition or a higher edition is required.
+     * 2. Currently, only MaxCompute and HMS (EMR cluster) tables are supported.
+     * 3. Before you call this API operation, call ListCrawlers to obtain the MetaEntityId of the metadata crawler, and then call ListDatabases to obtain the database ID. For MaxCompute projects with the schema feature enabled, call ListSchemas to obtain the schema ID. Then, call ListTables to obtain the TableId, and pass the returned table ID to this API operation.
      *
      * @param Request - ListPartitionsRequest
      *
@@ -24027,10 +24562,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of operation logs for a specified node instance.
+     * Retrieves a paginated list of operation logs for a specified task instance.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or later to use this API.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this API.
      * You can only query operation logs generated within the past 31 days.
      *
      * @param Request - ListTaskInstanceOperationLogsRequest
@@ -24066,10 +24601,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of operation logs for a specified node instance.
+     * Retrieves a paginated list of operation logs for a specified task instance.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or later to use this API.
+     * You must purchase DataWorks Basic Edition or a higher edition to use this API.
      * You can only query operation logs generated within the past 31 days.
      *
      * @param Request - ListTaskInstanceOperationLogsRequest
@@ -24828,15 +25363,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
+     * Loads the historical messages of an existing agent session and returns them by using Server-Sent Events (SSE) for page refreshes and history recovery after exceptions.
      *
      * @remarks
      * ## Request description
-     * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
-     * - If the target session does not exist, an error frame with an error code of 400 is returned.
-     * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
-     * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
-     * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+     * - This operation recovers the details of a specified session and returns the agent response in a streaming manner by using Server-Sent Events (SSE).
+     * - If the target session does not exist, an error frame with the error code 400 is returned.
+     * - The response includes processing information about how the agent handles the request, such as message chunks, thinking process, and tool invocation status updates.
+     * - The `stopReason` field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum number of turns and being canceled.
+     * - The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
      *
      * @param tmpReq - LoadAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24902,15 +25437,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
+     * Loads the historical messages of an existing agent session and returns them by using Server-Sent Events (SSE) for page refreshes and history recovery after exceptions.
      *
      * @remarks
      * ## Request description
-     * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
-     * - If the target session does not exist, an error frame with an error code of 400 is returned.
-     * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
-     * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
-     * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+     * - This operation recovers the details of a specified session and returns the agent response in a streaming manner by using Server-Sent Events (SSE).
+     * - If the target session does not exist, an error frame with the error code 400 is returned.
+     * - The response includes processing information about how the agent handles the request, such as message chunks, thinking process, and tool invocation status updates.
+     * - The `stopReason` field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum number of turns and being canceled.
+     * - The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
      *
      * @param tmpReq - LoadAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24963,15 +25498,15 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Loads the historical messages of an existing session and returns them in a Server-Sent Events (SSE) stream. If the session does not exist, a JSONRPCResponse.error with a code of 400 is output through SSE. The Content-Type is text/event-stream. This operation applies to session context restoration scenarios.
+     * Loads the historical messages of an existing agent session and returns them by using Server-Sent Events (SSE) for page refreshes and history recovery after exceptions.
      *
      * @remarks
      * ## Request description
-     * - This operation is used to recover the details of a specified session and return the agent response in a Server-Sent Events (SSE) stream.
-     * - If the target session does not exist, an error frame with an error code of 400 is returned.
-     * - The response contains process information about how the agent handles the request, such as message chunks, reasoning steps, and tool call status updates.
-     * - The stopReason field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum turn limit and being canceled.
-     * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
+     * - This operation recovers the details of a specified session and returns the agent response in a streaming manner by using Server-Sent Events (SSE).
+     * - If the target session does not exist, an error frame with the error code 400 is returned.
+     * - The response includes processing information about how the agent handles the request, such as message chunks, thinking process, and tool invocation status updates.
+     * - The `stopReason` field indicates the reason why the agent stops the current conversation turn. Valid values include but are not limited to reaching the maximum number of turns and being canceled.
+     * - The returned content complies with the open source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
      *
      * @param Request - LoadAgentSessionRequest
      *
@@ -25312,18 +25847,116 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Previews scheduling parameters without creating actual nodes or running instances.
+     *
+     * @remarks
+     * Previews the parameter parsing results for each cycle based on the provided script parameters, business date, and scheduling configuration. A task ID is not required.
+     * - This operation only performs a simulated preview and does not create or run actual tasks. The simulated cycles returned for weekly and monthly schedules cannot be used as the basis for determining actual trigger dates.
+     * - `Bizdate` is the starting business date, normalized to 00:00:00 on that date in the time zone of the service region. `TriggerTime` is the scheduled trigger time for the corresponding simulated cycle.
+     * - System identifiers such as `$nodeid` use a simulated context. The preview value of `$nodeid` is `0`, which does not represent an actual task.
+     * - The parsing result for each cycle is indicated by `Success`. If the parsing is successful, `Parameters` is returned. If the parsing fails, `ErrorMessage` is returned, and partial parsing results for the cycle are not returned.
+     *
+     * @param Request - PreviewTaskParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewTaskParametersResponse
+     *
+     * @param PreviewTaskParametersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PreviewTaskParametersResponse
+     */
+    public function previewTaskParametersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizdate) {
+            @$body['Bizdate'] = $request->bizdate;
+        }
+
+        if (null !== $request->cron) {
+            @$body['Cron'] = $request->cron;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['Parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->previewCount) {
+            @$body['PreviewCount'] = $request->previewCount;
+        }
+
+        if (null !== $request->projectEnv) {
+            @$body['ProjectEnv'] = $request->projectEnv;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PreviewTaskParameters',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PreviewTaskParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Previews scheduling parameters without creating actual nodes or running instances.
+     *
+     * @remarks
+     * Previews the parameter parsing results for each cycle based on the provided script parameters, business date, and scheduling configuration. A task ID is not required.
+     * - This operation only performs a simulated preview and does not create or run actual tasks. The simulated cycles returned for weekly and monthly schedules cannot be used as the basis for determining actual trigger dates.
+     * - `Bizdate` is the starting business date, normalized to 00:00:00 on that date in the time zone of the service region. `TriggerTime` is the scheduled trigger time for the corresponding simulated cycle.
+     * - System identifiers such as `$nodeid` use a simulated context. The preview value of `$nodeid` is `0`, which does not represent an actual task.
+     * - The parsing result for each cycle is indicated by `Success`. If the parsing is successful, `Parameters` is returned. If the parsing fails, `ErrorMessage` is returned, and partial parsing results for the cycle are not returned.
+     *
+     * @param Request - PreviewTaskParametersRequest
+     *
+     * @returns PreviewTaskParametersResponse
+     *
+     * @param PreviewTaskParametersRequest $request
+     *
+     * @return PreviewTaskParametersResponse
+     */
+    public function previewTaskParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->previewTaskParametersWithOptions($request, $runtime);
+    }
+
+    /**
      * Sends a user prompt to an existing session and streams the agent response.
      *
      * @remarks
      * ## Request description
-     * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
-     * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
-     * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
-     * - The stopReason field indicates the reason why the agent stopped the current conversation.
-     * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
-     * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+     * - This API operation sends a user prompt to a specified session ID and accepts the agent response as Server-Sent Events (SSE) streams.
+     * - The response may include message chunks, thinking procedures, and tool invocation status updates.
+     * - If the specified session does not exist, a 400 error is returned in an SSE error frame.
+     * - The `stopReason` field indicates the reason why the agent stopped the current conversation turn.
+     * - This operation supports multiple types of content blocks as prompt input, such as text and OSS file download links.
+     * - You can optionally provide additional metadata in `Meta` to pass more context to the server.
      * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
-     * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+     * - **Before you use this API operation, make sure that you fully understand the billing methods and pricing of Data Agent**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+     * ## Long-running tasks and timeout recovery
+     * For long-running tasks that may exceed the single-request timeout, after the GetAgentSessionEvents canary release is enabled for the current account and target region, first establish an Events subscription and then call PromptAgentSession to read both streams in parallel. Use Events to display real-time progress, and use the Prompt stream to read the final state and business errors of the current turn. Each message is displayed only once.
+     * If the Prompt stream times out or disconnects before the final business state is received, the result of the current turn is unknown. Continue to observe Events, and call LoadAgentSession when you need to verify the session history. Do not automatically resend the prompt.
      *
      * @param tmpReq - PromptAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25393,14 +26026,17 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
-     * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
-     * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
-     * - The stopReason field indicates the reason why the agent stopped the current conversation.
-     * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
-     * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+     * - This API operation sends a user prompt to a specified session ID and accepts the agent response as Server-Sent Events (SSE) streams.
+     * - The response may include message chunks, thinking procedures, and tool invocation status updates.
+     * - If the specified session does not exist, a 400 error is returned in an SSE error frame.
+     * - The `stopReason` field indicates the reason why the agent stopped the current conversation turn.
+     * - This operation supports multiple types of content blocks as prompt input, such as text and OSS file download links.
+     * - You can optionally provide additional metadata in `Meta` to pass more context to the server.
      * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
-     * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+     * - **Before you use this API operation, make sure that you fully understand the billing methods and pricing of Data Agent**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+     * ## Long-running tasks and timeout recovery
+     * For long-running tasks that may exceed the single-request timeout, after the GetAgentSessionEvents canary release is enabled for the current account and target region, first establish an Events subscription and then call PromptAgentSession to read both streams in parallel. Use Events to display real-time progress, and use the Prompt stream to read the final state and business errors of the current turn. Each message is displayed only once.
+     * If the Prompt stream times out or disconnects before the final business state is received, the result of the current turn is unknown. Continue to observe Events, and call LoadAgentSession when you need to verify the session history. Do not automatically resend the prompt.
      *
      * @param tmpReq - PromptAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25457,14 +26093,17 @@ class Dataworkspublic extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This API operation sends a user prompt to a specified session ID and accepts the response from the agent in a streaming manner by using Server-Sent Events (SSE).
-     * - The response may include information such as message chunks, thinking procedures, and tool calling status updates.
-     * - If the specified session does not exist, a 400 fault is returned in an SSE fault frame.
-     * - The stopReason field indicates the reason why the agent stopped the current conversation.
-     * - Multiple types of content blocks are supported as prompt inputs, such as text and OSS file download links.
-     * - You can optionally provide additional metadata in the Meta field to pass more context to the server.
+     * - This API operation sends a user prompt to a specified session ID and accepts the agent response as Server-Sent Events (SSE) streams.
+     * - The response may include message chunks, thinking procedures, and tool invocation status updates.
+     * - If the specified session does not exist, a 400 error is returned in an SSE error frame.
+     * - The `stopReason` field indicates the reason why the agent stopped the current conversation turn.
+     * - This operation supports multiple types of content blocks as prompt input, such as text and OSS file download links.
+     * - You can optionally provide additional metadata in `Meta` to pass more context to the server.
      * - The returned content complies with the open-source Agent Client Protocol (ACP) specification. For more information, see https://agentclientprotocol.com.
-     * - **Before you invoke this operation, make sure that you fully understand the billing methods and pricing of the Data Agent product**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+     * - **Before you use this API operation, make sure that you fully understand the billing methods and pricing of Data Agent**: https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing
+     * ## Long-running tasks and timeout recovery
+     * For long-running tasks that may exceed the single-request timeout, after the GetAgentSessionEvents canary release is enabled for the current account and target region, first establish an Events subscription and then call PromptAgentSession to read both streams in parallel. Use Events to display real-time progress, and use the Prompt stream to read the final state and business errors of the current turn. Each message is displayed only once.
+     * If the Prompt stream times out or disconnects before the final business state is received, the result of the current turn is unknown. Continue to observe Events, and call LoadAgentSession when you need to verify the session history. Do not automatically resend the prompt.
      *
      * @param Request - PromptAgentSessionRequest
      *
@@ -27671,7 +28310,7 @@ class Dataworkspublic extends OpenApiClient
      * Attaches tags to data assets.
      *
      * @remarks
-     * This operation requires DataWorks Enterprise Edition or later.
+     * You must purchase DataWorks Enterprise Edition or higher to use this operation.
      *
      * @param tmpReq - TagDataAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27743,7 +28382,7 @@ class Dataworkspublic extends OpenApiClient
      * Attaches tags to data assets.
      *
      * @remarks
-     * This operation requires DataWorks Enterprise Edition or later.
+     * You must purchase DataWorks Enterprise Edition or higher to use this operation.
      *
      * @param Request - TagDataAssetsRequest
      *
@@ -27995,6 +28634,159 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unTagDataAssetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the definition of a specified agent, increments the definition version, and optionally publishes the agent immediately. This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+     *
+     * @remarks
+     * This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+     * Updates a custom agent that the current identity has administrative permissions for. The Name parameter is used to locate the target agent and cannot be used to rename the agent. Call the GetAgent operation first to read the current AgentVersion, and then explicitly pass the ExpectedVersion parameter during the update. If a conflict occurs, read the version again and verify the differences instead of blindly overwriting the agent.
+     * Omit reference lists that do not need to be modified. The current new backend retains existing references for empty arrays of Tools, Skills, and CallableAgents, but clears references for an empty array of ExpertSuites. A unified empty array clearing rule cannot be used. The Tools parameter already includes Kind and the corresponding tool configurations, and uses the same structure as CreateAgent. Specifying only Name does not constitute a valid tool configuration.
+     * For official skills, specify only Source=OFFICIAL and SkillId. For official suites, specify only Source=OFFICIAL and SuiteId. Do not mix in name, version, or artifact fields. The integer Version and VersionSelector parameters for custom resources are mutually exclusive. The version selection capability depends on the deployment of the target server.
+     * If PublishImmediately is omitted or set to false, only the definition is saved. If it is set to true, a new draft version is saved first and then a publish request is initiated. Saving and publishing are not atomic operations. If publishing fails, the draft version may have already been incremented. In this case, call GetAgent to read the current version back before deciding whether to retry, to avoid generating duplicate versions.
+     *
+     * @param tmpReq - UpdateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callableAgents) {
+            $request->callableAgentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callableAgents, 'CallableAgents', 'json');
+        }
+
+        if (null !== $tmpReq->expertSuites) {
+            $request->expertSuitesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->expertSuites, 'ExpertSuites', 'json');
+        }
+
+        if (null !== $tmpReq->metadata) {
+            $request->metadataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'Metadata', 'json');
+        }
+
+        if (null !== $tmpReq->model) {
+            $request->modelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->model, 'Model', 'json');
+        }
+
+        if (null !== $tmpReq->skills) {
+            $request->skillsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->skills, 'Skills', 'json');
+        }
+
+        if (null !== $tmpReq->tools) {
+            $request->toolsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tools, 'Tools', 'json');
+        }
+
+        if (null !== $tmpReq->visibilityScope) {
+            $request->visibilityScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->visibilityScope, 'VisibilityScope', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->callableAgentsShrink) {
+            @$body['CallableAgents'] = $request->callableAgentsShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->expectedVersion) {
+            @$body['ExpectedVersion'] = $request->expectedVersion;
+        }
+
+        if (null !== $request->expertSuitesShrink) {
+            @$body['ExpertSuites'] = $request->expertSuitesShrink;
+        }
+
+        if (null !== $request->metadataShrink) {
+            @$body['Metadata'] = $request->metadataShrink;
+        }
+
+        if (null !== $request->modelShrink) {
+            @$body['Model'] = $request->modelShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->publishImmediately) {
+            @$body['PublishImmediately'] = $request->publishImmediately;
+        }
+
+        if (null !== $request->skillsShrink) {
+            @$body['Skills'] = $request->skillsShrink;
+        }
+
+        if (null !== $request->systemPrompt) {
+            @$body['SystemPrompt'] = $request->systemPrompt;
+        }
+
+        if (null !== $request->toolsShrink) {
+            @$body['Tools'] = $request->toolsShrink;
+        }
+
+        if (null !== $request->visibility) {
+            @$body['Visibility'] = $request->visibility;
+        }
+
+        if (null !== $request->visibilityScopeShrink) {
+            @$body['VisibilityScope'] = $request->visibilityScopeShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgent',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the definition of a specified agent, increments the definition version, and optionally publishes the agent immediately. This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+     *
+     * @remarks
+     * This operation is available only when the canary release feature is enabled. Before calling this operation, make sure that the canary release feature is enabled for the current account and the target region.
+     * Updates a custom agent that the current identity has administrative permissions for. The Name parameter is used to locate the target agent and cannot be used to rename the agent. Call the GetAgent operation first to read the current AgentVersion, and then explicitly pass the ExpectedVersion parameter during the update. If a conflict occurs, read the version again and verify the differences instead of blindly overwriting the agent.
+     * Omit reference lists that do not need to be modified. The current new backend retains existing references for empty arrays of Tools, Skills, and CallableAgents, but clears references for an empty array of ExpertSuites. A unified empty array clearing rule cannot be used. The Tools parameter already includes Kind and the corresponding tool configurations, and uses the same structure as CreateAgent. Specifying only Name does not constitute a valid tool configuration.
+     * For official skills, specify only Source=OFFICIAL and SkillId. For official suites, specify only Source=OFFICIAL and SuiteId. Do not mix in name, version, or artifact fields. The integer Version and VersionSelector parameters for custom resources are mutually exclusive. The version selection capability depends on the deployment of the target server.
+     * If PublishImmediately is omitted or set to false, only the definition is saved. If it is set to true, a new draft version is saved first and then a publish request is initiated. Saving and publishing are not atomic operations. If publishing fails, the draft version may have already been incremented. In this case, call GetAgent to read the current version back before deciding whether to retry, to avoid generating duplicate versions.
+     *
+     * @param Request - UpdateAgentRequest
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $request
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -28355,6 +29147,71 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCalendarWithOptions($request, $runtime);
+    }
+
+    /**
+     * Approves or rejects a code review.
+     *
+     * @param Request - UpdateCodeReviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCodeReviewResponse
+     *
+     * @param UpdateCodeReviewRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateCodeReviewResponse
+     */
+    public function updateCodeReviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCodeReview',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCodeReviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Approves or rejects a code review.
+     *
+     * @param Request - UpdateCodeReviewRequest
+     *
+     * @returns UpdateCodeReviewResponse
+     *
+     * @param UpdateCodeReviewRequest $request
+     *
+     * @return UpdateCodeReviewResponse
+     */
+    public function updateCodeReview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCodeReviewWithOptions($request, $runtime);
     }
 
     /**

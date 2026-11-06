@@ -24,12 +24,12 @@ class agents extends Model
     public $displayName;
 
     /**
-     * @var string
+     * @var int
      */
     public $gmtCreateTime;
 
     /**
-     * @var string
+     * @var int
      */
     public $gmtModifiedTime;
 

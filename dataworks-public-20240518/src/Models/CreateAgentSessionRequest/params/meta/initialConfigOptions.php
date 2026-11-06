@@ -11,6 +11,11 @@ class initialConfigOptions extends Model
     /**
      * @var string
      */
+    public $cu;
+
+    /**
+     * @var string
+     */
     public $executionLane;
 
     /**
@@ -43,6 +48,7 @@ class initialConfigOptions extends Model
      */
     public $skills;
     protected $_name = [
+        'cu' => 'Cu',
         'executionLane' => 'ExecutionLane',
         'mode' => 'Mode',
         'model' => 'Model',
@@ -60,6 +66,10 @@ class initialConfigOptions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cu) {
+            $res['Cu'] = $this->cu;
+        }
+
         if (null !== $this->executionLane) {
             $res['ExecutionLane'] = $this->executionLane;
         }
@@ -99,6 +109,10 @@ class initialConfigOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cu'])) {
+            $model->cu = $map['Cu'];
+        }
+
         if (isset($map['ExecutionLane'])) {
             $model->executionLane = $map['ExecutionLane'];
         }

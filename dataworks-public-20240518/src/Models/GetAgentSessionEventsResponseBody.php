@@ -1,0 +1,90 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class GetAgentSessionEventsResponseBody extends Model
+{
+    /**
+     * @var mixed
+     */
+    public $data;
+
+    /**
+     * @var string
+     */
+    public $event;
+
+    /**
+     * @var string
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+    protected $_name = [
+        'data' => 'Data',
+        'event' => 'Event',
+        'id' => 'Id',
+        'requestId' => 'RequestId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
+
+        if (null !== $this->event) {
+            $res['Event'] = $this->event;
+        }
+
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
+
+        if (isset($map['Event'])) {
+            $model->event = $map['Event'];
+        }
+
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        return $model;
+    }
+}
