@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileRequest\customScripts;
 
 class BackupFileRequest extends Model
 {
@@ -27,6 +28,11 @@ class BackupFileRequest extends Model
      * @var string
      */
     public $backupFilePath;
+
+    /**
+     * @var customScripts[]
+     */
+    public $customScripts;
 
     /**
      * @var string
@@ -67,6 +73,7 @@ class BackupFileRequest extends Model
         'backupAll' => 'BackupAll',
         'backupFileName' => 'BackupFileName',
         'backupFilePath' => 'BackupFilePath',
+        'customScripts' => 'CustomScripts',
         'description' => 'Description',
         'excludeAppList' => 'ExcludeAppList',
         'excludeSourceFilePathList' => 'ExcludeSourceFilePathList',
@@ -80,6 +87,9 @@ class BackupFileRequest extends Model
     {
         if (\is_array($this->androidInstanceIdList)) {
             Model::validateArray($this->androidInstanceIdList);
+        }
+        if (\is_array($this->customScripts)) {
+            Model::validateArray($this->customScripts);
         }
         if (\is_array($this->excludeAppList)) {
             Model::validateArray($this->excludeAppList);
@@ -120,6 +130,17 @@ class BackupFileRequest extends Model
 
         if (null !== $this->backupFilePath) {
             $res['BackupFilePath'] = $this->backupFilePath;
+        }
+
+        if (null !== $this->customScripts) {
+            if (\is_array($this->customScripts)) {
+                $res['CustomScripts'] = [];
+                $n1 = 0;
+                foreach ($this->customScripts as $item1) {
+                    $res['CustomScripts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->description) {
@@ -210,6 +231,17 @@ class BackupFileRequest extends Model
 
         if (isset($map['BackupFilePath'])) {
             $model->backupFilePath = $map['BackupFilePath'];
+        }
+
+        if (isset($map['CustomScripts'])) {
+            if (!empty($map['CustomScripts'])) {
+                $model->customScripts = [];
+                $n1 = 0;
+                foreach ($map['CustomScripts'] as $item1) {
+                    $model->customScripts[$n1] = customScripts::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Description'])) {

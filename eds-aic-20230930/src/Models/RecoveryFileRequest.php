@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileRequest\customScripts;
 
 class RecoveryFileRequest extends Model
 {
@@ -29,6 +30,11 @@ class RecoveryFileRequest extends Model
     public $backupFilePath;
 
     /**
+     * @var customScripts[]
+     */
+    public $customScripts;
+
+    /**
      * @var string[]
      */
     public $excludeAppList;
@@ -47,6 +53,7 @@ class RecoveryFileRequest extends Model
         'backupAll' => 'BackupAll',
         'backupFileId' => 'BackupFileId',
         'backupFilePath' => 'BackupFilePath',
+        'customScripts' => 'CustomScripts',
         'excludeAppList' => 'ExcludeAppList',
         'uploadEndpoint' => 'UploadEndpoint',
         'uploadType' => 'UploadType',
@@ -56,6 +63,9 @@ class RecoveryFileRequest extends Model
     {
         if (\is_array($this->androidInstanceIdList)) {
             Model::validateArray($this->androidInstanceIdList);
+        }
+        if (\is_array($this->customScripts)) {
+            Model::validateArray($this->customScripts);
         }
         if (\is_array($this->excludeAppList)) {
             Model::validateArray($this->excludeAppList);
@@ -87,6 +97,17 @@ class RecoveryFileRequest extends Model
 
         if (null !== $this->backupFilePath) {
             $res['BackupFilePath'] = $this->backupFilePath;
+        }
+
+        if (null !== $this->customScripts) {
+            if (\is_array($this->customScripts)) {
+                $res['CustomScripts'] = [];
+                $n1 = 0;
+                foreach ($this->customScripts as $item1) {
+                    $res['CustomScripts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->excludeAppList) {
@@ -140,6 +161,17 @@ class RecoveryFileRequest extends Model
 
         if (isset($map['BackupFilePath'])) {
             $model->backupFilePath = $map['BackupFilePath'];
+        }
+
+        if (isset($map['CustomScripts'])) {
+            if (!empty($map['CustomScripts'])) {
+                $model->customScripts = [];
+                $n1 = 0;
+                foreach ($map['CustomScripts'] as $item1) {
+                    $model->customScripts[$n1] = customScripts::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ExcludeAppList'])) {

@@ -45,6 +45,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
     public $jvsPackageId;
 
     /**
@@ -68,6 +73,7 @@ class data extends Model
         'expireTime' => 'ExpireTime',
         'installedSkills' => 'InstalledSkills',
         'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'jvsPackageId' => 'JvsPackageId',
         'modifyTime' => 'ModifyTime',
         'status' => 'Status',
@@ -130,6 +136,10 @@ class data extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->jvsPackageId) {
@@ -202,6 +212,10 @@ class data extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['JvsPackageId'])) {

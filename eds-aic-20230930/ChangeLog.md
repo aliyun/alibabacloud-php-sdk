@@ -1,3 +1,9 @@
+2026-11-06 Version: 4.25.6
+- Update API BackupFile: add request parameters CustomScripts.
+- Update API DescribeJVSInstance: add response parameters Body.Data.$.InstanceName.
+- Update API RecoveryFile: add request parameters CustomScripts.
+
+
 2026-10-30 Version: 4.25.5
 - Generated php 2023-09-30 for eds-aic.
 
