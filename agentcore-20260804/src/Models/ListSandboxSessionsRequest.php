@@ -17,9 +17,15 @@ class ListSandboxSessionsRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $serviceEndpointId;
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'serviceEndpointId' => 'serviceEndpointId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ListSandboxSessionsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->serviceEndpointId) {
+            $res['serviceEndpointId'] = $this->serviceEndpointId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ListSandboxSessionsRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['serviceEndpointId'])) {
+            $model->serviceEndpointId = $map['serviceEndpointId'];
         }
 
         return $model;

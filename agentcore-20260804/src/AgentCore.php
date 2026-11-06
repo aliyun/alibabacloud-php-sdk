@@ -26,6 +26,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentSpecShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentSpecVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentSpecVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentSpecVersionShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentVersionRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentVersionResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentVersionShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialShrinkRequest;
@@ -88,6 +91,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentSpecRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentSpecResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentSpecVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentSpecVersionResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentVersionRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCustomAgentRequest;
@@ -157,6 +162,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentSpecRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentSpecResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentSpecVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentSpecVersionResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentVersionRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentImagePreparationRequest;
@@ -235,6 +242,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentSpecsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentTeamsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentTeamsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentTeamsShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentVersionsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentVersionsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorModelsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorModelsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorsRequest;
@@ -1006,6 +1015,89 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->createAgentSpecVersionWithOptions($workspaceId, $agentSpecName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 保存智能体版本.
+     *
+     * @remarks
+     * 将指定托管智能体或自定义智能体当前已生效的配置保存为一个不可变的固定版本，并归档版本模板与制品。仅保存版本，不部署实例。其他类型的智能体（如外部智能体）不支持版本，返回 AgentVersionSubtypeUnsupported。Agent 最新发布必须已生效（latestSpecVersion 等于 effectiveSpecVersion）。系统按 Agent 递增生成版本号 agentVersion（v1、v2……），版本号在 Agent 内唯一且已删除版本的序号不复用，查询、删除版本及服务端点引用版本均使用该版本号。每个 Agent 最多保留 50 个未删除的版本，达到上限时返回 AgentVersionQuotaExceeded，删除不再使用的版本后可继续保存。versionName 相同且发布流水号相同的重复提交返回已有版本（不受上限限制）；versionName 相同但发布流水号不同时返回 AgentVersionAlreadyExists。
+     *
+     * @param tmpReq - CreateAgentVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentVersionResponse
+     *
+     * @param string                    $workspaceId
+     * @param string                    $agentId
+     * @param CreateAgentVersionRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAgentVersionResponse
+     */
+    public function createAgentVersionWithOptions($workspaceId, $agentId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAgentVersionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgentVersion',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/agents/' . Url::percentEncode($agentId) . '/versions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 保存智能体版本.
+     *
+     * @remarks
+     * 将指定托管智能体或自定义智能体当前已生效的配置保存为一个不可变的固定版本，并归档版本模板与制品。仅保存版本，不部署实例。其他类型的智能体（如外部智能体）不支持版本，返回 AgentVersionSubtypeUnsupported。Agent 最新发布必须已生效（latestSpecVersion 等于 effectiveSpecVersion）。系统按 Agent 递增生成版本号 agentVersion（v1、v2……），版本号在 Agent 内唯一且已删除版本的序号不复用，查询、删除版本及服务端点引用版本均使用该版本号。每个 Agent 最多保留 50 个未删除的版本，达到上限时返回 AgentVersionQuotaExceeded，删除不再使用的版本后可继续保存。versionName 相同且发布流水号相同的重复提交返回已有版本（不受上限限制）；versionName 相同但发布流水号不同时返回 AgentVersionAlreadyExists。
+     *
+     * @param request - CreateAgentVersionRequest
+     *
+     * @returns CreateAgentVersionResponse
+     *
+     * @param string                    $workspaceId
+     * @param string                    $agentId
+     * @param CreateAgentVersionRequest $request
+     *
+     * @return CreateAgentVersionResponse
+     */
+    public function createAgentVersion($workspaceId, $agentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAgentVersionWithOptions($workspaceId, $agentId, $request, $headers, $runtime);
     }
 
     /**
@@ -3117,6 +3209,79 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->deleteAgentSpecVersionWithOptions($workspaceId, $agentSpecName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除智能体版本.
+     *
+     * @remarks
+     * 删除指定托管智能体或自定义智能体已保存的固定版本。仍被服务端点引用的版本不可删除，系统维护的 latest 版本不可删除。
+     *
+     * @param request - DeleteAgentVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentVersionResponse
+     *
+     * @param string                    $workspaceId
+     * @param string                    $agentId
+     * @param string                    $agentVersion
+     * @param DeleteAgentVersionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAgentVersionResponse
+     */
+    public function deleteAgentVersionWithOptions($workspaceId, $agentId, $agentVersion, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgentVersion',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/agents/' . Url::percentEncode($agentId) . '/versions/' . Url::percentEncode($agentVersion) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除智能体版本.
+     *
+     * @remarks
+     * 删除指定托管智能体或自定义智能体已保存的固定版本。仍被服务端点引用的版本不可删除，系统维护的 latest 版本不可删除。
+     *
+     * @param request - DeleteAgentVersionRequest
+     *
+     * @returns DeleteAgentVersionResponse
+     *
+     * @param string                    $workspaceId
+     * @param string                    $agentId
+     * @param string                    $agentVersion
+     * @param DeleteAgentVersionRequest $request
+     *
+     * @return DeleteAgentVersionResponse
+     */
+    public function deleteAgentVersion($workspaceId, $agentId, $agentVersion, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAgentVersionWithOptions($workspaceId, $agentId, $agentVersion, $request, $headers, $runtime);
     }
 
     /**
@@ -5530,6 +5695,73 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->getAgentSpecVersionWithOptions($workspaceId, $agentSpecName, $agentSpecVersion, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询智能体版本详情.
+     *
+     * @remarks
+     * 查询指定托管智能体或自定义智能体已保存的固定版本详情，configuration 返回版本保存时的 Agent 配置。
+     *
+     * @param request - GetAgentVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentVersionResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $agentId
+     * @param string                 $agentVersion
+     * @param GetAgentVersionRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAgentVersionResponse
+     */
+    public function getAgentVersionWithOptions($workspaceId, $agentId, $agentVersion, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentVersion',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/agents/' . Url::percentEncode($agentId) . '/versions/' . Url::percentEncode($agentVersion) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询智能体版本详情.
+     *
+     * @remarks
+     * 查询指定托管智能体或自定义智能体已保存的固定版本详情，configuration 返回版本保存时的 Agent 配置。
+     *
+     * @param request - GetAgentVersionRequest
+     *
+     * @returns GetAgentVersionResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $agentId
+     * @param string                 $agentVersion
+     * @param GetAgentVersionRequest $request
+     *
+     * @return GetAgentVersionResponse
+     */
+    public function getAgentVersion($workspaceId, $agentId, $agentVersion, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAgentVersionWithOptions($workspaceId, $agentId, $agentVersion, $request, $headers, $runtime);
     }
 
     /**
@@ -8446,6 +8678,81 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * 查询智能体版本列表.
+     *
+     * @remarks
+     * 分页查询指定托管智能体或自定义智能体已保存的固定版本，按创建时间倒序返回，不包含系统维护的 latest 版本。列表项不返回 configuration，需查看配置时调用 GetAgentVersion。
+     *
+     * @param request - ListAgentVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentVersionsResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $agentId
+     * @param ListAgentVersionsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAgentVersionsResponse
+     */
+    public function listAgentVersionsWithOptions($workspaceId, $agentId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentVersions',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/agents/' . Url::percentEncode($agentId) . '/versions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgentVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询智能体版本列表.
+     *
+     * @remarks
+     * 分页查询指定托管智能体或自定义智能体已保存的固定版本，按创建时间倒序返回，不包含系统维护的 latest 版本。列表项不返回 configuration，需查看配置时调用 GetAgentVersion。
+     *
+     * @param request - ListAgentVersionsRequest
+     *
+     * @returns ListAgentVersionsResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $agentId
+     * @param ListAgentVersionsRequest $request
+     *
+     * @return ListAgentVersionsResponse
+     */
+    public function listAgentVersions($workspaceId, $agentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAgentVersionsWithOptions($workspaceId, $agentId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the official and enterprise models available for the enabled QoderCLI connector. The service retrieves models in real time by using the saved API key and organization ID, and deduplicates them by model ID.
      *
      * @remarks
@@ -8772,17 +9079,14 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for the identity, configuration version, and status summary of managed agents in a workspace.
+     * Performs a paging query to retrieve the identity, configuration versions, and status summary of managed agents in a workspace.
      *
      * @remarks
-     * ### Purpose
-     * Performs a paging query for the identity, configuration version, and status summary of managed agents in a workspace.
-     * ### Related concepts
-     * - A managed agent runs in a user-provided runtime environment. The platform is responsible for saving the access and capability configurations. The API uses the technical name ExternalAgent.
-     * ### Paging
+     * Performs a paging query to retrieve the identity, configuration versions, and status summary of managed agents in a workspace.
+     * ### Paging query
      * If `maxResults` is omitted or set to `0`, the default value is 20, and the maximum value is 100. Omit `nextToken` in the first request. For subsequent requests, pass the token returned in the previous response as is, and keep the same workspace and filter conditions. An empty token indicates that there are no more pages.
      * ### Response content
-     * This operation returns the summary of managed agents. To query the complete models, instructions, tools, skills, and access status, call [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent).
+     * This operation returns the summary of managed agents. To query the complete models, instructions, tools, skills, and accessed state, call [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent).
      *
      * @param request - ListExternalAgentsRequest
      * @param headers - map
@@ -8829,17 +9133,14 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for the identity, configuration version, and status summary of managed agents in a workspace.
+     * Performs a paging query to retrieve the identity, configuration versions, and status summary of managed agents in a workspace.
      *
      * @remarks
-     * ### Purpose
-     * Performs a paging query for the identity, configuration version, and status summary of managed agents in a workspace.
-     * ### Related concepts
-     * - A managed agent runs in a user-provided runtime environment. The platform is responsible for saving the access and capability configurations. The API uses the technical name ExternalAgent.
-     * ### Paging
+     * Performs a paging query to retrieve the identity, configuration versions, and status summary of managed agents in a workspace.
+     * ### Paging query
      * If `maxResults` is omitted or set to `0`, the default value is 20, and the maximum value is 100. Omit `nextToken` in the first request. For subsequent requests, pass the token returned in the previous response as is, and keep the same workspace and filter conditions. An empty token indicates that there are no more pages.
      * ### Response content
-     * This operation returns the summary of managed agents. To query the complete models, instructions, tools, skills, and access status, call [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent).
+     * This operation returns the summary of managed agents. To query the complete models, instructions, tools, skills, and accessed state, call [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent).
      *
      * @param request - ListExternalAgentsRequest
      *
@@ -10402,6 +10703,10 @@ class AgentCore extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->serviceEndpointId) {
+            @$query['serviceEndpointId'] = $request->serviceEndpointId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -10491,6 +10796,10 @@ class AgentCore extends OpenApiClient
 
         if (null !== $request->searchText) {
             @$query['searchText'] = $request->searchText;
+        }
+
+        if (null !== $request->serviceEndpointId) {
+            @$query['serviceEndpointId'] = $request->serviceEndpointId;
         }
 
         if (null !== $request->sessionId) {

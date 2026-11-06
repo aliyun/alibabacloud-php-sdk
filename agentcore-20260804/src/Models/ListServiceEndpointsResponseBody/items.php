@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\ListServiceEndpointsRespon
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListServiceEndpointsResponseBody\items\accessUrls;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListServiceEndpointsResponseBody\items\authentication;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListServiceEndpointsResponseBody\items\elasticityPolicy;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListServiceEndpointsResponseBody\items\target;
 
 class items extends Model
@@ -27,6 +28,16 @@ class items extends Model
     public $createdAt;
 
     /**
+     * @var bool
+     */
+    public $effectivePublicAccessEnabled;
+
+    /**
+     * @var elasticityPolicy
+     */
+    public $elasticityPolicy;
+
+    /**
      * @var string
      */
     public $endpointType;
@@ -35,6 +46,11 @@ class items extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var bool
+     */
+    public $publicAccessEnabled;
 
     /**
      * @var string
@@ -74,8 +90,11 @@ class items extends Model
         'accessUrls' => 'accessUrls',
         'authentication' => 'authentication',
         'createdAt' => 'createdAt',
+        'effectivePublicAccessEnabled' => 'effectivePublicAccessEnabled',
+        'elasticityPolicy' => 'elasticityPolicy',
         'endpointType' => 'endpointType',
         'name' => 'name',
+        'publicAccessEnabled' => 'publicAccessEnabled',
         'regionId' => 'regionId',
         'serviceEndpointId' => 'serviceEndpointId',
         'status' => 'status',
@@ -92,6 +111,9 @@ class items extends Model
         }
         if (null !== $this->authentication) {
             $this->authentication->validate();
+        }
+        if (null !== $this->elasticityPolicy) {
+            $this->elasticityPolicy->validate();
         }
         if (null !== $this->target) {
             $this->target->validate();
@@ -121,12 +143,24 @@ class items extends Model
             $res['createdAt'] = $this->createdAt;
         }
 
+        if (null !== $this->effectivePublicAccessEnabled) {
+            $res['effectivePublicAccessEnabled'] = $this->effectivePublicAccessEnabled;
+        }
+
+        if (null !== $this->elasticityPolicy) {
+            $res['elasticityPolicy'] = null !== $this->elasticityPolicy ? $this->elasticityPolicy->toArray($noStream) : $this->elasticityPolicy;
+        }
+
         if (null !== $this->endpointType) {
             $res['endpointType'] = $this->endpointType;
         }
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->publicAccessEnabled) {
+            $res['publicAccessEnabled'] = $this->publicAccessEnabled;
         }
 
         if (null !== $this->regionId) {
@@ -187,12 +221,24 @@ class items extends Model
             $model->createdAt = $map['createdAt'];
         }
 
+        if (isset($map['effectivePublicAccessEnabled'])) {
+            $model->effectivePublicAccessEnabled = $map['effectivePublicAccessEnabled'];
+        }
+
+        if (isset($map['elasticityPolicy'])) {
+            $model->elasticityPolicy = elasticityPolicy::fromMap($map['elasticityPolicy']);
+        }
+
         if (isset($map['endpointType'])) {
             $model->endpointType = $map['endpointType'];
         }
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['publicAccessEnabled'])) {
+            $model->publicAccessEnabled = $map['publicAccessEnabled'];
         }
 
         if (isset($map['regionId'])) {

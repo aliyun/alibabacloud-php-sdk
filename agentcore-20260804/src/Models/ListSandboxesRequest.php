@@ -26,11 +26,17 @@ class ListSandboxesRequest extends Model
     /**
      * @var string
      */
+    public $serviceEndpointId;
+
+    /**
+     * @var string
+     */
     public $sessionId;
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'searchText' => 'searchText',
+        'serviceEndpointId' => 'serviceEndpointId',
         'sessionId' => 'sessionId',
     ];
 
@@ -52,6 +58,10 @@ class ListSandboxesRequest extends Model
 
         if (null !== $this->searchText) {
             $res['searchText'] = $this->searchText;
+        }
+
+        if (null !== $this->serviceEndpointId) {
+            $res['serviceEndpointId'] = $this->serviceEndpointId;
         }
 
         if (null !== $this->sessionId) {
@@ -79,6 +89,10 @@ class ListSandboxesRequest extends Model
 
         if (isset($map['searchText'])) {
             $model->searchText = $map['searchText'];
+        }
+
+        if (isset($map['serviceEndpointId'])) {
+            $model->serviceEndpointId = $map['serviceEndpointId'];
         }
 
         if (isset($map['sessionId'])) {
