@@ -1,3 +1,6 @@
+2026-11-06 Version: 2.1.2
+- Generated php 2023-12-30 for SysOM.
+
 2026-11-05 Version: 2.2.0
 - Support API ListCopilotSessionMessages.
 - Support API ListCopilotSessions.
