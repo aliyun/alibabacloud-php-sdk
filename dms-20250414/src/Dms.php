@@ -91,6 +91,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentMetricsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentMetricsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSkillDownloadRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSkillDownloadResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentThemeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentThemeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDocumentRequest;
@@ -3358,6 +3360,67 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDataAgentSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the download link for a DataAgent skill.
+     *
+     * @param request - DescribeDataAgentSkillDownloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataAgentSkillDownloadResponse
+     *
+     * @param DescribeDataAgentSkillDownloadRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDataAgentSkillDownloadResponse
+     */
+    public function describeDataAgentSkillDownloadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDataAgentSkillDownload',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDataAgentSkillDownloadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the download link for a DataAgent skill.
+     *
+     * @param request - DescribeDataAgentSkillDownloadRequest
+     *
+     * @returns DescribeDataAgentSkillDownloadResponse
+     *
+     * @param DescribeDataAgentSkillDownloadRequest $request
+     *
+     * @return DescribeDataAgentSkillDownloadResponse
+     */
+    public function describeDataAgentSkillDownload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataAgentSkillDownloadWithOptions($request, $runtime);
     }
 
     /**
