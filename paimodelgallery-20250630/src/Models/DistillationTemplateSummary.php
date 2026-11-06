@@ -48,6 +48,11 @@ class DistillationTemplateSummary extends Model
     /**
      * @var string
      */
+    public $templateKind;
+
+    /**
+     * @var string
+     */
     public $templateName;
 
     /**
@@ -62,6 +67,7 @@ class DistillationTemplateSummary extends Model
         'orderNumber' => 'OrderNumber',
         'pipelineStages' => 'PipelineStages',
         'templateId' => 'TemplateId',
+        'templateKind' => 'TemplateKind',
         'templateName' => 'TemplateName',
         'trainingOptions' => 'TrainingOptions',
     ];
@@ -123,6 +129,10 @@ class DistillationTemplateSummary extends Model
 
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateKind) {
+            $res['TemplateKind'] = $this->templateKind;
         }
 
         if (null !== $this->templateName) {
@@ -191,6 +201,10 @@ class DistillationTemplateSummary extends Model
 
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateKind'])) {
+            $model->templateKind = $map['TemplateKind'];
         }
 
         if (isset($map['TemplateName'])) {

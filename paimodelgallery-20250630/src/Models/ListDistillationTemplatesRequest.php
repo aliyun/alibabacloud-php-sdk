@@ -32,12 +32,18 @@ class ListDistillationTemplatesRequest extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateKind;
     protected $_name = [
         'category' => 'Category',
         'keyword' => 'Keyword',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'templateId' => 'TemplateId',
+        'templateKind' => 'TemplateKind',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ListDistillationTemplatesRequest extends Model
 
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateKind) {
+            $res['TemplateKind'] = $this->templateKind;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ListDistillationTemplatesRequest extends Model
 
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateKind'])) {
+            $model->templateKind = $map['TemplateKind'];
         }
 
         return $model;

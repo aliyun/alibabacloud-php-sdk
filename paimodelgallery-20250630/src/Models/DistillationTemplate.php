@@ -85,7 +85,17 @@ class DistillationTemplate extends Model
     /**
      * @var string
      */
+    public $processorExampleUri;
+
+    /**
+     * @var string
+     */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateKind;
 
     /**
      * @var string
@@ -111,7 +121,9 @@ class DistillationTemplate extends Model
         'orderNumber' => 'OrderNumber',
         'pipelineStages' => 'PipelineStages',
         'presetConfig' => 'PresetConfig',
+        'processorExampleUri' => 'ProcessorExampleUri',
         'templateId' => 'TemplateId',
+        'templateKind' => 'TemplateKind',
         'templateName' => 'TemplateName',
         'trainingOptions' => 'TrainingOptions',
     ];
@@ -223,8 +235,16 @@ class DistillationTemplate extends Model
             }
         }
 
+        if (null !== $this->processorExampleUri) {
+            $res['ProcessorExampleUri'] = $this->processorExampleUri;
+        }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateKind) {
+            $res['TemplateKind'] = $this->templateKind;
         }
 
         if (null !== $this->templateName) {
@@ -337,8 +357,16 @@ class DistillationTemplate extends Model
             }
         }
 
+        if (isset($map['ProcessorExampleUri'])) {
+            $model->processorExampleUri = $map['ProcessorExampleUri'];
+        }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateKind'])) {
+            $model->templateKind = $map['TemplateKind'];
         }
 
         if (isset($map['TemplateName'])) {
