@@ -1,3 +1,6 @@
+2026-11-06 Version: 2.5.2
+- Generated php 2026-08-04 for AgentCore.
+
 2026-11-05 Version: 2.5.1
 - Update API GetSkillDetail: add response parameters Body.data.editable.
 - Update API ListSkills: add response parameters Body.data.pageItems.$.editable.
