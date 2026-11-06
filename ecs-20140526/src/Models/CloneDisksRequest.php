@@ -28,6 +28,11 @@ class CloneDisksRequest extends Model
     /**
      * @var string
      */
+    public $destinationZoneId;
+
+    /**
+     * @var string
+     */
     public $diskCategory;
 
     /**
@@ -103,6 +108,7 @@ class CloneDisksRequest extends Model
         'arn' => 'Arn',
         'burstingEnabled' => 'BurstingEnabled',
         'clientToken' => 'ClientToken',
+        'destinationZoneId' => 'DestinationZoneId',
         'diskCategory' => 'DiskCategory',
         'diskName' => 'DiskName',
         'dryRun' => 'DryRun',
@@ -151,6 +157,10 @@ class CloneDisksRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->destinationZoneId) {
+            $res['DestinationZoneId'] = $this->destinationZoneId;
         }
 
         if (null !== $this->diskCategory) {
@@ -248,6 +258,10 @@ class CloneDisksRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DestinationZoneId'])) {
+            $model->destinationZoneId = $map['DestinationZoneId'];
         }
 
         if (isset($map['DiskCategory'])) {

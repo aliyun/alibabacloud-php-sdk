@@ -1,3 +1,7 @@
+2026-11-06 Version: 7.11.7
+- Update API CloneDisks: add request parameters DestinationZoneId.
+
+
 2026-11-05 Version: 7.11.7
 - Generated php 2014-05-26 for Ecs.
 
