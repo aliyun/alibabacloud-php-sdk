@@ -19,6 +19,11 @@ class RemoveNodePoolNodesRequest extends Model
     public $drainNode;
 
     /**
+     * @var int
+     */
+    public $drainTimeoutSeconds;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -35,6 +40,7 @@ class RemoveNodePoolNodesRequest extends Model
     protected $_name = [
         'concurrency' => 'concurrency',
         'drainNode' => 'drain_node',
+        'drainTimeoutSeconds' => 'drain_timeout_seconds',
         'instanceIds' => 'instance_ids',
         'nodes' => 'nodes',
         'releaseNode' => 'release_node',
@@ -60,6 +66,10 @@ class RemoveNodePoolNodesRequest extends Model
 
         if (null !== $this->drainNode) {
             $res['drain_node'] = $this->drainNode;
+        }
+
+        if (null !== $this->drainTimeoutSeconds) {
+            $res['drain_timeout_seconds'] = $this->drainTimeoutSeconds;
         }
 
         if (null !== $this->instanceIds) {
@@ -105,6 +115,10 @@ class RemoveNodePoolNodesRequest extends Model
 
         if (isset($map['drain_node'])) {
             $model->drainNode = $map['drain_node'];
+        }
+
+        if (isset($map['drain_timeout_seconds'])) {
+            $model->drainTimeoutSeconds = $map['drain_timeout_seconds'];
         }
 
         if (isset($map['instance_ids'])) {

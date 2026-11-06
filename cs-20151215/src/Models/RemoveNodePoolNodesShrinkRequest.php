@@ -19,6 +19,11 @@ class RemoveNodePoolNodesShrinkRequest extends Model
     public $drainNode;
 
     /**
+     * @var int
+     */
+    public $drainTimeoutSeconds;
+
+    /**
      * @var string
      */
     public $instanceIdsShrink;
@@ -35,6 +40,7 @@ class RemoveNodePoolNodesShrinkRequest extends Model
     protected $_name = [
         'concurrency' => 'concurrency',
         'drainNode' => 'drain_node',
+        'drainTimeoutSeconds' => 'drain_timeout_seconds',
         'instanceIdsShrink' => 'instance_ids',
         'nodesShrink' => 'nodes',
         'releaseNode' => 'release_node',
@@ -54,6 +60,10 @@ class RemoveNodePoolNodesShrinkRequest extends Model
 
         if (null !== $this->drainNode) {
             $res['drain_node'] = $this->drainNode;
+        }
+
+        if (null !== $this->drainTimeoutSeconds) {
+            $res['drain_timeout_seconds'] = $this->drainTimeoutSeconds;
         }
 
         if (null !== $this->instanceIdsShrink) {
@@ -85,6 +95,10 @@ class RemoveNodePoolNodesShrinkRequest extends Model
 
         if (isset($map['drain_node'])) {
             $model->drainNode = $map['drain_node'];
+        }
+
+        if (isset($map['drain_timeout_seconds'])) {
+            $model->drainTimeoutSeconds = $map['drain_timeout_seconds'];
         }
 
         if (isset($map['instance_ids'])) {

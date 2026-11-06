@@ -14,6 +14,11 @@ class DeleteClusterNodesRequest extends Model
     public $drainNode;
 
     /**
+     * @var int
+     */
+    public $drainTimeoutSeconds;
+
+    /**
      * @var string[]
      */
     public $nodes;
@@ -24,6 +29,7 @@ class DeleteClusterNodesRequest extends Model
     public $releaseNode;
     protected $_name = [
         'drainNode' => 'drain_node',
+        'drainTimeoutSeconds' => 'drain_timeout_seconds',
         'nodes' => 'nodes',
         'releaseNode' => 'release_node',
     ];
@@ -41,6 +47,10 @@ class DeleteClusterNodesRequest extends Model
         $res = [];
         if (null !== $this->drainNode) {
             $res['drain_node'] = $this->drainNode;
+        }
+
+        if (null !== $this->drainTimeoutSeconds) {
+            $res['drain_timeout_seconds'] = $this->drainTimeoutSeconds;
         }
 
         if (null !== $this->nodes) {
@@ -71,6 +81,10 @@ class DeleteClusterNodesRequest extends Model
         $model = new self();
         if (isset($map['drain_node'])) {
             $model->drainNode = $map['drain_node'];
+        }
+
+        if (isset($map['drain_timeout_seconds'])) {
+            $model->drainTimeoutSeconds = $map['drain_timeout_seconds'];
         }
 
         if (isset($map['nodes'])) {
