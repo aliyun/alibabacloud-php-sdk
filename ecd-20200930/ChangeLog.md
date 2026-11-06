@@ -1,3 +1,7 @@
+2026-11-06 Version: 5.6.0
+- Support API GenerateSceneKey.
+
+
 2026-11-03 Version: 5.5.3
 - Update API DescribeDesktops: add response parameters Body.Desktops.$.SubnetName.
 - Update API DescribeDesktops: add response parameters Body.Desktops.$.DesktopDurationList.$.DisableRemainingNotify.

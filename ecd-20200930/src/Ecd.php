@@ -383,6 +383,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopListInfoRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopListInfoResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GenerateSceneKeyRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\GenerateSceneKeyResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetAggregatedDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetAggregatedDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetAsyncTaskRequest;
@@ -623,6 +625,7 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\VerifyCenRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\VerifyCenResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\WakeupDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\WakeupDesktopsResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -633,6 +636,9 @@ class Ecd extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'ecd';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ecd', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -17655,6 +17661,75 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportDesktopListInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Generates an access key for a scenario.
+     *
+     * @param request - GenerateSceneKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateSceneKeyResponse
+     *
+     * @param GenerateSceneKeyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GenerateSceneKeyResponse
+     */
+    public function generateSceneKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->desktopId) {
+            @$query['DesktopId'] = $request->desktopId;
+        }
+
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateSceneKey',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateSceneKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Generates an access key for a scenario.
+     *
+     * @param request - GenerateSceneKeyRequest
+     *
+     * @returns GenerateSceneKeyResponse
+     *
+     * @param GenerateSceneKeyRequest $request
+     *
+     * @return GenerateSceneKeyResponse
+     */
+    public function generateSceneKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateSceneKeyWithOptions($request, $runtime);
     }
 
     /**
