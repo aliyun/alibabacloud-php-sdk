@@ -493,13 +493,13 @@ class APIG extends OpenApiClient
      * @remarks
      * This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
      * >
-     * > Recommended call logic:
+     * >  Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
-     * > - - The response returns a conflict preview containing conflictHash.
-     * > - 2. Formally submit the request after confirmation.
-     * > - - If no conflict exists: Set dryRun=false and overwrite=false.
-     * > - - If a conflict exists and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
+     * > - - Set dryRun to true.
+     * > - - The response returns a conflict preview that contains conflictHash.
+     * > - 2. Submit the request after confirmation.
+     * > - - If no conflicts exist: Set dryRun to false and overwrite to false.
+     * > - - If conflicts exist and you confirm to overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - AddGatewayQuotaRuleRequest
      * @param headers - map
@@ -595,13 +595,13 @@ class APIG extends OpenApiClient
      * @remarks
      * This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
      * >
-     * > Recommended call logic:
+     * >  Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
-     * > - - The response returns a conflict preview containing conflictHash.
-     * > - 2. Formally submit the request after confirmation.
-     * > - - If no conflict exists: Set dryRun=false and overwrite=false.
-     * > - - If a conflict exists and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
+     * > - - Set dryRun to true.
+     * > - - The response returns a conflict preview that contains conflictHash.
+     * > - 2. Submit the request after confirmation.
+     * > - - If no conflicts exist: Set dryRun to false and overwrite to false.
+     * > - - If conflicts exist and you confirm to overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - AddGatewayQuotaRuleRequest
      *
@@ -692,7 +692,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Adds members to a consumer group in batches.
+     * Adds consumer group members in batches.
      *
      * @param request - BatchAddConsumerGroupConsumersRequest
      * @param headers - map
@@ -735,7 +735,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Adds members to a consumer group in batches.
+     * Adds consumer group members in batches.
      *
      * @param request - BatchAddConsumerGroupConsumersRequest
      *
@@ -990,7 +990,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Removes consumer group members in batches.
+     * Removes multiple members from a consumer group.
      *
      * @param request - BatchRemoveConsumerGroupConsumersRequest
      * @param headers - map
@@ -1033,7 +1033,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Removes consumer group members in batches.
+     * Removes multiple members from a consumer group.
      *
      * @param request - BatchRemoveConsumerGroupConsumersRequest
      *
@@ -1197,7 +1197,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the activation status of the API management service.
+     * Retrieves the activation status of the API Management service.
      *
      * @param request - CheckCommodityStatusRequest
      * @param headers - map
@@ -1233,7 +1233,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the activation status of the API management service.
+     * Retrieves the activation status of the API Management service.
      *
      * @param request - CheckCommodityStatusRequest
      *
@@ -1255,8 +1255,7 @@ class APIG extends OpenApiClient
      * Creates an AI model card.
      *
      * @remarks
-     * Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference a model provider that already exists in the gateway.
-     * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1,000 model cards can be created for a single gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If this parameter is not specified, type defaults to fixed and all cost values default to 0. Each entry in availablePaths must include both path and type.
+     * Creates a model card for model creation under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and model provider. You can create up to 1,000 model cards per gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
      *
      * @param request - CreateAiModelCardRequest
      * @param headers - map
@@ -1325,8 +1324,7 @@ class APIG extends OpenApiClient
      * Creates an AI model card.
      *
      * @remarks
-     * Performs model creation for a model card under an existing model provider in a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider must reference a model provider that already exists in the gateway.
-     * The modelName must be unique within the same AI gateway instance and the same model provider. A maximum of 1,000 model cards can be created for a single gateway instance. The credit parameter currently supports only the fixed type, and the cost unit is Credits per million tokens. If this parameter is not specified, type defaults to fixed and all cost values default to 0. Each entry in availablePaths must include both path and type.
+     * Creates a model card for model creation under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and model provider. You can create up to 1,000 model cards per gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
      *
      * @param request - CreateAiModelCardRequest
      *
@@ -1582,7 +1580,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an API consumer.
+     * Creates a consumer.
      *
      * @param request - CreateConsumerRequest
      * @param headers - map
@@ -1658,7 +1656,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an API consumer.
+     * Creates a consumer.
      *
      * @param request - CreateConsumerRequest
      *
@@ -1756,15 +1754,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates consumer authorization rules.
+     * Creates a consumer authorization rule.
      *
      * @remarks
-     * Prerequisites: Before creating consumer authorization rules, prepare resources in the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
-     * Gateway instance (CreateGateway → gatewayId, gw- prefix)
-     * Environment (A default environment is automatically created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix. The gatewayId from step 1 must be associated.)
-     * HTTP API (CreateHttpApi → httpApiId, api- prefix)
-     * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, which belongs to the API in step 3. Then call DeployHttpApi to publish the route to the environment in step 2. Unpublished routes cannot be authorized.)
-     * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Specify either consumerId or consumerGroupId.)
+     * Prerequisites: Before creating a consumer authorization rule, prepare resources according to the following dependency chain (the corresponding creation APIs and ID passing relationships are in parentheses):
+     * Gateway instance (CreateGateway → gatewayId, with the gw- prefix)
+     * Environment (A default environment is automatically created after the gateway is created. You can also call CreateEnvironment → environmentId, with the env- prefix. The gatewayId from Step 1 is required.)
+     * HTTP API (CreateHttpApi → httpApiId, with the api- prefix)
+     * Route and publish (CreateHttpApiRoute → routeId, with the hr- prefix, which belongs to the API in Step 3. Then, call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
+     * Consumer (CreateConsumer → consumerId, with the cs- prefix, or consumerGroupId, with the csg- prefix. Choose either consumerId or consumerGroupId.)
      *
      * @param request - CreateConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -1806,15 +1804,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates consumer authorization rules.
+     * Creates a consumer authorization rule.
      *
      * @remarks
-     * Prerequisites: Before creating consumer authorization rules, prepare resources in the following dependency chain (the corresponding creation API and ID passing relationships are shown in parentheses):
-     * Gateway instance (CreateGateway → gatewayId, gw- prefix)
-     * Environment (A default environment is automatically created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix. The gatewayId from step 1 must be associated.)
-     * HTTP API (CreateHttpApi → httpApiId, api- prefix)
-     * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, which belongs to the API in step 3. Then call DeployHttpApi to publish the route to the environment in step 2. Unpublished routes cannot be authorized.)
-     * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Specify either consumerId or consumerGroupId.)
+     * Prerequisites: Before creating a consumer authorization rule, prepare resources according to the following dependency chain (the corresponding creation APIs and ID passing relationships are in parentheses):
+     * Gateway instance (CreateGateway → gatewayId, with the gw- prefix)
+     * Environment (A default environment is automatically created after the gateway is created. You can also call CreateEnvironment → environmentId, with the env- prefix. The gatewayId from Step 1 is required.)
+     * HTTP API (CreateHttpApi → httpApiId, with the api- prefix)
+     * Route and publish (CreateHttpApiRoute → routeId, with the hr- prefix, which belongs to the API in Step 3. Then, call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
+     * Consumer (CreateConsumer → consumerId, with the cs- prefix, or consumerGroupId, with the csg- prefix. Choose either consumerId or consumerGroupId.)
      *
      * @param request - CreateConsumerAuthorizationRulesRequest
      *
@@ -2853,7 +2851,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Mounts a plug-in.
+     * Mounts a plugin.
      *
      * @param request - CreatePluginAttachmentRequest
      * @param headers - map
@@ -2919,7 +2917,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Mounts a plug-in.
+     * Mounts a plugin.
      *
      * @param request - CreatePluginAttachmentRequest
      *
@@ -2938,7 +2936,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a custom plugin class.
+     * Creates a custom plug-in class.
      *
      * @param request - CreatePluginClassRequest
      * @param headers - map
@@ -3016,7 +3014,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a custom plugin class.
+     * Creates a custom plug-in class.
      *
      * @param request - CreatePluginClassRequest
      *
@@ -3035,7 +3033,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a WebIDE workspace for a plugin.
+     * Creates a plugin WebIDE workspace.
      *
      * @param request - CreatePluginWorkspaceRequest
      * @param headers - map
@@ -3089,7 +3087,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a WebIDE workspace for a plugin.
+     * Creates a plugin WebIDE workspace.
      *
      * @param request - CreatePluginWorkspaceRequest
      *
@@ -3181,7 +3179,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a policy attachment to a resource.
+     * Creates a policy resource attachment.
      *
      * @param request - CreatePolicyAttachmentRequest
      * @param headers - map
@@ -3239,7 +3237,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a policy attachment to a resource.
+     * Creates a policy resource attachment.
      *
      * @param request - CreatePolicyAttachmentRequest
      *
@@ -3258,7 +3256,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a HiMarket developer portal and returns the ID of the newly created portal upon success.
+     * Creates a HiMarket developer portal and returns the ID of the newly created portal.
      *
      * @param request - CreatePortalRequest
      * @param headers - map
@@ -3310,7 +3308,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a HiMarket developer portal and returns the ID of the newly created portal upon success.
+     * Creates a HiMarket developer portal and returns the ID of the newly created portal.
      *
      * @param request - CreatePortalRequest
      *
@@ -3493,7 +3491,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef or remove the association by calling DeleteProductRef at the same path.
+     * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef on the same path or remove the association by calling DeleteProductRef.
      *
      * @param request - CreateProductRefRequest
      * @param headers - map
@@ -3540,7 +3538,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef or remove the association by calling DeleteProductRef at the same path.
+     * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef on the same path or remove the association by calling DeleteProductRef.
      *
      * @param request - CreateProductRefRequest
      *
@@ -3701,7 +3699,7 @@ class APIG extends OpenApiClient
      * Creates a service.
      *
      * @remarks
-     * This operation supports creating multiple services.
+     * Creates multiple services.
      *
      * @param request - CreateServiceRequest
      * @param headers - map
@@ -3764,7 +3762,7 @@ class APIG extends OpenApiClient
      * Creates a service.
      *
      * @remarks
-     * This operation supports creating multiple services.
+     * Creates multiple services.
      *
      * @param request - CreateServiceRequest
      *
@@ -3853,7 +3851,7 @@ class APIG extends OpenApiClient
      * Creates a source.
      *
      * @remarks
-     * Before creating a source, prepare the required dependency resources. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
+     * Before creating a source, you must prepare the dependent resources for the source. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
      *
      * @param request - CreateSourceRequest
      * @param headers - map
@@ -3914,7 +3912,7 @@ class APIG extends OpenApiClient
      * Creates a source.
      *
      * @remarks
-     * Before creating a source, prepare the required dependency resources. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
+     * Before creating a source, you must prepare the dependent resources for the source. For the K8S type, an existing ACK container service cluster is required. You can invoke ListK8sClusterSources to query active clusters. For the MSE_NACOS type, an existing MSE Nacos instance is required. You can invoke ListMseNacosSources to query active instances.
      *
      * @param request - CreateSourceRequest
      *
@@ -4366,10 +4364,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a quota throttling rule from a gateway.
+     * Deletes a quota throttling rule for a gateway.
      *
      * @remarks
-     * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+     * Deletes a quota rule based on a consumer or consumer group for an AI gateway. Note that this operation takes effect only for AI gateways whose version is later than 2.1.19.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      * @param headers - map
@@ -4407,10 +4405,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a quota throttling rule from a gateway.
+     * Deletes a quota throttling rule for a gateway.
      *
      * @remarks
-     * This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+     * Deletes a quota rule based on a consumer or consumer group for an AI gateway. Note that this operation takes effect only for AI gateways whose version is later than 2.1.19.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      *
@@ -5158,7 +5156,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Dissociates an API product from an API by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+     * Dissociates an API from an API product by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by using GetProductRef.
      *
      * @param request - DeleteProductRefRequest
      * @param headers - map
@@ -5195,7 +5193,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Dissociates an API product from an API by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by GetProductRef.
+     * Dissociates an API from an API product by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by using GetProductRef.
      *
      * @param request - DeleteProductRefRequest
      *
@@ -5427,10 +5425,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
+     * Publishes an HTTP API, including routes in REST APIs and HTTP APIs.
      *
      * @remarks
-     * Before deployment, the following prerequisites must be met in order: (1) A gateway has been created. (2) An HTTP API has been created and associated with a gateway (belongGatewayId). (3) A route has been created and associated with an environment (environmentId). (4) The route has been associated with the default subdomain of the environment. Associating only a custom Dedicated domain name is not sufficient to trigger deployment. Call UpdateHttpApiRoute first to add the default subdomain of the environment to the route.
+     * Before deployment, the following prerequisites must be met in order: (1) A gateway is created. (2) An HTTP API is created and associated with the gateway by using belongGatewayId. (3) A route is created and associated with an environment by using environmentId. (4) The route is associated with the default subdomain of the environment. Associating only a custom dedicated domain name is insufficient to trigger deployment. You must first call UpdateHttpApiRoute to add the default subdomain of the environment to the route.
      *
      * @param request - DeployHttpApiRequest
      * @param headers - map
@@ -5481,10 +5479,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
+     * Publishes an HTTP API, including routes in REST APIs and HTTP APIs.
      *
      * @remarks
-     * Before deployment, the following prerequisites must be met in order: (1) A gateway has been created. (2) An HTTP API has been created and associated with a gateway (belongGatewayId). (3) A route has been created and associated with an environment (environmentId). (4) The route has been associated with the default subdomain of the environment. Associating only a custom Dedicated domain name is not sufficient to trigger deployment. Call UpdateHttpApiRoute first to add the default subdomain of the environment to the route.
+     * Before deployment, the following prerequisites must be met in order: (1) A gateway is created. (2) An HTTP API is created and associated with the gateway by using belongGatewayId. (3) A route is created and associated with an environment by using environmentId. (4) The route is associated with the default subdomain of the environment. Associating only a custom dedicated domain name is insufficient to trigger deployment. You must first call UpdateHttpApiRoute to add the default subdomain of the environment to the route.
      *
      * @param request - DeployHttpApiRequest
      *
@@ -5870,7 +5868,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, whether it is collected, whether switching is allowed, and whether it is from a field template.
+     * Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
      *
      * @param request - GetApiPathFieldConfigRequest
      * @param headers - map
@@ -5916,7 +5914,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, whether it is collected, whether switching is allowed, and whether it is from a field template.
+     * Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
      *
      * @param request - GetApiPathFieldConfigRequest
      *
@@ -5935,7 +5933,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the field template corresponding to an API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+     * Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
      *
      * @param request - GetApiPathFieldTemplateRequest
      * @param headers - map
@@ -5977,7 +5975,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the field template corresponding to an API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+     * Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
      *
      * @param request - GetApiPathFieldTemplateRequest
      *
@@ -6161,7 +6159,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves consumer authorization rules.
+     * Retrieves a consumer authorization rule.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6196,7 +6194,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves consumer authorization rules.
+     * Retrieves a consumer authorization rule.
      *
      * @returns GetConsumerAuthorizationRuleResponse
      *
@@ -6562,7 +6560,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the basic information of a gateway, such as the associated VPC, vSwitch, and gateway endpoint.
+     * Retrieves the basic information of a gateway, such as the associated VPC, vSwitch, and gateway ingress.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6596,7 +6594,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the basic information of a gateway, such as the associated VPC, vSwitch, and gateway endpoint.
+     * Retrieves the basic information of a gateway, such as the associated VPC, vSwitch, and gateway ingress.
      *
      * @returns GetGatewayResponse
      *
@@ -6613,10 +6611,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the dynamic forwarding ExtProc service bound to the gateway.
+     * Retrieves the dynamic forwarding ExtProc service bound to a gateway.
      *
      * @remarks
-     * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, the operation returns bound=false.
+     * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, bound=false is returned.
      *
      * @param request - GetGatewayDfpExtProcServiceRequest
      * @param headers - map
@@ -6653,10 +6651,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the dynamic forwarding ExtProc service bound to the gateway.
+     * Retrieves the dynamic forwarding ExtProc service bound to a gateway.
      *
      * @remarks
-     * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, the operation returns bound=false.
+     * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, bound=false is returned.
      *
      * @param request - GetGatewayDfpExtProcServiceRequest
      *
@@ -6736,7 +6734,7 @@ class APIG extends OpenApiClient
      * Queries the details of a gateway quota throttling rule.
      *
      * @remarks
-     * Queries a consumer quota rule on an AI gateway.
+     * This operation queries a specific consumer quota rule on an AI gateway.
      *
      * @param request - GetGatewayQuotaRuleRequest
      * @param headers - map
@@ -6795,7 +6793,7 @@ class APIG extends OpenApiClient
      * Queries the details of a gateway quota throttling rule.
      *
      * @remarks
-     * Queries a consumer quota rule on an AI gateway.
+     * This operation queries a specific consumer quota rule on an AI gateway.
      *
      * @param request - GetGatewayQuotaRuleRequest
      *
@@ -6816,11 +6814,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the usage details of a subject for a gateway quota throttling rule, including the used quota, total quota, over-limit status, usage details, and consumption records.
+     * Queries the usage details of a subject under a gateway quota throttling rule, including the used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * This operation retrieves the usage details of a consumer subject under a quota rule. Note that this operation applies only to AI gateways whose version is later than 2.1.19.
-     * Before you begin: Before calling this operation, ensure that the Simple Log Service (SLS) log delivery feature is enabled for the target gateway by using UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
+     * This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19. Prerequisites: Before calling this operation, make sure that Simple Log Service (SLS) log delivery is enabled for the target gateway by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      * @param headers - map
@@ -6881,11 +6878,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the usage details of a subject for a gateway quota throttling rule, including the used quota, total quota, over-limit status, usage details, and consumption records.
+     * Queries the usage details of a subject under a gateway quota throttling rule, including the used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
-     * This operation retrieves the usage details of a consumer subject under a quota rule. Note that this operation applies only to AI gateways whose version is later than 2.1.19.
-     * Before you begin: Before calling this operation, ensure that the Simple Log Service (SLS) log delivery feature is enabled for the target gateway by using UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
+     * This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19. Prerequisites: Before calling this operation, make sure that Simple Log Service (SLS) log delivery is enabled for the target gateway by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
      *
      * @param request - GetGatewayQuotaRuleSubjectUsageRequest
      *
@@ -6910,7 +6906,7 @@ class APIG extends OpenApiClient
      * Queries the resource quotas and usage of a gateway.
      *
      * @remarks
-     * Queries the usage, effective limits, and statistical scopes of nine resource quota items for a specified API gateway or AI gateway. This operation is read-only. A successful response contains all nine items. Custom plugin quotas do not display numerical values. The result represents the current observation read independently from each source and does not guarantee that new resources can be created successfully.
+     * Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only. A successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of subsequent resource creation.
      *
      * @param request - GetGatewayResourceQuotaUsageRequest
      * @param headers - map
@@ -6950,7 +6946,7 @@ class APIG extends OpenApiClient
      * Queries the resource quotas and usage of a gateway.
      *
      * @remarks
-     * Queries the usage, effective limits, and statistical scopes of nine resource quota items for a specified API gateway or AI gateway. This operation is read-only. A successful response contains all nine items. Custom plugin quotas do not display numerical values. The result represents the current observation read independently from each source and does not guarantee that new resources can be created successfully.
+     * Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only. A successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of subsequent resource creation.
      *
      * @param request - GetGatewayResourceQuotaUsageRequest
      *
@@ -7027,7 +7023,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the credential information of a HiMarket consumer by consumer ID and returns two types of containers: API key credential configuration and HMAC credential configuration. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+     * Queries the credential information of a HiMarket consumer by consumer ID. The response returns two types of containers: API key credential configuration and HMAC credential configuration. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
      *
      * @param request - GetHiMarketConsumerCredentialRequest
      * @param headers - map
@@ -7064,7 +7060,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the credential information of a HiMarket consumer by consumer ID and returns two types of containers: API key credential configuration and HMAC credential configuration. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
+     * Queries the credential information of a HiMarket consumer by consumer ID. The response returns two types of containers: API key credential configuration and HMAC credential configuration. The credential members are defined by the common data structures HiMarketApiKeyConfig and HiMarketHmacConfig.
      *
      * @param request - GetHiMarketConsumerCredentialRequest
      *
@@ -7084,7 +7080,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves HTTP API information.
+     * Retrieves the HTTP API information.
      *
      * @param request - GetHttpApiRequest
      * @param headers - map
@@ -7127,7 +7123,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves HTTP API information.
+     * Retrieves the HTTP API information.
      *
      * @param request - GetHttpApiRequest
      *
@@ -7200,7 +7196,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the route details of an HTTP API.
+     * Retrieves the details of a route for an HTTP API.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7235,7 +7231,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the route details of an HTTP API.
+     * Retrieves the details of a route for an HTTP API.
      *
      * @returns GetHttpApiRouteResponse
      *
@@ -7256,7 +7252,7 @@ class APIG extends OpenApiClient
      * Retrieves an MCP server.
      *
      * @remarks
-     * The operation supports creating multiple services.
+     * This operation supports creating multiple services.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7293,7 +7289,7 @@ class APIG extends OpenApiClient
      * Retrieves an MCP server.
      *
      * @remarks
-     * The operation supports creating multiple services.
+     * This operation supports creating multiple services.
      *
      * @returns GetMcpServerResponse
      *
@@ -7310,7 +7306,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the namespaced services for a migration task.
+     * Retrieves the namespaced services for migration.
      *
      * @param request - GetMigrationNamespacedServicesRequest
      * @param headers - map
@@ -7347,7 +7343,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the namespaced services for a migration task.
+     * Retrieves the namespaced services for migration.
      *
      * @param request - GetMigrationNamespacedServicesRequest
      *
@@ -7691,7 +7687,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain configurations.
+     * Queries the details of a single HiMarket developer portal by portal ID, including the portal name, description, region ID, portal settings, and portal domain name configurations.
      *
      * @param request - GetPortalRequest
      * @param headers - map
@@ -7728,7 +7724,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal settings, and portal domain configurations.
+     * Queries the details of a single HiMarket developer portal by portal ID, including the portal name, description, region ID, portal settings, and portal domain name configurations.
      *
      * @param request - GetPortalRequest
      *
@@ -7748,7 +7744,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval status, MCP, Agent, and model configurations, product capability configurations, and the region.
+     * Queries the details of a single API product by API product ID, and returns information such as the name, description, status, type, documentation, icon, whether subscription requests are automatically approved, MCP, agent, and model configurations, product capability configurations, and the region to which the product belongs.
      *
      * @param request - GetProductRequest
      * @param headers - map
@@ -7785,7 +7781,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval status, MCP, Agent, and model configurations, product capability configurations, and the region.
+     * Queries the details of a single API product by API product ID, and returns information such as the name, description, status, type, documentation, icon, whether subscription requests are automatically approved, MCP, agent, and model configurations, product capability configurations, and the region to which the product belongs.
      *
      * @param request - GetProductRequest
      *
@@ -7805,7 +7801,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single product category by category ID and returns the ID, name, description, and icon of the category.
+     * Queries the details of a product category by category ID and returns the ID, name, description, and icon of the category.
      *
      * @param request - GetProductCategoryRequest
      * @param headers - map
@@ -7842,7 +7838,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single product category by category ID and returns the ID, name, description, and icon of the category.
+     * Queries the details of a product category by category ID and returns the ID, name, description, and icon of the category.
      *
      * @param request - GetProductCategoryRequest
      *
@@ -7862,7 +7858,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the API configurations associated with an API product by product ID, and returns the gateway ID and APIG association configuration.
+     * Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
      *
      * @param request - GetProductRefRequest
      * @param headers - map
@@ -7899,7 +7895,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the API configurations associated with an API product by product ID, and returns the gateway ID and APIG association configuration.
+     * Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
      *
      * @param request - GetProductRefRequest
      *
@@ -8322,7 +8318,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Executes the callback step in the OIDC logon flow by submitting the code and state query parameters carried in the callback via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+     * Submits the code and state query parameters via a GET request during the callback step of the OIDC logon process. The response data includes the accessToken, tokenType, and expiresIn fields.
      *
      * @param request - HandleOidcCallbackRequest
      * @param headers - map
@@ -8368,7 +8364,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Executes the callback step in the OIDC logon flow by submitting the code and state query parameters carried in the callback via a GET request, and returns the accessToken, tokenType, and expiresIn fields in the response data.
+     * Submits the code and state query parameters via a GET request during the callback step of the OIDC logon process. The response data includes the accessToken, tokenType, and expiresIn fields.
      *
      * @param request - HandleOidcCallbackRequest
      *
@@ -8500,7 +8496,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Initiates the Authorize step in the OpenID Connect (OIDC) logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
+     * Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
      *
      * @param request - InitiateOidcAuthRequest
      * @param headers - map
@@ -8542,7 +8538,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Initiates the Authorize step in the OpenID Connect (OIDC) logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
+     * Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
      *
      * @param request - InitiateOidcAuthRequest
      *
@@ -8920,7 +8916,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of field templates by using paging and returns the template ID, corresponding API request path, and applicable protocol for each template record.
+     * Performs a paging query on the list of field templates and returns the template ID, API request path, and applicable protocol for each template record.
      *
      * @param request - ListApiPathFieldTemplatesRequest
      * @param headers - map
@@ -8966,7 +8962,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of field templates by using paging and returns the template ID, corresponding API request path, and applicable protocol for each template record.
+     * Performs a paging query on the list of field templates and returns the template ID, API request path, and applicable protocol for each template record.
      *
      * @param request - ListApiPathFieldTemplatesRequest
      *
@@ -9147,7 +9143,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of consumer authorization rules.
+     * Retrieves a list of consumer authorization rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -9198,7 +9194,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of consumer authorization rules.
+     * Retrieves a list of consumer authorization rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      *
@@ -9289,10 +9285,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of quota throttling rules for a consumer group.
+     * Queries the quota throttling rules for a consumer group.
      *
      * @remarks
-     * Queries the quota rules directly bound to a specified consumer group. Rules individually bound to consumers within the group are not included. An empty list is returned if no rules are directly bound.
+     * Queries the quota rules directly bound to the specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
      *
      * @param request - ListConsumerGroupQuotaRulesRequest
      * @param headers - map
@@ -9347,10 +9343,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of quota throttling rules for a consumer group.
+     * Queries the quota throttling rules for a consumer group.
      *
      * @remarks
-     * Queries the quota rules directly bound to a specified consumer group. Rules individually bound to consumers within the group are not included. An empty list is returned if no rules are directly bound.
+     * Queries the quota rules directly bound to the specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
      *
      * @param request - ListConsumerGroupQuotaRulesRequest
      *
@@ -9591,7 +9587,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the HiMarket developer list. You can filter the results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+     * Queries the HiMarket developer list by using paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
      *
      * @param request - ListDevelopersRequest
      * @param headers - map
@@ -9657,7 +9653,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the HiMarket developer list. You can filter the results by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+     * Queries the HiMarket developer list by using paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
      *
      * @param request - ListDevelopersRequest
      *
@@ -10574,7 +10570,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. You can filter the paging results by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+     * Performs a paging query for the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
      *
      * @param request - ListHiMarketConsumerSubscriptionsRequest
      * @param headers - map
@@ -10633,7 +10629,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. You can filter the paging results by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+     * Performs a paging query for the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
      *
      * @param request - ListHiMarketConsumerSubscriptionsRequest
      *
@@ -10653,7 +10649,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The paging result includes the consumer ID, name, description, and whether each consumer is a primary consumer.
+     * Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The response includes the consumer ID, name, description, and primary consumer status for each consumer.
      *
      * @param request - ListHiMarketConsumersRequest
      * @param headers - map
@@ -10719,7 +10715,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The paging result includes the consumer ID, name, description, and whether each consumer is a primary consumer.
+     * Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The response includes the consumer ID, name, description, and primary consumer status for each consumer.
      *
      * @param request - ListHiMarketConsumersRequest
      *
@@ -10849,7 +10845,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the routes of an HTTP API.
+     * Queries the route list of an HTTP API.
      *
      * @param request - ListHttpApiRoutesRequest
      * @param headers - map
@@ -10948,7 +10944,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the routes of an HTTP API.
+     * Queries the route list of an HTTP API.
      *
      * @param request - ListHttpApiRoutesRequest
      *
@@ -11227,7 +11223,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of MCP tools included in an API product of the MCP Server type and returns a list of tools. Each tool contains three text members (name, title, and description) and four map structure members (inputSchema, outputSchema, annotations, and meta).
+     * Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
      *
      * @param request - ListMcpProductToolsRequest
      * @param headers - map
@@ -11264,7 +11260,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of MCP tools included in an API product of the MCP Server type and returns a list of tools. Each tool contains three text members (name, title, and description) and four map structure members (inputSchema, outputSchema, annotations, and meta).
+     * Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
      *
      * @param request - ListMcpProductToolsRequest
      *
@@ -11440,7 +11436,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+     * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
      *
      * @param request - ListModelCardsRequest
      * @param headers - map
@@ -11482,7 +11478,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+     * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
      *
      * @param request - ListModelCardsRequest
      *
@@ -11558,7 +11554,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the plugin mount list.
+     * Retrieves the list of plugin mounts.
      *
      * @param request - ListPluginAttachmentsRequest
      * @param headers - map
@@ -11632,7 +11628,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the plugin mount list.
+     * Retrieves the list of plugin mounts.
      *
      * @param request - ListPluginAttachmentsRequest
      *
@@ -11758,7 +11754,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of repositories and organization information for custom plugins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create organizations and repositories, and authorize API Gateway to access the Codeup account.
+     * Queries the repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create an organization and repositories, and authorize APIG to access your Codeup account.
      *
      * @param request - ListPluginRepositoriesRequest
      * @param headers - map
@@ -11794,7 +11790,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of repositories and organization information for custom plugins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create organizations and repositories, and authorize API Gateway to access the Codeup account.
+     * Queries the repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create an organization and repositories, and authorize APIG to access your Codeup account.
      *
      * @param request - ListPluginRepositoriesRequest
      *
@@ -12137,7 +12133,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the list of published API products on a specified HiMarket developer portal. This paging operation returns a list where each item includes the publication record ID, API product ID, API product name, and API product type.
+     * Queries the list of published API products on a specified HiMarket developer portal with paging. Each list item returns the publication record ID, API product ID, API product name, and API product type.
      *
      * @param request - ListPortalPublicationsRequest
      * @param headers - map
@@ -12188,7 +12184,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the list of published API products on a specified HiMarket developer portal. This paging operation returns a list where each item includes the publication record ID, API product ID, API product name, and API product type.
+     * Queries the list of published API products on a specified HiMarket developer portal with paging. Each list item returns the publication record ID, API product ID, API product name, and API product type.
      *
      * @param request - ListPortalPublicationsRequest
      *
@@ -12208,7 +12204,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of HiMarket developer portals under the current tenant by using paging. Each list item returns the portal ID, portal name, portal description, region ID, portal configuration, and portal domain configuration.
+     * Performs a paged query to retrieve the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
      *
      * @param request - ListPortalsRequest
      * @param headers - map
@@ -12266,7 +12262,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of HiMarket developer portals under the current tenant by using paging. Each list item returns the portal ID, portal name, portal description, region ID, portal configuration, and portal domain configuration.
+     * Performs a paged query to retrieve the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
      *
      * @param request - ListPortalsRequest
      *
@@ -12285,10 +12281,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the unmanaged security groups available for private endpoints.
+     * Queries the list of unmanaged security groups available for a private endpoint.
      *
      * @remarks
-     * The API operation supports creating multiple services.
+     * This operation supports creating multiple services.
      *
      * @param request - ListPrivateLinkSecurityGroupsRequest
      * @param headers - map
@@ -12338,10 +12334,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the unmanaged security groups available for private endpoints.
+     * Queries the list of unmanaged security groups available for a private endpoint.
      *
      * @remarks
-     * The API operation supports creating multiple services.
+     * This operation supports creating multiple services.
      *
      * @param request - ListPrivateLinkSecurityGroupsRequest
      *
@@ -12360,7 +12356,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the product categories under the current tenant. You can search for categories by name keywords. The list items return the category ID, name, description, and icon.
+     * Queries the list of product categories under the current tenant by using paging. You can search by category name keywords. Each item in the list returns the category ID, category name, category description, and category icon.
      *
      * @param request - ListProductCategoriesRequest
      * @param headers - map
@@ -12410,7 +12406,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the product categories under the current tenant. You can search for categories by name keywords. The list items return the category ID, name, description, and icon.
+     * Queries the list of product categories under the current tenant by using paging. You can search by category name keywords. Each item in the list returns the category ID, category name, category description, and category icon.
      *
      * @param request - ListProductCategoriesRequest
      *
@@ -12429,7 +12425,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can query the records by portal name and perform a parameter query by using paging parameters.
+     * Performs a paged query to retrieve the publication information of a specified API product, which is a list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
      *
      * @param request - ListProductPublicationsRequest
      * @param headers - map
@@ -12480,7 +12476,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can query the records by portal name and perform a parameter query by using paging parameters.
+     * Performs a paged query to retrieve the publication information of a specified API product, which is a list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
      *
      * @param request - ListProductPublicationsRequest
      *
@@ -12500,7 +12496,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paging query to retrieve the list of subscription records for a specified API product. The records can be filtered by subscription status and searched by consumer name keywords. Each record includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
+     * Performs a paged query to retrieve the subscribe records for a specified API product. You can use paging to filter the records by subscribe status or search for them by using consumer name keywords. Each record returns the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
      *
      * @param request - ListProductSubscriptionsRequest
      * @param headers - map
@@ -12555,7 +12551,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paging query to retrieve the list of subscription records for a specified API product. The records can be filtered by subscription status and searched by consumer name keywords. Each record includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
+     * Performs a paged query to retrieve the subscribe records for a specified API product. You can use paging to filter the records by subscribe status or search for them by using consumer name keywords. Each record returns the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
      *
      * @param request - ListProductSubscriptionsRequest
      *
@@ -12575,7 +12571,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the list of API products under the current tenant. Request parameters can specify the product name, product type, product status, product categories, and the portal where the product is published. List items return the product ID, name, description, status, type, plaintext documentation, icon, product categorization, whether to automatically approve subscribe requests, and MCP, agent, model, and product capability configurations.
+     * Queries the API product list under the current tenant by using paging. Request parameters can specify the product name, product type, product status, product category, and the portal where the product is published. List items return the product ID, name, product description, status, type, documentation, icon, product categorization, whether automatic approval is enabled for subscription requests, and MCP, agent, model, and product capability configurations.
      *
      * @param request - ListProductsRequest
      * @param headers - map
@@ -12649,7 +12645,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the list of API products under the current tenant. Request parameters can specify the product name, product type, product status, product categories, and the portal where the product is published. List items return the product ID, name, description, status, type, plaintext documentation, icon, product categorization, whether to automatically approve subscribe requests, and MCP, agent, model, and product capability configurations.
+     * Queries the API product list under the current tenant by using paging. Request parameters can specify the product name, product type, product status, product category, and the portal where the product is published. List items return the product ID, name, product description, status, type, documentation, icon, product categorization, whether automatic approval is enabled for subscription requests, and MCP, agent, model, and product capability configurations.
      *
      * @param request - ListProductsRequest
      *
@@ -12668,7 +12664,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters, and the response returns the API product ID, API product name, and API product description for each item.
+     * Queries the list of API products that can be published to a specified HiMarket developer portal. This paged query accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
      *
      * @param request - ListPublishableProductsRequest
      * @param headers - map
@@ -12719,7 +12715,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the list of API products that can be published to a specified HiMarket developer portal. The request accepts the portal ID, API product name, and paging parameters, and the response returns the API product ID, API product name, and API product description for each item.
+     * Queries the list of API products that can be published to a specified HiMarket developer portal. This paged query accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
      *
      * @param request - ListPublishableProductsRequest
      *
@@ -13201,7 +13197,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Lists MCP servers that are pending synchronization.
+     * Lists the MCP servers to be synchronized.
      *
      * @param request - ListSyncMCPServerRequest
      * @param headers - map
@@ -13251,7 +13247,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Lists MCP servers that are pending synchronization.
+     * Lists the MCP servers to be synchronized.
      *
      * @param request - ListSyncMCPServerRequest
      *
@@ -13479,7 +13475,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Logs out a HiMarket developer account. This operation has no business request parameters. A successful response returns only the requestId, code, and message fields.
+     * Logs a developer out of a HiMarket developer account. This operation has no business request parameters, and a successful response returns only the requestId, code, and message fields.
      *
      * @param request - LogoutDeveloperRequest
      * @param headers - map
@@ -13515,7 +13511,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Logs out a HiMarket developer account. This operation has no business request parameters. A successful response returns only the requestId, code, and message fields.
+     * Logs a developer out of a HiMarket developer account. This operation has no business request parameters, and a successful response returns only the requestId, code, and message fields.
      *
      * @param request - LogoutDeveloperRequest
      *
@@ -13534,7 +13530,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+     * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the current publication. You can query the publication record by calling ListProductPublications and unpublish the API product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
      *
      * @param request - PublishProductRequest
      * @param headers - map
@@ -13577,7 +13573,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+     * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the current publication. You can query the publication record by calling ListProductPublications and unpublish the API product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
      *
      * @param request - PublishProductRequest
      *
@@ -13597,7 +13593,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries consumer authorization rules.
+     * Queries the list of consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -13691,7 +13687,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries consumer authorization rules.
+     * Queries the list of consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      *
@@ -13825,15 +13821,15 @@ class APIG extends OpenApiClient
      * Resets a quota throttling rule on a gateway.
      *
      * @remarks
-     * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways of version 2.1.21 or later. Resetting clears the historical usage of consumption subjects on the rule.
+     * This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects on the rule.
      * >
-     * >  Recommended call logic:
+     * > Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun to true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - - Set dryRun=true.
+     * > - - The response returns a conflict preview containing a conflictHash.
+     * > - 2. Formally submit the request after confirmation.
+     * > - - No conflicts: Set dryRun=false and overwrite=false.
+     * > - - Conflicts exist and overwrite is confirmed: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
      *
      * @param request - ResetGatewayQuotaRuleRequest
      * @param headers - map
@@ -13908,15 +13904,15 @@ class APIG extends OpenApiClient
      * Resets a quota throttling rule on a gateway.
      *
      * @remarks
-     * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways of version 2.1.21 or later. Resetting clears the historical usage of consumption subjects on the rule.
+     * This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects on the rule.
      * >
-     * >  Recommended call logic:
+     * > Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun to true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflicts: Set dryRun to false and overwrite to false.
-     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+     * > - - Set dryRun=true.
+     * > - - The response returns a conflict preview containing a conflictHash.
+     * > - 2. Formally submit the request after confirmation.
+     * > - - No conflicts: Set dryRun=false and overwrite=false.
+     * > - - Conflicts exist and overwrite is confirmed: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
      *
      * @param request - ResetGatewayQuotaRuleRequest
      *
@@ -14108,7 +14104,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Subscribes to an API product for a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+     * Subscribes to an API product for a specified HiMarket Consumer. The path parameter specifies the consumer ID, the request body specifies the ID of the API product to subscribe to, and the response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
      *
      * @param request - SubscribeProductRequest
      * @param headers - map
@@ -14151,7 +14147,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Subscribes to an API product for a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
+     * Subscribes to an API product for a specified HiMarket Consumer. The path parameter specifies the consumer ID, the request body specifies the ID of the API product to subscribe to, and the response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
      *
      * @param request - SubscribeProductRequest
      *
@@ -14936,7 +14932,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Adds or removes API products in batches under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message without returning item-by-item processing results.
+     * Adds or removes API products from a specified product category in bulk. The path parameter specifies the category ID. The action field in the request body specifies the operation type, and the productIds field specifies the list of API product IDs to be processed. The response returns only the request ID, status code, and message, and does not return the processing result for each item.
      *
      * @param request - UpdateCategoryProductsRequest
      * @param headers - map
@@ -14983,7 +14979,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Adds or removes API products in batches under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message without returning item-by-item processing results.
+     * Adds or removes API products from a specified product category in bulk. The path parameter specifies the category ID. The action field in the request body specifies the operation type, and the productIds field specifies the list of API product IDs to be processed. The response returns only the request ID, status code, and message, and does not return the processing result for each item.
      *
      * @param request - UpdateCategoryProductsRequest
      *
@@ -15082,7 +15078,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a consumer authorization rule.
+     * Updates consumer authorization rules.
      *
      * @remarks
      * This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
@@ -15137,7 +15133,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a consumer authorization rule.
+     * Updates consumer authorization rules.
      *
      * @remarks
      * This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
@@ -15228,7 +15224,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, without returning the updated developer information.
+     * Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, and does not return the updated developer information.
      *
      * @param request - UpdateDeveloperStatusRequest
      * @param headers - map
@@ -15275,7 +15271,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, without returning the updated developer information.
+     * Updates the status of a HiMarket developer by developer ID. The request body specifies the target status and portal ID. A successful response returns only the requestId, code, and message, and does not return the updated developer information.
      *
      * @param request - UpdateDeveloperStatusRequest
      *
@@ -15812,15 +15808,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a quota throttling rule on a gateway.
+     * Modifies a quota throttling rule on a gateway.
      *
      * @remarks
-     * This operation updates a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The update retains the historical usage of the consumption subjects on the rule.
+     * This operation modifies a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The modification retains the historical usage of the consumers associated with the rule.
      * > Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
      * > - - Set dryRun=true.
-     * > - - The response returns a conflict preview containing a conflictHash.
-     * > - 2. Formally submit the request after confirmation.
+     * > - - The response returns a conflict preview that contains a conflictHash.
+     * > - 2. Submit the request after confirmation.
      * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
      * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
      *
@@ -15894,15 +15890,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a quota throttling rule on a gateway.
+     * Modifies a quota throttling rule on a gateway.
      *
      * @remarks
-     * This operation updates a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The update retains the historical usage of the consumption subjects on the rule.
+     * This operation modifies a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The modification retains the historical usage of the consumers associated with the rule.
      * > Recommended call logic:
      * > - 1. Perform a dry run to check for rule conflicts.
      * > - - Set dryRun=true.
-     * > - - The response returns a conflict preview containing a conflictHash.
-     * > - 2. Formally submit the request after confirmation.
+     * > - - The response returns a conflict preview that contains a conflictHash.
+     * > - 2. Submit the request after confirmation.
      * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
      * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
      *
@@ -15928,7 +15924,7 @@ class APIG extends OpenApiClient
      * Enables or disables a quota throttling rule for a gateway.
      *
      * @remarks
-     * Enables or disables a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21.
+     * This operation enables or disables a quota rule on a gateway. Note that this operation applies only to AI gateways of a version later than 2.1.21.
      *
      * @param request - UpdateGatewayQuotaRuleStatusRequest
      * @param headers - map
@@ -15979,7 +15975,7 @@ class APIG extends OpenApiClient
      * Enables or disables a quota throttling rule for a gateway.
      *
      * @remarks
-     * Enables or disables a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21.
+     * This operation enables or disables a quota rule on a gateway. Note that this operation applies only to AI gateways of a version later than 2.1.21.
      *
      * @param request - UpdateGatewayQuotaRuleStatusRequest
      *
@@ -16186,7 +16182,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a route for an HTTP API.
+     * Updates the route of an HTTP API.
      *
      * @param request - UpdateHttpApiRouteRequest
      * @param headers - map
@@ -16258,7 +16254,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a route for an HTTP API.
+     * Updates the route of an HTTP API.
      *
      * @param request - UpdateHttpApiRouteRequest
      *
@@ -16282,7 +16278,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type can update the Ingress listener configuration.
+     * Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
      *
      * @param request - UpdateMcpServerRequest
      * @param headers - map
@@ -16372,7 +16368,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type can update the Ingress listener configuration.
+     * Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
      *
      * @param request - UpdateMcpServerRequest
      *
@@ -16688,7 +16684,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+     * Updates the name, description, and portal configuration of a HiMarket developer portal by portal ID. The request body is in JSON format, and a successful response returns the ID of the updated portal.
      *
      * @param request - UpdatePortalRequest
      * @param headers - map
@@ -16745,7 +16741,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
+     * Updates the name, description, and portal configuration of a HiMarket developer portal by portal ID. The request body is in JSON format, and a successful response returns the ID of the updated portal.
      *
      * @param request - UpdatePortalRequest
      *
@@ -16862,7 +16858,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the name, description, and icon of a product category by ID. The request body is in JSON format, and the response returns only the request ID, status code, and response message.
+     * Updates the name, description, and icon of a product category by category ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
      *
      * @param request - UpdateProductCategoryRequest
      * @param headers - map
@@ -16913,7 +16909,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the name, description, and icon of a product category by ID. The request body is in JSON format, and the response returns only the request ID, status code, and response message.
+     * Updates the name, description, and icon of a product category by category ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
      *
      * @param request - UpdateProductCategoryRequest
      *
