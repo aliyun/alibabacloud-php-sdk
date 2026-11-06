@@ -52,6 +52,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateConversationResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateConversationShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateCustomOrgRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateCustomOrgResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateFreeExplorationWorkItemRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateFreeExplorationWorkItemResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateFreeExplorationWorkItemShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGraphRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGraphResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateGroupAliDingChatRequest;
@@ -182,6 +185,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetAliDingMinutesContentRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetAliDingMinutesContentResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetChatSessionRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetChatSessionResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetCollaborationGroupOutputItemPreviewRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetCollaborationGroupOutputItemPreviewResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGraphDraftAssembledRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGraphDraftAssembledResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGraphSchemaDetailRequest;
@@ -235,14 +240,20 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetUserResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowInstanceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowInstanceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowNodeConfigurationRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowNodeConfigurationResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowTemplateRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkflowTemplateResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemArtifactAccessRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemArtifactAccessResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemAttachmentAccessRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemAttachmentAccessResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemAuditRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemAuditResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemRunSummariesRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetWorkItemRunSummariesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GrantAgentUsersRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GrantAgentUsersResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GrantAgentUsersShrinkRequest;
@@ -276,6 +287,10 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListBillingRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListBillingResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListChatSessionsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListChatSessionsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListCollaborationGroupMembersRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListCollaborationGroupMembersResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListCollaborationGroupsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListCollaborationGroupsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGraphDraftResourcesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGraphDraftResourcesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListGraphSchemasRequest;
@@ -399,10 +414,14 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceSourceFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceSourceFileResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RerunNodeAIRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RerunNodeAIResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RerunWorkflowNodeRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\RerunWorkflowNodeResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetPasswordRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetPasswordResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetTokenRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetTokenResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetWorkflowNodeConfigurationRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResetWorkflowNodeConfigurationResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResolveWorkItemArtifactAccessRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResolveWorkItemArtifactAccessResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ResolveWorkItemAttachmentAccessRequest;
@@ -445,6 +464,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendAsyncChatMessageShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendWorkItemMessageRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendWorkItemMessageResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkflowTemplateEffectiveVersionRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkflowTemplateEffectiveVersionResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkItemPinnedRequest;
@@ -504,6 +525,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserInfoResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkflowNodeConfigurationRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkflowNodeConfigurationResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkflowNodeConfigurationShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkflowTemplateRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkflowTemplateResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkflowTemplateShrinkRequest;
@@ -513,6 +537,7 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateWorkItemShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UploadChatFileAdvanceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UploadChatFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UploadChatFileResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -525,6 +550,9 @@ class WinNexo extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'WinNexo';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('winnexo', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -744,10 +772,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Cancels to-do items in batches.
+     * Cancels multiple to-do items.
      *
      * @remarks
-     * Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
+     * Cancels multiple to-do items based on a list of IDs. This operation is idempotent and does not return errors for completed or non-existent items.
      *
      * @param tmpReq - BatchCancelTodosRequest
      * @param headers - map
@@ -801,10 +829,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Cancels to-do items in batches.
+     * Cancels multiple to-do items.
      *
      * @remarks
-     * Cancels to-do items in batches based on a set of to-do IDs. No error is reported for completed or non-existent items, ensuring idempotence.
+     * Cancels multiple to-do items based on a list of IDs. This operation is idempotent and does not return errors for completed or non-existent items.
      *
      * @param Request - BatchCancelTodosRequest
      *
@@ -1175,10 +1203,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Checks resource permissions within applications in batches.
+     * Checks the permissions of resources within applications in batches.
      *
      * @remarks
-     * After authenticating each application in the batch, reuses the constant-time query of the service.
+     * Authenticates applications in batches and reuses constant-time service queries.
      *
      * @param tmpReq - CheckAppResourcePermissionsBatchRequest
      * @param headers - map
@@ -1244,10 +1272,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Checks resource permissions within applications in batches.
+     * Checks the permissions of resources within applications in batches.
      *
      * @remarks
-     * After authenticating each application in the batch, reuses the constant-time query of the service.
+     * Authenticates applications in batches and reuses constant-time service queries.
      *
      * @param Request - CheckAppResourcePermissionsBatchRequest
      *
@@ -1941,6 +1969,105 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->createCustomOrgWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * CreateFreeExplorationWorkItem.
+     *
+     * @remarks
+     * 创建与页面一致的自由探索工作项及群话题，配置数字员工和可见范围；不发送消息，不自动执行；非幂等，超时先查询 queryWorkItemFeed
+     *
+     * @param tmpReq - CreateFreeExplorationWorkItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFreeExplorationWorkItemResponse
+     *
+     * @param CreateFreeExplorationWorkItemRequest $tmpReq
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateFreeExplorationWorkItemResponse
+     */
+    public function createFreeExplorationWorkItemWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateFreeExplorationWorkItemShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentNames) {
+            $request->agentNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentNames, 'agentNames', 'json');
+        }
+
+        if (null !== $tmpReq->memberUserIds) {
+            $request->memberUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->memberUserIds, 'memberUserIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->agentNamesShrink) {
+            @$body['agentNames'] = $request->agentNamesShrink;
+        }
+
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->memberUserIdsShrink) {
+            @$body['memberUserIds'] = $request->memberUserIdsShrink;
+        }
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
+        }
+
+        if (null !== $request->visibility) {
+            @$body['visibility'] = $request->visibility;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFreeExplorationWorkItem',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createFreeExplorationWorkItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFreeExplorationWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateFreeExplorationWorkItem.
+     *
+     * @remarks
+     * 创建与页面一致的自由探索工作项及群话题，配置数字员工和可见范围；不发送消息，不自动执行；非幂等，超时先查询 queryWorkItemFeed
+     *
+     * @param Request - CreateFreeExplorationWorkItemRequest
+     *
+     * @returns CreateFreeExplorationWorkItemResponse
+     *
+     * @param CreateFreeExplorationWorkItemRequest $request
+     *
+     * @return CreateFreeExplorationWorkItemResponse
+     */
+    public function createFreeExplorationWorkItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createFreeExplorationWorkItemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -6323,7 +6450,7 @@ class WinNexo extends OpenApiClient
      * Creates a draft of a workflow template.
      *
      * @remarks
-     * Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+     * Generates a draft version for editing a workflow template as a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content generation is performed to produce a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently call UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
      *
      * @param Request - CreateWorkflowTemplateDraftVersionRequest
      * @param headers - map
@@ -6382,7 +6509,7 @@ class WinNexo extends OpenApiClient
      * Creates a draft of a workflow template.
      *
      * @remarks
-     * Generates a draft version of a workflow template for editing by a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content is performed for content generation of a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently use UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
+     * Generates a draft version for editing a workflow template as a storage management administrator. If the selected version is a draft, it is returned as-is (idempotent, no new version is created). If the selected version is committed, replication of its content generation is performed to produce a v(maximum version number + 1) draft. The effective version remains unchanged. You can subsequently call UpdateWorkflowTemplate and pass the returned version to save or commit the draft.
      *
      * @param Request - CreateWorkflowTemplateDraftVersionRequest
      *
@@ -6401,10 +6528,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Deletes multiple resource permissions within an application.
+     * Deletes resource permissions within applications in batches.
      *
      * @remarks
-     * Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
+     * Invokes the original atomic deletion capability after passing MANAGE verification for each application.
      *
      * @param tmpReq - DeleteAppResourcePermissionsRequest
      * @param headers - map
@@ -6462,10 +6589,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Deletes multiple resource permissions within an application.
+     * Deletes resource permissions within applications in batches.
      *
      * @remarks
-     * Verifies MANAGE permissions for each application and then calls the original atomic deletion capability.
+     * Invokes the original atomic deletion capability after passing MANAGE verification for each application.
      *
      * @param Request - DeleteAppResourcePermissionsRequest
      *
@@ -7140,10 +7267,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Exports a simplified template definition that can be re-imported by valid members.
+     * Exports a simplified template definition that can be re-imported.
      *
      * @remarks
-     * Exports a simplified template definition that can be re-imported by valid members.
+     * Exports a simplified template definition that can be re-imported.
      *
      * @param Request - ExportWorkflowTemplateRequest
      * @param headers - map
@@ -7199,10 +7326,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Exports a simplified template definition that can be re-imported by valid members.
+     * Exports a simplified template definition that can be re-imported.
      *
      * @remarks
-     * Exports a simplified template definition that can be re-imported by valid members.
+     * Exports a simplified template definition that can be re-imported.
      *
      * @param Request - ExportWorkflowTemplateRequest
      *
@@ -7556,6 +7683,83 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->getChatSessionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 预览和下载协作空间对话文件.
+     *
+     * @remarks
+     * 获取数字员工对话生成文件的正文、预览地址或短期下载地址，支持工作流节点中的USER_OUTPUT_ITEM文件引用。调用者需通过租户、空间成员和文件来源权限校验。无需将文件登记为工作项产物；本接口不接受artifactId。
+     *
+     * @param Request - GetCollaborationGroupOutputItemPreviewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCollaborationGroupOutputItemPreviewResponse
+     *
+     * @param GetCollaborationGroupOutputItemPreviewRequest $request
+     * @param string[]                                      $headers
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetCollaborationGroupOutputItemPreviewResponse
+     */
+    public function getCollaborationGroupOutputItemPreviewWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->itemId) {
+            @$body['itemId'] = $request->itemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCollaborationGroupOutputItemPreview',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getCollaborationGroupOutputItemPreview',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCollaborationGroupOutputItemPreviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预览和下载协作空间对话文件.
+     *
+     * @remarks
+     * 获取数字员工对话生成文件的正文、预览地址或短期下载地址，支持工作流节点中的USER_OUTPUT_ITEM文件引用。调用者需通过租户、空间成员和文件来源权限校验。无需将文件登记为工作项产物；本接口不接受artifactId。
+     *
+     * @param Request - GetCollaborationGroupOutputItemPreviewRequest
+     *
+     * @returns GetCollaborationGroupOutputItemPreviewResponse
+     *
+     * @param GetCollaborationGroupOutputItemPreviewRequest $request
+     *
+     * @return GetCollaborationGroupOutputItemPreviewResponse
+     */
+    public function getCollaborationGroupOutputItemPreview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCollaborationGroupOutputItemPreviewWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8361,17 +8565,17 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves execution records of scheduled tasks.
+     * Retrieves the execution records of scheduled tasks.
      *
      * @remarks
-     * ## Operation description
-     * - This operation uploads files to an enterprise knowledge base.
-     * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this operation.
-     * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
-     * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base folder. Otherwise, the file is bound to the default root folder of the current digital employee.
-     * - You can add tags to resources by using `sourceTags` for subsequent management and retrieval.
-     * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
+     * ## Request description
+     * - This API operation uploads files to the enterprise knowledge base.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this API operation.
+     * - When uploading a file, you must provide the OSS persistence address (`filePath`) of the file.
+     * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of the file information.
+     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+     * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+     * - This operation generates a bill (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
      *
      * @param Request - GetScheduledTaskExecutionRecordsRequest
      * @param headers - map
@@ -8437,17 +8641,17 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves execution records of scheduled tasks.
+     * Retrieves the execution records of scheduled tasks.
      *
      * @remarks
-     * ## Operation description
-     * - This operation uploads files to an enterprise knowledge base.
-     * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this operation.
-     * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
-     * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base folder. Otherwise, the file is bound to the default root folder of the current digital employee.
-     * - You can add tags to resources by using `sourceTags` for subsequent management and retrieval.
-     * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
+     * ## Request description
+     * - This API operation uploads files to the enterprise knowledge base.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this API operation.
+     * - When uploading a file, you must provide the OSS persistence address (`filePath`) of the file.
+     * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of the file information.
+     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+     * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+     * - This operation generates a bill (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
      *
      * @param Request - GetScheduledTaskExecutionRecordsRequest
      *
@@ -9920,6 +10124,152 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 查询工作项审计记录.
+     *
+     * @param Request - GetWorkItemAuditRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkItemAuditResponse
+     *
+     * @param GetWorkItemAuditRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetWorkItemAuditResponse
+     */
+    public function getWorkItemAuditWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkItemAudit',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getWorkItemAudit',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkItemAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询工作项审计记录.
+     *
+     * @param Request - GetWorkItemAuditRequest
+     *
+     * @returns GetWorkItemAuditResponse
+     *
+     * @param GetWorkItemAuditRequest $request
+     *
+     * @return GetWorkItemAuditResponse
+     */
+    public function getWorkItemAudit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkItemAuditWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询工作项运行总结.
+     *
+     * @param Request - GetWorkItemRunSummariesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkItemRunSummariesResponse
+     *
+     * @param GetWorkItemRunSummariesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetWorkItemRunSummariesResponse
+     */
+    public function getWorkItemRunSummariesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->nodeKey) {
+            @$body['nodeKey'] = $request->nodeKey;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkItemRunSummaries',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getWorkItemRunSummaries',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkItemRunSummariesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询工作项运行总结.
+     *
+     * @param Request - GetWorkItemRunSummariesRequest
+     *
+     * @returns GetWorkItemRunSummariesResponse
+     *
+     * @param GetWorkItemRunSummariesRequest $request
+     *
+     * @return GetWorkItemRunSummariesResponse
+     */
+    public function getWorkItemRunSummaries($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkItemRunSummariesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the current running, review, and pause statuses of a work item, along with the actual active nodes and execution progress, by using a stable logical instance ID.
      *
      * @remarks
@@ -9990,6 +10340,81 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->getWorkflowInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 读取工作流节点配置.
+     *
+     * @param Request - GetWorkflowNodeConfigurationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkflowNodeConfigurationResponse
+     *
+     * @param GetWorkflowNodeConfigurationRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetWorkflowNodeConfigurationResponse
+     */
+    public function getWorkflowNodeConfigurationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['nodeId'] = $request->nodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkflowNodeConfiguration',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getWorkflowNodeConfiguration',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkflowNodeConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 读取工作流节点配置.
+     *
+     * @param Request - GetWorkflowNodeConfigurationRequest
+     *
+     * @returns GetWorkflowNodeConfigurationResponse
+     *
+     * @param GetWorkflowNodeConfigurationRequest $request
+     *
+     * @return GetWorkflowNodeConfigurationResponse
+     */
+    public function getWorkflowNodeConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkflowNodeConfigurationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10189,10 +10614,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+     * Imports a portable template in JSON format and creates a new template regardless of the template name.
      *
      * @remarks
-     * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+     * Imports a portable template in JSON format and creates a new template regardless of the template name.
      *
      * @param tmpReq - ImportWorkflowTemplateRequest
      * @param headers - map
@@ -10250,10 +10675,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+     * Imports a portable template in JSON format and creates a new template regardless of the template name.
      *
      * @remarks
-     * Imports a portable template JSON and creates a new template. A new template is created regardless of whether the name is identical.
+     * Imports a portable template in JSON format and creates a new template regardless of the template name.
      *
      * @param Request - ImportWorkflowTemplateRequest
      *
@@ -10730,7 +11155,7 @@ class WinNexo extends OpenApiClient
      * Queries the resource authorization records within an application.
      *
      * @remarks
-     * Pages results by secure application prefix after APP/MANAGE authorization.
+     * Pages the resource authorization records by secure application prefix after APP/MANAGE authorization.
      *
      * @param tmpReq - ListAppResourcePermissionRecordsRequest
      * @param headers - map
@@ -10819,7 +11244,7 @@ class WinNexo extends OpenApiClient
      * Queries the resource authorization records within an application.
      *
      * @remarks
-     * Pages results by secure application prefix after APP/MANAGE authorization.
+     * Pages the resource authorization records by secure application prefix after APP/MANAGE authorization.
      *
      * @param Request - ListAppResourcePermissionRecordsRequest
      *
@@ -10838,10 +11263,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the valid resource permissions of a user within an application.
+     * Queries the effective resource permissions of a user within an application.
      *
      * @remarks
-     * An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
+     * Enforces the application prefix. The VIEW permission is required for querying your own resources, and the MANAGE permission is required for querying resources on behalf of others.
      *
      * @param tmpReq - ListAppResourceUserPermissionsRequest
      * @param headers - map
@@ -10923,10 +11348,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the valid resource permissions of a user within an application.
+     * Queries the effective resource permissions of a user within an application.
      *
      * @remarks
-     * An application prefix is required. The VIEW permission is required to query your own permissions, and the MANAGE permission is required to query permissions on behalf of others.
+     * Enforces the application prefix. The VIEW permission is required for querying your own resources, and the MANAGE permission is required for querying resources on behalf of others.
      *
      * @param Request - ListAppResourceUserPermissionsRequest
      *
@@ -11413,6 +11838,172 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->listChatSessionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询协作空间成员.
+     *
+     * @remarks
+     * 分页查询指定空间的有效成员，支持按成员显示名称搜索。调用者必须是当前租户内该空间的有效成员。isActive表示租户账号启用状态，不表示人事在职状态。
+     *
+     * @param Request - ListCollaborationGroupMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCollaborationGroupMembersResponse
+     *
+     * @param ListCollaborationGroupMembersRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListCollaborationGroupMembersResponse
+     */
+    public function listCollaborationGroupMembersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCollaborationGroupMembers',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listCollaborationGroupMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCollaborationGroupMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询协作空间成员.
+     *
+     * @remarks
+     * 分页查询指定空间的有效成员，支持按成员显示名称搜索。调用者必须是当前租户内该空间的有效成员。isActive表示租户账号启用状态，不表示人事在职状态。
+     *
+     * @param Request - ListCollaborationGroupMembersRequest
+     *
+     * @returns ListCollaborationGroupMembersResponse
+     *
+     * @param ListCollaborationGroupMembersRequest $request
+     *
+     * @return ListCollaborationGroupMembersResponse
+     */
+    public function listCollaborationGroupMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCollaborationGroupMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询当前用户可见的协作空间.
+     *
+     * @remarks
+     * 分页查询当前调用用户在当前租户中有效加入的协作空间，支持按空间名称搜索。仅返回ACTIVE空间；需要关联平台用户的调用身份，不支持无用户身份的部署凭证。
+     *
+     * @param Request - ListCollaborationGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCollaborationGroupsResponse
+     *
+     * @param ListCollaborationGroupsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListCollaborationGroupsResponse
+     */
+    public function listCollaborationGroupsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCollaborationGroups',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listCollaborationGroups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCollaborationGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询当前用户可见的协作空间.
+     *
+     * @remarks
+     * 分页查询当前调用用户在当前租户中有效加入的协作空间，支持按空间名称搜索。仅返回ACTIVE空间；需要关联平台用户的调用身份，不支持无用户身份的部署凭证。
+     *
+     * @param Request - ListCollaborationGroupsRequest
+     *
+     * @returns ListCollaborationGroupsResponse
+     *
+     * @param ListCollaborationGroupsRequest $request
+     *
+     * @return ListCollaborationGroupsResponse
+     */
+    public function listCollaborationGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCollaborationGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -12116,12 +12707,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
+     * Performs a paged query of the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. The paging and total count are calculated based on the primary output records.
      *
      * @remarks
-     * If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
-     * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
-     * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+     * If collaborationGroupId is not provided, queries the personal outputs of the current caller. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The caller identity and tenant permissions are determined by the authentication context.
+     * The sessionId parameter performs an exact match on a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter performs an exact match on the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
+     * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+     * For versioned files, the latest published version is returned by default without expanding historical versions. This API does not currently support querying specific versions. Pagination and the total count are still based on the primary output records, deduplicated by outputId, and are not counted by the number of files or historical versions.
+     * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not perform an automatic switchover to other versions published later. Invoke this API again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
      *
      * @param tmpReq - ListOutputFilesRequest
      * @param headers - map
@@ -12211,12 +12804,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the visible outputs of the current user or a specified collaboration workspace. Supports paging and filtering by session, labels, business ID, and existing output filter conditions.
+     * Performs a paged query of the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. The paging and total count are calculated based on the primary output records.
      *
      * @remarks
-     * If collaborationGroupId is not provided, queries the personal outputs of the current invoker. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The invoker identity and tenant permissions are determined by the authentication context.
-     * sessionId requires an exact match for a regular session, skill session, or node execution session. tags requires all labels to match simultaneously. bizId requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using AND, and are executed before counting and paging.
-     * Labels and business IDs are derived from file registrations or workflow instance associations. Unregistered labels or business IDs are not inferred from titles. Paging defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+     * If collaborationGroupId is not provided, queries the personal outputs of the current caller. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The caller identity and tenant permissions are determined by the authentication context.
+     * The sessionId parameter performs an exact match on a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter performs an exact match on the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
+     * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API.
+     * For versioned files, the latest published version is returned by default without expanding historical versions. This API does not currently support querying specific versions. Pagination and the total count are still based on the primary output records, deduplicated by outputId, and are not counted by the number of files or historical versions.
+     * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not perform an automatic switchover to other versions published later. Invoke this API again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
      *
      * @param Request - ListOutputFilesRequest
      *
@@ -13862,10 +14457,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+     * Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
      *
      * @remarks
-     * Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+     * Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
      *
      * @param Request - ListWorkflowTemplatesRequest
      * @param headers - map
@@ -13933,10 +14528,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+     * Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
      *
      * @remarks
-     * Searches for valid templates in the current collaboration space with pagination. Supports both page/pageSize and nextToken/maxResults parameters, with token-based pagination taking precedence.
+     * Queries valid templates in the current collaboration space with pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
      *
      * @param Request - ListWorkflowTemplatesRequest
      *
@@ -13958,7 +14553,7 @@ class WinNexo extends OpenApiClient
      * Marks to-do items as read.
      *
      * @remarks
-     * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
+     * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over todoIds. No error is reported if both are empty.
      *
      * @param tmpReq - MarkTodosReadRequest
      * @param headers - map
@@ -14019,7 +14614,7 @@ class WinNexo extends OpenApiClient
      * Marks to-do items as read.
      *
      * @remarks
-     * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over the todoIds parameter. If both parameters are empty, no error is returned.
+     * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over todoIds. No error is reported if both are empty.
      *
      * @param Request - MarkTodosReadRequest
      *
@@ -15216,10 +15811,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Registers in-app resource permissions in bulk.
+     * Registers permissions for in-app resources in batches.
      *
      * @remarks
-     * Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
+     * Checks the MANAGE permissions for all applications and then performs an atomic batch registration.
      *
      * @param tmpReq - RegisterAppResourcePermissionsRequest
      * @param headers - map
@@ -15277,10 +15872,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Registers in-app resource permissions in bulk.
+     * Registers permissions for in-app resources in batches.
      *
      * @remarks
-     * Checks the MANAGE permission for all applications first, and then performs an atomic batch registration.
+     * Checks the MANAGE permissions for all applications and then performs an atomic batch registration.
      *
      * @param Request - RegisterAppResourcePermissionsRequest
      *
@@ -16375,6 +16970,87 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * RerunWorkflowNode.
+     *
+     * @remarks
+     * 从工作项指定节点重跑；沿用业务权限和状态校验，命令接受不代表异步执行完成
+     *
+     * @param Request - RerunWorkflowNodeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RerunWorkflowNodeResponse
+     *
+     * @param RerunWorkflowNodeRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RerunWorkflowNodeResponse
+     */
+    public function rerunWorkflowNodeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->nodeKey) {
+            @$body['nodeKey'] = $request->nodeKey;
+        }
+
+        if (null !== $request->planId) {
+            @$body['planId'] = $request->planId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RerunWorkflowNode',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/rerunWorkflowNode',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RerunWorkflowNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * RerunWorkflowNode.
+     *
+     * @remarks
+     * 从工作项指定节点重跑；沿用业务权限和状态校验，命令接受不代表异步执行完成
+     *
+     * @param Request - RerunWorkflowNodeRequest
+     *
+     * @returns RerunWorkflowNodeResponse
+     *
+     * @param RerunWorkflowNodeRequest $request
+     *
+     * @return RerunWorkflowNodeResponse
+     */
+    public function rerunWorkflowNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->rerunWorkflowNodeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Resets the password of a user.
      *
      * @remarks
@@ -16554,6 +17230,85 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->resetTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 恢复工作流节点默认配置.
+     *
+     * @param Request - ResetWorkflowNodeConfigurationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetWorkflowNodeConfigurationResponse
+     *
+     * @param ResetWorkflowNodeConfigurationRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ResetWorkflowNodeConfigurationResponse
+     */
+    public function resetWorkflowNodeConfigurationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->expectedVersion) {
+            @$body['expectedVersion'] = $request->expectedVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['nodeId'] = $request->nodeId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResetWorkflowNodeConfiguration',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/resetWorkflowNodeConfiguration',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetWorkflowNodeConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 恢复工作流节点默认配置.
+     *
+     * @param Request - ResetWorkflowNodeConfigurationRequest
+     *
+     * @returns ResetWorkflowNodeConfigurationResponse
+     *
+     * @param ResetWorkflowNodeConfigurationRequest $request
+     *
+     * @return ResetWorkflowNodeConfigurationResponse
+     */
+    public function resetWorkflowNodeConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resetWorkflowNodeConfigurationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -18120,12 +18875,12 @@ class WinNexo extends OpenApiClient
      * Sends a message.
      *
      * @remarks
-     * ## Operation description
-     * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
-     * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-     * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
-     * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
-     * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+     * ## Request description
+     * - This API is used to upload a file to My Resources of a specified digital employee.
+     * - The source_type is fixed to FILE, the scope is fixed to PERSONAL, and the platform is fixed to LOCAL.
+     * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+     * - If the destination folder ID (directoryId) is not specified, the file is automatically attached to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the invoker.
+     * - Multiple methods to authenticate (such as AK, BearerToken, and APP) are supported for security authentication.
      * - The operation type is write, and operation logs are recorded for subsequent auditing.
      *
      * @param tmpReq - SendChatMessageRequest
@@ -18248,12 +19003,12 @@ class WinNexo extends OpenApiClient
      * Sends a message.
      *
      * @remarks
-     * ## Operation description
-     * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
-     * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-     * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
-     * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
-     * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+     * ## Request description
+     * - This API is used to upload a file to My Resources of a specified digital employee.
+     * - The source_type is fixed to FILE, the scope is fixed to PERSONAL, and the platform is fixed to LOCAL.
+     * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+     * - If the destination folder ID (directoryId) is not specified, the file is automatically attached to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the invoker.
+     * - Multiple methods to authenticate (such as AK, BearerToken, and APP) are supported for security authentication.
      * - The operation type is write, and operation logs are recorded for subsequent auditing.
      *
      * @param tmpReq - SendChatMessageRequest
@@ -18363,12 +19118,12 @@ class WinNexo extends OpenApiClient
      * Sends a message.
      *
      * @remarks
-     * ## Operation description
-     * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
-     * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-     * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
-     * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
-     * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+     * ## Request description
+     * - This API is used to upload a file to My Resources of a specified digital employee.
+     * - The source_type is fixed to FILE, the scope is fixed to PERSONAL, and the platform is fixed to LOCAL.
+     * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+     * - If the destination folder ID (directoryId) is not specified, the file is automatically attached to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the invoker.
+     * - Multiple methods to authenticate (such as AK, BearerToken, and APP) are supported for security authentication.
      * - The operation type is write, and operation logs are recorded for subsequent auditing.
      *
      * @param Request - SendChatMessageRequest
@@ -18385,6 +19140,91 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->sendChatMessageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 向自由探索工作项发送消息.
+     *
+     * @remarks
+     * 向当前租户、指定协作空间内的已有自由探索会话发送文本消息，立即返回消息提交回执，AI回复在后台异步生成。调用者需关联平台用户并具有话题发送权限。workItemId与conversationId至少传一个，同时传入时必须指向同一会话。不创建新会话，不支持工作流节点话题或Master话题。
+     *
+     * @param Request - SendWorkItemMessageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendWorkItemMessageResponse
+     *
+     * @param SendWorkItemMessageRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SendWorkItemMessageResponse
+     */
+    public function sendWorkItemMessageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['conversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->workItemId) {
+            @$body['workItemId'] = $request->workItemId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SendWorkItemMessage',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/sendWorkItemMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendWorkItemMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 向自由探索工作项发送消息.
+     *
+     * @remarks
+     * 向当前租户、指定协作空间内的已有自由探索会话发送文本消息，立即返回消息提交回执，AI回复在后台异步生成。调用者需关联平台用户并具有话题发送权限。workItemId与conversationId至少传一个，同时传入时必须指向同一会话。不创建新会话，不支持工作流节点话题或Master话题。
+     *
+     * @param Request - SendWorkItemMessageRequest
+     *
+     * @returns SendWorkItemMessageResponse
+     *
+     * @param SendWorkItemMessageRequest $request
+     *
+     * @return SendWorkItemMessageResponse
+     */
+    public function sendWorkItemMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sendWorkItemMessageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -18469,10 +19309,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Sets the effective version of a workflow.
+     * Sets the Settings of the effective version of a workflow template for the storage management administrator. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
      *
      * @remarks
-     * The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+     * The storage management administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
      *
      * @param Request - SetWorkflowTemplateEffectiveVersionRequest
      * @param headers - map
@@ -18528,10 +19368,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Sets the effective version of a workflow.
+     * Sets the Settings of the effective version of a workflow template for the storage management administrator. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
      *
      * @remarks
-     * The workspace administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before taking effect, the version is re-verified based on the current workspace members, digital workers, capabilities, and storage management. Existing work items use their own execute snapshots and are not affected.
+     * The storage management administrator configures the Settings for the effective version of a workflow template. Only versions with a commit are allowed, and each template can have only one effective version. Before the version takes effect, it is revalidated against the current workspace members, digital employees, and capabilities. Existing work items use their own execute snapshots and remain unaffected.
      *
      * @param Request - SetWorkflowTemplateEffectiveVersionRequest
      *
@@ -18751,10 +19591,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Submits answers for a to-do item.
+     * Submits the answers for a to-do task.
      *
      * @remarks
-     * Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
+     * Submits the answers for a to-do task. If the same user submits the answers repeatedly, the operation is idempotent and returns the first result. If another user completes the task first, a 409 AlreadyCompleted error is returned.
      *
      * @param tmpReq - SubmitTodoRequest
      * @param headers - map
@@ -18812,10 +19652,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Submits answers for a to-do item.
+     * Submits the answers for a to-do task.
      *
      * @remarks
-     * Submits the answers for a to-do item. Repeated submissions by the same user are idempotent and return the initial result. If another user completes the item first, a 409 AlreadyCompleted error is returned.
+     * Submits the answers for a to-do task. If the same user submits the answers repeatedly, the operation is idempotent and returns the first result. If another user completes the task first, a 409 AlreadyCompleted error is returned.
      *
      * @param Request - SubmitTodoRequest
      *
@@ -19343,10 +20183,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Reassigns a to-do task.
+     * Transfers a to-do item.
      *
      * @remarks
-     * Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
+     * Transfers a to-do item to specified users, excludes the operator from the targets, and performs atomic validation for the entire task.
      *
      * @param tmpReq - TransferTodoRequest
      * @param headers - map
@@ -19408,10 +20248,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Reassigns a to-do task.
+     * Transfers a to-do item.
      *
      * @remarks
-     * Reassigns a to-do task to specified users. The operator is excluded from the target list, and atomic validation is performed for the entire task.
+     * Transfers a to-do item to specified users, excludes the operator from the targets, and performs atomic validation for the entire task.
      *
      * @param Request - TransferTodoRequest
      *
@@ -21091,10 +21931,111 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Overwrites and updates a workflow template. The last save takes effect.
+     * 编辑工作流节点配置.
+     *
+     * @param tmpReq - UpdateWorkflowNodeConfigurationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWorkflowNodeConfigurationResponse
+     *
+     * @param UpdateWorkflowNodeConfigurationRequest $tmpReq
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateWorkflowNodeConfigurationResponse
+     */
+    public function updateWorkflowNodeConfigurationWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateWorkflowNodeConfigurationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->executor) {
+            $request->executorShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executor, 'executor', 'json');
+        }
+
+        if (null !== $tmpReq->responsibleUserIds) {
+            $request->responsibleUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->responsibleUserIds, 'responsibleUserIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->collaborationGroupId) {
+            @$body['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->executorShrink) {
+            @$body['executor'] = $request->executorShrink;
+        }
+
+        if (null !== $request->expectedVersion) {
+            @$body['expectedVersion'] = $request->expectedVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->model) {
+            @$body['model'] = $request->model;
+        }
+
+        if (null !== $request->nodeId) {
+            @$body['nodeId'] = $request->nodeId;
+        }
+
+        if (null !== $request->responsibleUserIdsShrink) {
+            @$body['responsibleUserIds'] = $request->responsibleUserIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWorkflowNodeConfiguration',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/updateWorkflowNodeConfiguration',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWorkflowNodeConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑工作流节点配置.
+     *
+     * @param Request - UpdateWorkflowNodeConfigurationRequest
+     *
+     * @returns UpdateWorkflowNodeConfigurationResponse
+     *
+     * @param UpdateWorkflowNodeConfigurationRequest $request
+     *
+     * @return UpdateWorkflowNodeConfigurationResponse
+     */
+    public function updateWorkflowNodeConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkflowNodeConfigurationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a workflow template by overwriting it with valid members. The last save takes effect.
      *
      * @remarks
-     * Overwrites and updates a workflow template. The last save takes effect.
+     * Updates a workflow template by overwriting it with valid members. The last save takes effect.
      *
      * @param tmpReq - UpdateWorkflowTemplateRequest
      * @param headers - map
@@ -21172,10 +22113,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Overwrites and updates a workflow template. The last save takes effect.
+     * Updates a workflow template by overwriting it with valid members. The last save takes effect.
      *
      * @remarks
-     * Overwrites and updates a workflow template. The last save takes effect.
+     * Updates a workflow template by overwriting it with valid members. The last save takes effect.
      *
      * @param Request - UpdateWorkflowTemplateRequest
      *

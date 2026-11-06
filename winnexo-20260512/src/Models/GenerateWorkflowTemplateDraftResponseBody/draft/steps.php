@@ -34,6 +34,11 @@ class steps extends Model
     public $ownerUserId;
 
     /**
+     * @var bool
+     */
+    public $reviewOutput;
+
+    /**
      * @var int[]
      */
     public $reviewerUserIds;
@@ -63,6 +68,7 @@ class steps extends Model
         'ownerAgentName' => 'ownerAgentName',
         'ownerType' => 'ownerType',
         'ownerUserId' => 'ownerUserId',
+        'reviewOutput' => 'reviewOutput',
         'reviewerUserIds' => 'reviewerUserIds',
         'sortOrder' => 'sortOrder',
         'specification' => 'specification',
@@ -102,6 +108,10 @@ class steps extends Model
 
         if (null !== $this->ownerUserId) {
             $res['ownerUserId'] = $this->ownerUserId;
+        }
+
+        if (null !== $this->reviewOutput) {
+            $res['reviewOutput'] = $this->reviewOutput;
         }
 
         if (null !== $this->reviewerUserIds) {
@@ -172,6 +182,10 @@ class steps extends Model
 
         if (isset($map['ownerUserId'])) {
             $model->ownerUserId = $map['ownerUserId'];
+        }
+
+        if (isset($map['reviewOutput'])) {
+            $model->reviewOutput = $map['reviewOutput'];
         }
 
         if (isset($map['reviewerUserIds'])) {

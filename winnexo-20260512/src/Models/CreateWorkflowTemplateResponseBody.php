@@ -25,6 +25,11 @@ class CreateWorkflowTemplateResponseBody extends Model
     public $description;
 
     /**
+     * @var mixed[][]
+     */
+    public $edges;
+
+    /**
      * @var string
      */
     public $effectiveVersion;
@@ -40,6 +45,11 @@ class CreateWorkflowTemplateResponseBody extends Model
     public $gmtModified;
 
     /**
+     * @var mixed[]
+     */
+    public $layout;
+
+    /**
      * @var string
      */
     public $message;
@@ -53,6 +63,11 @@ class CreateWorkflowTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $schemaVersion;
 
     /**
      * @var steps[]
@@ -82,12 +97,15 @@ class CreateWorkflowTemplateResponseBody extends Model
         'code' => 'code',
         'createdByUserId' => 'createdByUserId',
         'description' => 'description',
+        'edges' => 'edges',
         'effectiveVersion' => 'effectiveVersion',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
+        'layout' => 'layout',
         'message' => 'message',
         'name' => 'name',
         'requestId' => 'requestId',
+        'schemaVersion' => 'schemaVersion',
         'steps' => 'steps',
         'templateId' => 'templateId',
         'version' => 'version',
@@ -97,6 +115,12 @@ class CreateWorkflowTemplateResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->edges)) {
+            Model::validateArray($this->edges);
+        }
+        if (\is_array($this->layout)) {
+            Model::validateArray($this->layout);
+        }
         if (\is_array($this->steps)) {
             Model::validateArray($this->steps);
         }
@@ -118,6 +142,22 @@ class CreateWorkflowTemplateResponseBody extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->edges) {
+            if (\is_array($this->edges)) {
+                $res['edges'] = [];
+                $n1 = 0;
+                foreach ($this->edges as $item1) {
+                    if (\is_array($item1)) {
+                        $res['edges'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['edges'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->effectiveVersion) {
             $res['effectiveVersion'] = $this->effectiveVersion;
         }
@@ -130,6 +170,15 @@ class CreateWorkflowTemplateResponseBody extends Model
             $res['gmtModified'] = $this->gmtModified;
         }
 
+        if (null !== $this->layout) {
+            if (\is_array($this->layout)) {
+                $res['layout'] = [];
+                foreach ($this->layout as $key1 => $value1) {
+                    $res['layout'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
@@ -140,6 +189,10 @@ class CreateWorkflowTemplateResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->schemaVersion) {
+            $res['schemaVersion'] = $this->schemaVersion;
         }
 
         if (null !== $this->steps) {
@@ -192,6 +245,22 @@ class CreateWorkflowTemplateResponseBody extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['edges'])) {
+            if (!empty($map['edges'])) {
+                $model->edges = [];
+                $n1 = 0;
+                foreach ($map['edges'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->edges[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->edges[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['effectiveVersion'])) {
             $model->effectiveVersion = $map['effectiveVersion'];
         }
@@ -204,6 +273,15 @@ class CreateWorkflowTemplateResponseBody extends Model
             $model->gmtModified = $map['gmtModified'];
         }
 
+        if (isset($map['layout'])) {
+            if (!empty($map['layout'])) {
+                $model->layout = [];
+                foreach ($map['layout'] as $key1 => $value1) {
+                    $model->layout[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
@@ -214,6 +292,10 @@ class CreateWorkflowTemplateResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['schemaVersion'])) {
+            $model->schemaVersion = $map['schemaVersion'];
         }
 
         if (isset($map['steps'])) {
