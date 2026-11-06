@@ -71,6 +71,11 @@ class JobSettings extends Model
     /**
      * @var bool
      */
+    public $enableIntraJobSSH;
+
+    /**
+     * @var bool
+     */
     public $enableOssAppend;
 
     /**
@@ -150,6 +155,7 @@ class JobSettings extends Model
         'enableCPUAffinity' => 'EnableCPUAffinity',
         'enableDSWDev' => 'EnableDSWDev',
         'enableErrorMonitoringInAIMaster' => 'EnableErrorMonitoringInAIMaster',
+        'enableIntraJobSSH' => 'EnableIntraJobSSH',
         'enableOssAppend' => 'EnableOssAppend',
         'enableRDMA' => 'EnableRDMA',
         'enableSanityCheck' => 'EnableSanityCheck',
@@ -237,6 +243,10 @@ class JobSettings extends Model
 
         if (null !== $this->enableErrorMonitoringInAIMaster) {
             $res['EnableErrorMonitoringInAIMaster'] = $this->enableErrorMonitoringInAIMaster;
+        }
+
+        if (null !== $this->enableIntraJobSSH) {
+            $res['EnableIntraJobSSH'] = $this->enableIntraJobSSH;
         }
 
         if (null !== $this->enableOssAppend) {
@@ -362,6 +372,10 @@ class JobSettings extends Model
 
         if (isset($map['EnableErrorMonitoringInAIMaster'])) {
             $model->enableErrorMonitoringInAIMaster = $map['EnableErrorMonitoringInAIMaster'];
+        }
+
+        if (isset($map['EnableIntraJobSSH'])) {
+            $model->enableIntraJobSSH = $map['EnableIntraJobSSH'];
         }
 
         if (isset($map['EnableOssAppend'])) {

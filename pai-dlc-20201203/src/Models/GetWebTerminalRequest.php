@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GetWebTerminalRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $containerName;
+
+    /**
      * @var bool
      */
     public $isShared;
@@ -18,6 +23,7 @@ class GetWebTerminalRequest extends Model
      */
     public $podUid;
     protected $_name = [
+        'containerName' => 'ContainerName',
         'isShared' => 'IsShared',
         'podUid' => 'PodUid',
     ];
@@ -30,6 +36,10 @@ class GetWebTerminalRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
+        }
+
         if (null !== $this->isShared) {
             $res['IsShared'] = $this->isShared;
         }
@@ -49,6 +59,10 @@ class GetWebTerminalRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
+        }
+
         if (isset($map['IsShared'])) {
             $model->isShared = $map['IsShared'];
         }

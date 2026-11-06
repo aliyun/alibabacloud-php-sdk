@@ -92,6 +92,7 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobTemplateRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobTemplateResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateTensorboardResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -102,6 +103,9 @@ class Paidlc extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'pai-dlc';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-2-pop' => 'pai-dlc.aliyuncs.com',
@@ -177,11 +181,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
+     * Creates a job to run in a cluster. You can specify the data source configuration, code source configuration, startup command, and compute resource configuration for each node where the job runs.
      *
      * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-     * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+     * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+     * >Notice: The total length of the parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
      *
      * @param request - CreateJobRequest
      * @param headers - map
@@ -327,11 +331,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job to run in a cluster. You can specify configurations such as datasource config, code sources, startup commands, and compute resources for each node where the job runs.
+     * Creates a job to run in a cluster. You can specify the data source configuration, code source configuration, startup command, and compute resource configuration for each node where the job runs.
      *
      * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-     * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
+     * Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+     * >Notice: The total length of the parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
      *
      * @param request - CreateJobRequest
      *
@@ -603,7 +607,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a TensorBoard instance by using a node or a specified datasource config.
+     * Creates a TensorBoard instance by using a node or specifying a datasource config.
      *
      * @param request - CreateTensorboardRequest
      * @param headers - map
@@ -721,7 +725,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a TensorBoard instance by using a node or a specified datasource config.
+     * Creates a TensorBoard instance by using a node or specifying a datasource config.
      *
      * @param request - CreateTensorboardRequest
      *
@@ -911,7 +915,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Deletes a stopped TensorBoard.
+     * Deletes a stopped Tensorboard.
      *
      * @param request - DeleteTensorboardRequest
      * @param headers - map
@@ -954,7 +958,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Deletes a stopped TensorBoard.
+     * Deletes a stopped Tensorboard.
      *
      * @param request - DeleteTensorboardRequest
      *
@@ -1262,7 +1266,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Retrieves a specific computing power health check result for a DLC job.
+     * Retrieves the results of a specific computing power health check for a DLC job.
      *
      * @param request - GetJobSanityCheckResultRequest
      * @param headers - map
@@ -1313,7 +1317,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Retrieves a specific computing power health check result for a DLC job.
+     * Retrieves the results of a specific computing power health check for a DLC job.
      *
      * @param request - GetJobSanityCheckResultRequest
      *
@@ -1884,7 +1888,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a TensorBoard.
+     * Retrieves the details of a Tensorboard.
      *
      * @param request - GetTensorboardRequest
      * @param headers - map
@@ -1935,7 +1939,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a TensorBoard.
+     * Retrieves the details of a Tensorboard.
      *
      * @param request - GetTensorboardRequest
      *
@@ -2091,7 +2095,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Provides the method and steps to obtain an HTTP link for accessing a container.
+     * Provides the methods and steps to obtain the HTTP link for container access.
      *
      * @param request - GetWebTerminalRequest
      * @param headers - map
@@ -2111,6 +2115,10 @@ class Paidlc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->containerName) {
+            @$query['ContainerName'] = $request->containerName;
+        }
+
         if (null !== $request->isShared) {
             @$query['IsShared'] = $request->isShared;
         }
@@ -2139,7 +2147,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Provides the method and steps to obtain an HTTP link for accessing a container.
+     * Provides the methods and steps to obtain the HTTP link for container access.
      *
      * @param request - GetWebTerminalRequest
      *
@@ -2401,7 +2409,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries a list of jobs with support for pagination, sorting, and conditional filtering.
+     * Queries a list of jobs, with support for pagination, sorting, and conditional filtering.
      *
      * @param tmpReq - ListJobsRequest
      * @param headers - map
@@ -2593,7 +2601,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries a list of jobs with support for pagination, sorting, and conditional filtering.
+     * Queries a list of jobs, with support for pagination, sorting, and conditional filtering.
      *
      * @param request - ListJobsRequest
      *
@@ -3582,7 +3590,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Updates a task template.
+     * Updates a job template.
      *
      * @param request - UpdateJobTemplateRequest
      * @param headers - map
@@ -3649,7 +3657,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Updates a task template.
+     * Updates a job template.
      *
      * @param request - UpdateJobTemplateRequest
      *
