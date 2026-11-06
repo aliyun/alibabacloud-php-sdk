@@ -44,6 +44,11 @@ class agentInstanceInfoList extends Model
     public $deploymentSource;
 
     /**
+     * @var string
+     */
+    public $mindCenterVersion;
+
+    /**
      * @var bool
      */
     public $modelConfigure;
@@ -60,6 +65,7 @@ class agentInstanceInfoList extends Model
         'channelConfigure' => 'ChannelConfigure',
         'channelConfiguredList' => 'ChannelConfiguredList',
         'deploymentSource' => 'DeploymentSource',
+        'mindCenterVersion' => 'MindCenterVersion',
         'modelConfigure' => 'ModelConfigure',
         'modelTemplateId' => 'ModelTemplateId',
     ];
@@ -108,6 +114,10 @@ class agentInstanceInfoList extends Model
 
         if (null !== $this->deploymentSource) {
             $res['DeploymentSource'] = $this->deploymentSource;
+        }
+
+        if (null !== $this->mindCenterVersion) {
+            $res['MindCenterVersion'] = $this->mindCenterVersion;
         }
 
         if (null !== $this->modelConfigure) {
@@ -162,6 +172,10 @@ class agentInstanceInfoList extends Model
 
         if (isset($map['DeploymentSource'])) {
             $model->deploymentSource = $map['DeploymentSource'];
+        }
+
+        if (isset($map['MindCenterVersion'])) {
+            $model->mindCenterVersion = $map['MindCenterVersion'];
         }
 
         if (isset($map['ModelConfigure'])) {
