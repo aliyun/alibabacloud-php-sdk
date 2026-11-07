@@ -26,6 +26,11 @@ class data extends Model
     public $comment;
 
     /**
+     * @var bool
+     */
+    public $enableWaf;
+
+    /**
      * @var int
      */
     public $gatewayId;
@@ -76,6 +81,11 @@ class data extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $supportWaf;
+
+    /**
      * @var tlsCipherSuitesConfig
      */
     public $tlsCipherSuitesConfig;
@@ -98,6 +108,7 @@ class data extends Model
         'certBeforeDate' => 'CertBeforeDate',
         'certIdentifier' => 'CertIdentifier',
         'comment' => 'Comment',
+        'enableWaf' => 'EnableWaf',
         'gatewayId' => 'GatewayId',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
@@ -108,6 +119,7 @@ class data extends Model
         'name' => 'Name',
         'protocol' => 'Protocol',
         'status' => 'Status',
+        'supportWaf' => 'SupportWaf',
         'tlsCipherSuitesConfig' => 'TlsCipherSuitesConfig',
         'tlsMax' => 'TlsMax',
         'tlsMin' => 'TlsMin',
@@ -138,6 +150,10 @@ class data extends Model
 
         if (null !== $this->comment) {
             $res['Comment'] = null !== $this->comment ? $this->comment->toArray($noStream) : $this->comment;
+        }
+
+        if (null !== $this->enableWaf) {
+            $res['EnableWaf'] = $this->enableWaf;
         }
 
         if (null !== $this->gatewayId) {
@@ -180,6 +196,10 @@ class data extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->supportWaf) {
+            $res['SupportWaf'] = $this->supportWaf;
+        }
+
         if (null !== $this->tlsCipherSuitesConfig) {
             $res['TlsCipherSuitesConfig'] = null !== $this->tlsCipherSuitesConfig ? $this->tlsCipherSuitesConfig->toArray($noStream) : $this->tlsCipherSuitesConfig;
         }
@@ -217,6 +237,10 @@ class data extends Model
 
         if (isset($map['Comment'])) {
             $model->comment = comment::fromMap($map['Comment']);
+        }
+
+        if (isset($map['EnableWaf'])) {
+            $model->enableWaf = $map['EnableWaf'];
         }
 
         if (isset($map['GatewayId'])) {
@@ -257,6 +281,10 @@ class data extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SupportWaf'])) {
+            $model->supportWaf = $map['SupportWaf'];
         }
 
         if (isset($map['TlsCipherSuitesConfig'])) {

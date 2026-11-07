@@ -125,6 +125,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $logRequestResponseConfig;
+
+    /**
+     * @var string
+     */
     public $noSupportedConfigList;
 
     /**
@@ -199,6 +204,7 @@ class data extends Model
         'keepaliveHeaderTimeout' => 'KeepaliveHeaderTimeout',
         'liteMetrics' => 'LiteMetrics',
         'logFilterConfig' => 'LogFilterConfig',
+        'logRequestResponseConfig' => 'LogRequestResponseConfig',
         'noSupportedConfigList' => 'NoSupportedConfigList',
         'pathWithEscapedSlashes' => 'PathWithEscapedSlashes',
         'preserveExternalRequestID' => 'PreserveExternalRequestID',
@@ -318,6 +324,10 @@ class data extends Model
 
         if (null !== $this->logFilterConfig) {
             $res['LogFilterConfig'] = $this->logFilterConfig;
+        }
+
+        if (null !== $this->logRequestResponseConfig) {
+            $res['LogRequestResponseConfig'] = $this->logRequestResponseConfig;
         }
 
         if (null !== $this->noSupportedConfigList) {
@@ -461,6 +471,10 @@ class data extends Model
 
         if (isset($map['LogFilterConfig'])) {
             $model->logFilterConfig = $map['LogFilterConfig'];
+        }
+
+        if (isset($map['LogRequestResponseConfig'])) {
+            $model->logRequestResponseConfig = $map['LogRequestResponseConfig'];
         }
 
         if (isset($map['NoSupportedConfigList'])) {

@@ -25,6 +25,11 @@ class UpdateGatewayDomainRequest extends Model
     public $certIdentifier;
 
     /**
+     * @var bool
+     */
+    public $enableWaf;
+
+    /**
      * @var string
      */
     public $gatewayUniqueId;
@@ -72,6 +77,7 @@ class UpdateGatewayDomainRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'caCertIdentifier' => 'CaCertIdentifier',
         'certIdentifier' => 'CertIdentifier',
+        'enableWaf' => 'EnableWaf',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'http2' => 'Http2',
         'id' => 'Id',
@@ -104,6 +110,10 @@ class UpdateGatewayDomainRequest extends Model
 
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
+        }
+
+        if (null !== $this->enableWaf) {
+            $res['EnableWaf'] = $this->enableWaf;
         }
 
         if (null !== $this->gatewayUniqueId) {
@@ -163,6 +173,10 @@ class UpdateGatewayDomainRequest extends Model
 
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
+        }
+
+        if (isset($map['EnableWaf'])) {
+            $model->enableWaf = $map['EnableWaf'];
         }
 
         if (isset($map['GatewayUniqueId'])) {
