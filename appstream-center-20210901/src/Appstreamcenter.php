@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigReque
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetTaskResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAgentInstanceVersionsRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAgentInstanceVersionsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstancesRequest;
@@ -129,8 +131,12 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUsersRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAuthorizedUsersResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBindInfoResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserBookmarksRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserBookmarksResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserInstanceGroupResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserRestrictedURLsRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserRestrictedURLsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageRequest;
@@ -219,6 +225,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryNetworkRttReportReque
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryNetworkRttReportResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryNodeReportDataRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryNodeReportDataResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QuerySessionDataRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QuerySessionDataResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QuerySessionReportDataRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QuerySessionReportDataResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\QueryUserAppUsageAggregateByHourRequest;
@@ -276,6 +284,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelTemplateRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateWuyingServerImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UpdateWuyingServerImageResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ValidateLlmTemplateConfigRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ValidateLlmTemplateConfigResponse;
 use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -4668,6 +4678,67 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 查询Agent实例版本列表.
+     *
+     * @param request - ListAgentInstanceVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentInstanceVersionsResponse
+     *
+     * @param ListAgentInstanceVersionsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListAgentInstanceVersionsResponse
+     */
+    public function listAgentInstanceVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentInstanceVersions',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgentInstanceVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Agent实例版本列表.
+     *
+     * @param request - ListAgentInstanceVersionsRequest
+     *
+     * @returns ListAgentInstanceVersionsResponse
+     *
+     * @param ListAgentInstanceVersionsRequest $request
+     *
+     * @return ListAgentInstanceVersionsResponse
+     */
+    public function listAgentInstanceVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentInstanceVersionsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the valid applications of the current account by paging based on conditions such as the application ID, name, type, and associated product.
      *
      * @remarks
@@ -5796,6 +5867,79 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 分页查询浏览器书签列表.
+     *
+     * @param request - ListBrowserBookmarksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBrowserBookmarksResponse
+     *
+     * @param ListBrowserBookmarksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListBrowserBookmarksResponse
+     */
+    public function listBrowserBookmarksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->browserInstanceGroupId) {
+            @$query['BrowserInstanceGroupId'] = $request->browserInstanceGroupId;
+        }
+
+        if (null !== $request->browserInstanceGroupSetId) {
+            @$query['BrowserInstanceGroupSetId'] = $request->browserInstanceGroupSetId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBrowserBookmarks',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBrowserBookmarksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询浏览器书签列表.
+     *
+     * @param request - ListBrowserBookmarksRequest
+     *
+     * @returns ListBrowserBookmarksResponse
+     *
+     * @param ListBrowserBookmarksRequest $request
+     *
+     * @return ListBrowserBookmarksResponse
+     */
+    public function listBrowserBookmarks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBrowserBookmarksWithOptions($request, $runtime);
+    }
+
+    /**
      * Performs a paging query of cloud browser groups and their current statuses.
      *
      * @remarks
@@ -5925,6 +6069,89 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBrowserInstanceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询浏览器白名单列表.
+     *
+     * @remarks
+     * 调用本接口分页查询云浏览器交付组或交付组集合下配置的访问限制 URL（Restricted URL）列表，用于查看当前访问控制策略中已配置的 URL 明细。
+     * BrowserInstanceGroupId 与 BrowserInstanceGroupSetId 必须且只能指定一个：指定 BrowserInstanceGroupId 时查询该交付组的访问限制 URL；指定 BrowserInstanceGroupSetId 时查询该交付组集合的访问限制 URL。两者同时指定或同时不指定都会返回参数错误。
+     * 可通过 Keyword 对访问限制 URL 做包含匹配筛选（英文不区分大小写），不传时返回全部。分页由 PageNumber 和 PageSize 控制：PageSize 取值范围 1~200，默认 200；PageNumber 默认 0，传入值小于 1 时按第 1 页处理。响应中的 TotalCount 为满足筛选条件的总记录数，Data 为当前页记录，没有数据时返回空数组。
+     *
+     * @param request - ListBrowserRestrictedURLsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBrowserRestrictedURLsResponse
+     *
+     * @param ListBrowserRestrictedURLsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListBrowserRestrictedURLsResponse
+     */
+    public function listBrowserRestrictedURLsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->browserInstanceGroupId) {
+            @$query['BrowserInstanceGroupId'] = $request->browserInstanceGroupId;
+        }
+
+        if (null !== $request->browserInstanceGroupSetId) {
+            @$query['BrowserInstanceGroupSetId'] = $request->browserInstanceGroupSetId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBrowserRestrictedURLs',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBrowserRestrictedURLsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询浏览器白名单列表.
+     *
+     * @remarks
+     * 调用本接口分页查询云浏览器交付组或交付组集合下配置的访问限制 URL（Restricted URL）列表，用于查看当前访问控制策略中已配置的 URL 明细。
+     * BrowserInstanceGroupId 与 BrowserInstanceGroupSetId 必须且只能指定一个：指定 BrowserInstanceGroupId 时查询该交付组的访问限制 URL；指定 BrowserInstanceGroupSetId 时查询该交付组集合的访问限制 URL。两者同时指定或同时不指定都会返回参数错误。
+     * 可通过 Keyword 对访问限制 URL 做包含匹配筛选（英文不区分大小写），不传时返回全部。分页由 PageNumber 和 PageSize 控制：PageSize 取值范围 1~200，默认 200；PageNumber 默认 0，传入值小于 1 时按第 1 页处理。响应中的 TotalCount 为满足筛选条件的总记录数，Data 为当前页记录，没有数据时返回空数组。
+     *
+     * @param request - ListBrowserRestrictedURLsRequest
+     *
+     * @returns ListBrowserRestrictedURLsResponse
+     *
+     * @param ListBrowserRestrictedURLsRequest $request
+     *
+     * @return ListBrowserRestrictedURLsResponse
+     */
+    public function listBrowserRestrictedURLs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBrowserRestrictedURLsWithOptions($request, $runtime);
     }
 
     /**
@@ -9574,6 +9801,87 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * 离线每天会话趋势图.
+     *
+     * @remarks
+     * 调用本接口查询当前阿里云账号在指定日期的会话数量趋势数据。数据为离线统计结果，按天组织，返回该日期内各时间点的会话数量。
+     * 返回结果按 10 分钟粒度聚合：每条数据由小时（Hh，取值 00-23）和分钟（Mi，取值 00、10、20、30、40、50）标识一个时间点，SessionCntMi 为该时间点所在 10 分钟区间内的会话数量汇总值。结果按小时、分钟升序排列。
+     * 可通过 BizRegionId 指定业务地域、通过 AppInstanceGroupId 指定交付组进行过滤；两者均不传时，返回当前账号下所有地域、所有交付组的会话数据汇总。实际用于过滤会话数据的地域以 BizRegionId 为准。
+     * StatDate 为统计日期，格式 yyyyMMdd，不传时默认查询昨天，仅支持查询最近 90 天内的日期。当指定日期没有会话数据时返回空列表，且返回码为 NO_DATA。
+     *
+     * @param request - QuerySessionDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySessionDataResponse
+     *
+     * @param QuerySessionDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySessionDataResponse
+     */
+    public function querySessionDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$body['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->statDate) {
+            @$body['StatDate'] = $request->statDate;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QuerySessionData',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QuerySessionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 离线每天会话趋势图.
+     *
+     * @remarks
+     * 调用本接口查询当前阿里云账号在指定日期的会话数量趋势数据。数据为离线统计结果，按天组织，返回该日期内各时间点的会话数量。
+     * 返回结果按 10 分钟粒度聚合：每条数据由小时（Hh，取值 00-23）和分钟（Mi，取值 00、10、20、30、40、50）标识一个时间点，SessionCntMi 为该时间点所在 10 分钟区间内的会话数量汇总值。结果按小时、分钟升序排列。
+     * 可通过 BizRegionId 指定业务地域、通过 AppInstanceGroupId 指定交付组进行过滤；两者均不传时，返回当前账号下所有地域、所有交付组的会话数据汇总。实际用于过滤会话数据的地域以 BizRegionId 为准。
+     * StatDate 为统计日期，格式 yyyyMMdd，不传时默认查询昨天，仅支持查询最近 90 天内的日期。当指定日期没有会话数据时返回空列表，且返回码为 NO_DATA。
+     *
+     * @param request - QuerySessionDataRequest
+     *
+     * @returns QuerySessionDataResponse
+     *
+     * @param QuerySessionDataRequest $request
+     *
+     * @return QuerySessionDataResponse
+     */
+    public function querySessionData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySessionDataWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the total number of sessions, connected sessions, and streaming sessions by statistical granularity.
      *
      * @remarks
@@ -11752,5 +12060,66 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateWuyingServerImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 校验LLM模板配置有效性.
+     *
+     * @param request - ValidateLlmTemplateConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ValidateLlmTemplateConfigResponse
+     *
+     * @param ValidateLlmTemplateConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ValidateLlmTemplateConfigResponse
+     */
+    public function validateLlmTemplateConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
+        if (null !== $request->providerTemplateId) {
+            @$query['ProviderTemplateId'] = $request->providerTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ValidateLlmTemplateConfig',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ValidateLlmTemplateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 校验LLM模板配置有效性.
+     *
+     * @param request - ValidateLlmTemplateConfigRequest
+     *
+     * @returns ValidateLlmTemplateConfigResponse
+     *
+     * @param ValidateLlmTemplateConfigRequest $request
+     *
+     * @return ValidateLlmTemplateConfigResponse
+     */
+    public function validateLlmTemplateConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validateLlmTemplateConfigWithOptions($request, $runtime);
     }
 }
