@@ -18,6 +18,11 @@ class PutResourceMetricRuleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $compositeExpressionShrink;
 
     /**
@@ -111,6 +116,7 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $webhook;
     protected $_name = [
         'escalations' => 'Escalations',
+        'clientToken' => 'ClientToken',
         'compositeExpressionShrink' => 'CompositeExpression',
         'contactGroups' => 'ContactGroups',
         'dryRun' => 'DryRun',
@@ -148,6 +154,10 @@ class PutResourceMetricRuleShrinkRequest extends Model
         $res = [];
         if (null !== $this->escalations) {
             $res['Escalations'] = null !== $this->escalations ? $this->escalations->toArray($noStream) : $this->escalations;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->compositeExpressionShrink) {
@@ -246,6 +256,10 @@ class PutResourceMetricRuleShrinkRequest extends Model
         $model = new self();
         if (isset($map['Escalations'])) {
             $model->escalations = escalations::fromMap($map['Escalations']);
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['CompositeExpression'])) {

@@ -18,6 +18,11 @@ class PutResourceMetricRuleRequest extends Model
     public $escalations;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var compositeExpression
      */
     public $compositeExpression;
@@ -113,6 +118,7 @@ class PutResourceMetricRuleRequest extends Model
     public $webhook;
     protected $_name = [
         'escalations' => 'Escalations',
+        'clientToken' => 'ClientToken',
         'compositeExpression' => 'CompositeExpression',
         'contactGroups' => 'ContactGroups',
         'dryRun' => 'DryRun',
@@ -156,6 +162,10 @@ class PutResourceMetricRuleRequest extends Model
         $res = [];
         if (null !== $this->escalations) {
             $res['Escalations'] = null !== $this->escalations ? $this->escalations->toArray($noStream) : $this->escalations;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->compositeExpression) {
@@ -254,6 +264,10 @@ class PutResourceMetricRuleRequest extends Model
         $model = new self();
         if (isset($map['Escalations'])) {
             $model->escalations = escalations::fromMap($map['Escalations']);
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['CompositeExpression'])) {

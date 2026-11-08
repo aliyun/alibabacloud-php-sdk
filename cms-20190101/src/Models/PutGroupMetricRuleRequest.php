@@ -23,6 +23,11 @@ class PutGroupMetricRuleRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $contactGroups;
 
     /**
@@ -117,6 +122,7 @@ class PutGroupMetricRuleRequest extends Model
     protected $_name = [
         'escalations' => 'Escalations',
         'category' => 'Category',
+        'clientToken' => 'ClientToken',
         'contactGroups' => 'ContactGroups',
         'dimensions' => 'Dimensions',
         'dryRun' => 'DryRun',
@@ -158,6 +164,10 @@ class PutGroupMetricRuleRequest extends Model
 
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->contactGroups) {
@@ -260,6 +270,10 @@ class PutGroupMetricRuleRequest extends Model
 
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['ContactGroups'])) {

@@ -19,6 +19,11 @@ class ApplyMetricRuleTemplateRequest extends Model
     public $applyMode;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -60,6 +65,7 @@ class ApplyMetricRuleTemplateRequest extends Model
     protected $_name = [
         'appendMode' => 'AppendMode',
         'applyMode' => 'ApplyMode',
+        'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'enableEndTime' => 'EnableEndTime',
         'enableStartTime' => 'EnableStartTime',
@@ -84,6 +90,10 @@ class ApplyMetricRuleTemplateRequest extends Model
 
         if (null !== $this->applyMode) {
             $res['ApplyMode'] = $this->applyMode;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->dryRun) {
@@ -135,6 +145,10 @@ class ApplyMetricRuleTemplateRequest extends Model
 
         if (isset($map['ApplyMode'])) {
             $model->applyMode = $map['ApplyMode'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['DryRun'])) {

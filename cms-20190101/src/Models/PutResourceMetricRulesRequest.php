@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest\rules;
 class PutResourceMetricRulesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -19,6 +24,7 @@ class PutResourceMetricRulesRequest extends Model
      */
     public $rules;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'rules' => 'Rules',
     ];
@@ -34,6 +40,10 @@ class PutResourceMetricRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
@@ -60,6 +70,10 @@ class PutResourceMetricRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }

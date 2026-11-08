@@ -14,6 +14,11 @@ class DeleteMonitorGroupInstancesRequest extends Model
     public $category;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -34,6 +39,7 @@ class DeleteMonitorGroupInstancesRequest extends Model
     public $regionId;
     protected $_name = [
         'category' => 'Category',
+        'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'groupId' => 'GroupId',
         'instanceIdList' => 'InstanceIdList',
@@ -50,6 +56,10 @@ class DeleteMonitorGroupInstancesRequest extends Model
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->dryRun) {
@@ -81,6 +91,10 @@ class DeleteMonitorGroupInstancesRequest extends Model
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['DryRun'])) {

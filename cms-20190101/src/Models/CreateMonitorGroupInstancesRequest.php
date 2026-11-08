@@ -12,6 +12,11 @@ class CreateMonitorGroupInstancesRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $dryRun;
 
     /**
@@ -29,6 +34,7 @@ class CreateMonitorGroupInstancesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'groupId' => 'GroupId',
         'instances' => 'Instances',
@@ -46,6 +52,10 @@ class CreateMonitorGroupInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
@@ -80,6 +90,10 @@ class CreateMonitorGroupInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }

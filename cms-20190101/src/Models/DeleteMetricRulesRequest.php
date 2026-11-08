@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DeleteMetricRulesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var bool
      */
     public $dryRun;
@@ -23,6 +28,7 @@ class DeleteMetricRulesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'id' => 'Id',
         'regionId' => 'RegionId',
@@ -39,6 +45,10 @@ class DeleteMetricRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
@@ -69,6 +79,10 @@ class DeleteMetricRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }

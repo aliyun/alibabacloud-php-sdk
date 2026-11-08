@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\CreateDynamicTagGroupRequest\matchExpr
 class CreateDynamicTagGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @var string[]
      */
     public $contactGroupList;
@@ -59,6 +64,7 @@ class CreateDynamicTagGroupRequest extends Model
      */
     public $templateIdList;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'contactGroupList' => 'ContactGroupList',
         'dryRun' => 'DryRun',
         'enableInstallAgent' => 'EnableInstallAgent',
@@ -88,6 +94,10 @@ class CreateDynamicTagGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->contactGroupList) {
             if (\is_array($this->contactGroupList)) {
                 $res['ContactGroupList'] = [];
@@ -160,6 +170,10 @@ class CreateDynamicTagGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['ContactGroupList'])) {
             if (!empty($map['ContactGroupList'])) {
                 $model->contactGroupList = [];
