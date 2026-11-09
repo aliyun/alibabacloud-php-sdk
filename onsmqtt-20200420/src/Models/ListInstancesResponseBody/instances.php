@@ -121,7 +121,8 @@ class instances extends Model
                 $res['MqttTags'] = [];
                 $n1 = 0;
                 foreach ($this->mqttTags as $item1) {
-                    $res['MqttTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MqttTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +183,8 @@ class instances extends Model
                 $model->mqttTags = [];
                 $n1 = 0;
                 foreach ($map['MqttTags'] as $item1) {
-                    $model->mqttTags[$n1++] = mqttTags::fromMap($item1);
+                    $model->mqttTags[$n1] = mqttTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

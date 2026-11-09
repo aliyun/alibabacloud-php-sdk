@@ -61,7 +61,8 @@ class QueryMqttTraceMessageSubscribeResponseBody extends Model
                 $res['MessageTraceLists'] = [];
                 $n1 = 0;
                 foreach ($this->messageTraceLists as $item1) {
-                    $res['MessageTraceLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MessageTraceLists'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class QueryMqttTraceMessageSubscribeResponseBody extends Model
                 $model->messageTraceLists = [];
                 $n1 = 0;
                 foreach ($map['MessageTraceLists'] as $item1) {
-                    $model->messageTraceLists[$n1++] = messageTraceLists::fromMap($item1);
+                    $model->messageTraceLists[$n1] = messageTraceLists::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

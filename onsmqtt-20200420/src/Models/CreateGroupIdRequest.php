@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\CreateGroupIdRequest\tag;
 
 class CreateGroupIdRequest extends Model
 {
@@ -19,17 +20,20 @@ class CreateGroupIdRequest extends Model
     public $instanceId;
 
     /**
-     * @var string
+     * @var tag[]
      */
-    public $tags;
+    public $tag;
     protected $_name = [
         'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
-        'tags' => 'Tags',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -44,8 +48,15 @@ class CreateGroupIdRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -67,8 +78,15 @@ class CreateGroupIdRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

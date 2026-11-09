@@ -61,7 +61,8 @@ class QueryMqttTraceDeviceResponseBody extends Model
                 $res['DeviceInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->deviceInfoList as $item1) {
-                    $res['DeviceInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeviceInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class QueryMqttTraceDeviceResponseBody extends Model
                 $model->deviceInfoList = [];
                 $n1 = 0;
                 foreach ($map['DeviceInfoList'] as $item1) {
-                    $model->deviceInfoList[$n1++] = deviceInfoList::fromMap($item1);
+                    $model->deviceInfoList[$n1] = deviceInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

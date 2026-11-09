@@ -51,7 +51,8 @@ class data extends Model
                 $res['DeviceCertificateVOS'] = [];
                 $n1 = 0;
                 foreach ($this->deviceCertificateVOS as $item1) {
-                    $res['DeviceCertificateVOS'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DeviceCertificateVOS'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->deviceCertificateVOS = [];
                 $n1 = 0;
                 foreach ($map['DeviceCertificateVOS'] as $item1) {
-                    $model->deviceCertificateVOS[$n1++] = deviceCertificateVOS::fromMap($item1);
+                    $model->deviceCertificateVOS[$n1] = deviceCertificateVOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

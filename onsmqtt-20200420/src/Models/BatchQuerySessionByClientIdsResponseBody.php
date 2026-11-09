@@ -39,7 +39,8 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
                 $res['OnlineStatusList'] = [];
                 $n1 = 0;
                 foreach ($this->onlineStatusList as $item1) {
-                    $res['OnlineStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OnlineStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
                 $model->onlineStatusList = [];
                 $n1 = 0;
                 foreach ($map['OnlineStatusList'] as $item1) {
-                    $model->onlineStatusList[$n1++] = onlineStatusList::fromMap($item1);
+                    $model->onlineStatusList[$n1] = onlineStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -61,7 +61,8 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
                 $res['MessageOfClientList'] = [];
                 $n1 = 0;
                 foreach ($this->messageOfClientList as $item1) {
-                    $res['MessageOfClientList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MessageOfClientList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,7 +99,8 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
                 $model->messageOfClientList = [];
                 $n1 = 0;
                 foreach ($map['MessageOfClientList'] as $item1) {
-                    $model->messageOfClientList[$n1++] = messageOfClientList::fromMap($item1);
+                    $model->messageOfClientList[$n1] = messageOfClientList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -38,7 +38,8 @@ class BatchQuerySessionByClientIdsRequest extends Model
                 $res['ClientIdList'] = [];
                 $n1 = 0;
                 foreach ($this->clientIdList as $item1) {
-                    $res['ClientIdList'][$n1++] = $item1;
+                    $res['ClientIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class BatchQuerySessionByClientIdsRequest extends Model
                 $model->clientIdList = [];
                 $n1 = 0;
                 foreach ($map['ClientIdList'] as $item1) {
-                    $model->clientIdList[$n1++] = $item1;
+                    $model->clientIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

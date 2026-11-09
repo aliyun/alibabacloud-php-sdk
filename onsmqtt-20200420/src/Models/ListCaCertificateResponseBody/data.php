@@ -51,7 +51,8 @@ class data extends Model
                 $res['CaCertificateVOS'] = [];
                 $n1 = 0;
                 foreach ($this->caCertificateVOS as $item1) {
-                    $res['CaCertificateVOS'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CaCertificateVOS'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class data extends Model
                 $model->caCertificateVOS = [];
                 $n1 = 0;
                 foreach ($map['CaCertificateVOS'] as $item1) {
-                    $model->caCertificateVOS[$n1++] = caCertificateVOS::fromMap($item1);
+                    $model->caCertificateVOS[$n1] = caCertificateVOS::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
