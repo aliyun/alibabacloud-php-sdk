@@ -23,10 +23,16 @@ class model_ extends Model
      * @var quota
      */
     public $quota;
+
+    /**
+     * @var string
+     */
+    public $thinkingLevel;
     protected $_name = [
         'modelConnectionId' => 'modelConnectionId',
         'modelName' => 'modelName',
         'quota' => 'quota',
+        'thinkingLevel' => 'thinkingLevel',
     ];
 
     public function validate()
@@ -52,6 +58,10 @@ class model_ extends Model
             $res['quota'] = null !== $this->quota ? $this->quota->toArray($noStream) : $this->quota;
         }
 
+        if (null !== $this->thinkingLevel) {
+            $res['thinkingLevel'] = $this->thinkingLevel;
+        }
+
         return $res;
     }
 
@@ -73,6 +83,10 @@ class model_ extends Model
 
         if (isset($map['quota'])) {
             $model->quota = quota::fromMap($map['quota']);
+        }
+
+        if (isset($map['thinkingLevel'])) {
+            $model->thinkingLevel = $map['thinkingLevel'];
         }
 
         return $model;

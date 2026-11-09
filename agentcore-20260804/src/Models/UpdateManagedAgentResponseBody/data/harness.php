@@ -15,12 +15,24 @@ class harness extends Model
     public $configuration;
 
     /**
+     * @var int
+     */
+    public $outdatedInstanceCount;
+
+    /**
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'configuration' => 'configuration',
+        'outdatedInstanceCount' => 'outdatedInstanceCount',
         'type' => 'type',
+        'version' => 'version',
     ];
 
     public function validate()
@@ -38,8 +50,16 @@ class harness extends Model
             $res['configuration'] = null !== $this->configuration ? $this->configuration->toArray($noStream) : $this->configuration;
         }
 
+        if (null !== $this->outdatedInstanceCount) {
+            $res['outdatedInstanceCount'] = $this->outdatedInstanceCount;
+        }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -57,8 +77,16 @@ class harness extends Model
             $model->configuration = configuration::fromMap($map['configuration']);
         }
 
+        if (isset($map['outdatedInstanceCount'])) {
+            $model->outdatedInstanceCount = $map['outdatedInstanceCount'];
+        }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

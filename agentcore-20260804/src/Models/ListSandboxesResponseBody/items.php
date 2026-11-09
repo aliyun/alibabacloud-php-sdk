@@ -21,12 +21,22 @@ class items extends Model
     /**
      * @var string
      */
+    public $harnessVersion;
+
+    /**
+     * @var string
+     */
     public $lastActiveAt;
 
     /**
      * @var string
      */
     public $lastHeartbeatAt;
+
+    /**
+     * @var string
+     */
+    public $lastRebuildOperationId;
 
     /**
      * @var int
@@ -42,14 +52,28 @@ class items extends Model
      * @var string
      */
     public $sandboxId;
+
+    /**
+     * @var bool
+     */
+    public $updateAvailable;
+
+    /**
+     * @var bool
+     */
+    public $updateFailed;
     protected $_name = [
         'activeSessionCount' => 'activeSessionCount',
         'createdAt' => 'createdAt',
+        'harnessVersion' => 'harnessVersion',
         'lastActiveAt' => 'lastActiveAt',
         'lastHeartbeatAt' => 'lastHeartbeatAt',
+        'lastRebuildOperationId' => 'lastRebuildOperationId',
         'maxConcurrentSessions' => 'maxConcurrentSessions',
         'phase' => 'phase',
         'sandboxId' => 'sandboxId',
+        'updateAvailable' => 'updateAvailable',
+        'updateFailed' => 'updateFailed',
     ];
 
     public function validate()
@@ -68,12 +92,20 @@ class items extends Model
             $res['createdAt'] = $this->createdAt;
         }
 
+        if (null !== $this->harnessVersion) {
+            $res['harnessVersion'] = $this->harnessVersion;
+        }
+
         if (null !== $this->lastActiveAt) {
             $res['lastActiveAt'] = $this->lastActiveAt;
         }
 
         if (null !== $this->lastHeartbeatAt) {
             $res['lastHeartbeatAt'] = $this->lastHeartbeatAt;
+        }
+
+        if (null !== $this->lastRebuildOperationId) {
+            $res['lastRebuildOperationId'] = $this->lastRebuildOperationId;
         }
 
         if (null !== $this->maxConcurrentSessions) {
@@ -86,6 +118,14 @@ class items extends Model
 
         if (null !== $this->sandboxId) {
             $res['sandboxId'] = $this->sandboxId;
+        }
+
+        if (null !== $this->updateAvailable) {
+            $res['updateAvailable'] = $this->updateAvailable;
+        }
+
+        if (null !== $this->updateFailed) {
+            $res['updateFailed'] = $this->updateFailed;
         }
 
         return $res;
@@ -107,12 +147,20 @@ class items extends Model
             $model->createdAt = $map['createdAt'];
         }
 
+        if (isset($map['harnessVersion'])) {
+            $model->harnessVersion = $map['harnessVersion'];
+        }
+
         if (isset($map['lastActiveAt'])) {
             $model->lastActiveAt = $map['lastActiveAt'];
         }
 
         if (isset($map['lastHeartbeatAt'])) {
             $model->lastHeartbeatAt = $map['lastHeartbeatAt'];
+        }
+
+        if (isset($map['lastRebuildOperationId'])) {
+            $model->lastRebuildOperationId = $map['lastRebuildOperationId'];
         }
 
         if (isset($map['maxConcurrentSessions'])) {
@@ -125,6 +173,14 @@ class items extends Model
 
         if (isset($map['sandboxId'])) {
             $model->sandboxId = $map['sandboxId'];
+        }
+
+        if (isset($map['updateAvailable'])) {
+            $model->updateAvailable = $map['updateAvailable'];
+        }
+
+        if (isset($map['updateFailed'])) {
+            $model->updateFailed = $map['updateFailed'];
         }
 
         return $model;
