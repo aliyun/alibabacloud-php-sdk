@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeductionStatisticResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeDeliveryAddressResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeGroupsRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeGroupsResponse;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeInstanceAutoRenewalAttributeRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeInstanceAutoRenewalAttributeResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsRequest;
@@ -27,6 +29,7 @@ use AlibabaCloud\SDK\Wss\V20211221\Models\ModifyInstancePropertiesRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\ModifyInstancePropertiesResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\SetAgentCreditQuotaRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\SetAgentCreditQuotaResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -37,6 +40,9 @@ class Wss extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'wss';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('wss', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -570,6 +576,101 @@ class Wss extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the renewal methods.
+     *
+     * @remarks
+     * Filters instances by resource type, instance, and region, and uses paging to query the auto-renewal status.
+     *
+     * @param request - DescribeInstanceAutoRenewalAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstanceAutoRenewalAttributeResponse
+     *
+     * @param DescribeInstanceAutoRenewalAttributeRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeInstanceAutoRenewalAttributeResponse
+     */
+    public function describeInstanceAutoRenewalAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenewal) {
+            @$query['AutoRenewal'] = $request->autoRenewal;
+        }
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->resourceTypeList) {
+            @$query['ResourceTypeList'] = $request->resourceTypeList;
+        }
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceAutoRenewalAttribute',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the renewal methods.
+     *
+     * @remarks
+     * Filters instances by resource type, instance, and region, and uses paging to query the auto-renewal status.
+     *
+     * @param request - DescribeInstanceAutoRenewalAttributeRequest
+     *
+     * @returns DescribeInstanceAutoRenewalAttributeResponse
+     *
+     * @param DescribeInstanceAutoRenewalAttributeRequest $request
+     *
+     * @return DescribeInstanceAutoRenewalAttributeResponse
+     */
+    public function describeInstanceAutoRenewalAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceAutoRenewalAttributeWithOptions($request, $runtime);
     }
 
     /**
