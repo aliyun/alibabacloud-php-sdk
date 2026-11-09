@@ -66,17 +66,21 @@ use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationResultResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 use Darabonba\OpenApi\Utils;
-use Darabonba\OpenApi\WebsocketUtils\Client;
+use Darabonba\OpenApi\WebsocketUtils\Client as WebSocketUtilsClient;
 
 class Green extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Green';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-1' => 'green.ap-southeast-1.aliyuncs.com',
@@ -132,7 +136,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * The document moderation result.
+     * Queries the document moderation results.
      *
      * @param request - DescribeFileModerationResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -175,7 +179,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * The document moderation result.
+     * Queries the document moderation results.
      *
      * @param request - DescribeFileModerationResultRequest
      *
@@ -1353,10 +1357,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the asynchronous detection results of AI security guardrails for multimodal content, supporting audio and video modalities.
+     * Queries the asynchronous moderation results of the AI security guardrail for multimodal content, including audio and video modalities.
      *
      * @remarks
-     * If the API operation incurs fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX product before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
+     * If the API operation involves fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX service before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
      *
      * @param request - MultiModalGuardAsyncResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1399,10 +1403,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the asynchronous detection results of AI security guardrails for multimodal content, supporting audio and video modalities.
+     * Queries the asynchronous moderation results of the AI security guardrail for multimodal content, including audio and video modalities.
      *
      * @remarks
-     * If the API operation incurs fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX product before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
+     * If the API operation involves fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX service before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
      *
      * @param request - MultiModalGuardAsyncResultRequest
      *
@@ -1525,7 +1529,7 @@ class Green extends OpenApiClient
         $res = new MultiModalGuardWsResponse([]);
         $tmp = $this->callApi($params, $req, $runtime);
         if (null !== @$tmp['webSocketClient']) {
-            $res->webSocketClient = Client::createWebSocketClient(@$tmp['webSocketClient']);
+            $res->webSocketClient = WebSocketUtilsClient::createWebSocketClient(@$tmp['webSocketClient']);
         }
 
         return $res;

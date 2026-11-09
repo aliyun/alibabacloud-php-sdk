@@ -26,6 +26,11 @@ class data extends Model
     public $docType;
 
     /**
+     * @var string
+     */
+    public $manualTaskId;
+
+    /**
      * @var pageResult[]
      */
     public $pageResult;
@@ -43,14 +48,21 @@ class data extends Model
     /**
      * @var string
      */
+    public $taskId;
+
+    /**
+     * @var string
+     */
     public $url;
     protected $_name = [
         'accountId' => 'AccountId',
         'dataId' => 'DataId',
         'docType' => 'DocType',
+        'manualTaskId' => 'ManualTaskId',
         'pageResult' => 'PageResult',
         'pageSummary' => 'PageSummary',
         'riskLevel' => 'RiskLevel',
+        'taskId' => 'TaskId',
         'url' => 'Url',
     ];
 
@@ -80,6 +92,10 @@ class data extends Model
             $res['DocType'] = $this->docType;
         }
 
+        if (null !== $this->manualTaskId) {
+            $res['ManualTaskId'] = $this->manualTaskId;
+        }
+
         if (null !== $this->pageResult) {
             if (\is_array($this->pageResult)) {
                 $res['PageResult'] = [];
@@ -97,6 +113,10 @@ class data extends Model
 
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         if (null !== $this->url) {
@@ -126,6 +146,10 @@ class data extends Model
             $model->docType = $map['DocType'];
         }
 
+        if (isset($map['ManualTaskId'])) {
+            $model->manualTaskId = $map['ManualTaskId'];
+        }
+
         if (isset($map['PageResult'])) {
             if (!empty($map['PageResult'])) {
                 $model->pageResult = [];
@@ -143,6 +167,10 @@ class data extends Model
 
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         if (isset($map['Url'])) {
