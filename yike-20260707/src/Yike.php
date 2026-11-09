@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetRemakeScriptJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetRemakeScriptJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoCreativeGenerationJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoCreativeGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoDetextJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoDetextJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobRequest;
@@ -63,6 +65,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitRemakeScriptJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitRemakeScriptJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoCreativeGenerationJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoCreativeGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoDetextJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoDetextJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobRequest;
@@ -77,6 +81,7 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateInfiniteCanvasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateMediaResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -87,6 +92,9 @@ class Yike extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Yike';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('yike', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -192,7 +200,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 取消生成任务接口.
+     * Cancels an AI generation task.
      *
      * @param request - CancelGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -231,7 +239,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 取消生成任务接口.
+     * Cancels an AI generation task.
      *
      * @param request - CancelGenerationJobRequest
      *
@@ -994,11 +1002,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a media asset content understanding job.
+     * Queries media content understanding jobs.
      *
      * @remarks
-     * ## Description
-     * This API is used to query a media asset content understanding job.
+     * ## Request description
+     * This API operation queries media content understanding jobs.
      *
      * @param request - GetMediaComprehensionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1037,11 +1045,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a media asset content understanding job.
+     * Queries media content understanding jobs.
      *
      * @remarks
-     * ## Description
-     * This API is used to query a media asset content understanding job.
+     * ## Request description
+     * This API operation queries media content understanding jobs.
      *
      * @param request - GetMediaComprehensionJobRequest
      *
@@ -1113,6 +1121,63 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRemakeScriptJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a video creative generation job.
+     *
+     * @param request - GetVideoCreativeGenerationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoCreativeGenerationJobResponse
+     *
+     * @param GetVideoCreativeGenerationJobRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetVideoCreativeGenerationJobResponse
+     */
+    public function getVideoCreativeGenerationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoCreativeGenerationJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoCreativeGenerationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a video creative generation job.
+     *
+     * @param request - GetVideoCreativeGenerationJobRequest
+     *
+     * @returns GetVideoCreativeGenerationJobResponse
+     *
+     * @param GetVideoCreativeGenerationJobRequest $request
+     *
+     * @return GetVideoCreativeGenerationJobResponse
+     */
+    public function getVideoCreativeGenerationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoCreativeGenerationJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1240,7 +1305,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits a video rendering and composition task.
+     * Submits a video rendering and compositing task.
      *
      * @param request - GetVideoRenderJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1279,7 +1344,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits a video rendering and composition task.
+     * Submits a video rendering and compositing task.
      *
      * @param request - GetVideoRenderJobRequest
      *
@@ -1652,8 +1717,8 @@ class Yike extends OpenApiClient
      * Queries the list of infinite canvases.
      *
      * @remarks
-     * ## Operation description
-     * This API is used to query media asset content understanding jobs.
+     * ## Request description
+     * This API operation queries media asset content understanding jobs.
      *
      * @param request - ListInfiniteCanvasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1719,8 +1784,8 @@ class Yike extends OpenApiClient
      * Queries the list of infinite canvases.
      *
      * @remarks
-     * ## Operation description
-     * This API is used to query media asset content understanding jobs.
+     * ## Request description
+     * This API operation queries media asset content understanding jobs.
      *
      * @param request - ListInfiniteCanvasesRequest
      *
@@ -1738,7 +1803,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Returns media asset information that matches the specified filter conditions.
+     * Queries media assets that match the specified parameters.
      *
      * @param request - SearchMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1801,7 +1866,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Returns media asset information that matches the specified filter conditions.
+     * Queries media assets that match the specified parameters.
      *
      * @param request - SearchMediaRequest
      *
@@ -1896,7 +1961,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an image generation task.
+     * Submits an image generation request.
      *
      * @param request - SubmitImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1971,7 +2036,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an image generation task.
+     * Submits an image generation request.
      *
      * @param request - SubmitImageGenerationJobRequest
      *
@@ -1992,8 +2057,8 @@ class Yike extends OpenApiClient
      * Submits a media asset content understanding job.
      *
      * @remarks
-     * ## Operation description
-     * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * ## Request description
+     * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitMediaComprehensionJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2047,8 +2112,8 @@ class Yike extends OpenApiClient
      * Submits a media asset content understanding job.
      *
      * @remarks
-     * ## Operation description
-     * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * ## Request description
+     * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitMediaComprehensionJobRequest
      *
@@ -2069,7 +2134,7 @@ class Yike extends OpenApiClient
      * Submits a creative script generation task.
      *
      * @remarks
-     * This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
+     * This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
      *
      * @param request - SubmitRemakeScriptJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2119,7 +2184,7 @@ class Yike extends OpenApiClient
      * Submits a creative script generation task.
      *
      * @remarks
-     * This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
+     * This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
      *
      * @param request - SubmitRemakeScriptJobRequest
      *
@@ -2134,6 +2199,95 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitRemakeScriptJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a video creative generation job.
+     *
+     * @param request - SubmitVideoCreativeGenerationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoCreativeGenerationJobResponse
+     *
+     * @param SubmitVideoCreativeGenerationJobRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SubmitVideoCreativeGenerationJobResponse
+     */
+    public function submitVideoCreativeGenerationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aspectRatio) {
+            @$query['AspectRatio'] = $request->aspectRatio;
+        }
+
+        if (null !== $request->avatarData) {
+            @$query['AvatarData'] = $request->avatarData;
+        }
+
+        if (null !== $request->jobParams) {
+            @$query['JobParams'] = $request->jobParams;
+        }
+
+        if (null !== $request->outputLanguages) {
+            @$query['OutputLanguages'] = $request->outputLanguages;
+        }
+
+        if (null !== $request->resolution) {
+            @$query['Resolution'] = $request->resolution;
+        }
+
+        if (null !== $request->sceneType) {
+            @$query['SceneType'] = $request->sceneType;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        if (null !== $request->userMaterials) {
+            @$query['UserMaterials'] = $request->userMaterials;
+        }
+
+        if (null !== $request->withSubtitles) {
+            @$query['WithSubtitles'] = $request->withSubtitles;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoCreativeGenerationJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoCreativeGenerationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a video creative generation job.
+     *
+     * @param request - SubmitVideoCreativeGenerationJobRequest
+     *
+     * @returns SubmitVideoCreativeGenerationJobResponse
+     *
+     * @param SubmitVideoCreativeGenerationJobRequest $request
+     *
+     * @return SubmitVideoCreativeGenerationJobResponse
+     */
+    public function submitVideoCreativeGenerationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoCreativeGenerationJobWithOptions($request, $runtime);
     }
 
     /**
@@ -2382,10 +2536,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
+     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
      *
      * @remarks
-     * Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
+     * Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
      *
      * @param request - SubmitVideoTranslationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2452,10 +2606,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
+     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
      *
      * @remarks
-     * Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
+     * Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
      *
      * @param request - SubmitVideoTranslationJobRequest
      *
