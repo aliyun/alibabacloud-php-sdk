@@ -27,17 +27,26 @@ class DescribeQuotaResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var QuotaUsage
+     */
+    public $usage;
     protected $_name = [
         'code' => 'code',
         'message' => 'message',
         'quota' => 'quota',
         'requestId' => 'requestId',
+        'usage' => 'usage',
     ];
 
     public function validate()
     {
         if (null !== $this->quota) {
             $this->quota->validate();
+        }
+        if (null !== $this->usage) {
+            $this->usage->validate();
         }
         parent::validate();
     }
@@ -59,6 +68,10 @@ class DescribeQuotaResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->usage) {
+            $res['usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
         }
 
         return $res;
@@ -86,6 +99,10 @@ class DescribeQuotaResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['usage'])) {
+            $model->usage = QuotaUsage::fromMap($map['usage']);
         }
 
         return $model;

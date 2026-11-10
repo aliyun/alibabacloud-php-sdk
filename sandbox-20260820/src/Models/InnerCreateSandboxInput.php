@@ -51,6 +51,16 @@ class InnerCreateSandboxInput extends Model
     /**
      * @var string
      */
+    public $snapshotID;
+
+    /**
+     * @var string
+     */
+    public $snapshotName;
+
+    /**
+     * @var string
+     */
     public $teamID;
 
     /**
@@ -76,6 +86,8 @@ class InnerCreateSandboxInput extends Model
         'network' => 'network',
         'runtime' => 'runtime',
         'secure' => 'secure',
+        'snapshotID' => 'snapshotID',
+        'snapshotName' => 'snapshotName',
         'teamID' => 'teamID',
         'templateID' => 'templateID',
         'timeout' => 'timeout',
@@ -147,6 +159,14 @@ class InnerCreateSandboxInput extends Model
             $res['secure'] = $this->secure;
         }
 
+        if (null !== $this->snapshotID) {
+            $res['snapshotID'] = $this->snapshotID;
+        }
+
+        if (null !== $this->snapshotName) {
+            $res['snapshotName'] = $this->snapshotName;
+        }
+
         if (null !== $this->teamID) {
             $res['teamID'] = $this->teamID;
         }
@@ -214,6 +234,14 @@ class InnerCreateSandboxInput extends Model
 
         if (isset($map['secure'])) {
             $model->secure = $map['secure'];
+        }
+
+        if (isset($map['snapshotID'])) {
+            $model->snapshotID = $map['snapshotID'];
+        }
+
+        if (isset($map['snapshotName'])) {
+            $model->snapshotName = $map['snapshotName'];
         }
 
         if (isset($map['teamID'])) {

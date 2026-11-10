@@ -57,6 +57,11 @@ class E2BListedSandbox extends Model
     /**
      * @var string
      */
+    public $snapshotID;
+
+    /**
+     * @var string
+     */
     public $startedAt;
 
     /**
@@ -103,6 +108,7 @@ class E2BListedSandbox extends Model
         'resourceGroupID' => 'resourceGroupID',
         'resourceTags' => 'resourceTags',
         'sandboxID' => 'sandboxID',
+        'snapshotID' => 'snapshotID',
         'startedAt' => 'startedAt',
         'state' => 'state',
         'teamID' => 'teamID',
@@ -173,6 +179,10 @@ class E2BListedSandbox extends Model
 
         if (null !== $this->sandboxID) {
             $res['sandboxID'] = $this->sandboxID;
+        }
+
+        if (null !== $this->snapshotID) {
+            $res['snapshotID'] = $this->snapshotID;
         }
 
         if (null !== $this->startedAt) {
@@ -264,6 +274,10 @@ class E2BListedSandbox extends Model
 
         if (isset($map['sandboxID'])) {
             $model->sandboxID = $map['sandboxID'];
+        }
+
+        if (isset($map['snapshotID'])) {
+            $model->snapshotID = $map['snapshotID'];
         }
 
         if (isset($map['startedAt'])) {

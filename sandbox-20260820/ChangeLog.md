@@ -1,3 +1,7 @@
+2026-11-10 Version: 1.2.4
+- Update API DescribeQuota: add response parameters Body.usage.
+
+
 2026-11-05 Version: 1.2.3
 - Generated php 2026-08-20 for Sandbox.
 

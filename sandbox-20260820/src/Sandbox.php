@@ -64,6 +64,7 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateVolumeRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateVolumeResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -74,6 +75,9 @@ class Sandbox extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Sandbox';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('sandbox', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1197,7 +1201,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the quota configurations for the current account.
+     * Performs a paging query to retrieve the quota configuration list for the current account.
      *
      * @param request - ListQuotaRequest
      * @param headers - map
@@ -1243,7 +1247,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the quota configurations for the current account.
+     * Performs a paging query to retrieve the quota configuration list for the current account.
      *
      * @param request - ListQuotaRequest
      *
@@ -1339,7 +1343,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paging query of template caches.
+     * Performs a paged query on template caches with paging support.
      *
      * @param request - ListTemplateCacheRequest
      * @param headers - map
@@ -1397,7 +1401,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paging query of template caches.
+     * Performs a paged query on template caches with paging support.
      *
      * @param request - ListTemplateCacheRequest
      *
@@ -1416,7 +1420,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on the template list by using paging.
+     * Performs a paged query to retrieve the template list with paging.
      *
      * @param request - ListTemplatesRequest
      * @param headers - map
@@ -1466,7 +1470,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on the template list by using paging.
+     * Performs a paged query to retrieve the template list with paging.
      *
      * @param request - ListTemplatesRequest
      *
@@ -1485,7 +1489,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Queries a list of storage volumes by using paging.
+     * Queries the list of storage volumes by using paging.
      *
      * @param request - ListVolumesRequest
      * @param headers - map
@@ -1555,7 +1559,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Queries a list of storage volumes by using paging.
+     * Queries the list of storage volumes by using paging.
      *
      * @param request - ListVolumesRequest
      *
