@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderShrinkRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeAICallDetailsRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeAICallDetailsResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditPackageAgentsRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditPackageAgentsResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeCreditUsageInfoRequest;
@@ -159,6 +161,117 @@ class Wss extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createMultiOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询 AI 调用明细.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
+     * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
+     * - 查询结果按调用时间倒序返回。
+     * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
+     * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
+     * - `PageNumber`与`PageSize`的乘积不得超过1000000。
+     * - `BizType`不传时默认为企业版。
+     * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+     *
+     * @param request - DescribeAICallDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAICallDetailsResponse
+     *
+     * @param DescribeAICallDetailsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAICallDetailsResponse
+     */
+    public function describeAICallDetailsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->gatewayRegion) {
+            @$query['GatewayRegion'] = $request->gatewayRegion;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['ModelId'] = $request->modelId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->searchRequestId) {
+            @$query['SearchRequestId'] = $request->searchRequestId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->wyIds) {
+            @$query['WyIds'] = $request->wyIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAICallDetails',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAICallDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 AI 调用明细.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
+     * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
+     * - 查询结果按调用时间倒序返回。
+     * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
+     * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
+     * - `PageNumber`与`PageSize`的乘积不得超过1000000。
+     * - `BizType`不传时默认为企业版。
+     * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+     *
+     * @param request - DescribeAICallDetailsRequest
+     *
+     * @returns DescribeAICallDetailsResponse
+     *
+     * @param DescribeAICallDetailsRequest $request
+     *
+     * @return DescribeAICallDetailsResponse
+     */
+    public function describeAICallDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAICallDetailsWithOptions($request, $runtime);
     }
 
     /**
