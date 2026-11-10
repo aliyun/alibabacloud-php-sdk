@@ -74,6 +74,11 @@ class UnbindRequest extends Model
     public $sessionId;
 
     /**
+     * @var string
+     */
+    public $sessionToken;
+
+    /**
      * @var int
      */
     public $tenantId;
@@ -91,6 +96,7 @@ class UnbindRequest extends Model
         'loginToken' => 'LoginToken',
         'productType' => 'ProductType',
         'sessionId' => 'SessionId',
+        'sessionToken' => 'SessionToken',
         'tenantId' => 'TenantId',
     ];
 
@@ -152,6 +158,10 @@ class UnbindRequest extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->sessionToken) {
+            $res['SessionToken'] = $this->sessionToken;
         }
 
         if (null !== $this->tenantId) {
@@ -219,6 +229,10 @@ class UnbindRequest extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['SessionToken'])) {
+            $model->sessionToken = $map['SessionToken'];
         }
 
         if (isset($map['TenantId'])) {
