@@ -1,3 +1,10 @@
+2026-11-10 Version: 2.0.14
+- Update API CreateAgentSpace: add request parameters body.trajectoryEmbeddingEnabled.
+- Update API CreateContextStore: add request parameters body.config.source.trajectory.scopeMappingVersion.
+- Update API GetContextStore: add response parameters Body.config.source.trajectory.scopeMappingVersion.
+- Update API UpdateContextStore: add request parameters body.config.source.trajectory.scopeMappingVersion.
+
+
 2026-11-05 Version: 2.0.13
 - Update API GetDataset: add request parameters version.
 

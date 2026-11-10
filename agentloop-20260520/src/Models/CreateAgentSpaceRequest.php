@@ -31,6 +31,11 @@ class CreateAgentSpaceRequest extends Model
     /**
      * @var bool
      */
+    public $trajectoryEmbeddingEnabled;
+
+    /**
+     * @var bool
+     */
     public $trajectoryStoreEnabled;
 
     /**
@@ -42,6 +47,7 @@ class CreateAgentSpaceRequest extends Model
         'cmsWorkspace' => 'cmsWorkspace',
         'description' => 'description',
         'mseNamespaceId' => 'mseNamespaceId',
+        'trajectoryEmbeddingEnabled' => 'trajectoryEmbeddingEnabled',
         'trajectoryStoreEnabled' => 'trajectoryStoreEnabled',
         'clientToken' => 'clientToken',
     ];
@@ -68,6 +74,10 @@ class CreateAgentSpaceRequest extends Model
 
         if (null !== $this->mseNamespaceId) {
             $res['mseNamespaceId'] = $this->mseNamespaceId;
+        }
+
+        if (null !== $this->trajectoryEmbeddingEnabled) {
+            $res['trajectoryEmbeddingEnabled'] = $this->trajectoryEmbeddingEnabled;
         }
 
         if (null !== $this->trajectoryStoreEnabled) {
@@ -103,6 +113,10 @@ class CreateAgentSpaceRequest extends Model
 
         if (isset($map['mseNamespaceId'])) {
             $model->mseNamespaceId = $map['mseNamespaceId'];
+        }
+
+        if (isset($map['trajectoryEmbeddingEnabled'])) {
+            $model->trajectoryEmbeddingEnabled = $map['trajectoryEmbeddingEnabled'];
         }
 
         if (isset($map['trajectoryStoreEnabled'])) {

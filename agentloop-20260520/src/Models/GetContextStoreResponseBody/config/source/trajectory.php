@@ -31,6 +31,11 @@ class trajectory extends Model
     public $scopeMapping;
 
     /**
+     * @var int
+     */
+    public $scopeMappingVersion;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -39,6 +44,7 @@ class trajectory extends Model
         'logstore' => 'logstore',
         'pollIntervalSeconds' => 'pollIntervalSeconds',
         'scopeMapping' => 'scopeMapping',
+        'scopeMappingVersion' => 'scopeMappingVersion',
         'startTime' => 'startTime',
     ];
 
@@ -72,6 +78,10 @@ class trajectory extends Model
             $res['scopeMapping'] = null !== $this->scopeMapping ? $this->scopeMapping->toArray($noStream) : $this->scopeMapping;
         }
 
+        if (null !== $this->scopeMappingVersion) {
+            $res['scopeMappingVersion'] = $this->scopeMappingVersion;
+        }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -101,6 +111,10 @@ class trajectory extends Model
 
         if (isset($map['scopeMapping'])) {
             $model->scopeMapping = scopeMapping::fromMap($map['scopeMapping']);
+        }
+
+        if (isset($map['scopeMappingVersion'])) {
+            $model->scopeMappingVersion = $map['scopeMappingVersion'];
         }
 
         if (isset($map['startTime'])) {

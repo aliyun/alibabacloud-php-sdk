@@ -29,11 +29,17 @@ class trajectory extends Model
      * @var scopeMapping
      */
     public $scopeMapping;
+
+    /**
+     * @var int
+     */
+    public $scopeMappingVersion;
     protected $_name = [
         'filter' => 'filter',
         'logstore' => 'logstore',
         'pollIntervalSeconds' => 'pollIntervalSeconds',
         'scopeMapping' => 'scopeMapping',
+        'scopeMappingVersion' => 'scopeMappingVersion',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class trajectory extends Model
             $res['scopeMapping'] = null !== $this->scopeMapping ? $this->scopeMapping->toArray($noStream) : $this->scopeMapping;
         }
 
+        if (null !== $this->scopeMappingVersion) {
+            $res['scopeMappingVersion'] = $this->scopeMappingVersion;
+        }
+
         return $res;
     }
 
@@ -91,6 +101,10 @@ class trajectory extends Model
 
         if (isset($map['scopeMapping'])) {
             $model->scopeMapping = scopeMapping::fromMap($map['scopeMapping']);
+        }
+
+        if (isset($map['scopeMappingVersion'])) {
+            $model->scopeMappingVersion = $map['scopeMappingVersion'];
         }
 
         return $model;
