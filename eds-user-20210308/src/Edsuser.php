@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeOrgsShrinkRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeResourceGroupsResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUserLoginPoliciesRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUserLoginPoliciesResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUserRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUserResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersRequest;
@@ -68,6 +70,8 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyGroupRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyGroupResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyOrgRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyOrgResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyUserPolicyBasicInfoRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyUserPolicyBasicInfoResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyUserRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ModifyUserResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\MoveOrgRequest;
@@ -84,6 +88,8 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveOrgRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveOrgResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemovePropertyRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemovePropertyResponse;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveUserLoginPoliciesRequest;
+use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveUserLoginPoliciesResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveUsersRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\RemoveUsersResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ResetUserPasswordRequest;
@@ -105,6 +111,7 @@ use AlibabaCloud\SDK\Edsuser\V20210308\Models\UserBatchJoinGroupRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UserBatchJoinGroupResponse;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UserBatchQuitGroupRequest;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\UserBatchQuitGroupResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -115,6 +122,9 @@ class Edsuser extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'eds-user';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eds-user', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -624,6 +634,9 @@ class Edsuser extends OpenApiClient
     /**
      * Creates a resource group.
      *
+     * @remarks
+     * The number of resource groups in each categorization is subject to the enterprise resource group quota limit. By default, a maximum of 20 resource groups are allowed for each categorization, but the quota limit configured for your enterprise may vary. If the quota limit is reached, the ExceedNumberQuota error is returned. You can invoke the DescribeResourceGroups operation to query the number of existing resource groups in the corresponding categorization.
+     *
      * @param request - CreateResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -690,6 +703,9 @@ class Edsuser extends OpenApiClient
 
     /**
      * Creates a resource group.
+     *
+     * @remarks
+     * The number of resource groups in each categorization is subject to the enterprise resource group quota limit. By default, a maximum of 20 resource groups are allowed for each categorization, but the quota limit configured for your enterprise may vary. If the quota limit is reached, the ExceedNumberQuota error is returned. You can invoke the DescribeResourceGroups operation to query the number of existing resource groups in the corresponding categorization.
      *
      * @param request - CreateResourceGroupRequest
      *
@@ -1504,6 +1520,71 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries logon policies.
+     *
+     * @param request - DescribeUserLoginPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUserLoginPoliciesResponse
+     *
+     * @param DescribeUserLoginPoliciesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeUserLoginPoliciesResponse
+     */
+    public function describeUserLoginPoliciesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->policyIds) {
+            @$query['PolicyIds'] = $request->policyIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeUserLoginPolicies',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeUserLoginPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries logon policies.
+     *
+     * @param request - DescribeUserLoginPoliciesRequest
+     *
+     * @returns DescribeUserLoginPoliciesResponse
+     *
+     * @param DescribeUserLoginPoliciesRequest $request
+     *
+     * @return DescribeUserLoginPoliciesResponse
+     */
+    public function describeUserLoginPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserLoginPoliciesWithOptions($request, $runtime);
     }
 
     /**
@@ -2518,6 +2599,71 @@ class Edsuser extends OpenApiClient
     }
 
     /**
+     * Modifies the logon policy.
+     *
+     * @param request - ModifyUserPolicyBasicInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyUserPolicyBasicInfoResponse
+     *
+     * @param ModifyUserPolicyBasicInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyUserPolicyBasicInfoResponse
+     */
+    public function modifyUserPolicyBasicInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyUserPolicyBasicInfo',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyUserPolicyBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the logon policy.
+     *
+     * @param request - ModifyUserPolicyBasicInfoRequest
+     *
+     * @returns ModifyUserPolicyBasicInfoResponse
+     *
+     * @param ModifyUserPolicyBasicInfoRequest $request
+     *
+     * @return ModifyUserPolicyBasicInfoResponse
+     */
+    public function modifyUserPolicyBasicInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserPolicyBasicInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Moves an organization.
      *
      * @param request - MoveOrgRequest
@@ -2962,6 +3108,67 @@ class Edsuser extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removePropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a logon policy.
+     *
+     * @param request - RemoveUserLoginPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUserLoginPoliciesResponse
+     *
+     * @param RemoveUserLoginPoliciesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RemoveUserLoginPoliciesResponse
+     */
+    public function removeUserLoginPoliciesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
+        if (null !== $request->policyIds) {
+            @$query['PolicyIds'] = $request->policyIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveUserLoginPolicies',
+            'version' => '2021-03-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveUserLoginPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a logon policy.
+     *
+     * @param request - RemoveUserLoginPoliciesRequest
+     *
+     * @returns RemoveUserLoginPoliciesResponse
+     *
+     * @param RemoveUserLoginPoliciesRequest $request
+     *
+     * @return RemoveUserLoginPoliciesResponse
+     */
+    public function removeUserLoginPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeUserLoginPoliciesWithOptions($request, $runtime);
     }
 
     /**

@@ -125,6 +125,11 @@ class users extends Model
     /**
      * @var string
      */
+    public $userSource;
+
+    /**
+     * @var string
+     */
     public $wyId;
     protected $_name = [
         'address' => 'Address',
@@ -149,6 +154,7 @@ class users extends Model
         'realNickName' => 'RealNickName',
         'remark' => 'Remark',
         'status' => 'Status',
+        'userSource' => 'UserSource',
         'wyId' => 'WyId',
     ];
 
@@ -281,6 +287,10 @@ class users extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->userSource) {
+            $res['UserSource'] = $this->userSource;
+        }
+
         if (null !== $this->wyId) {
             $res['WyId'] = $this->wyId;
         }
@@ -403,6 +413,10 @@ class users extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['UserSource'])) {
+            $model->userSource = $map['UserSource'];
         }
 
         if (isset($map['WyId'])) {

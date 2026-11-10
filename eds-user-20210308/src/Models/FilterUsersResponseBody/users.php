@@ -118,6 +118,11 @@ class users extends Model
      * @var userSetPropertiesModels[]
      */
     public $userSetPropertiesModels;
+
+    /**
+     * @var string
+     */
+    public $userSource;
     protected $_name = [
         'autoLockTime' => 'AutoLockTime',
         'desktopCount' => 'DesktopCount',
@@ -140,6 +145,7 @@ class users extends Model
         'status' => 'Status',
         'supportLoginIdps' => 'SupportLoginIdps',
         'userSetPropertiesModels' => 'UserSetPropertiesModels',
+        'userSource' => 'UserSource',
     ];
 
     public function validate()
@@ -287,6 +293,10 @@ class users extends Model
             }
         }
 
+        if (null !== $this->userSource) {
+            $res['UserSource'] = $this->userSource;
+        }
+
         return $res;
     }
 
@@ -415,6 +425,10 @@ class users extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UserSource'])) {
+            $model->userSource = $map['UserSource'];
         }
 
         return $model;
