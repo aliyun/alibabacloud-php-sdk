@@ -499,6 +499,7 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\VerifyDomainOwnerRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\VerifyDomainOwnerResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -509,6 +510,9 @@ class Wafopenapi extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'waf-openapi';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-qingdao' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
@@ -634,7 +638,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the resource group to which a protected object belongs.
+     * Modifies the resource group of a protected object.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -689,7 +693,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the resource group to which a protected object belongs.
+     * Modifies the resource group of a protected object.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -1189,7 +1193,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds an extension certificate for a cloud native mode resource.
+     * Adds an extension certificate for cloud native mode.
      *
      * @param request - CreateCloudResourceExtensionCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1244,7 +1248,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds an extension certificate for a cloud native mode resource.
+     * Adds an extension certificate for cloud native mode.
      *
      * @param request - CreateCloudResourceExtensionCertRequest
      *
@@ -2830,7 +2834,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes an extension certificate for a cloud service connected in cloud native mode.
+     * Deletes the extended certificate for a resource onboarded in cloud native mode.
      *
      * @param request - DeleteCloudResourceExtensionCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2885,7 +2889,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes an extension certificate for a cloud service connected in cloud native mode.
+     * Deletes the extended certificate for a resource onboarded in cloud native mode.
      *
      * @param request - DeleteCloudResourceExtensionCertRequest
      *
@@ -3730,7 +3734,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries abnormal cloud resources added in cloud native mode.
+     * Queries abnormal cloud native mode resources.
      *
      * @param request - DescribeAbnormalCloudResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3777,7 +3781,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries abnormal cloud resources added in cloud native mode.
+     * Queries abnormal cloud native mode resources.
      *
      * @param request - DescribeAbnormalCloudResourcesRequest
      *
@@ -5312,7 +5316,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the rules of an API security policy.
+     * Queries the configuration rules for API security policies.
      *
      * @param request - DescribeApisecRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5391,7 +5395,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the rules of an API security policy.
+     * Queries the configuration rules for API security policies.
      *
      * @param request - DescribeApisecRulesRequest
      *
@@ -6134,7 +6138,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the tag information of bot management rules.
+     * Queries the bot management rule label information.
      *
      * @param request - DescribeBotRuleLabelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6197,7 +6201,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the tag information of bot management rules.
+     * Queries the bot management rule label information.
      *
      * @param request - DescribeBotRuleLabelsRequest
      *
@@ -6434,7 +6438,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the pricing results of WAF pricing modules.
+     * Queries the billing results of WAF billing modules.
      *
      * @param request - DescribeChargeResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6493,7 +6497,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the pricing results of WAF pricing modules.
+     * Queries the billing results of WAF billing modules.
      *
      * @param request - DescribeChargeResultRequest
      *
@@ -8952,7 +8956,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the traffic statistics.
+     * Queries traffic statistics information.
      *
      * @param request - DescribeFlowChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9015,7 +9019,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the traffic statistics.
+     * Queries traffic statistics information.
      *
      * @param request - DescribeFlowChartRequest
      *
@@ -9183,7 +9187,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries statistics information about assets detected by the basic API security feature.
+     * Queries the asset statistics information for basic API security detection.
      *
      * @param request - DescribeFreeUserAssetCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9230,7 +9234,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries statistics information about assets detected by the basic API security feature.
+     * Queries the asset statistics information for basic API security detection.
      *
      * @param request - DescribeFreeUserAssetCountRequest
      *
@@ -9313,7 +9317,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the types of security events for basic API security detection.
+     * Queries the security event types for basic API security detection.
      *
      * @param request - DescribeFreeUserEventTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9360,7 +9364,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the types of security events for basic API security detection.
+     * Queries the security event types for basic API security detection.
      *
      * @param request - DescribeFreeUserEventTypesRequest
      *
@@ -10768,7 +10772,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves supported countries and regions outside China for IP-based region blacklist.
+     * Queries the countries and areas outside China supported by the Location Blacklist.
      *
      * @param request - DescribeIpAbroadCountryInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10835,7 +10839,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves supported countries and regions outside China for IP-based region blacklist.
+     * Queries the countries and areas outside China supported by the Location Blacklist.
      *
      * @param request - DescribeIpAbroadCountryInfosRequest
      *
@@ -12342,7 +12346,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+     * Queries the region IDs of SDK-integrated resources, primarily for ALB and MSE.
      *
      * @param request - DescribeResourceRegionIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12389,7 +12393,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+     * Queries the region IDs of SDK-integrated resources, primarily for ALB and MSE.
      *
      * @param request - DescribeResourceRegionIdRequest
      *
@@ -12561,7 +12565,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+     * Queries the authorization status.
      *
      * @param request - DescribeRoleAuthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12604,7 +12608,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+     * Queries the authorization status.
      *
      * @param request - DescribeRoleAuthStatusRequest
      *
@@ -12946,7 +12950,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the top 10 most frequently triggered protection rule types.
+     * Queries the top 10 protection types with the most rule hits.
      *
      * @param request - DescribeRuleHitsTopTuleTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13005,7 +13009,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the top 10 most frequently triggered protection rule types.
+     * Queries the top 10 protection types with the most rule hits.
      *
      * @param request - DescribeRuleHitsTopTuleTypeRequest
      *
@@ -14835,7 +14839,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+     * Queries API security user risk types and statistics.
      *
      * @param request - DescribeUserAbnormalTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14898,7 +14902,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+     * Queries API security user risk types and statistics.
      *
      * @param request - DescribeUserAbnormalTypeRequest
      *
@@ -16770,7 +16774,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the certificate for a cloud native mode resource.
+     * Modifies the certificates for cloud native mode.
      *
      * @param request - ModifyCloudResourceCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16833,7 +16837,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the certificate for a cloud native mode resource.
+     * Modifies the certificates for cloud native mode.
      *
      * @param request - ModifyCloudResourceCertRequest
      *
@@ -16851,7 +16855,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the default certificate for a cloud native mode resource.
+     * Modifies the default certificate for cloud native mode.
      *
      * @param request - ModifyCloudResourceDefaultCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16906,7 +16910,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the default certificate for a cloud native mode resource.
+     * Modifies the default certificate for cloud native mode.
      *
      * @param request - ModifyCloudResourceDefaultCertRequest
      *
@@ -19488,7 +19492,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
+     * Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
      *
      * @param request - ReCreateCloudResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19551,7 +19555,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
+     * Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
      *
      * @param request - ReCreateCloudResourceRequest
      *
@@ -19774,7 +19778,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources and then deletes the tags.
+     * Removes and deletes tags from one or more specified resources.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19829,7 +19833,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources and then deletes the tags.
+     * Removes and deletes tags from one or more specified resources.
      *
      * @param request - UntagResourcesRequest
      *

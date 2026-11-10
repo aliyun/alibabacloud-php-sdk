@@ -1,3 +1,7 @@
+2026-11-10 Version: 7.8.7
+- Update API DescribeChargeResult: add request parameters ChargeModules.$.UsageDecimal.
+
+
 2026-09-23 Version: 7.8.6
 - Update API CopyDefenseTemplate: add request parameters DryRun.
 - Update API CreateDefenseRule: add request parameters DryRun.

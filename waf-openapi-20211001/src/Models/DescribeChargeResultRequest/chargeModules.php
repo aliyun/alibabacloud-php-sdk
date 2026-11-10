@@ -17,9 +17,15 @@ class chargeModules extends Model
      * @var int
      */
     public $usage;
+
+    /**
+     * @var float
+     */
+    public $usageDecimal;
     protected $_name = [
         'moduleCode' => 'ModuleCode',
         'usage' => 'Usage',
+        'usageDecimal' => 'UsageDecimal',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class chargeModules extends Model
 
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
+        }
+
+        if (null !== $this->usageDecimal) {
+            $res['UsageDecimal'] = $this->usageDecimal;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class chargeModules extends Model
 
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
+        }
+
+        if (isset($map['UsageDecimal'])) {
+            $model->usageDecimal = $map['UsageDecimal'];
         }
 
         return $model;
