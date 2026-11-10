@@ -11,6 +11,11 @@ class proxyProtocolV2Config extends Model
     /**
      * @var bool
      */
+    public $ppv2CnIdEnabled;
+
+    /**
+     * @var bool
+     */
     public $ppv2PrivateLinkEpIdEnabled;
 
     /**
@@ -23,6 +28,7 @@ class proxyProtocolV2Config extends Model
      */
     public $ppv2VpcIdEnabled;
     protected $_name = [
+        'ppv2CnIdEnabled' => 'Ppv2CnIdEnabled',
         'ppv2PrivateLinkEpIdEnabled' => 'Ppv2PrivateLinkEpIdEnabled',
         'ppv2PrivateLinkEpsIdEnabled' => 'Ppv2PrivateLinkEpsIdEnabled',
         'ppv2VpcIdEnabled' => 'Ppv2VpcIdEnabled',
@@ -36,6 +42,10 @@ class proxyProtocolV2Config extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ppv2CnIdEnabled) {
+            $res['Ppv2CnIdEnabled'] = $this->ppv2CnIdEnabled;
+        }
+
         if (null !== $this->ppv2PrivateLinkEpIdEnabled) {
             $res['Ppv2PrivateLinkEpIdEnabled'] = $this->ppv2PrivateLinkEpIdEnabled;
         }
@@ -59,6 +69,10 @@ class proxyProtocolV2Config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ppv2CnIdEnabled'])) {
+            $model->ppv2CnIdEnabled = $map['Ppv2CnIdEnabled'];
+        }
+
         if (isset($map['Ppv2PrivateLinkEpIdEnabled'])) {
             $model->ppv2PrivateLinkEpIdEnabled = $map['Ppv2PrivateLinkEpIdEnabled'];
         }

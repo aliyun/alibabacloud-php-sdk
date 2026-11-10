@@ -12,6 +12,11 @@ class UpdateServerGroupAttributeRequest extends Model
     /**
      * @var string
      */
+    public $addressIPVersion;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -64,6 +69,7 @@ class UpdateServerGroupAttributeRequest extends Model
      */
     public $serverGroupName;
     protected $_name = [
+        'addressIPVersion' => 'AddressIPVersion',
         'clientToken' => 'ClientToken',
         'connectionDrainEnabled' => 'ConnectionDrainEnabled',
         'connectionDrainTimeout' => 'ConnectionDrainTimeout',
@@ -88,6 +94,10 @@ class UpdateServerGroupAttributeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->addressIPVersion) {
+            $res['AddressIPVersion'] = $this->addressIPVersion;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -143,6 +153,10 @@ class UpdateServerGroupAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIPVersion'])) {
+            $model->addressIPVersion = $map['AddressIPVersion'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
