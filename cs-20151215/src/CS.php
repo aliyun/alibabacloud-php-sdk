@@ -159,6 +159,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallNodePoolComponentsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallNodePoolComponentsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\InvokeAgentRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\InvokeAgentResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ListAutoRepairPoliciesResponse;
@@ -6941,6 +6943,195 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->installNodePoolComponentsWithOptions($clusterId, $nodePoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 发起智能助手会话运行（AG-UI 协议）.
+     *
+     * @remarks
+     * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+     *
+     * @param request - InvokeAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeAgentResponse
+     *
+     * @param InvokeAgentRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return InvokeAgentResponse
+     */
+    public function invokeAgentWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->context) {
+            @$body['context'] = $request->context;
+        }
+
+        if (null !== $request->forwardedProps) {
+            @$body['forwardedProps'] = $request->forwardedProps;
+        }
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->parentRunId) {
+            @$body['parentRunId'] = $request->parentRunId;
+        }
+
+        if (null !== $request->resume) {
+            @$body['resume'] = $request->resume;
+        }
+
+        if (null !== $request->runId) {
+            @$body['runId'] = $request->runId;
+        }
+
+        if (null !== $request->state) {
+            @$body['state'] = $request->state;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        if (null !== $request->tools) {
+            @$body['tools'] = $request->tools;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvokeAgent',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intelligence/invoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield InvokeAgentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 发起智能助手会话运行（AG-UI 协议）.
+     *
+     * @remarks
+     * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+     *
+     * @param request - InvokeAgentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InvokeAgentResponse
+     *
+     * @param InvokeAgentRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return InvokeAgentResponse
+     */
+    public function invokeAgentWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->context) {
+            @$body['context'] = $request->context;
+        }
+
+        if (null !== $request->forwardedProps) {
+            @$body['forwardedProps'] = $request->forwardedProps;
+        }
+
+        if (null !== $request->messages) {
+            @$body['messages'] = $request->messages;
+        }
+
+        if (null !== $request->parentRunId) {
+            @$body['parentRunId'] = $request->parentRunId;
+        }
+
+        if (null !== $request->resume) {
+            @$body['resume'] = $request->resume;
+        }
+
+        if (null !== $request->runId) {
+            @$body['runId'] = $request->runId;
+        }
+
+        if (null !== $request->state) {
+            @$body['state'] = $request->state;
+        }
+
+        if (null !== $request->threadId) {
+            @$body['threadId'] = $request->threadId;
+        }
+
+        if (null !== $request->tools) {
+            @$body['tools'] = $request->tools;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InvokeAgent',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intelligence/invoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return InvokeAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发起智能助手会话运行（AG-UI 协议）.
+     *
+     * @remarks
+     * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+     *
+     * @param request - InvokeAgentRequest
+     *
+     * @returns InvokeAgentResponse
+     *
+     * @param InvokeAgentRequest $request
+     *
+     * @return InvokeAgentResponse
+     */
+    public function invokeAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->invokeAgentWithOptions($request, $headers, $runtime);
     }
 
     /**
