@@ -88,6 +88,11 @@ class sessionConfig extends Model
      * @var string
      */
     public $webReportTheme;
+
+    /**
+     * @var string
+     */
+    public $workMode;
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'customAgentStage' => 'CustomAgentStage',
@@ -105,6 +110,7 @@ class sessionConfig extends Model
         'skipWebReportConfirm' => 'SkipWebReportConfirm',
         'userSpecifiedSkillList' => 'UserSpecifiedSkillList',
         'webReportTheme' => 'WebReportTheme',
+        'workMode' => 'WorkMode',
     ];
 
     public function validate()
@@ -212,6 +218,10 @@ class sessionConfig extends Model
             $res['WebReportTheme'] = $this->webReportTheme;
         }
 
+        if (null !== $this->workMode) {
+            $res['WorkMode'] = $this->workMode;
+        }
+
         return $res;
     }
 
@@ -306,6 +316,10 @@ class sessionConfig extends Model
 
         if (isset($map['WebReportTheme'])) {
             $model->webReportTheme = $map['WebReportTheme'];
+        }
+
+        if (isset($map['WorkMode'])) {
+            $model->workMode = $map['WorkMode'];
         }
 
         return $model;
