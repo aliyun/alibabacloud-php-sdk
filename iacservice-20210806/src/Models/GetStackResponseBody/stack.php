@@ -40,6 +40,11 @@ class stack extends Model
     public $ramRole;
 
     /**
+     * @var bool
+     */
+    public $skipPropertyValidation;
+
+    /**
      * @var string
      */
     public $source;
@@ -75,6 +80,7 @@ class stack extends Model
         'description' => 'description',
         'name' => 'name',
         'ramRole' => 'ramRole',
+        'skipPropertyValidation' => 'skipPropertyValidation',
         'source' => 'source',
         'sourcePath' => 'sourcePath',
         'stackId' => 'stackId',
@@ -116,6 +122,10 @@ class stack extends Model
 
         if (null !== $this->ramRole) {
             $res['ramRole'] = $this->ramRole;
+        }
+
+        if (null !== $this->skipPropertyValidation) {
+            $res['skipPropertyValidation'] = $this->skipPropertyValidation;
         }
 
         if (null !== $this->source) {
@@ -175,6 +185,10 @@ class stack extends Model
 
         if (isset($map['ramRole'])) {
             $model->ramRole = $map['ramRole'];
+        }
+
+        if (isset($map['skipPropertyValidation'])) {
+            $model->skipPropertyValidation = $map['skipPropertyValidation'];
         }
 
         if (isset($map['source'])) {

@@ -29,6 +29,11 @@ class UpdateStackRequest extends Model
     public $ramRole;
 
     /**
+     * @var bool
+     */
+    public $skipPropertyValidation;
+
+    /**
      * @var string
      */
     public $sourcePath;
@@ -42,6 +47,7 @@ class UpdateStackRequest extends Model
         'description' => 'description',
         'name' => 'name',
         'ramRole' => 'ramRole',
+        'skipPropertyValidation' => 'skipPropertyValidation',
         'sourcePath' => 'sourcePath',
         'workingDirectory' => 'workingDirectory',
     ];
@@ -68,6 +74,10 @@ class UpdateStackRequest extends Model
 
         if (null !== $this->ramRole) {
             $res['ramRole'] = $this->ramRole;
+        }
+
+        if (null !== $this->skipPropertyValidation) {
+            $res['skipPropertyValidation'] = $this->skipPropertyValidation;
         }
 
         if (null !== $this->sourcePath) {
@@ -103,6 +113,10 @@ class UpdateStackRequest extends Model
 
         if (isset($map['ramRole'])) {
             $model->ramRole = $map['ramRole'];
+        }
+
+        if (isset($map['skipPropertyValidation'])) {
+            $model->skipPropertyValidation = $map['skipPropertyValidation'];
         }
 
         if (isset($map['sourcePath'])) {

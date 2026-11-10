@@ -34,6 +34,11 @@ class CreateStackRequest extends Model
     public $ramRole;
 
     /**
+     * @var bool
+     */
+    public $skipPropertyValidation;
+
+    /**
      * @var string
      */
     public $source;
@@ -53,6 +58,7 @@ class CreateStackRequest extends Model
         'name' => 'name',
         'parameterSetIds' => 'parameterSetIds',
         'ramRole' => 'ramRole',
+        'skipPropertyValidation' => 'skipPropertyValidation',
         'source' => 'source',
         'sourcePath' => 'sourcePath',
         'workingDirectory' => 'workingDirectory',
@@ -94,6 +100,10 @@ class CreateStackRequest extends Model
 
         if (null !== $this->ramRole) {
             $res['ramRole'] = $this->ramRole;
+        }
+
+        if (null !== $this->skipPropertyValidation) {
+            $res['skipPropertyValidation'] = $this->skipPropertyValidation;
         }
 
         if (null !== $this->source) {
@@ -144,6 +154,10 @@ class CreateStackRequest extends Model
 
         if (isset($map['ramRole'])) {
             $model->ramRole = $map['ramRole'];
+        }
+
+        if (isset($map['skipPropertyValidation'])) {
+            $model->skipPropertyValidation = $map['skipPropertyValidation'];
         }
 
         if (isset($map['source'])) {
