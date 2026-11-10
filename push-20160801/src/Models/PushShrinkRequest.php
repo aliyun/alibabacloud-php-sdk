@@ -261,6 +261,16 @@ class PushShrinkRequest extends Model
     /**
      * @var string
      */
+    public $androidVivoTemplateId;
+
+    /**
+     * @var string
+     */
+    public $androidVivoTemplateParams;
+
+    /**
+     * @var string
+     */
     public $androidXiaoMiActivity;
 
     /**
@@ -663,6 +673,8 @@ class PushShrinkRequest extends Model
         'androidVivoLiveMessage' => 'AndroidVivoLiveMessage',
         'androidVivoPushMode' => 'AndroidVivoPushMode',
         'androidVivoReceiptId' => 'AndroidVivoReceiptId',
+        'androidVivoTemplateId' => 'AndroidVivoTemplateId',
+        'androidVivoTemplateParams' => 'AndroidVivoTemplateParams',
         'androidXiaoMiActivity' => 'AndroidXiaoMiActivity',
         'androidXiaoMiNotifyBody' => 'AndroidXiaoMiNotifyBody',
         'androidXiaoMiNotifyTitle' => 'AndroidXiaoMiNotifyTitle',
@@ -942,6 +954,14 @@ class PushShrinkRequest extends Model
 
         if (null !== $this->androidVivoReceiptId) {
             $res['AndroidVivoReceiptId'] = $this->androidVivoReceiptId;
+        }
+
+        if (null !== $this->androidVivoTemplateId) {
+            $res['AndroidVivoTemplateId'] = $this->androidVivoTemplateId;
+        }
+
+        if (null !== $this->androidVivoTemplateParams) {
+            $res['AndroidVivoTemplateParams'] = $this->androidVivoTemplateParams;
         }
 
         if (null !== $this->androidXiaoMiActivity) {
@@ -1437,6 +1457,14 @@ class PushShrinkRequest extends Model
 
         if (isset($map['AndroidVivoReceiptId'])) {
             $model->androidVivoReceiptId = $map['AndroidVivoReceiptId'];
+        }
+
+        if (isset($map['AndroidVivoTemplateId'])) {
+            $model->androidVivoTemplateId = $map['AndroidVivoTemplateId'];
+        }
+
+        if (isset($map['AndroidVivoTemplateParams'])) {
+            $model->androidVivoTemplateParams = $map['AndroidVivoTemplateParams'];
         }
 
         if (isset($map['AndroidXiaoMiActivity'])) {

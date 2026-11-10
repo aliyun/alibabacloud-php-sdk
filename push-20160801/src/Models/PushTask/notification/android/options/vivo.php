@@ -32,12 +32,24 @@ class vivo extends Model
      * @var string
      */
     public $receiptId;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
+    /**
+     * @var string
+     */
+    public $templateParams;
     protected $_name = [
         'addBadge' => 'AddBadge',
         'category' => 'Category',
         'importance' => 'Importance',
         'liveMessage' => 'LiveMessage',
         'receiptId' => 'ReceiptId',
+        'templateId' => 'TemplateId',
+        'templateParams' => 'TemplateParams',
     ];
 
     public function validate()
@@ -66,6 +78,14 @@ class vivo extends Model
 
         if (null !== $this->receiptId) {
             $res['ReceiptId'] = $this->receiptId;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->templateParams) {
+            $res['TemplateParams'] = $this->templateParams;
         }
 
         return $res;
@@ -97,6 +117,14 @@ class vivo extends Model
 
         if (isset($map['ReceiptId'])) {
             $model->receiptId = $map['ReceiptId'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['TemplateParams'])) {
+            $model->templateParams = $map['TemplateParams'];
         }
 
         return $model;
