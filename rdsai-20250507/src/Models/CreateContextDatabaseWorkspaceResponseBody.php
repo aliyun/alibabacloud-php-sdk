@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseWorkspaceResponseBody\capabilities;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateContextDatabaseWorkspaceResponseBody\viewer;
 
 class CreateContextDatabaseWorkspaceResponseBody extends Model
 {
@@ -17,6 +19,21 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
      * @var string
      */
     public $apiKeyName;
+
+    /**
+     * @var capabilities
+     */
+    public $capabilities;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $consolePermissionMode;
 
     /**
      * @var string
@@ -32,6 +49,11 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
      * @var string
      */
     public $memberName;
+
+    /**
+     * @var string
+     */
+    public $permissionMode;
 
     /**
      * @var string
@@ -54,6 +76,11 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
     public $type;
 
     /**
+     * @var viewer
+     */
+    public $viewer;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -65,19 +92,30 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
     protected $_name = [
         'apiKey' => 'ApiKey',
         'apiKeyName' => 'ApiKeyName',
+        'capabilities' => 'Capabilities',
+        'clusterId' => 'ClusterId',
+        'consolePermissionMode' => 'ConsolePermissionMode',
         'createdAt' => 'CreatedAt',
         'memberId' => 'MemberId',
         'memberName' => 'MemberName',
+        'permissionMode' => 'PermissionMode',
         'requestId' => 'RequestId',
         'role' => 'Role',
         'status' => 'Status',
         'type' => 'Type',
+        'viewer' => 'Viewer',
         'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
     ];
 
     public function validate()
     {
+        if (null !== $this->capabilities) {
+            $this->capabilities->validate();
+        }
+        if (null !== $this->viewer) {
+            $this->viewer->validate();
+        }
         parent::validate();
     }
 
@@ -92,6 +130,18 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
             $res['ApiKeyName'] = $this->apiKeyName;
         }
 
+        if (null !== $this->capabilities) {
+            $res['Capabilities'] = null !== $this->capabilities ? $this->capabilities->toArray($noStream) : $this->capabilities;
+        }
+
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->consolePermissionMode) {
+            $res['ConsolePermissionMode'] = $this->consolePermissionMode;
+        }
+
         if (null !== $this->createdAt) {
             $res['CreatedAt'] = $this->createdAt;
         }
@@ -102,6 +152,10 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
 
         if (null !== $this->memberName) {
             $res['MemberName'] = $this->memberName;
+        }
+
+        if (null !== $this->permissionMode) {
+            $res['PermissionMode'] = $this->permissionMode;
         }
 
         if (null !== $this->requestId) {
@@ -118,6 +172,10 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
 
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->viewer) {
+            $res['Viewer'] = null !== $this->viewer ? $this->viewer->toArray($noStream) : $this->viewer;
         }
 
         if (null !== $this->workspaceId) {
@@ -147,6 +205,18 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
             $model->apiKeyName = $map['ApiKeyName'];
         }
 
+        if (isset($map['Capabilities'])) {
+            $model->capabilities = capabilities::fromMap($map['Capabilities']);
+        }
+
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['ConsolePermissionMode'])) {
+            $model->consolePermissionMode = $map['ConsolePermissionMode'];
+        }
+
         if (isset($map['CreatedAt'])) {
             $model->createdAt = $map['CreatedAt'];
         }
@@ -157,6 +227,10 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
 
         if (isset($map['MemberName'])) {
             $model->memberName = $map['MemberName'];
+        }
+
+        if (isset($map['PermissionMode'])) {
+            $model->permissionMode = $map['PermissionMode'];
         }
 
         if (isset($map['RequestId'])) {
@@ -173,6 +247,10 @@ class CreateContextDatabaseWorkspaceResponseBody extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['Viewer'])) {
+            $model->viewer = viewer::fromMap($map['Viewer']);
         }
 
         if (isset($map['WorkspaceId'])) {
