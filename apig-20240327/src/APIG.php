@@ -48,6 +48,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateEnvironmentResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayQuotaRuleSubjectUsageExportTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayQuotaRuleSubjectUsageExportTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiOperationRequest;
@@ -169,6 +171,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayElasticPolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayElasticPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageExportTaskRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageExportTaskResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResourceQuotaUsageRequest;
@@ -1677,6 +1681,8 @@ class APIG extends OpenApiClient
     /**
      * Creates a consumer authorization rule.
      *
+     * @deprecated OpenAPI CreateConsumerAuthorizationRule is deprecated
+     *
      * @param request - CreateConsumerAuthorizationRuleRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1733,8 +1739,11 @@ class APIG extends OpenApiClient
         return CreateConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Creates a consumer authorization rule.
+     *
+     * @deprecated OpenAPI CreateConsumerAuthorizationRule is deprecated
      *
      * @param request - CreateConsumerAuthorizationRuleRequest
      *
@@ -2276,6 +2285,117 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createGatewayWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建网关配额限流规则主体用量明细导出任务
+     *
+     * @remarks
+     * ## 调用流程
+     * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
+     * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
+     * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
+     * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
+     * ## 使用条件与限制
+     * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
+     * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
+     * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
+     * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
+     * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
+     * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+     *
+     * @param request - CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
+     *
+     * @param string                                              $gatewayId
+     * @param string                                              $ruleId
+     * @param string                                              $subjectId
+     * @param CreateGatewayQuotaRuleSubjectUsageExportTaskRequest $request
+     * @param string[]                                            $headers
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
+     */
+    public function createGatewayQuotaRuleSubjectUsageExportTaskWithOptions($gatewayId, $ruleId, $subjectId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->filterFailedRequests) {
+            @$body['filterFailedRequests'] = $request->filterFailedRequests;
+        }
+
+        if (null !== $request->format) {
+            @$body['format'] = $request->format;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGatewayQuotaRuleSubjectUsageExportTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules/' . Url::percentEncode($ruleId) . '/subjects/' . Url::percentEncode($subjectId) . '/usage/export-tasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGatewayQuotaRuleSubjectUsageExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建网关配额限流规则主体用量明细导出任务
+     *
+     * @remarks
+     * ## 调用流程
+     * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
+     * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
+     * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
+     * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
+     * ## 使用条件与限制
+     * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
+     * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
+     * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
+     * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
+     * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
+     * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+     *
+     * @param request - CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
+     *
+     * @returns CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
+     *
+     * @param string                                              $gatewayId
+     * @param string                                              $ruleId
+     * @param string                                              $subjectId
+     * @param CreateGatewayQuotaRuleSubjectUsageExportTaskRequest $request
+     *
+     * @return CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
+     */
+    public function createGatewayQuotaRuleSubjectUsageExportTask($gatewayId, $ruleId, $subjectId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGatewayQuotaRuleSubjectUsageExportTaskWithOptions($gatewayId, $ruleId, $subjectId, $request, $headers, $runtime);
     }
 
     /**
@@ -3699,7 +3819,7 @@ class APIG extends OpenApiClient
      * Creates a service.
      *
      * @remarks
-     * Creates multiple services.
+     * This operation supports creating multiple services.
      *
      * @param request - CreateServiceRequest
      * @param headers - map
@@ -3762,7 +3882,7 @@ class APIG extends OpenApiClient
      * Creates a service.
      *
      * @remarks
-     * Creates multiple services.
+     * This operation supports creating multiple services.
      *
      * @param request - CreateServiceRequest
      *
@@ -4096,7 +4216,9 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes an API consumer authorization rule.
+     * Deletes a consumer authorization rule.
+     *
+     * @deprecated OpenAPI DeleteConsumerAuthorizationRule is deprecated
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4130,8 +4252,11 @@ class APIG extends OpenApiClient
         return DeleteConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * Deletes an API consumer authorization rule.
+     * Deletes a consumer authorization rule.
+     *
+     * @deprecated OpenAPI DeleteConsumerAuthorizationRule is deprecated
      *
      * @returns DeleteConsumerAuthorizationRuleResponse
      *
@@ -5868,7 +5993,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+     * Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
      *
      * @param request - GetApiPathFieldConfigRequest
      * @param headers - map
@@ -5914,7 +6039,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the effective field collection configurations for each request path of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+     * Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
      *
      * @param request - GetApiPathFieldConfigRequest
      *
@@ -5933,7 +6058,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+     * Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
      *
      * @param request - GetApiPathFieldTemplateRequest
      * @param headers - map
@@ -5975,7 +6100,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the field template corresponding to a URI of the request and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
+     * Queries the field template corresponding to the API request path and returns the template name, applicable protocol, template description, and the set of fields defined by the template, including field keys, JSONPaths, value sources, and statistical categories.
      *
      * @param request - GetApiPathFieldTemplateRequest
      *
@@ -6159,7 +6284,9 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a consumer authorization rule.
+     * Retrieves consumer authorization rules.
+     *
+     * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6193,8 +6320,11 @@ class APIG extends OpenApiClient
         return GetConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * Retrieves a consumer authorization rule.
+     * Retrieves consumer authorization rules.
+     *
+     * @deprecated OpenAPI GetConsumerAuthorizationRule is deprecated
      *
      * @returns GetConsumerAuthorizationRuleResponse
      *
@@ -6900,6 +7030,95 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getGatewayQuotaRuleSubjectUsageWithOptions($gatewayId, $ruleId, $subjectId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the status, processing progress, failure cause, and file download information of an export task for quota rule subject consumption details.
+     *
+     * @remarks
+     * ## Call flow
+     * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
+     * - Pending or Running: The task is not completed. You can query again after a period of time.
+     * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
+     * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
+     * ## Download link and file validity period
+     * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
+     * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+     * ## Query scope and task progress
+     * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
+     * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+     *
+     * @param request - GetGatewayQuotaRuleSubjectUsageExportTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGatewayQuotaRuleSubjectUsageExportTaskResponse
+     *
+     * @param string                                           $gatewayId
+     * @param string                                           $ruleId
+     * @param string                                           $subjectId
+     * @param string                                           $taskId
+     * @param GetGatewayQuotaRuleSubjectUsageExportTaskRequest $request
+     * @param string[]                                         $headers
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return GetGatewayQuotaRuleSubjectUsageExportTaskResponse
+     */
+    public function getGatewayQuotaRuleSubjectUsageExportTaskWithOptions($gatewayId, $ruleId, $subjectId, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetGatewayQuotaRuleSubjectUsageExportTask',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules/' . Url::percentEncode($ruleId) . '/subjects/' . Url::percentEncode($subjectId) . '/usage/export-tasks/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGatewayQuotaRuleSubjectUsageExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status, processing progress, failure cause, and file download information of an export task for quota rule subject consumption details.
+     *
+     * @remarks
+     * ## Call flow
+     * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
+     * - Pending or Running: The task is not completed. You can query again after a period of time.
+     * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
+     * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
+     * ## Download link and file validity period
+     * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
+     * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+     * ## Query scope and task progress
+     * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
+     * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+     *
+     * @param request - GetGatewayQuotaRuleSubjectUsageExportTaskRequest
+     *
+     * @returns GetGatewayQuotaRuleSubjectUsageExportTaskResponse
+     *
+     * @param string                                           $gatewayId
+     * @param string                                           $ruleId
+     * @param string                                           $subjectId
+     * @param string                                           $taskId
+     * @param GetGatewayQuotaRuleSubjectUsageExportTaskRequest $request
+     *
+     * @return GetGatewayQuotaRuleSubjectUsageExportTaskResponse
+     */
+    public function getGatewayQuotaRuleSubjectUsageExportTask($gatewayId, $ruleId, $subjectId, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGatewayQuotaRuleSubjectUsageExportTaskWithOptions($gatewayId, $ruleId, $subjectId, $taskId, $request, $headers, $runtime);
     }
 
     /**
@@ -8622,7 +8841,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Calls an AI agent.
+     * Invokes an AI agent.
      *
      * @param request - InvokeAIAgentRequest
      * @param headers - map
@@ -8693,7 +8912,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Calls an AI agent.
+     * Invokes an AI agent.
      *
      * @param request - InvokeAIAgentRequest
      * @param headers - map
@@ -8751,7 +8970,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Calls an AI agent.
+     * Invokes an AI agent.
      *
      * @param request - InvokeAIAgentRequest
      *
@@ -9145,6 +9364,8 @@ class APIG extends OpenApiClient
     /**
      * Retrieves a list of consumer authorization rules.
      *
+     * @deprecated OpenAPI ListConsumerAuthorizationRules is deprecated
+     *
      * @param request - ListConsumerAuthorizationRulesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9193,8 +9414,11 @@ class APIG extends OpenApiClient
         return ListConsumerAuthorizationRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Retrieves a list of consumer authorization rules.
+     *
+     * @deprecated OpenAPI ListConsumerAuthorizationRules is deprecated
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      *
@@ -9439,7 +9663,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of quota rules configured for a specific consumer.
+     * Queries the list of configured quota rules for a consumer.
      *
      * @param request - ListConsumerQuotaRulesRequest
      * @param headers - map
@@ -9494,7 +9718,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of quota rules configured for a specific consumer.
+     * Queries the list of configured quota rules for a consumer.
      *
      * @param request - ListConsumerQuotaRulesRequest
      *
@@ -10194,7 +10418,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of load balancers for a gateway.
+     * Retrieves the list of gateway load balancers.
      *
      * @param request - ListGatewayLoadBalancersRequest
      * @param headers - map
@@ -10257,7 +10481,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of load balancers for a gateway.
+     * Retrieves the list of gateway load balancers.
      *
      * @param request - ListGatewayLoadBalancersRequest
      *
@@ -11223,7 +11447,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
+     * Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
      *
      * @param request - ListMcpProductToolsRequest
      * @param headers - map
@@ -11260,7 +11484,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of Model Context Protocol (MCP) tools in an API product of the MCP Server type. The response returns a list of tools. Each tool includes three text members (name, title, and description) and four map members (inputSchema, outputSchema, annotations, and meta).
+     * Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
      *
      * @param request - ListMcpProductToolsRequest
      *
@@ -11436,7 +11660,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+     * Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
      *
      * @param request - ListModelCardsRequest
      * @param headers - map
@@ -11478,7 +11702,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with the features, pricing, meta, availablePaths, and snapshots structures. The only request parameter is the provider identifier.
+     * Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
      *
      * @param request - ListModelCardsRequest
      *
@@ -13984,10 +14208,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the currently active credentials for an AI service.
+     * Queries the currently active credentials for the AI service.
      *
      * @remarks
-     * Queries the currently active credentials for an AI service.
+     * Queries the currently active credentials for the AI service.
      *
      * @param request - RevealServiceCredentialRequest
      * @param headers - map
@@ -14024,10 +14248,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the currently active credentials for an AI service.
+     * Queries the currently active credentials for the AI service.
      *
      * @remarks
-     * Queries the currently active credentials for an AI service.
+     * Queries the currently active credentials for the AI service.
      *
      * @param request - RevealServiceCredentialRequest
      *
@@ -14244,7 +14468,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Tags resources.
+     * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -14294,7 +14518,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Tags resources.
+     * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -15078,10 +15302,12 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates consumer authorization rules.
+     * Updates the consumer authorization rule.
      *
      * @remarks
-     * This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+     * This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+     *
+     * @deprecated OpenAPI UpdateConsumerAuthorizationRule is deprecated
      *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      * @param headers - map
@@ -15132,11 +15358,14 @@ class APIG extends OpenApiClient
         return UpdateConsumerAuthorizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * Updates consumer authorization rules.
+     * Updates the consumer authorization rule.
      *
      * @remarks
-     * This API operation is replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+     * This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
+     *
+     * @deprecated OpenAPI UpdateConsumerAuthorizationRule is deprecated
      *
      * @param request - UpdateConsumerAuthorizationRuleRequest
      *
@@ -15294,7 +15523,7 @@ class APIG extends OpenApiClient
      * Updates a domain name.
      *
      * @remarks
-     * Only sources of the **Container Service** type can update the listener Ingress configuration.
+     * Only sources of the **container service** type are allowed to update the listener Ingress configurations.
      *
      * @param request - UpdateDomainRequest
      * @param headers - map
@@ -15380,7 +15609,7 @@ class APIG extends OpenApiClient
      * Updates a domain name.
      *
      * @remarks
-     * Only sources of the **Container Service** type can update the listener Ingress configuration.
+     * Only sources of the **container service** type are allowed to update the listener Ingress configurations.
      *
      * @param request - UpdateDomainRequest
      *
