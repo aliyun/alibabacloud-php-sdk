@@ -46,6 +46,11 @@ class ListColumnsRequest extends Model
     /**
      * @var int
      */
+    public $onlyColumnName;
+
+    /**
+     * @var int
+     */
     public $pageSize;
 
     /**
@@ -80,6 +85,7 @@ class ListColumnsRequest extends Model
         'instanceName' => 'InstanceName',
         'lang' => 'Lang',
         'name' => 'Name',
+        'onlyColumnName' => 'OnlyColumnName',
         'pageSize' => 'PageSize',
         'productCode' => 'ProductCode',
         'riskLevelId' => 'RiskLevelId',
@@ -122,6 +128,10 @@ class ListColumnsRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->onlyColumnName) {
+            $res['OnlyColumnName'] = $this->onlyColumnName;
         }
 
         if (null !== $this->pageSize) {
@@ -185,6 +195,10 @@ class ListColumnsRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['OnlyColumnName'])) {
+            $model->onlyColumnName = $map['OnlyColumnName'];
         }
 
         if (isset($map['PageSize'])) {
