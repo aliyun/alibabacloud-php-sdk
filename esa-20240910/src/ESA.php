@@ -87,6 +87,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEnvironmentRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEnvironmentResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateErrorPagesRedirectRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateErrorPagesRedirectRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateErrorPagesRedirectRuleShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest;
@@ -219,6 +222,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEnvironmentRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEnvironmentResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteErrorPagesRedirectRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteErrorPagesRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpDDoSIntelligentRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpDDoSIntelligentRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpIncomingRequestHeaderModificationRuleRequest;
@@ -459,6 +464,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusReq
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetErrorPagesRedirectRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetErrorPagesRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetFailFileRequest;
@@ -646,6 +653,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEnvironmentsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEnvironmentsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListErrorPagesRedirectRulesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListErrorPagesRedirectRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListESAIPInfoRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListESAIPInfoResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpIncomingRequestHeaderModificationRulesRequest;
@@ -915,6 +924,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEnvironmentRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEnvironmentResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEnvironmentVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEnvironmentVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateErrorPagesRedirectRuleRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateErrorPagesRedirectRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateErrorPagesRedirectRuleShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingRequestHeaderModificationRuleShrinkRequest;
@@ -1048,6 +1060,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\VerifyCustomHostnameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\VerifyCustomHostnameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\VerifySiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\VerifySiteResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1060,6 +1073,9 @@ class ESA extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'ESA';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('esa', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1187,7 +1203,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Activates the client based on the certificate ID.
+     * Activates a client based on the certificate ID.
      *
      * @param Request - ActivateClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1222,7 +1238,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Activates the client based on the certificate ID.
+     * Activates a client based on the certificate ID.
      *
      * @param Request - ActivateClientCertificateRequest
      *
@@ -1240,11 +1256,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+     * Enables version management to allow a site to support multiple configuration versions and deployment environments for more flexible management of site traffic and configurations.
      *
      * @remarks
      * Prerequisites for enabling site version management:
-     * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
+     * 1. The site plan must include the version management quota item `version_management_available` with the value set to `true`.
      *
      * @param Request - ActivateVersionManagementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1283,11 +1299,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+     * Enables version management to allow a site to support multiple configuration versions and deployment environments for more flexible management of site traffic and configurations.
      *
      * @remarks
      * Prerequisites for enabling site version management:
-     * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
+     * 1. The site plan must include the version management quota item `version_management_available` with the value set to `true`.
      *
      * @param Request - ActivateVersionManagementRequest
      *
@@ -1305,7 +1321,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a user opportunity order.
+     * Creates a user opportunity ticket.
      *
      * @param Request - AddUserBusinessFormRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1368,7 +1384,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a user opportunity order.
+     * Creates a user opportunity ticket.
      *
      * @param Request - AddUserBusinessFormRequest
      *
@@ -1455,7 +1471,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Requests a new free certificate for a Software as a Service (SaaS) domain name. Call this operation only if the previous certificate request failed, or the current certificate is about to expire or has expired.
+     * Reapplies for a free certificate for a SaaS domain name. This operation is supported only when the current free certificate application fails, is about to expire, or has expired.
      *
      * @param Request - ApplyCustomHostnameCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1494,7 +1510,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Requests a new free certificate for a Software as a Service (SaaS) domain name. Call this operation only if the previous certificate request failed, or the current certificate is about to expire or has expired.
+     * Reapplies for a free certificate for a SaaS domain name. This operation is supported only when the current free certificate application fails, is about to expire, or has expired.
      *
      * @param Request - ApplyCustomHostnameCertificateRequest
      *
@@ -1512,11 +1528,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates multiple DNS records in a batch. Multiple record types are supported.
+     * Adds DNS records in batches and supports multiple record types.
      *
      * @remarks
-     * This API operation allows you to create or update multiple DNS records at a time. It is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as Priority, Flag, Tag, and Weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
-     * Successfully and unsuccessfully processed records are listed separately in the response, so that you can identify which records are processed, which records failed, and the failure reasons.
+     * This API operation allows you to create or update multiple DNS record entries at a time, which is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as priority, flag, tag, and weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
+     * Successful and failed record operations are listed separately in the response, so that you can understand which records are processed successfully and which records fail and the reasons for the failures.
      *
      * @param tmpReq - BatchCreateRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1565,11 +1581,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates multiple DNS records in a batch. Multiple record types are supported.
+     * Adds DNS records in batches and supports multiple record types.
      *
      * @remarks
-     * This API operation allows you to create or update multiple DNS records at a time. It is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as Priority, Flag, Tag, and Weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
-     * Successfully and unsuccessfully processed records are listed separately in the response, so that you can identify which records are processed, which records failed, and the failure reasons.
+     * This API operation allows you to create or update multiple DNS record entries at a time, which is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as priority, flag, tag, and weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
+     * Successful and failed record operations are listed separately in the response, so that you can understand which records are processed successfully and which records fail and the reasons for the failures.
      *
      * @param Request - BatchCreateRecordsRequest
      *
@@ -1587,7 +1603,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
+     * Creates multiple rules in a specified WAF phase in a single batch and configures shared settings for the rules.
      *
      * @param tmpReq - BatchCreateWafRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1658,7 +1674,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
+     * Creates multiple rules in a specified WAF phase in a single batch and configures shared settings for the rules.
      *
      * @param Request - BatchCreateWafRulesRequest
      *
@@ -2377,7 +2393,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
+     * Modifies multiple rules in a specified WAF rule set in batches. You can use this operation to update the configurations of multiple rules at the same time.
      *
      * @param tmpReq - BatchUpdateWafRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2448,7 +2464,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
+     * Modifies multiple rules in a specified WAF rule set in batches. You can use this operation to update the configurations of multiple rules at the same time.
      *
      * @param Request - BatchUpdateWafRulesRequest
      *
@@ -2584,7 +2600,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Validates whether a site is compatible with the target plan during site plan migration.
+     * Validates whether a site is compatible with the target plan during plan migration.
      *
      * @param Request - CheckSiteFeaturesMatchPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2627,7 +2643,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Validates whether a site is compatible with the target plan during site plan migration.
+     * Validates whether a site is compatible with the target plan during plan migration.
      *
      * @param Request - CheckSiteFeaturesMatchPlanRequest
      *
@@ -2645,7 +2661,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Checks whether a specified website name is available.
+     * Pre-validates whether a site name is available.
      *
      * @param Request - CheckSiteNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2684,7 +2700,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Checks whether a specified website name is available.
+     * Pre-validates whether a site name is available.
      *
      * @param Request - CheckSiteNameRequest
      *
@@ -2702,7 +2718,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Checks the project name of a real-time log delivery task.
+     * Checks the project name of a real-time log task.
      *
      * @param Request - CheckSiteProjectNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2737,7 +2753,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Checks the project name of a real-time log delivery task.
+     * Checks the project name of a real-time log task.
      *
      * @param Request - CheckSiteProjectNameRequest
      *
@@ -2869,8 +2885,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Submits the staging (unstable) code of an Edge Routine and generates a production version.
-     * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
+     * Submits the staging code of an Edge Routine to generate a production version. Before calling this API operation, you must call GetRoutineStagingCodeUploadInfo to obtain the Object Storage Service (OSS) upload credentials, upload the code file by using an OSS POST request, and then call this API operation after the upload callback succeeds.
      *
      * @param Request - CommitRoutineStagingCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2917,8 +2932,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Submits the staging (unstable) code of an Edge Routine and generates a production version.
-     * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
+     * Submits the staging code of an Edge Routine to generate a production version. Before calling this API operation, you must call GetRoutineStagingCodeUploadInfo to obtain the Object Storage Service (OSS) upload credentials, upload the code file by using an OSS POST request, and then call this API operation after the upload callback succeeds.
      *
      * @param Request - CommitRoutineStagingCodeRequest
      *
@@ -3362,7 +3376,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a custom response code rule for a site.
+     * Creates a custom response code configuration for a site.
      *
      * @param Request - CreateCustomResponseCodeRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3429,7 +3443,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a custom response code rule for a site.
+     * Creates a custom response code configuration for a site.
      *
      * @param Request - CreateCustomResponseCodeRuleRequest
      *
@@ -3635,7 +3649,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Create an image secret for the edge container application.
+     * Creates an image secret for an edge container application.
      *
      * @param Request - CreateEdgeContainerAppImageSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3686,7 +3700,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Create an image secret for the edge container application.
+     * Creates an image secret for an edge container application.
      *
      * @param Request - CreateEdgeContainerAppImageSecretRequest
      *
@@ -3769,11 +3783,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an edge container application version. You can iteratively release applications by version.
+     * Creates a version for an edge container application to support iterative releases.
      * Note:
-     * 1) Your account must have an ESA plan with the Edge Container feature enabled.
-     * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
-     * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
+     * 1) Your account must be subscribed to an ESA plan that includes the Edge Container feature.
+     * 2) You must call CreateEdgeContainerApp to create an application and obtain the AppId.
+     * 3) A complete call chain example is provided (CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion).
      *
      * @param tmpReq - CreateEdgeContainerAppVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3830,11 +3844,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an edge container application version. You can iteratively release applications by version.
+     * Creates a version for an edge container application to support iterative releases.
      * Note:
-     * 1) Your account must have an ESA plan with the Edge Container feature enabled.
-     * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
-     * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
+     * 1) Your account must be subscribed to an ESA plan that includes the Edge Container feature.
+     * 2) You must call CreateEdgeContainerApp to create an application and obtain the AppId.
+     * 3) A complete call chain example is provided (CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion).
      *
      * @param Request - CreateEdgeContainerAppVersionRequest
      *
@@ -3918,6 +3932,93 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEnvironmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an error code redirection rule.
+     *
+     * @param tmpReq - CreateErrorPagesRedirectRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateErrorPagesRedirectRuleResponse
+     *
+     * @param CreateErrorPagesRedirectRuleRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateErrorPagesRedirectRuleResponse
+     */
+    public function createErrorPagesRedirectRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateErrorPagesRedirectRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->errorPagesRedirect) {
+            $request->errorPagesRedirectShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->errorPagesRedirect, 'ErrorPagesRedirect', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->errorPagesRedirectShrink) {
+            @$query['ErrorPagesRedirect'] = $request->errorPagesRedirectShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateErrorPagesRedirectRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateErrorPagesRedirectRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an error code redirection rule.
+     *
+     * @param Request - CreateErrorPagesRedirectRuleRequest
+     *
+     * @returns CreateErrorPagesRedirectRuleResponse
+     *
+     * @param CreateErrorPagesRedirectRuleRequest $request
+     *
+     * @return CreateErrorPagesRedirectRuleResponse
+     */
+    public function createErrorPagesRedirectRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createErrorPagesRedirectRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -4667,7 +4768,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
+     * Creates a custom list for referencing values in rule matching engines to implement complex logic and control in various security policies.
      *
      * @param tmpReq - CreateListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4724,7 +4825,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
+     * Creates a custom list for referencing values in rule matching engines to implement complex logic and control in various security policies.
      *
      * @param Request - CreateListRequest
      *
@@ -4742,11 +4843,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
+     * Creates a load balancer instance with advanced features such as custom routing policies, session persistence, and monitoring configurations.
      *
      * @remarks
-     * Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
-     * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
+     * This API allows you to configure load balancing services based on your business requirements, including but not limited to adaptive routing, weighted round-robin, rule matching, and health checks, to achieve effective traffic management and optimization.
+     * Only the Enterprise Edition plan supports the load balancer service. To use this service, contact Alibaba Cloud sales to apply for the Enterprise Edition plan.
      *
      * @param tmpReq - CreateLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4863,11 +4964,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
+     * Creates a load balancer instance with advanced features such as custom routing policies, session persistence, and monitoring configurations.
      *
      * @remarks
-     * Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
-     * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
+     * This API allows you to configure load balancing services based on your business requirements, including but not limited to adaptive routing, weighted round-robin, rule matching, and health checks, to achieve effective traffic management and optimization.
+     * Only the Enterprise Edition plan supports the load balancer service. To use this service, contact Alibaba Cloud sales to apply for the Enterprise Edition plan.
      *
      * @param Request - CreateLoadBalancerRequest
      *
@@ -4885,10 +4986,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Adds a network optimization configuration for a site.
+     * Creates a network optimization configuration for a site.
      *
      * @remarks
-     * The site plan must be Standard Edition or higher to use the WebSocket feature. When calling this API, you must provide at least one feature configuration parameter. Providing only SiteId returns an error.
+     * The site plan must be Standard Edition or higher to use the WebSocket feature. In addition, when you call this API operation, you must specify at least one feature configuration parameter. Specifying only SiteId returns an error.
      *
      * @param Request - CreateNetworkOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4967,10 +5068,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Adds a network optimization configuration for a site.
+     * Creates a network optimization configuration for a site.
      *
      * @remarks
-     * The site plan must be Standard Edition or higher to use the WebSocket feature. When calling this API, you must provide at least one feature configuration parameter. Providing only SiteId returns an error.
+     * The site plan must be Standard Edition or higher to use the WebSocket feature. In addition, when you call this API operation, you must specify at least one feature configuration parameter. Specifying only SiteId returns an error.
      *
      * @param Request - CreateNetworkOptimizationRequest
      *
@@ -5350,7 +5451,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Create a DNS record under a site.
+     * Creates a DNS record under a site.
      *
      * @param tmpReq - CreateRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5447,7 +5548,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Create a DNS record under a site.
+     * Creates a DNS record under a site.
      *
      * @param Request - CreateRecordRequest
      *
@@ -8114,7 +8215,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Delete compression rule.
+     * Deletes the compression rule configuration for a site.
      *
      * @param Request - DeleteCompressionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8157,7 +8258,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Delete compression rule.
+     * Deletes the compression rule configuration for a site.
      *
      * @param Request - DeleteCompressionRuleRequest
      *
@@ -8661,7 +8762,68 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a rule created by Deep Learning and Protection.
+     * Deletes the error code redirection configuration.
+     *
+     * @param Request - DeleteErrorPagesRedirectRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteErrorPagesRedirectRuleResponse
+     *
+     * @param DeleteErrorPagesRedirectRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteErrorPagesRedirectRuleResponse
+     */
+    public function deleteErrorPagesRedirectRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteErrorPagesRedirectRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteErrorPagesRedirectRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the error code redirection configuration.
+     *
+     * @param Request - DeleteErrorPagesRedirectRuleRequest
+     *
+     * @returns DeleteErrorPagesRedirectRuleResponse
+     *
+     * @param DeleteErrorPagesRedirectRuleRequest $request
+     *
+     * @return DeleteErrorPagesRedirectRuleResponse
+     */
+    public function deleteErrorPagesRedirectRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteErrorPagesRedirectRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the rules issued by deep learning and protection.
      *
      * @param Request - DeleteHttpDDoSIntelligentRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8708,7 +8870,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a rule created by Deep Learning and Protection.
+     * Deletes the rules issued by deep learning and protection.
      *
      * @param Request - DeleteHttpDDoSIntelligentRuleRequest
      *
@@ -9153,7 +9315,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a keyless server configuration.
+     * Deletes a Keyless server configuration.
      *
      * @param Request - DeleteKeylessServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9196,7 +9358,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a keyless server configuration.
+     * Deletes a Keyless server configuration.
      *
      * @param Request - DeleteKeylessServerRequest
      *
@@ -9562,7 +9724,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes an origin client certificate for a specific site.
+     * Deletes a domain-level back-to-origin client certificate.
      *
      * @param Request - DeleteOriginClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9597,7 +9759,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes an origin client certificate for a specific site.
+     * Deletes a domain-level back-to-origin client certificate.
      *
      * @param Request - DeleteOriginClientCertificateRequest
      *
@@ -9733,7 +9895,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Delete Origin Rule Configuration.
+     * Deletes the back-to-origin rule configuration.
      *
      * @param Request - DeleteOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9776,7 +9938,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Delete Origin Rule Configuration.
+     * Deletes the back-to-origin rule configuration.
      *
      * @param Request - DeleteOriginRuleRequest
      *
@@ -9912,7 +10074,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a URL redirect rule for a website.
+     * Deletes the redirect configuration for a site.
      *
      * @param Request - DeleteRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9955,7 +10117,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a URL redirect rule for a website.
+     * Deletes the redirect configuration for a site.
      *
      * @param Request - DeleteRedirectRuleRequest
      *
@@ -9973,7 +10135,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a URL rewrite rule for a website.
+     * Deletes the URL rewrite configuration for a site.
      *
      * @param Request - DeleteRewriteUrlRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10016,7 +10178,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a URL rewrite rule for a website.
+     * Deletes the URL rewrite configuration for a site.
      *
      * @param Request - DeleteRewriteUrlRuleRequest
      *
@@ -10209,12 +10371,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes environment variables of a Routine.
+     * Deletes the environment variables of a routine.
      *
      * @remarks
-     * ## Operation description
-     * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
-     * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+     * ## Request description
+     * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
+     * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
      *
      * @param tmpReq - DeleteRoutineEnvironmentVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10267,12 +10429,12 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes environment variables of a Routine.
+     * Deletes the environment variables of a routine.
      *
      * @remarks
-     * ## Operation description
-     * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
-     * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+     * ## Request description
+     * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
+     * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
      *
      * @param Request - DeleteRoutineEnvironmentVariablesRequest
      *
@@ -10890,14 +11052,14 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
+     * Deletes the user task delivery configuration based on the specified task name and Alibaba Cloud UID.
      *
      * @remarks
-     * This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+     * This operation allows you to delete a configured task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before the operation, ensure that the provided information is accurate to avoid affecting the normal processing of related logs or data.
      * **Note:**
-     * - The deletion operation is irreversible. Proceed with caution.
+     * - The delete operation is irreversible. Proceed with caution.
      * - Only accounts with the required permissions can call this operation.
-     * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
+     * - The returned `RequestId` can be used to track the request processing progress and troubleshoot issues.
      *
      * @param Request - DeleteUserDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10936,14 +11098,14 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
+     * Deletes the user task delivery configuration based on the specified task name and Alibaba Cloud UID.
      *
      * @remarks
-     * This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+     * This operation allows you to delete a configured task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before the operation, ensure that the provided information is accurate to avoid affecting the normal processing of related logs or data.
      * **Note:**
-     * - The deletion operation is irreversible. Proceed with caution.
+     * - The delete operation is irreversible. Proceed with caution.
      * - Only accounts with the required permissions can call this operation.
-     * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
+     * - The returned `RequestId` can be used to track the request processing progress and troubleshoot issues.
      *
      * @param Request - DeleteUserDeliveryTaskRequest
      *
@@ -14021,7 +14183,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+     * Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
      *
      * @param Request - ExportRecordCnamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14056,7 +14218,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+     * Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
      *
      * @param Request - ExportRecordCnamesRequest
      *
@@ -14846,7 +15008,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the CNAME flattening configuration of a website.
+     * Queries the CNAME flattening configuration of a site.
      *
      * @param Request - GetCnameFlatteningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14881,7 +15043,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the CNAME flattening configuration of a website.
+     * Queries the CNAME flattening configuration of a site.
      *
      * @param Request - GetCnameFlatteningRequest
      *
@@ -14899,7 +15061,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query Compression Rule Details.
+     * Queries the details of compression rules for a site.
      *
      * @param Request - GetCompressionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14934,7 +15096,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query Compression Rule Details.
+     * Queries the details of compression rules for a site.
      *
      * @param Request - GetCompressionRuleRequest
      *
@@ -15956,6 +16118,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries the details of the error code redirect configuration.
+     *
+     * @param Request - GetErrorPagesRedirectRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetErrorPagesRedirectRuleResponse
+     *
+     * @param GetErrorPagesRedirectRuleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetErrorPagesRedirectRuleResponse
+     */
+    public function getErrorPagesRedirectRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetErrorPagesRedirectRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetErrorPagesRedirectRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of the error code redirect configuration.
+     *
+     * @param Request - GetErrorPagesRedirectRuleRequest
+     *
+     * @returns GetErrorPagesRedirectRuleResponse
+     *
+     * @param GetErrorPagesRedirectRuleRequest $request
+     *
+     * @return GetErrorPagesRedirectRuleResponse
+     */
+    public function getErrorPagesRedirectRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getErrorPagesRedirectRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Downloads the failed file for a specified upload task.
      *
      * @param Request - GetFailFileRequest
@@ -16009,7 +16232,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the configuration details of an HTTP request header modification rule for a website.
+     * Queries the details of the HTTP incoming request header modification configuration for a site.
      *
      * @param Request - GetHttpIncomingRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16044,7 +16267,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the configuration details of an HTTP request header modification rule for a website.
+     * Queries the details of the HTTP incoming request header modification configuration for a site.
      *
      * @param Request - GetHttpIncomingRequestHeaderModificationRuleRequest
      *
@@ -16115,7 +16338,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an HTTP request header modification rule for a site.
+     * Queries the details of the HTTP request header modification configuration for a site.
      *
      * @param Request - GetHttpRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16150,7 +16373,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an HTTP request header modification rule for a site.
+     * Queries the details of the HTTP request header modification configuration for a site.
      *
      * @param Request - GetHttpRequestHeaderModificationRuleRequest
      *
@@ -16380,7 +16603,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries a single site image transformation configuration.
+     * Queries a single image transform configuration for a site.
      *
      * @param Request - GetImageTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16415,7 +16638,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries a single site image transformation configuration.
+     * Queries a single image transform configuration for a site.
      *
      * @param Request - GetImageTransformRequest
      *
@@ -16873,7 +17096,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the managed transform configuration for a site.
+     * Queries the site hosting transition configuration.
      *
      * @param Request - GetManagedTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16908,7 +17131,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the managed transform configuration for a site.
+     * Queries the site hosting transition configuration.
      *
      * @param Request - GetManagedTransformRequest
      *
@@ -17038,7 +17261,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the CA certificate information of an origin server.
+     * Retrieves the CA certificate information of the origin server.
      *
      * @param Request - GetOriginCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17073,7 +17296,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the CA certificate information of an origin server.
+     * Retrieves the CA certificate information of the origin server.
      *
      * @param Request - GetOriginCaCertificateRequest
      *
@@ -17144,7 +17367,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the hostnames associated with a specific origin client certificate.
+     * Retrieves the list of domain names bound to a back-to-origin client certificate at the domain name level.
      *
      * @param Request - GetOriginClientCertificateHostnamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17179,7 +17402,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the hostnames associated with a specific origin client certificate.
+     * Retrieves the list of domain names bound to a back-to-origin client certificate at the domain name level.
      *
      * @param Request - GetOriginClientCertificateHostnamesRequest
      *
@@ -17250,7 +17473,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
+     * Queries the origin server protection configurations for a site, including the origin server protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP addresses whitelist needs to be updated. It also provides detailed information about the back-to-origin IP addresses whitelist, including the current whitelist used by the site, the latest whitelist, and the differences between them.
      *
      * @param Request - GetOriginProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17285,7 +17508,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
+     * Queries the origin server protection configurations for a site, including the origin server protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP addresses whitelist needs to be updated. It also provides detailed information about the back-to-origin IP addresses whitelist, including the current whitelist used by the site, the latest whitelist, and the differences between them.
      *
      * @param Request - GetOriginProtectionRequest
      *
@@ -17645,7 +17868,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed configuration of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
+     * Retrieves the detailed configuration information of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
      *
      * @param Request - GetRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17680,7 +17903,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed configuration of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
+     * Retrieves the detailed configuration information of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
      *
      * @param Request - GetRecordRequest
      *
@@ -18594,7 +18817,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the nameservers configured for a website.
+     * Queries the DNS server names configured for the current site.
      *
      * @param Request - GetSiteCurrentNSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18629,7 +18852,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the nameservers configured for a website.
+     * Queries the DNS server names configured for the current site.
      *
      * @param Request - GetSiteCurrentNSRequest
      *
@@ -19515,8 +19738,8 @@ class ESA extends OpenApiClient
      * Queries the details of a WAF ruleset for a specified instance.
      *
      * @remarks
-     * ## Operation description
-     * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
+     * ## Request instructions
+     * By calling the `GetUserWafRuleset` operation, you can retrieve specific Web Application Firewall (WAF) ruleset information based on the provided instance ID and ruleset ID. The information returned by this operation includes but is not limited to the position, name, description, and status of the ruleset, as well as detailed content such as the specific rules it contains. Correctly specify the required parameters when making a request to avoid request failures.
      *
      * @param Request - GetUserWafRulesetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19562,8 +19785,8 @@ class ESA extends OpenApiClient
      * Queries the details of a WAF ruleset for a specified instance.
      *
      * @remarks
-     * ## Operation description
-     * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
+     * ## Request instructions
+     * By calling the `GetUserWafRuleset` operation, you can retrieve specific Web Application Firewall (WAF) ruleset information based on the provided instance ID and ruleset ID. The information returned by this operation includes but is not limited to the position, name, description, and status of the ruleset, as well as detailed content such as the specific rules it contains. Correctly specify the required parameters when making a request to avoid request failures.
      *
      * @param Request - GetUserWafRulesetRequest
      *
@@ -20494,7 +20717,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query TLS Cipher Suite List.
+     * Queries the list of cipher suite names based on the cipher suite group name.
      *
      * @param Request - ListCiphersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20529,7 +20752,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query TLS Cipher Suite List.
+     * Queries the list of cipher suite names based on the cipher suite group name.
      *
      * @param Request - ListCiphersRequest
      *
@@ -21456,6 +21679,87 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries the error code redirection configurations.
+     *
+     * @param Request - ListErrorPagesRedirectRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListErrorPagesRedirectRulesResponse
+     *
+     * @param ListErrorPagesRedirectRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListErrorPagesRedirectRulesResponse
+     */
+    public function listErrorPagesRedirectRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->configType) {
+            @$query['ConfigType'] = $request->configType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListErrorPagesRedirectRules',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListErrorPagesRedirectRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the error code redirection configurations.
+     *
+     * @param Request - ListErrorPagesRedirectRulesRequest
+     *
+     * @returns ListErrorPagesRedirectRulesResponse
+     *
+     * @param ListErrorPagesRedirectRulesRequest $request
+     *
+     * @return ListErrorPagesRedirectRulesResponse
+     */
+    public function listErrorPagesRedirectRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listErrorPagesRedirectRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of HTTP incoming request header modification configurations for a site.
      *
      * @param Request - ListHttpIncomingRequestHeaderModificationRulesRequest
@@ -22114,7 +22418,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
+     * Lists all custom lists and their details under the account. You can filter the results by using query parameters and paginate the results to retrieve a specific set of lists.
      *
      * @param tmpReq - ListListsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22167,7 +22471,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
+     * Lists all custom lists and their details under the account. You can filter the results by using query parameters and paginate the results to retrieve a specific set of lists.
      *
      * @param Request - ListListsRequest
      *
@@ -22311,7 +22615,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
+     * Queries the list of load balancing instances under a site and returns the load balancing information under the site. Supports querying by load balancing name and paging.
      *
      * @param Request - ListLoadBalancersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22346,7 +22650,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
+     * Queries the list of load balancing instances under a site and returns the load balancing information under the site. Supports querying by load balancing name and paging.
      *
      * @param Request - ListLoadBalancersRequest
      *
@@ -22364,7 +22668,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
+     * Lists all Web Application Firewall (WAF) managed rule groups within your account. You can use this operation to retrieve a list of all rule groups and their summary information.
      *
      * @param Request - ListManagedRulesGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22407,7 +22711,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
+     * Lists all Web Application Firewall (WAF) managed rule groups within your account. You can use this operation to retrieve a list of all rule groups and their summary information.
      *
      * @param Request - ListManagedRulesGroupsRequest
      *
@@ -22584,7 +22888,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all origin pools within a site. Supports pagination and searching by origin pool name (exact or fuzzy).
+     * Queries all origin address pools under a site. Supports pagination and exact or fuzzy search by origin address pool name.
      *
      * @param Request - ListOriginPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22619,7 +22923,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all origin pools within a site. Supports pagination and searching by origin pool name (exact or fuzzy).
+     * Queries all origin address pools under a site. Supports pagination and exact or fuzzy search by origin address pool name.
      *
      * @param Request - ListOriginPoolsRequest
      *
@@ -22690,7 +22994,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
+     * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by page number and page size.
      *
      * @param tmpReq - ListPagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22743,7 +23047,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
+     * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by page number and page size.
      *
      * @param Request - ListPagesRequest
      *
@@ -22761,10 +23065,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries pay-as-you-go plan instances.
+     * Queries the pay-as-you-go plan instances.
      *
      * @remarks
-     * This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
+     * Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
      *
      * @param Request - ListPostpaidRatePlanInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22799,10 +23103,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries pay-as-you-go plan instances.
+     * Queries the pay-as-you-go plan instances.
      *
      * @remarks
-     * This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
+     * Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
      *
      * @param Request - ListPostpaidRatePlanInstancesRequest
      *
@@ -22876,7 +23180,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+     * Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
      *
      * @param Request - ListQuotasMinEffectPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22911,7 +23215,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+     * Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
      *
      * @param Request - ListQuotasMinEffectPlanRequest
      *
@@ -22929,10 +23233,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
+     * Queries the DNS records of a site, including record values, priorities, and authentication configurations. Supports filtering by record name, record type, and other conditions.
      *
      * @remarks
-     * DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
+     * DNS records associated with edge containers, Edge Routines, and Layer 4 acceleration are not returned by this API operation.
      *
      * @param Request - ListRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22967,10 +23271,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
+     * Queries the DNS records of a site, including record values, priorities, and authentication configurations. Supports filtering by record name, record type, and other conditions.
      *
      * @remarks
-     * DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
+     * DNS records associated with edge containers, Edge Routines, and Layer 4 acceleration are not returned by this API operation.
      *
      * @param Request - ListRecordsRequest
      *
@@ -23427,10 +23731,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * The records associated with the function.
+     * Queries the association records of an Edge Routine.
      *
      * @remarks
-     * Queries the list of related records for a specified edge routine. You can use pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific record entries.
+     * Queries the association records of a specified Edge Routine. You can set pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific records.
      *
      * @param Request - ListRoutineRelatedRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23481,10 +23785,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * The records associated with the function.
+     * Queries the association records of an Edge Routine.
      *
      * @remarks
-     * Queries the list of related records for a specified edge routine. You can use pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific record entries.
+     * Queries the association records of a specified Edge Routine. You can set pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific records.
      *
      * @param Request - ListRoutineRelatedRecordsRequest
      *
@@ -23502,7 +23806,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the function route list of an Edge Routine.
+     * Queries the function routes of an Edge Routine.
      *
      * @param Request - ListRoutineRoutesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23549,7 +23853,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the function route list of an Edge Routine.
+     * Queries the function routes of an Edge Routine.
      *
      * @param Request - ListRoutineRoutesRequest
      *
@@ -23673,7 +23977,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all log delivery tasks that are in progress.
+     * Lists the delivery status of all ongoing real-time log tasks.
      *
      * @param Request - ListSiteDeliveryTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23708,7 +24012,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all log delivery tasks that are in progress.
+     * Lists the delivery status of all ongoing real-time log tasks.
      *
      * @param Request - ListSiteDeliveryTasksRequest
      *
@@ -23779,7 +24083,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of back-to-origin client certificates at the site level.
+     * Queries the site-level back-to-origin client certificates.
      *
      * @param Request - ListSiteOriginClientCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23814,7 +24118,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of back-to-origin client certificates at the site level.
+     * Queries the site-level back-to-origin client certificates.
      *
      * @param Request - ListSiteOriginClientCertificatesRequest
      *
@@ -24384,7 +24688,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+     * Lists all task delivery records for a user, and supports filtering by business type and paging.
      *
      * @param Request - ListUserDeliveryTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24419,7 +24723,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+     * Lists all task delivery records for a user, and supports filtering by business type and paging.
      *
      * @param Request - ListUserDeliveryTasksRequest
      *
@@ -24790,7 +25094,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
+     * Lists all managed rules under Web Application Firewall (WAF) or filters the rules based on specific conditions. You can use this operation to query the details of WAF managed rules in a paginated manner.
      *
      * @param tmpReq - ListWafManagedRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24875,7 +25179,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
+     * Lists all managed rules under Web Application Firewall (WAF) or filters the rules based on specific conditions. You can use this operation to query the details of WAF managed rules in a paginated manner.
      *
      * @param Request - ListWafManagedRulesRequest
      *
@@ -24954,7 +25258,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
+     * Lists all Web Application Firewall (WAF) rules or filters rules based on specific conditions. You can call this operation to query the details of WAF rules in a paginated manner.
      *
      * @param tmpReq - ListWafRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25023,7 +25327,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
+     * Lists all Web Application Firewall (WAF) rules or filters rules based on specific conditions. You can call this operation to query the details of WAF rules in a paginated manner.
      *
      * @param Request - ListWafRulesRequest
      *
@@ -25041,7 +25345,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
+     * Lists the rulesets in the current WAF phase and retrieves the basic information and status of the rulesets through paging in a paged query.
      *
      * @param tmpReq - ListWafRulesetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25106,7 +25410,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
+     * Lists the rulesets in the current WAF phase and retrieves the basic information and status of the rulesets through paging in a paged query.
      *
      * @param Request - ListWafRulesetsRequest
      *
@@ -25124,7 +25428,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists the template rules in WAF. These rules are typically predefined rulesets for quickly enabling protection against common attack types.
+     * Lists the template rules in Web Application Firewall (WAF). These rules are typically predefined rule sets used to quickly enable protection against common attack types.
      *
      * @param tmpReq - ListWafTemplateRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25181,7 +25485,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists the template rules in WAF. These rules are typically predefined rulesets for quickly enabling protection against common attack types.
+     * Lists the template rules in Web Application Firewall (WAF). These rules are typically predefined rule sets used to quickly enable protection against common attack types.
      *
      * @param Request - ListWafTemplateRulesRequest
      *
@@ -25264,10 +25568,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries waiting room events for a waiting room.
+     * Queries the details of waiting room events.
      *
      * @remarks
-     * Use this operation to query details of all waiting room events related to a waiting room in a website.
+     * Queries the details of all waiting room events associated with a specified site ID and waiting room ID.
      *
      * @param Request - ListWaitingRoomEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25302,10 +25606,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries waiting room events for a waiting room.
+     * Queries the details of waiting room events.
      *
      * @remarks
-     * Use this operation to query details of all waiting room events related to a waiting room in a website.
+     * Queries the details of all waiting room events associated with a specified site ID and waiting room ID.
      *
      * @param Request - ListWaitingRoomEventsRequest
      *
@@ -28661,7 +28965,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Cache Reserve Specification Change.
+     * Modifies the specifications of cache retention.
      *
      * @param Request - UpdateCacheReserveSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28712,7 +29016,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Cache Reserve Specification Change.
+     * Modifies the specifications of cache retention.
      *
      * @param Request - UpdateCacheReserveSpecRequest
      *
@@ -29937,6 +30241,93 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Modifies the error code redirect configuration.
+     *
+     * @param tmpReq - UpdateErrorPagesRedirectRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateErrorPagesRedirectRuleResponse
+     *
+     * @param UpdateErrorPagesRedirectRuleRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateErrorPagesRedirectRuleResponse
+     */
+    public function updateErrorPagesRedirectRuleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateErrorPagesRedirectRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->errorPagesRedirect) {
+            $request->errorPagesRedirectShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->errorPagesRedirect, 'ErrorPagesRedirect', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->errorPagesRedirectShrink) {
+            @$query['ErrorPagesRedirect'] = $request->errorPagesRedirectShrink;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->ruleEnable) {
+            @$query['RuleEnable'] = $request->ruleEnable;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateErrorPagesRedirectRule',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateErrorPagesRedirectRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the error code redirect configuration.
+     *
+     * @param Request - UpdateErrorPagesRedirectRuleRequest
+     *
+     * @returns UpdateErrorPagesRedirectRuleResponse
+     *
+     * @param UpdateErrorPagesRedirectRuleRequest $request
+     *
+     * @return UpdateErrorPagesRedirectRuleResponse
+     */
+    public function updateErrorPagesRedirectRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateErrorPagesRedirectRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Modify HTTP incoming request header configuration.
      *
      * @param tmpReq - UpdateHttpIncomingRequestHeaderModificationRuleRequest
@@ -30285,7 +30676,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Update the HTTPS Application Configuration.
+     * Modifies the HTTPS application configuration.
      *
      * @param Request - UpdateHttpsApplicationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30396,7 +30787,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Update the HTTPS Application Configuration.
+     * Modifies the HTTPS application configuration.
      *
      * @param Request - UpdateHttpsApplicationConfigurationRequest
      *
@@ -30760,10 +31151,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * To modify an existing load balancer, you must specify its load balancer ID.
+     * Modifies the information of an existing load balancing instance. The load balancing instance ID is required to identify the load balancing instance to be modified.
      *
      * @remarks
-     * This operation modifies multiple configurations for a load balancer, including its name, acceleration status, session persistence policy, and advanced traffic routing settings.>Notice: Changes to certain parameters might affect the stability of existing services. Proceed with caution.
+     * This operation allows you to modify multiple configurations of a load balancing instance, including but not limited to the load balancing instance name, acceleration status, session persistence policy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services. Proceed with caution.
      *
      * @param tmpReq - UpdateLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30880,10 +31271,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * To modify an existing load balancer, you must specify its load balancer ID.
+     * Modifies the information of an existing load balancing instance. The load balancing instance ID is required to identify the load balancing instance to be modified.
      *
      * @remarks
-     * This operation modifies multiple configurations for a load balancer, including its name, acceleration status, session persistence policy, and advanced traffic routing settings.>Notice: Changes to certain parameters might affect the stability of existing services. Proceed with caution.
+     * This operation allows you to modify multiple configurations of a load balancing instance, including but not limited to the load balancing instance name, acceleration status, session persistence policy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services. Proceed with caution.
      *
      * @param Request - UpdateLoadBalancerRequest
      *
@@ -30901,7 +31292,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modify the site hosting transformation configuration.
+     * Modifies the site hosting transformation configuration.
      *
      * @param Request - UpdateManagedTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30956,7 +31347,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modify the site hosting transformation configuration.
+     * Modifies the site hosting transformation configuration.
      *
      * @param Request - UpdateManagedTransformRequest
      *
@@ -31146,7 +31537,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modify the origin protection feature to enable or disable origin fetch convergence.
+     * Modifies the origin protection feature to enable or disable back-to-origin convergence.
      *
      * @param Request - UpdateOriginProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31193,7 +31584,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modify the origin protection feature to enable or disable origin fetch convergence.
+     * Modifies the origin protection feature to enable or disable back-to-origin convergence.
      *
      * @param Request - UpdateOriginProtectionRequest
      *
@@ -31630,16 +32021,16 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates a DNS record. Various record types and origin authentication configurations are supported.
+     * Updates a DNS record and supports multiple record types and origin server authentication configurations.
      *
      * @remarks
-     * This API operation allows you to update a DNS record, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI record types. You can modify the record content by specifying the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin authentication information to ensure secure access.
-     * ### Before you begin
-     * - The record value (Value) must match the record type. For example, a CNAME record must correspond to a target domain name.
-     * - Certain record types, such as MX and SRV, require a priority (Priority) value.
-     * - CAA records require specific fields such as Flag and Tag.
-     * - When updating security records such as CERT and SSHFP, accurately set the Type, Algorithm, and other fields.
-     * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permission settings.
+     * This API operation allows you to update DNS records, including but not limited to A, AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI types. You can modify the record content by passing the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin server authentication information to ensure secure access.
+     * ### Precautions
+     * - The record value must match the record type. For example, a CNAME record must correspond to the target domain name.
+     * - You must specify the priority for certain record types, such as MX and SRV.
+     * - You must provide specific fields such as Flag and Tag for CAA records.
+     * - When updating security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+     * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permissions.
      *
      * @param tmpReq - UpdateRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31732,16 +32123,16 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates a DNS record. Various record types and origin authentication configurations are supported.
+     * Updates a DNS record and supports multiple record types and origin server authentication configurations.
      *
      * @remarks
-     * This API operation allows you to update a DNS record, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI record types. You can modify the record content by specifying the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin authentication information to ensure secure access.
-     * ### Before you begin
-     * - The record value (Value) must match the record type. For example, a CNAME record must correspond to a target domain name.
-     * - Certain record types, such as MX and SRV, require a priority (Priority) value.
-     * - CAA records require specific fields such as Flag and Tag.
-     * - When updating security records such as CERT and SSHFP, accurately set the Type, Algorithm, and other fields.
-     * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permission settings.
+     * This API operation allows you to update DNS records, including but not limited to A, AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI types. You can modify the record content by passing the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin server authentication information to ensure secure access.
+     * ### Precautions
+     * - The record value must match the record type. For example, a CNAME record must correspond to the target domain name.
+     * - You must specify the priority for certain record types, such as MX and SRV.
+     * - You must provide specific fields such as Flag and Tag for CAA records.
+     * - When updating security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+     * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permissions.
      *
      * @param Request - UpdateRecordRequest
      *
@@ -32642,7 +33033,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Changes the status of a real-time log delivery task.
+     * Modifies the delivery status of a real-time log task.
      *
      * @param Request - UpdateSiteDeliveryTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32677,7 +33068,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Changes the status of a real-time log delivery task.
+     * Modifies the delivery status of a real-time log task.
      *
      * @param Request - UpdateSiteDeliveryTaskStatusRequest
      *
@@ -32695,7 +33086,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Changes the plan instance associated with a site.
+     * Replaces the plan instance for a site.
      *
      * @param Request - UpdateSiteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32742,7 +33133,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Changes the plan instance associated with a site.
+     * Replaces the plan instance for a site.
      *
      * @param Request - UpdateSiteInstanceRequest
      *
@@ -32888,10 +33279,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the custom nameserver (NS) names for a single site.
+     * Modifies the custom NS names for a single site.
      *
      * @remarks
-     * The site plan must be Enterprise Edition or higher to use the custom NS feature.
+     * The custom NS feature is available only for sites on the Enterprise edition plan.
      *
      * @param Request - UpdateSiteVanityNSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32934,10 +33325,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the custom nameserver (NS) names for a single site.
+     * Modifies the custom NS names for a single site.
      *
      * @remarks
-     * The site plan must be Enterprise Edition or higher to use the custom NS feature.
+     * The custom NS feature is available only for sites on the Enterprise edition plan.
      *
      * @param Request - UpdateSiteVanityNSRequest
      *
@@ -32955,7 +33346,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates a slider CAPTCHA page.
+     * Updates the slider CAPTCHA page.
      *
      * @param tmpReq - UpdateSliderCaptchaPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33024,7 +33415,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates a slider CAPTCHA page.
+     * Updates the slider CAPTCHA page.
      *
      * @param Request - UpdateSliderCaptchaPageRequest
      *
@@ -33103,11 +33494,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the forwarding rule configurations of a Layer 4 application under a specified site.
+     * Modifies the configurations such as forwarding rules for a Layer 4 application under a specified site.
      *
      * @remarks
-     * If ListTransportLayerApplications returns an empty Layer 4 acceleration application list, use CreateTransportLayerApplication to create a Layer 4 acceleration application, and then use this API to modify the configurations of the Layer 4 acceleration application.
-     * When creating a Layer 4 acceleration application, the selected site must be an activated site. After creating a site, call the VerifySite API to verify it. A site that passes verification is automatically activated, indicated by the response parameter Passed=true.
+     * If ListTransportLayerApplications returns an empty list of Layer 4 accelerated applications, you must use CreateTransportLayerApplication to create a Layer 4 accelerated application, and then use this API operation to modify multiple configurations of the application.
+     * When you create a Layer 4 accelerated application, the selected site must be activated. After you create a site, call the VerifySite API operation to verify the site. A site that passes the verification is automatically activated, which means the response parameter Passed is set to true.
      *
      * @param tmpReq - UpdateTransportLayerApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33180,11 +33571,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the forwarding rule configurations of a Layer 4 application under a specified site.
+     * Modifies the configurations such as forwarding rules for a Layer 4 application under a specified site.
      *
      * @remarks
-     * If ListTransportLayerApplications returns an empty Layer 4 acceleration application list, use CreateTransportLayerApplication to create a Layer 4 acceleration application, and then use this API to modify the configurations of the Layer 4 acceleration application.
-     * When creating a Layer 4 acceleration application, the selected site must be an activated site. After creating a site, call the VerifySite API to verify it. A site that passes verification is automatically activated, indicated by the response parameter Passed=true.
+     * If ListTransportLayerApplications returns an empty list of Layer 4 accelerated applications, you must use CreateTransportLayerApplication to create a Layer 4 accelerated application, and then use this API operation to modify multiple configurations of the application.
+     * When you create a Layer 4 accelerated application, the selected site must be activated. After you create a site, call the VerifySite API operation to verify the site. A site that passes the verification is automatically activated, which means the response parameter Passed is set to true.
      *
      * @param Request - UpdateTransportLayerApplicationRequest
      *
@@ -33267,10 +33658,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+     * Modifies the task delivery configuration for a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
      *
      * @remarks
-     * Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
+     * Before calling this operation, you must create a task with the specified TaskName by calling CreateUserDeliveryTask. You can then use this operation to update the delivery task configuration.
      *
      * @param Request - UpdateUserDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33329,10 +33720,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+     * Modifies the task delivery configuration for a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
      *
      * @remarks
-     * Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
+     * Before calling this operation, you must create a task with the specified TaskName by calling CreateUserDeliveryTask. You can then use this operation to update the delivery task configuration.
      *
      * @param Request - UpdateUserDeliveryTaskRequest
      *
@@ -33350,11 +33741,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Changes the status of a delivery task in your Alibaba Cloud account.
+     * Enables or disables a user task delivery.
      *
      * @remarks
-     * ## [](#)
-     * Use this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+     * This operation enables or disables the data delivery feature of a task based on the task name and method. The method must be specified as online or offline. The response returns the latest status of the task and the operation result details.
      *
      * @param Request - UpdateUserDeliveryTaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33389,11 +33779,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Changes the status of a delivery task in your Alibaba Cloud account.
+     * Enables or disables a user task delivery.
      *
      * @remarks
-     * ## [](#)
-     * Use this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+     * This operation enables or disables the data delivery feature of a task based on the task name and method. The method must be specified as online or offline. The response returns the latest status of the task and the operation result details.
      *
      * @param Request - UpdateUserDeliveryTaskStatusRequest
      *
@@ -33411,13 +33800,13 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the WAF ruleset configuration for a specified instance, including its position, name, and other properties.
+     * Modifies the configuration of a WAF rule set for a specified instance, including the position and name.
      *
      * @remarks
      * ## Request description
-     * - This operation updates an existing WAF ruleset. You can modify the position, name, description, status, and expression of the ruleset.
-     * - Include only the parameters that you want to modify. Omit parameters that you do not want to change.
-     * - Note: Before you call this operation, ensure that the `InstanceId` and `Id` values are correct. Otherwise, the request may fail.
+     * - This operation allows you to update an existing WAF rule set. You can modify the position, name, description, status, and expression of the rule set.
+     * - Specify only the parameters that you want to modify. You do not need to pass the key of a parameter that remains unchanged.
+     * - Note: Make sure that you have obtained the correct `InstanceId` and `Id` values before you call this operation. Otherwise, the request may fail.
      *
      * @param tmpReq - UpdateUserWafRulesetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33500,13 +33889,13 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the WAF ruleset configuration for a specified instance, including its position, name, and other properties.
+     * Modifies the configuration of a WAF rule set for a specified instance, including the position and name.
      *
      * @remarks
      * ## Request description
-     * - This operation updates an existing WAF ruleset. You can modify the position, name, description, status, and expression of the ruleset.
-     * - Include only the parameters that you want to modify. Omit parameters that you do not want to change.
-     * - Note: Before you call this operation, ensure that the `InstanceId` and `Id` values are correct. Otherwise, the request may fail.
+     * - This operation allows you to update an existing WAF rule set. You can modify the position, name, description, status, and expression of the rule set.
+     * - Specify only the parameters that you want to modify. You do not need to pass the key of a parameter that remains unchanged.
+     * - Note: Make sure that you have obtained the correct `InstanceId` and `Id` values before you call this operation. Otherwise, the request may fail.
      *
      * @param Request - UpdateUserWafRulesetRequest
      *
@@ -33775,7 +34164,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates a WAF ruleset based on its ID.
+     * Updates a WAF rule set based on the ID of the rule set.
      *
      * @param Request - UpdateWafRulesetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33828,7 +34217,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates a WAF ruleset based on its ID.
+     * Updates a WAF rule set based on the ID of the rule set.
      *
      * @param Request - UpdateWafRulesetRequest
      *
