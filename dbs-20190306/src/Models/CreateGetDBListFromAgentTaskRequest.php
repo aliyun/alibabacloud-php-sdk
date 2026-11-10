@@ -16,6 +16,11 @@ class CreateGetDBListFromAgentTaskRequest extends Model
     /**
      * @var string
      */
+    public $backupGatewayIdentifier;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -44,6 +49,7 @@ class CreateGetDBListFromAgentTaskRequest extends Model
     public $sourceEndpointRegion;
     protected $_name = [
         'backupGatewayId' => 'BackupGatewayId',
+        'backupGatewayIdentifier' => 'BackupGatewayIdentifier',
         'clientToken' => 'ClientToken',
         'databaseType' => 'DatabaseType',
         'ownerId' => 'OwnerId',
@@ -62,6 +68,10 @@ class CreateGetDBListFromAgentTaskRequest extends Model
         $res = [];
         if (null !== $this->backupGatewayId) {
             $res['BackupGatewayId'] = $this->backupGatewayId;
+        }
+
+        if (null !== $this->backupGatewayIdentifier) {
+            $res['BackupGatewayIdentifier'] = $this->backupGatewayIdentifier;
         }
 
         if (null !== $this->clientToken) {
@@ -101,6 +111,10 @@ class CreateGetDBListFromAgentTaskRequest extends Model
         $model = new self();
         if (isset($map['BackupGatewayId'])) {
             $model->backupGatewayId = $map['BackupGatewayId'];
+        }
+
+        if (isset($map['BackupGatewayIdentifier'])) {
+            $model->backupGatewayIdentifier = $map['BackupGatewayIdentifier'];
         }
 
         if (isset($map['ClientToken'])) {
