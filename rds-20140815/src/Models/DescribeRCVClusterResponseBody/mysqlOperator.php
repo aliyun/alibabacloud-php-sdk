@@ -16,6 +16,11 @@ class mysqlOperator extends Model
     /**
      * @var string
      */
+    public $dashboardPublicEndpointExpireTime;
+
+    /**
+     * @var string
+     */
     public $dashboardUsername;
 
     /**
@@ -34,6 +39,7 @@ class mysqlOperator extends Model
     public $status;
     protected $_name = [
         'dashboardPublicEndpoint' => 'DashboardPublicEndpoint',
+        'dashboardPublicEndpointExpireTime' => 'DashboardPublicEndpointExpireTime',
         'dashboardUsername' => 'DashboardUsername',
         'dashboardVpcEndpoint' => 'DashboardVpcEndpoint',
         'deployTime' => 'DeployTime',
@@ -50,6 +56,10 @@ class mysqlOperator extends Model
         $res = [];
         if (null !== $this->dashboardPublicEndpoint) {
             $res['DashboardPublicEndpoint'] = $this->dashboardPublicEndpoint;
+        }
+
+        if (null !== $this->dashboardPublicEndpointExpireTime) {
+            $res['DashboardPublicEndpointExpireTime'] = $this->dashboardPublicEndpointExpireTime;
         }
 
         if (null !== $this->dashboardUsername) {
@@ -81,6 +91,10 @@ class mysqlOperator extends Model
         $model = new self();
         if (isset($map['DashboardPublicEndpoint'])) {
             $model->dashboardPublicEndpoint = $map['DashboardPublicEndpoint'];
+        }
+
+        if (isset($map['DashboardPublicEndpointExpireTime'])) {
+            $model->dashboardPublicEndpointExpireTime = $map['DashboardPublicEndpointExpireTime'];
         }
 
         if (isset($map['DashboardUsername'])) {

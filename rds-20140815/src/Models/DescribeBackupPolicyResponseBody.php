@@ -83,6 +83,11 @@ class DescribeBackupPolicyResponseBody extends Model
     /**
      * @var bool
      */
+    public $enableImmutableBackup;
+
+    /**
+     * @var bool
+     */
     public $enableIncrementDataBackup;
 
     /**
@@ -189,6 +194,7 @@ class DescribeBackupPolicyResponseBody extends Model
         'category' => 'Category',
         'compressType' => 'CompressType',
         'enableBackupLog' => 'EnableBackupLog',
+        'enableImmutableBackup' => 'EnableImmutableBackup',
         'enableIncrementDataBackup' => 'EnableIncrementDataBackup',
         'enablePitrProtection' => 'EnablePitrProtection',
         'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
@@ -278,6 +284,10 @@ class DescribeBackupPolicyResponseBody extends Model
 
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
+        }
+
+        if (null !== $this->enableImmutableBackup) {
+            $res['EnableImmutableBackup'] = $this->enableImmutableBackup;
         }
 
         if (null !== $this->enableIncrementDataBackup) {
@@ -421,6 +431,10 @@ class DescribeBackupPolicyResponseBody extends Model
 
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
+        }
+
+        if (isset($map['EnableImmutableBackup'])) {
+            $model->enableImmutableBackup = $map['EnableImmutableBackup'];
         }
 
         if (isset($map['EnableIncrementDataBackup'])) {

@@ -1,3 +1,15 @@
+2026-11-10 Version: 14.1.1
+- Update API DescribeBackupPolicy: add response parameters Body.EnableImmutableBackup.
+- Update API DescribeRCElasticScaling: add request parameters AcuType.
+- Update API DescribeRCElasticScaling: add response parameters Body.MaxAcu.
+- Update API DescribeRCElasticScaling: add response parameters Body.MinAcu.
+- Update API DescribeRCVCluster: add response parameters Body.MysqlOperator.DashboardPublicEndpointExpireTime.
+- Update API ListRCVClusters: add response parameters Body.VClusters.$.MysqlOperator.DashboardPublicEndpointExpireTime.
+- Update API ModifyBackupPolicy: add request parameters EnableImmutableBackup.
+- Update API ModifySecurityIps: add request parameters BatchMode.
+- Update API ModifySecurityIps: add request parameters GroupItems.
+
+
 2026-10-29 Version: 14.1.0
 - Support API DescribeOperatorPermission.
 

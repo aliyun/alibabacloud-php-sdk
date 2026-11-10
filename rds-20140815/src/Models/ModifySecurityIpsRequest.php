@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifySecurityIpsRequest\groupItems;
 
 class ModifySecurityIpsRequest extends Model
 {
+    /**
+     * @var bool
+     */
+    public $batchMode;
+
     /**
      * @var string
      */
@@ -27,6 +33,11 @@ class ModifySecurityIpsRequest extends Model
      * @var string
      */
     public $freshWhiteListReadins;
+
+    /**
+     * @var groupItems[]
+     */
+    public $groupItems;
 
     /**
      * @var string
@@ -53,10 +64,12 @@ class ModifySecurityIpsRequest extends Model
      */
     public $whitelistNetworkType;
     protected $_name = [
+        'batchMode' => 'BatchMode',
         'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
         'DBInstanceIPArrayName' => 'DBInstanceIPArrayName',
         'DBInstanceId' => 'DBInstanceId',
         'freshWhiteListReadins' => 'FreshWhiteListReadins',
+        'groupItems' => 'GroupItems',
         'modifyMode' => 'ModifyMode',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityIPType' => 'SecurityIPType',
@@ -66,12 +79,19 @@ class ModifySecurityIpsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupItems)) {
+            Model::validateArray($this->groupItems);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->batchMode) {
+            $res['BatchMode'] = $this->batchMode;
+        }
+
         if (null !== $this->DBInstanceIPArrayAttribute) {
             $res['DBInstanceIPArrayAttribute'] = $this->DBInstanceIPArrayAttribute;
         }
@@ -86,6 +106,17 @@ class ModifySecurityIpsRequest extends Model
 
         if (null !== $this->freshWhiteListReadins) {
             $res['FreshWhiteListReadins'] = $this->freshWhiteListReadins;
+        }
+
+        if (null !== $this->groupItems) {
+            if (\is_array($this->groupItems)) {
+                $res['GroupItems'] = [];
+                $n1 = 0;
+                foreach ($this->groupItems as $item1) {
+                    $res['GroupItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->modifyMode) {
@@ -119,6 +150,10 @@ class ModifySecurityIpsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BatchMode'])) {
+            $model->batchMode = $map['BatchMode'];
+        }
+
         if (isset($map['DBInstanceIPArrayAttribute'])) {
             $model->DBInstanceIPArrayAttribute = $map['DBInstanceIPArrayAttribute'];
         }
@@ -133,6 +168,17 @@ class ModifySecurityIpsRequest extends Model
 
         if (isset($map['FreshWhiteListReadins'])) {
             $model->freshWhiteListReadins = $map['FreshWhiteListReadins'];
+        }
+
+        if (isset($map['GroupItems'])) {
+            if (!empty($map['GroupItems'])) {
+                $model->groupItems = [];
+                $n1 = 0;
+                foreach ($map['GroupItems'] as $item1) {
+                    $model->groupItems[$n1] = groupItems::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ModifyMode'])) {

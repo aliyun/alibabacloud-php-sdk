@@ -11,6 +11,11 @@ class DescribeRCElasticScalingRequest extends Model
     /**
      * @var string
      */
+    public $acuType;
+
+    /**
+     * @var string
+     */
     public $instanceChargeType;
 
     /**
@@ -33,6 +38,7 @@ class DescribeRCElasticScalingRequest extends Model
      */
     public $supportCase;
     protected $_name = [
+        'acuType' => 'AcuType',
         'instanceChargeType' => 'InstanceChargeType',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
@@ -48,6 +54,10 @@ class DescribeRCElasticScalingRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->acuType) {
+            $res['AcuType'] = $this->acuType;
+        }
+
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
@@ -79,6 +89,10 @@ class DescribeRCElasticScalingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcuType'])) {
+            $model->acuType = $map['AcuType'];
+        }
+
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }

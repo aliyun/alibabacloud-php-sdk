@@ -93,6 +93,11 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @var bool
      */
+    public $enableImmutableBackup;
+
+    /**
+     * @var bool
+     */
     public $enableIncrementDataBackup;
 
     /**
@@ -186,6 +191,7 @@ class ModifyBackupPolicyRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
         'enableAdvancedBackupPolicy' => 'EnableAdvancedBackupPolicy',
         'enableBackupLog' => 'EnableBackupLog',
+        'enableImmutableBackup' => 'EnableImmutableBackup',
         'enableIncrementDataBackup' => 'EnableIncrementDataBackup',
         'enablePitrProtection' => 'EnablePitrProtection',
         'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
@@ -294,6 +300,10 @@ class ModifyBackupPolicyRequest extends Model
 
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
+        }
+
+        if (null !== $this->enableImmutableBackup) {
+            $res['EnableImmutableBackup'] = $this->enableImmutableBackup;
         }
 
         if (null !== $this->enableIncrementDataBackup) {
@@ -447,6 +457,10 @@ class ModifyBackupPolicyRequest extends Model
 
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
+        }
+
+        if (isset($map['EnableImmutableBackup'])) {
+            $model->enableImmutableBackup = $map['EnableImmutableBackup'];
         }
 
         if (isset($map['EnableIncrementDataBackup'])) {

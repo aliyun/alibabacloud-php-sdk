@@ -20,6 +20,16 @@ class DescribeRCElasticScalingResponseBody extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $maxAcu;
+
+    /**
+     * @var int
+     */
+    public $minAcu;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -51,6 +61,8 @@ class DescribeRCElasticScalingResponseBody extends Model
     protected $_name = [
         'acuType' => 'AcuType',
         'instanceId' => 'InstanceId',
+        'maxAcu' => 'MaxAcu',
+        'minAcu' => 'MinAcu',
         'requestId' => 'RequestId',
         'scalingEnabled' => 'ScalingEnabled',
         'scalingSupported' => 'ScalingSupported',
@@ -76,6 +88,14 @@ class DescribeRCElasticScalingResponseBody extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->maxAcu) {
+            $res['MaxAcu'] = $this->maxAcu;
+        }
+
+        if (null !== $this->minAcu) {
+            $res['MinAcu'] = $this->minAcu;
         }
 
         if (null !== $this->requestId) {
@@ -119,6 +139,14 @@ class DescribeRCElasticScalingResponseBody extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['MaxAcu'])) {
+            $model->maxAcu = $map['MaxAcu'];
+        }
+
+        if (isset($map['MinAcu'])) {
+            $model->minAcu = $map['MinAcu'];
         }
 
         if (isset($map['RequestId'])) {
