@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\AddDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddUserToDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddUserToDataAgentWorkspaceResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CheckDataAgentMemoryConfigRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CheckDataAgentMemoryConfigResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowRequest;
@@ -139,6 +142,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetDataAgentWorkspaceInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetListMcpServerToolsResultRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetListMcpServerToolsResultResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetMyAgenticNotificationChannelAuthorizeUrlRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetMyAgenticNotificationChannelAuthorizeUrlResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusRequest;
@@ -213,6 +218,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListKnowledgeBasesRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListKnowledgeBasesResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListMyAgenticNotificationChannelConfigsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListMyAgenticNotificationChannelConfigsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListOneMetaOssieModelsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListOneMetaOssieModelsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListOneMetaSqlTemplatesRequest;
@@ -274,6 +281,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDocumentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDocumentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateMyAgenticNotificationChannelConfigRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateMyAgenticNotificationChannelConfigResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateOneMetaOssieModelRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateOneMetaOssieModelResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateOneMetaSqlTemplateRequest;
@@ -631,6 +640,99 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addUserToDataAgentWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates multiple partitions for a data lakehouse table.
+     *
+     * @param tmpReq - BatchCreateDataLakePartitionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCreateDataLakePartitionsResponse
+     *
+     * @param BatchCreateDataLakePartitionsRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return BatchCreateDataLakePartitionsResponse
+     */
+    public function batchCreateDataLakePartitionsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchCreateDataLakePartitionsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->partitionInputs) {
+            $request->partitionInputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partitionInputs, 'PartitionInputs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->ifNotExists) {
+            @$query['IfNotExists'] = $request->ifNotExists;
+        }
+
+        if (null !== $request->needResult) {
+            @$query['NeedResult'] = $request->needResult;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->partitionInputsShrink) {
+            @$body['PartitionInputs'] = $request->partitionInputsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCreateDataLakePartitions',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCreateDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates multiple partitions for a data lakehouse table.
+     *
+     * @param request - BatchCreateDataLakePartitionsRequest
+     *
+     * @returns BatchCreateDataLakePartitionsResponse
+     *
+     * @param BatchCreateDataLakePartitionsRequest $request
+     *
+     * @return BatchCreateDataLakePartitionsResponse
+     */
+    public function batchCreateDataLakePartitions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateDataLakePartitionsWithOptions($request, $runtime);
     }
 
     /**
@@ -4915,6 +5017,63 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Retrieves the OAuth authorization URL required for the current user to bind a Lark account. After the user completes the authorization, the system automatically binds their Lark account.
+     *
+     * @param request - GetMyAgenticNotificationChannelAuthorizeUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMyAgenticNotificationChannelAuthorizeUrlResponse
+     *
+     * @param GetMyAgenticNotificationChannelAuthorizeUrlRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return GetMyAgenticNotificationChannelAuthorizeUrlResponse
+     */
+    public function getMyAgenticNotificationChannelAuthorizeUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMyAgenticNotificationChannelAuthorizeUrl',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMyAgenticNotificationChannelAuthorizeUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the OAuth authorization URL required for the current user to bind a Lark account. After the user completes the authorization, the system automatically binds their Lark account.
+     *
+     * @param request - GetMyAgenticNotificationChannelAuthorizeUrlRequest
+     *
+     * @returns GetMyAgenticNotificationChannelAuthorizeUrlResponse
+     *
+     * @param GetMyAgenticNotificationChannelAuthorizeUrlRequest $request
+     *
+     * @return GetMyAgenticNotificationChannelAuthorizeUrlResponse
+     */
+    public function getMyAgenticNotificationChannelAuthorizeUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMyAgenticNotificationChannelAuthorizeUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * Submits a task to schedule and run a Notebook file.
      *
      * @param request - GetNotebookAndSubmitTaskRequest
@@ -7948,6 +8107,71 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Queries the personal notification channel configurations of the current user in the current tenant, including channel status and bound identity information.
+     *
+     * @param request - ListMyAgenticNotificationChannelConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMyAgenticNotificationChannelConfigsResponse
+     *
+     * @param ListMyAgenticNotificationChannelConfigsRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return ListMyAgenticNotificationChannelConfigsResponse
+     */
+    public function listMyAgenticNotificationChannelConfigsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMyAgenticNotificationChannelConfigs',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMyAgenticNotificationChannelConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the personal notification channel configurations of the current user in the current tenant, including channel status and bound identity information.
+     *
+     * @param request - ListMyAgenticNotificationChannelConfigsRequest
+     *
+     * @returns ListMyAgenticNotificationChannelConfigsResponse
+     *
+     * @param ListMyAgenticNotificationChannelConfigsRequest $request
+     *
+     * @return ListMyAgenticNotificationChannelConfigsResponse
+     */
+    public function listMyAgenticNotificationChannelConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMyAgenticNotificationChannelConfigsWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves a list of OSSIE models.
      *
      * @param request - ListOneMetaOssieModelsRequest
@@ -9110,10 +9334,10 @@ class Dms extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - The default value of `message_type` is `primary`. Set it to `additional` or `cancel` when you need to append information or cancel the session.
-     * - The `reply_to` field specifies the agent message to which this message responds. The default value is `0`.
-     * - The `question` field is required when `message_type` is set to `additional`.
-     * - You can use `quoted_message` to quote previous user messages.
+     * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+     * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+     * - The question field is required when message_type is set to additional.
+     * - You can use quoted_message to quote previous messages from the user.
      *
      * @param tmpReq - SendChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9230,10 +9454,10 @@ class Dms extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - The default value of `message_type` is `primary`. Set it to `additional` or `cancel` when you need to append information or cancel the session.
-     * - The `reply_to` field specifies the agent message to which this message responds. The default value is `0`.
-     * - The `question` field is required when `message_type` is set to `additional`.
-     * - You can use `quoted_message` to quote previous user messages.
+     * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+     * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+     * - The question field is required when message_type is set to additional.
+     * - You can use quoted_message to quote previous messages from the user.
      *
      * @param request - SendChatMessageRequest
      *
@@ -10502,6 +10726,71 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the notification channel switch or Lark account binding information for the current user.
+     *
+     * @param request - UpdateMyAgenticNotificationChannelConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMyAgenticNotificationChannelConfigResponse
+     *
+     * @param UpdateMyAgenticNotificationChannelConfigRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return UpdateMyAgenticNotificationChannelConfigResponse
+     */
+    public function updateMyAgenticNotificationChannelConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->channel) {
+            @$body['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['Enabled'] = $request->enabled;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMyAgenticNotificationChannelConfig',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMyAgenticNotificationChannelConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the notification channel switch or Lark account binding information for the current user.
+     *
+     * @param request - UpdateMyAgenticNotificationChannelConfigRequest
+     *
+     * @returns UpdateMyAgenticNotificationChannelConfigResponse
+     *
+     * @param UpdateMyAgenticNotificationChannelConfigRequest $request
+     *
+     * @return UpdateMyAgenticNotificationChannelConfigResponse
+     */
+    public function updateMyAgenticNotificationChannelConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMyAgenticNotificationChannelConfigWithOptions($request, $runtime);
     }
 
     /**

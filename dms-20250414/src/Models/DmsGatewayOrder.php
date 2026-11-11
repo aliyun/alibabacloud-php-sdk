@@ -67,6 +67,11 @@ class DmsGatewayOrder extends Model
      * @var string
      */
     public $state;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
         'bizType' => 'BizType',
         'chargeType' => 'ChargeType',
@@ -80,6 +85,7 @@ class DmsGatewayOrder extends Model
         'payNum' => 'PayNum',
         'region' => 'Region',
         'state' => 'State',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -136,6 +142,10 @@ class DmsGatewayOrder extends Model
 
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -195,6 +205,10 @@ class DmsGatewayOrder extends Model
 
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;
