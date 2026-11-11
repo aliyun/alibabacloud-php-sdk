@@ -338,6 +338,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetClientPublicKeyRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetClientPublicKeyResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountResourceRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountResourceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountRoleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetCloudAccountRoleResponse;
@@ -389,6 +391,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceTrialStatusRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceTrialStatusResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInventorySynchronizationJobRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInventorySynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetLoginRedirectApplicationForBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetLoginRedirectApplicationForBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointRequest;
@@ -465,6 +469,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListClientPublicKeysRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListClientPublicKeysResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountResourcesForCloudPermissionTemplateRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountResourcesForCloudPermissionTemplateResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountResourcesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountResourcesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountRolesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountRolesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListCloudAccountsRequest;
@@ -514,6 +522,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListIdentityProvidersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListIdentityProvidersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListInventorySynchronizationJobsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListInventorySynchronizationJobsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkAccessEndpointAvailableRegionsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkAccessEndpointAvailableZonesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkAccessEndpointAvailableZonesResponse;
@@ -592,6 +602,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromOrganiz
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromOrganizationalUnitResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RevokeResourceServerScopesFromUserResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RunInventorySynchronizationJobRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\RunInventorySynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RunSynchronizationJobRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RunSynchronizationJobResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationGrantScopeRequest;
@@ -784,7 +796,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Activates privileged hosting for a cloud account.
+     * Activates privileged access hosting for a cloud account.
      *
      * @param request - ActivateCloudAccountPrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -831,7 +843,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Activates privileged hosting for a cloud account.
+     * Activates privileged access hosting for a cloud account.
      *
      * @param request - ActivateCloudAccountPrivilegeRequest
      *
@@ -1910,7 +1922,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Binds a third-party logon account.
+     * Associates a third-party logon account.
      *
      * @param request - BindUserAuthnSourceMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1961,7 +1973,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Binds a third-party logon account.
+     * Associates a third-party logon account.
      *
      * @param request - BindUserAuthnSourceMappingRequest
      *
@@ -7558,7 +7570,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables cloud account privileges.
+     * Disables privileges for a cloud account.
      *
      * @param request - DisableCloudAccountPrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7605,7 +7617,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables cloud account privileges.
+     * Disables privileges for a cloud account.
      *
      * @param request - DisableCloudAccountPrivilegeRequest
      *
@@ -12069,6 +12081,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * Queries the details of a specified cloud account resource.
+     *
+     * @param request - GetCloudAccountResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCloudAccountResourceResponse
+     *
+     * @param GetCloudAccountResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetCloudAccountResourceResponse
+     */
+    public function getCloudAccountResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountResourceId) {
+            @$query['CloudAccountResourceId'] = $request->cloudAccountResourceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCloudAccountResource',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCloudAccountResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified cloud account resource.
+     *
+     * @param request - GetCloudAccountResourceRequest
+     *
+     * @returns GetCloudAccountResourceResponse
+     *
+     * @param GetCloudAccountResourceRequest $request
+     *
+     * @return GetCloudAccountResourceResponse
+     */
+    public function getCloudAccountResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCloudAccountResourceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the resource information of a cloud role.
      *
      * @param request - GetCloudAccountRoleRequest
@@ -12750,7 +12827,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 查询全局云账号系统角色权限模板
+     * Queries the permission template for the global cloud account system role.
      *
      * @param request - GetGlobalCloudAccountSystemRolePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12782,7 +12859,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * 查询全局云账号系统角色权限模板
+     * Queries the permission template for the global cloud account system role.
      *
      * @param request - GetGlobalCloudAccountSystemRolePolicyRequest
      *
@@ -12922,7 +12999,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves advanced configuration information.
+     * Retrieves the advanced configuration information.
      *
      * @param request - GetIdentityProviderAdvancedConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12965,7 +13042,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves advanced configuration information.
+     * Retrieves the advanced configuration information.
      *
      * @param request - GetIdentityProviderAdvancedConfigurationRequest
      *
@@ -13584,6 +13661,67 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceTrialStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries resource synchronization tasks.
+     *
+     * @param request - GetInventorySynchronizationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInventorySynchronizationJobResponse
+     *
+     * @param GetInventorySynchronizationJobRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetInventorySynchronizationJobResponse
+     */
+    public function getInventorySynchronizationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->inventorySynchronizationJobId) {
+            @$query['InventorySynchronizationJobId'] = $request->inventorySynchronizationJobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInventorySynchronizationJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInventorySynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries resource synchronization tasks.
+     *
+     * @param request - GetInventorySynchronizationJobRequest
+     *
+     * @returns GetInventorySynchronizationJobResponse
+     *
+     * @param GetInventorySynchronizationJobRequest $request
+     *
+     * @return GetInventorySynchronizationJobResponse
+     */
+    public function getInventorySynchronizationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInventorySynchronizationJobWithOptions($request, $runtime);
     }
 
     /**
@@ -16165,6 +16303,164 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+     *
+     * @param request - ListCloudAccountResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudAccountResourcesResponse
+     *
+     * @param ListCloudAccountResourcesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListCloudAccountResourcesResponse
+     */
+    public function listCloudAccountResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountResourceEntityType) {
+            @$query['CloudAccountResourceEntityType'] = $request->cloudAccountResourceEntityType;
+        }
+
+        if (null !== $request->cloudAccountResourceNameContains) {
+            @$query['CloudAccountResourceNameContains'] = $request->cloudAccountResourceNameContains;
+        }
+
+        if (null !== $request->cloudAccountResourceNamePrefix) {
+            @$query['CloudAccountResourceNamePrefix'] = $request->cloudAccountResourceNamePrefix;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCloudAccountResources',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCloudAccountResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+     *
+     * @param request - ListCloudAccountResourcesRequest
+     *
+     * @returns ListCloudAccountResourcesResponse
+     *
+     * @param ListCloudAccountResourcesRequest $request
+     *
+     * @return ListCloudAccountResourcesResponse
+     */
+    public function listCloudAccountResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudAccountResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+     *
+     * @param request - ListCloudAccountResourcesForCloudPermissionTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCloudAccountResourcesForCloudPermissionTemplateResponse
+     *
+     * @param ListCloudAccountResourcesForCloudPermissionTemplateRequest $request
+     * @param RuntimeOptions                                             $runtime
+     *
+     * @return ListCloudAccountResourcesForCloudPermissionTemplateResponse
+     */
+    public function listCloudAccountResourcesForCloudPermissionTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cloudAccountId) {
+            @$query['CloudAccountId'] = $request->cloudAccountId;
+        }
+
+        if (null !== $request->cloudAccountResourceEntityType) {
+            @$query['CloudAccountResourceEntityType'] = $request->cloudAccountResourceEntityType;
+        }
+
+        if (null !== $request->cloudPermissionTemplateId) {
+            @$query['CloudPermissionTemplateId'] = $request->cloudPermissionTemplateId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCloudAccountResourcesForCloudPermissionTemplate',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCloudAccountResourcesForCloudPermissionTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+     *
+     * @param request - ListCloudAccountResourcesForCloudPermissionTemplateRequest
+     *
+     * @returns ListCloudAccountResourcesForCloudPermissionTemplateResponse
+     *
+     * @param ListCloudAccountResourcesForCloudPermissionTemplateRequest $request
+     *
+     * @return ListCloudAccountResourcesForCloudPermissionTemplateResponse
+     */
+    public function listCloudAccountResourcesForCloudPermissionTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudAccountResourcesForCloudPermissionTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about one or more cloud roles by using paging.
      *
      * @param request - ListCloudAccountRolesRequest
@@ -16307,7 +16603,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information of one or more permission templates by using a paging query.
+     * Queries the information of one or more permission templates by using paging.
      *
      * @param request - ListCloudPermissionTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16374,7 +16670,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information of one or more permission templates by using a paging query.
+     * Queries the information of one or more permission templates by using paging.
      *
      * @param request - ListCloudPermissionTemplatesRequest
      *
@@ -17713,7 +18009,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Query the list of identity providers.
+     * Queries the list of identity providers.
      *
      * @param request - ListIdentityProvidersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17764,7 +18060,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Query the list of identity providers.
+     * Queries the list of identity providers.
      *
      * @param request - ListIdentityProvidersRequest
      *
@@ -17933,6 +18229,99 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries resource synchronization tasks.
+     *
+     * @remarks
+     * You can use one of the following two methods to view the returned data:
+     * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+     * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
+     * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+     *
+     * @param request - ListInventorySynchronizationJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInventorySynchronizationJobsResponse
+     *
+     * @param ListInventorySynchronizationJobsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListInventorySynchronizationJobsResponse
+     */
+    public function listInventorySynchronizationJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->inventorySourceIds) {
+            @$query['InventorySourceIds'] = $request->inventorySourceIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInventorySynchronizationJobs',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInventorySynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries resource synchronization tasks.
+     *
+     * @remarks
+     * You can use one of the following two methods to view the returned data:
+     * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+     * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
+     * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+     *
+     * @param request - ListInventorySynchronizationJobsRequest
+     *
+     * @returns ListInventorySynchronizationJobsResponse
+     *
+     * @param ListInventorySynchronizationJobsRequest $request
+     *
+     * @return ListInventorySynchronizationJobsResponse
+     */
+    public function listInventorySynchronizationJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInventorySynchronizationJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -20798,6 +21187,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * Runs a resource synchronization task.
+     *
+     * @param request - RunInventorySynchronizationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunInventorySynchronizationJobResponse
+     *
+     * @param RunInventorySynchronizationJobRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return RunInventorySynchronizationJobResponse
+     */
+    public function runInventorySynchronizationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->inventorySourceId) {
+            @$query['InventorySourceId'] = $request->inventorySourceId;
+        }
+
+        if (null !== $request->inventoryTypes) {
+            @$query['InventoryTypes'] = $request->inventoryTypes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RunInventorySynchronizationJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunInventorySynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Runs a resource synchronization task.
+     *
+     * @param request - RunInventorySynchronizationJobRequest
+     *
+     * @returns RunInventorySynchronizationJobResponse
+     *
+     * @param RunInventorySynchronizationJobRequest $request
+     *
+     * @return RunInventorySynchronizationJobResponse
+     */
+    public function runInventorySynchronizationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runInventorySynchronizationJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Runs a synchronization task. This creates a new synchronization task and immediately executes it.
      *
      * @param request - RunSynchronizationJobRequest
@@ -22451,7 +22905,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disassociates a third-party logon account.
+     * Dissociates a third-party logon account.
      *
      * @param request - UnbindUserAuthnSourceMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22502,7 +22956,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disassociates a third-party logon account.
+     * Dissociates a third-party logon account.
      *
      * @param request - UnbindUserAuthnSourceMappingRequest
      *
