@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeGroupsRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeGroupsResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeInstanceAutoRenewalAttributeResponse;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeInstancesRequest;
+use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceRequest;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribeMultiPriceResponse;
 use AlibabaCloud\SDK\Wss\V20211221\Models\DescribePackageDeductionsRequest;
@@ -164,18 +166,18 @@ class Wss extends OpenApiClient
     }
 
     /**
-     * 查询 AI 调用明细.
+     * Performs a paging query for AI model invocation records based on specified conditions.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
-     * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
-     * - 查询结果按调用时间倒序返回。
-     * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
-     * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
-     * - `PageNumber`与`PageSize`的乘积不得超过1000000。
-     * - `BizType`不传时默认为企业版。
-     * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+     * ## Request description
+     * - This operation performs a paging query for AI model invocation details of the current Alibaba Cloud account within a specified business edition, region, and time range.
+     * - You can filter results by model invocation request ID, requested model, and user ID.
+     * - Query results are returned in descending order of invocation time.
+     * - By default, this operation queries data from 00:00:00 (UTC+8) of the current day to the current time. The query time range cannot exceed 30 days and cannot start earlier than three calendar months before the current time.
+     * - You can only query data for the primary account to which the current caller identity belongs. You cannot specify other accounts.
+     * - The product of PageNumber and PageSize cannot exceed 1,000,000.
+     * - If BizType is not specified, the default value is Enterprise Edition.
+     * - If GatewayRegion is not specified, the default value is Shanghai for the China site and Singapore for the international site.
      *
      * @param request - DescribeAICallDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -246,18 +248,18 @@ class Wss extends OpenApiClient
     }
 
     /**
-     * 查询 AI 调用明细.
+     * Performs a paging query for AI model invocation records based on specified conditions.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
-     * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
-     * - 查询结果按调用时间倒序返回。
-     * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
-     * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
-     * - `PageNumber`与`PageSize`的乘积不得超过1000000。
-     * - `BizType`不传时默认为企业版。
-     * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+     * ## Request description
+     * - This operation performs a paging query for AI model invocation details of the current Alibaba Cloud account within a specified business edition, region, and time range.
+     * - You can filter results by model invocation request ID, requested model, and user ID.
+     * - Query results are returned in descending order of invocation time.
+     * - By default, this operation queries data from 00:00:00 (UTC+8) of the current day to the current time. The query time range cannot exceed 30 days and cannot start earlier than three calendar months before the current time.
+     * - You can only query data for the primary account to which the current caller identity belongs. You cannot specify other accounts.
+     * - The product of PageNumber and PageSize cannot exceed 1,000,000.
+     * - If BizType is not specified, the default value is Enterprise Edition.
+     * - If GatewayRegion is not specified, the default value is Shanghai for the China site and Singapore for the international site.
      *
      * @param request - DescribeAICallDetailsRequest
      *
@@ -784,6 +786,97 @@ class Wss extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeInstanceAutoRenewalAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries sold instances and their quotas and properties by paging based on resource type, instance ID, business resource ID, and status.
+     *
+     * @remarks
+     * Queries sold instances and their quotas and properties by paging based on resource type, instance ID, business resource ID, and status.
+     *
+     * @param request - DescribeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
+     */
+    public function describeInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->noResourceId) {
+            @$query['NoResourceId'] = $request->noResourceId;
+        }
+
+        if (null !== $request->propertyKeyList) {
+            @$query['PropertyKeyList'] = $request->propertyKeyList;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->stateList) {
+            @$query['StateList'] = $request->stateList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstances',
+            'version' => '2021-12-21',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries sold instances and their quotas and properties by paging based on resource type, instance ID, business resource ID, and status.
+     *
+     * @remarks
+     * Queries sold instances and their quotas and properties by paging based on resource type, instance ID, business resource ID, and status.
+     *
+     * @param request - DescribeInstancesRequest
+     *
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
+     */
+    public function describeInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstancesWithOptions($request, $runtime);
     }
 
     /**
