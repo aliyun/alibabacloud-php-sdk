@@ -155,6 +155,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetUpgradeStatusResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GrantPermissionsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\HibernateClusterRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\HibernateClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstallNodePoolComponentsRequest;
@@ -272,6 +274,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterNodepoolRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterNodepoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\WakeUpClusterRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\WakeUpClusterResponse;
 use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -6815,6 +6819,69 @@ class CS extends OpenApiClient
     }
 
     /**
+     * Hibernates a cluster.
+     *
+     * @param request - HibernateClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HibernateClusterResponse
+     *
+     * @param string                  $clusterId
+     * @param HibernateClusterRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return HibernateClusterResponse
+     */
+    public function hibernateClusterWithOptions($clusterId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'HibernateCluster',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/hibernate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return HibernateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Hibernates a cluster.
+     *
+     * @param request - HibernateClusterRequest
+     *
+     * @returns HibernateClusterResponse
+     *
+     * @param string                  $clusterId
+     * @param HibernateClusterRequest $request
+     *
+     * @return HibernateClusterResponse
+     */
+    public function hibernateCluster($clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->hibernateClusterWithOptions($clusterId, $request, $headers, $runtime);
+    }
+
+    /**
      * To enhance Kubernetes capabilities, ACK clusters support various components, such as managed core components, and application, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
      *
      * @param request - InstallClusterAddonsRequest
@@ -6946,10 +7013,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 发起智能助手会话运行（AG-UI 协议）.
+     * Initiates an intelligent assistant session run over the AG-UI protocol.
      *
      * @remarks
-     * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+     * The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
      *
      * @param request - InvokeAgentRequest
      * @param headers - map
@@ -7036,10 +7103,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 发起智能助手会话运行（AG-UI 协议）.
+     * Initiates an intelligent assistant session run over the AG-UI protocol.
      *
      * @remarks
-     * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+     * The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
      *
      * @param request - InvokeAgentRequest
      * @param headers - map
@@ -7113,10 +7180,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 发起智能助手会话运行（AG-UI 协议）.
+     * Initiates an intelligent assistant session run over the AG-UI protocol.
      *
      * @remarks
-     * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+     * The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
      *
      * @param request - InvokeAgentRequest
      *
@@ -11532,5 +11599,68 @@ class CS extends OpenApiClient
         $headers = [];
 
         return $this->upgradeClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Wakes up a cluster.
+     *
+     * @param request - WakeUpClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WakeUpClusterResponse
+     *
+     * @param string               $clusterId
+     * @param WakeUpClusterRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return WakeUpClusterResponse
+     */
+    public function wakeUpClusterWithOptions($clusterId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['clientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'WakeUpCluster',
+            'version' => '2015-12-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/clusters/' . Url::percentEncode($clusterId) . '/wakeUp',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return WakeUpClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Wakes up a cluster.
+     *
+     * @param request - WakeUpClusterRequest
+     *
+     * @returns WakeUpClusterResponse
+     *
+     * @param string               $clusterId
+     * @param WakeUpClusterRequest $request
+     *
+     * @return WakeUpClusterResponse
+     */
+    public function wakeUpCluster($clusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->wakeUpClusterWithOptions($clusterId, $request, $headers, $runtime);
     }
 }
