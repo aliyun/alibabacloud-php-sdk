@@ -1,3 +1,6 @@
+2026-11-11 Version: 14.1.2
+- Generated php 2014-08-15 for Rds.
+
 2026-11-10 Version: 14.1.1
 - Update API DescribeBackupPolicy: add response parameters Body.EnableImmutableBackup.
 - Update API DescribeRCElasticScaling: add request parameters AcuType.
