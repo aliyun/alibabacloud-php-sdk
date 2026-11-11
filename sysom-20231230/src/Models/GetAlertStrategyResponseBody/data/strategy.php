@@ -22,16 +22,25 @@ class strategy extends Model
      * @var mixed
      */
     public $items;
+
+    /**
+     * @var string[]
+     */
+    public $levels;
     protected $_name = [
         'clusters' => 'clusters',
         'destinations' => 'destinations',
         'items' => 'items',
+        'levels' => 'levels',
     ];
 
     public function validate()
     {
         if (\is_array($this->clusters)) {
             Model::validateArray($this->clusters);
+        }
+        if (\is_array($this->levels)) {
+            Model::validateArray($this->levels);
         }
         parent::validate();
     }
@@ -56,6 +65,17 @@ class strategy extends Model
 
         if (null !== $this->items) {
             $res['items'] = $this->items;
+        }
+
+        if (null !== $this->levels) {
+            if (\is_array($this->levels)) {
+                $res['levels'] = [];
+                $n1 = 0;
+                foreach ($this->levels as $item1) {
+                    $res['levels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -86,6 +106,17 @@ class strategy extends Model
 
         if (isset($map['items'])) {
             $model->items = $map['items'];
+        }
+
+        if (isset($map['levels'])) {
+            if (!empty($map['levels'])) {
+                $model->levels = [];
+                $n1 = 0;
+                foreach ($map['levels'] as $item1) {
+                    $model->levels[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

@@ -2244,7 +2244,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves an alert policy for a user based on the policy ID.
+     * Retrieves a user alert based on the policy ID.
      *
      * @param request - GetAlertStrategyRequest
      * @param headers - map
@@ -2286,7 +2286,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves an alert policy for a user based on the policy ID.
+     * Retrieves a user alert based on the policy ID.
      *
      * @param request - GetAlertStrategyRequest
      *
@@ -5271,7 +5271,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves all alert notification policies for the user.
+     * Retrieves all alert policies for pushing alerts.
      *
      * @param request - ListAlertStrategiesRequest
      * @param headers - map
@@ -5329,7 +5329,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Retrieves all alert notification policies for the user.
+     * Retrieves all alert policies for pushing alerts.
      *
      * @param request - ListAlertStrategiesRequest
      *
@@ -5607,11 +5607,11 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for the persisted historical messages and events in a specified session.
+     * Performs a paged query on the persisted history messages and events in a specified session with paging.
      *
      * @remarks
-     * - Only sessions of the current user are supported.
-     * - History records are returned in event order. A record may be a user message, text chunk, thinking process, or tool invoke event, and does not necessarily correspond to a complete chat message.
+     * - You can query only the sessions of the current user.
+     * - History is returned in the chronological order of events. A record may be a user message, a text chunk, a thinking event, or a tool calling (invoke) event, and does not necessarily correspond to a complete chat message.
      *
      * @param request - ListCopilotSessionMessagesRequest
      * @param headers - map
@@ -5673,11 +5673,11 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for the persisted historical messages and events in a specified session.
+     * Performs a paged query on the persisted history messages and events in a specified session with paging.
      *
      * @remarks
-     * - Only sessions of the current user are supported.
-     * - History records are returned in event order. A record may be a user message, text chunk, thinking process, or tool invoke event, and does not necessarily correspond to a complete chat message.
+     * - You can query only the sessions of the current user.
+     * - History is returned in the chronological order of events. A record may be a user message, a text chunk, a thinking event, or a tool calling (invoke) event, and does not necessarily correspond to a complete chat message.
      *
      * @param request - ListCopilotSessionMessagesRequest
      *
@@ -5696,14 +5696,14 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Queries the sessions of the current user, and supports filtering by session source or scheduled task.
+     * Queries the sessions of the current user and supports filtering by session source or scheduled task.
      *
      * @remarks
      * - Sessions are returned in descending order of update time. If the update time is the same, sessions are returned in descending order of session ID.
      * - If agentId is not specified, the aggregated session list of the current user is queried.
-     * - Filter conditions take effect before pagination. When changing filter conditions, clear nextToken and query the first page again.
-     * - The status of a session indicates whether it is archived. To determine whether a session has an active execution, read activeTurn.
-     * - Each trigger of a scheduled task creates an independent session. You can use scheduledTask.taskId to associate the session with its task, and use scheduledTask.runId to distinguish each trigger.
+     * - Filter conditions take effect before pagination. When you change the filter conditions, you must clear nextToken and query the first page again.
+     * - The status of a session indicates whether the session is archived. To determine whether a session has an active execution, read activeTurn.
+     * - Each trigger of a scheduled task creates an independent session. You can use scheduledTask.taskId to associate the session with the task and use scheduledTask.runId to distinguish each trigger.
      *
      * @param request - ListCopilotSessionsRequest
      * @param headers - map
@@ -5761,14 +5761,14 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Queries the sessions of the current user, and supports filtering by session source or scheduled task.
+     * Queries the sessions of the current user and supports filtering by session source or scheduled task.
      *
      * @remarks
      * - Sessions are returned in descending order of update time. If the update time is the same, sessions are returned in descending order of session ID.
      * - If agentId is not specified, the aggregated session list of the current user is queried.
-     * - Filter conditions take effect before pagination. When changing filter conditions, clear nextToken and query the first page again.
-     * - The status of a session indicates whether it is archived. To determine whether a session has an active execution, read activeTurn.
-     * - Each trigger of a scheduled task creates an independent session. You can use scheduledTask.taskId to associate the session with its task, and use scheduledTask.runId to distinguish each trigger.
+     * - Filter conditions take effect before pagination. When you change the filter conditions, you must clear nextToken and query the first page again.
+     * - The status of a session indicates whether the session is archived. To determine whether a session has an active execution, read activeTurn.
+     * - Each trigger of a scheduled task creates an independent session. You can use scheduledTask.taskId to associate the session with the task and use scheduledTask.runId to distinguish each trigger.
      *
      * @param request - ListCopilotSessionsRequest
      *
@@ -7552,7 +7552,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Updates the alert push policy.
+     * Updates a push alert policy.
      *
      * @param request - UpdateAlertStrategyRequest
      * @param headers - map
@@ -7610,7 +7610,7 @@ class SysOM extends OpenApiClient
     }
 
     /**
-     * Updates the alert push policy.
+     * Updates a push alert policy.
      *
      * @param request - UpdateAlertStrategyRequest
      *
@@ -7701,8 +7701,8 @@ class SysOM extends OpenApiClient
      * Updates the title or archive status of a specified session.
      *
      * @remarks
-     * - You can only modify sessions of the current user.
-     * - You must specify a non-null value for at least one of the name and status parameters. Unspecified fields remain unchanged.
+     * - Only sessions of the current user can be modified.
+     * - You must provide a non-null value for at least one of the name and status parameters. Unprovided fields remain unchanged.
      * - You can modify the title when an active execution is in progress, but you cannot modify the session status.
      * - Archiving retains the history. After a session is restored, you can continue to send messages.
      *
@@ -7754,8 +7754,8 @@ class SysOM extends OpenApiClient
      * Updates the title or archive status of a specified session.
      *
      * @remarks
-     * - You can only modify sessions of the current user.
-     * - You must specify a non-null value for at least one of the name and status parameters. Unspecified fields remain unchanged.
+     * - Only sessions of the current user can be modified.
+     * - You must provide a non-null value for at least one of the name and status parameters. Unprovided fields remain unchanged.
      * - You can modify the title when an active execution is in progress, but you cannot modify the session status.
      * - Archiving retains the history. After a session is restored, you can continue to send messages.
      *

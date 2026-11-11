@@ -1,3 +1,10 @@
+2026-11-11 Version: 2.1.3
+- Update API CreateAlertStrategy: add request parameters body.strategy.levels.
+- Update API GetAlertStrategy: add response parameters Body.data.strategy.levels.
+- Update API ListAlertStrategies: add response parameters Body.data.$.strategy.levels.
+- Update API UpdateAlertStrategy: add request parameters body.strategy.levels.
+
+
 2026-11-06 Version: 2.1.2
 - Generated php 2023-12-30 for SysOM.
 
