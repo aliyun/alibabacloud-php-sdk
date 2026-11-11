@@ -1,3 +1,12 @@
+2026-11-11 Version: 5.13.0
+- Support API ProductVideoGeneration.
+- Update API AiTryOn: add request parameters Mode.
+- Update API AiTryOn: add request parameters ModelTemplateUrl.
+- Update API AiTryOn: add request parameters PoseTemplateUrl.
+- Update API AiTryOn: add request parameters Ratio.
+- Update API AiTryOn: add request parameters TryonType.
+
+
 2026-11-03 Version: 5.12.0
 - Support API ImageUpscale.
 - Update API ImageMatting: add response parameters Body.Data.StructData.

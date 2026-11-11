@@ -102,6 +102,9 @@ use AlibabaCloud\SDK\Aidge\V20260428\Models\PrepaidTextTranslateShrinkRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ProductHotspotDetectionRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ProductHotspotDetectionResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\ProductHotspotDetectionShrinkRequest;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ProductVideoGenerationRequest;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ProductVideoGenerationResponse;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ProductVideoGenerationShrinkRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\QueryAsyncTaskResultRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\QueryAsyncTaskResultResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\QueryDisplayKnowledgeRequest;
@@ -141,6 +144,7 @@ use AlibabaCloud\SDK\Aidge\V20260428\Models\VirtualTryOnResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\VisionFlowRequest;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\VisionFlowResponse;
 use AlibabaCloud\SDK\Aidge\V20260428\Models\VisionFlowShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -151,6 +155,9 @@ class Aidge extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Aidge';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aidge', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -248,38 +255,38 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Generates a virtual try-on image by applying a clothing item to a model based on the provided clothing and model images. This AI-powered image generation API service replaces the model\\"s existing clothing with the specified item while preserving the model\\"s pose, facial features, and other background details. It ensures a realistic and well-fitted appearance of the clothing on the model. You can obtain the processed image by providing the URLs of the original images.
+     * Generates virtual try-on images by applying specified garments to a model image based on AI algorithms. It preserves the model\\"s pose, facial features, and background details while ensuring a realistic fit. Users can obtain the processed images by providing the URLs of the original product and model images.
      *
      * @remarks
      * ## Scenarios
      * - **Virtual try-on for clothing:**
-     * Supports various clothing categories such as tops, bottoms, jumpsuits, and dresses. After you upload a model image and a product image, the service generates a natural and realistic try-on effect to intuitively display how the clothing looks on the model.
+     * Supports various clothing categories such as tops, bottoms, jumpsuits, and dresses. After users upload a model image and a product image, the system generates natural and realistic try-on effects to intuitively display how the clothing looks on the model.
      * - **Virtual try-on for shoes and hats:**
-     * Supports virtual try-on for products such as shoes and hats. The service intelligently matches the position and proportion of the product based on the model\\"s pose and body parts to present a coordinated and realistic wearing effect.
+     * Supports virtual try-on for products such as shoes and hats. It intelligently matches the position and proportion of the product based on the model\\"s pose and body parts, presenting a coordinated and realistic wearing effect.
      * - **E-commerce product display and marketing:**
      * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.
      * - **Online shopping experience optimization:**
-     * Allows consumers to preview the wearing effect of products through virtual try-on, providing a more intuitive understanding of the style, matching, and overall effect of the products, which assists in purchase decisions and enhances the shopping experience.
+     * Consumers can preview the wearing effect of products through virtual try-on, more intuitively understand the style, matching, and overall effect of the products, assist in purchase decisions, and enhance the shopping experience.
      * ## Features
-     * - **First, you need to provide a model image and a product image. The system uses the model image as the try-on subject and applies the clothing from the product image to the model:**
-     *   - a. Model image: The image of the person who will virtually try on the clothing.
-     *   - b. Product image: The image of the clothing, shoes, or hat to be worn by the model.
-     * - **Second, you can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
-     *   - a. Specify product type: You can directly specify the type of the current product, and the system will process it according to the specified type.
-     *   - b. Automatic type recognition: If you do not specify the product type, the system automatically recognizes the product category in the product image and performs the virtual try-on based on the recognition result.
-     * - **Finally, the system generates a virtual try-on image by combining the model image, product image, and product type to display the wearing effect of the product on the model:**
-     *   - a. Preserve model details: The generation process does not alter the appearance, hairstyle, pose, body shape, or other details of the person in the original model image.
-     *   - b. Maintain image consistency: The background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
-     *   - c. Generate try-on effect: The product is naturally applied to the model, fitting the person\\"s pose and body structure to generate a coordinated and realistic virtual try-on image.
+     * - **First, users need to input a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image to the model:**
+     *   - a. Model image: the image of the person who needs to perform the virtual try-on.
+     *   - b. Product image: the image of the clothing, shoes, or hat to be worn by the model.
+     * - **Second, users can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
+     *   - a. Specify product type: users can directly input the type of the current product, and the system will process it according to the specified type.
+     *   - b. Automatic type recognition: if the user does not input the product type, the system will automatically recognize the product category in the product image and perform the virtual try-on based on the recognition result.
+     * - **Finally, the system combines the model image, product image, and product type to generate a virtual try-on image, displaying the wearing effect of the product on the model:**
+     *   - a. Preserve model details: the generation process does not adjust the appearance, hairstyle, pose, body shape, and other details of the person in the original model image.
+     *   - b. Maintain image consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged, and only the wearing area corresponding to the product is processed.
+     *   - c. Generate try-on effect: naturally apply the product to the model, making it fit the person\\"s pose and body structure, and generate a coordinated and realistic virtual try-on image.
      * ## Examples
-     * | **Type** | **Model image** | **Clothing image** | **Try-on result image** |
+     * | **Type** | **Model image** | **Garment image** | **Try-on result image** |
      * | --- | --- | --- | --- |
-     * | Tops | ![lQLPJv-OKUNDSxvNBojNA62wAMWEBuiTUuMKXnNidWFWAA_941_1672.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/e4273b03-0d3b-4e98-b8f3-8713fccee303.png) | ![Front view of male model in shirt-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/d9ab77f7-8791-4fa5-8d76-4fda3e2e1310.png) | ![7c1c0c04-9828-940f-b86d-c08f7ec8fb97_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/42982786-73ee-4d23-a8d0-551f7a18be22.png) |
-     * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Bootcut jeans-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
+     * | Top | ![lQLPJv-OKUNDSxvNBojNA62wAMWEBuiTUuMKXnNidWFWAA_941_1672.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/e4273b03-0d3b-4e98-b8f3-8713fccee303.png) | ![Front view of male model wearing a shirt-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/d9ab77f7-8791-4fa5-8d76-4fda3e2e1310.png) | ![7c1c0c04-9828-940f-b86d-c08f7ec8fb97_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/42982786-73ee-4d23-a8d0-551f7a18be22.png) |
+     * | Bottom | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Slightly flared jeans-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
      * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Front view of male model\\"s shoes-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
-     * | Jumpsuits | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
-     * | Dresses | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
-     * | Hats | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![Hat-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
+     * | Jumpsuit | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
+     * | Dress | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
+     * | Hat | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![Hat-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
      *
      * @param request - AiTryOnRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -303,12 +310,32 @@ class Aidge extends OpenApiClient
             @$query['ClothType'] = $request->clothType;
         }
 
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
+        }
+
         if (null !== $request->modelImageUrl) {
             @$query['ModelImageUrl'] = $request->modelImageUrl;
         }
 
+        if (null !== $request->modelTemplateUrl) {
+            @$query['ModelTemplateUrl'] = $request->modelTemplateUrl;
+        }
+
+        if (null !== $request->poseTemplateUrl) {
+            @$query['PoseTemplateUrl'] = $request->poseTemplateUrl;
+        }
+
+        if (null !== $request->ratio) {
+            @$query['Ratio'] = $request->ratio;
+        }
+
         if (null !== $request->resolution) {
             @$query['Resolution'] = $request->resolution;
+        }
+
+        if (null !== $request->tryonType) {
+            @$query['TryonType'] = $request->tryonType;
         }
 
         $req = new OpenApiRequest([
@@ -330,38 +357,38 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Generates a virtual try-on image by applying a clothing item to a model based on the provided clothing and model images. This AI-powered image generation API service replaces the model\\"s existing clothing with the specified item while preserving the model\\"s pose, facial features, and other background details. It ensures a realistic and well-fitted appearance of the clothing on the model. You can obtain the processed image by providing the URLs of the original images.
+     * Generates virtual try-on images by applying specified garments to a model image based on AI algorithms. It preserves the model\\"s pose, facial features, and background details while ensuring a realistic fit. Users can obtain the processed images by providing the URLs of the original product and model images.
      *
      * @remarks
      * ## Scenarios
      * - **Virtual try-on for clothing:**
-     * Supports various clothing categories such as tops, bottoms, jumpsuits, and dresses. After you upload a model image and a product image, the service generates a natural and realistic try-on effect to intuitively display how the clothing looks on the model.
+     * Supports various clothing categories such as tops, bottoms, jumpsuits, and dresses. After users upload a model image and a product image, the system generates natural and realistic try-on effects to intuitively display how the clothing looks on the model.
      * - **Virtual try-on for shoes and hats:**
-     * Supports virtual try-on for products such as shoes and hats. The service intelligently matches the position and proportion of the product based on the model\\"s pose and body parts to present a coordinated and realistic wearing effect.
+     * Supports virtual try-on for products such as shoes and hats. It intelligently matches the position and proportion of the product based on the model\\"s pose and body parts, presenting a coordinated and realistic wearing effect.
      * - **E-commerce product display and marketing:**
      * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.
      * - **Online shopping experience optimization:**
-     * Allows consumers to preview the wearing effect of products through virtual try-on, providing a more intuitive understanding of the style, matching, and overall effect of the products, which assists in purchase decisions and enhances the shopping experience.
+     * Consumers can preview the wearing effect of products through virtual try-on, more intuitively understand the style, matching, and overall effect of the products, assist in purchase decisions, and enhance the shopping experience.
      * ## Features
-     * - **First, you need to provide a model image and a product image. The system uses the model image as the try-on subject and applies the clothing from the product image to the model:**
-     *   - a. Model image: The image of the person who will virtually try on the clothing.
-     *   - b. Product image: The image of the clothing, shoes, or hat to be worn by the model.
-     * - **Second, you can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
-     *   - a. Specify product type: You can directly specify the type of the current product, and the system will process it according to the specified type.
-     *   - b. Automatic type recognition: If you do not specify the product type, the system automatically recognizes the product category in the product image and performs the virtual try-on based on the recognition result.
-     * - **Finally, the system generates a virtual try-on image by combining the model image, product image, and product type to display the wearing effect of the product on the model:**
-     *   - a. Preserve model details: The generation process does not alter the appearance, hairstyle, pose, body shape, or other details of the person in the original model image.
-     *   - b. Maintain image consistency: The background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
-     *   - c. Generate try-on effect: The product is naturally applied to the model, fitting the person\\"s pose and body structure to generate a coordinated and realistic virtual try-on image.
+     * - **First, users need to input a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image to the model:**
+     *   - a. Model image: the image of the person who needs to perform the virtual try-on.
+     *   - b. Product image: the image of the clothing, shoes, or hat to be worn by the model.
+     * - **Second, users can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
+     *   - a. Specify product type: users can directly input the type of the current product, and the system will process it according to the specified type.
+     *   - b. Automatic type recognition: if the user does not input the product type, the system will automatically recognize the product category in the product image and perform the virtual try-on based on the recognition result.
+     * - **Finally, the system combines the model image, product image, and product type to generate a virtual try-on image, displaying the wearing effect of the product on the model:**
+     *   - a. Preserve model details: the generation process does not adjust the appearance, hairstyle, pose, body shape, and other details of the person in the original model image.
+     *   - b. Maintain image consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged, and only the wearing area corresponding to the product is processed.
+     *   - c. Generate try-on effect: naturally apply the product to the model, making it fit the person\\"s pose and body structure, and generate a coordinated and realistic virtual try-on image.
      * ## Examples
-     * | **Type** | **Model image** | **Clothing image** | **Try-on result image** |
+     * | **Type** | **Model image** | **Garment image** | **Try-on result image** |
      * | --- | --- | --- | --- |
-     * | Tops | ![lQLPJv-OKUNDSxvNBojNA62wAMWEBuiTUuMKXnNidWFWAA_941_1672.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/e4273b03-0d3b-4e98-b8f3-8713fccee303.png) | ![Front view of male model in shirt-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/d9ab77f7-8791-4fa5-8d76-4fda3e2e1310.png) | ![7c1c0c04-9828-940f-b86d-c08f7ec8fb97_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/42982786-73ee-4d23-a8d0-551f7a18be22.png) |
-     * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Bootcut jeans-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
+     * | Top | ![lQLPJv-OKUNDSxvNBojNA62wAMWEBuiTUuMKXnNidWFWAA_941_1672.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/e4273b03-0d3b-4e98-b8f3-8713fccee303.png) | ![Front view of male model wearing a shirt-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/d9ab77f7-8791-4fa5-8d76-4fda3e2e1310.png) | ![7c1c0c04-9828-940f-b86d-c08f7ec8fb97_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/42982786-73ee-4d23-a8d0-551f7a18be22.png) |
+     * | Bottom | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Slightly flared jeans-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
      * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Front view of male model\\"s shoes-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
-     * | Jumpsuits | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
-     * | Dresses | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
-     * | Hats | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![Hat-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
+     * | Jumpsuit | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
+     * | Dress | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
+     * | Hat | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![Hat-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
      *
      * @param request - AiTryOnRequest
      *
@@ -1168,22 +1195,29 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Translates documents across more than 400 language pairs, including bridged pairs, to meet the needs of multi-scenario, multi-page, and high-complexity document translation. Scanned documents are not currently supported. This feature excels in the following aspects: - Content accuracy: Ensures translation accuracy and the accuracy of parameters and units. - Structural integrity: Maintains overall layout continuity and restores page margins and layouts.
+     * Translates documents with a solution designed specifically for document translation. It supports over 150 languages and provides pivot translation capabilities with thousands of pivot combinations. It handles multi-scenario, multi-page, and highly complex document translation, but does not currently support scanned documents. It excels in the following aspects:
+     * - Content accuracy: translation accuracy, and accuracy of parameters and units.
+     * - Structural integrity: overall layout continuity, and restoration of page margins and layouts.
      *
      * @remarks
-     * ## Product introduction
-     * Designed specifically for document translation, this feature supports translation across more than 400 language pairs (including bridged pairs) and meets the needs of multi-scenario, multi-page, and high-complexity document translation. Scanned documents are not currently supported.
+     * # Product introduction
+     * Designed specifically for document translation, this service supports more than 150 languages and provides bridging translation capabilities with thousands of language combinations. It handles multi-scenario, multi-page, and highly complex document translations, but does not currently support scanned documents.
      * It excels in the following aspects:
-     * - Content accuracy: Ensures translation accuracy and the accuracy of parameters and units.
-     * - Structural integrity: Maintains overall layout continuity and restores page margins and layouts.
-     * ## Scenarios
-     * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, teaching materials, and courseware.
-     * ## Features
-     * - Supports PDF and Word formats, and supports source documents containing multiple languages. For the detailed language list, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
-     * - Supports the translation of text in images within documents, as well as complex translation scenarios such as other charts and special symbols.
-     * - Supports highly restored layout after translation.
-     * - Supports up to 100 pages for a single PDF file and up to 100 pages for a single Word file.
-     * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-null value). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you have more requirements, contact the platform for processing.
+     * *   Content accuracy: translation accuracy, and accuracy of parameters and units.
+     *
+     * *   Structural integrity: overall layout continuity, and restoration of page margins and layouts.
+     * # Scenarios
+     * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, teaching materials, courseware, and various other scenarios.
+     * # Features
+     * *   Supports PDF, Word, and Excel formats. Supports source documents that contain multiple languages. For the detailed language list, see Section 4.4.
+     *
+     * *   Supports the translation of text within images in documents, as well as complex translation scenarios involving other charts and special symbols.
+     *
+     * *   Supports highly accurate layout restoration after translation.
+     *
+     * *   Supports the translation of a single PDF or Word document with up to **800 pages**.
+     *
+     * *   Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and translation omission (ABC-null value). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance. For detailed instructions on translation intervention, see [Full-modal translation - Translation intervention instruction manual](https://www.alibabacloud.com/help/en/aidge/full-modal-translation-translation-intervention-instruction-manual)
      *
      * @param request - DocumentTranslateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1234,22 +1268,29 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Translates documents across more than 400 language pairs, including bridged pairs, to meet the needs of multi-scenario, multi-page, and high-complexity document translation. Scanned documents are not currently supported. This feature excels in the following aspects: - Content accuracy: Ensures translation accuracy and the accuracy of parameters and units. - Structural integrity: Maintains overall layout continuity and restores page margins and layouts.
+     * Translates documents with a solution designed specifically for document translation. It supports over 150 languages and provides pivot translation capabilities with thousands of pivot combinations. It handles multi-scenario, multi-page, and highly complex document translation, but does not currently support scanned documents. It excels in the following aspects:
+     * - Content accuracy: translation accuracy, and accuracy of parameters and units.
+     * - Structural integrity: overall layout continuity, and restoration of page margins and layouts.
      *
      * @remarks
-     * ## Product introduction
-     * Designed specifically for document translation, this feature supports translation across more than 400 language pairs (including bridged pairs) and meets the needs of multi-scenario, multi-page, and high-complexity document translation. Scanned documents are not currently supported.
+     * # Product introduction
+     * Designed specifically for document translation, this service supports more than 150 languages and provides bridging translation capabilities with thousands of language combinations. It handles multi-scenario, multi-page, and highly complex document translations, but does not currently support scanned documents.
      * It excels in the following aspects:
-     * - Content accuracy: Ensures translation accuracy and the accuracy of parameters and units.
-     * - Structural integrity: Maintains overall layout continuity and restores page margins and layouts.
-     * ## Scenarios
-     * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, teaching materials, and courseware.
-     * ## Features
-     * - Supports PDF and Word formats, and supports source documents containing multiple languages. For the detailed language list, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
-     * - Supports the translation of text in images within documents, as well as complex translation scenarios such as other charts and special symbols.
-     * - Supports highly restored layout after translation.
-     * - Supports up to 100 pages for a single PDF file and up to 100 pages for a single Word file.
-     * - Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and no translation (ABC-null value). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you have more requirements, contact the platform for processing.
+     * *   Content accuracy: translation accuracy, and accuracy of parameters and units.
+     *
+     * *   Structural integrity: overall layout continuity, and restoration of page margins and layouts.
+     * # Scenarios
+     * Cross-border e-commerce product manuals, contracts, agreements, business proposals, qualification documents, teaching materials, courseware, and various other scenarios.
+     * # Features
+     * *   Supports PDF, Word, and Excel formats. Supports source documents that contain multiple languages. For the detailed language list, see Section 4.4.
+     *
+     * *   Supports the translation of text within images in documents, as well as complex translation scenarios involving other charts and special symbols.
+     *
+     * *   Supports highly accurate layout restoration after translation.
+     *
+     * *   Supports the translation of a single PDF or Word document with up to **800 pages**.
+     *
+     * *   Supports custom translation results, including do-not-translate (ABC-ABC), specified translation (ABC-DEF), and translation omission (ABC-null value). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance. For detailed instructions on translation intervention, see [Full-modal translation - Translation intervention instruction manual](https://www.alibabacloud.com/help/en/aidge/full-modal-translation-translation-intervention-instruction-manual)
      *
      * @param request - DocumentTranslateRequest
      *
@@ -3953,23 +3994,21 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Synchronously upscales e-commerce images to intelligently enhance resolution and details by improving textures and optimizing image quality. Supports high-definition outputs such as 2K and 4K to meet the requirements for main product images, detail images, and marketing materials, enabling efficient processing of large image batches to improve overall product image quality.
+     * Upscales e-commerce images by intelligently enhancing resolution and details, improving textures and image quality during the upscaling process. Supports high-definition outputs such as 2K and 4K to meet the requirements for product main images, detail images, and marketing materials, and enables efficient processing of large batches of images to improve overall image quality. (Synchronous).
      *
      * @remarks
      * # Product introduction
-     * The high-definition upscaling product is tailored for e-commerce images. It intelligently enhances image resolution and details, improves textures and image quality during upscaling, and supports high-definition outputs such as 2K and 4K. It meets the high-definition requirements for product main images, detail images, and marketing materials, enabling efficient and clear processing of large batches of images to improve product image quality. (Synchronous)
+     * The high-definition upscaling product is customized for e-commerce images. It intelligently enhances image resolution and details, improves textures and image quality during the upscaling process, and supports high-definition outputs such as 2K and 4K. It meets the high-definition requirements for product main images, detail images, and marketing materials, enabling efficient and clear processing of large batches of images to improve product image quality. (Synchronous)
      * # Scenarios
      * *   High-definition e-commerce product images: Enhances the resolution and details of product main images, detail images, and marketing materials to make textures and materials clearer and improve product display quality.
-     *
-     * *   Multi-platform product material adaptation: Upscales existing product images in high definition to meet the image display requirements of different e-commerce platforms and adapt to multi-platform and multi-scenario material usage needs.
-     *
-     * *   Batch optimization of existing images: Enhances existing low-resolution product images in high definition to reduce reshooting and production costs and improve the reuse efficiency of image materials.
+     * *   Multi-platform product material adaptation: Upscales existing product images to high definition to meet the image display requirements of different e-commerce platforms and adapt to multi-platform and multi-scenario material usage needs.
+     * *   Batch optimization of existing images: Enhances existing low-resolution product images to high definition, reducing the costs of reshooting and remaking, and improving the reuse efficiency of image materials.
      * # Features
-     * 1.  Intelligent high-definition upscaling: Uses AI-based image enhancement technology to improve the resolution and optimize the details of input images, enhancing image clarity and texture representation.
+     * 1.  Intelligent high-definition upscaling: Based on AI image enhancement technology, it improves the resolution and optimizes the details of input images to enhance image clarity and texture representation.
      *
-     * 2.  Multiple upscaling factors: Supports 2x and 4x upscaling factors. You can flexibly select the factor based on image quality and business requirements.
+     * 2.  Multiple upscaling factors: Supports 2x and 4x upscaling factors, allowing flexible selection based on image quality and business requirements.
      *
-     * 3.  Synchronous API calls: Supports synchronous submission of images and retrieval of processing results through API calls, facilitating integration into e-commerce image processing workflows.
+     * 3.  Synchronous API calls: Supports synchronous submission of images and retrieval of processing results through APIs, facilitating integration into e-commerce image processing workflows.
      * # Effect comparison
      * | **Original image** | **Upscaled image** |
      * | --- | --- |
@@ -4016,23 +4055,21 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Synchronously upscales e-commerce images to intelligently enhance resolution and details by improving textures and optimizing image quality. Supports high-definition outputs such as 2K and 4K to meet the requirements for main product images, detail images, and marketing materials, enabling efficient processing of large image batches to improve overall product image quality.
+     * Upscales e-commerce images by intelligently enhancing resolution and details, improving textures and image quality during the upscaling process. Supports high-definition outputs such as 2K and 4K to meet the requirements for product main images, detail images, and marketing materials, and enables efficient processing of large batches of images to improve overall image quality. (Synchronous).
      *
      * @remarks
      * # Product introduction
-     * The high-definition upscaling product is tailored for e-commerce images. It intelligently enhances image resolution and details, improves textures and image quality during upscaling, and supports high-definition outputs such as 2K and 4K. It meets the high-definition requirements for product main images, detail images, and marketing materials, enabling efficient and clear processing of large batches of images to improve product image quality. (Synchronous)
+     * The high-definition upscaling product is customized for e-commerce images. It intelligently enhances image resolution and details, improves textures and image quality during the upscaling process, and supports high-definition outputs such as 2K and 4K. It meets the high-definition requirements for product main images, detail images, and marketing materials, enabling efficient and clear processing of large batches of images to improve product image quality. (Synchronous)
      * # Scenarios
      * *   High-definition e-commerce product images: Enhances the resolution and details of product main images, detail images, and marketing materials to make textures and materials clearer and improve product display quality.
-     *
-     * *   Multi-platform product material adaptation: Upscales existing product images in high definition to meet the image display requirements of different e-commerce platforms and adapt to multi-platform and multi-scenario material usage needs.
-     *
-     * *   Batch optimization of existing images: Enhances existing low-resolution product images in high definition to reduce reshooting and production costs and improve the reuse efficiency of image materials.
+     * *   Multi-platform product material adaptation: Upscales existing product images to high definition to meet the image display requirements of different e-commerce platforms and adapt to multi-platform and multi-scenario material usage needs.
+     * *   Batch optimization of existing images: Enhances existing low-resolution product images to high definition, reducing the costs of reshooting and remaking, and improving the reuse efficiency of image materials.
      * # Features
-     * 1.  Intelligent high-definition upscaling: Uses AI-based image enhancement technology to improve the resolution and optimize the details of input images, enhancing image clarity and texture representation.
+     * 1.  Intelligent high-definition upscaling: Based on AI image enhancement technology, it improves the resolution and optimizes the details of input images to enhance image clarity and texture representation.
      *
-     * 2.  Multiple upscaling factors: Supports 2x and 4x upscaling factors. You can flexibly select the factor based on image quality and business requirements.
+     * 2.  Multiple upscaling factors: Supports 2x and 4x upscaling factors, allowing flexible selection based on image quality and business requirements.
      *
-     * 3.  Synchronous API calls: Supports synchronous submission of images and retrieval of processing results through API calls, facilitating integration into e-commerce image processing workflows.
+     * 3.  Synchronous API calls: Supports synchronous submission of images and retrieval of processing results through APIs, facilitating integration into e-commerce image processing workflows.
      * # Effect comparison
      * | **Original image** | **Upscaled image** |
      * | --- | --- |
@@ -5212,6 +5249,119 @@ class Aidge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->productHotspotDetectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Generates a single-product showcase video for e-commerce merchants and platforms based on a product title and multiple images of the same product. This API optionally accepts a storyboard script, automatically selects reference images, plans a three-shot storyboard, and generates the video. It uses asynchronous tasks, supports 720P and 1080P resolutions and four aspect ratios, and applies to product content production for non-apparel categories. For apparel categories, use the e-commerce enhanced edition.
+     *
+     * @remarks
+     * # Product introduction
+     * The basic e-commerce video edition is designed for e-commerce merchants and platforms. It generates a single-product showcase video based on a product title and multiple images of the same product. You can optionally provide a storyboard script. The system automatically selects reference images, plans a three-shot storyboard, and generates the video. This API uses asynchronous tasks, supports 720P and 1080P resolutions and four aspect ratios, and applies to product content production for non-apparel categories. For apparel categories, use the e-commerce enhanced edition.
+     * # Scenarios
+     * - New product material generation: Provide a product title and images to automatically plan storyboard content such as product debut, details, or usage demonstrations.
+     * - Video production with existing scripts: Provide a storyboard script or creative description. The system optimizes the storyboard script based on the product images and retains shot intentions that are supported by the images.
+     * - Adaptation to different video placements: Use the aspect ratio parameter to adapt to vertical short videos, main product images, detail pages, and horizontal displays. For batch production, each request corresponds to one product and one video.
+     * # Features
+     * - Automatic image selection and storyboard planning: When no script is provided, the system generates a storyboard based on the product title and images. When a script is provided, the system still performs image selection and planning, eliminating the need for callers to organize video prompts.
+     * - Product appearance consistency constraint: The system uses the selected complete product image as the appearance baseline. It checks the color scheme, structure, proportion, texture, version, and specifications of other images, and selects only reference images that can be confirmed to belong to the same SKU.
+     * - Flexible video specifications: Without a script, the duration is 5 to 15 seconds. With a script, the duration is 5 to 30 seconds. The system supports four aspect ratios (16:9, 1:1, 3:4, and 9:16) and two resolutions (720P and 1080P).
+     * - Asynchronous generation and task query: After a task is created, a task ID is returned. Callers use the query API to obtain the result. The final video includes background music, no voiceover, and no additional subtitles or marketing text.
+     * # Examples
+     * [View the attachment Digital_040_WiFi6_Gigabit_Router.mp4 in the DingTalk document.](https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4vRkd9DUn1g1p6kJbkz3BRL?cid=6760411388:7016395022&corpId=dingd8e1123006514592&iframeQuery=anchorId%3DX02mvsyycduj3nepwoeush&utm_medium=im_card&utm_scene=person_space&utm_source=im)
+     *
+     * @param tmpReq - ProductVideoGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ProductVideoGenerationResponse
+     *
+     * @param ProductVideoGenerationRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ProductVideoGenerationResponse
+     */
+    public function productVideoGenerationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ProductVideoGenerationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->productImages) {
+            $request->productImagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->productImages, 'product_images', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->aspectRatio) {
+            @$query['aspect_ratio'] = $request->aspectRatio;
+        }
+
+        if (null !== $request->duration) {
+            @$query['duration'] = $request->duration;
+        }
+
+        if (null !== $request->productImagesShrink) {
+            @$query['product_images'] = $request->productImagesShrink;
+        }
+
+        if (null !== $request->productTitle) {
+            @$query['product_title'] = $request->productTitle;
+        }
+
+        if (null !== $request->resolution) {
+            @$query['resolution'] = $request->resolution;
+        }
+
+        if (null !== $request->script) {
+            @$query['script'] = $request->script;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ProductVideoGeneration',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ProductVideoGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Generates a single-product showcase video for e-commerce merchants and platforms based on a product title and multiple images of the same product. This API optionally accepts a storyboard script, automatically selects reference images, plans a three-shot storyboard, and generates the video. It uses asynchronous tasks, supports 720P and 1080P resolutions and four aspect ratios, and applies to product content production for non-apparel categories. For apparel categories, use the e-commerce enhanced edition.
+     *
+     * @remarks
+     * # Product introduction
+     * The basic e-commerce video edition is designed for e-commerce merchants and platforms. It generates a single-product showcase video based on a product title and multiple images of the same product. You can optionally provide a storyboard script. The system automatically selects reference images, plans a three-shot storyboard, and generates the video. This API uses asynchronous tasks, supports 720P and 1080P resolutions and four aspect ratios, and applies to product content production for non-apparel categories. For apparel categories, use the e-commerce enhanced edition.
+     * # Scenarios
+     * - New product material generation: Provide a product title and images to automatically plan storyboard content such as product debut, details, or usage demonstrations.
+     * - Video production with existing scripts: Provide a storyboard script or creative description. The system optimizes the storyboard script based on the product images and retains shot intentions that are supported by the images.
+     * - Adaptation to different video placements: Use the aspect ratio parameter to adapt to vertical short videos, main product images, detail pages, and horizontal displays. For batch production, each request corresponds to one product and one video.
+     * # Features
+     * - Automatic image selection and storyboard planning: When no script is provided, the system generates a storyboard based on the product title and images. When a script is provided, the system still performs image selection and planning, eliminating the need for callers to organize video prompts.
+     * - Product appearance consistency constraint: The system uses the selected complete product image as the appearance baseline. It checks the color scheme, structure, proportion, texture, version, and specifications of other images, and selects only reference images that can be confirmed to belong to the same SKU.
+     * - Flexible video specifications: Without a script, the duration is 5 to 15 seconds. With a script, the duration is 5 to 30 seconds. The system supports four aspect ratios (16:9, 1:1, 3:4, and 9:16) and two resolutions (720P and 1080P).
+     * - Asynchronous generation and task query: After a task is created, a task ID is returned. Callers use the query API to obtain the result. The final video includes background music, no voiceover, and no additional subtitles or marketing text.
+     * # Examples
+     * [View the attachment Digital_040_WiFi6_Gigabit_Router.mp4 in the DingTalk document.](https://alidocs.dingtalk.com/i/nodes/gwva2dxOW4vRkd9DUn1g1p6kJbkz3BRL?cid=6760411388:7016395022&corpId=dingd8e1123006514592&iframeQuery=anchorId%3DX02mvsyycduj3nepwoeush&utm_medium=im_card&utm_scene=person_space&utm_source=im)
+     *
+     * @param request - ProductVideoGenerationRequest
+     *
+     * @returns ProductVideoGenerationResponse
+     *
+     * @param ProductVideoGenerationRequest $request
+     *
+     * @return ProductVideoGenerationResponse
+     */
+    public function productVideoGeneration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->productVideoGenerationWithOptions($request, $runtime);
     }
 
     /**
@@ -6938,26 +7088,26 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Generates virtual try-on images by using AI algorithms. This API service replaces the clothing on a model image with a specified garment image while preserving the model\\"s pose, facial features, and other details, ensuring a realistic and well-fitted result. You only need to provide the URLs of the original images to obtain the processed image.
+     * Generates virtual try-on images by applying a specified garment to a model image based on AI algorithms. It preserves the model\\"s pose, facial features, and background details while ensuring a realistic fit. Users only need to provide the URLs of the original model and garment images to obtain the processed image.
      *
      * @remarks
      * ## Scenarios
      * - **Virtual try-on for clothing:**
-     * Supports various clothing categories such as tops, bottoms, jumpsuits, and dresses. After you upload a model image and a garment image, the system generates natural and realistic try-on effects to visually demonstrate how the clothing looks on the model.
+     * Supports various clothing categories such as tops, bottoms, jumpsuits, and dresses. After users upload a model image and a garment image, the system generates natural and realistic try-on effects to intuitively display how the garment looks on the model.
      * - **Virtual try-on for shoes and hats:**
-     * Supports virtual try-on for accessories such as shoes and hats. The system intelligently matches the position and proportion of the items based on the model\\"s pose and body parts to present a coordinated and realistic wearing effect.
+     * Supports virtual try-on for accessories such as shoes and hats. The system intelligently matches the position and proportion of the product based on the model\\"s pose and body parts, presenting a coordinated and realistic wearing effect.
      * - **E-commerce product display and marketing:**
-     *  Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.
+     * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.
      * - **Online shopping experience optimization:**
-     * Allows consumers to preview the wearing effect of products through virtual try-on, providing a more intuitive understanding of the style, matching, and overall effect of the products, which assists in purchase decisions and enhances the shopping experience.
+     * Allows consumers to preview the wearing effect of products through virtual try-on, providing a more intuitive understanding of the style, matching, and overall effect of the product, which assists in purchase decisions and enhances the shopping experience.
      * ## Features
-     * - **First, you need to input a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image to the model:**
-     *   - a. Model image: the image of the person who will wear the clothing in the virtual try-on.
-     *   - b. Product image: the image of the clothing, shoes, or hat to be worn by the model.
-     * - **Second, you can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
-     *   - a. Specify product type: you can directly input the type of the current product, and the system will process it according to the specified type.
-     *   - b. Automatic type recognition: if you do not input the product type, the system will automatically recognize the product category in the product image and perform the virtual try-on based on the recognition result.
-     * - **Finally, the system combines the model image, product image, and product type to generate a virtual try-on image, showing the wearing effect of the product on the model:**
+     * - **First, users need to input a model image and a garment image. The system uses the model image as the try-on subject and applies the garment from the garment image to the model:**
+     *   - a. Model image: the image of the person for the virtual try-on.
+     *   - b. Garment image: the image of the clothing, shoes, or hat to be worn by the model.
+     * - **Second, users can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
+     *   - a. Specify product type: users can directly input the type of the current product, and the system will process it according to the specified type.
+     *   - b. Automatic type recognition: if the user does not input the product type, the system will automatically recognize the product category in the garment image and perform the virtual try-on based on the recognition result.
+     * - **Finally, the system combines the model image, garment image, and product type to generate a virtual try-on image, displaying the wearing effect of the product on the model:**
      *   - a. Preserve model details: the generation process does not adjust the appearance, hairstyle, pose, body shape, or other details of the person in the original model image.
      *   - b. Maintain image consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
      *   - c. Generate try-on effect: the product is naturally applied to the model, fitting the person\\"s pose and body structure to generate a coordinated and realistic virtual try-on image.
@@ -6965,8 +7115,8 @@ class Aidge extends OpenApiClient
      * | **Type** | **Model image** | **Garment image** | **Try-on result** |
      * | --- | --- | --- | --- |
      * | Tops | ![lQLPJv-OKUNDSxvNBojNA62wAMWEBuiTUuMKXnNidWFWAA_941_1672.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/e4273b03-0d3b-4e98-b8f3-8713fccee303.png) | ![Front view of male model wearing a shirt-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/d9ab77f7-8791-4fa5-8d76-4fda3e2e1310.png) | ![7c1c0c04-9828-940f-b86d-c08f7ec8fb97_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/42982786-73ee-4d23-a8d0-551f7a18be22.png) |
-     * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Bootcut jeans-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
-     * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Front view of men\\"s shoes-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
+     * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Flared jeans-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
+     * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Front view of male model\\"s shoes-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
      * | Jumpsuits | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
      * | Dresses | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
      * | Hats | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![Hat-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
@@ -7020,26 +7170,26 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Generates virtual try-on images by using AI algorithms. This API service replaces the clothing on a model image with a specified garment image while preserving the model\\"s pose, facial features, and other details, ensuring a realistic and well-fitted result. You only need to provide the URLs of the original images to obtain the processed image.
+     * Generates virtual try-on images by applying a specified garment to a model image based on AI algorithms. It preserves the model\\"s pose, facial features, and background details while ensuring a realistic fit. Users only need to provide the URLs of the original model and garment images to obtain the processed image.
      *
      * @remarks
      * ## Scenarios
      * - **Virtual try-on for clothing:**
-     * Supports various clothing categories such as tops, bottoms, jumpsuits, and dresses. After you upload a model image and a garment image, the system generates natural and realistic try-on effects to visually demonstrate how the clothing looks on the model.
+     * Supports various clothing categories such as tops, bottoms, jumpsuits, and dresses. After users upload a model image and a garment image, the system generates natural and realistic try-on effects to intuitively display how the garment looks on the model.
      * - **Virtual try-on for shoes and hats:**
-     * Supports virtual try-on for accessories such as shoes and hats. The system intelligently matches the position and proportion of the items based on the model\\"s pose and body parts to present a coordinated and realistic wearing effect.
+     * Supports virtual try-on for accessories such as shoes and hats. The system intelligently matches the position and proportion of the product based on the model\\"s pose and body parts, presenting a coordinated and realistic wearing effect.
      * - **E-commerce product display and marketing:**
-     *  Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.
+     * Helps merchants quickly generate model try-on images for different products, reducing the costs of traditional photography, outfit changes, and post-production, and improving the production efficiency of product images.
      * - **Online shopping experience optimization:**
-     * Allows consumers to preview the wearing effect of products through virtual try-on, providing a more intuitive understanding of the style, matching, and overall effect of the products, which assists in purchase decisions and enhances the shopping experience.
+     * Allows consumers to preview the wearing effect of products through virtual try-on, providing a more intuitive understanding of the style, matching, and overall effect of the product, which assists in purchase decisions and enhances the shopping experience.
      * ## Features
-     * - **First, you need to input a model image and a product image. The system uses the model image as the try-on subject and applies the garment from the product image to the model:**
-     *   - a. Model image: the image of the person who will wear the clothing in the virtual try-on.
-     *   - b. Product image: the image of the clothing, shoes, or hat to be worn by the model.
-     * - **Second, you can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
-     *   - a. Specify product type: you can directly input the type of the current product, and the system will process it according to the specified type.
-     *   - b. Automatic type recognition: if you do not input the product type, the system will automatically recognize the product category in the product image and perform the virtual try-on based on the recognition result.
-     * - **Finally, the system combines the model image, product image, and product type to generate a virtual try-on image, showing the wearing effect of the product on the model:**
+     * - **First, users need to input a model image and a garment image. The system uses the model image as the try-on subject and applies the garment from the garment image to the model:**
+     *   - a. Model image: the image of the person for the virtual try-on.
+     *   - b. Garment image: the image of the clothing, shoes, or hat to be worn by the model.
+     * - **Second, users can select the corresponding product type based on the actual product. Supported types include tops, bottoms, jumpsuits, dresses, shoes, and hats:**
+     *   - a. Specify product type: users can directly input the type of the current product, and the system will process it according to the specified type.
+     *   - b. Automatic type recognition: if the user does not input the product type, the system will automatically recognize the product category in the garment image and perform the virtual try-on based on the recognition result.
+     * - **Finally, the system combines the model image, garment image, and product type to generate a virtual try-on image, displaying the wearing effect of the product on the model:**
      *   - a. Preserve model details: the generation process does not adjust the appearance, hairstyle, pose, body shape, or other details of the person in the original model image.
      *   - b. Maintain image consistency: the background, composition, lighting, and overall visual effect of the original model image remain unchanged. Only the wearing area corresponding to the product is processed.
      *   - c. Generate try-on effect: the product is naturally applied to the model, fitting the person\\"s pose and body structure to generate a coordinated and realistic virtual try-on image.
@@ -7047,8 +7197,8 @@ class Aidge extends OpenApiClient
      * | **Type** | **Model image** | **Garment image** | **Try-on result** |
      * | --- | --- | --- | --- |
      * | Tops | ![lQLPJv-OKUNDSxvNBojNA62wAMWEBuiTUuMKXnNidWFWAA_941_1672.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/e4273b03-0d3b-4e98-b8f3-8713fccee303.png) | ![Front view of male model wearing a shirt-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/d9ab77f7-8791-4fa5-8d76-4fda3e2e1310.png) | ![7c1c0c04-9828-940f-b86d-c08f7ec8fb97_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/42982786-73ee-4d23-a8d0-551f7a18be22.png) |
-     * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Bootcut jeans-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
-     * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Front view of men\\"s shoes-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
+     * | Bottoms | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Flared jeans-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/f79a31cb-08bd-4b59-be9d-9b9aa3f60230.png) | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/297f29eb-7bc9-49a5-b4f7-114375a0f312.png) |
+     * | Shoes | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/64147be2-0c95-431a-8c04-f756fac96db2.jpeg) | ![Front view of male model\\"s shoes-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/bb9804b5-0ab9-485b-829b-d54708377fd2.png) | ![91d7b8c4-fc31-9a7f-8b6e-3bec5e62efb3_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/8e54fdc3-7a86-4e3b-aa1d-f3741ce7658c.png) |
      * | Jumpsuits | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/7f5cec40-a884-4640-8339-6109305dfa1d.png) | ![20c8b46a-213e-985c-aab2-d56f8752f3a4_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/635096eb-f2b2-4fd8-91d8-4c7e2e7d7ad1.png) |
      * | Dresses | ![lQDPJwcNMfxtoRvNBQDNAtCwhseujKzDt_QKXnNSTPaeAA_720_1280.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/eddffa7c-a494-4f5b-9d66-da758fb0265f.jpeg) | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/3d4a6de0-95d2-40cf-9105-48b5e899e0d3.png) | ![45b630e6-4e9d-9bf0-bb4e-224b30a91f77_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/a3cbb609-db71-47d6-8ac6-884f18c6596f.png) |
      * | Hats | ![adbb8e02-9738-991a-9699-f46bc5c089a9_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/ac26f38e-acc7-49d1-a4ec-a51b54e4bd66.png) | ![Hat-aidge.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/34176b57-3aa8-4b6e-8d0f-808ae953654a.png) | ![881f02f3-12f5-95dd-b651-98fab6e30fa0_qwen_image3_serving_output_0.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/4j6OJ5PZM1WeKq3p/img/949b4c28-8821-4aa5-a2b4-e4acc1e57b9b.png) |
@@ -7069,61 +7219,61 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Provides a one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous).
+     * Provides a one-stop AI image processing service for e-commerce sellers. Orchestrates six atomic capabilities—element recognition, intelligent cutout, intelligent erasure, image translation Pro, intelligent cropping, and high-definition upscaling—into an image processing workflow. Users can upload an image once, select the required capabilities, and complete multiple image optimizations in sequence to output product images that meet the requirements of e-commerce platforms. (Asynchronous).
      *
      * @remarks
-     * # 1. Product Introduction
-     * A one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
-     * # 2. Common scenarios
-     * Applicable to batch optimization of product images in cross-platform listing scenarios. Adapts source product images into main images, SKU images, and detail images required by listing platforms. Supported capabilities include:
-     * *   Detecting low-quality images that contain text, watermarks, logos, or overlay patches, allowing users to filter images that need processing
+     * # 1. Product introduction
+     * Provides a one-stop AI image processing service for e-commerce sellers. Orchestrates six atomic capabilities—element recognition, intelligent cutout, intelligent erasure, image translation Pro, intelligent cropping, and high-definition upscaling—into an image processing workflow. Users can upload an image once, select the required capabilities, and complete multiple image optimizations in sequence to output product images that meet the requirements of e-commerce platforms. (Asynchronous)
+     * # 2. Scenarios
+     * Applicable to batch optimization of product images in cross-platform listing scenarios. Adapts source product images into main images, SKU images, and detail images required by listing platforms. Supports the following operations:
+     * *   Identifies low-quality images with text, watermarks, logos, or cluttered text, and allows users to filter the images to be processed.
      *
-     * *   Removing non-compliant elements such as watermarks, logos, overlay patches, and Chinese text from original images
+     * *   Removes non-compliant elements such as watermarks, logos, cluttered text, and Chinese text from the original image.
      *
-     * *   Removing the background around the product subject edges
+     * *   Removes the background around the main product subject.
      *
-     * *   Translating text within images into other languages
+     * *   Translates text in the image into other languages.
      *
-     * *   Expanding images to other dimensions (by ratio, size, etc.) with automatic background fill
+     * *   Expands the image to other sizes (by ratio or dimensions) and automatically fills the background.
      *
-     * *   Cropping images to specified dimensions
+     * *   Crops the image to a specified size.
      *
-     * *   Upscaling image resolution by a specified factor
+     * *   Upscales the image pixels by a specified factor.
      * # 3. Features
-     * Provide a product image URL and use the Ability parameter to select the desired combination of AI capabilities (1 = Intelligent Element Detection, 2 = Intelligent Matting, 3 = Intelligent Removal, 4 = Image Translation Pro, 5 = Image Expansion, 6 = Intelligent Cropping, 7 = HD Upscaling). The system executes the selected capabilities sequentially in a preset order. Because Intelligent Element Detection helps determine whether an image contains certain specified elements, and the presence of those elements affects the selection of subsequent AI capabilities, an additional input is provided that allows users to choose whether to filter images out of or retain images in the subsequent AI processing pipeline.
+     * Users input the URL of a product image and select the required AI capabilities through the Ability parameter (1=Intelligent element recognition, 2=Intelligent cutout, 3=Intelligent erasure, 4=Image translation Pro, 5=Image expansion, 6=Intelligent cropping, 7=High-definition upscaling). The system executes the selected capabilities in a preset sequence. Because intelligent element recognition helps users determine whether an image contains specific elements, and the presence of these elements affects the selection of subsequent AI capabilities, an additional input option is provided. This option allows users to choose whether to filter out images from subsequent AI processing or retain them without further processing.
      * ![ai-pipeline-flowchart.svg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/bddb522a-0795-4b5c-b25d-10e933426367.svg)
-     * Each AI capability is described as follows:
-     * 1.  **Intelligent Element Detection:** An element detection capability designed specifically for e-commerce images. Detects elements such as text, logos, watermarks, and text-bearing color blocks in both the image subject and background, and returns Boolean detection results. Supports filtering images based on detection results (for example, processing only images that contain watermarks). Works in conjunction with subsequent capabilities — first identifies the types of elements that need optimization, then precisely executes removal and other operations.
+     * The following section describes each AI capability:
+     * **1. Intelligent element recognition**: An element detection capability designed specifically for e-commerce images. It identifies elements such as text, logos, watermarks, and text blocks in the subject and background of an image, and returns Boolean detection results. Users can filter images based on the recognition results (for example, processing only images with watermarks) and link this capability with subsequent ones—first identifying the types of elements to be optimized, and then precisely executing operations such as erasure.
      *
-     * 2.  **Intelligent Matting:** Automatically identifies the product subject in an image and precisely separates the subject from the background. Based on deep learning models, supports accurate segmentation of complex edges such as hair strands and transparent objects. Outputs images with a transparent or white background, supports custom background colors and target size cropping, and directly generates product display images that comply with e-commerce platform specifications.
+     * **2. Intelligent cutout**: Automatically identifies the main product subject in an image and precisely separates it from the background. Based on deep learning models, it supports precise segmentation of complex edges such as hair and transparent objects. It can output images with transparent or white backgrounds, supports custom background colors and target size cropping, and directly generates product display images that comply with e-commerce platform specifications.
      *
-     * 3.  **Intelligent Removal:** Automatically detects and removes non-compliant elements from e-commerce images, including text, specific names (brand/store names), transparent text blocks, and overlay patches. Supports specifying removal of elements in the subject area or non-subject area separately. Also supports specifying exact removal regions through the Mask parameter for efficient compliance cleanup of large batches of images.
+     * **3. Intelligent erasure**: Automatically identifies and removes non-compliant elements in e-commerce images, such as text, specific names (brand or store names), transparent text blocks, and cluttered text. It supports specifying the removal of elements in the subject area or non-subject area separately. It also supports precisely specifying the removal area through the Mask parameter to achieve efficient and compliant cleanup of large batches of images.
      *
-     * 4.  **Image Translation Pro:** Leverages multimodal foundation model technology to translate text in images into a target language and render it directly at the corresponding position in the original image. Supports more than 100 language pairs. Provides product subject text protection, brand name protection, and translation intervention glossaries to prevent mistranslation of embedded product information. After translation, returns layout information such as text position, font, and color to support secondary editing.
+     * **4. Image translation Pro**: Integrates multimodal large model technology to translate text in an image into a target language and directly renders it in the corresponding position of the original image. It supports over 100 language pairs. It provides features such as product subject text protection, brand name protection, and translation intervention glossaries to avoid mistranslating embedded product information. After translation, it can return layout information such as text position, font, and color to support secondary editing.
      *
-     * 5.  **Intelligent Image Expansion:** Expands the image canvas using AI generation technology to broaden the image view without cropping the subject. Supports multiple expansion methods: by aspect ratio (1:1, 3:4, 4:3, 9:16, 16:9), by horizontal/vertical scaling ratio (1.0× to 3.0×), or by pixel offset in the up, down, left, and right directions. AI automatically fills in naturally transitioning background content.
+     * **5. Intelligent image expansion**: Expands the image canvas based on AI generation technology to broaden the image field of view without cropping the subject. It supports multiple expansion methods: expanding by aspect ratio (1:1, 3:4, 4:3, 9:16, 16:9), scaling by horizontal or vertical proportion (1.0 to 3.0 times), and shifting pixels in the up, down, left, or right directions. The AI automatically fills and generates naturally transitioning background content.
      *
-     * 6.  **Intelligent Cropping:** Intelligently crops images to specified dimensions, automatically identifies the subject area, and precisely preserves core content. Supports custom output width and height (100–5000 pixels) to meet the image dimension requirements of different e-commerce platforms and ad placements, ensuring the subject remains prominent and the composition stays balanced after cropping.
+     * **6. Intelligent cropping**: Intelligently crops images to specified sizes, automatically identifies the main subject area of the image, and precisely retains the core content. It supports custom output width and height (100 to 5000 pixels) and adapts to the image size requirements of different e-commerce platforms and ad slots, ensuring that the subject stands out and the picture is balanced after cropping.
      *
-     * 7.  **HD Upscaling:** Enhances details and reduces noise while upscaling images. Supports 2× to 4× upscaling. Suitable for improving the clarity of low-resolution product images and optimizing visual presentation. Supports output in PNG, JPG, BMP, and other formats.
-     * # 4. Before and after comparison
+     * **7. High-definition upscaling**: Enhances details and reduces noise while upscaling the image. It supports 2x to 4x upscaling. It is applicable to improving the clarity of low-resolution product images and optimizing visual presentation. It supports output in formats such as PNG, JPG, and BMP.
+     * # 4. Effect comparison
      * | **Original image** | **Capabilities used** | **Output image** |
      * | --- | --- | --- |
-     * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/3c1af966-8a5a-491d-9bfa-aefc321c9bed.png) | *   Intelligent detection
+     * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/3c1af966-8a5a-491d-9bfa-aefc321c9bed.png) | *   Intelligent recognition
      *
-     * *   Image Translation Pro
+     * *   Image translation Pro
      *
      * *   Intelligent cropping | ![R1.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/c2579e3e-389e-4717-84e3-834e60fea6b0.png) |
-     * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/a92d14a9-ecf4-4e77-ad96-a2fcdd95dd1d.png) | *   Intelligent matting
+     * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/a92d14a9-ecf4-4e77-ad96-a2fcdd95dd1d.png) | *   Intelligent cutout
      *
-     * *   Intelligent removal
+     * *   Intelligent erasure
      *
      * *   Intelligent cropping | ![R1.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/f631f578-3496-4aa1-b5ef-cd1ea603e049.png) |
-     * | ![C2.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/12965cf8-cfdf-4a85-95fe-fdfcefcaa4ae.png) | *   Intelligent detection
+     * | ![C2.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/12965cf8-cfdf-4a85-95fe-fdfcefcaa4ae.png) | *   Intelligent recognition
      *
-     * *   Intelligent removal
+     * *   Intelligent erasure
      *
-     * *   HD upscaling | ![R2.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/95d29e79-8622-45fb-b284-cd580fe40ea0.jpeg) |
+     * *   High-definition upscaling | ![R2.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/95d29e79-8622-45fb-b284-cd580fe40ea0.jpeg) |
      *
      * @param tmpReq - VisionFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7248,61 +7398,61 @@ class Aidge extends OpenApiClient
     }
 
     /**
-     * Provides a one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous).
+     * Provides a one-stop AI image processing service for e-commerce sellers. Orchestrates six atomic capabilities—element recognition, intelligent cutout, intelligent erasure, image translation Pro, intelligent cropping, and high-definition upscaling—into an image processing workflow. Users can upload an image once, select the required capabilities, and complete multiple image optimizations in sequence to output product images that meet the requirements of e-commerce platforms. (Asynchronous).
      *
      * @remarks
-     * # 1. Product Introduction
-     * A one-stop AI-powered image processing service for e-commerce sellers. Orchestrates seven atomic capabilities — element detection, intelligent matting, intelligent removal, Image Translation Pro, image expansion, intelligent cropping, and HD upscaling — into an image processing workflow. Upload an image once, select the desired capabilities, and complete multiple image optimizations sequentially in a single call to produce product images that meet listing platform requirements. (Asynchronous)
-     * # 2. Common scenarios
-     * Applicable to batch optimization of product images in cross-platform listing scenarios. Adapts source product images into main images, SKU images, and detail images required by listing platforms. Supported capabilities include:
-     * *   Detecting low-quality images that contain text, watermarks, logos, or overlay patches, allowing users to filter images that need processing
+     * # 1. Product introduction
+     * Provides a one-stop AI image processing service for e-commerce sellers. Orchestrates six atomic capabilities—element recognition, intelligent cutout, intelligent erasure, image translation Pro, intelligent cropping, and high-definition upscaling—into an image processing workflow. Users can upload an image once, select the required capabilities, and complete multiple image optimizations in sequence to output product images that meet the requirements of e-commerce platforms. (Asynchronous)
+     * # 2. Scenarios
+     * Applicable to batch optimization of product images in cross-platform listing scenarios. Adapts source product images into main images, SKU images, and detail images required by listing platforms. Supports the following operations:
+     * *   Identifies low-quality images with text, watermarks, logos, or cluttered text, and allows users to filter the images to be processed.
      *
-     * *   Removing non-compliant elements such as watermarks, logos, overlay patches, and Chinese text from original images
+     * *   Removes non-compliant elements such as watermarks, logos, cluttered text, and Chinese text from the original image.
      *
-     * *   Removing the background around the product subject edges
+     * *   Removes the background around the main product subject.
      *
-     * *   Translating text within images into other languages
+     * *   Translates text in the image into other languages.
      *
-     * *   Expanding images to other dimensions (by ratio, size, etc.) with automatic background fill
+     * *   Expands the image to other sizes (by ratio or dimensions) and automatically fills the background.
      *
-     * *   Cropping images to specified dimensions
+     * *   Crops the image to a specified size.
      *
-     * *   Upscaling image resolution by a specified factor
+     * *   Upscales the image pixels by a specified factor.
      * # 3. Features
-     * Provide a product image URL and use the Ability parameter to select the desired combination of AI capabilities (1 = Intelligent Element Detection, 2 = Intelligent Matting, 3 = Intelligent Removal, 4 = Image Translation Pro, 5 = Image Expansion, 6 = Intelligent Cropping, 7 = HD Upscaling). The system executes the selected capabilities sequentially in a preset order. Because Intelligent Element Detection helps determine whether an image contains certain specified elements, and the presence of those elements affects the selection of subsequent AI capabilities, an additional input is provided that allows users to choose whether to filter images out of or retain images in the subsequent AI processing pipeline.
+     * Users input the URL of a product image and select the required AI capabilities through the Ability parameter (1=Intelligent element recognition, 2=Intelligent cutout, 3=Intelligent erasure, 4=Image translation Pro, 5=Image expansion, 6=Intelligent cropping, 7=High-definition upscaling). The system executes the selected capabilities in a preset sequence. Because intelligent element recognition helps users determine whether an image contains specific elements, and the presence of these elements affects the selection of subsequent AI capabilities, an additional input option is provided. This option allows users to choose whether to filter out images from subsequent AI processing or retain them without further processing.
      * ![ai-pipeline-flowchart.svg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/bddb522a-0795-4b5c-b25d-10e933426367.svg)
-     * Each AI capability is described as follows:
-     * 1.  **Intelligent Element Detection:** An element detection capability designed specifically for e-commerce images. Detects elements such as text, logos, watermarks, and text-bearing color blocks in both the image subject and background, and returns Boolean detection results. Supports filtering images based on detection results (for example, processing only images that contain watermarks). Works in conjunction with subsequent capabilities — first identifies the types of elements that need optimization, then precisely executes removal and other operations.
+     * The following section describes each AI capability:
+     * **1. Intelligent element recognition**: An element detection capability designed specifically for e-commerce images. It identifies elements such as text, logos, watermarks, and text blocks in the subject and background of an image, and returns Boolean detection results. Users can filter images based on the recognition results (for example, processing only images with watermarks) and link this capability with subsequent ones—first identifying the types of elements to be optimized, and then precisely executing operations such as erasure.
      *
-     * 2.  **Intelligent Matting:** Automatically identifies the product subject in an image and precisely separates the subject from the background. Based on deep learning models, supports accurate segmentation of complex edges such as hair strands and transparent objects. Outputs images with a transparent or white background, supports custom background colors and target size cropping, and directly generates product display images that comply with e-commerce platform specifications.
+     * **2. Intelligent cutout**: Automatically identifies the main product subject in an image and precisely separates it from the background. Based on deep learning models, it supports precise segmentation of complex edges such as hair and transparent objects. It can output images with transparent or white backgrounds, supports custom background colors and target size cropping, and directly generates product display images that comply with e-commerce platform specifications.
      *
-     * 3.  **Intelligent Removal:** Automatically detects and removes non-compliant elements from e-commerce images, including text, specific names (brand/store names), transparent text blocks, and overlay patches. Supports specifying removal of elements in the subject area or non-subject area separately. Also supports specifying exact removal regions through the Mask parameter for efficient compliance cleanup of large batches of images.
+     * **3. Intelligent erasure**: Automatically identifies and removes non-compliant elements in e-commerce images, such as text, specific names (brand or store names), transparent text blocks, and cluttered text. It supports specifying the removal of elements in the subject area or non-subject area separately. It also supports precisely specifying the removal area through the Mask parameter to achieve efficient and compliant cleanup of large batches of images.
      *
-     * 4.  **Image Translation Pro:** Leverages multimodal foundation model technology to translate text in images into a target language and render it directly at the corresponding position in the original image. Supports more than 100 language pairs. Provides product subject text protection, brand name protection, and translation intervention glossaries to prevent mistranslation of embedded product information. After translation, returns layout information such as text position, font, and color to support secondary editing.
+     * **4. Image translation Pro**: Integrates multimodal large model technology to translate text in an image into a target language and directly renders it in the corresponding position of the original image. It supports over 100 language pairs. It provides features such as product subject text protection, brand name protection, and translation intervention glossaries to avoid mistranslating embedded product information. After translation, it can return layout information such as text position, font, and color to support secondary editing.
      *
-     * 5.  **Intelligent Image Expansion:** Expands the image canvas using AI generation technology to broaden the image view without cropping the subject. Supports multiple expansion methods: by aspect ratio (1:1, 3:4, 4:3, 9:16, 16:9), by horizontal/vertical scaling ratio (1.0× to 3.0×), or by pixel offset in the up, down, left, and right directions. AI automatically fills in naturally transitioning background content.
+     * **5. Intelligent image expansion**: Expands the image canvas based on AI generation technology to broaden the image field of view without cropping the subject. It supports multiple expansion methods: expanding by aspect ratio (1:1, 3:4, 4:3, 9:16, 16:9), scaling by horizontal or vertical proportion (1.0 to 3.0 times), and shifting pixels in the up, down, left, or right directions. The AI automatically fills and generates naturally transitioning background content.
      *
-     * 6.  **Intelligent Cropping:** Intelligently crops images to specified dimensions, automatically identifies the subject area, and precisely preserves core content. Supports custom output width and height (100–5000 pixels) to meet the image dimension requirements of different e-commerce platforms and ad placements, ensuring the subject remains prominent and the composition stays balanced after cropping.
+     * **6. Intelligent cropping**: Intelligently crops images to specified sizes, automatically identifies the main subject area of the image, and precisely retains the core content. It supports custom output width and height (100 to 5000 pixels) and adapts to the image size requirements of different e-commerce platforms and ad slots, ensuring that the subject stands out and the picture is balanced after cropping.
      *
-     * 7.  **HD Upscaling:** Enhances details and reduces noise while upscaling images. Supports 2× to 4× upscaling. Suitable for improving the clarity of low-resolution product images and optimizing visual presentation. Supports output in PNG, JPG, BMP, and other formats.
-     * # 4. Before and after comparison
+     * **7. High-definition upscaling**: Enhances details and reduces noise while upscaling the image. It supports 2x to 4x upscaling. It is applicable to improving the clarity of low-resolution product images and optimizing visual presentation. It supports output in formats such as PNG, JPG, and BMP.
+     * # 4. Effect comparison
      * | **Original image** | **Capabilities used** | **Output image** |
      * | --- | --- | --- |
-     * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/3c1af966-8a5a-491d-9bfa-aefc321c9bed.png) | *   Intelligent detection
+     * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/3c1af966-8a5a-491d-9bfa-aefc321c9bed.png) | *   Intelligent recognition
      *
-     * *   Image Translation Pro
+     * *   Image translation Pro
      *
      * *   Intelligent cropping | ![R1.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/c2579e3e-389e-4717-84e3-834e60fea6b0.png) |
-     * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/a92d14a9-ecf4-4e77-ad96-a2fcdd95dd1d.png) | *   Intelligent matting
+     * | ![image.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/a92d14a9-ecf4-4e77-ad96-a2fcdd95dd1d.png) | *   Intelligent cutout
      *
-     * *   Intelligent removal
+     * *   Intelligent erasure
      *
      * *   Intelligent cropping | ![R1.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/f631f578-3496-4aa1-b5ef-cd1ea603e049.png) |
-     * | ![C2.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/12965cf8-cfdf-4a85-95fe-fdfcefcaa4ae.png) | *   Intelligent detection
+     * | ![C2.png](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/12965cf8-cfdf-4a85-95fe-fdfcefcaa4ae.png) | *   Intelligent recognition
      *
-     * *   Intelligent removal
+     * *   Intelligent erasure
      *
-     * *   HD upscaling | ![R2.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/95d29e79-8622-45fb-b284-cd580fe40ea0.jpeg) |
+     * *   High-definition upscaling | ![R2.jpeg](https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/NpQlK5jRe9w5jqDv/img/95d29e79-8622-45fb-b284-cd580fe40ea0.jpeg) |
      *
      * @param request - VisionFlowRequest
      *
