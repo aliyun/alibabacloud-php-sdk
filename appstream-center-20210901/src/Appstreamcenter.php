@@ -70,10 +70,14 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeEventsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeExportTasksRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeExportTasksResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeShareImageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeShareImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\FinishValidateRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\FinishValidateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAgentRuntimeStatisticRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAgentRuntimeStatisticResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
@@ -86,8 +90,14 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetDebugAppInstanceResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetEffectiveImageByIdRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetEffectiveImageByIdResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetFileUploadInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetFileUploadInfoResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetImageByIdRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetImageByIdResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetImageDistributeInfoRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetImageDistributeInfoResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetModelProviderTemplateRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetModelProviderTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetMqttTicketRequest;
@@ -111,6 +121,10 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigReque
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetRuntimeModelConfigResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetTaskResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetUploadInfoRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetUploadInfoResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ImportImageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ImportImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAgentInstanceVersionsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAgentInstanceVersionsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupRequest;
@@ -142,8 +156,12 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserRestrictedURLsR
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListBrowserRestrictedURLsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListDesktopAgentRuntimeResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageBaseInfoRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageBaseInfoResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageTagsRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageTagsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListLlmTemplatesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListLlmTemplatesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListLlmTemplatesShrinkRequest;
@@ -175,6 +193,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionIdRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionIdResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRelatedResourceRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRelatedResourceResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagCloudResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTagResourcesRequest;
@@ -251,12 +271,16 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RenewWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RestartWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\RestartWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartTaskForCreateImageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartTaskForCreateImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartTaskForDistributeImageRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartTaskForDistributeImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StartWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StopWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StopWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\SubmitImageRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\SubmitImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagCloudResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagCloudResourcesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagResourcesRequest;
@@ -3232,6 +3256,63 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of Alibaba Cloud accounts to which the current image is shared.
+     *
+     * @param request - DescribeShareImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeShareImageResponse
+     *
+     * @param DescribeShareImageRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeShareImageResponse
+     */
+    public function describeShareImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeShareImage',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeShareImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of Alibaba Cloud accounts to which the current image is shared.
+     *
+     * @param request - DescribeShareImageRequest
+     *
+     * @returns DescribeShareImageResponse
+     *
+     * @param DescribeShareImageRequest $request
+     *
+     * @return DescribeShareImageResponse
+     */
+    public function describeShareImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeShareImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a development host.
      *
      * @param request - DescribeWuyingServerRequest
@@ -3347,6 +3428,75 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeWuyingServerEipInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Confirms the successful verification of the image or application creation process.
+     *
+     * @param request - FinishValidateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FinishValidateResponse
+     *
+     * @param FinishValidateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return FinishValidateResponse
+     */
+    public function finishValidateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appVersionId) {
+            @$body['AppVersionId'] = $request->appVersionId;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'FinishValidate',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FinishValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Confirms the successful verification of the image or application creation process.
+     *
+     * @param request - FinishValidateRequest
+     *
+     * @returns FinishValidateResponse
+     *
+     * @param FinishValidateRequest $request
+     *
+     * @return FinishValidateResponse
+     */
+    public function finishValidate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->finishValidateWithOptions($request, $runtime);
     }
 
     /**
@@ -3838,6 +3988,93 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Queries the effective versions of an image in various regions, along with its applications, distribution configurations, and tags.
+     *
+     * @remarks
+     * Queries the effective image versions in various regions by ImageId. If a newer version is configured in the same region, the newer version is returned first. You can specify BizRegionId to limit the query to a specific region. The returned results are also constrained by the product type and the regions visible to the account. To query the details of a specific version, call GetImageById.
+     *
+     * @param request - GetEffectiveImageByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEffectiveImageByIdResponse
+     *
+     * @param GetEffectiveImageByIdRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetEffectiveImageByIdResponse
+     */
+    public function getEffectiveImageByIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->contentLocale) {
+            @$body['ContentLocale'] = $request->contentLocale;
+        }
+
+        if (null !== $request->ignoreFilter) {
+            @$body['IgnoreFilter'] = $request->ignoreFilter;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->imageType) {
+            @$body['ImageType'] = $request->imageType;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->showHidden) {
+            @$body['ShowHidden'] = $request->showHidden;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetEffectiveImageById',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEffectiveImageByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the effective versions of an image in various regions, along with its applications, distribution configurations, and tags.
+     *
+     * @remarks
+     * Queries the effective image versions in various regions by ImageId. If a newer version is configured in the same region, the newer version is returned first. You can specify BizRegionId to limit the query to a specific region. The returned results are also constrained by the product type and the regions visible to the account. To query the details of a specific version, call GetImageById.
+     *
+     * @param request - GetEffectiveImageByIdRequest
+     *
+     * @returns GetEffectiveImageByIdResponse
+     *
+     * @param GetEffectiveImageByIdRequest $request
+     *
+     * @return GetEffectiveImageByIdResponse
+     */
+    public function getEffectiveImageById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEffectiveImageByIdWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves file upload information.
      *
      * @remarks
@@ -3898,6 +4135,156 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getFileUploadInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the image details, adapted applications, and region distribution information based on the image ID or version ID.
+     *
+     * @remarks
+     * You must specify at least one of ImageId and VersionId. If you specify only ImageId, the online version is queried. If you specify VersionId, the specified version is queried. If you specify both parameters, the VersionId must belong to the specified image. To query the effective version in each region, call GetEffectiveImageById.
+     *
+     * @param request - GetImageByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageByIdResponse
+     *
+     * @param GetImageByIdRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetImageByIdResponse
+     */
+    public function getImageByIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->ignoreFilter) {
+            @$body['IgnoreFilter'] = $request->ignoreFilter;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->showHidden) {
+            @$body['ShowHidden'] = $request->showHidden;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetImageById',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetImageByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the image details, adapted applications, and region distribution information based on the image ID or version ID.
+     *
+     * @remarks
+     * You must specify at least one of ImageId and VersionId. If you specify only ImageId, the online version is queried. If you specify VersionId, the specified version is queried. If you specify both parameters, the VersionId must belong to the specified image. To query the effective version in each region, call GetEffectiveImageById.
+     *
+     * @param request - GetImageByIdRequest
+     *
+     * @returns GetImageByIdResponse
+     *
+     * @param GetImageByIdRequest $request
+     *
+     * @return GetImageByIdResponse
+     */
+    public function getImageById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the distribution regions, distribution status, and progress of an image version.
+     *
+     * @remarks
+     * Queries the region distribution status of an image by ImageId. If VersionId is not specified, the online version is queried. If VersionId is specified, the specified version is queried. Returns the non-deleted region distribution records and the corresponding list of region IDs.
+     *
+     * @param request - GetImageDistributeInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageDistributeInfoResponse
+     *
+     * @param GetImageDistributeInfoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetImageDistributeInfoResponse
+     */
+    public function getImageDistributeInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetImageDistributeInfo',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetImageDistributeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the distribution regions, distribution status, and progress of an image version.
+     *
+     * @remarks
+     * Queries the region distribution status of an image by ImageId. If VersionId is not specified, the online version is queried. If VersionId is specified, the specified version is queried. Returns the non-deleted region distribution records and the corresponding list of region IDs.
+     *
+     * @param request - GetImageDistributeInfoRequest
+     *
+     * @returns GetImageDistributeInfoResponse
+     *
+     * @param GetImageDistributeInfoRequest $request
+     *
+     * @return GetImageDistributeInfoResponse
+     */
+    public function getImageDistributeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageDistributeInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -3969,12 +4356,12 @@ class Appstreamcenter extends OpenApiClient
      * Retrieves the authentication credentials, access endpoints, and topic list required for a client to establish an MQTT connection.
      *
      * @remarks
-     * Call this operation to retrieve the credentials and connection information required for a client to establish an MQTT connection.
-     * 1. Use `MqttUsername` and `MqttPassword` as the username and password for the MQTT client connection.
-     * 2. Use `MqttEndpoint` as the connection endpoint. If the VPC network access requirements are met, you can use `MqttVPCEndpoint`. `MqttInstanceId` is used for token authentication, and `MqttGroupId` is used to concatenate the MQTT ClientId.
-     * 3. Distinguish between publish and subscribe topics based on the `topic`, `type`, and `permission` of each item in `TopicList`. `W` indicates the publish permission, and `R` indicates the subscribe permission.
-     * 4. `ExpireTimeStamp` is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned by the operation.
-     * The device identity and request IDs in the documentation are demo data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
+     * Retrieves the credentials and connection information required for a client to establish an MQTT connection.
+     * 1. Use MqttUsername and MqttPassword as the username and password when connecting the MQTT client.
+     * 2. Use MqttEndpoint as the connection endpoint. If the client meets the VPC network access requirements, you can use MqttVPCEndpoint. MqttInstanceId is used for token authentication, and MqttGroupId is used to concatenate the MQTT ClientId.
+     * 3. Distinguish between publish and subscribe topics based on the topic, type, and permission fields of each item in TopicList. W indicates publish permission, and R indicates subscribe permission.
+     * 4. ExpireTimeStamp is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned in the response.
+     * The device identity and request IDs in the documentation are demonstration data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
      *
      * @param tmpReq - GetMqttTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4038,12 +4425,12 @@ class Appstreamcenter extends OpenApiClient
      * Retrieves the authentication credentials, access endpoints, and topic list required for a client to establish an MQTT connection.
      *
      * @remarks
-     * Call this operation to retrieve the credentials and connection information required for a client to establish an MQTT connection.
-     * 1. Use `MqttUsername` and `MqttPassword` as the username and password for the MQTT client connection.
-     * 2. Use `MqttEndpoint` as the connection endpoint. If the VPC network access requirements are met, you can use `MqttVPCEndpoint`. `MqttInstanceId` is used for token authentication, and `MqttGroupId` is used to concatenate the MQTT ClientId.
-     * 3. Distinguish between publish and subscribe topics based on the `topic`, `type`, and `permission` of each item in `TopicList`. `W` indicates the publish permission, and `R` indicates the subscribe permission.
-     * 4. `ExpireTimeStamp` is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned by the operation.
-     * The device identity and request IDs in the documentation are demo data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
+     * Retrieves the credentials and connection information required for a client to establish an MQTT connection.
+     * 1. Use MqttUsername and MqttPassword as the username and password when connecting the MQTT client.
+     * 2. Use MqttEndpoint as the connection endpoint. If the client meets the VPC network access requirements, you can use MqttVPCEndpoint. MqttInstanceId is used for token authentication, and MqttGroupId is used to concatenate the MQTT ClientId.
+     * 3. Distinguish between publish and subscribe topics based on the topic, type, and permission fields of each item in TopicList. W indicates publish permission, and R indicates subscribe permission.
+     * 4. ExpireTimeStamp is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned in the response.
+     * The device identity and request IDs in the documentation are demonstration data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
      *
      * @param request - GetMqttTicketRequest
      *
@@ -4790,7 +5177,189 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries a deduplicated list of version numbers for undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order by version number.
+     * Retrieves the Object Storage Service (OSS) endpoint, directory, and Security Token Service (STS) temporary credentials required to upload image task files.
+     *
+     * @remarks
+     * Currently, FileType only supports TASK. Use the returned OSS endpoint, bucket, file directory, and temporary credentials to upload files. After the file is uploaded, you can pass the complete OSS object path to ImportImage. Expiration is not supported.
+     *
+     * @param request - GetUploadInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUploadInfoResponse
+     *
+     * @param GetUploadInfoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetUploadInfoResponse
+     */
+    public function getUploadInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->fileType) {
+            @$body['FileType'] = $request->fileType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetUploadInfo',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUploadInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the Object Storage Service (OSS) endpoint, directory, and Security Token Service (STS) temporary credentials required to upload image task files.
+     *
+     * @remarks
+     * Currently, FileType only supports TASK. Use the returned OSS endpoint, bucket, file directory, and temporary credentials to upload files. After the file is uploaded, you can pass the complete OSS object path to ImportImage. Expiration is not supported.
+     *
+     * @param request - GetUploadInfoRequest
+     *
+     * @returns GetUploadInfoResponse
+     *
+     * @param GetUploadInfoRequest $request
+     *
+     * @return GetUploadInfoResponse
+     */
+    public function getUploadInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUploadInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Imports an image file from Object Storage Service (OSS) as a custom cloud desktop image and returns the image ID and version ID.
+     *
+     * @remarks
+     * Currently, only ProductType=CloudDesktop is supported. Upload the image file first, and then pass its OSS object path to initiate the import. You can call GetUploadInfo to obtain upload credentials. After the API returns the image and version IDs, you can call GetImageById or GetImageDistributeInfo to query the creation and distribution status. A successful response indicates that the import request has been accepted, not that the image is already available.
+     *
+     * @param request - ImportImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportImageResponse
+     *
+     * @param ImportImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ImportImageResponse
+     */
+    public function importImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizRegionId) {
+            @$body['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->bootMode) {
+            @$body['BootMode'] = $request->bootMode;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableSecurityCheck) {
+            @$body['EnableSecurityCheck'] = $request->enableSecurityCheck;
+        }
+
+        if (null !== $request->gpuCategory) {
+            @$body['GpuCategory'] = $request->gpuCategory;
+        }
+
+        if (null !== $request->gpuDriverType) {
+            @$body['GpuDriverType'] = $request->gpuDriverType;
+        }
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->licenseType) {
+            @$body['LicenseType'] = $request->licenseType;
+        }
+
+        if (null !== $request->osType) {
+            @$body['OsType'] = $request->osType;
+        }
+
+        if (null !== $request->ossObjectPath) {
+            @$body['OssObjectPath'] = $request->ossObjectPath;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->protocolType) {
+            @$body['ProtocolType'] = $request->protocolType;
+        }
+
+        if (null !== $request->systemDiskSize) {
+            @$body['SystemDiskSize'] = $request->systemDiskSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportImage',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Imports an image file from Object Storage Service (OSS) as a custom cloud desktop image and returns the image ID and version ID.
+     *
+     * @remarks
+     * Currently, only ProductType=CloudDesktop is supported. Upload the image file first, and then pass its OSS object path to initiate the import. You can call GetUploadInfo to obtain upload credentials. After the API returns the image and version IDs, you can call GetImageById or GetImageDistributeInfo to query the creation and distribution status. A successful response indicates that the import request has been accepted, not that the image is already available.
+     *
+     * @param request - ImportImageRequest
+     *
+     * @returns ImportImageResponse
+     *
+     * @param ImportImageRequest $request
+     *
+     * @return ImportImageResponse
+     */
+    public function importImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a deduplicated list of version numbers of undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order of version numbers.
      *
      * @param request - ListAgentInstanceVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4833,7 +5402,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries a deduplicated list of version numbers for undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order by version number.
+     * Queries a deduplicated list of version numbers of undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order of version numbers.
      *
      * @param request - ListAgentInstanceVersionsRequest
      *
@@ -5414,26 +5983,26 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, and application name.
+     * Queries the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization. Supports paging and fuzzy filtering by delivery group ID, delivery group name, app ID, and app name.
      *
      * @remarks
      * ## Operation description
-     * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of applications deployed in the delivery group.
-     * Return scope:
-     * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual application authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
-     * - Only delivery groups that match the specified ProductType and are not deleted are returned. If no applications are deployed in the delivery group image, the delivery group is not returned.
+     * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of apps deployed in the delivery group.
+     * Scope of returned results:
+     * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual app authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
+     * - Only delivery groups whose product type matches ProductType and that are not deleted are returned. If no apps are deployed in the delivery group image, the delivery group is not returned.
      * - Results are sorted in descending order based on the update time of the authorization records. The most recently authorized or modified delivery groups are listed first.
      * ## Before you begin
      * - The [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation has been called to authorize the delivery group to the user.
      * ## Metric description
-     * - **ProductType and EndUserId are required**. If ProductType is not specified, the `InvalidParameter.ProductType` error code is returned. If EndUserId is not specified, the `InvalidParameter.UserId` error code is returned.
-     * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match** (a match is hit if the string is contained). If multiple filter conditions are specified, all conditions must be met.
+     * - **ProductType and EndUserId are required**. If ProductType is not specified, the error code `InvalidParameter.ProductType` is returned. If EndUserId is not specified, the error code `InvalidParameter.UserId` is returned.
+     * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match**. A hit occurs if the string is contained. If multiple filter conditions are specified, all conditions must be met.
      * - PageNumber starts from 1. Valid values for PageSize: 1 to 100.
      * - If the user does not have any authorization delivery groups that meet the conditional requirements, the operation returns a normal response: AppInstanceGroupModels is an empty list and TotalCount is 0.
      * ## Call sequence
      * 1. Call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
-     * 2. Call this operation to query the delivery groups authorized for the user and the applications deployed in the delivery groups.
-     * 3. To obtain the application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation by using the returned AppInstanceGroupId and the AppId in Apps.
+     * 2. Call this operation to query the delivery groups authorized to the user and the apps deployed in the delivery groups.
+     * 3. To obtain the app connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation based on the returned AppInstanceGroupId and the AppId in Apps.
      *
      * @param request - ListAuthorizedAppInstanceGroupByUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5504,26 +6073,26 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, and application name.
+     * Queries the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization. Supports paging and fuzzy filtering by delivery group ID, delivery group name, app ID, and app name.
      *
      * @remarks
      * ## Operation description
-     * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of applications deployed in the delivery group.
-     * Return scope:
-     * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual application authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
-     * - Only delivery groups that match the specified ProductType and are not deleted are returned. If no applications are deployed in the delivery group image, the delivery group is not returned.
+     * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of apps deployed in the delivery group.
+     * Scope of returned results:
+     * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual app authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
+     * - Only delivery groups whose product type matches ProductType and that are not deleted are returned. If no apps are deployed in the delivery group image, the delivery group is not returned.
      * - Results are sorted in descending order based on the update time of the authorization records. The most recently authorized or modified delivery groups are listed first.
      * ## Before you begin
      * - The [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation has been called to authorize the delivery group to the user.
      * ## Metric description
-     * - **ProductType and EndUserId are required**. If ProductType is not specified, the `InvalidParameter.ProductType` error code is returned. If EndUserId is not specified, the `InvalidParameter.UserId` error code is returned.
-     * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match** (a match is hit if the string is contained). If multiple filter conditions are specified, all conditions must be met.
+     * - **ProductType and EndUserId are required**. If ProductType is not specified, the error code `InvalidParameter.ProductType` is returned. If EndUserId is not specified, the error code `InvalidParameter.UserId` is returned.
+     * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match**. A hit occurs if the string is contained. If multiple filter conditions are specified, all conditions must be met.
      * - PageNumber starts from 1. Valid values for PageSize: 1 to 100.
      * - If the user does not have any authorization delivery groups that meet the conditional requirements, the operation returns a normal response: AppInstanceGroupModels is an empty list and TotalCount is 0.
      * ## Call sequence
      * 1. Call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
-     * 2. Call this operation to query the delivery groups authorized for the user and the applications deployed in the delivery groups.
-     * 3. To obtain the application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation by using the returned AppInstanceGroupId and the AppId in Apps.
+     * 2. Call this operation to query the delivery groups authorized to the user and the apps deployed in the delivery groups.
+     * 3. To obtain the app connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation based on the returned AppInstanceGroupId and the AppId in Apps.
      *
      * @param request - ListAuthorizedAppInstanceGroupByUserRequest
      *
@@ -5979,7 +6548,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Performs a paging query to retrieve the list of bookmarks in a specified cloud browser group or delivery group set.
+     * Performs a paging query to retrieve the list of bookmarks under a specified cloud browser group or delivery group set.
      *
      * @param request - ListBrowserBookmarksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6034,7 +6603,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Performs a paging query to retrieve the list of bookmarks in a specified cloud browser group or delivery group set.
+     * Performs a paging query to retrieve the list of bookmarks under a specified cloud browser group or delivery group set.
      *
      * @param request - ListBrowserBookmarksRequest
      *
@@ -6184,12 +6753,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the list of access restriction URLs configured for a specified browser delivery group or delivery group set by using paging.
+     * Performs a paging query on the list of access restriction URLs configured for a specified browser delivery group or delivery group set.
      *
      * @remarks
-     * You can call this operation to query the list of access restriction URLs configured for a cloud browser delivery group or delivery group set by using paging to view the details of the URLs configured in the current access control policy.
+     * Invoke this operation to perform a paging query on the list of access restriction URLs (Restricted URLs) configured for a cloud browser delivery group or delivery group set to view the details of the URLs configured in the current access control policy.
      * You must specify either BrowserInstanceGroupId or BrowserInstanceGroupSetId, but not both. If you specify BrowserInstanceGroupId, the restricted URLs for the delivery group are queried. If you specify BrowserInstanceGroupSetId, the restricted URLs for the delivery group set are queried. Specifying both or neither returns a parameter error.
-     * You can use Keyword to filter restricted URLs by using a contains match. The match is case-insensitive for English characters. If you do not specify this parameter, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
+     * You can use Keyword to filter restricted URLs by using a case-insensitive include match. If this parameter is not specified, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
      *
      * @param request - ListBrowserRestrictedURLsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6244,12 +6813,12 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the list of access restriction URLs configured for a specified browser delivery group or delivery group set by using paging.
+     * Performs a paging query on the list of access restriction URLs configured for a specified browser delivery group or delivery group set.
      *
      * @remarks
-     * You can call this operation to query the list of access restriction URLs configured for a cloud browser delivery group or delivery group set by using paging to view the details of the URLs configured in the current access control policy.
+     * Invoke this operation to perform a paging query on the list of access restriction URLs (Restricted URLs) configured for a cloud browser delivery group or delivery group set to view the details of the URLs configured in the current access control policy.
      * You must specify either BrowserInstanceGroupId or BrowserInstanceGroupSetId, but not both. If you specify BrowserInstanceGroupId, the restricted URLs for the delivery group are queried. If you specify BrowserInstanceGroupSetId, the restricted URLs for the delivery group set are queried. Specifying both or neither returns a parameter error.
-     * You can use Keyword to filter restricted URLs by using a contains match. The match is case-insensitive for English characters. If you do not specify this parameter, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
+     * You can use Keyword to filter restricted URLs by using a case-insensitive include match. If this parameter is not specified, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
      *
      * @param request - ListBrowserRestrictedURLsRequest
      *
@@ -6568,6 +7137,174 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the basic information of images by using paging and a paged query, including the image name, type, status, and version identity.
+     *
+     * @remarks
+     * Supports filtering by image ID, name, status, type, package type, operating system, business line, product type, and protocol type. Multiple filter conditions take effect simultaneously, and the results are returned in descending order of image creation time. Returns the basic information and version identifiers of images. To obtain specific version and region distribution information, call ListImage.
+     *
+     * @param request - ListImageBaseInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImageBaseInfoResponse
+     *
+     * @param ListImageBaseInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListImageBaseInfoResponse
+     */
+    public function listImageBaseInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
+        }
+
+        if (null !== $request->imageType) {
+            @$body['ImageType'] = $request->imageType;
+        }
+
+        if (null !== $request->osType) {
+            @$body['OsType'] = $request->osType;
+        }
+
+        if (null !== $request->packageType) {
+            @$body['PackageType'] = $request->packageType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->protocolType) {
+            @$body['ProtocolType'] = $request->protocolType;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListImageBaseInfo',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListImageBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the basic information of images by using paging and a paged query, including the image name, type, status, and version identity.
+     *
+     * @remarks
+     * Supports filtering by image ID, name, status, type, package type, operating system, business line, product type, and protocol type. Multiple filter conditions take effect simultaneously, and the results are returned in descending order of image creation time. Returns the basic information and version identifiers of images. To obtain specific version and region distribution information, call ListImage.
+     *
+     * @param request - ListImageBaseInfoRequest
+     *
+     * @returns ListImageBaseInfoResponse
+     *
+     * @param ListImageBaseInfoRequest $request
+     *
+     * @return ListImageBaseInfoResponse
+     */
+    public function listImageBaseInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImageBaseInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the built-in tags supported by images.
+     *
+     * @param request - ListImageTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListImageTagsResponse
+     *
+     * @param ListImageTagsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListImageTagsResponse
+     */
+    public function listImageTagsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListImageTags',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListImageTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the built-in tags supported by images.
+     *
+     * @param request - ListImageTagsRequest
+     *
+     * @returns ListImageTagsResponse
+     *
+     * @param ListImageTagsRequest $request
+     *
+     * @return ListImageTagsResponse
+     */
+    public function listImageTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listImageTagsWithOptions($request, $runtime);
     }
 
     /**
@@ -7455,23 +8192,23 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account by using paging, and supports filtering by delivery group, application, and user authorization status.
+     * Performs a paged query to retrieve the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account. Supports filtering by delivery group, application, and user authorization during paging.
      *
      * @remarks
      * ## Prerequisites
-     * When you call this operation as a RAM user or by using STS credentials, you must have the `appstreaming:ListPublishedAppInstanceGroup` permission.
+     * When you call this operation as a RAM user or by using STS credentials, you must have the appstreaming:ListPublishedAppInstanceGroup permission.
      * Only delivery groups that are in the published state and have deployed applications in their images are included in the query results. This operation only queries information. It does not create delivery groups, assign users, or grant application access permissions.
      * ## Query and pagination
-     * - **You must explicitly specify `ProductType`, `PageNumber`, and `PageSize`.** The page number starts from `1`, and the number of entries per page ranges from `1` to `100`.
-     * - `AppInstanceGroupId`, `AppInstanceGroupName`, `AppId`, and `AppName` all support partial matching. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both `AppId` and `AppName` are specified, they must be met by the same application.
-     * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. A delivery group is not returned multiple times even if it contains multiple matched applications.
-     * - `ExcludeUserId` is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
-     * - `AppId` and `AppName` only filter delivery groups and **do not restrict the returned `Apps` list to the matched applications**.
-     * ## Invocation sequence
-     * 1. Initiate a query with `PageNumber=1` and the desired `PageSize`. For common scenarios of Wuying Cloud App, set `ProductType` to `CloudApp`.
-     * 2. Read `AppInstanceGroupModels`. To retrieve the next page, keep the product type and filter conditions unchanged, and increment `PageNumber`. If no delivery groups match the conditions, the total count is `0` and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
-     * 3. To obtain the details of a single delivery group, pass the complete `AppInstanceGroupId` returned and the same `ProductType` to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
-     * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you invoke the operation.
+     * - **You must explicitly specify ProductType, PageNumber, and PageSize.** The page number starts from 1, and the number of entries per page ranges from 1 to 100.
+     * - AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName all support fuzzy match. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both AppId and AppName are specified, the same application must meet both conditions.
+     * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. The same delivery group is not returned multiple times even if it contains multiple matched applications.
+     * - ExcludeUserId is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
+     * - AppId and AppName only filter delivery groups and **do not limit the returned Apps list to the matched applications**.
+     * ## Call sequence
+     * 1. Initiate a query with PageNumber=1 and the desired PageSize. For WUYING Cloud App scenarios, set ProductType=CloudApp.
+     * 2. Read AppInstanceGroupModels. To retrieve the next page, keep the product type and filter conditions unchanged and increment PageNumber. If no delivery groups match the conditions, the total count is 0 and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
+     * 3. To obtain the details of a single delivery group, pass the complete AppInstanceGroupId returned and the same ProductType to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
+     * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you call the operation.
      *
      * @param request - ListPublishedAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7542,23 +8279,23 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account by using paging, and supports filtering by delivery group, application, and user authorization status.
+     * Performs a paged query to retrieve the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account. Supports filtering by delivery group, application, and user authorization during paging.
      *
      * @remarks
      * ## Prerequisites
-     * When you call this operation as a RAM user or by using STS credentials, you must have the `appstreaming:ListPublishedAppInstanceGroup` permission.
+     * When you call this operation as a RAM user or by using STS credentials, you must have the appstreaming:ListPublishedAppInstanceGroup permission.
      * Only delivery groups that are in the published state and have deployed applications in their images are included in the query results. This operation only queries information. It does not create delivery groups, assign users, or grant application access permissions.
      * ## Query and pagination
-     * - **You must explicitly specify `ProductType`, `PageNumber`, and `PageSize`.** The page number starts from `1`, and the number of entries per page ranges from `1` to `100`.
-     * - `AppInstanceGroupId`, `AppInstanceGroupName`, `AppId`, and `AppName` all support partial matching. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both `AppId` and `AppName` are specified, they must be met by the same application.
-     * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. A delivery group is not returned multiple times even if it contains multiple matched applications.
-     * - `ExcludeUserId` is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
-     * - `AppId` and `AppName` only filter delivery groups and **do not restrict the returned `Apps` list to the matched applications**.
-     * ## Invocation sequence
-     * 1. Initiate a query with `PageNumber=1` and the desired `PageSize`. For common scenarios of Wuying Cloud App, set `ProductType` to `CloudApp`.
-     * 2. Read `AppInstanceGroupModels`. To retrieve the next page, keep the product type and filter conditions unchanged, and increment `PageNumber`. If no delivery groups match the conditions, the total count is `0` and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
-     * 3. To obtain the details of a single delivery group, pass the complete `AppInstanceGroupId` returned and the same `ProductType` to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
-     * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you invoke the operation.
+     * - **You must explicitly specify ProductType, PageNumber, and PageSize.** The page number starts from 1, and the number of entries per page ranges from 1 to 100.
+     * - AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName all support fuzzy match. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both AppId and AppName are specified, the same application must meet both conditions.
+     * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. The same delivery group is not returned multiple times even if it contains multiple matched applications.
+     * - ExcludeUserId is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
+     * - AppId and AppName only filter delivery groups and **do not limit the returned Apps list to the matched applications**.
+     * ## Call sequence
+     * 1. Initiate a query with PageNumber=1 and the desired PageSize. For WUYING Cloud App scenarios, set ProductType=CloudApp.
+     * 2. Read AppInstanceGroupModels. To retrieve the next page, keep the product type and filter conditions unchanged and increment PageNumber. If no delivery groups match the conditions, the total count is 0 and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
+     * 3. To obtain the details of a single delivery group, pass the complete AppInstanceGroupId returned and the same ProductType to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
+     * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you call the operation.
      *
      * @param request - ListPublishedAppInstanceGroupRequest
      *
@@ -7824,6 +8561,71 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the number of associated templates, cloud desktops, and cloud desktop pools.
+     *
+     * @param request - ListRelatedResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRelatedResourceResponse
+     *
+     * @param ListRelatedResourceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListRelatedResourceResponse
+     */
+    public function listRelatedResourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListRelatedResource',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRelatedResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the number of associated templates, cloud desktops, and cloud desktop pools.
+     *
+     * @param request - ListRelatedResourceRequest
+     *
+     * @returns ListRelatedResourceResponse
+     *
+     * @param ListRelatedResourceRequest $request
+     *
+     * @return ListRelatedResourceResponse
+     */
+    public function listRelatedResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRelatedResourceWithOptions($request, $runtime);
     }
 
     /**
@@ -8438,10 +9240,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling enabled.
+     * Unregisters all sessions in a pay-as-you-go delivery group that has a scheduled auto scaling policy enabled.
      *
      * @remarks
-     * > This operation applies only to pay-as-you-go resource delivery groups that have scheduled auto scaling enabled. The operation can be called only outside the scaling time periods specified in the scheduled auto scaling policy.
+     * > This operation is applicable only to pay-as-you-go resource delivery groups that have a scheduled auto scaling policy enabled. It can be called successfully only outside the scaling time windows specified in the scheduled auto scaling policy.
      *
      * @param request - LogOffAllSessionsInAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8484,10 +9286,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling enabled.
+     * Unregisters all sessions in a pay-as-you-go delivery group that has a scheduled auto scaling policy enabled.
      *
      * @remarks
-     * > This operation applies only to pay-as-you-go resource delivery groups that have scheduled auto scaling enabled. The operation can be called only outside the scaling time periods specified in the scheduled auto scaling policy.
+     * > This operation is applicable only to pay-as-you-go resource delivery groups that have a scheduled auto scaling policy enabled. It can be called successfully only outside the scaling time windows specified in the scheduled auto scaling policy.
      *
      * @param request - LogOffAllSessionsInAppInstanceGroupRequest
      *
@@ -9917,8 +10719,8 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * Call this operation to query the session count trend data for the current Alibaba Cloud account on a specified date. The data is an offline statistical result, organized by day, and returns the session counts at various time points on that date.
-     * The returned results are aggregated in 10-minute intervals. Each data point is identified by an hour (Hh, values 00 to 23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a specific time point. SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
-     * You can specify a business region by using BizRegionId and filter by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The actual region used to filter session data is subject to BizRegionId.
+     * The returned results are aggregated in 10-minute intervals: each data point is identified by an hour (Hh, values 00-23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a time point, and SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
+     * You can specify a business region by using BizRegionId and filter session data by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The region actually used to filter session data is subject to BizRegionId.
      * StatDate is the statistical date in the yyyyMMdd format. If not provided, the data for yesterday is queried by default. Only dates within the last 90 days are supported. If there is no session data on the specified date, an empty list is returned, and the return code is NO_DATA.
      *
      * @param request - QuerySessionDataRequest
@@ -9974,8 +10776,8 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * Call this operation to query the session count trend data for the current Alibaba Cloud account on a specified date. The data is an offline statistical result, organized by day, and returns the session counts at various time points on that date.
-     * The returned results are aggregated in 10-minute intervals. Each data point is identified by an hour (Hh, values 00 to 23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a specific time point. SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
-     * You can specify a business region by using BizRegionId and filter by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The actual region used to filter session data is subject to BizRegionId.
+     * The returned results are aggregated in 10-minute intervals: each data point is identified by an hour (Hh, values 00-23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a time point, and SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
+     * You can specify a business region by using BizRegionId and filter session data by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The region actually used to filter session data is subject to BizRegionId.
      * StatDate is the statistical date in the yyyyMMdd format. If not provided, the data for yesterday is queried by default. Only dates within the last 90 days are supported. If there is no session data on the specified date, an empty list is returned, and the return code is NO_DATA.
      *
      * @param request - QuerySessionDataRequest
@@ -10419,11 +11221,16 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes a third-party channel configuration from the Agent runtime.
+     * Removes the third-party channel configuration for an agent runtime.
      *
      * @remarks
-     * You can call this operation to remove a specific third-party channel configuration from Agents such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the removal, the Agent cannot use the third-party channel for conversations.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can call this operation to remove the specific third-party channel configuration for agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. After the configuration is removed, the agent cannot use the third-party channel for conversations.
+     * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
+     * Before you begin:
+     * - The RuntimeIds passed to this operation must be agent runtimes managed by the WUYING Agent Management Center. The cloud desktops that host these runtimes must be created by using API operations such as CreateDesktop of the Elastic Desktop Service (EDS) product. Example of a cross-product call chain: CreateDesktop → ListDesktops → Use the DesktopId as RuntimeIds.
+     * - OpenClaw scenario: RuntimeIds are cloud desktop IDs in the format of ecd-xxxx, which are the DesktopId values returned by the ListDesktops operation of the EDS product.
+     * - JVS Computer and Hermes Agent scenarios: RuntimeIds are the corresponding JVS IDs in the format of jvs-xxxx. The cloud desktops that host these runtimes are also created by using API operations such as CreateDesktop of the EDS product.
+     * - You can call the ListDesktopAgentRuntime operation of this product to query the agent runtimes managed by the WUYING Agent Management Center. If the query result is empty, it indicates that the corresponding cloud desktop is not managed. In this case, you must first call the CreateDesktop operation of the EDS product to create the cloud desktop. The WUYING Agent Management Center automatically manages the cloud desktop after it receives a desktop lifecycle event. After that, you can call this operation.
      *
      * @param request - RemoveRuntimeChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10478,11 +11285,16 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes a third-party channel configuration from the Agent runtime.
+     * Removes the third-party channel configuration for an agent runtime.
      *
      * @remarks
-     * You can call this operation to remove a specific third-party channel configuration from Agents such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the removal, the Agent cannot use the third-party channel for conversations.
-     * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+     * You can call this operation to remove the specific third-party channel configuration for agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. After the configuration is removed, the agent cannot use the third-party channel for conversations.
+     * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
+     * Before you begin:
+     * - The RuntimeIds passed to this operation must be agent runtimes managed by the WUYING Agent Management Center. The cloud desktops that host these runtimes must be created by using API operations such as CreateDesktop of the Elastic Desktop Service (EDS) product. Example of a cross-product call chain: CreateDesktop → ListDesktops → Use the DesktopId as RuntimeIds.
+     * - OpenClaw scenario: RuntimeIds are cloud desktop IDs in the format of ecd-xxxx, which are the DesktopId values returned by the ListDesktops operation of the EDS product.
+     * - JVS Computer and Hermes Agent scenarios: RuntimeIds are the corresponding JVS IDs in the format of jvs-xxxx. The cloud desktops that host these runtimes are also created by using API operations such as CreateDesktop of the EDS product.
+     * - You can call the ListDesktopAgentRuntime operation of this product to query the agent runtimes managed by the WUYING Agent Management Center. If the query result is empty, it indicates that the corresponding cloud desktop is not managed. In this case, you must first call the CreateDesktop operation of the EDS product to create the cloud desktop. The WUYING Agent Management Center automatically manages the cloud desktop after it receives a desktop lifecycle event. After that, you can call this operation.
      *
      * @param request - RemoveRuntimeChannelRequest
      *
@@ -10500,11 +11312,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes a model group from an Agent runtime resource.
+     * Removes the model group from an agent runtime resource.
      *
      * @remarks
-     * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
-     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
+     * You can remove the model group from agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an agent runtime resource needs to change its model group, you must first call this operation to remove the authorization relationship between the agent runtime resource and the original model group.
+     * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this operation.
      *
      * @param request - RemoveRuntimeModelTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10551,11 +11363,11 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes a model group from an Agent runtime resource.
+     * Removes the model group from an agent runtime resource.
      *
      * @remarks
-     * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
-     * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
+     * You can remove the model group from agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an agent runtime resource needs to change its model group, you must first call this operation to remove the authorization relationship between the agent runtime resource and the original model group.
+     * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this operation.
      *
      * @param request - RemoveRuntimeModelTemplateRequest
      *
@@ -10815,6 +11627,111 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * Starts an image creation task for an existing image version, or resumes an existing creation task.
+     *
+     * @param request - StartTaskForCreateImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartTaskForCreateImageResponse
+     *
+     * @param StartTaskForCreateImageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return StartTaskForCreateImageResponse
+     */
+    public function startTaskForCreateImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->imageCreateMode) {
+            @$body['ImageCreateMode'] = $request->imageCreateMode;
+        }
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->jumpStep) {
+            @$body['JumpStep'] = $request->jumpStep;
+        }
+
+        if (null !== $request->performanceType) {
+            @$body['PerformanceType'] = $request->performanceType;
+        }
+
+        if (null !== $request->productType) {
+            @$body['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->resourceList) {
+            @$body['ResourceList'] = $request->resourceList;
+        }
+
+        if (null !== $request->retryType) {
+            @$body['RetryType'] = $request->retryType;
+        }
+
+        if (null !== $request->runMode) {
+            @$body['RunMode'] = $request->runMode;
+        }
+
+        if (null !== $request->sourceRegion) {
+            @$body['SourceRegion'] = $request->sourceRegion;
+        }
+
+        if (null !== $request->subInstanceId) {
+            @$body['SubInstanceId'] = $request->subInstanceId;
+        }
+
+        if (null !== $request->systemDiskSize) {
+            @$body['SystemDiskSize'] = $request->systemDiskSize;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StartTaskForCreateImage',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartTaskForCreateImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Starts an image creation task for an existing image version, or resumes an existing creation task.
+     *
+     * @param request - StartTaskForCreateImageRequest
+     *
+     * @returns StartTaskForCreateImageResponse
+     *
+     * @param StartTaskForCreateImageRequest $request
+     *
+     * @return StartTaskForCreateImageResponse
+     */
+    public function startTaskForCreateImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startTaskForCreateImageWithOptions($request, $runtime);
+    }
+
+    /**
      * Initiates a task to copy an image to other regions.
      *
      * @param request - StartTaskForDistributeImageRequest
@@ -11021,6 +11938,67 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopWuyingServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * Confirms the completion of image creation.
+     *
+     * @param request - SubmitImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitImageResponse
+     *
+     * @param SubmitImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SubmitImageResponse
+     */
+    public function submitImageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->destinationRegionList) {
+            @$body['DestinationRegionList'] = $request->destinationRegionList;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitImage',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Confirms the completion of image creation.
+     *
+     * @param request - SubmitImageRequest
+     *
+     * @returns SubmitImageResponse
+     *
+     * @param SubmitImageRequest $request
+     *
+     * @return SubmitImageResponse
+     */
+    public function submitImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitImageWithOptions($request, $runtime);
     }
 
     /**
