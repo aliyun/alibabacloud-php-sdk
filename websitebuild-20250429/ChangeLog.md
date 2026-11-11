@@ -1,3 +1,7 @@
+2026-11-11 Version: 2.39.0
+- Support API GetAppPluginConfigForAdmin.
+
+
 2026-11-05 Version: 2.38.8
 - Update API AllocateSupabaseForAdmin: add response parameters Body.Module.SchemaName.
 - Update API AllocateSupabaseForAdmin: add response parameters Body.Module.TenantMode.

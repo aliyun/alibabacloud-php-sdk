@@ -123,6 +123,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceTempShortUrlRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceTempShortUrlResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginRequest;
@@ -389,6 +391,7 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileForAdminReq
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -399,6 +402,9 @@ class WebsiteBuild extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'WebsiteBuild';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-zhangjiakou' => 'websitebuild.aliyuncs.com',
@@ -4726,6 +4732,87 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppPluginConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+     *
+     * @remarks
+     * ## Request description
+     * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+     * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+     * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+     * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+     * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+     * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+     * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+     *
+     * @param request - GetAppPluginConfigForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppPluginConfigForAdminResponse
+     *
+     * @param GetAppPluginConfigForAdminRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAppPluginConfigForAdminResponse
+     */
+    public function getAppPluginConfigForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->pluginId) {
+            @$body['PluginId'] = $request->pluginId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppPluginConfigForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppPluginConfigForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+     *
+     * @remarks
+     * ## Request description
+     * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+     * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+     * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+     * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+     * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+     * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+     * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+     *
+     * @param request - GetAppPluginConfigForAdminRequest
+     *
+     * @returns GetAppPluginConfigForAdminResponse
+     *
+     * @param GetAppPluginConfigForAdminRequest $request
+     *
+     * @return GetAppPluginConfigForAdminResponse
+     */
+    public function getAppPluginConfigForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppPluginConfigForAdminWithOptions($request, $runtime);
     }
 
     /**
