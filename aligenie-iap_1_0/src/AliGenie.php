@@ -21,6 +21,9 @@ use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\CreateReminderHeaders;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\CreateReminderRequest;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\CreateReminderResponse;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\CreateReminderShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\CtripOrderPushHeaders;
+use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\CtripOrderPushRequest;
+use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\CtripOrderPushResponse;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\DeleteReminderHeaders;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\DeleteReminderRequest;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\DeleteReminderResponse;
@@ -71,6 +74,7 @@ use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\VideoAppReportShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\WakeUpAppHeaders;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\WakeUpAppRequest;
 use AlibabaCloud\SDK\AliGenie\Viap_1_0\Models\WakeUpAppResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -81,7 +85,10 @@ class AliGenie extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_productId = 'AliGenie';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aligenie', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -111,7 +118,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 应用使用时长上报.
+     * Used to report application usage duration on Tmall Genie devices.
      *
      * @param tmpReq - AppUseTimeReportRequest
      * @param headers - AppUseTimeReportHeaders
@@ -188,7 +195,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 应用使用时长上报.
+     * Used to report application usage duration on Tmall Genie devices.
      *
      * @param request - AppUseTimeReportRequest
      *
@@ -207,7 +214,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 三方领取回调接口.
+     * Third-party membership redemption callback API.
      *
      * @param tmpReq - CallBackThirdRightSendPlanRequest
      * @param headers - CallBackThirdRightSendPlanHeaders
@@ -300,7 +307,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 三方领取回调接口.
+     * Third-party membership redemption callback API.
      *
      * @param request - CallBackThirdRightSendPlanRequest
      *
@@ -319,7 +326,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 商业化移动屏三方app领卡校验.
+     * Commercial mobile screen third-party app card issuance validation.
      *
      * @param tmpReq - CheckThirdRightSendPlanRequest
      * @param headers - CheckThirdRightSendPlanHeaders
@@ -396,7 +403,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 商业化移动屏三方app领卡校验.
+     * Commercial mobile screen third-party app card issuance validation.
      *
      * @param request - CheckThirdRightSendPlanRequest
      *
@@ -415,7 +422,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 创建提醒.
+     * Used to create a reminder on a Tmall Genie device.
      *
      * @param tmpReq - CreateReminderRequest
      * @param headers - CreateReminderHeaders
@@ -492,7 +499,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 创建提醒.
+     * Used to create a reminder on a Tmall Genie device.
      *
      * @param request - CreateReminderRequest
      *
@@ -511,7 +518,89 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 删除提醒.
+     * 携程订单状态变更推送
+     *
+     * @param request - CtripOrderPushRequest
+     * @param headers - CtripOrderPushHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CtripOrderPushResponse
+     *
+     * @param CtripOrderPushRequest $request
+     * @param CtripOrderPushHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CtripOrderPushResponse
+     */
+    public function ctripOrderPushWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->journeyId) {
+            @$query['JourneyId'] = $request->journeyId;
+        }
+
+        if (null !== $request->scheduleItem) {
+            @$query['ScheduleItem'] = $request->scheduleItem;
+        }
+
+        if (null !== $request->uid) {
+            @$query['Uid'] = $request->uid;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsAligenieAccessToken) {
+            @$realHeaders['x-acs-aligenie-access-token'] = '' . $headers->xAcsAligenieAccessToken;
+        }
+
+        if (null !== $headers->authorization) {
+            @$realHeaders['Authorization'] = '' . $headers->authorization;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CtripOrderPush',
+            'version' => 'iap_1.0',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1.0/iap/ctripOrderPush',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CtripOrderPushResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 携程订单状态变更推送
+     *
+     * @param request - CtripOrderPushRequest
+     *
+     * @returns CtripOrderPushResponse
+     *
+     * @param CtripOrderPushRequest $request
+     *
+     * @return CtripOrderPushResponse
+     */
+    public function ctripOrderPush($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CtripOrderPushHeaders([]);
+
+        return $this->ctripOrderPushWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * User deletes a reminder created on a Tmall Genie device.
      *
      * @param tmpReq - DeleteReminderRequest
      * @param headers - DeleteReminderHeaders
@@ -588,7 +677,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 删除提醒.
+     * User deletes a reminder created on a Tmall Genie device.
      *
      * @param request - DeleteReminderRequest
      *
@@ -607,7 +696,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取会员信息.
+     * Used by developers to obtain membership information in business scenarios that depend on CatGenie Membership.
      *
      * @param tmpReq - GetAccountForAppRequest
      * @param headers - GetAccountForAppHeaders
@@ -684,7 +773,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取会员信息.
+     * Used by developers to obtain membership information in business scenarios that depend on CatGenie Membership.
      *
      * @param request - GetAccountForAppRequest
      *
@@ -703,7 +792,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取应用配置.
+     * Obtain application configuration.
      *
      * @param tmpReq - GetBusAppConfigRequest
      * @param headers - GetBusAppConfigHeaders
@@ -780,7 +869,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 获取应用配置.
+     * Obtain application configuration.
      *
      * @param request - GetBusAppConfigRequest
      *
@@ -799,7 +888,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 用户手机号获取.
+     * Obtain the phone number bound to the user\\"s Maojing device. You must first request this capability on the Maojing Skill Application Platform and obtain user authorization on the device side.
      *
      * @param tmpReq - GetPhoneNumberRequest
      * @param headers - GetPhoneNumberHeaders
@@ -868,7 +957,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 用户手机号获取.
+     * Obtain the phone number bound to the user\\"s Maojing device. You must first request this capability on the Maojing Skill Application Platform and obtain user authorization on the device side.
      *
      * @param request - GetPhoneNumberRequest
      *
@@ -887,7 +976,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询提醒.
+     * User retrieves reminders created on Tmall Genie devices.
      *
      * @param tmpReq - GetReminderRequest
      * @param headers - GetReminderHeaders
@@ -964,7 +1053,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询提醒.
+     * User retrieves reminders created on Tmall Genie devices.
      *
      * @param request - GetReminderRequest
      *
@@ -983,7 +1072,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询提醒列表.
+     * The User batch retrieves reminders created on Tmall Genie devices.
      *
      * @param tmpReq - ListRemindersRequest
      * @param headers - ListRemindersHeaders
@@ -1060,7 +1149,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 查询提醒列表.
+     * The User batch retrieves reminders created on Tmall Genie devices.
      *
      * @param request - ListRemindersRequest
      *
@@ -1079,7 +1168,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 拉取收银台.
+     * The user launches the checkout page on a Tmall Genie device.
      *
      * @param tmpReq - PullCashierRequest
      * @param headers - PullCashierHeaders
@@ -1156,7 +1245,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 拉取收银台.
+     * The user launches the checkout page on a Tmall Genie device.
      *
      * @param request - PullCashierRequest
      *
@@ -1175,7 +1264,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 猫精系统消息推送
+     * Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template on the Tmall Genie Skill Application Platform.
      *
      * @param tmpReq - PushNotificationsRequest
      * @param headers - PushNotificationsHeaders
@@ -1244,7 +1333,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 猫精系统消息推送
+     * Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template on the Tmall Genie Skill Application Platform.
      *
      * @param request - PushNotificationsRequest
      *
@@ -1263,7 +1352,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 消息推送服务（普通版）.
+     * Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template in the Tmall Genie Skill Application Platform.
      *
      * @param tmpReq - SendNotificationsRequest
      * @param headers - SendNotificationsHeaders
@@ -1348,7 +1437,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 消息推送服务（普通版）.
+     * Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template in the Tmall Genie Skill Application Platform.
      *
      * @param request - SendNotificationsRequest
      *
@@ -1473,7 +1562,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 更新提醒.
+     * The user updates a reminder created on a Tmall Genie device.
      *
      * @param tmpReq - UpdateReminderRequest
      * @param headers - UpdateReminderHeaders
@@ -1550,7 +1639,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 更新提醒.
+     * The user updates a reminder created on a Tmall Genie device.
      *
      * @param request - UpdateReminderRequest
      *
@@ -1569,7 +1658,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 视频类应用会员信息上报.
+     * Used by developers to report membership information in scenarios involving membership collaboration with CatGenie.
      *
      * @param tmpReq - VideoAppReportRequest
      * @param headers - VideoAppReportHeaders
@@ -1646,7 +1735,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 视频类应用会员信息上报.
+     * Used by developers to report membership information in scenarios involving membership collaboration with CatGenie.
      *
      * @param request - VideoAppReportRequest
      *
@@ -1665,7 +1754,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 猫精应用唤起.
+     * On a smart speaker with a screen, proactively launch the MeowGenie screen-display application. You must first request this capability on the MeowGenie skill application platform.
      *
      * @param request - WakeUpAppRequest
      * @param headers - WakeUpAppHeaders
@@ -1728,7 +1817,7 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * 猫精应用唤起.
+     * On a smart speaker with a screen, proactively launch the MeowGenie screen-display application. You must first request this capability on the MeowGenie skill application platform.
      *
      * @param request - WakeUpAppRequest
      *
