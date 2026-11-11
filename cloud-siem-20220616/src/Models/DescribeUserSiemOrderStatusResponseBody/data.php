@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeUserSiemOrderStatusResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\DescribeUserSiemOrderStatusResponseBody\data\creditsPostpaidInfo;
 
 class data extends Model
 {
@@ -37,6 +38,11 @@ class data extends Model
      * @var string
      */
     public $capacityOrderFrom;
+
+    /**
+     * @var creditsPostpaidInfo
+     */
+    public $creditsPostpaidInfo;
 
     /**
      * @var int
@@ -109,6 +115,7 @@ class data extends Model
         'canBuy' => 'CanBuy',
         'capacity' => 'Capacity',
         'capacityOrderFrom' => 'CapacityOrderFrom',
+        'creditsPostpaidInfo' => 'CreditsPostpaidInfo',
         'deliveryCapacity' => 'DeliveryCapacity',
         'durationDays' => 'DurationDays',
         'endTime' => 'EndTime',
@@ -126,6 +133,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->creditsPostpaidInfo) {
+            $this->creditsPostpaidInfo->validate();
+        }
         parent::validate();
     }
 
@@ -154,6 +164,10 @@ class data extends Model
 
         if (null !== $this->capacityOrderFrom) {
             $res['CapacityOrderFrom'] = $this->capacityOrderFrom;
+        }
+
+        if (null !== $this->creditsPostpaidInfo) {
+            $res['CreditsPostpaidInfo'] = null !== $this->creditsPostpaidInfo ? $this->creditsPostpaidInfo->toArray($noStream) : $this->creditsPostpaidInfo;
         }
 
         if (null !== $this->deliveryCapacity) {
@@ -241,6 +255,10 @@ class data extends Model
 
         if (isset($map['CapacityOrderFrom'])) {
             $model->capacityOrderFrom = $map['CapacityOrderFrom'];
+        }
+
+        if (isset($map['CreditsPostpaidInfo'])) {
+            $model->creditsPostpaidInfo = creditsPostpaidInfo::fromMap($map['CreditsPostpaidInfo']);
         }
 
         if (isset($map['DeliveryCapacity'])) {
