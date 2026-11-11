@@ -8,7 +8,18 @@ use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
+    /**
+     * @var string
+     */
+    public $key;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -18,7 +29,16 @@ class tag extends Model
 
     public function toArray($noStream = false)
     {
-        return [];
+        $res = [];
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
+
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
+        }
+
+        return $res;
     }
 
     public function toMap($noStream = false)
@@ -28,6 +48,15 @@ class tag extends Model
 
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
+
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
+        }
+
+        return $model;
     }
 }

@@ -985,9 +985,9 @@ class Cbn extends OpenApiClient
      * Associates a policy route table.
      *
      * @remarks
-     * The AssociateTransitRouterPolicyTable API operation is asynchronous. The system returns an association ID before the association is fully created, and the creation task continues in the background. You can call the DescribeTransitRouterPolicyTableAssociations API operation to query the status of the policy route table association.
-     * - When the policy route table association is in the Associating state, the association is being created. In this state, you can only perform query operations.
-     * - When the policy route table association is in the Active state, the association is created.
+     * The AssociateTransitRouterPolicyTable operation is asynchronous. The system first returns an association ID for the policy route table, but the association is not yet complete and the creation task is still running in the background. You can call the DescribeTransitRouterPolicyTableAssociations operation to query the status of the policy route table association.
+     * - If the policy route table association is in the Associating state, the association is being created. In this state, you can only perform query operations.
+     * - If the policy route table association is in the Active state, the association is created.
      *
      * @param request - AssociateTransitRouterPolicyTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1041,9 +1041,9 @@ class Cbn extends OpenApiClient
      * Associates a policy route table.
      *
      * @remarks
-     * The AssociateTransitRouterPolicyTable API operation is asynchronous. The system returns an association ID before the association is fully created, and the creation task continues in the background. You can call the DescribeTransitRouterPolicyTableAssociations API operation to query the status of the policy route table association.
-     * - When the policy route table association is in the Associating state, the association is being created. In this state, you can only perform query operations.
-     * - When the policy route table association is in the Active state, the association is created.
+     * The AssociateTransitRouterPolicyTable operation is asynchronous. The system first returns an association ID for the policy route table, but the association is not yet complete and the creation task is still running in the background. You can call the DescribeTransitRouterPolicyTableAssociations operation to query the status of the policy route table association.
+     * - If the policy route table association is in the Associating state, the association is being created. In this state, you can only perform query operations.
+     * - If the policy route table association is in the Active state, the association is created.
      *
      * @param request - AssociateTransitRouterPolicyTableRequest
      *
@@ -3381,7 +3381,7 @@ class Cbn extends OpenApiClient
      * Creates a policy-based routing rule in the policy route table of an Enterprise Edition transit router.
      *
      * @remarks
-     * The **CreateTransitRouterPolicyBasedRoute** API operation is asynchronous. The system returns a route entry ID before the route entry is created, and the creation task continues in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** API operation to query the status of the route entry.
+     * The **CreateTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a route entry ID, but the route entry is not completely created and the creation task is still running in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the route entry.
      * - If the route entry is in the **Creating** state, the route entry is being created. In this state, you can only query the route entry and cannot perform other operations.
      * - If the route entry is in the **Active** state, the route entry is created.
      *
@@ -3477,7 +3477,7 @@ class Cbn extends OpenApiClient
      * Creates a policy-based routing rule in the policy route table of an Enterprise Edition transit router.
      *
      * @remarks
-     * The **CreateTransitRouterPolicyBasedRoute** API operation is asynchronous. The system returns a route entry ID before the route entry is created, and the creation task continues in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** API operation to query the status of the route entry.
+     * The **CreateTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a route entry ID, but the route entry is not completely created and the creation task is still running in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the route entry.
      * - If the route entry is in the **Creating** state, the route entry is being created. In this state, you can only query the route entry and cannot perform other operations.
      * - If the route entry is in the **Active** state, the route entry is created.
      *
@@ -3497,13 +3497,13 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * 创建策略路由表.
+     * Creates a policy route table for an Enterprise Edition transit router.
      *
      * @remarks
-     * - 当前仅企业版转发路由器支持创建策略路由表。关于企业版转发路由器支持的地域和可用区信息，请参见[什么是云企业网](https://help.aliyun.com/document_detail/181681.html)。
-     * - **CreateTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个策略路由表ID，但该策略路由表并未创建完成，系统后台的创建任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。
-     *     - 当策略路由表处于**Creating**状态时，表示策略路由表正在创建中。在该状态下，您只能执行查询操作，不能执行其他操作。
-     *     - 当策略路由表处于**Active**状态时，表示策略路由表创建完成。
+     * - Currently, only Enterprise Edition transit routers support the creation of policy route tables. For information about the regions and zones supported by Enterprise Edition transit routers, see [What is Cloud Enterprise Network?](https://help.aliyun.com/document_detail/181681.html).
+     * - The **CreateTransitRouterPolicyTable** API operation is asynchronous. After you call this operation, the system returns a policy route table ID, but the policy route table is not yet created and the creation task is still running in the background. You can call the **DescribeTransitRouterPolicyTables** operation to query the status of the policy route table.
+     *     - If the policy route table is in the **Creating** state, the policy route table is being created. In this state, you can only perform query operations.
+     *     - If the policy route table is in the **Active** state, the policy route table is created.
      *
      * @param request - CreateTransitRouterPolicyTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3562,13 +3562,13 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * 创建策略路由表.
+     * Creates a policy route table for an Enterprise Edition transit router.
      *
      * @remarks
-     * - 当前仅企业版转发路由器支持创建策略路由表。关于企业版转发路由器支持的地域和可用区信息，请参见[什么是云企业网](https://help.aliyun.com/document_detail/181681.html)。
-     * - **CreateTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个策略路由表ID，但该策略路由表并未创建完成，系统后台的创建任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。
-     *     - 当策略路由表处于**Creating**状态时，表示策略路由表正在创建中。在该状态下，您只能执行查询操作，不能执行其他操作。
-     *     - 当策略路由表处于**Active**状态时，表示策略路由表创建完成。
+     * - Currently, only Enterprise Edition transit routers support the creation of policy route tables. For information about the regions and zones supported by Enterprise Edition transit routers, see [What is Cloud Enterprise Network?](https://help.aliyun.com/document_detail/181681.html).
+     * - The **CreateTransitRouterPolicyTable** API operation is asynchronous. After you call this operation, the system returns a policy route table ID, but the policy route table is not yet created and the creation task is still running in the background. You can call the **DescribeTransitRouterPolicyTables** operation to query the status of the policy route table.
+     *     - If the policy route table is in the **Creating** state, the policy route table is being created. In this state, you can only perform query operations.
+     *     - If the policy route table is in the **Active** state, the policy route table is created.
      *
      * @param request - CreateTransitRouterPolicyTableRequest
      *
@@ -6177,12 +6177,12 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * Deletes a policy-based route from the policy-based route table of an Enterprise Edition transit router.
+     * Deletes a policy-based routing rule from the policy-based route table of an Enterprise Edition transit router.
      *
      * @remarks
-     * - The **DeleteTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the policy-based route is not immediately deleted. The deletion task is still running in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the policy-based route.
-     *     - If the policy-based route is in the **Deleting** state, the policy-based route is being deleted. In this state, you can only query the policy-based route and cannot perform other operations.
-     *     - If the specified policy-based route cannot be queried, the policy-based route is deleted.
+     * - The **DeleteTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the policy-based routing rule is not immediately deleted. The deletion task runs in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the policy-based routing rule.
+     *     - If the policy-based routing rule is in the **Deleting** state, the rule is being deleted. In this state, you can only query the rule and cannot perform other operations.
+     *     - If the specified policy-based routing rule cannot be queried, the rule is deleted.
      *
      * @param request - DeleteTransitRouterPolicyBasedRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6229,12 +6229,12 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * Deletes a policy-based route from the policy-based route table of an Enterprise Edition transit router.
+     * Deletes a policy-based routing rule from the policy-based route table of an Enterprise Edition transit router.
      *
      * @remarks
-     * - The **DeleteTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the policy-based route is not immediately deleted. The deletion task is still running in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the policy-based route.
-     *     - If the policy-based route is in the **Deleting** state, the policy-based route is being deleted. In this state, you can only query the policy-based route and cannot perform other operations.
-     *     - If the specified policy-based route cannot be queried, the policy-based route is deleted.
+     * - The **DeleteTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the policy-based routing rule is not immediately deleted. The deletion task runs in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the policy-based routing rule.
+     *     - If the policy-based routing rule is in the **Deleting** state, the rule is being deleted. In this state, you can only query the rule and cannot perform other operations.
+     *     - If the specified policy-based routing rule cannot be queried, the rule is deleted.
      *
      * @param request - DeleteTransitRouterPolicyBasedRouteRequest
      *
@@ -6252,12 +6252,12 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * DeleteTransitRouterPolicyTable.
+     * Deletes the policy route table of an Enterprise Edition transit router.
      *
      * @remarks
-     * - **DeleteTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个**RequestId**，但策略路由表并未删除完成，系统后台的删除任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。
-     *     - 当策略路由表处于Deleting状态时，表示策略路由表正在删除中。在该状态下，您只能对策略路由表执行查询操作，不能执行其他操作。
-     *     - 当查询不到指定策略路由表时，表示该策略路由表删除完成。
+     * - The **DeleteTransitRouterPolicyTable** operation is asynchronous. After you send the request, the system returns a **RequestId**, but the policy route table is not immediately deleted. The deletion task continues to run in the background. You can call the **DescribeTransitRouterPolicyTables** operation to query the status of the policy route table.
+     *     - If the policy route table is in the Deleting state, it is being deleted. In this state, you can only query the policy route table and cannot perform other operations on it.
+     *     - If the specified policy route table cannot be queried, it is deleted.
      *
      * @param request - DeleteTransitRouterPolicyTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6304,12 +6304,12 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * DeleteTransitRouterPolicyTable.
+     * Deletes the policy route table of an Enterprise Edition transit router.
      *
      * @remarks
-     * - **DeleteTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个**RequestId**，但策略路由表并未删除完成，系统后台的删除任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。
-     *     - 当策略路由表处于Deleting状态时，表示策略路由表正在删除中。在该状态下，您只能对策略路由表执行查询操作，不能执行其他操作。
-     *     - 当查询不到指定策略路由表时，表示该策略路由表删除完成。
+     * - The **DeleteTransitRouterPolicyTable** operation is asynchronous. After you send the request, the system returns a **RequestId**, but the policy route table is not immediately deleted. The deletion task continues to run in the background. You can call the **DescribeTransitRouterPolicyTables** operation to query the status of the policy route table.
+     *     - If the policy route table is in the Deleting state, it is being deleted. In this state, you can only query the policy route table and cannot perform other operations on it.
+     *     - If the specified policy route table cannot be queried, it is deleted.
      *
      * @param request - DeleteTransitRouterPolicyTableRequest
      *
@@ -9242,7 +9242,7 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * Queries the policy-based route rules in the policy-based route table of an Enterprise Edition transit router.
+     * Queries the policy-based route rules in the policy route table of an Enterprise Edition transit router.
      *
      * @param request - DescribeTransitRouterPolicyBasedRoutesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9293,7 +9293,7 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * Queries the policy-based route rules in the policy-based route table of an Enterprise Edition transit router.
+     * Queries the policy-based route rules in the policy route table of an Enterprise Edition transit router.
      *
      * @param request - DescribeTransitRouterPolicyBasedRoutesRequest
      *
@@ -9402,6 +9402,10 @@ class Cbn extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
 
         if (null !== $request->transitRouterId) {
@@ -9833,12 +9837,12 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * Disassociates a transit router policy table.
+     * Disassociates a network instance connection from a transit router policy table.
      *
      * @remarks
-     * The **DisassociateTransitRouterPolicyTable** operation is asynchronous. The system first returns a request ID, but the transit router policy routing table association is not immediately deleted. The deletion node continues to run in the background. You can invoke the **DescribeTransitRouterPolicyTableAssociations** operation to query the status of the transit router policy routing table association.
-     * - When the transit router policy routing table association is in the **Dissociating** state, the association is being deleted. In this state, you can only execute query operations and cannot execute other operations.
-     * - If the **DescribeTransitRouterPolicyTableAssociations** operation cannot query the association between the network instance connection and the transit router policy routing table, the association is successfully dissociated.
+     * The **DisassociateTransitRouterPolicyTable** operation is asynchronous. After you invoke this operation, the system returns a request ID, but the deletion node is still running in the background. You can invoke the **DescribeTransitRouterPolicyTableAssociations** operation to query the status of the policy routing table association.
+     * - When the policy routing table association is in the **Dissociating** state, the association is being deleted. In this state, you can only execute query operations and cannot execute other operations.
+     * - If the **DescribeTransitRouterPolicyTableAssociations** operation does not return the association between the network instance connection and the policy routing table, the association is successfully dissociated.
      *
      * @param request - DisassociateTransitRouterPolicyTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9885,12 +9889,12 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * Disassociates a transit router policy table.
+     * Disassociates a network instance connection from a transit router policy table.
      *
      * @remarks
-     * The **DisassociateTransitRouterPolicyTable** operation is asynchronous. The system first returns a request ID, but the transit router policy routing table association is not immediately deleted. The deletion node continues to run in the background. You can invoke the **DescribeTransitRouterPolicyTableAssociations** operation to query the status of the transit router policy routing table association.
-     * - When the transit router policy routing table association is in the **Dissociating** state, the association is being deleted. In this state, you can only execute query operations and cannot execute other operations.
-     * - If the **DescribeTransitRouterPolicyTableAssociations** operation cannot query the association between the network instance connection and the transit router policy routing table, the association is successfully dissociated.
+     * The **DisassociateTransitRouterPolicyTable** operation is asynchronous. After you invoke this operation, the system returns a request ID, but the deletion node is still running in the background. You can invoke the **DescribeTransitRouterPolicyTableAssociations** operation to query the status of the policy routing table association.
+     * - When the policy routing table association is in the **Dissociating** state, the association is being deleted. In this state, you can only execute query operations and cannot execute other operations.
+     * - If the **DescribeTransitRouterPolicyTableAssociations** operation does not return the association between the network instance connection and the policy routing table, the association is successfully dissociated.
      *
      * @param request - DisassociateTransitRouterPolicyTableRequest
      *
@@ -17071,7 +17075,7 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * Modifies the name and description of a policy-based routing rule in the route table of an Enterprise Edition transit router.
+     * Modifies the name and description of a policy-based route rule in the policy-based route table of an Enterprise Edition transit router.
      *
      * @param request - UpdateTransitRouterPolicyBasedRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17126,7 +17130,7 @@ class Cbn extends OpenApiClient
     }
 
     /**
-     * Modifies the name and description of a policy-based routing rule in the route table of an Enterprise Edition transit router.
+     * Modifies the name and description of a policy-based route rule in the policy-based route table of an Enterprise Edition transit router.
      *
      * @param request - UpdateTransitRouterPolicyBasedRouteRequest
      *
