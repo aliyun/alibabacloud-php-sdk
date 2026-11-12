@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ManageAlertRulesShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $bodyShrink;
@@ -18,6 +23,7 @@ class ManageAlertRulesShrinkRequest extends Model
      */
     public $callSource;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'bodyShrink' => 'body',
         'callSource' => 'callSource',
     ];
@@ -30,6 +36,10 @@ class ManageAlertRulesShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->bodyShrink) {
             $res['body'] = $this->bodyShrink;
         }
@@ -49,6 +59,10 @@ class ManageAlertRulesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['body'])) {
             $model->bodyShrink = $map['body'];
         }

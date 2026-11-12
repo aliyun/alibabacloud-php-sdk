@@ -27,11 +27,23 @@ class entitySummaries extends Model
      * @var string
      */
     public $entityType;
+
+    /**
+     * @var int
+     */
+    public $mainCount;
+
+    /**
+     * @var int
+     */
+    public $relatedCount;
     protected $_name = [
         'entityCategory' => 'entityCategory',
         'entityCount' => 'entityCount',
         'entityDomain' => 'entityDomain',
         'entityType' => 'entityType',
+        'mainCount' => 'mainCount',
+        'relatedCount' => 'relatedCount',
     ];
 
     public function validate()
@@ -56,6 +68,14 @@ class entitySummaries extends Model
 
         if (null !== $this->entityType) {
             $res['entityType'] = $this->entityType;
+        }
+
+        if (null !== $this->mainCount) {
+            $res['mainCount'] = $this->mainCount;
+        }
+
+        if (null !== $this->relatedCount) {
+            $res['relatedCount'] = $this->relatedCount;
         }
 
         return $res;
@@ -83,6 +103,14 @@ class entitySummaries extends Model
 
         if (isset($map['entityType'])) {
             $model->entityType = $map['entityType'];
+        }
+
+        if (isset($map['mainCount'])) {
+            $model->mainCount = $map['mainCount'];
+        }
+
+        if (isset($map['relatedCount'])) {
+            $model->relatedCount = $map['relatedCount'];
         }
 
         return $model;

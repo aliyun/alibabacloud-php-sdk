@@ -29,6 +29,11 @@ class ManageAlertRulesResult extends Model
     public $drillUuid;
 
     /**
+     * @var DryRunResult
+     */
+    public $dryRunResult;
+
+    /**
      * @var int
      */
     public $updatedCount;
@@ -42,6 +47,7 @@ class ManageAlertRulesResult extends Model
         'deletedCount' => 'deletedCount',
         'deletedUuidList' => 'deletedUuidList',
         'drillUuid' => 'drillUuid',
+        'dryRunResult' => 'dryRunResult',
         'updatedCount' => 'updatedCount',
         'updatedUuidList' => 'updatedUuidList',
     ];
@@ -53,6 +59,9 @@ class ManageAlertRulesResult extends Model
         }
         if (\is_array($this->deletedUuidList)) {
             Model::validateArray($this->deletedUuidList);
+        }
+        if (null !== $this->dryRunResult) {
+            $this->dryRunResult->validate();
         }
         if (\is_array($this->updatedUuidList)) {
             Model::validateArray($this->updatedUuidList);
@@ -84,6 +93,10 @@ class ManageAlertRulesResult extends Model
 
         if (null !== $this->drillUuid) {
             $res['drillUuid'] = $this->drillUuid;
+        }
+
+        if (null !== $this->dryRunResult) {
+            $res['dryRunResult'] = null !== $this->dryRunResult ? $this->dryRunResult->toArray($noStream) : $this->dryRunResult;
         }
 
         if (null !== $this->updatedCount) {
@@ -133,6 +146,10 @@ class ManageAlertRulesResult extends Model
 
         if (isset($map['drillUuid'])) {
             $model->drillUuid = $map['drillUuid'];
+        }
+
+        if (isset($map['dryRunResult'])) {
+            $model->dryRunResult = DryRunResult::fromMap($map['dryRunResult']);
         }
 
         if (isset($map['updatedCount'])) {

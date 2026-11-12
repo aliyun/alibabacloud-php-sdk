@@ -1,3 +1,10 @@
+2026-11-12 Version: 10.10.0
+- Support API EnsureSharedPrometheusInstance.
+- Update API CreatePrometheusInstance: add request parameters body.dryrun.
+- Update API ManageAlertRules: add request parameters DryRun.
+- Update API UpdatePrometheusInstance: add request parameters body.dryrun.
+
+
 2026-11-02 Version: 10.9.1
 - Update API CreateContact: add request parameters body.phoneCode.
 - Update API DeleteAlertActions: add response parameters Body.deletedCount.

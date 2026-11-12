@@ -91,9 +91,19 @@ class ObserveGroupDetail extends Model
     public $resourceGroupId;
 
     /**
+     * @var ObserveGroupRuleCount[]
+     */
+    public $ruleCounts;
+
+    /**
      * @var string
      */
     public $sourceOrigin;
+
+    /**
+     * @var bool
+     */
+    public $sourceReadOnly;
 
     /**
      * @var tags[]
@@ -121,7 +131,9 @@ class ObserveGroupDetail extends Model
         'originGroupId' => 'originGroupId',
         'regionId' => 'regionId',
         'resourceGroupId' => 'resourceGroupId',
+        'ruleCounts' => 'ruleCounts',
         'sourceOrigin' => 'sourceOrigin',
+        'sourceReadOnly' => 'sourceReadOnly',
         'tags' => 'tags',
         'workspaceId' => 'workspaceId',
     ];
@@ -136,6 +148,9 @@ class ObserveGroupDetail extends Model
         }
         if (\is_array($this->ogEntityInfoPromInstances)) {
             Model::validateArray($this->ogEntityInfoPromInstances);
+        }
+        if (\is_array($this->ruleCounts)) {
+            Model::validateArray($this->ruleCounts);
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -231,8 +246,23 @@ class ObserveGroupDetail extends Model
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
+        if (null !== $this->ruleCounts) {
+            if (\is_array($this->ruleCounts)) {
+                $res['ruleCounts'] = [];
+                $n1 = 0;
+                foreach ($this->ruleCounts as $item1) {
+                    $res['ruleCounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->sourceOrigin) {
             $res['sourceOrigin'] = $this->sourceOrigin;
+        }
+
+        if (null !== $this->sourceReadOnly) {
+            $res['sourceReadOnly'] = $this->sourceReadOnly;
         }
 
         if (null !== $this->tags) {
@@ -346,8 +376,23 @@ class ObserveGroupDetail extends Model
             $model->resourceGroupId = $map['resourceGroupId'];
         }
 
+        if (isset($map['ruleCounts'])) {
+            if (!empty($map['ruleCounts'])) {
+                $model->ruleCounts = [];
+                $n1 = 0;
+                foreach ($map['ruleCounts'] as $item1) {
+                    $model->ruleCounts[$n1] = ObserveGroupRuleCount::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['sourceOrigin'])) {
             $model->sourceOrigin = $map['sourceOrigin'];
+        }
+
+        if (isset($map['sourceReadOnly'])) {
+            $model->sourceReadOnly = $map['sourceReadOnly'];
         }
 
         if (isset($map['tags'])) {

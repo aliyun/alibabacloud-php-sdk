@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ManageAlertRulesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var ManageAlertRulesUnifiedActionInput
      */
     public $body;
@@ -18,6 +23,7 @@ class ManageAlertRulesRequest extends Model
      */
     public $callSource;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'body' => 'body',
         'callSource' => 'callSource',
     ];
@@ -33,6 +39,10 @@ class ManageAlertRulesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
@@ -52,6 +62,10 @@ class ManageAlertRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['body'])) {
             $model->body = ManageAlertRulesUnifiedActionInput::fromMap($map['body']);
         }

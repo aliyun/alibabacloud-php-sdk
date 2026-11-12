@@ -16,22 +16,22 @@ class ScheduleValue extends Model
     /**
      * @var string
      */
-    public $contactName;
-
-    /**
-     * @var string
-     */
     public $end;
 
     /**
      * @var string
      */
     public $start;
+
+    /**
+     * @var string
+     */
+    public $contactName;
     protected $_name = [
         'contactId' => 'contactId',
-        'contactName' => 'contactName',
         'end' => 'end',
         'start' => 'start',
+        'contactName' => 'contactName',
     ];
 
     public function validate()
@@ -46,16 +46,16 @@ class ScheduleValue extends Model
             $res['contactId'] = $this->contactId;
         }
 
-        if (null !== $this->contactName) {
-            $res['contactName'] = $this->contactName;
-        }
-
         if (null !== $this->end) {
             $res['end'] = $this->end;
         }
 
         if (null !== $this->start) {
             $res['start'] = $this->start;
+        }
+
+        if (null !== $this->contactName) {
+            $res['contactName'] = $this->contactName;
         }
 
         return $res;
@@ -73,16 +73,16 @@ class ScheduleValue extends Model
             $model->contactId = $map['contactId'];
         }
 
-        if (isset($map['contactName'])) {
-            $model->contactName = $map['contactName'];
-        }
-
         if (isset($map['end'])) {
             $model->end = $map['end'];
         }
 
         if (isset($map['start'])) {
             $model->start = $map['start'];
+        }
+
+        if (isset($map['contactName'])) {
+            $model->contactName = $map['contactName'];
         }
 
         return $model;

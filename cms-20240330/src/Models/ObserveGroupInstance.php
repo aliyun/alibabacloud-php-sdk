@@ -26,6 +26,16 @@ class ObserveGroupInstance extends Model
     /**
      * @var string
      */
+    public $entityId;
+
+    /**
+     * @var string
+     */
+    public $entityRole;
+
+    /**
+     * @var string
+     */
     public $entityType;
 
     /**
@@ -66,6 +76,8 @@ class ObserveGroupInstance extends Model
         'category' => 'category',
         'dimension' => 'dimension',
         'entityDomain' => 'entityDomain',
+        'entityId' => 'entityId',
+        'entityRole' => 'entityRole',
         'entityType' => 'entityType',
         'groupId' => 'groupId',
         'instanceId' => 'instanceId',
@@ -105,6 +117,14 @@ class ObserveGroupInstance extends Model
 
         if (null !== $this->entityDomain) {
             $res['entityDomain'] = $this->entityDomain;
+        }
+
+        if (null !== $this->entityId) {
+            $res['entityId'] = $this->entityId;
+        }
+
+        if (null !== $this->entityRole) {
+            $res['entityRole'] = $this->entityRole;
         }
 
         if (null !== $this->entityType) {
@@ -170,6 +190,14 @@ class ObserveGroupInstance extends Model
 
         if (isset($map['entityDomain'])) {
             $model->entityDomain = $map['entityDomain'];
+        }
+
+        if (isset($map['entityId'])) {
+            $model->entityId = $map['entityId'];
+        }
+
+        if (isset($map['entityRole'])) {
+            $model->entityRole = $map['entityRole'];
         }
 
         if (isset($map['entityType'])) {

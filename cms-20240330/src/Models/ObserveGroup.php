@@ -100,6 +100,11 @@ class ObserveGroup extends Model
     public $sourceOrigin;
 
     /**
+     * @var bool
+     */
+    public $sourceReadOnly;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -127,6 +132,7 @@ class ObserveGroup extends Model
         'regionId' => 'regionId',
         'resourceGroupId' => 'resourceGroupId',
         'sourceOrigin' => 'sourceOrigin',
+        'sourceReadOnly' => 'sourceReadOnly',
         'tags' => 'tags',
         'workspaceId' => 'workspaceId',
     ];
@@ -240,6 +246,10 @@ class ObserveGroup extends Model
 
         if (null !== $this->sourceOrigin) {
             $res['sourceOrigin'] = $this->sourceOrigin;
+        }
+
+        if (null !== $this->sourceReadOnly) {
+            $res['sourceReadOnly'] = $this->sourceReadOnly;
         }
 
         if (null !== $this->tags) {
@@ -357,6 +367,10 @@ class ObserveGroup extends Model
 
         if (isset($map['sourceOrigin'])) {
             $model->sourceOrigin = $map['sourceOrigin'];
+        }
+
+        if (isset($map['sourceReadOnly'])) {
+            $model->sourceReadOnly = $map['sourceReadOnly'];
         }
 
         if (isset($map['tags'])) {

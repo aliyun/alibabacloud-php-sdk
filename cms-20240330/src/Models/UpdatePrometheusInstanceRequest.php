@@ -26,6 +26,11 @@ class UpdatePrometheusInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $dryrun;
+
+    /**
+     * @var bool
+     */
     public $enableAuthFreeRead;
 
     /**
@@ -71,6 +76,7 @@ class UpdatePrometheusInstanceRequest extends Model
         'archiveDuration' => 'archiveDuration',
         'authFreeReadPolicy' => 'authFreeReadPolicy',
         'authFreeWritePolicy' => 'authFreeWritePolicy',
+        'dryrun' => 'dryrun',
         'enableAuthFreeRead' => 'enableAuthFreeRead',
         'enableAuthFreeWrite' => 'enableAuthFreeWrite',
         'enableAuthToken' => 'enableAuthToken',
@@ -103,6 +109,10 @@ class UpdatePrometheusInstanceRequest extends Model
 
         if (null !== $this->authFreeWritePolicy) {
             $res['authFreeWritePolicy'] = $this->authFreeWritePolicy;
+        }
+
+        if (null !== $this->dryrun) {
+            $res['dryrun'] = $this->dryrun;
         }
 
         if (null !== $this->enableAuthFreeRead) {
@@ -162,6 +172,10 @@ class UpdatePrometheusInstanceRequest extends Model
 
         if (isset($map['authFreeWritePolicy'])) {
             $model->authFreeWritePolicy = $map['authFreeWritePolicy'];
+        }
+
+        if (isset($map['dryrun'])) {
+            $model->dryrun = $map['dryrun'];
         }
 
         if (isset($map['enableAuthFreeRead'])) {

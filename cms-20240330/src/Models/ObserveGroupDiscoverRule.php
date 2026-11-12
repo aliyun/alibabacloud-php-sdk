@@ -31,6 +31,11 @@ class ObserveGroupDiscoverRule extends Model
     public $gmtCreate;
 
     /**
+     * @var bool
+     */
+    public $includeRelatedEntities;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -84,6 +89,7 @@ class ObserveGroupDiscoverRule extends Model
         'entityType' => 'entityType',
         'entityTypes' => 'entityTypes',
         'gmtCreate' => 'gmtCreate',
+        'includeRelatedEntities' => 'includeRelatedEntities',
         'instanceIds' => 'instanceIds',
         'nameRules' => 'nameRules',
         'regionIds' => 'regionIds',
@@ -140,6 +146,10 @@ class ObserveGroupDiscoverRule extends Model
 
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
+        }
+
+        if (null !== $this->includeRelatedEntities) {
+            $res['includeRelatedEntities'] = $this->includeRelatedEntities;
         }
 
         if (null !== $this->instanceIds) {
@@ -228,6 +238,10 @@ class ObserveGroupDiscoverRule extends Model
 
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
+        }
+
+        if (isset($map['includeRelatedEntities'])) {
+            $model->includeRelatedEntities = $map['includeRelatedEntities'];
         }
 
         if (isset($map['instanceIds'])) {
