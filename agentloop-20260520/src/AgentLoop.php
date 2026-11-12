@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateContextStoreRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateContextStoreResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateDatasetVersionRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateDatasetVersionResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluationTaskRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluationTaskResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorRequest;
@@ -42,6 +44,8 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteContextStoreRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteContextStoreResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteDatasetRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteDatasetResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteDatasetVersionRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteDatasetVersionResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluationRunRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluationRunResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluationTaskRequest;
@@ -94,6 +98,7 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineStatsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineStatsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListAgentSpacesRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListAgentSpacesResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListAgentSpacesShrinkRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListContextStoreAPIKeysRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListContextStoreAPIKeysResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListContextStoresRequest;
@@ -101,6 +106,8 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListContextStoresResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetsShrinkRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetVersionsRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetVersionsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationRunsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationRunsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationTasksRequest;
@@ -646,6 +653,81 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->createDatasetWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+     *
+     * @param request - CreateDatasetVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasetVersionResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $datasetName
+     * @param CreateDatasetVersionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDatasetVersionResponse
+     */
+    public function createDatasetVersionWithOptions($agentSpace, $datasetName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDatasetVersion',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/dataset/' . Url::percentEncode($datasetName) . '/version',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+     *
+     * @param request - CreateDatasetVersionRequest
+     *
+     * @returns CreateDatasetVersionResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $datasetName
+     * @param CreateDatasetVersionRequest $request
+     *
+     * @return CreateDatasetVersionResponse
+     */
+    public function createDatasetVersion($agentSpace, $datasetName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDatasetVersionWithOptions($agentSpace, $datasetName, $request, $headers, $runtime);
     }
 
     /**
@@ -1666,6 +1748,67 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->deleteDatasetWithOptions($agentSpace, $datasetName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+     *
+     * @param request - DeleteDatasetVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasetVersionResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $datasetName
+     * @param string                      $version
+     * @param DeleteDatasetVersionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDatasetVersionResponse
+     */
+    public function deleteDatasetVersionWithOptions($agentSpace, $datasetName, $version, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDatasetVersion',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/dataset/' . Url::percentEncode($datasetName) . '/version/' . Url::percentEncode($version) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+     *
+     * @param request - DeleteDatasetVersionRequest
+     *
+     * @returns DeleteDatasetVersionResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $datasetName
+     * @param string                      $version
+     * @param DeleteDatasetVersionRequest $request
+     *
+     * @return DeleteDatasetVersionResponse
+     */
+    public function deleteDatasetVersion($agentSpace, $datasetName, $version, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDatasetVersionWithOptions($agentSpace, $datasetName, $version, $request, $headers, $runtime);
     }
 
     /**
@@ -3291,21 +3434,27 @@ class AgentLoop extends OpenApiClient
      * @remarks
      * Supports filtering by region.
      *
-     * @param request - ListAgentSpacesRequest
+     * @param tmpReq - ListAgentSpacesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAgentSpacesResponse
      *
-     * @param ListAgentSpacesRequest $request
+     * @param ListAgentSpacesRequest $tmpReq
      * @param string[]               $headers
      * @param RuntimeOptions         $runtime
      *
      * @return ListAgentSpacesResponse
      */
-    public function listAgentSpacesWithOptions($request, $headers, $runtime)
+    public function listAgentSpacesWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListAgentSpacesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
+        }
+
         $query = [];
         if (null !== $request->agentSpace) {
             @$query['agentSpace'] = $request->agentSpace;
@@ -3321,6 +3470,10 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['regionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['tag'] = $request->tagShrink;
         }
 
         $req = new OpenApiRequest([
@@ -3510,6 +3663,75 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->listContextStoresWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+     *
+     * @param request - ListDatasetVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasetVersionsResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $datasetName
+     * @param ListDatasetVersionsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListDatasetVersionsResponse
+     */
+    public function listDatasetVersionsWithOptions($agentSpace, $datasetName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatasetVersions',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/dataset/' . Url::percentEncode($datasetName) . '/version',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatasetVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+     *
+     * @param request - ListDatasetVersionsRequest
+     *
+     * @returns ListDatasetVersionsResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $datasetName
+     * @param ListDatasetVersionsRequest $request
+     *
+     * @return ListDatasetVersionsResponse
+     */
+    public function listDatasetVersions($agentSpace, $datasetName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDatasetVersionsWithOptions($agentSpace, $datasetName, $request, $headers, $runtime);
     }
 
     /**
