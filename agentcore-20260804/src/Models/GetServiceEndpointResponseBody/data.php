@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\GetServiceEndpointResponse
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetServiceEndpointResponseBody\data\accessUrls;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetServiceEndpointResponseBody\data\authentication;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetServiceEndpointResponseBody\data\effectiveCapacity;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetServiceEndpointResponseBody\data\elasticityPolicy;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetServiceEndpointResponseBody\data\target;
 
@@ -26,6 +27,16 @@ class data extends Model
      * @var string
      */
     public $createdAt;
+
+    /**
+     * @var int
+     */
+    public $currentInstances;
+
+    /**
+     * @var effectiveCapacity
+     */
+    public $effectiveCapacity;
 
     /**
      * @var bool
@@ -90,6 +101,8 @@ class data extends Model
         'accessUrls' => 'accessUrls',
         'authentication' => 'authentication',
         'createdAt' => 'createdAt',
+        'currentInstances' => 'currentInstances',
+        'effectiveCapacity' => 'effectiveCapacity',
         'effectivePublicAccessEnabled' => 'effectivePublicAccessEnabled',
         'elasticityPolicy' => 'elasticityPolicy',
         'endpointType' => 'endpointType',
@@ -111,6 +124,9 @@ class data extends Model
         }
         if (null !== $this->authentication) {
             $this->authentication->validate();
+        }
+        if (null !== $this->effectiveCapacity) {
+            $this->effectiveCapacity->validate();
         }
         if (null !== $this->elasticityPolicy) {
             $this->elasticityPolicy->validate();
@@ -141,6 +157,14 @@ class data extends Model
 
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->currentInstances) {
+            $res['currentInstances'] = $this->currentInstances;
+        }
+
+        if (null !== $this->effectiveCapacity) {
+            $res['effectiveCapacity'] = null !== $this->effectiveCapacity ? $this->effectiveCapacity->toArray($noStream) : $this->effectiveCapacity;
         }
 
         if (null !== $this->effectivePublicAccessEnabled) {
@@ -219,6 +243,14 @@ class data extends Model
 
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
+        }
+
+        if (isset($map['currentInstances'])) {
+            $model->currentInstances = $map['currentInstances'];
+        }
+
+        if (isset($map['effectiveCapacity'])) {
+            $model->effectiveCapacity = effectiveCapacity::fromMap($map['effectiveCapacity']);
         }
 
         if (isset($map['effectivePublicAccessEnabled'])) {

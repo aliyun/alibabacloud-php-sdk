@@ -28,6 +28,11 @@ class items extends Model
     public $createdAt;
 
     /**
+     * @var int
+     */
+    public $currentInstances;
+
+    /**
      * @var bool
      */
     public $effectivePublicAccessEnabled;
@@ -90,6 +95,7 @@ class items extends Model
         'accessUrls' => 'accessUrls',
         'authentication' => 'authentication',
         'createdAt' => 'createdAt',
+        'currentInstances' => 'currentInstances',
         'effectivePublicAccessEnabled' => 'effectivePublicAccessEnabled',
         'elasticityPolicy' => 'elasticityPolicy',
         'endpointType' => 'endpointType',
@@ -141,6 +147,10 @@ class items extends Model
 
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->currentInstances) {
+            $res['currentInstances'] = $this->currentInstances;
         }
 
         if (null !== $this->effectivePublicAccessEnabled) {
@@ -219,6 +229,10 @@ class items extends Model
 
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
+        }
+
+        if (isset($map['currentInstances'])) {
+            $model->currentInstances = $map['currentInstances'];
         }
 
         if (isset($map['effectivePublicAccessEnabled'])) {
