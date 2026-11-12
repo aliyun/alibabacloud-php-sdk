@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SetLoadBalancerTCPListenerAttributeRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $backendServerPort;
+
+    /**
      * @var string
      */
     public $description;
@@ -88,6 +93,7 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
      */
     public $unhealthyThreshold;
     protected $_name = [
+        'backendServerPort' => 'BackendServerPort',
         'description' => 'Description',
         'eipTransmit' => 'EipTransmit',
         'establishedTimeout' => 'EstablishedTimeout',
@@ -114,6 +120,10 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backendServerPort) {
+            $res['BackendServerPort'] = $this->backendServerPort;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -189,6 +199,10 @@ class SetLoadBalancerTCPListenerAttributeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendServerPort'])) {
+            $model->backendServerPort = $map['BackendServerPort'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

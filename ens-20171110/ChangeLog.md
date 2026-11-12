@@ -1,3 +1,8 @@
+2026-11-12 Version: 11.2.1
+- Update API SetLoadBalancerTCPListenerAttribute: add request parameters BackendServerPort.
+- Update API SetLoadBalancerUDPListenerAttribute: add request parameters BackendServerPort.
+
+
 2026-11-02 Version: 11.2.0
 - Support API DescribeSharedDiskRecords.
 

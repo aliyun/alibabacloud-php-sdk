@@ -739,6 +739,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeClusterAddonsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeClusterAddonsShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UploadAICPublicKeyRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UploadAICPublicKeyResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -749,6 +750,9 @@ class Ens extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Ens';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-beijing' => 'ens.aliyuncs.com',
@@ -999,7 +1003,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Adds a public elastic IP address (EIP) to a SNAT rule.
+     * Adds a public EIP to a SNAT rule.
      *
      * @param request - AddSnatIpForSnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1042,7 +1046,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Adds a public elastic IP address (EIP) to a SNAT rule.
+     * Adds a public EIP to a SNAT rule.
      *
      * @param request - AddSnatIpForSnatEntryRequest
      *
@@ -1278,8 +1282,8 @@ class Ens extends OpenApiClient
      * Adds a secondary CIDR block to a network.
      *
      * @remarks
-     * The maximum number of secondary CIDR blocks that can be added to a network is as follows:
-     * - You can add up to 5 secondary IPv4 CIDR blocks to a network.
+     * The maximum number of secondary CIDR blocks that you can add to a network is as follows:
+     * - A network supports up to five secondary IPv4 CIDR blocks.
      *
      * @param request - AssociateNetworkCidrBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1333,8 +1337,8 @@ class Ens extends OpenApiClient
      * Adds a secondary CIDR block to a network.
      *
      * @remarks
-     * The maximum number of secondary CIDR blocks that can be added to a network is as follows:
-     * - You can add up to 5 secondary IPv4 CIDR blocks to a network.
+     * The maximum number of secondary CIDR blocks that you can add to a network is as follows:
+     * - A network supports up to five secondary IPv4 CIDR blocks.
      *
      * @param request - AssociateNetworkCidrBlockRequest
      *
@@ -1644,14 +1648,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Attaches an SSH key pair to a batch of specified instances. A maximum of 30 instances can be specified in a single call.
+     * Attaches an SSH key pair to up to 30 specified instances in a single request.
      *
      * @remarks
      * ## Operation description
-     * This batch operation attaches a key pair to instances. You can only perform this operation on stopped instances.
-     * - You can attach the key pair to a maximum of 30 instances in a single call.
-     * - You must specify at least one of the KeyPairName and KeyPairId parameters.
-     * - Specify KeyPairId when you call this operation. The KeyPairName parameter will be deprecated.
+     * This batch API operation attaches a key pair to instances. You can only perform this operation on stopped instances.
+     * - A maximum of 30 instances can be specified in a single request.
+     * - At least one of key_pair_name and key_pair_id must be specified.
+     * - Pass key_pair_id when you call this operation. The key_pair_name parameter will be deprecated.
      *
      * @param tmpReq - AttachKeyPairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1704,14 +1708,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Attaches an SSH key pair to a batch of specified instances. A maximum of 30 instances can be specified in a single call.
+     * Attaches an SSH key pair to up to 30 specified instances in a single request.
      *
      * @remarks
      * ## Operation description
-     * This batch operation attaches a key pair to instances. You can only perform this operation on stopped instances.
-     * - You can attach the key pair to a maximum of 30 instances in a single call.
-     * - You must specify at least one of the KeyPairName and KeyPairId parameters.
-     * - Specify KeyPairId when you call this operation. The KeyPairName parameter will be deprecated.
+     * This batch API operation attaches a key pair to instances. You can only perform this operation on stopped instances.
+     * - A maximum of 30 instances can be specified in a single request.
+     * - At least one of key_pair_name and key_pair_id must be specified.
+     * - Pass key_pair_id when you call this operation. The key_pair_name parameter will be deprecated.
      *
      * @param request - AttachKeyPairRequest
      *
@@ -2390,7 +2394,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates ARM board card servers by calling CreateARMServerInstances.
+     * Creates ARM board servers.
      *
      * @param request - CreateARMServerInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2501,7 +2505,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates ARM board card servers by calling CreateARMServerInstances.
+     * Creates ARM board servers.
      *
      * @param request - CreateARMServerInstancesRequest
      *
@@ -2875,7 +2879,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription data cloud disk by calling CreateDisk.
+     * Creates a pay-as-you-go or subscription data cloud disk.
      *
      * @param request - CreateDiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2950,7 +2954,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription data cloud disk by calling CreateDisk.
+     * Creates a pay-as-you-go or subscription data cloud disk.
      *
      * @param request - CreateDiskRequest
      *
@@ -9627,7 +9631,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about one or more created disks.
+     * Queries the details of one or more created cloud disks.
      *
      * @param request - DescribeDisksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9722,7 +9726,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries information about one or more created disks.
+     * Queries the details of one or more created cloud disks.
      *
      * @param request - DescribeDisksRequest
      *
@@ -10006,7 +10010,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Invokes the DescribeEnsNetDistrict operation to query the regions where EPS resources can be created.
+     * Invokes DescribeEnsNetDistrict to query the regions where EPS resources can be created.
      *
      * @param request - DescribeEnsNetDistrictRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10053,7 +10057,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Invokes the DescribeEnsNetDistrict operation to query the regions where EPS resources can be created.
+     * Invokes DescribeEnsNetDistrict to query the regions where EPS resources can be created.
      *
      * @param request - DescribeEnsNetDistrictRequest
      *
@@ -10114,7 +10118,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the supported regions and ISPs and their quantities.
+     * Queries the supported districts and ISPs, and their quantities.
      *
      * @param request - DescribeEnsNetSaleDistrictRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10157,7 +10161,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the supported regions and ISPs and their quantities.
+     * Queries the supported districts and ISPs, and their quantities.
      *
      * @param request - DescribeEnsNetSaleDistrictRequest
      *
@@ -10232,7 +10236,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries edge zone resource information by calling DescribeEnsRegionIdResource.
+     * Queries the resource status of edge zones.
      *
      * @remarks
      *
@@ -10293,7 +10297,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries edge zone resource information by calling DescribeEnsRegionIdResource.
+     * Queries the resource status of edge zones.
      *
      * @remarks
      *
@@ -12338,7 +12342,9 @@ class Ens extends OpenApiClient
      * Queries the details of one or more instances.
      *
      * @remarks
-     * - API call frequency: 800 calls per second.
+     * - API rate limit: 800 calls per second.
+     * - Per-user rate limit: 100 calls per second.
+     * - Request parameters act as filters and are combined with the logical AND operator. If a parameter is left empty, the filter does not take effect. However, if the InstanceIds parameter is an empty JSON array, the filter is considered valid and an empty result is returned.
      *
      * @param tmpReq - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12482,7 +12488,9 @@ class Ens extends OpenApiClient
      * Queries the details of one or more instances.
      *
      * @remarks
-     * - API call frequency: 800 calls per second.
+     * - API rate limit: 800 calls per second.
+     * - Per-user rate limit: 100 calls per second.
+     * - Request parameters act as filters and are combined with the logical AND operator. If a parameter is left empty, the filter does not take effect. However, if the InstanceIds parameter is an empty JSON array, the filter is considered valid and an empty result is returned.
      *
      * @param request - DescribeInstancesRequest
      *
@@ -15974,7 +15982,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+     * Distributes pre-pushed data to the edge resource instances of an application. The target edge resources support multiple canary release strategies, file extraction, and container restarts.
      *
      * @param request - DistApplicationDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16021,7 +16029,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+     * Distributes pre-pushed data to the edge resource instances of an application. The target edge resources support multiple canary release strategies, file extraction, and container restarts.
      *
      * @param request - DistApplicationDataRequest
      *
@@ -16039,7 +16047,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Migrates an instance across nodes after an O&M event occurs on the instance.
+     * Migrates an instance across nodes after an O&M event occurs.
      *
      * @remarks
      * - This O&M operation currently supports only the following event type: Instance:SystemUpgrade.Migrate (migration required for underlying upgrades).
@@ -16105,7 +16113,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Migrates an instance across nodes after an O&M event occurs on the instance.
+     * Migrates an instance across nodes after an O&M event occurs.
      *
      * @remarks
      * - This O&M operation currently supports only the following event type: Instance:SystemUpgrade.Migrate (migration required for underlying upgrades).
@@ -16205,10 +16213,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Redeploys a specified instance either immediately or at a scheduled time.
+     * Redeploys a specified resource immediately or at a scheduled time.
      *
      * @remarks
-     * - This O\\&M operation supports only the following event types: `Instance:SystemFailure.Redeploy` (redeployment due to a system failure) and `Instance:SystemMaintenance.Redeploy` (redeployment for system maintenance).
+     * - This O&M operation currently supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system failures) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
      *
      * @param request - EventRedeployInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16263,10 +16271,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Redeploys a specified instance either immediately or at a scheduled time.
+     * Redeploys a specified resource immediately or at a scheduled time.
      *
      * @remarks
-     * - This O\\&M operation supports only the following event types: `Instance:SystemFailure.Redeploy` (redeployment due to a system failure) and `Instance:SystemMaintenance.Redeploy` (redeployment for system maintenance).
+     * - This O&M operation currently supports only the following event types: Instance:SystemFailure.Redeploy (instance redeployment due to system failures) and Instance:SystemMaintenance.Redeploy (instance redeployment due to system maintenance).
      *
      * @param request - EventRedeployInstanceRequest
      *
@@ -17401,7 +17409,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the list of association information for AIC public keys. Paging is supported.
+     * Queries the associate information list of AIC public keys, and supports paging and paged query.
      *
      * @param request - ListAICPublicKeyDeliveriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17460,7 +17468,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries the list of association information for AIC public keys. Paging is supported.
+     * Queries the associate information list of AIC public keys, and supports paging and paged query.
      *
      * @param request - ListAICPublicKeyDeliveriesRequest
      *
@@ -17478,7 +17486,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries a list of AIC public key information that meets the specified conditions. Paging is supported.
+     * Queries a list of AIC public keys that meet the specified conditions and supports paging.
      *
      * @param request - ListAICPublicKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17533,7 +17541,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Queries a list of AIC public key information that meets the specified conditions. Paging is supported.
+     * Queries a list of AIC public keys that meet the specified conditions and supports paging.
      *
      * @param request - ListAICPublicKeysRequest
      *
@@ -19067,11 +19075,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Invokes ModifyInstanceChargeType to convert the billing method of one or more Edge Node Service (ENS) instances. You can convert between instance-level pay-as-you-go and subscription instances. For instance-level pay-as-you-go instances, you can also convert pay-as-you-go cloud disks created with the instances to subscription cloud disks.
+     * Modifies the billing method of one or more Edge Node Service (ENS) instances. You can convert instance-level pay-as-you-go instances to subscription instances and vice versa. For instance-level pay-as-you-go instances, you can also convert the pay-as-you-go cloud disks created with the instances to subscription cloud disks.
      *
      * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Edge Node Service (ENS).
-     * The target instance must be in the Running or Stopped state and must not have an overdue payment before you can change the billing method.
+     * Make sure that you fully understand the billing methods and pricing of ENS before you call this operation.
+     * The target instance must be in the Running or Stopped state and have no overdue payments before you can change its billing method.
      *
      * @param tmpReq - ModifyInstanceChargeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19144,11 +19152,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Invokes ModifyInstanceChargeType to convert the billing method of one or more Edge Node Service (ENS) instances. You can convert between instance-level pay-as-you-go and subscription instances. For instance-level pay-as-you-go instances, you can also convert pay-as-you-go cloud disks created with the instances to subscription cloud disks.
+     * Modifies the billing method of one or more Edge Node Service (ENS) instances. You can convert instance-level pay-as-you-go instances to subscription instances and vice versa. For instance-level pay-as-you-go instances, you can also convert the pay-as-you-go cloud disks created with the instances to subscription cloud disks.
      *
      * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Edge Node Service (ENS).
-     * The target instance must be in the Running or Stopped state and must not have an overdue payment before you can change the billing method.
+     * Make sure that you fully understand the billing methods and pricing of ENS before you call this operation.
+     * The target instance must be in the Running or Stopped state and have no overdue payments before you can change its billing method.
      *
      * @param request - ModifyInstanceChargeTypeRequest
      *
@@ -23109,11 +23117,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a TCP listener.
+     * Modifies the configurations of a TCP listener.
      *
      * @remarks
-     * - API call rate limit: 100 calls per second.
-     * - Per-user call rate limit: 10 calls per second.
+     * - API rate limit: 100 calls per second.
+     * - Rate limit per user: 10 calls per second.
      *
      * @param request - SetLoadBalancerTCPListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23129,6 +23137,10 @@ class Ens extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->backendServerPort) {
+            @$query['BackendServerPort'] = $request->backendServerPort;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
         }
@@ -23212,11 +23224,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a TCP listener.
+     * Modifies the configurations of a TCP listener.
      *
      * @remarks
-     * - API call rate limit: 100 calls per second.
-     * - Per-user call rate limit: 10 calls per second.
+     * - API rate limit: 100 calls per second.
+     * - Rate limit per user: 10 calls per second.
      *
      * @param request - SetLoadBalancerTCPListenerAttributeRequest
      *
@@ -23234,11 +23246,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a UDP listener.
+     * Modifies the configuration of a UDP listener.
      *
      * @remarks
      * - API call rate: 100 calls per second.
-     * - Rate limit per user: 10 calls per second.
+     * - Call rate per user: 10 calls per second.
      *
      * @param request - SetLoadBalancerUDPListenerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23254,6 +23266,10 @@ class Ens extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->backendServerPort) {
+            @$query['BackendServerPort'] = $request->backendServerPort;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
         }
@@ -23325,11 +23341,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a UDP listener.
+     * Modifies the configuration of a UDP listener.
      *
      * @remarks
      * - API call rate: 100 calls per second.
-     * - Rate limit per user: 10 calls per second.
+     * - Call rate per user: 10 calls per second.
      *
      * @param request - SetLoadBalancerUDPListenerAttributeRequest
      *
@@ -23672,7 +23688,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+     * Starts the disabled EIP in an SNAT rule.
      *
      * @param request - StartSnatIpForSnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23715,7 +23731,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+     * Starts the disabled EIP in an SNAT rule.
      *
      * @param request - StartSnatIpForSnatEntryRequest
      *
@@ -23999,7 +24015,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+     * Invokes StopSnatIpForSnatEntry to disable the SnatIp running in an SNAT rule.
      *
      * @param request - StopSnatIpForSnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24042,7 +24058,7 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+     * Invokes StopSnatIpForSnatEntry to disable the SnatIp running in an SNAT rule.
      *
      * @param request - StopSnatIpForSnatEntryRequest
      *
