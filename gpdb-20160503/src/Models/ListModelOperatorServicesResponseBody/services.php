@@ -12,8 +12,14 @@ class services extends Model
      * @var string
      */
     public $serviceId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'serviceId' => 'ServiceId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class services extends Model
         $res = [];
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class services extends Model
         $model = new self();
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

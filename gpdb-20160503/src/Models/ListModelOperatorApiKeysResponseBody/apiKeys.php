@@ -27,11 +27,17 @@ class apiKeys extends Model
      * @var string
      */
     public $endpoint;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'apiKeyId' => 'ApiKeyId',
         'createTime' => 'CreateTime',
         'description' => 'Description',
         'endpoint' => 'Endpoint',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class apiKeys extends Model
 
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class apiKeys extends Model
 
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

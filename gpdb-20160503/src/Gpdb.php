@@ -836,10 +836,10 @@ class Gpdb extends OpenApiClient
      *
      * @remarks
      * ## Usage notes
-     * This operation adds an AI node.
-     * ## QPS limit
-     * The default QPS limit for this operation is 1,000 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
-     * <props="china">The QPS limit provided in this document is for reference only. For accurate information, see [API rate limits](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+     * You can call this operation to add an AI node.
+     * ## QPS limits
+     * The default QPS limit per user for this operation is 1,000 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
+     * <props="china">The QPS limits in this document are for reference only. For accurate information, see [API rate limits](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
      * @param Request - AddAINodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -890,10 +890,10 @@ class Gpdb extends OpenApiClient
      *
      * @remarks
      * ## Usage notes
-     * This operation adds an AI node.
-     * ## QPS limit
-     * The default QPS limit for this operation is 1,000 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
-     * <props="china">The QPS limit provided in this document is for reference only. For accurate information, see [API rate limits](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+     * You can call this operation to add an AI node.
+     * ## QPS limits
+     * The default QPS limit per user for this operation is 1,000 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
+     * <props="china">The QPS limits in this document are for reference only. For accurate information, see [API rate limits](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
      * @param Request - AddAINodeRequest
      *
@@ -3800,7 +3800,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create a model operator API key.
+     * Creates an API key for a model creation operator.
      *
      * @param Request - CreateModelOperatorApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3839,7 +3839,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create a model operator API key.
+     * Creates an API key for a model creation operator.
      *
      * @param Request - CreateModelOperatorApiKeyRequest
      *
@@ -8541,11 +8541,11 @@ class Gpdb extends OpenApiClient
      * Queries the details of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * ## Operation description
-     * This operation is used to query information about an AnalyticDB for PostgreSQL instance, such as the instance specifications, network type, and instance status.
-     * ## QPS limit
-     * The default QPS limit for a single user for this operation is 1,000 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
-     * <props="china">The QPS limit in this topic is a default reference value. For accurate information, refer to the [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+     * ## Usage notes
+     * This operation is typically used to query the specifications, network type, and instance status of an AnalyticDB for PostgreSQL instance.
+     * ## QPS limits
+     * The default QPS limit per user for this operation is 1,000. If the limit is exceeded, API invocations are throttled, which may affect your services. Invoke this operation at a reasonable frequency.
+     * <props="china">The QPS values in this topic are for reference only. For accurate information, see [API rate limits](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
      * @param Request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8595,11 +8595,11 @@ class Gpdb extends OpenApiClient
      * Queries the details of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * ## Operation description
-     * This operation is used to query information about an AnalyticDB for PostgreSQL instance, such as the instance specifications, network type, and instance status.
-     * ## QPS limit
-     * The default QPS limit for a single user for this operation is 1,000 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
-     * <props="china">The QPS limit in this topic is a default reference value. For accurate information, refer to the [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+     * ## Usage notes
+     * This operation is typically used to query the specifications, network type, and instance status of an AnalyticDB for PostgreSQL instance.
+     * ## QPS limits
+     * The default QPS limit per user for this operation is 1,000. If the limit is exceeded, API invocations are throttled, which may affect your services. Invoke this operation at a reasonable frequency.
+     * <props="china">The QPS values in this topic are for reference only. For accurate information, see [API rate limits](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
      * @param Request - DescribeDBInstanceAttributeRequest
      *
@@ -14572,10 +14572,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询SaaS DataUnit用量.
+     * Queries the SaaS DataUnit usage.
      *
      * @remarks
-     * 按场景、项目及UTC小时或天汇总SaaS DataUnit用量。单次最多7天，起点限最近30天；统计依据查询时规则，不是历史实际扣费账单。
+     * Aggregates SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
      *
      * @param Request - GetSaasDataUnitUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14630,10 +14630,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 查询SaaS DataUnit用量.
+     * Queries the SaaS DataUnit usage.
      *
      * @remarks
-     * 按场景、项目及UTC小时或天汇总SaaS DataUnit用量。单次最多7天，起点限最近30天；统计依据查询时规则，不是历史实际扣费账单。
+     * Aggregates SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
      *
      * @param Request - GetSaasDataUnitUsageRequest
      *
@@ -17047,7 +17047,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of API keys for model operators.
+     * Retrieves a list of API keys for model operators.
      *
      * @param Request - ListModelOperatorApiKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17090,7 +17090,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of API keys for model operators.
+     * Retrieves a list of API keys for model operators.
      *
      * @param Request - ListModelOperatorApiKeysRequest
      *

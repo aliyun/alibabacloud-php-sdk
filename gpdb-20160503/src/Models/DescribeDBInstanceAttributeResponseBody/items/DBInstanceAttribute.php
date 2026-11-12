@@ -122,6 +122,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $diskNotifyThreshold;
+
+    /**
+     * @var string
+     */
     public $encryptionKey;
 
     /**
@@ -172,6 +177,11 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
     public $lockMode;
 
     /**
@@ -198,6 +208,11 @@ class DBInstanceAttribute extends Model
      * @var int
      */
     public $masterCU;
+
+    /**
+     * @var string
+     */
+    public $masterDiskLockThreshold;
 
     /**
      * @var int
@@ -238,6 +253,11 @@ class DBInstanceAttribute extends Model
      * @var string
      */
     public $port;
+
+    /**
+     * @var string
+     */
+    public $primaryDBInstanceId;
 
     /**
      * @var string
@@ -288,6 +308,11 @@ class DBInstanceAttribute extends Model
      * @var int
      */
     public $segmentCounts;
+
+    /**
+     * @var string
+     */
+    public $segmentDiskLockThreshold;
 
     /**
      * @var string
@@ -381,6 +406,7 @@ class DBInstanceAttribute extends Model
         'DBInstanceStatus' => 'DBInstanceStatus',
         'DBInstanceStorage' => 'DBInstanceStorage',
         'deployMode' => 'DeployMode',
+        'diskNotifyThreshold' => 'DiskNotifyThreshold',
         'encryptionKey' => 'EncryptionKey',
         'encryptionType' => 'EncryptionType',
         'engine' => 'Engine',
@@ -391,12 +417,14 @@ class DBInstanceAttribute extends Model
         'idleTime' => 'IdleTime',
         'instanceNetworkType' => 'InstanceNetworkType',
         'instanceSpec' => 'InstanceSpec',
+        'instanceType' => 'InstanceType',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
         'maintainEndTime' => 'MaintainEndTime',
         'maintainStartTime' => 'MaintainStartTime',
         'masterAISpec' => 'MasterAISpec',
         'masterCU' => 'MasterCU',
+        'masterDiskLockThreshold' => 'MasterDiskLockThreshold',
         'masterNodeNum' => 'MasterNodeNum',
         'maxConnections' => 'MaxConnections',
         'memoryPerNode' => 'MemoryPerNode',
@@ -405,6 +433,7 @@ class DBInstanceAttribute extends Model
         'minorVersion' => 'MinorVersion',
         'payType' => 'PayType',
         'port' => 'Port',
+        'primaryDBInstanceId' => 'PrimaryDBInstanceId',
         'prodType' => 'ProdType',
         'readDelayTime' => 'ReadDelayTime',
         'regionId' => 'RegionId',
@@ -415,6 +444,7 @@ class DBInstanceAttribute extends Model
         'segNodeNum' => 'SegNodeNum',
         'segmentAISpec' => 'SegmentAISpec',
         'segmentCounts' => 'SegmentCounts',
+        'segmentDiskLockThreshold' => 'SegmentDiskLockThreshold',
         'serverlessMode' => 'ServerlessMode',
         'serverlessResource' => 'ServerlessResource',
         'standbyZoneId' => 'StandbyZoneId',
@@ -530,6 +560,10 @@ class DBInstanceAttribute extends Model
             $res['DeployMode'] = $this->deployMode;
         }
 
+        if (null !== $this->diskNotifyThreshold) {
+            $res['DiskNotifyThreshold'] = $this->diskNotifyThreshold;
+        }
+
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
         }
@@ -570,6 +604,10 @@ class DBInstanceAttribute extends Model
             $res['InstanceSpec'] = $this->instanceSpec;
         }
 
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
@@ -592,6 +630,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->masterCU) {
             $res['MasterCU'] = $this->masterCU;
+        }
+
+        if (null !== $this->masterDiskLockThreshold) {
+            $res['MasterDiskLockThreshold'] = $this->masterDiskLockThreshold;
         }
 
         if (null !== $this->masterNodeNum) {
@@ -624,6 +666,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+
+        if (null !== $this->primaryDBInstanceId) {
+            $res['PrimaryDBInstanceId'] = $this->primaryDBInstanceId;
         }
 
         if (null !== $this->prodType) {
@@ -664,6 +710,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->segmentCounts) {
             $res['SegmentCounts'] = $this->segmentCounts;
+        }
+
+        if (null !== $this->segmentDiskLockThreshold) {
+            $res['SegmentDiskLockThreshold'] = $this->segmentDiskLockThreshold;
         }
 
         if (null !== $this->serverlessMode) {
@@ -821,6 +871,10 @@ class DBInstanceAttribute extends Model
             $model->deployMode = $map['DeployMode'];
         }
 
+        if (isset($map['DiskNotifyThreshold'])) {
+            $model->diskNotifyThreshold = $map['DiskNotifyThreshold'];
+        }
+
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];
         }
@@ -861,6 +915,10 @@ class DBInstanceAttribute extends Model
             $model->instanceSpec = $map['InstanceSpec'];
         }
 
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
         }
@@ -883,6 +941,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['MasterCU'])) {
             $model->masterCU = $map['MasterCU'];
+        }
+
+        if (isset($map['MasterDiskLockThreshold'])) {
+            $model->masterDiskLockThreshold = $map['MasterDiskLockThreshold'];
         }
 
         if (isset($map['MasterNodeNum'])) {
@@ -915,6 +977,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+
+        if (isset($map['PrimaryDBInstanceId'])) {
+            $model->primaryDBInstanceId = $map['PrimaryDBInstanceId'];
         }
 
         if (isset($map['ProdType'])) {
@@ -955,6 +1021,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['SegmentCounts'])) {
             $model->segmentCounts = $map['SegmentCounts'];
+        }
+
+        if (isset($map['SegmentDiskLockThreshold'])) {
+            $model->segmentDiskLockThreshold = $map['SegmentDiskLockThreshold'];
         }
 
         if (isset($map['ServerlessMode'])) {
