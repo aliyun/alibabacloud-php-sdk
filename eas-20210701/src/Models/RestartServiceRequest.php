@@ -8,7 +8,18 @@ use AlibabaCloud\Dara\Model;
 
 class RestartServiceRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
     ];
 
     public function validate()
@@ -18,7 +29,16 @@ class RestartServiceRequest extends Model
 
     public function toArray($noStream = false)
     {
-        return [];
+        $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
+        return $res;
     }
 
     public function toMap($noStream = false)
@@ -28,6 +48,15 @@ class RestartServiceRequest extends Model
 
     public static function fromMap($map = [])
     {
-        return new self();
+        $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
+        return $model;
     }
 }

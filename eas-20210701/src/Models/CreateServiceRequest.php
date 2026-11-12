@@ -11,7 +11,17 @@ class CreateServiceRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $develop;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var string[]
@@ -28,7 +38,9 @@ class CreateServiceRequest extends Model
      */
     public $body;
     protected $_name = [
+        'clientToken' => 'ClientToken',
         'develop' => 'Develop',
+        'dryRun' => 'DryRun',
         'labels' => 'Labels',
         'workspaceId' => 'WorkspaceId',
         'body' => 'body',
@@ -45,8 +57,16 @@ class CreateServiceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->develop) {
             $res['Develop'] = $this->develop;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->labels) {
@@ -77,8 +97,16 @@ class CreateServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['Develop'])) {
             $model->develop = $map['Develop'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Labels'])) {

@@ -11,6 +11,16 @@ class CreateAppServiceRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
     public $quotaId;
 
     /**
@@ -48,6 +58,8 @@ class CreateAppServiceRequest extends Model
      */
     public $serviceSpec;
     protected $_name = [
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'quotaId' => 'QuotaId',
         'workspaceId' => 'WorkspaceId',
         'appType' => 'AppType',
@@ -69,6 +81,14 @@ class CreateAppServiceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->quotaId) {
             $res['QuotaId'] = $this->quotaId;
         }
@@ -117,6 +137,14 @@ class CreateAppServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['QuotaId'])) {
             $model->quotaId = $map['QuotaId'];
         }

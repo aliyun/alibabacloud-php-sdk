@@ -31,6 +31,11 @@ class versions extends Model
     /**
      * @var string
      */
+    public $remark;
+
+    /**
+     * @var string
+     */
     public $serviceConfig;
 
     /**
@@ -42,6 +47,7 @@ class versions extends Model
         'imageAvailable' => 'ImageAvailable',
         'imageId' => 'ImageId',
         'message' => 'Message',
+        'remark' => 'Remark',
         'serviceConfig' => 'ServiceConfig',
         'serviceRunnable' => 'ServiceRunnable',
     ];
@@ -68,6 +74,10 @@ class versions extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         if (null !== $this->serviceConfig) {
@@ -103,6 +113,10 @@ class versions extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         if (isset($map['ServiceConfig'])) {
