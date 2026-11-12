@@ -28,11 +28,17 @@ class ModifyAppInstanceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $targetInstanceName;
     protected $_name = [
         'branchName' => 'BranchName',
         'components' => 'Components',
         'instanceName' => 'InstanceName',
         'requestId' => 'RequestId',
+        'targetInstanceName' => 'TargetInstanceName',
     ];
 
     public function validate()
@@ -69,6 +75,10 @@ class ModifyAppInstanceResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->targetInstanceName) {
+            $res['TargetInstanceName'] = $this->targetInstanceName;
+        }
+
         return $res;
     }
 
@@ -101,6 +111,10 @@ class ModifyAppInstanceResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TargetInstanceName'])) {
+            $model->targetInstanceName = $map['TargetInstanceName'];
         }
 
         return $model;

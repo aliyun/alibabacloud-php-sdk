@@ -6792,7 +6792,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the list of Agent tools for a user.
+     * Queries the list of user agent tools.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6821,7 +6821,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the list of Agent tools for a user.
+     * Queries the list of user agent tools.
      *
      * @returns ListCustomAgentToolsResponse
      *
@@ -7066,12 +7066,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the modules of an ApsaraDB RDS AI application instance.
+     * Modifies the modules of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - ModifyAppInstanceRequest
@@ -7118,6 +7118,10 @@ class RdsAi extends OpenApiClient
             @$query['InstanceName'] = $request->instanceName;
         }
 
+        if (null !== $request->migrationMode) {
+            @$query['MigrationMode'] = $request->migrationMode;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -7141,12 +7145,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the modules of an ApsaraDB RDS AI application instance.
+     * Modifies the modules of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyAppInstanceRequest

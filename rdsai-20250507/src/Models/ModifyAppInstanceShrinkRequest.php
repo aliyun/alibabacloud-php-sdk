@@ -41,6 +41,11 @@ class ModifyAppInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $migrationMode;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'branchName' => 'BranchName',
@@ -49,6 +54,7 @@ class ModifyAppInstanceShrinkRequest extends Model
         'DBInstanceName' => 'DBInstanceName',
         'instanceClass' => 'InstanceClass',
         'instanceName' => 'InstanceName',
+        'migrationMode' => 'MigrationMode',
         'regionId' => 'RegionId',
     ];
 
@@ -82,6 +88,10 @@ class ModifyAppInstanceShrinkRequest extends Model
 
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->migrationMode) {
+            $res['MigrationMode'] = $this->migrationMode;
         }
 
         if (null !== $this->regionId) {
@@ -121,6 +131,10 @@ class ModifyAppInstanceShrinkRequest extends Model
 
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['MigrationMode'])) {
+            $model->migrationMode = $map['MigrationMode'];
         }
 
         if (isset($map['RegionId'])) {
