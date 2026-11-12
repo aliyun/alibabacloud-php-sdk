@@ -33,6 +33,7 @@ use AlibabaCloud\SDK\OpenAgent\V20260801\Models\UpdateReadonlyModeResponse;
 use AlibabaCloud\SDK\OpenAgent\V20260801\Models\UpdateSessionHeaders;
 use AlibabaCloud\SDK\OpenAgent\V20260801\Models\UpdateSessionRequest;
 use AlibabaCloud\SDK\OpenAgent\V20260801\Models\UpdateSessionResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -43,6 +44,9 @@ class OpenAgent extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'OpenAgent';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('openagent', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -304,7 +308,7 @@ class OpenAgent extends OpenApiClient
      * Queries the read-only mode.
      *
      * @remarks
-     * Queries the read-only mode switch for the current account. The read-only mode is enabled by default if it is not configured.
+     * Queries the read-only mode switch of the current account. It is enabled by default if not configured.
      *
      * @param request - GetReadonlyModeRequest
      * @param headers - map
@@ -343,7 +347,7 @@ class OpenAgent extends OpenApiClient
      * Queries the read-only mode.
      *
      * @remarks
-     * Queries the read-only mode switch for the current account. The read-only mode is enabled by default if it is not configured.
+     * Queries the read-only mode switch of the current account. It is enabled by default if not configured.
      *
      * @param request - GetReadonlyModeRequest
      *
@@ -430,7 +434,7 @@ class OpenAgent extends OpenApiClient
      * Queries a session.
      *
      * @remarks
-     * Queries the title, status, pinning information, and the ID and status of the most recent run of a specified session.
+     * Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
      *
      * @param request - GetSessionRequest
      * @param headers - map
@@ -470,7 +474,7 @@ class OpenAgent extends OpenApiClient
      * Queries a session.
      *
      * @remarks
-     * Queries the title, status, pinning information, and the ID and status of the most recent run of a specified session.
+     * Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
      *
      * @param request - GetSessionRequest
      *
@@ -493,7 +497,7 @@ class OpenAgent extends OpenApiClient
      * Lists messages.
      *
      * @remarks
-     * Performs a paging query on the message timeline of a specified session. Use the returned nextToken to retrieve the next page.
+     * Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
      *
      * @param request - ListMessagesRequest
      * @param headers - map
@@ -547,7 +551,7 @@ class OpenAgent extends OpenApiClient
      * Lists messages.
      *
      * @remarks
-     * Performs a paging query on the message timeline of a specified session. Use the returned nextToken to retrieve the next page.
+     * Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
      *
      * @param request - ListMessagesRequest
      *
@@ -570,7 +574,7 @@ class OpenAgent extends OpenApiClient
      * Lists sessions.
      *
      * @remarks
-     * Uses paging to query the list of sessions accessible to the current identity used to invoke. Use the returned nextToken to retrieve the next page.
+     * Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
      *
      * @param request - ListSessionsRequest
      * @param headers - map
@@ -619,7 +623,7 @@ class OpenAgent extends OpenApiClient
      * Lists sessions.
      *
      * @remarks
-     * Uses paging to query the list of sessions accessible to the current identity used to invoke. Use the returned nextToken to retrieve the next page.
+     * Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
      *
      * @param request - ListSessionsRequest
      *
@@ -660,6 +664,10 @@ class OpenAgent extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->attachments) {
+            @$body['attachments'] = $request->attachments;
+        }
+
         if (null !== $request->content) {
             @$body['content'] = $request->content;
         }
@@ -740,6 +748,10 @@ class OpenAgent extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->attachments) {
+            @$body['attachments'] = $request->attachments;
+        }
+
         if (null !== $request->content) {
             @$body['content'] = $request->content;
         }
@@ -878,7 +890,7 @@ class OpenAgent extends OpenApiClient
      * Updates the title or pinned status of a session.
      *
      * @remarks
-     * Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
+     * Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
      *
      * @param request - UpdateSessionRequest
      * @param headers - UpdateSessionHeaders
@@ -937,7 +949,7 @@ class OpenAgent extends OpenApiClient
      * Updates the title or pinned status of a session.
      *
      * @remarks
-     * Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
+     * Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
      *
      * @param request - UpdateSessionRequest
      *

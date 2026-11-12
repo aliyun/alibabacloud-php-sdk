@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\OpenAgent\V20260801\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\OpenAgent\V20260801\Models\SendMessageRequest\attachments;
 use AlibabaCloud\SDK\OpenAgent\V20260801\Models\SendMessageRequest\resume;
 
 class SendMessageRequest extends Model
 {
+    /**
+     * @var attachments[]
+     */
+    public $attachments;
+
     /**
      * @var string
      */
@@ -29,6 +35,7 @@ class SendMessageRequest extends Model
      */
     public $type;
     protected $_name = [
+        'attachments' => 'attachments',
         'content' => 'content',
         'resume' => 'resume',
         'runId' => 'runId',
@@ -37,6 +44,9 @@ class SendMessageRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->attachments)) {
+            Model::validateArray($this->attachments);
+        }
         if (\is_array($this->resume)) {
             Model::validateArray($this->resume);
         }
@@ -46,6 +56,17 @@ class SendMessageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attachments) {
+            if (\is_array($this->attachments)) {
+                $res['attachments'] = [];
+                $n1 = 0;
+                foreach ($this->attachments as $item1) {
+                    $res['attachments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -80,6 +101,17 @@ class SendMessageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['attachments'])) {
+            if (!empty($map['attachments'])) {
+                $model->attachments = [];
+                $n1 = 0;
+                foreach ($map['attachments'] as $item1) {
+                    $model->attachments[$n1] = attachments::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
