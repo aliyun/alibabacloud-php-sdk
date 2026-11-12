@@ -42,6 +42,11 @@ class CreateAuthorizationRuleRequest extends Model
      * @var string
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $subjectType;
     protected $_name = [
         'authorizationResourceScope' => 'AuthorizationResourceScope',
         'authorizationRuleName' => 'AuthorizationRuleName',
@@ -50,6 +55,7 @@ class CreateAuthorizationRuleRequest extends Model
         'description' => 'Description',
         'instanceId' => 'InstanceId',
         'projectId' => 'ProjectId',
+        'subjectType' => 'SubjectType',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class CreateAuthorizationRuleRequest extends Model
 
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->subjectType) {
+            $res['SubjectType'] = $this->subjectType;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class CreateAuthorizationRuleRequest extends Model
 
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['SubjectType'])) {
+            $model->subjectType = $map['SubjectType'];
         }
 
         return $model;
