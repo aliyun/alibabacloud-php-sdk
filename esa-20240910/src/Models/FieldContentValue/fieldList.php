@@ -42,6 +42,11 @@ class fieldList extends Model
      * @var bool
      */
     public $isDefault;
+
+    /**
+     * @var bool
+     */
+    public $isSupported;
     protected $_name = [
         'fieldName' => 'FieldName',
         'description' => 'Description',
@@ -50,6 +55,7 @@ class fieldList extends Model
         'dataType' => 'DataType',
         'sortOrder' => 'SortOrder',
         'isDefault' => 'IsDefault',
+        'isSupported' => 'IsSupported',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class fieldList extends Model
 
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
+        }
+
+        if (null !== $this->isSupported) {
+            $res['IsSupported'] = $this->isSupported;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class fieldList extends Model
 
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
+        }
+
+        if (isset($map['IsSupported'])) {
+            $model->isSupported = $map['IsSupported'];
         }
 
         return $model;

@@ -3935,7 +3935,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an error code redirection rule.
+     * Creates an error code redirect rule.
      *
      * @param tmpReq - CreateErrorPagesRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4004,7 +4004,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an error code redirection rule.
+     * Creates an error code redirect rule.
      *
      * @param Request - CreateErrorPagesRedirectRuleRequest
      *
@@ -8762,7 +8762,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes the error code redirection configuration.
+     * Deletes the error code redirect configuration.
      *
      * @param Request - DeleteErrorPagesRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8805,7 +8805,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes the error code redirection configuration.
+     * Deletes the error code redirect configuration.
      *
      * @param Request - DeleteErrorPagesRedirectRuleRequest
      *
@@ -17815,7 +17815,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the fields in real-time logs based on the log category.
+     * Retrieves the list of fields for real-time logs based on the log business type.
      *
      * @param Request - GetRealtimeDeliveryFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17850,7 +17850,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the fields in real-time logs based on the log category.
+     * Retrieves the list of fields for real-time logs based on the log business type.
      *
      * @param Request - GetRealtimeDeliveryFieldRequest
      *

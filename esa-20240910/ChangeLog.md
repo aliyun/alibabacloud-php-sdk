@@ -1,3 +1,8 @@
+2026-11-12 Version: 3.14.1
+- Update API GetRealtimeDeliveryField: add request parameters SiteId.
+- Update API GetRealtimeDeliveryField: add response parameters Body.FieldContent.FieldList.$.IsSupported.
+
+
 2026-11-10 Version: 3.14.0
 - Support API CreateErrorPagesRedirectRule.
 - Support API DeleteErrorPagesRedirectRule.
