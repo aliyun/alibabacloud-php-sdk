@@ -1,3 +1,10 @@
+2026-11-12 Version: 1.10.3
+- Update API ListExecutorGroup: add request parameters TimeType.
+- Update API ListJobs: add request parameters TimeType.
+- Update API ListJobs: add response parameters Body.Data.Records.$.CreateTime.
+- Update API ListJobs: add response parameters Body.Data.Records.$.UpdateTime.
+
+
 2026-08-19 Version: 1.10.2
 - Update API DeleteExecutorGroup: add request parameters DeleteJobs.
 

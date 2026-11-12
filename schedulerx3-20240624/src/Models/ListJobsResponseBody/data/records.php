@@ -39,6 +39,11 @@ class records extends Model
     public $cleanMode;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @var string
      */
     public $creator;
@@ -179,6 +184,11 @@ class records extends Model
     public $timezone;
 
     /**
+     * @var int
+     */
+    public $updateTime;
+
+    /**
      * @var string
      */
     public $updater;
@@ -204,6 +214,7 @@ class records extends Model
         'calendar' => 'Calendar',
         'childJobId' => 'ChildJobId',
         'cleanMode' => 'CleanMode',
+        'createTime' => 'CreateTime',
         'creator' => 'Creator',
         'currentExecuteStatus' => 'CurrentExecuteStatus',
         'dataOffset' => 'DataOffset',
@@ -232,6 +243,7 @@ class records extends Model
         'timeType' => 'TimeType',
         'timeZone' => 'TimeZone',
         'timezone' => 'Timezone',
+        'updateTime' => 'UpdateTime',
         'updater' => 'Updater',
         'weight' => 'Weight',
         'workflowId' => 'WorkflowId',
@@ -268,6 +280,10 @@ class records extends Model
 
         if (null !== $this->cleanMode) {
             $res['CleanMode'] = $this->cleanMode;
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
 
         if (null !== $this->creator) {
@@ -382,6 +398,10 @@ class records extends Model
             $res['Timezone'] = $this->timezone;
         }
 
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
+        }
+
         if (null !== $this->updater) {
             $res['Updater'] = $this->updater;
         }
@@ -431,6 +451,10 @@ class records extends Model
 
         if (isset($map['CleanMode'])) {
             $model->cleanMode = $map['CleanMode'];
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
 
         if (isset($map['Creator'])) {
@@ -543,6 +567,10 @@ class records extends Model
 
         if (isset($map['Timezone'])) {
             $model->timezone = $map['Timezone'];
+        }
+
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         if (isset($map['Updater'])) {

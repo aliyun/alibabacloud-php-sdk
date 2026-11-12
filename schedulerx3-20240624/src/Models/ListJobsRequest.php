@@ -59,6 +59,11 @@ class ListJobsRequest extends Model
     public $status;
 
     /**
+     * @var int[]
+     */
+    public $timeType;
+
+    /**
      * @var int
      */
     public $workflowId;
@@ -73,11 +78,15 @@ class ListJobsRequest extends Model
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'status' => 'Status',
+        'timeType' => 'TimeType',
         'workflowId' => 'WorkflowId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->timeType)) {
+            Model::validateArray($this->timeType);
+        }
         parent::validate();
     }
 
@@ -122,6 +131,17 @@ class ListJobsRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->timeType) {
+            if (\is_array($this->timeType)) {
+                $res['TimeType'] = [];
+                $n1 = 0;
+                foreach ($this->timeType as $item1) {
+                    $res['TimeType'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->workflowId) {
@@ -177,6 +197,17 @@ class ListJobsRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['TimeType'])) {
+            if (!empty($map['TimeType'])) {
+                $model->timeType = [];
+                $n1 = 0;
+                foreach ($map['TimeType'] as $item1) {
+                    $model->timeType[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['WorkflowId'])) {

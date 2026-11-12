@@ -39,6 +39,11 @@ class ListExecutorGroupRequest extends Model
     public $pageSize;
 
     /**
+     * @var int[]
+     */
+    public $timeType;
+
+    /**
      * @var string
      */
     public $workerType;
@@ -49,11 +54,15 @@ class ListExecutorGroupRequest extends Model
         'nextToken' => 'NextToken',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
+        'timeType' => 'TimeType',
         'workerType' => 'WorkerType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->timeType)) {
+            Model::validateArray($this->timeType);
+        }
         parent::validate();
     }
 
@@ -82,6 +91,17 @@ class ListExecutorGroupRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->timeType) {
+            if (\is_array($this->timeType)) {
+                $res['TimeType'] = [];
+                $n1 = 0;
+                foreach ($this->timeType as $item1) {
+                    $res['TimeType'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->workerType) {
@@ -121,6 +141,17 @@ class ListExecutorGroupRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['TimeType'])) {
+            if (!empty($map['TimeType'])) {
+                $model->timeType = [];
+                $n1 = 0;
+                foreach ($map['TimeType'] as $item1) {
+                    $model->timeType[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['WorkerType'])) {
