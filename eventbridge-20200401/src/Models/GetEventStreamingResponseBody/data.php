@@ -39,6 +39,11 @@ class data extends Model
     public $metadata;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var runOptions
      */
     public $runOptions;
@@ -68,6 +73,7 @@ class data extends Model
         'eventStreamingName' => 'EventStreamingName',
         'filterPattern' => 'FilterPattern',
         'metadata' => 'Metadata',
+        'resourceGroupId' => 'ResourceGroupId',
         'runOptions' => 'RunOptions',
         'sink' => 'Sink',
         'source' => 'Source',
@@ -116,6 +122,10 @@ class data extends Model
 
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->runOptions) {
@@ -174,6 +184,10 @@ class data extends Model
 
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['RunOptions'])) {

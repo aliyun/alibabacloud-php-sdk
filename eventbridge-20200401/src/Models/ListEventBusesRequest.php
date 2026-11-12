@@ -22,10 +22,16 @@ class ListEventBusesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'limit' => 'Limit',
         'namePrefix' => 'NamePrefix',
         'nextToken' => 'NextToken',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ListEventBusesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ListEventBusesRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

@@ -241,6 +241,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateRuleResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateTableRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateTableResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateTableShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -251,6 +252,9 @@ class Eventbridge extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'eventbridge';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-wulanchabu' => 'eventbridge-console.cn-wulanchabu.aliyuncs.com',
@@ -721,8 +725,18 @@ class Eventbridge extends OpenApiClient
             @$query['EventBusName'] = $request->eventBusName;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $body = [];
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateEventBus',
@@ -950,13 +964,18 @@ class Eventbridge extends OpenApiClient
             $request->transformsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transforms, 'Transforms', 'json');
         }
 
+        $query = [];
+        if (null !== $request->eventStreamingName) {
+            @$query['EventStreamingName'] = $request->eventStreamingName;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $body = [];
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
-        }
-
-        if (null !== $request->eventStreamingName) {
-            @$body['EventStreamingName'] = $request->eventStreamingName;
         }
 
         if (null !== $request->filterPattern) {
@@ -988,6 +1007,7 @@ class Eventbridge extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3152,10 +3172,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about an event bus.
+     * Retrieves the details of an event bus.
      *
      * @remarks
-     * You can call this API operation to query the detailed information about an event bus.
+     * Retrieves the details of an event bus.
      *
      * @param request - GetEventBusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3194,10 +3214,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about an event bus.
+     * Retrieves the details of an event bus.
      *
      * @remarks
-     * You can call this API operation to query the detailed information about an event bus.
+     * Retrieves the details of an event bus.
      *
      * @param request - GetEventBusRequest
      *
@@ -4693,7 +4713,7 @@ class Eventbridge extends OpenApiClient
      * Queries all event buses.
      *
      * @remarks
-     * You can call this API operation to query all event buses.
+     * Queries all event buses.
      *
      * @param request - ListEventBusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4721,6 +4741,10 @@ class Eventbridge extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4743,7 +4767,7 @@ class Eventbridge extends OpenApiClient
      * Queries all event buses.
      *
      * @remarks
-     * You can call this API operation to query all event buses.
+     * Queries all event buses.
      *
      * @param request - ListEventBusesRequest
      *
@@ -7489,10 +7513,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Modifies an event bus.
+     * Updates an event bus.
      *
      * @remarks
-     * Modifies an event bus.
+     * Updates an event bus.
      *
      * @param request - UpdateEventBusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7516,8 +7540,14 @@ class Eventbridge extends OpenApiClient
             @$query['EventBusName'] = $request->eventBusName;
         }
 
+        $body = [];
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateEventBus',
@@ -7535,10 +7565,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Modifies an event bus.
+     * Updates an event bus.
      *
      * @remarks
-     * Modifies an event bus.
+     * Updates an event bus.
      *
      * @param request - UpdateEventBusRequest
      *

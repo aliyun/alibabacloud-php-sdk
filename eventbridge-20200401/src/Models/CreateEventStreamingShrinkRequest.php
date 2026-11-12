@@ -32,6 +32,11 @@ class CreateEventStreamingShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $runOptionsShrink;
 
     /**
@@ -58,6 +63,7 @@ class CreateEventStreamingShrinkRequest extends Model
         'eventStreamingName' => 'EventStreamingName',
         'filterPattern' => 'FilterPattern',
         'metadata' => 'Metadata',
+        'resourceGroupId' => 'ResourceGroupId',
         'runOptionsShrink' => 'RunOptions',
         'sinkShrink' => 'Sink',
         'sourceShrink' => 'Source',
@@ -90,6 +96,10 @@ class CreateEventStreamingShrinkRequest extends Model
 
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->runOptionsShrink) {
@@ -144,6 +154,10 @@ class CreateEventStreamingShrinkRequest extends Model
 
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['RunOptions'])) {
