@@ -1,3 +1,12 @@
+2026-11-12 Version: 2.2.0
+- Support API CreateDatasetVersion.
+- Support API DeleteDatasetVersion.
+- Support API ListDatasetVersions.
+- Update API GetAgentSpace: add response parameters Body.tags.
+- Update API ListAgentSpaces: add request parameters tag.
+- Update API ListAgentSpaces: add response parameters Body.agentSpaces.$.tags.
+
+
 2026-11-12 Version: 2.1.0
 - Support API CreateDatasetVersion.
 - Support API DeleteDatasetVersion.
