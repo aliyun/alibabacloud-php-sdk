@@ -42,6 +42,11 @@ class CreateAgenticDBProjectRequest extends Model
      * @var string
      */
     public $tenantId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'defaultBranchName' => 'DefaultBranchName',
@@ -50,6 +55,7 @@ class CreateAgenticDBProjectRequest extends Model
         'projectName' => 'ProjectName',
         'regionId' => 'RegionId',
         'tenantId' => 'TenantId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class CreateAgenticDBProjectRequest extends Model
 
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class CreateAgenticDBProjectRequest extends Model
 
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

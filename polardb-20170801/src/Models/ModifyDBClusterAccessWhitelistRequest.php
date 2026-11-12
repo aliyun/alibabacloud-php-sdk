@@ -46,6 +46,11 @@ class ModifyDBClusterAccessWhitelistRequest extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -75,6 +80,7 @@ class ModifyDBClusterAccessWhitelistRequest extends Model
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'pfsInstanceId' => 'PfsInstanceId',
+        'projectId' => 'ProjectId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityGroupIds' => 'SecurityGroupIds',
@@ -116,6 +122,10 @@ class ModifyDBClusterAccessWhitelistRequest extends Model
 
         if (null !== $this->pfsInstanceId) {
             $res['PfsInstanceId'] = $this->pfsInstanceId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -175,6 +185,10 @@ class ModifyDBClusterAccessWhitelistRequest extends Model
 
         if (isset($map['PfsInstanceId'])) {
             $model->pfsInstanceId = $map['PfsInstanceId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAccessWhitelistResponseBody\DBClusterSecurityGroups;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAccessWhitelistResponseBody\items;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAccessWhitelistResponseBody\projectItems;
 
 class DescribeDBClusterAccessWhitelistResponseBody extends Model
 {
@@ -21,12 +22,18 @@ class DescribeDBClusterAccessWhitelistResponseBody extends Model
     public $items;
 
     /**
+     * @var projectItems
+     */
+    public $projectItems;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBClusterSecurityGroups' => 'DBClusterSecurityGroups',
         'items' => 'Items',
+        'projectItems' => 'ProjectItems',
         'requestId' => 'RequestId',
     ];
 
@@ -37,6 +44,9 @@ class DescribeDBClusterAccessWhitelistResponseBody extends Model
         }
         if (null !== $this->items) {
             $this->items->validate();
+        }
+        if (null !== $this->projectItems) {
+            $this->projectItems->validate();
         }
         parent::validate();
     }
@@ -50,6 +60,10 @@ class DescribeDBClusterAccessWhitelistResponseBody extends Model
 
         if (null !== $this->items) {
             $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
+        }
+
+        if (null !== $this->projectItems) {
+            $res['ProjectItems'] = null !== $this->projectItems ? $this->projectItems->toArray($noStream) : $this->projectItems;
         }
 
         if (null !== $this->requestId) {
@@ -73,6 +87,10 @@ class DescribeDBClusterAccessWhitelistResponseBody extends Model
 
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
+        }
+
+        if (isset($map['ProjectItems'])) {
+            $model->projectItems = projectItems::fromMap($map['ProjectItems']);
         }
 
         if (isset($map['RequestId'])) {

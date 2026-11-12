@@ -31,6 +31,11 @@ class SearchMemoriesRequest extends Model
     /**
      * @var string
      */
+    public $memoryId;
+
+    /**
+     * @var string
+     */
     public $memoryUserId;
 
     /**
@@ -57,6 +62,7 @@ class SearchMemoriesRequest extends Model
         'createTimeBegin' => 'CreateTimeBegin',
         'createTimeEnd' => 'CreateTimeEnd',
         'memoryAgentId' => 'MemoryAgentId',
+        'memoryId' => 'MemoryId',
         'memoryUserId' => 'MemoryUserId',
         'page' => 'Page',
         'pageSize' => 'PageSize',
@@ -86,6 +92,10 @@ class SearchMemoriesRequest extends Model
 
         if (null !== $this->memoryAgentId) {
             $res['MemoryAgentId'] = $this->memoryAgentId;
+        }
+
+        if (null !== $this->memoryId) {
+            $res['MemoryId'] = $this->memoryId;
         }
 
         if (null !== $this->memoryUserId) {
@@ -133,6 +143,10 @@ class SearchMemoriesRequest extends Model
 
         if (isset($map['MemoryAgentId'])) {
             $model->memoryAgentId = $map['MemoryAgentId'];
+        }
+
+        if (isset($map['MemoryId'])) {
+            $model->memoryId = $map['MemoryId'];
         }
 
         if (isset($map['MemoryUserId'])) {
