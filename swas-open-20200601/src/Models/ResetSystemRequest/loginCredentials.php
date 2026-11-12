@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ResetSystemRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class loginCredentials extends Model
 {
@@ -22,14 +22,18 @@ class loginCredentials extends Model
         'password' => 'Password',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
@@ -37,17 +41,18 @@ class loginCredentials extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return loginCredentials
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }

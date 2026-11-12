@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudMonitorAgentStatusesResponseBody\instanceStatusList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCloudMonitorAgentStatusesResponseBody extends Model
 {
     /**
-     * @description Indicates whether the Cloud Monitor agent was automatically installed on the simple application server.
-     *
      * @var instanceStatusList[]
      */
     public $instanceStatusList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 30637AD6-D977-4833-A54C-CC89483E1FEE
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeCloudMonitorAgentStatusesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceStatusList)) {
+            Model::validateArray($this->instanceStatusList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceStatusList) {
-            $res['InstanceStatusList'] = [];
-            if (null !== $this->instanceStatusList && \is_array($this->instanceStatusList)) {
-                $n = 0;
-                foreach ($this->instanceStatusList as $item) {
-                    $res['InstanceStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceStatusList)) {
+                $res['InstanceStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->instanceStatusList as $item1) {
+                    $res['InstanceStatusList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeCloudMonitorAgentStatusesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudMonitorAgentStatusesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceStatusList'])) {
             if (!empty($map['InstanceStatusList'])) {
                 $model->instanceStatusList = [];
-                $n = 0;
-                foreach ($map['InstanceStatusList'] as $item) {
-                    $model->instanceStatusList[$n++] = null !== $item ? instanceStatusList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceStatusList'] as $item1) {
+                    $model->instanceStatusList[$n1] = instanceStatusList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

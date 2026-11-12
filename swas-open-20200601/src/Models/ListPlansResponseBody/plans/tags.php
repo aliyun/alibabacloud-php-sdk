@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListPlansResponseBody\plans;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
@@ -28,17 +28,22 @@ class tags extends Model
         'enTitle' => 'EnTitle',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cnTitle) {
             $res['CnTitle'] = $this->cnTitle;
         }
+
         if (null !== $this->color) {
             $res['Color'] = $this->color;
         }
+
         if (null !== $this->enTitle) {
             $res['EnTitle'] = $this->enTitle;
         }
@@ -46,20 +51,22 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CnTitle'])) {
             $model->cnTitle = $map['CnTitle'];
         }
+
         if (isset($map['Color'])) {
             $model->color = $map['Color'];
         }
+
         if (isset($map['EnTitle'])) {
             $model->enTitle = $map['EnTitle'];
         }

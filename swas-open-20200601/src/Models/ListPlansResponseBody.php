@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListPlansResponseBody\plans;
-use AlibabaCloud\Tea\Model;
 
 class ListPlansResponseBody extends Model
 {
     /**
-     * @description Details about the plans.
-     *
      * @var plans[]
      */
     public $plans;
 
     /**
-     * @description The request ID.
-     *
-     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListPlansResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->plans)) {
+            Model::validateArray($this->plans);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->plans) {
-            $res['Plans'] = [];
-            if (null !== $this->plans && \is_array($this->plans)) {
-                $n = 0;
-                foreach ($this->plans as $item) {
-                    $res['Plans'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->plans)) {
+                $res['Plans'] = [];
+                $n1 = 0;
+                foreach ($this->plans as $item1) {
+                    $res['Plans'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListPlansResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPlansResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Plans'])) {
             if (!empty($map['Plans'])) {
                 $model->plans = [];
-                $n = 0;
-                foreach ($map['Plans'] as $item) {
-                    $model->plans[$n++] = null !== $item ? plans::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Plans'] as $item1) {
+                    $model->plans[$n1] = plans::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

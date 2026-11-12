@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRegionsRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   **zh-CN** (default): Chinese
-     *   **en-US**: English
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
@@ -23,9 +16,12 @@ class ListRegionsRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
@@ -35,11 +31,11 @@ class ListRegionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRegionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

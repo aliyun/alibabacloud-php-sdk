@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AllocatePublicConnectionResponseBody extends Model
 {
     /**
-     * @description The public endpoint that is assigned to the Simple Database Service instance.
-     *
-     * @example db-38263fa955774501a2ae1bdaed6f****.mysql.rds.aliyuncs.com
-     *
      * @var string
      */
     public $publicConnection;
 
     /**
-     * @description The request ID.
-     *
-     * @example 30637AD6-D977-4833-A54C-CC89483E****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class AllocatePublicConnectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->publicConnection) {
             $res['PublicConnection'] = $this->publicConnection;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class AllocatePublicConnectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocatePublicConnectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PublicConnection'])) {
             $model->publicConnection = $map['PublicConnection'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
