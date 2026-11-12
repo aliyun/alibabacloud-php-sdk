@@ -1,3 +1,7 @@
+2026-11-12 Version: 1.2.5
+- Update API ListTemplates: add request parameters resourceTags.
+
+
 2026-11-10 Version: 1.2.4
 - Update API DescribeQuota: add response parameters Body.usage.
 

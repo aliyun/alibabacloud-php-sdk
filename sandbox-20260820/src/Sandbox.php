@@ -50,6 +50,7 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListTemplateCacheRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListTemplateCacheResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListTemplatesResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListVolumesRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListVolumesResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ResetApiKeyRequest;
@@ -1420,23 +1421,29 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the template list with paging.
+     * Performs a paging query on the template list.
      *
-     * @param request - ListTemplatesRequest
+     * @param tmpReq - ListTemplatesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListTemplatesResponse
      *
-     * @param ListTemplatesRequest $request
+     * @param ListTemplatesRequest $tmpReq
      * @param string[]             $headers
      * @param RuntimeOptions       $runtime
      *
      * @return ListTemplatesResponse
      */
-    public function listTemplatesWithOptions($request, $headers, $runtime)
+    public function listTemplatesWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceTags) {
+            $request->resourceTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceTags, 'resourceTags', 'json');
+        }
+
         $query = [];
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
@@ -1444,6 +1451,10 @@ class Sandbox extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceTagsShrink) {
+            @$query['resourceTags'] = $request->resourceTagsShrink;
         }
 
         if (null !== $request->teamID) {
@@ -1470,7 +1481,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the template list with paging.
+     * Performs a paging query on the template list.
      *
      * @param request - ListTemplatesRequest
      *

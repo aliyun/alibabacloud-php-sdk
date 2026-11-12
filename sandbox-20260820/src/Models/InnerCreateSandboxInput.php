@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sandbox\V20260820\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\InnerCreateSandboxInput\resourceTags;
 
 class InnerCreateSandboxInput extends Model
 {
@@ -37,6 +38,11 @@ class InnerCreateSandboxInput extends Model
      * @var E2BNetwork
      */
     public $network;
+
+    /**
+     * @var resourceTags[]
+     */
+    public $resourceTags;
 
     /**
      * @var InnerSandboxRuntimeConfig
@@ -84,6 +90,7 @@ class InnerCreateSandboxInput extends Model
         'envVars' => 'envVars',
         'metadata' => 'metadata',
         'network' => 'network',
+        'resourceTags' => 'resourceTags',
         'runtime' => 'runtime',
         'secure' => 'secure',
         'snapshotID' => 'snapshotID',
@@ -104,6 +111,9 @@ class InnerCreateSandboxInput extends Model
         }
         if (null !== $this->network) {
             $this->network->validate();
+        }
+        if (\is_array($this->resourceTags)) {
+            Model::validateArray($this->resourceTags);
         }
         if (null !== $this->runtime) {
             $this->runtime->validate();
@@ -149,6 +159,17 @@ class InnerCreateSandboxInput extends Model
 
         if (null !== $this->network) {
             $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
+        }
+
+        if (null !== $this->resourceTags) {
+            if (\is_array($this->resourceTags)) {
+                $res['resourceTags'] = [];
+                $n1 = 0;
+                foreach ($this->resourceTags as $item1) {
+                    $res['resourceTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->runtime) {
@@ -226,6 +247,17 @@ class InnerCreateSandboxInput extends Model
 
         if (isset($map['network'])) {
             $model->network = E2BNetwork::fromMap($map['network']);
+        }
+
+        if (isset($map['resourceTags'])) {
+            if (!empty($map['resourceTags'])) {
+                $model->resourceTags = [];
+                $n1 = 0;
+                foreach ($map['resourceTags'] as $item1) {
+                    $model->resourceTags[$n1] = resourceTags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['runtime'])) {
