@@ -1,3 +1,7 @@
+2026-11-12 Version: 1.1.3
+- Update API UpgradeSmartAccessGateway: add request parameters RestoreTime.
+
+
 2026-11-04 Version: 1.1.2
 - Update API AttachCcnInstanceToCen: add request parameters CidrAllocationMode.
 - Update API AttachCcnInstanceToCen: add request parameters RegionBindingList.
