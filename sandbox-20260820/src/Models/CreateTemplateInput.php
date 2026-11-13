@@ -33,12 +33,18 @@ class CreateTemplateInput extends Model
      * @var string
      */
     public $teamID;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
         'buildConfig' => 'buildConfig',
         'name' => 'name',
         'resourceTags' => 'resourceTags',
         'runtimeConfig' => 'runtimeConfig',
         'teamID' => 'teamID',
+        'templateType' => 'templateType',
     ];
 
     public function validate()
@@ -85,6 +91,10 @@ class CreateTemplateInput extends Model
             $res['teamID'] = $this->teamID;
         }
 
+        if (null !== $this->templateType) {
+            $res['templateType'] = $this->templateType;
+        }
+
         return $res;
     }
 
@@ -121,6 +131,10 @@ class CreateTemplateInput extends Model
 
         if (isset($map['teamID'])) {
             $model->teamID = $map['teamID'];
+        }
+
+        if (isset($map['templateType'])) {
+            $model->templateType = $map['templateType'];
         }
 
         return $model;

@@ -53,6 +53,11 @@ class PublicTemplate extends Model
      * @var string
      */
     public $templateID;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
         'createdTime' => 'createdTime',
         'name' => 'name',
@@ -63,6 +68,7 @@ class PublicTemplate extends Model
         'teamID' => 'teamID',
         'teamName' => 'teamName',
         'templateID' => 'templateID',
+        'templateType' => 'templateType',
     ];
 
     public function validate()
@@ -125,6 +131,10 @@ class PublicTemplate extends Model
             $res['templateID'] = $this->templateID;
         }
 
+        if (null !== $this->templateType) {
+            $res['templateType'] = $this->templateType;
+        }
+
         return $res;
     }
 
@@ -177,6 +187,10 @@ class PublicTemplate extends Model
 
         if (isset($map['templateID'])) {
             $model->templateID = $map['templateID'];
+        }
+
+        if (isset($map['templateType'])) {
+            $model->templateType = $map['templateType'];
         }
 
         return $model;

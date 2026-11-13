@@ -32,12 +32,18 @@ class CreateApiKeyInput extends Model
      * @var string
      */
     public $teamID;
+
+    /**
+     * @var string[]
+     */
+    public $vpcBindings;
     protected $_name = [
         'apiKeyName' => 'apiKeyName',
         'expireTime' => 'expireTime',
         'ipBlacklist' => 'ipBlacklist',
         'ipWhitelist' => 'ipWhitelist',
         'teamID' => 'teamID',
+        'vpcBindings' => 'vpcBindings',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class CreateApiKeyInput extends Model
         }
         if (\is_array($this->ipWhitelist)) {
             Model::validateArray($this->ipWhitelist);
+        }
+        if (\is_array($this->vpcBindings)) {
+            Model::validateArray($this->vpcBindings);
         }
         parent::validate();
     }
@@ -86,6 +95,17 @@ class CreateApiKeyInput extends Model
 
         if (null !== $this->teamID) {
             $res['teamID'] = $this->teamID;
+        }
+
+        if (null !== $this->vpcBindings) {
+            if (\is_array($this->vpcBindings)) {
+                $res['vpcBindings'] = [];
+                $n1 = 0;
+                foreach ($this->vpcBindings as $item1) {
+                    $res['vpcBindings'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -131,6 +151,17 @@ class CreateApiKeyInput extends Model
 
         if (isset($map['teamID'])) {
             $model->teamID = $map['teamID'];
+        }
+
+        if (isset($map['vpcBindings'])) {
+            if (!empty($map['vpcBindings'])) {
+                $model->vpcBindings = [];
+                $n1 = 0;
+                foreach ($map['vpcBindings'] as $item1) {
+                    $model->vpcBindings[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

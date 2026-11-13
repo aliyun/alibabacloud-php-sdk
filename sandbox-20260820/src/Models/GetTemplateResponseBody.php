@@ -68,6 +68,11 @@ class GetTemplateResponseBody extends Model
      * @var string
      */
     public $templateID;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
         'code' => 'code',
         'createdTime' => 'createdTime',
@@ -81,6 +86,7 @@ class GetTemplateResponseBody extends Model
         'teamID' => 'teamID',
         'teamName' => 'teamName',
         'templateID' => 'templateID',
+        'templateType' => 'templateType',
     ];
 
     public function validate()
@@ -155,6 +161,10 @@ class GetTemplateResponseBody extends Model
             $res['templateID'] = $this->templateID;
         }
 
+        if (null !== $this->templateType) {
+            $res['templateType'] = $this->templateType;
+        }
+
         return $res;
     }
 
@@ -219,6 +229,10 @@ class GetTemplateResponseBody extends Model
 
         if (isset($map['templateID'])) {
             $model->templateID = $map['templateID'];
+        }
+
+        if (isset($map['templateType'])) {
+            $model->templateType = $map['templateType'];
         }
 
         return $model;

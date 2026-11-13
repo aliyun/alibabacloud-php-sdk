@@ -39,6 +39,11 @@ class PublicTemplateRuntimeConfig extends Model
     public $sandboxConfig;
 
     /**
+     * @var string[]
+     */
+    public $vpcBindings;
+
+    /**
      * @var PublicTemplateVPCConfig
      */
     public $vpcConfig;
@@ -49,6 +54,7 @@ class PublicTemplateRuntimeConfig extends Model
         'logConfig' => 'logConfig',
         'memorySize' => 'memorySize',
         'sandboxConfig' => 'sandboxConfig',
+        'vpcBindings' => 'vpcBindings',
         'vpcConfig' => 'vpcConfig',
     ];
 
@@ -59,6 +65,9 @@ class PublicTemplateRuntimeConfig extends Model
         }
         if (null !== $this->sandboxConfig) {
             $this->sandboxConfig->validate();
+        }
+        if (\is_array($this->vpcBindings)) {
+            Model::validateArray($this->vpcBindings);
         }
         if (null !== $this->vpcConfig) {
             $this->vpcConfig->validate();
@@ -91,6 +100,17 @@ class PublicTemplateRuntimeConfig extends Model
 
         if (null !== $this->sandboxConfig) {
             $res['sandboxConfig'] = null !== $this->sandboxConfig ? $this->sandboxConfig->toArray($noStream) : $this->sandboxConfig;
+        }
+
+        if (null !== $this->vpcBindings) {
+            if (\is_array($this->vpcBindings)) {
+                $res['vpcBindings'] = [];
+                $n1 = 0;
+                foreach ($this->vpcBindings as $item1) {
+                    $res['vpcBindings'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vpcConfig) {
@@ -130,6 +150,17 @@ class PublicTemplateRuntimeConfig extends Model
 
         if (isset($map['sandboxConfig'])) {
             $model->sandboxConfig = PublicTemplateSandboxConfig::fromMap($map['sandboxConfig']);
+        }
+
+        if (isset($map['vpcBindings'])) {
+            if (!empty($map['vpcBindings'])) {
+                $model->vpcBindings = [];
+                $n1 = 0;
+                foreach ($map['vpcBindings'] as $item1) {
+                    $model->vpcBindings[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['vpcConfig'])) {

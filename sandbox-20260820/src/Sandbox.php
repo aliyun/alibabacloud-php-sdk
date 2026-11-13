@@ -34,6 +34,12 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeQuotaRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeQuotaResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeTemplateCacheRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeTemplateCacheResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetMetricDataRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetMetricDataResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetMetricDataShrinkRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetResourceUsageRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetResourceUsageResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetResourceUsageShrinkRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetTeamRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetTeamResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetTemplateRequest;
@@ -223,6 +229,9 @@ class Sandbox extends OpenApiClient
     /**
      * Creates a template.
      *
+     * @remarks
+     * Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+     *
      * @param request - CreateTemplateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -259,6 +268,9 @@ class Sandbox extends OpenApiClient
 
     /**
      * Creates a template.
+     *
+     * @remarks
+     * Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
      *
      * @param request - CreateTemplateRequest
      *
@@ -934,6 +946,224 @@ class Sandbox extends OpenApiClient
     }
 
     /**
+     * 查询监控指标.
+     *
+     * @remarks
+     * 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+     *
+     * @param tmpReq - GetMetricDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMetricDataResponse
+     *
+     * @param GetMetricDataRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMetricDataResponse
+     */
+    public function getMetricDataWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetMetricDataShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->groupBy) {
+            $request->groupByShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupBy, 'groupBy', 'json');
+        }
+
+        if (null !== $tmpReq->metricNames) {
+            $request->metricNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metricNames, 'metricNames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->groupByShrink) {
+            @$query['groupBy'] = $request->groupByShrink;
+        }
+
+        if (null !== $request->metricNamesShrink) {
+            @$query['metricNames'] = $request->metricNamesShrink;
+        }
+
+        if (null !== $request->period) {
+            @$query['period'] = $request->period;
+        }
+
+        if (null !== $request->sandboxID) {
+            @$query['sandboxID'] = $request->sandboxID;
+        }
+
+        if (null !== $request->sandboxPlan) {
+            @$query['sandboxPlan'] = $request->sandboxPlan;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        if (null !== $request->templateID) {
+            @$query['templateID'] = $request->templateID;
+        }
+
+        if (null !== $request->time) {
+            @$query['time'] = $request->time;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMetricData',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/metrics',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询监控指标.
+     *
+     * @remarks
+     * 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+     *
+     * @param request - GetMetricDataRequest
+     *
+     * @returns GetMetricDataResponse
+     *
+     * @param GetMetricDataRequest $request
+     *
+     * @return GetMetricDataResponse
+     */
+    public function getMetricData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMetricDataWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries resource usage.
+     *
+     * @remarks
+     * Queries the CPU, memory, and disk usage over a specified period. You can view the cumulative usage and usage trends by account, team, or template.
+     *
+     * @param tmpReq - GetResourceUsageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceUsageResponse
+     *
+     * @param GetResourceUsageRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetResourceUsageResponse
+     */
+    public function getResourceUsageWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetResourceUsageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->groupBy) {
+            $request->groupByShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupBy, 'groupBy', 'json');
+        }
+
+        if (null !== $tmpReq->usageNames) {
+            $request->usageNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->usageNames, 'usageNames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->groupByShrink) {
+            @$query['groupBy'] = $request->groupByShrink;
+        }
+
+        if (null !== $request->sandboxPlan) {
+            @$query['sandboxPlan'] = $request->sandboxPlan;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->teamID) {
+            @$query['teamID'] = $request->teamID;
+        }
+
+        if (null !== $request->templateID) {
+            @$query['templateID'] = $request->templateID;
+        }
+
+        if (null !== $request->usageNamesShrink) {
+            @$query['usageNames'] = $request->usageNamesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetResourceUsage',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/resource-usage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries resource usage.
+     *
+     * @remarks
+     * Queries the CPU, memory, and disk usage over a specified period. You can view the cumulative usage and usage trends by account, team, or template.
+     *
+     * @param request - GetResourceUsageRequest
+     *
+     * @returns GetResourceUsageResponse
+     *
+     * @param GetResourceUsageRequest $request
+     *
+     * @return GetResourceUsageResponse
+     */
+    public function getResourceUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getResourceUsageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the details of a specified team.
      *
      * @param request - GetTeamRequest
@@ -1202,7 +1432,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paging query to retrieve the quota configuration list for the current account.
+     * Queries the quota configuration list for the current account by using paging.
      *
      * @param request - ListQuotaRequest
      * @param headers - map
@@ -1248,7 +1478,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paging query to retrieve the quota configuration list for the current account.
+     * Queries the quota configuration list for the current account by using paging.
      *
      * @param request - ListQuotaRequest
      *
@@ -1344,7 +1574,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on template caches with paging support.
+     * Queries template caches by paging.
      *
      * @param request - ListTemplateCacheRequest
      * @param headers - map
@@ -1402,7 +1632,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paged query on template caches with paging support.
+     * Queries template caches by paging.
      *
      * @param request - ListTemplateCacheRequest
      *
@@ -1421,7 +1651,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the template list.
+     * Performs a paging query to retrieve the template list.
      *
      * @param tmpReq - ListTemplatesRequest
      * @param headers - map
@@ -1481,7 +1711,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the template list.
+     * Performs a paging query to retrieve the template list.
      *
      * @param request - ListTemplatesRequest
      *
@@ -1500,7 +1730,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Queries the list of storage volumes by using paging.
+     * Queries a list of storage volumes by using paging.
      *
      * @param request - ListVolumesRequest
      * @param headers - map
@@ -1570,7 +1800,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Queries the list of storage volumes by using paging.
+     * Queries a list of storage volumes by using paging.
      *
      * @param request - ListVolumesRequest
      *
@@ -1590,6 +1820,9 @@ class Sandbox extends OpenApiClient
 
     /**
      * Resets a specified API key.
+     *
+     * @remarks
+     * Rotates the credential value of an API key while retaining the original API key ID, IP address whitelist, IP address blacklist, and vpcBindings source policy. The apiKey field in the response returns the retained policy.
      *
      * @param request - ResetApiKeyRequest
      * @param headers - map
@@ -1628,6 +1861,9 @@ class Sandbox extends OpenApiClient
     /**
      * Resets a specified API key.
      *
+     * @remarks
+     * Rotates the credential value of an API key while retaining the original API key ID, IP address whitelist, IP address blacklist, and vpcBindings source policy. The apiKey field in the response returns the retained policy.
+     *
      * @param request - ResetApiKeyRequest
      *
      * @returns ResetApiKeyResponse
@@ -1647,6 +1883,9 @@ class Sandbox extends OpenApiClient
 
     /**
      * Updates the configuration of a specified API key.
+     *
+     * @remarks
+     * Updates an API key. IP blacklists and whitelists follow a paired replacement rule. If you commit a non-null array for one list and omit the other list or set it to null, the omitted list is cleared. If both lists are omitted or set to null, they are retained. The vpcBindings field is updated independently. If it is omitted or set to null, the current value is retained. A non-empty array replaces the current value, and an empty array [] clears it. Updates to IP addresses and VPCs do not clear each other. Source restrictions are retained if the source is null or if you update only other fields. An empty request body {} clears the IP address whitelist, IP blacklist, and VPC restrictions. You can also explicitly commit empty IP and VPC arrays to clear all source restrictions. To update the access policy, you must commit only the permissionPolicy and expectedPolicyVersion fields. Do not include other fields, including source fields with null values.
      *
      * @param request - UpdateApiKeyRequest
      * @param headers - map
@@ -1685,6 +1924,9 @@ class Sandbox extends OpenApiClient
 
     /**
      * Updates the configuration of a specified API key.
+     *
+     * @remarks
+     * Updates an API key. IP blacklists and whitelists follow a paired replacement rule. If you commit a non-null array for one list and omit the other list or set it to null, the omitted list is cleared. If both lists are omitted or set to null, they are retained. The vpcBindings field is updated independently. If it is omitted or set to null, the current value is retained. A non-empty array replaces the current value, and an empty array [] clears it. Updates to IP addresses and VPCs do not clear each other. Source restrictions are retained if the source is null or if you update only other fields. An empty request body {} clears the IP address whitelist, IP blacklist, and VPC restrictions. You can also explicitly commit empty IP and VPC arrays to clear all source restrictions. To update the access policy, you must commit only the permissionPolicy and expectedPolicyVersion fields. Do not include other fields, including source fields with null values.
      *
      * @param request - UpdateApiKeyRequest
      *
@@ -1820,6 +2062,9 @@ class Sandbox extends OpenApiClient
     /**
      * Updates a template.
      *
+     * @remarks
+     * Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+     *
      * @param request - UpdateTemplateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1863,6 +2108,9 @@ class Sandbox extends OpenApiClient
 
     /**
      * Updates a template.
+     *
+     * @remarks
+     * Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
      *
      * @param request - UpdateTemplateRequest
      *
