@@ -1,3 +1,29 @@
+2026-11-13 Version: 8.6.0
+- Support API CreateApplicationCustomRules.
+- Support API CreateApplicationTemplate.
+- Support API CreateWebFilterRules.
+- Support API CreateWebFilterTemplate.
+- Support API DeleteApplicationCustomRules.
+- Support API DeleteApplicationTemplate.
+- Support API DeleteWebFilterRules.
+- Support API DeleteWebFilterTemplate.
+- Support API DescribeApplicationStatistics.
+- Support API DescribeInvadeEventPayload.
+- Support API GetApplicationTemplate.
+- Support API GetFirewallFeature.
+- Support API ListApplicationCustomRules.
+- Support API ListApplicationTemplate.
+- Support API ListApplicationUpdateDynamics.
+- Support API ListApplications.
+- Support API ListWebFilterRules.
+- Support API ListWebFilterTemplates.
+- Support API UpdateApplicationCustomRules.
+- Support API UpdateApplicationTemplate.
+- Support API UpdateFirewallFeature.
+- Support API UpdateWebFilterRules.
+- Support API UpdateWebFilterTemplate.
+
+
 2026-11-03 Version: 8.5.0
 - Support API DescribeEventLog.
 

@@ -30,6 +30,12 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAckClusterConnectorRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAckClusterConnectorResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAclCheckRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateAclCheckResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateApplicationCustomRulesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateApplicationCustomRulesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateApplicationCustomRulesShrinkRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateApplicationTemplateRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateApplicationTemplateResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateApplicationTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateDownloadTaskResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateInstanceSyncTaskRequest;
@@ -65,12 +71,22 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallPrecheckRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallPrecheckResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallTaskRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallTaskResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateWebFilterRulesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateWebFilterRulesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateWebFilterRulesShrinkRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateWebFilterTemplateRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateWebFilterTemplateResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAckClusterConnectorRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAckClusterConnectorResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAclBackupDataRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAclBackupDataResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteAddressBookResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteApplicationCustomRulesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteApplicationCustomRulesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteApplicationCustomRulesShrinkRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteApplicationTemplateRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteApplicationTemplateResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyTemplateRequest;
@@ -105,6 +121,11 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteWebFilterRulesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteWebFilterRulesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteWebFilterRulesShrinkRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteWebFilterTemplateRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteWebFilterTemplateResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceRegionListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceRegionListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAccessInstanceTaskRequest;
@@ -145,6 +166,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookShrinkRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAITrafficAnalysisStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeApplicationStatisticsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeApplicationStatisticsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetRiskListRequest;
@@ -228,6 +251,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventNameListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventNameListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventPayloadRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventPayloadResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventStatisticRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventStatisticResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeIpsPrivateAssocRequest;
@@ -454,10 +479,26 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DisableSdlProtectedAssetRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DisableSdlProtectedAssetResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\EnableSdlProtectedAssetRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\EnableSdlProtectedAssetResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\GetApplicationTemplateRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\GetApplicationTemplateResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\GetFirewallFeatureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\GetFirewallFeatureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\GetTlsInspectCertificateDownloadUrlRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\GetTlsInspectCertificateDownloadUrlResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListApplicationCustomRulesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListApplicationCustomRulesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListApplicationsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListApplicationsResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListApplicationTemplateRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListApplicationTemplateResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListApplicationUpdateDynamicsRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListApplicationUpdateDynamicsResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListTlsInspectCACertificatesRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListTlsInspectCACertificatesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListWebFilterRulesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListWebFilterRulesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListWebFilterTemplatesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListWebFilterTemplatesResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookShrinkRequest;
@@ -559,6 +600,14 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAclCheckDetailStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAclCheckDetailStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAITrafficAnalysisStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAITrafficAnalysisStatusResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateApplicationCustomRulesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateApplicationCustomRulesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateApplicationCustomRulesShrinkRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateApplicationTemplateRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateApplicationTemplateResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateApplicationTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateFirewallFeatureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateFirewallFeatureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserInternetStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserInternetStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserNatStatusRequest;
@@ -567,8 +616,14 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserVpcStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdatePostpayUserVpcStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateSecurityProxyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateSecurityProxyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateWebFilterRulesRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateWebFilterRulesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateWebFilterRulesShrinkRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateWebFilterTemplateRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateWebFilterTemplateResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UseAclBackupDataRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UseAclBackupDataResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -579,6 +634,9 @@ class Cloudfw extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Cloudfw';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'central';
         $this->_endpointMap = [
             'ap-southeast-1' => 'cloudfw.ap-southeast-1.aliyuncs.com',
@@ -983,13 +1041,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Adds a DNS firewall ACL.
+     * Creates a DNS firewall ACL.
      *
      * @remarks
      * Creates a DNS firewall access control policy to allow, deny, or monitor traffic that passes through the DNS firewall.
      * ## Quotas
      * DNS firewall policies are counted independently in the DNS policy table (counted separately by IP version), but **share the same quota limit** with Internet access control policies (determined by the Cloud Firewall edition). If the number of address combinations expanded from a single policy exceeds the limit, or the total number of policies exceeds the limit, the system returns ErrorAclExtendedCountExceed (-200139).
-     * > The DescribeAclCheckQuota operation returns the quota for the number of ACL policy checks, which is unrelated to firewall policy count quota and cannot be used to predict whether the quota for this operation is sufficient. Check firewall policy count quota in the Cloud Firewall console.
+     * > The DescribeAclCheckQuota operation returns the quota for the number of ACL policy checks, which is unrelated to firewall policy count quota. You cannot use it to predict whether the quota for this operation is sufficient. Check firewall policy count quota in the Cloud Firewall console.
      *
      * @param request - AddDnsFirewallPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1072,13 +1130,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Adds a DNS firewall ACL.
+     * Creates a DNS firewall ACL.
      *
      * @remarks
      * Creates a DNS firewall access control policy to allow, deny, or monitor traffic that passes through the DNS firewall.
      * ## Quotas
      * DNS firewall policies are counted independently in the DNS policy table (counted separately by IP version), but **share the same quota limit** with Internet access control policies (determined by the Cloud Firewall edition). If the number of address combinations expanded from a single policy exceeds the limit, or the total number of policies exceeds the limit, the system returns ErrorAclExtendedCountExceed (-200139).
-     * > The DescribeAclCheckQuota operation returns the quota for the number of ACL policy checks, which is unrelated to firewall policy count quota and cannot be used to predict whether the quota for this operation is sufficient. Check firewall policy count quota in the Cloud Firewall console.
+     * > The DescribeAclCheckQuota operation returns the quota for the number of ACL policy checks, which is unrelated to firewall policy count quota. You cannot use it to predict whether the quota for this operation is sufficient. Check firewall policy count quota in the Cloud Firewall console.
      *
      * @param request - AddDnsFirewallPolicyRequest
      *
@@ -1097,6 +1155,12 @@ class Cloudfw extends OpenApiClient
 
     /**
      * Creates a real-time domain name resolution task.
+     *
+     * @remarks
+     * This operation creates a real-time domain name resolution task for a specified domain name.
+     * ## Before you begin
+     * - Before you call this operation, you must activate Cloud Firewall. You can activate it on the Cloud Firewall buy page (China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn, International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl).
+     * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. If the returned value is false, the current account has not purchased or activated Cloud Firewall.
      *
      * @param request - AddDomainResolveRealtimeTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1144,6 +1208,12 @@ class Cloudfw extends OpenApiClient
 
     /**
      * Creates a real-time domain name resolution task.
+     *
+     * @remarks
+     * This operation creates a real-time domain name resolution task for a specified domain name.
+     * ## Before you begin
+     * - Before you call this operation, you must activate Cloud Firewall. You can activate it on the Cloud Firewall buy page (China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn, International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl).
+     * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. If the returned value is false, the current account has not purchased or activated Cloud Firewall.
      *
      * @param request - AddDomainResolveRealtimeTaskRequest
      *
@@ -1239,7 +1309,7 @@ class Cloudfw extends OpenApiClient
      * @remarks
      * This operation is typically used to retrieve the DNS resolution results of a domain name. Currently, only Alibaba Cloud DNS is supported for retrieving resolution results. The domain name to be queried must use Alibaba Cloud DNS to retrieve its resolution results.
      * ## QPS limits
-     * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable frequency.
+     * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
      *
      * @param request - AddPrivateDnsDomainNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1291,7 +1361,7 @@ class Cloudfw extends OpenApiClient
      * @remarks
      * This operation is typically used to retrieve the DNS resolution results of a domain name. Currently, only Alibaba Cloud DNS is supported for retrieving resolution results. The domain name to be queried must use Alibaba Cloud DNS to retrieve its resolution results.
      * ## QPS limits
-     * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable frequency.
+     * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
      *
      * @param request - AddPrivateDnsDomainNameRequest
      *
@@ -1521,7 +1591,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ## QPS limits
-     * The QPS limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
      *
      * @param request - CreateAckClusterConnectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1596,7 +1666,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ## QPS limits
-     * The QPS limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
      *
      * @param request - CreateAckClusterConnectorRequest
      *
@@ -1676,6 +1746,160 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAclCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates custom rules in batches under a specified application template. A maximum of 100 rules can be created at a time, and the total number of rules in the template cannot exceed 100.
+     *
+     * @param tmpReq - CreateApplicationCustomRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationCustomRulesResponse
+     *
+     * @param CreateApplicationCustomRulesRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateApplicationCustomRulesResponse
+     */
+    public function createApplicationCustomRulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateApplicationCustomRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationTemplateId) {
+            @$query['ApplicationTemplateId'] = $request->applicationTemplateId;
+        }
+
+        if (null !== $request->rulesShrink) {
+            @$query['Rules'] = $request->rulesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationCustomRules',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationCustomRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates custom rules in batches under a specified application template. A maximum of 100 rules can be created at a time, and the total number of rules in the template cannot exceed 100.
+     *
+     * @param request - CreateApplicationCustomRulesRequest
+     *
+     * @returns CreateApplicationCustomRulesResponse
+     *
+     * @param CreateApplicationCustomRulesRequest $request
+     *
+     * @return CreateApplicationCustomRulesResponse
+     */
+    public function createApplicationCustomRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationCustomRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an application program template. The template is at user granularity and can be referenced by the access control policies of the Internet, NAT, and virtual private cloud (VPC) firewalls. Before creating a template, ensure that the application control feature is enabled and the number of templates does not exceed the quota of the instance specifications.
+     *
+     * @param tmpReq - CreateApplicationTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationTemplateResponse
+     *
+     * @param CreateApplicationTemplateRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateApplicationTemplateResponse
+     */
+    public function createApplicationTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateApplicationTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addBuiltInApplicationCustomActions) {
+            $request->addBuiltInApplicationCustomActionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addBuiltInApplicationCustomActions, 'AddBuiltInApplicationCustomActions', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->addBuiltInApplicationCustomActionsShrink) {
+            @$query['AddBuiltInApplicationCustomActions'] = $request->addBuiltInApplicationCustomActionsShrink;
+        }
+
+        if (null !== $request->applicationTemplateName) {
+            @$query['ApplicationTemplateName'] = $request->applicationTemplateName;
+        }
+
+        if (null !== $request->builtInApplicationStatus) {
+            @$query['BuiltInApplicationStatus'] = $request->builtInApplicationStatus;
+        }
+
+        if (null !== $request->customRuleStatus) {
+            @$query['CustomRuleStatus'] = $request->customRuleStatus;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->templateStatus) {
+            @$query['TemplateStatus'] = $request->templateStatus;
+        }
+
+        if (null !== $request->unknownAction) {
+            @$query['UnknownAction'] = $request->unknownAction;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationTemplate',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an application program template. The template is at user granularity and can be referenced by the access control policies of the Internet, NAT, and virtual private cloud (VPC) firewalls. Before creating a template, ensure that the application control feature is enabled and the number of templates does not exceed the quota of the instance specifications.
+     *
+     * @param request - CreateApplicationTemplateRequest
+     *
+     * @returns CreateApplicationTemplateResponse
+     *
+     * @param CreateApplicationTemplateRequest $request
+     *
+     * @return CreateApplicationTemplateResponse
+     */
+    public function createApplicationTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -1815,7 +2039,7 @@ class Cloudfw extends OpenApiClient
      * Creates an IPS private IP tracing association for an Internet NAT gateway that is protected by Cloud Firewall.
      * ## Before you begin
      * - The target NAT gateway must be managed by Cloud Firewall and asset synchronization must be completed. Asset synchronization is an asynchronous task. If you call this operation before the synchronization of a newly created NAT gateway is completed, the error code -103204 is returned.
-     * - If SNAT is configured for the NAT gateway, you must enable session logging first. Otherwise, the error code -103583 is returned.
+     * - If SNAT is configured for the NAT gateway, you must enable session logs first. Otherwise, the error code -103583 is returned.
      *
      * @param request - CreateIpsPrivateAssocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1864,7 +2088,7 @@ class Cloudfw extends OpenApiClient
      * Creates an IPS private IP tracing association for an Internet NAT gateway that is protected by Cloud Firewall.
      * ## Before you begin
      * - The target NAT gateway must be managed by Cloud Firewall and asset synchronization must be completed. Asset synchronization is an asynchronous task. If you call this operation before the synchronization of a newly created NAT gateway is completed, the error code -103204 is returned.
-     * - If SNAT is configured for the NAT gateway, you must enable session logging first. Otherwise, the error code -103583 is returned.
+     * - If SNAT is configured for the NAT gateway, you must enable session logs first. Otherwise, the error code -103583 is returned.
      *
      * @param request - CreateIpsPrivateAssocRequest
      *
@@ -2037,10 +2261,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a dry run for a NAT firewall.
+     * Creates a precheck for a NAT firewall.
      *
      * @remarks
-     * Creates a policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+     * Creates a policy that allows, denies, or monitors traffic passing through a NAT firewall.
      *
      * @param request - CreateNatFirewallPreCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2093,10 +2317,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a dry run for a NAT firewall.
+     * Creates a precheck for a NAT firewall.
      *
      * @remarks
-     * Creates a policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+     * Creates a policy that allows, denies, or monitors traffic passing through a NAT firewall.
      *
      * @param request - CreateNatFirewallPreCheckRequest
      *
@@ -2115,6 +2339,12 @@ class Cloudfw extends OpenApiClient
 
     /**
      * Creates a NAT firewall asset synchronization task.
+     *
+     * @remarks
+     * Creates a NAT firewall asset synchronization task.
+     * ## Before you begin
+     * - Before calling this operation, ensure that you have purchased and activated a Cloud Firewall instance. Both subscription and pay-as-you-go billing methods are supported.
+     * - You can activate Cloud Firewall on the buy page (Chinese site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn and International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl). After activation, call the DescribeUserBuyVersion operation and check the UserStatus parameter to confirm the activation status.
      *
      * @param request - CreateNatFirewallSyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2155,6 +2385,12 @@ class Cloudfw extends OpenApiClient
     /**
      * Creates a NAT firewall asset synchronization task.
      *
+     * @remarks
+     * Creates a NAT firewall asset synchronization task.
+     * ## Before you begin
+     * - Before calling this operation, ensure that you have purchased and activated a Cloud Firewall instance. Both subscription and pay-as-you-go billing methods are supported.
+     * - You can activate Cloud Firewall on the buy page (Chinese site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn and International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl). After activation, call the DescribeUserBuyVersion operation and check the UserStatus parameter to confirm the activation status.
+     *
      * @param request - CreateNatFirewallSyncTaskRequest
      *
      * @returns CreateNatFirewallSyncTaskResponse
@@ -2174,7 +2410,7 @@ class Cloudfw extends OpenApiClient
      * Creates a private DNS endpoint.
      *
      * @remarks
-     * Creates a private DNS firewall endpoint. When you call this operation, you must specify PrimaryVSwitchId, and the region and zone of the primary and secondary vSwitches must support private DNS firewalls.
+     * Creates a private DNS firewall endpoint. When you call this operation, you must specify PrimaryVSwitchId. The region and zone of the primary and secondary vSwitches must support private DNS firewalls.
      *
      * @param request - CreatePrivateDnsEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2268,7 +2504,7 @@ class Cloudfw extends OpenApiClient
      * Creates a private DNS endpoint.
      *
      * @remarks
-     * Creates a private DNS firewall endpoint. When you call this operation, you must specify PrimaryVSwitchId, and the region and zone of the primary and secondary vSwitches must support private DNS firewalls.
+     * Creates a private DNS firewall endpoint. When you call this operation, you must specify PrimaryVSwitchId. The region and zone of the primary and secondary vSwitches must support private DNS firewalls.
      *
      * @param request - CreatePrivateDnsEndpointRequest
      *
@@ -2800,9 +3036,9 @@ class Cloudfw extends OpenApiClient
      * Creates a manual configuration to create a VPC firewall.
      *
      * @remarks
-     * This operation is generally used to create a VPC firewall for VPC-connected instances in a Cloud Enterprise Network (CEN). The virtual private cloud (VPC) firewalls protect the mutual access traffic between VPC-connected instances in the CEN and the specified VPC. VPC-connected instances include VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs). It does not protect traffic between VBRs, between CCNs, or between a VBR and a CCN. For more information, see [Limits on virtual private cloud (VPC) firewalls](https://help.aliyun.com/document_detail/172295.html).
+     * This operation is typically used to create a VPC firewall for VPC-connected instances in a Cloud Enterprise Network (CEN). The VPC firewall protects the traffic between network instances in the CEN and the specified VPC. The network instances include VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs). The VPC firewall does not protect the traffic between VBRs, between CCNs, or between a VBR and a CCN. For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
      * ## QPS limits
-     * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this operation at a reasonable frequency.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the API at a reasonable frequency.
      *
      * @deprecated OpenAPI CreateVpcFirewallCenManualConfigure is deprecated
      *
@@ -2867,9 +3103,9 @@ class Cloudfw extends OpenApiClient
      * Creates a manual configuration to create a VPC firewall.
      *
      * @remarks
-     * This operation is generally used to create a VPC firewall for VPC-connected instances in a Cloud Enterprise Network (CEN). The virtual private cloud (VPC) firewalls protect the mutual access traffic between VPC-connected instances in the CEN and the specified VPC. VPC-connected instances include VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs). It does not protect traffic between VBRs, between CCNs, or between a VBR and a CCN. For more information, see [Limits on virtual private cloud (VPC) firewalls](https://help.aliyun.com/document_detail/172295.html).
+     * This operation is typically used to create a VPC firewall for VPC-connected instances in a Cloud Enterprise Network (CEN). The VPC firewall protects the traffic between network instances in the CEN and the specified VPC. The network instances include VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs). The VPC firewall does not protect the traffic between VBRs, between CCNs, or between a VBR and a CCN. For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
      * ## QPS limits
-     * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this operation at a reasonable frequency.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the API at a reasonable frequency.
      *
      * @deprecated OpenAPI CreateVpcFirewallCenManualConfigure is deprecated
      *
@@ -3151,10 +3387,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a precheck task before you create a VPC firewall.
+     * Creates a prerequisite task for enabling a VPC firewall.
      *
      * @remarks
-     * This operation creates a policy to accept, deny, or monitor traffic that passes through a NAT firewall.
+     * Creates a policy to allow, deny, or monitor traffic passing through a NAT firewall.
      *
      * @param request - CreateVpcFirewallPrecheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3217,10 +3453,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a precheck task before you create a VPC firewall.
+     * Creates a prerequisite task for enabling a VPC firewall.
      *
      * @remarks
-     * This operation creates a policy to accept, deny, or monitor traffic that passes through a NAT firewall.
+     * Creates a policy to allow, deny, or monitor traffic passing through a NAT firewall.
      *
      * @param request - CreateVpcFirewallPrecheckRequest
      *
@@ -3238,12 +3474,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a sync task for VPC firewall assets.
+     * Creates a VPC firewall asset synchronization task.
      *
      * @remarks
-     * This operation creates a VPC firewall that protects traffic between two VPCs connected by an Express Connect circuit. The VPC firewall does not protect cross-region traffic, cross-account traffic, or traffic between a VPC and a Virtual Border Router (VBR). For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
-     * ### QPS limits
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls will be throttled. Plan your calls accordingly.
+     * This operation is typically used to create a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using Express Connect. The VPC firewall does not support protecting cross-region or cross-account traffic between VPCs, or traffic between a VPC and a virtual border router (VBR). For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
+     * ### QPS limit
+     * The QPS limit on this operation is 10 queries per second per account. API calls that exceed this limit are throttled, which may affect your business. Call this operation at a reasonable rate.
      *
      * @param request - CreateVpcFirewallTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3294,12 +3530,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a sync task for VPC firewall assets.
+     * Creates a VPC firewall asset synchronization task.
      *
      * @remarks
-     * This operation creates a VPC firewall that protects traffic between two VPCs connected by an Express Connect circuit. The VPC firewall does not protect cross-region traffic, cross-account traffic, or traffic between a VPC and a Virtual Border Router (VBR). For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
-     * ### QPS limits
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls will be throttled. Plan your calls accordingly.
+     * This operation is typically used to create a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using Express Connect. The VPC firewall does not support protecting cross-region or cross-account traffic between VPCs, or traffic between a VPC and a virtual border router (VBR). For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
+     * ### QPS limit
+     * The QPS limit on this operation is 10 queries per second per account. API calls that exceed this limit are throttled, which may affect your business. Call this operation at a reasonable rate.
      *
      * @param request - CreateVpcFirewallTaskRequest
      *
@@ -3317,11 +3553,143 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * Creates web filtering rules in batches under a specified web filtering template. A maximum of 100 rules can be created at a time, and the total number of rules in the template after creation cannot exceed 100.
+     *
+     * @param tmpReq - CreateWebFilterRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWebFilterRulesResponse
+     *
+     * @param CreateWebFilterRulesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateWebFilterRulesResponse
+     */
+    public function createWebFilterRulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateWebFilterRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->rulesShrink) {
+            @$query['Rules'] = $request->rulesShrink;
+        }
+
+        if (null !== $request->webFilterTemplateId) {
+            @$query['WebFilterTemplateId'] = $request->webFilterTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWebFilterRules',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWebFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates web filtering rules in batches under a specified web filtering template. A maximum of 100 rules can be created at a time, and the total number of rules in the template after creation cannot exceed 100.
+     *
+     * @param request - CreateWebFilterRulesRequest
+     *
+     * @returns CreateWebFilterRulesResponse
+     *
+     * @param CreateWebFilterRulesRequest $request
+     *
+     * @return CreateWebFilterRulesResponse
+     */
+    public function createWebFilterRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWebFilterRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a web filtering template. The template is at user granularity and can be referenced by access control policies of the Internet, NAT, and virtual private cloud (VPC) firewalls. Web filtering rules can be added to the template. Before creating a template, ensure that the web filtering feature is enabled and the number of templates does not exceed the instance quota.
+     *
+     * @param request - CreateWebFilterTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWebFilterTemplateResponse
+     *
+     * @param CreateWebFilterTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateWebFilterTemplateResponse
+     */
+    public function createWebFilterTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWebFilterTemplate',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWebFilterTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a web filtering template. The template is at user granularity and can be referenced by access control policies of the Internet, NAT, and virtual private cloud (VPC) firewalls. Web filtering rules can be added to the template. Before creating a template, ensure that the web filtering feature is enabled and the number of templates does not exceed the instance quota.
+     *
+     * @param request - CreateWebFilterTemplateRequest
+     *
+     * @returns CreateWebFilterTemplateResponse
+     *
+     * @param CreateWebFilterTemplateRequest $request
+     *
+     * @return CreateWebFilterTemplateResponse
+     */
+    public function createWebFilterTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWebFilterTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an ACK cluster connector.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * ## Rate limit
+     * The rate limit for this API operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DeleteAckClusterConnectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3363,8 +3731,8 @@ class Cloudfw extends OpenApiClient
      * Deletes an ACK cluster connector.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * ## Rate limit
+     * The rate limit for this API operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DeleteAckClusterConnectorRequest
      *
@@ -3385,9 +3753,9 @@ class Cloudfw extends OpenApiClient
      * Deletes an ACL backup.
      *
      * @remarks
-     * This operation deletes a backup of an access control address book.
-     * ## QPS limit
-     * This operation is limited to 10 queries per second (QPS) per user. Calls that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
+     * This operation is typically used to delete address books in access control.
+     * ## Rate limits
+     * The rate limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
      *
      * @param request - DeleteAclBackupDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3437,9 +3805,9 @@ class Cloudfw extends OpenApiClient
      * Deletes an ACL backup.
      *
      * @remarks
-     * This operation deletes a backup of an access control address book.
-     * ## QPS limit
-     * This operation is limited to 10 queries per second (QPS) per user. Calls that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
+     * This operation is typically used to delete address books in access control.
+     * ## Rate limits
+     * The rate limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
      *
      * @param request - DeleteAclBackupDataRequest
      *
@@ -3529,6 +3897,126 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAddressBookWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除应用程序自定义规则.
+     *
+     * @param tmpReq - DeleteApplicationCustomRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApplicationCustomRulesResponse
+     *
+     * @param DeleteApplicationCustomRulesRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteApplicationCustomRulesResponse
+     */
+    public function deleteApplicationCustomRulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteApplicationCustomRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applicationCustomRuleIds) {
+            $request->applicationCustomRuleIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applicationCustomRuleIds, 'ApplicationCustomRuleIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationCustomRuleIdsShrink) {
+            @$query['ApplicationCustomRuleIds'] = $request->applicationCustomRuleIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApplicationCustomRules',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApplicationCustomRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除应用程序自定义规则.
+     *
+     * @param request - DeleteApplicationCustomRulesRequest
+     *
+     * @returns DeleteApplicationCustomRulesResponse
+     *
+     * @param DeleteApplicationCustomRulesRequest $request
+     *
+     * @return DeleteApplicationCustomRulesResponse
+     */
+    public function deleteApplicationCustomRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationCustomRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除应用程序自定义模版.
+     *
+     * @param request - DeleteApplicationTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApplicationTemplateResponse
+     *
+     * @param DeleteApplicationTemplateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteApplicationTemplateResponse
+     */
+    public function deleteApplicationTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationTemplateId) {
+            @$query['ApplicationTemplateId'] = $request->applicationTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApplicationTemplate',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApplicationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除应用程序自定义模版.
+     *
+     * @param request - DeleteApplicationTemplateRequest
+     *
+     * @returns DeleteApplicationTemplateResponse
+     *
+     * @param DeleteApplicationTemplateRequest $request
+     *
+     * @return DeleteApplicationTemplateResponse
+     */
+    public function deleteApplicationTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -3688,10 +4176,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a DNS firewall policy.
+     * Deletes a DNS firewall rule.
      *
      * @remarks
-     * You can call this operation to delete a DNS firewall policy.
+     * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
      *
      * @param request - DeleteDnsFirewallPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3738,10 +4226,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a DNS firewall policy.
+     * Deletes a DNS firewall rule.
      *
      * @remarks
-     * You can call this operation to delete a DNS firewall policy.
+     * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
      *
      * @param request - DeleteDnsFirewallPolicyRequest
      *
@@ -4165,12 +4653,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes all private DNS domain names.
+     * Clears private DNS domain names.
      *
      * @remarks
-     * This API call is used to delete all private domain names.
-     * ## QPS limit
-     * Each user is limited to 10 queries per second (QPS) for this API call. If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you plan your API calls accordingly.
+     * This API operation is typically used to retrieve the DNS resolution results of a domain name. Currently, resolution results can only be retrieved from Alibaba Cloud DNS. To retrieve the resolution results, the domain name to be queried must use Alibaba Cloud DNS.
+     * ## QPS limits
+     * The QPS limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DeletePrivateDnsAllDomainNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4213,12 +4701,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes all private DNS domain names.
+     * Clears private DNS domain names.
      *
      * @remarks
-     * This API call is used to delete all private domain names.
-     * ## QPS limit
-     * Each user is limited to 10 queries per second (QPS) for this API call. If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you plan your API calls accordingly.
+     * This API operation is typically used to retrieve the DNS resolution results of a domain name. Currently, resolution results can only be retrieved from Alibaba Cloud DNS. To retrieve the resolution results, the domain name to be queried must use Alibaba Cloud DNS.
+     * ## QPS limits
+     * The QPS limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DeletePrivateDnsAllDomainNameRequest
      *
@@ -4236,10 +4724,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Delete private DNS domain names.
+     * Deletes a private DNS domain name.
      *
      * @remarks
-     * Deletes domain names that require private DNS resolution.
+     * Deletes a domain name that requires private DNS resolution.
      *
      * @param request - DeletePrivateDnsDomainNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4286,10 +4774,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Delete private DNS domain names.
+     * Deletes a private DNS domain name.
      *
      * @remarks
-     * Deletes domain names that require private DNS resolution.
+     * Deletes a domain name that requires private DNS resolution.
      *
      * @param request - DeletePrivateDnsDomainNameRequest
      *
@@ -4310,7 +4798,7 @@ class Cloudfw extends OpenApiClient
      * Deletes a private DNS endpoint.
      *
      * @remarks
-     * You can use this operation to create a policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+     * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
      *
      * @param request - DeletePrivateDnsEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4356,7 +4844,7 @@ class Cloudfw extends OpenApiClient
      * Deletes a private DNS endpoint.
      *
      * @remarks
-     * You can use this operation to create a policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+     * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
      *
      * @param request - DeletePrivateDnsEndpointRequest
      *
@@ -4727,7 +5215,127 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the trend chart of Internet access control interceptions.
+     * Deletes web filtering rules in batches. A maximum of 100 rules can be deleted in a single request. This operation is idempotent and returns a success response even if none of the specified rule IDs exist.
+     *
+     * @param tmpReq - DeleteWebFilterRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWebFilterRulesResponse
+     *
+     * @param DeleteWebFilterRulesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteWebFilterRulesResponse
+     */
+    public function deleteWebFilterRulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteWebFilterRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->webFilterRuleIds) {
+            $request->webFilterRuleIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->webFilterRuleIds, 'WebFilterRuleIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->webFilterRuleIdsShrink) {
+            @$query['WebFilterRuleIds'] = $request->webFilterRuleIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWebFilterRules',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWebFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes web filtering rules in batches. A maximum of 100 rules can be deleted in a single request. This operation is idempotent and returns a success response even if none of the specified rule IDs exist.
+     *
+     * @param request - DeleteWebFilterRulesRequest
+     *
+     * @returns DeleteWebFilterRulesResponse
+     *
+     * @param DeleteWebFilterRulesRequest $request
+     *
+     * @return DeleteWebFilterRulesResponse
+     */
+    public function deleteWebFilterRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWebFilterRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a web filtering template. Deleting a template also deletes all web filtering rules in the template. A template cannot be deleted if it is referenced by an access control policy.
+     *
+     * @param request - DeleteWebFilterTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWebFilterTemplateResponse
+     *
+     * @param DeleteWebFilterTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteWebFilterTemplateResponse
+     */
+    public function deleteWebFilterTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->webFilterTemplateId) {
+            @$query['WebFilterTemplateId'] = $request->webFilterTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWebFilterTemplate',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWebFilterTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a web filtering template. Deleting a template also deletes all web filtering rules in the template. A template cannot be deleted if it is referenced by an access control policy.
+     *
+     * @param request - DeleteWebFilterTemplateRequest
+     *
+     * @returns DeleteWebFilterTemplateResponse
+     *
+     * @param DeleteWebFilterTemplateRequest $request
+     *
+     * @return DeleteWebFilterTemplateResponse
+     */
+    public function deleteWebFilterTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWebFilterTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the trend chart for Internet access control blocks.
      *
      * @param request - DescribeACLProtectTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4790,7 +5398,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the trend chart of Internet access control interceptions.
+     * Queries the trend chart for Internet access control blocks.
      *
      * @param request - DescribeACLProtectTrendRequest
      *
@@ -4808,10 +5416,16 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the enabling status of AI-powered traffic analysis.
+     * Queries the enabling status of AI-based network traffic analysis.
      *
      * @remarks
-     * The statistics apply to the current Cloud Firewall instance and include all data from the date of purchase.
+     * The statistical scope covers the current Cloud Firewall instance of the user, including all data since the purchase date.
+     * ## Before you begin
+     * - Before you call this operation, the account must have purchased Purchase Cloud Firewall instance. If no instance is purchased, the operation returns the error code `202`.
+     * - You can call [DescribeUserBuyVersion](~~DescribeUserBuyVersion~~) to query the purchase status. The `UserStatus` field in the response indicates whether the Cloud Firewall instance is valid. A value of `false` indicates that the instance is invalid or not activated.
+     * - Purchase Purchase Cloud Firewall instance:
+     *   - China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn
+     *   - International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4840,10 +5454,16 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the enabling status of AI-powered traffic analysis.
+     * Queries the enabling status of AI-based network traffic analysis.
      *
      * @remarks
-     * The statistics apply to the current Cloud Firewall instance and include all data from the date of purchase.
+     * The statistical scope covers the current Cloud Firewall instance of the user, including all data since the purchase date.
+     * ## Before you begin
+     * - Before you call this operation, the account must have purchased Purchase Cloud Firewall instance. If no instance is purchased, the operation returns the error code `202`.
+     * - You can call [DescribeUserBuyVersion](~~DescribeUserBuyVersion~~) to query the purchase status. The `UserStatus` field in the response indicates whether the Cloud Firewall instance is valid. A value of `false` indicates that the instance is invalid or not activated.
+     * - Purchase Purchase Cloud Firewall instance:
+     *   - China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn
+     *   - International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl
      *
      * @returns DescribeAITrafficAnalysisStatusResponse
      *
@@ -4857,7 +5477,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of regions for sync nodes.
+     * Queries the regions for synchronization nodes.
      *
      * @param request - DescribeAccessInstanceRegionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4892,7 +5512,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of regions for sync nodes.
+     * Queries the regions for synchronization nodes.
      *
      * @param request - DescribeAccessInstanceRegionListRequest
      *
@@ -4910,7 +5530,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the task progress of a synchronization node.
+     * Queries the progress of a synchronization node task.
      *
      * @param request - DescribeAccessInstanceTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4945,7 +5565,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the task progress of a synchronization node.
+     * Queries the progress of a synchronization node task.
      *
      * @param request - DescribeAccessInstanceTaskRequest
      *
@@ -5016,7 +5636,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the VPCs associated with synchronization nodes.
+     * Queries the list of VPCs for synchronization nodes.
      *
      * @param request - DescribeAccessInstanceVpcListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5051,7 +5671,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the VPCs associated with synchronization nodes.
+     * Queries the list of VPCs for synchronization nodes.
      *
      * @param request - DescribeAccessInstanceVpcListRequest
      *
@@ -5069,7 +5689,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Returns a list of available zones for access instances.
+     * Queries the available zones for synchronization nodes.
      *
      * @param request - DescribeAccessInstanceZoneListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5104,7 +5724,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Returns a list of available zones for access instances.
+     * Queries the available zones for synchronization nodes.
      *
      * @param request - DescribeAccessInstanceZoneListRequest
      *
@@ -5183,11 +5803,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries a list of ACK cluster connectors in batches.
+     * Lists the ACK cluster connectors.
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls properly.
+     * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @param request - DescribeAckClusterConnectorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5254,11 +5874,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries a list of ACK cluster connectors in batches.
+     * Lists the ACK cluster connectors.
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls properly.
+     * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @param request - DescribeAckClusterConnectorsRequest
      *
@@ -5276,7 +5896,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the namespaces in an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
+     * Queries the namespaces of an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
      *
      * @param request - DescribeAckClusterNamespacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5315,7 +5935,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the namespaces in an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
+     * Queries the namespaces of an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
      *
      * @param request - DescribeAckClusterNamespacesRequest
      *
@@ -5333,7 +5953,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the labels within an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
+     * Queries the tags of an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
      *
      * @param request - DescribeAckClusterPodLabelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5372,7 +5992,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the labels within an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
+     * Queries the tags of an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
      *
      * @param request - DescribeAckClusterPodLabelsRequest
      *
@@ -5390,7 +6010,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries for Container Service for Kubernetes (ACK) clusters based on specified conditions, such as cluster type and specifications.
+     * Queries a list of Alibaba Cloud Kubernetes container service (ACK) clusters that meet specified conditions, such as cluster type and specifications.
      *
      * @param request - DescribeAckClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5457,7 +6077,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries for Container Service for Kubernetes (ACK) clusters based on specified conditions, such as cluster type and specifications.
+     * Queries a list of Alibaba Cloud Kubernetes container service (ACK) clusters that meet specified conditions, such as cluster type and specifications.
      *
      * @param request - DescribeAckClustersRequest
      *
@@ -5475,11 +6095,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries multiple ACL applications.
+     * Lists access control applications.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 requests per second. Calls that exceed this limit are throttled, which may impact your business.
+     * ## QPS limits
+     * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @param request - DescribeAclAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5514,11 +6134,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries multiple ACL applications.
+     * Lists access control applications.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 requests per second. Calls that exceed this limit are throttled, which may impact your business.
+     * ## QPS limits
+     * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @param request - DescribeAclAppsRequest
      *
@@ -5536,7 +6156,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries a list of ACL backups.
+     * Queries the access control backup list.
      *
      * @param request - DescribeAclBackupListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5587,7 +6207,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries a list of ACL backups.
+     * Queries the access control backup list.
      *
      * @param request - DescribeAclBackupListRequest
      *
@@ -5605,11 +6225,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details of an Access Control List (ACL) check.
+     * Queries the details of an ACL check.
      *
      * @remarks
-     * ## QPS limit
-     * This API is limited to 10 queries per second (QPS) per user. Calls exceeding this limit are throttled.
+     * ## QPS limits
+     * The QPS limit for a single user is 10 queries per second. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - DescribeAclCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5644,11 +6264,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details of an Access Control List (ACL) check.
+     * Queries the details of an ACL check.
      *
      * @remarks
-     * ## QPS limit
-     * This API is limited to 10 queries per second (QPS) per user. Calls exceeding this limit are throttled.
+     * ## QPS limits
+     * The QPS limit for a single user is 10 queries per second. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - DescribeAclCheckRequest
      *
@@ -5666,11 +6286,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the quota for access control list (ACL) checks.
+     * Queries the ACL check quota.
      *
      * @remarks
-     * ## QPS limits
-     * Each user can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+     * ## QPS limit
+     * The QPS limit per user for this API operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Plan your API calls accordingly.
      *
      * @param request - DescribeAclCheckQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5705,11 +6325,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the quota for access control list (ACL) checks.
+     * Queries the ACL check quota.
      *
      * @remarks
-     * ## QPS limits
-     * Each user can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+     * ## QPS limit
+     * The QPS limit per user for this API operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Plan your API calls accordingly.
      *
      * @param request - DescribeAclCheckQuotaRequest
      *
@@ -5727,11 +6347,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries Access Control List (ACL) checks in batches.
+     * Queries ACL check records in batches.
      *
      * @remarks
      * ## QPS limit
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If this limit is exceeded, your API calls are throttled. This may affect your business. We recommend that you plan your calls accordingly.
+     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DescribeAclChecksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5766,11 +6386,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries Access Control List (ACL) checks in batches.
+     * Queries ACL check records in batches.
      *
      * @remarks
      * ## QPS limit
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If this limit is exceeded, your API calls are throttled. This may affect your business. We recommend that you plan your calls accordingly.
+     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DescribeAclChecksRequest
      *
@@ -5788,11 +6408,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the total number of access control policy configurations.
+     * Retrieves the total number of ACL configurations.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * ## QPS limits
+     * The QPS limit for a single user calling this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
      *
      * @param request - DescribeAclRuleCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5835,11 +6455,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the total number of access control policy configurations.
+     * Retrieves the total number of ACL configurations.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * ## QPS limits
+     * The QPS limit for a single user calling this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
      *
      * @param request - DescribeAclRuleCountRequest
      *
@@ -5860,8 +6480,8 @@ class Cloudfw extends OpenApiClient
      * Retrieves the ACL whitelist.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+     * ## QPS limits
+     * The QPS limit for a single user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DescribeAclWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5907,8 +6527,8 @@ class Cloudfw extends OpenApiClient
      * Retrieves the ACL whitelist.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+     * ## QPS limits
+     * The QPS limit for a single user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DescribeAclWhitelistRequest
      *
@@ -6024,6 +6644,63 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAddressBookWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询应用程序统计
+     *
+     * @param request - DescribeApplicationStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationStatisticsResponse
+     *
+     * @param DescribeApplicationStatisticsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeApplicationStatisticsResponse
+     */
+    public function describeApplicationStatisticsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationStatistics',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用程序统计
+     *
+     * @param request - DescribeApplicationStatisticsRequest
+     *
+     * @returns DescribeApplicationStatisticsResponse
+     *
+     * @param DescribeApplicationStatisticsRequest $request
+     *
+     * @return DescribeApplicationStatisticsResponse
+     */
+    public function describeApplicationStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationStatisticsWithOptions($request, $runtime);
     }
 
     /**
@@ -6150,7 +6827,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the risk level list of assets.
+     * Retrieves the list of asset risk levels.
      *
      * @param request - DescribeAssetRiskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6201,7 +6878,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the risk level list of assets.
+     * Retrieves the list of asset risk levels.
      *
      * @param request - DescribeAssetRiskListRequest
      *
@@ -6412,7 +7089,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the firewall risk level.
+     * Queries the firewall risk levels.
      *
      * @deprecated OpenAPI DescribeCfwRiskLevelSummary is deprecated
      *
@@ -6462,7 +7139,7 @@ class Cloudfw extends OpenApiClient
 
     // Deprecated
     /**
-     * Queries the firewall risk level.
+     * Queries the firewall risk levels.
      *
      * @deprecated OpenAPI DescribeCfwRiskLevelSummary is deprecated
      *
@@ -6630,7 +7307,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of outbound domains for outbound connections.
+     * Queries the list of outbound domains.
      *
      * @param request - DescribeConfiguredDomainNamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6701,7 +7378,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of outbound domains for outbound connections.
+     * Queries the list of outbound domains.
      *
      * @param request - DescribeConfiguredDomainNamesRequest
      *
@@ -7243,7 +7920,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information and download URLs of file download tasks.
+     * Queries file download tasks, including task information and download URLs.
      *
      * @param request - DescribeDownloadTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7294,7 +7971,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information and download URLs of file download tasks.
+     * Queries file download tasks, including task information and download URLs.
      *
      * @param request - DescribeDownloadTaskRequest
      *
@@ -7384,9 +8061,9 @@ class Cloudfw extends OpenApiClient
      * Queries the event logs of Cloud Firewall.
      *
      * @remarks
-     * Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned in pages. StartTime and EndTime are UNIX timestamps in seconds. The time span of a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the VPC firewall, set FirewallType to VpcFirewall.
+     * Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned in pages. StartTime and EndTime are UNIX timestamps in seconds. The time span for a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the VPC firewall, set FirewallType to VpcFirewall.
      * ## QPS limits
-     * The QPS limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
+     * The QPS limit per user is 10 calls per second. If you exceed the limit, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
      *
      * @param request - DescribeEventLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7480,9 +8157,9 @@ class Cloudfw extends OpenApiClient
      * Queries the event logs of Cloud Firewall.
      *
      * @remarks
-     * Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned in pages. StartTime and EndTime are UNIX timestamps in seconds. The time span of a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the VPC firewall, set FirewallType to VpcFirewall.
+     * Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned in pages. StartTime and EndTime are UNIX timestamps in seconds. The time span for a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the VPC firewall, set FirewallType to VpcFirewall.
      * ## QPS limits
-     * The QPS limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
+     * The QPS limit per user is 10 calls per second. If you exceed the limit, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
      *
      * @param request - DescribeEventLogRequest
      *
@@ -7501,11 +8178,11 @@ class Cloudfw extends OpenApiClient
 
     // Deprecated
     /**
-     * Retrieves statistics on packets dropped by the firewall.
+     * Retrieves firewall DROP data statistics.
      *
      * @remarks
      * ### QPS limit
-     * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, your API calls are throttled. This may affect your business operations. We recommend that you make API calls at a reasonable rate.
+     * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @deprecated OpenAPI DescribeFirewallDropStatistics is deprecated
      *
@@ -7537,11 +8214,11 @@ class Cloudfw extends OpenApiClient
 
     // Deprecated
     /**
-     * Retrieves statistics on packets dropped by the firewall.
+     * Retrieves firewall DROP data statistics.
      *
      * @remarks
      * ### QPS limit
-     * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, your API calls are throttled. This may affect your business operations. We recommend that you make API calls at a reasonable rate.
+     * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @deprecated OpenAPI DescribeFirewallDropStatistics is deprecated
      *
@@ -7557,7 +8234,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the overall firewall interception trends, including Internet, VPC, and NAT traffic.
+     * Retrieves the overall firewall blocking trends, including Internet, VPC, and NAT traffic.
      *
      * @param request - DescribeFirewallDropTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7604,7 +8281,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the overall firewall interception trends, including Internet, VPC, and NAT traffic.
+     * Retrieves the overall firewall blocking trends, including Internet, VPC, and NAT traffic.
      *
      * @param request - DescribeFirewallDropTrendRequest
      *
@@ -7703,7 +8380,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the traffic trend of a firewall.
+     * Queries the traffic trends of the firewall.
      *
      * @param request - DescribeFirewallTrafficTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7750,7 +8427,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the traffic trend of a firewall.
+     * Queries the traffic trends of the firewall.
      *
      * @param request - DescribeFirewallTrafficTrendRequest
      *
@@ -7865,7 +8542,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the vSwitch resources for Cloud Firewall.
+     * Queries firewall vSwitch resources.
      *
      * @param request - DescribeFirewallVswitchResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7920,7 +8597,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the vSwitch resources for Cloud Firewall.
+     * Queries firewall vSwitch resources.
      *
      * @param request - DescribeFirewallVswitchResourcesRequest
      *
@@ -8162,7 +8839,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the account in a resource directory for an instance.
+     * Retrieves the account in a resource directory for the instance.
      *
      * @param request - DescribeInstanceRdAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8225,7 +8902,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the account in a resource directory for an instance.
+     * Retrieves the account in a resource directory for the instance.
      *
      * @param request - DescribeInstanceRdAccountsRequest
      *
@@ -8304,11 +8981,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Internet security trends.
+     * Queries Internet defense trends.
      *
      * @remarks
      * ## QPS limit
-     * This API is limited to 10 requests per second per user. Exceeding this limit triggers throttling, which can disrupt your service. Plan your API calls accordingly.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
      *
      * @param request - DescribeInternetDropTrafficTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8371,11 +9048,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Internet security trends.
+     * Queries Internet defense trends.
      *
      * @remarks
      * ## QPS limit
-     * This API is limited to 10 requests per second per user. Exceeding this limit triggers throttling, which can disrupt your service. Plan your API calls accordingly.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
      *
      * @param request - DescribeInternetDropTrafficTrendRequest
      *
@@ -8393,7 +9070,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can obtain details about Internet access.
+     * Retrieves the details of Internet exposure.
      *
      * @param request - DescribeInternetOpenDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8500,7 +9177,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can obtain details about Internet access.
+     * Retrieves the details of Internet exposure.
      *
      * @param request - DescribeInternetOpenDetailRequest
      *
@@ -8623,11 +9300,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the ports that are open to the Internet.
+     * Queries open ports on the Internet.
      *
      * @remarks
-     * ## QPS limit
-     * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+     * ## Rate limit
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
      *
      * @param request - DescribeInternetOpenPortRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8710,11 +9387,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the ports that are open to the Internet.
+     * Queries open ports on the Internet.
      *
      * @remarks
-     * ## QPS limit
-     * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+     * ## Rate limit
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
      *
      * @param request - DescribeInternetOpenPortRequest
      *
@@ -8732,11 +9409,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries services exposed to the Internet.
+     * Queries Internet-facing open services.
      *
      * @remarks
      * ## QPS limits
-     * You can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled. This may affect your business. We recommend that you make API calls at a reasonable rate.
+     * The QPS limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
      *
      * @param request - DescribeInternetOpenServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8819,11 +9496,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries services exposed to the Internet.
+     * Queries Internet-facing open services.
      *
      * @remarks
      * ## QPS limits
-     * You can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled. This may affect your business. We recommend that you make API calls at a reasonable rate.
+     * The QPS limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
      *
      * @param request - DescribeInternetOpenServiceRequest
      *
@@ -8841,7 +9518,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics about assets exposed to the Internet.
+     * Retrieves Internet exposure statistics.
      *
      * @param request - DescribeInternetOpenStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8896,7 +9573,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics about assets exposed to the Internet.
+     * Retrieves Internet exposure statistics.
      *
      * @param request - DescribeInternetOpenStatisticRequest
      *
@@ -8914,7 +9591,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Internet service names.
+     * Retrieves the list of Internet service names.
      *
      * @param request - DescribeInternetServiceNameListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8961,7 +9638,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Internet service names.
+     * Retrieves the list of Internet service names.
      *
      * @param request - DescribeInternetServiceNameListRequest
      *
@@ -8979,7 +9656,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of Internet-facing SLB instances.
+     * Retrieves Internet-facing SLB instances.
      *
      * @param request - DescribeInternetSlbRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9062,7 +9739,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of Internet-facing SLB instances.
+     * Retrieves Internet-facing SLB instances.
      *
      * @param request - DescribeInternetSlbRequest
      *
@@ -9080,7 +9757,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * This operation queries the Top-N internet traffic over time.
+     * Queries the top Internet traffic by time.
      *
      * @param request - DescribeInternetTimeTopRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9179,7 +9856,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * This operation queries the Top-N internet traffic over time.
+     * Queries the top Internet traffic by time.
      *
      * @param request - DescribeInternetTimeTopRequest
      *
@@ -9395,7 +10072,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the trend of vulnerabilities on ECS instances.
+     * Queries ECS vulnerability trends.
      *
      * @param request - DescribeInvadeEcsTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9450,7 +10127,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the trend of vulnerabilities on ECS instances.
+     * Queries ECS vulnerability trends.
      *
      * @param request - DescribeInvadeEcsTrendRequest
      *
@@ -9468,7 +10145,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a threat detection event.
+     * Retrieves the details of a compromise awareness event.
      *
      * @param request - DescribeInvadeEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9527,7 +10204,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a threat detection event.
+     * Retrieves the details of a compromise awareness event.
      *
      * @param request - DescribeInvadeEventDetailRequest
      *
@@ -9739,7 +10416,106 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries statistics about intrusion events.
+     * Retrieves the raw payload of a vulnerability event.
+     *
+     * @remarks
+     * Queries the raw packet payload of a specified intrusion event. You can locate a single event by using the event UUID (EventUuid) or filter events by public IP address, private IP address, asset instance ID, and time range. Both StartTime and EndTime are required and must be UNIX timestamps in seconds. The response includes the original payload text, the payload length (PayloadLen), and the start and end positions of the matched content in the highlight interval (HighlightStart and HighlightEnd) to help restore alert details.
+     * ## Rate limit
+     * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+     *
+     * @param request - DescribeInvadeEventPayloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInvadeEventPayloadResponse
+     *
+     * @param DescribeInvadeEventPayloadRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeInvadeEventPayloadResponse
+     */
+    public function describeInvadeEventPayloadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetsInstanceId) {
+            @$query['AssetsInstanceId'] = $request->assetsInstanceId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->eventUuid) {
+            @$query['EventUuid'] = $request->eventUuid;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->privateIP) {
+            @$query['PrivateIP'] = $request->privateIP;
+        }
+
+        if (null !== $request->publicIP) {
+            @$query['PublicIP'] = $request->publicIP;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInvadeEventPayload',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInvadeEventPayloadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the raw payload of a vulnerability event.
+     *
+     * @remarks
+     * Queries the raw packet payload of a specified intrusion event. You can locate a single event by using the event UUID (EventUuid) or filter events by public IP address, private IP address, asset instance ID, and time range. Both StartTime and EndTime are required and must be UNIX timestamps in seconds. The response includes the original payload text, the payload length (PayloadLen), and the start and end positions of the matched content in the highlight interval (HighlightStart and HighlightEnd) to help restore alert details.
+     * ## Rate limit
+     * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+     *
+     * @param request - DescribeInvadeEventPayloadRequest
+     *
+     * @returns DescribeInvadeEventPayloadResponse
+     *
+     * @param DescribeInvadeEventPayloadRequest $request
+     *
+     * @return DescribeInvadeEventPayloadResponse
+     */
+    public function describeInvadeEventPayload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInvadeEventPayloadWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves vulnerability event statistics.
      *
      * @param request - DescribeInvadeEventStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9794,7 +10570,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries statistics about intrusion events.
+     * Retrieves vulnerability event statistics.
      *
      * @param request - DescribeInvadeEventStatisticRequest
      *
@@ -9812,12 +10588,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of IPS Private IP Tracing associations.
+     * Queries the IPS private IP tracing list.
      *
      * @remarks
-     * This operation queries information about assets that are protected by Cloud Firewall. The results are paginated.
-     * ## Limits
-     * This operation is limited to 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled. This may affect your business. Call this operation at a reasonable rate.
+     * This operation is generally used to perform paged queries on the information about assets protected by Cloud Firewall.
+     * ## QPS limits
+     * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
      *
      * @param request - DescribeIpsPrivateAssocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9880,12 +10656,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of IPS Private IP Tracing associations.
+     * Queries the IPS private IP tracing list.
      *
      * @remarks
-     * This operation queries information about assets that are protected by Cloud Firewall. The results are paginated.
-     * ## Limits
-     * This operation is limited to 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled. This may affect your business. Call this operation at a reasonable rate.
+     * This operation is generally used to perform paged queries on the information about assets protected by Cloud Firewall.
+     * ## QPS limits
+     * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
      *
      * @param request - DescribeIpsPrivateAssocRequest
      *
@@ -10587,7 +11363,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the precheck details for a NAT firewall.
+     * Queries the precheck results of a NAT firewall.
      *
      * @param request - DescribeNatFirewallPrecheckDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10622,7 +11398,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the precheck details for a NAT firewall.
+     * Queries the precheck results of a NAT firewall.
      *
      * @param request - DescribeNatFirewallPrecheckDetailRequest
      *
@@ -10693,7 +11469,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the top traffic data of a NAT firewall at a specific point in time.
+     * Queries the top traffic of a NAT firewall at a specific point in time.
      *
      * @param request - DescribeNatFirewallTimeTopRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10728,7 +11504,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the top traffic data of a NAT firewall at a specific point in time.
+     * Queries the top traffic of a NAT firewall at a specific point in time.
      *
      * @param request - DescribeNatFirewallTimeTopRequest
      *
@@ -11074,7 +11850,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics about access sources for public IP addresses.
+     * Retrieves the statistics of access sources for open IP addresses. Before calling this operation, you must purchase and activate Cloud Firewall. You can check the activation status by using the UserStatus parameter returned by DescribeUserBuyVersion. A value of false indicates that Cloud Firewall is not activated.
      *
      * @param request - DescribeOpenIpAccessSrcStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11129,7 +11905,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics about access sources for public IP addresses.
+     * Retrieves the statistics of access sources for open IP addresses. Before calling this operation, you must purchase and activate Cloud Firewall. You can check the activation status by using the UserStatus parameter returned by DescribeUserBuyVersion. A value of false indicates that Cloud Firewall is not activated.
      *
      * @param request - DescribeOpenIpAccessSrcStatRequest
      *
@@ -11482,7 +12258,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Displays the destination IP of an active outbound connection.
+     * Queries the destination IP addresses of outbound connections.
+     *
+     * @remarks
+     * This operation queries the destination IP addresses of outbound connections.
+     * ## Before you begin
+     * - Make sure that Cloud Firewall is activated for your account. Both subscription and pay-as-you-go editions are supported.
+     * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. A value of false indicates that Cloud Firewall is not activated.
      *
      * @param request - DescribeOutgoingDestinationIPRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11573,7 +12355,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Displays the destination IP of an active outbound connection.
+     * Queries the destination IP addresses of outbound connections.
+     *
+     * @remarks
+     * This operation queries the destination IP addresses of outbound connections.
+     * ## Before you begin
+     * - Make sure that Cloud Firewall is activated for your account. Both subscription and pay-as-you-go editions are supported.
+     * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. A value of false indicates that Cloud Firewall is not activated.
      *
      * @param request - DescribeOutgoingDestinationIPRequest
      *
@@ -11934,7 +12722,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the number of intrusion prevention threats.
+     * Retrieves the number of intrusion prevention risks. Before you call this operation, activate Cloud Firewall. You can check the activation status by using the UserStatus parameter returned by DescribeUserBuyVersion. A value of false indicates that Cloud Firewall is not activated.
      *
      * @param request - DescribeOutgoingRiskDomainAndIpCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11969,7 +12757,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the number of intrusion prevention threats.
+     * Retrieves the number of intrusion prevention risks. Before you call this operation, activate Cloud Firewall. You can check the activation status by using the UserStatus parameter returned by DescribeUserBuyVersion. A value of false indicates that Cloud Firewall is not activated.
      *
      * @param request - DescribeOutgoingRiskDomainAndIpCountRequest
      *
@@ -11987,7 +12775,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries outbound connection risk trends.
+     * Queries the trend of outbound connection risks.
+     *
+     * @remarks
+     * This operation queries the trend of outbound connection risks.
+     * ## Before you begin
+     * - Ensure that Cloud Firewall is activated before you call this operation.
+     * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. If false is returned, the service is not activated.
      *
      * @param request - DescribeOutgoingRiskTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12042,7 +12836,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries outbound connection risk trends.
+     * Queries the trend of outbound connection risks.
+     *
+     * @remarks
+     * This operation queries the trend of outbound connection risks.
+     * ## Before you begin
+     * - Ensure that Cloud Firewall is activated before you call this operation.
+     * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. If false is returned, the service is not activated.
      *
      * @param request - DescribeOutgoingRiskTrendRequest
      *
@@ -12312,12 +13112,14 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the status of strict mode for access control policies.
+     * Queries the enabling status of strict mode for access control policies.
      *
      * @remarks
-     * You can call this operation to query the status of strict mode for access control policies.
-     * ## QPS limits
-     * This operation is limited to 10 queries per second (QPS) for each user. API calls that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
+     * This operation is typically used to query the enabling status of strict mode for access control policies.
+     * ## Before you begin
+     * - Before calling this operation, you must purchase and activate Cloud Firewall. You can activate the service on the Cloud Firewall buy page (China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn; International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl).
+     * ## Rate limit
+     * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
      *
      * @param request - DescribePolicyAdvancedConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12364,12 +13166,14 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the status of strict mode for access control policies.
+     * Queries the enabling status of strict mode for access control policies.
      *
      * @remarks
-     * You can call this operation to query the status of strict mode for access control policies.
-     * ## QPS limits
-     * This operation is limited to 10 queries per second (QPS) for each user. API calls that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
+     * This operation is typically used to query the enabling status of strict mode for access control policies.
+     * ## Before you begin
+     * - Before calling this operation, you must purchase and activate Cloud Firewall. You can activate the service on the Cloud Firewall buy page (China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn; International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl).
+     * ## Rate limit
+     * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
      *
      * @param request - DescribePolicyAdvancedConfigRequest
      *
@@ -12466,10 +13270,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the bills for pay-as-you-go 2.0.
+     * Queries pay-as-you-go 2.0 bills.
      *
      * @remarks
-     * The details are accurate to the specific resource instance level for pay-as-you-go users. For subscription users, only overall queries are supported.
+     * For pay-as-you-go users, the billing details are accurate to the specific resource instance level. For subscription users, only overall queries are supported.
      *
      * @param request - DescribePostpayBillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12528,10 +13332,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the bills for pay-as-you-go 2.0.
+     * Queries pay-as-you-go 2.0 bills.
      *
      * @remarks
-     * The details are accurate to the specific resource instance level for pay-as-you-go users. For subscription users, only overall queries are supported.
+     * For pay-as-you-go users, the billing details are accurate to the specific resource instance level. For subscription users, only overall queries are supported.
      *
      * @param request - DescribePostpayBillRequest
      *
@@ -13290,8 +14094,8 @@ class Cloudfw extends OpenApiClient
      * Retrieves region information.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * ## QPS limits
+     * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DescribeRegionInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13345,8 +14149,8 @@ class Cloudfw extends OpenApiClient
      * Retrieves region information.
      *
      * @remarks
-     * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * ## QPS limits
+     * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - DescribeRegionInfoRequest
      *
@@ -15158,7 +15962,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the execution status of a log configuration update task.
+     * Queries the execution status of a log configuration modification task.
      *
      * @remarks
      * Before calling this operation, call ModifySlsDispatchConfig to obtain the TaskId.
@@ -15200,7 +16004,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the execution status of a log configuration update task.
+     * Queries the execution status of a log configuration modification task.
      *
      * @remarks
      * Before calling this operation, call ModifySlsDispatchConfig to obtain the TaskId.
@@ -15421,7 +16225,7 @@ class Cloudfw extends OpenApiClient
      * Retrieves the details of a VPC firewall for a transit router.
      *
      * @remarks
-     * Queries the details of a virtual private cloud (VPC) firewall for an Enterprise Edition transit router. You can call DescribeTrFirewallsV2List to obtain the FirewallId. If no firewall has been created, prepare an Enterprise Edition transit router in the Cloud Enterprise Network (CEN) console first, and then call CreateTrFirewallV2 to create a firewall and obtain the FirewallId.
+     * Queries the details of a VPC firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If the firewall has not been created, you must first prepare an Enterprise Edition transit router in Cloud Enterprise Network (CEN) and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
      *
      * @param request - DescribeTrFirewallsV2DetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15467,7 +16271,7 @@ class Cloudfw extends OpenApiClient
      * Retrieves the details of a VPC firewall for a transit router.
      *
      * @remarks
-     * Queries the details of a virtual private cloud (VPC) firewall for an Enterprise Edition transit router. You can call DescribeTrFirewallsV2List to obtain the FirewallId. If no firewall has been created, prepare an Enterprise Edition transit router in the Cloud Enterprise Network (CEN) console first, and then call CreateTrFirewallV2 to create a firewall and obtain the FirewallId.
+     * Queries the details of a VPC firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If the firewall has not been created, you must first prepare an Enterprise Edition transit router in Cloud Enterprise Network (CEN) and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
      *
      * @param request - DescribeTrFirewallsV2DetailRequest
      *
@@ -16784,7 +17588,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the regions where the VPC firewall is enabled for asset protection.
+     * Queries the regions where VPC firewall assets are enabled.
      *
      * @param request - DescribeVpcFirewallAssetRegionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16819,7 +17623,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the regions where the VPC firewall is enabled for asset protection.
+     * Queries the regions where VPC firewall assets are enabled.
      *
      * @param request - DescribeVpcFirewallAssetRegionListRequest
      *
@@ -17120,10 +17924,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries all access control policy information for a specified virtual private cloud (VPC) firewall.
+     * Queries all access control policies of the specified virtual private cloud (VPC) firewalls.
      *
      * @remarks
-     * This operation is used to query access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
+     * This operation is typically used to query the access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected by Cloud Enterprise Network (CEN) and traffic between two VPCs connected by Express Connect.
+     * ## QPS limits
+     * The queries per second (QPS) limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
      *
      * @param request - DescribeVpcFirewallControlPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17210,10 +18016,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries all access control policy information for a specified virtual private cloud (VPC) firewall.
+     * Queries all access control policies of the specified virtual private cloud (VPC) firewalls.
      *
      * @remarks
-     * This operation is used to query access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
+     * This operation is typically used to query the access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected by Cloud Enterprise Network (CEN) and traffic between two VPCs connected by Express Connect.
+     * ## QPS limits
+     * The queries per second (QPS) limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
      *
      * @param request - DescribeVpcFirewallControlPolicyRequest
      *
@@ -18324,7 +19132,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of zones available for a VPC firewall.
+     * Queries the list of zones available for VPC firewalls.
      *
      * @param request - DescribeVpcFirewallZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18387,7 +19195,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the list of zones available for a VPC firewall.
+     * Queries the list of zones available for VPC firewalls.
      *
      * @param request - DescribeVpcFirewallZoneRequest
      *
@@ -18804,6 +19612,117 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * Queries the details of a specified application template, including the status of each switch, the action for unidentified applications, and the list of built-in application actions.
+     *
+     * @param request - GetApplicationTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApplicationTemplateResponse
+     *
+     * @param GetApplicationTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetApplicationTemplateResponse
+     */
+    public function getApplicationTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationTemplateId) {
+            @$query['ApplicationTemplateId'] = $request->applicationTemplateId;
+        }
+
+        if (null !== $request->builtInApplicationActionType) {
+            @$query['BuiltInApplicationActionType'] = $request->builtInApplicationActionType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApplicationTemplate',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApplicationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a specified application template, including the status of each switch, the action for unidentified applications, and the list of built-in application actions.
+     *
+     * @param request - GetApplicationTemplateRequest
+     *
+     * @returns GetApplicationTemplateResponse
+     *
+     * @param GetApplicationTemplateRequest $request
+     *
+     * @return GetApplicationTemplateResponse
+     */
+    public function getApplicationTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the activation status of the application control and web filtering features for the current Alibaba Cloud account. This operation does not require request parameters and always returns the status of these two features.
+     *
+     * @param request - GetFirewallFeatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFirewallFeatureResponse
+     *
+     * @param GetFirewallFeatureRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetFirewallFeatureResponse
+     */
+    public function getFirewallFeatureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetFirewallFeature',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFirewallFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the activation status of the application control and web filtering features for the current Alibaba Cloud account. This operation does not require request parameters and always returns the status of these two features.
+     *
+     * @param request - GetFirewallFeatureRequest
+     *
+     * @returns GetFirewallFeatureResponse
+     *
+     * @param GetFirewallFeatureRequest $request
+     *
+     * @return GetFirewallFeatureResponse
+     */
+    public function getFirewallFeature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFirewallFeatureWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the download path for the certificate of a Transport Layer Security (TLS) inspection policy.
      *
      * @remarks
@@ -18864,6 +19783,346 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTlsInspectCertificateDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询应用程序自定义规则列表.
+     *
+     * @param request - ListApplicationCustomRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationCustomRulesResponse
+     *
+     * @param ListApplicationCustomRulesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListApplicationCustomRulesResponse
+     */
+    public function listApplicationCustomRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationCustomRuleId) {
+            @$query['ApplicationCustomRuleId'] = $request->applicationCustomRuleId;
+        }
+
+        if (null !== $request->applicationCustomRuleName) {
+            @$query['ApplicationCustomRuleName'] = $request->applicationCustomRuleName;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationTemplateId) {
+            @$query['ApplicationTemplateId'] = $request->applicationTemplateId;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
+        }
+
+        if (null !== $request->ruleAction) {
+            @$query['RuleAction'] = $request->ruleAction;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationCustomRules',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationCustomRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用程序自定义规则列表.
+     *
+     * @param request - ListApplicationCustomRulesRequest
+     *
+     * @returns ListApplicationCustomRulesResponse
+     *
+     * @param ListApplicationCustomRulesRequest $request
+     *
+     * @return ListApplicationCustomRulesResponse
+     */
+    public function listApplicationCustomRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationCustomRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paged query to retrieve the application program templates under the current Alibaba Cloud account. The paging operation supports fuzzy search by template name and description, batch exact filtering by template IDs, and exact filtering by switch statuses and actions for unidentified applications.
+     *
+     * @param request - ListApplicationTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationTemplateResponse
+     *
+     * @param ListApplicationTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListApplicationTemplateResponse
+     */
+    public function listApplicationTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationTemplateIds) {
+            @$query['ApplicationTemplateIds'] = $request->applicationTemplateIds;
+        }
+
+        if (null !== $request->applicationTemplateName) {
+            @$query['ApplicationTemplateName'] = $request->applicationTemplateName;
+        }
+
+        if (null !== $request->builtInApplicationStatus) {
+            @$query['BuiltInApplicationStatus'] = $request->builtInApplicationStatus;
+        }
+
+        if (null !== $request->customRuleStatus) {
+            @$query['CustomRuleStatus'] = $request->customRuleStatus;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->templateStatus) {
+            @$query['TemplateStatus'] = $request->templateStatus;
+        }
+
+        if (null !== $request->unknownAction) {
+            @$query['UnknownAction'] = $request->unknownAction;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationTemplate',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query to retrieve the application program templates under the current Alibaba Cloud account. The paging operation supports fuzzy search by template name and description, batch exact filtering by template IDs, and exact filtering by switch statuses and actions for unidentified applications.
+     *
+     * @param request - ListApplicationTemplateRequest
+     *
+     * @returns ListApplicationTemplateResponse
+     *
+     * @param ListApplicationTemplateRequest $request
+     *
+     * @return ListApplicationTemplateResponse
+     */
+    public function listApplicationTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询应用程序更新动态列表.
+     *
+     * @param request - ListApplicationUpdateDynamicsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationUpdateDynamicsResponse
+     *
+     * @param ListApplicationUpdateDynamicsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListApplicationUpdateDynamicsResponse
+     */
+    public function listApplicationUpdateDynamicsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplicationUpdateDynamics',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationUpdateDynamicsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询应用程序更新动态列表.
+     *
+     * @param request - ListApplicationUpdateDynamicsRequest
+     *
+     * @returns ListApplicationUpdateDynamicsResponse
+     *
+     * @param ListApplicationUpdateDynamicsRequest $request
+     *
+     * @return ListApplicationUpdateDynamicsResponse
+     */
+    public function listApplicationUpdateDynamics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationUpdateDynamicsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paging query on the list of applications in the built-in application signature library. Supports fuzzy match by application name, description, technology type, category name, and group name, exact match by application ID and category ID, and filtering by risk level. The query targets the global built-in application library regardless of the Alibaba Cloud account.
+     *
+     * @param request - ListApplicationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApplicationsResponse
+     *
+     * @param ListApplicationsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListApplicationsResponse
+     */
+    public function listApplicationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->applicationName) {
+            @$query['ApplicationName'] = $request->applicationName;
+        }
+
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
+        }
+
+        if (null !== $request->categoryName) {
+            @$query['CategoryName'] = $request->categoryName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->risk) {
+            @$query['Risk'] = $request->risk;
+        }
+
+        if (null !== $request->technology) {
+            @$query['Technology'] = $request->technology;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApplications',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query on the list of applications in the built-in application signature library. Supports fuzzy match by application name, description, technology type, category name, and group name, exact match by application ID and category ID, and filtering by risk level. The query targets the global built-in application library regardless of the Alibaba Cloud account.
+     *
+     * @param request - ListApplicationsRequest
+     *
+     * @returns ListApplicationsResponse
+     *
+     * @param ListApplicationsRequest $request
+     *
+     * @return ListApplicationsResponse
+     */
+    public function listApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationsWithOptions($request, $runtime);
     }
 
     /**
@@ -18929,6 +20188,156 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTlsInspectCACertificatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paged query on the list of web filtering rules. Supports paging and exact filtering by web filtering template ID, rule ID, and rule action.
+     *
+     * @param request - ListWebFilterRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWebFilterRulesResponse
+     *
+     * @param ListWebFilterRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListWebFilterRulesResponse
+     */
+    public function listWebFilterRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->ruleAction) {
+            @$query['RuleAction'] = $request->ruleAction;
+        }
+
+        if (null !== $request->webFilterRuleId) {
+            @$query['WebFilterRuleId'] = $request->webFilterRuleId;
+        }
+
+        if (null !== $request->webFilterTemplateId) {
+            @$query['WebFilterTemplateId'] = $request->webFilterTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWebFilterRules',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWebFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on the list of web filtering rules. Supports paging and exact filtering by web filtering template ID, rule ID, and rule action.
+     *
+     * @param request - ListWebFilterRulesRequest
+     *
+     * @returns ListWebFilterRulesResponse
+     *
+     * @param ListWebFilterRulesRequest $request
+     *
+     * @return ListWebFilterRulesResponse
+     */
+    public function listWebFilterRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWebFilterRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Web过滤模版列表.
+     *
+     * @param request - ListWebFilterTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWebFilterTemplatesResponse
+     *
+     * @param ListWebFilterTemplatesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListWebFilterTemplatesResponse
+     */
+    public function listWebFilterTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->webFilterTemplateIds) {
+            @$query['WebFilterTemplateIds'] = $request->webFilterTemplateIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWebFilterTemplates',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWebFilterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Web过滤模版列表.
+     *
+     * @param request - ListWebFilterTemplatesRequest
+     *
+     * @returns ListWebFilterTemplatesResponse
+     *
+     * @param ListWebFilterTemplatesRequest $request
+     *
+     * @return ListWebFilterTemplatesResponse
+     */
+    public function listWebFilterTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWebFilterTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -19390,9 +20799,11 @@ class Cloudfw extends OpenApiClient
      * Modifies the priority of an access control policy.
      *
      * @remarks
-     * You can call this operation to modify the priority of an access control policy. An access control policy determines whether to allow, deny, or monitor traffic that passes through Cloud Firewall.
-     * ## QPS limit
-     * The queries per second (QPS) limit for this operation is 10 calls per second per user. Exceeding this limit triggers throttling, which may affect your business. We recommend that you plan your calls accordingly.
+     * This operation is typically used to modify the configuration of an access control policy that allows, denies, or monitors traffic passing through Cloud Firewall.
+     * ## Before you begin
+     * Before calling this operation, call DescribeControlPolicy and pass the same Direction parameter to obtain the current policy list and the number of policies. This helps you determine the valid value range of the Order parameter, which is from 1 to the number of policies.
+     * ## Rate limit
+     * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
      *
      * @param request - ModifyControlPolicyPriorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19438,9 +20849,11 @@ class Cloudfw extends OpenApiClient
      * Modifies the priority of an access control policy.
      *
      * @remarks
-     * You can call this operation to modify the priority of an access control policy. An access control policy determines whether to allow, deny, or monitor traffic that passes through Cloud Firewall.
-     * ## QPS limit
-     * The queries per second (QPS) limit for this operation is 10 calls per second per user. Exceeding this limit triggers throttling, which may affect your business. We recommend that you plan your calls accordingly.
+     * This operation is typically used to modify the configuration of an access control policy that allows, denies, or monitors traffic passing through Cloud Firewall.
+     * ## Before you begin
+     * Before calling this operation, call DescribeControlPolicy and pass the same Direction parameter to obtain the current policy list and the number of policies. This helps you determine the valid value range of the Order parameter, which is from 1 to the number of policies.
+     * ## Rate limit
+     * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
      *
      * @param request - ModifyControlPolicyPriorityRequest
      *
@@ -19642,7 +21055,14 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a routing policy.
+     * Modifies the route policy switch.
+     *
+     * @remarks
+     * This operation modifies the route policy switch of the virtual private cloud (VPC) firewalls for a transit router (TR).
+     * ## Before you begin
+     * - You have created virtual private cloud (VPC) firewalls for a transit router (TR) and obtained the FirewallId by calling CreateTrFirewallV2.
+     * - You have created a route policy and obtained the TrFirewallRoutePolicyId by calling CreateTrFirewallV2RoutePolicy.
+     * - You can call DescribeTrFirewallsV2List and DescribeTrFirewallV2RoutePolicyList to query and confirm the preceding resources.
      *
      * @param request - ModifyFirewallV2RoutePolicySwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19697,7 +21117,14 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a routing policy.
+     * Modifies the route policy switch.
+     *
+     * @remarks
+     * This operation modifies the route policy switch of the virtual private cloud (VPC) firewalls for a transit router (TR).
+     * ## Before you begin
+     * - You have created virtual private cloud (VPC) firewalls for a transit router (TR) and obtained the FirewallId by calling CreateTrFirewallV2.
+     * - You have created a route policy and obtained the TrFirewallRoutePolicyId by calling CreateTrFirewallV2RoutePolicy.
+     * - You can call DescribeTrFirewallsV2List and DescribeTrFirewallV2RoutePolicyList to query and confirm the preceding resources.
      *
      * @param request - ModifyFirewallV2RoutePolicySwitchRequest
      *
@@ -20168,7 +21595,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the operations of an object group.
+     * Modifies object group operations.
+     *
+     * @remarks
+     * ## Before you begin
+     * - Before you call this operation, you must activate a Cloud Firewall instance.
+     * - You can call [DescribeUserBuyVersion](~~DescribeUserBuyVersion~~) to query the activation status. The UserStatus field in the response indicates whether the Cloud Firewall instance is valid. A value of false indicates that the instance is invalid or not activated.
+     * - Activate a Cloud Firewall instance:
+     *   - China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn
+     *   - International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl
      *
      * @param request - ModifyObjectGroupOperationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20231,7 +21666,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the operations of an object group.
+     * Modifies object group operations.
+     *
+     * @remarks
+     * ## Before you begin
+     * - Before you call this operation, you must activate a Cloud Firewall instance.
+     * - You can call [DescribeUserBuyVersion](~~DescribeUserBuyVersion~~) to query the activation status. The UserStatus field in the response indicates whether the Cloud Firewall instance is valid. A value of false indicates that the instance is invalid or not activated.
+     * - Activate a Cloud Firewall instance:
+     *   - China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn
+     *   - International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl
      *
      * @param request - ModifyObjectGroupOperationRequest
      *
@@ -21820,7 +23263,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the intrusion prevention system (IPS) whitelist for a VPC firewall.
+     * Modifies the IPS whitelist for a VPC firewall. Before calling this operation, ensure that Cloud Firewall is activated. You can check the activation status by using the UserStatus parameter returned by the DescribeUserBuyVersion operation. A value of false indicates that Cloud Firewall is not activated.
      *
      * @param request - ModifyVpcFirewallIPSWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21879,7 +23322,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the intrusion prevention system (IPS) whitelist for a VPC firewall.
+     * Modifies the IPS whitelist for a VPC firewall. Before calling this operation, ensure that Cloud Firewall is activated. You can check the activation status by using the UserStatus parameter returned by the DescribeUserBuyVersion operation. A value of false indicates that Cloud Firewall is not activated.
      *
      * @param request - ModifyVpcFirewallIPSWhitelistRequest
      *
@@ -22918,8 +24361,8 @@ class Cloudfw extends OpenApiClient
      * Modifies the status of an ACL check detail.
      *
      * @remarks
-     * ## QPS limit
-     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+     * ## QPS limits
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - UpdateAclCheckDetailStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22973,8 +24416,8 @@ class Cloudfw extends OpenApiClient
      * Modifies the status of an ACL check detail.
      *
      * @remarks
-     * ## QPS limit
-     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+     * ## QPS limits
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
      *
      * @param request - UpdateAclCheckDetailStatusRequest
      *
@@ -22989,6 +24432,237 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAclCheckDetailStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies multiple custom application rules in batches. You can modify up to 20 rules at a time. The template to which a rule belongs is determined by the rule ID, so you do not need to specify the template ID.
+     *
+     * @param tmpReq - UpdateApplicationCustomRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationCustomRulesResponse
+     *
+     * @param UpdateApplicationCustomRulesRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateApplicationCustomRulesResponse
+     */
+    public function updateApplicationCustomRulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateApplicationCustomRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->rulesShrink) {
+            @$query['Rules'] = $request->rulesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationCustomRules',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationCustomRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies multiple custom application rules in batches. You can modify up to 20 rules at a time. The template to which a rule belongs is determined by the rule ID, so you do not need to specify the template ID.
+     *
+     * @param request - UpdateApplicationCustomRulesRequest
+     *
+     * @returns UpdateApplicationCustomRulesResponse
+     *
+     * @param UpdateApplicationCustomRulesRequest $request
+     *
+     * @return UpdateApplicationCustomRulesResponse
+     */
+    public function updateApplicationCustomRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationCustomRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the name, switch status, action for unidentified applications, or custom actions for built-in applications of an application template. The template ID must belong to the current Alibaba Cloud account.
+     *
+     * @remarks
+     * ## QPS limit
+     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable frequency.
+     *
+     * @param tmpReq - UpdateApplicationTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApplicationTemplateResponse
+     *
+     * @param UpdateApplicationTemplateRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateApplicationTemplateResponse
+     */
+    public function updateApplicationTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateApplicationTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addBuiltInApplicationCustomActions) {
+            $request->addBuiltInApplicationCustomActionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addBuiltInApplicationCustomActions, 'AddBuiltInApplicationCustomActions', 'json');
+        }
+
+        if (null !== $tmpReq->removeBuiltInApplicationCustomActions) {
+            $request->removeBuiltInApplicationCustomActionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->removeBuiltInApplicationCustomActions, 'RemoveBuiltInApplicationCustomActions', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->addBuiltInApplicationCustomActionsShrink) {
+            @$query['AddBuiltInApplicationCustomActions'] = $request->addBuiltInApplicationCustomActionsShrink;
+        }
+
+        if (null !== $request->applicationTemplateId) {
+            @$query['ApplicationTemplateId'] = $request->applicationTemplateId;
+        }
+
+        if (null !== $request->applicationTemplateName) {
+            @$query['ApplicationTemplateName'] = $request->applicationTemplateName;
+        }
+
+        if (null !== $request->builtInApplicationStatus) {
+            @$query['BuiltInApplicationStatus'] = $request->builtInApplicationStatus;
+        }
+
+        if (null !== $request->customRuleStatus) {
+            @$query['CustomRuleStatus'] = $request->customRuleStatus;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->removeBuiltInApplicationCustomActionsShrink) {
+            @$query['RemoveBuiltInApplicationCustomActions'] = $request->removeBuiltInApplicationCustomActionsShrink;
+        }
+
+        if (null !== $request->templateStatus) {
+            @$query['TemplateStatus'] = $request->templateStatus;
+        }
+
+        if (null !== $request->unknownAction) {
+            @$query['UnknownAction'] = $request->unknownAction;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApplicationTemplate',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApplicationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the name, switch status, action for unidentified applications, or custom actions for built-in applications of an application template. The template ID must belong to the current Alibaba Cloud account.
+     *
+     * @remarks
+     * ## QPS limit
+     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable frequency.
+     *
+     * @param request - UpdateApplicationTemplateRequest
+     *
+     * @returns UpdateApplicationTemplateResponse
+     *
+     * @param UpdateApplicationTemplateRequest $request
+     *
+     * @return UpdateApplicationTemplateResponse
+     */
+    public function updateApplicationTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables the application control or web filtering feature for the current Alibaba Cloud account. This operation only supports enabling the feature. Disabling is not supported. This feature is not supported for Finance Cloud Free Edition or pay-as-you-go 1.0 instances.
+     *
+     * @param request - UpdateFirewallFeatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFirewallFeatureResponse
+     *
+     * @param UpdateFirewallFeatureRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateFirewallFeatureResponse
+     */
+    public function updateFirewallFeatureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->featureName) {
+            @$query['FeatureName'] = $request->featureName;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFirewallFeature',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFirewallFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables the application control or web filtering feature for the current Alibaba Cloud account. This operation only supports enabling the feature. Disabling is not supported. This feature is not supported for Finance Cloud Free Edition or pay-as-you-go 1.0 instances.
+     *
+     * @param request - UpdateFirewallFeatureRequest
+     *
+     * @returns UpdateFirewallFeatureResponse
+     *
+     * @param UpdateFirewallFeatureRequest $request
+     *
+     * @return UpdateFirewallFeatureResponse
+     */
+    public function updateFirewallFeature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFirewallFeatureWithOptions($request, $runtime);
     }
 
     /**
@@ -23253,6 +24927,138 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSecurityProxyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the actions and match conditions of web filtering rules in batches. You can modify up to 20 rules at a time, and the rule IDs in the list must be unique.
+     *
+     * @param tmpReq - UpdateWebFilterRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWebFilterRulesResponse
+     *
+     * @param UpdateWebFilterRulesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateWebFilterRulesResponse
+     */
+    public function updateWebFilterRulesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateWebFilterRulesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->rules) {
+            $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->rulesShrink) {
+            @$query['Rules'] = $request->rulesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWebFilterRules',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWebFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the actions and match conditions of web filtering rules in batches. You can modify up to 20 rules at a time, and the rule IDs in the list must be unique.
+     *
+     * @param request - UpdateWebFilterRulesRequest
+     *
+     * @returns UpdateWebFilterRulesResponse
+     *
+     * @param UpdateWebFilterRulesRequest $request
+     *
+     * @return UpdateWebFilterRulesResponse
+     */
+    public function updateWebFilterRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWebFilterRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the name, status, or description of a web filtering template. The template ID must belong to the current Alibaba Cloud account.
+     *
+     * @param request - UpdateWebFilterTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWebFilterTemplateResponse
+     *
+     * @param UpdateWebFilterTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateWebFilterTemplateResponse
+     */
+    public function updateWebFilterTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->webFilterTemplateId) {
+            @$query['WebFilterTemplateId'] = $request->webFilterTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWebFilterTemplate',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWebFilterTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the name, status, or description of a web filtering template. The template ID must belong to the current Alibaba Cloud account.
+     *
+     * @param request - UpdateWebFilterTemplateRequest
+     *
+     * @returns UpdateWebFilterTemplateResponse
+     *
+     * @param UpdateWebFilterTemplateRequest $request
+     *
+     * @return UpdateWebFilterTemplateResponse
+     */
+    public function updateWebFilterTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateWebFilterTemplateWithOptions($request, $runtime);
     }
 
     /**

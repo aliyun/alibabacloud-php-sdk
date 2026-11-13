@@ -11,15 +11,15 @@ class zoneList extends Model
     /**
      * @var string
      */
-    public $zoneId;
+    public $localName;
 
     /**
      * @var string
      */
-    public $localName;
+    public $zoneId;
     protected $_name = [
-        'zoneId' => 'ZoneId',
         'localName' => 'LocalName',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class zoneList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class zoneList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;
