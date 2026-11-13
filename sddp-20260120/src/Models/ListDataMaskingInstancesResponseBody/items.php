@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $encryptionAlgorithm;
 
     /**
@@ -53,6 +58,7 @@ class items extends Model
      */
     public $regionName;
     protected $_name = [
+        'description' => 'Description',
         'encryptionAlgorithm' => 'EncryptionAlgorithm',
         'encryptionKeyId' => 'EncryptionKeyId',
         'engineType' => 'EngineType',
@@ -72,6 +78,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
         if (null !== $this->encryptionAlgorithm) {
             $res['EncryptionAlgorithm'] = $this->encryptionAlgorithm;
         }
@@ -119,6 +129,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
         if (isset($map['EncryptionAlgorithm'])) {
             $model->encryptionAlgorithm = $map['EncryptionAlgorithm'];
         }
