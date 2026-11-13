@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyJVSInstanceRequest\creditConfig;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyJVSInstanceRequest\displayConfig;
 
 class ModifyJVSInstanceRequest extends Model
 {
@@ -25,6 +26,11 @@ class ModifyJVSInstanceRequest extends Model
     public $creditConfig;
 
     /**
+     * @var displayConfig
+     */
+    public $displayConfig;
+
+    /**
      * @var string
      */
     public $imageId;
@@ -42,6 +48,7 @@ class ModifyJVSInstanceRequest extends Model
         'agentVersion' => 'AgentVersion',
         'applyToAll' => 'ApplyToAll',
         'creditConfig' => 'CreditConfig',
+        'displayConfig' => 'DisplayConfig',
         'imageId' => 'ImageId',
         'instanceIds' => 'InstanceIds',
         'instanceName' => 'InstanceName',
@@ -51,6 +58,9 @@ class ModifyJVSInstanceRequest extends Model
     {
         if (\is_array($this->creditConfig)) {
             Model::validateArray($this->creditConfig);
+        }
+        if (null !== $this->displayConfig) {
+            $this->displayConfig->validate();
         }
         if (\is_array($this->instanceIds)) {
             Model::validateArray($this->instanceIds);
@@ -78,6 +88,10 @@ class ModifyJVSInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->displayConfig) {
+            $res['DisplayConfig'] = null !== $this->displayConfig ? $this->displayConfig->toArray($noStream) : $this->displayConfig;
         }
 
         if (null !== $this->imageId) {
@@ -127,6 +141,10 @@ class ModifyJVSInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DisplayConfig'])) {
+            $model->displayConfig = displayConfig::fromMap($map['DisplayConfig']);
         }
 
         if (isset($map['ImageId'])) {

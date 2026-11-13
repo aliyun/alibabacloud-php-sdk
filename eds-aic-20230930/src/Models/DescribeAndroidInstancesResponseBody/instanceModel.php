@@ -100,6 +100,11 @@ class instanceModel extends Model
     public $cpu;
 
     /**
+     * @var string
+     */
+    public $diskStatus;
+
+    /**
      * @var disks[]
      */
     public $disks;
@@ -272,6 +277,11 @@ class instanceModel extends Model
     /**
      * @var string
      */
+    public $userDiskId;
+
+    /**
+     * @var string
+     */
     public $vSwitchId;
 
     /**
@@ -296,6 +306,7 @@ class instanceModel extends Model
         'channel' => 'Channel',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
+        'diskStatus' => 'DiskStatus',
         'disks' => 'Disks',
         'displayConfig' => 'DisplayConfig',
         'downBandwidthLimit' => 'DownBandwidthLimit',
@@ -330,6 +341,7 @@ class instanceModel extends Model
         'systemVersion' => 'SystemVersion',
         'tags' => 'Tags',
         'upBandwidthLimit' => 'UpBandwidthLimit',
+        'userDiskId' => 'UserDiskId',
         'vSwitchId' => 'VSwitchId',
         'zoneId' => 'ZoneId',
     ];
@@ -433,6 +445,10 @@ class instanceModel extends Model
 
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->diskStatus) {
+            $res['DiskStatus'] = $this->diskStatus;
         }
 
         if (null !== $this->disks) {
@@ -585,6 +601,10 @@ class instanceModel extends Model
             $res['UpBandwidthLimit'] = $this->upBandwidthLimit;
         }
 
+        if (null !== $this->userDiskId) {
+            $res['UserDiskId'] = $this->userDiskId;
+        }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -677,6 +697,10 @@ class instanceModel extends Model
 
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['DiskStatus'])) {
+            $model->diskStatus = $map['DiskStatus'];
         }
 
         if (isset($map['Disks'])) {
@@ -827,6 +851,10 @@ class instanceModel extends Model
 
         if (isset($map['UpBandwidthLimit'])) {
             $model->upBandwidthLimit = $map['UpBandwidthLimit'];
+        }
+
+        if (isset($map['UserDiskId'])) {
+            $model->userDiskId = $map['UserDiskId'];
         }
 
         if (isset($map['VSwitchId'])) {

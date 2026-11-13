@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateMobileAgentPackageRequest\displayConfig;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateMobileAgentPackageRequest\tag;
 
 class CreateMobileAgentPackageRequest extends Model
@@ -50,6 +51,11 @@ class CreateMobileAgentPackageRequest extends Model
     public $creditConfig;
 
     /**
+     * @var displayConfig
+     */
+    public $displayConfig;
+
+    /**
      * @var string
      */
     public $imageId;
@@ -93,6 +99,11 @@ class CreateMobileAgentPackageRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'amount' => 'Amount',
         'autoPay' => 'AutoPay',
@@ -102,6 +113,7 @@ class CreateMobileAgentPackageRequest extends Model
         'channelCookie' => 'ChannelCookie',
         'creditAmount' => 'CreditAmount',
         'creditConfig' => 'CreditConfig',
+        'displayConfig' => 'DisplayConfig',
         'imageId' => 'ImageId',
         'instanceName' => 'InstanceName',
         'mobileAgentPackageSpec' => 'MobileAgentPackageSpec',
@@ -111,10 +123,14 @@ class CreateMobileAgentPackageRequest extends Model
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
         'tag' => 'Tag',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        if (null !== $this->displayConfig) {
+            $this->displayConfig->validate();
+        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -154,6 +170,10 @@ class CreateMobileAgentPackageRequest extends Model
 
         if (null !== $this->creditConfig) {
             $res['CreditConfig'] = $this->creditConfig;
+        }
+
+        if (null !== $this->displayConfig) {
+            $res['DisplayConfig'] = null !== $this->displayConfig ? $this->displayConfig->toArray($noStream) : $this->displayConfig;
         }
 
         if (null !== $this->imageId) {
@@ -199,6 +219,10 @@ class CreateMobileAgentPackageRequest extends Model
             }
         }
 
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+
         return $res;
     }
 
@@ -242,6 +266,10 @@ class CreateMobileAgentPackageRequest extends Model
             $model->creditConfig = $map['CreditConfig'];
         }
 
+        if (isset($map['DisplayConfig'])) {
+            $model->displayConfig = displayConfig::fromMap($map['DisplayConfig']);
+        }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
@@ -283,6 +311,10 @@ class CreateMobileAgentPackageRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

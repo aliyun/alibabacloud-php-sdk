@@ -92,6 +92,11 @@ class details extends Model
      * @var int
      */
     public $ttftMs;
+
+    /**
+     * @var string
+     */
+    public $userDiskId;
     protected $_name = [
         'agentType' => 'AgentType',
         'apiKeyName' => 'ApiKeyName',
@@ -110,6 +115,7 @@ class details extends Model
         'taskId' => 'TaskId',
         'totalTokens' => 'TotalTokens',
         'ttftMs' => 'TtftMs',
+        'userDiskId' => 'UserDiskId',
     ];
 
     public function validate()
@@ -186,6 +192,10 @@ class details extends Model
 
         if (null !== $this->ttftMs) {
             $res['TtftMs'] = $this->ttftMs;
+        }
+
+        if (null !== $this->userDiskId) {
+            $res['UserDiskId'] = $this->userDiskId;
         }
 
         return $res;
@@ -265,6 +275,10 @@ class details extends Model
 
         if (isset($map['TtftMs'])) {
             $model->ttftMs = $map['TtftMs'];
+        }
+
+        if (isset($map['UserDiskId'])) {
+            $model->userDiskId = $map['UserDiskId'];
         }
 
         return $model;

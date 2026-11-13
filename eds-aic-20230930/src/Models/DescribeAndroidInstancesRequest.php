@@ -123,6 +123,11 @@ class DescribeAndroidInstancesRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'androidInstanceIds' => 'AndroidInstanceIds',
         'androidInstanceName' => 'AndroidInstanceName',
@@ -147,6 +152,7 @@ class DescribeAndroidInstancesRequest extends Model
         'sortType' => 'SortType',
         'status' => 'Status',
         'tag' => 'Tag',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -299,6 +305,10 @@ class DescribeAndroidInstancesRequest extends Model
             }
         }
 
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+
         return $res;
     }
 
@@ -435,6 +445,10 @@ class DescribeAndroidInstancesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

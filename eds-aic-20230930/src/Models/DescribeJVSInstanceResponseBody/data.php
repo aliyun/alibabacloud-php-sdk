@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBo
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody\data\agentVersion;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody\data\creditConfig;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody\data\displayConfig;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody\data\installedSkills;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeJVSInstanceResponseBody\data\usedCredit;
 
@@ -26,6 +27,11 @@ class data extends Model
      * @var creditConfig[]
      */
     public $creditConfig;
+
+    /**
+     * @var displayConfig
+     */
+    public $displayConfig;
 
     /**
      * @var string
@@ -70,6 +76,7 @@ class data extends Model
         'agentVersion' => 'AgentVersion',
         'createTime' => 'CreateTime',
         'creditConfig' => 'CreditConfig',
+        'displayConfig' => 'DisplayConfig',
         'expireTime' => 'ExpireTime',
         'installedSkills' => 'InstalledSkills',
         'instanceId' => 'InstanceId',
@@ -87,6 +94,9 @@ class data extends Model
         }
         if (\is_array($this->creditConfig)) {
             Model::validateArray($this->creditConfig);
+        }
+        if (null !== $this->displayConfig) {
+            $this->displayConfig->validate();
         }
         if (\is_array($this->installedSkills)) {
             Model::validateArray($this->installedSkills);
@@ -117,6 +127,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->displayConfig) {
+            $res['DisplayConfig'] = null !== $this->displayConfig ? $this->displayConfig->toArray($noStream) : $this->displayConfig;
         }
 
         if (null !== $this->expireTime) {
@@ -193,6 +207,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DisplayConfig'])) {
+            $model->displayConfig = displayConfig::fromMap($map['DisplayConfig']);
         }
 
         if (isset($map['ExpireTime'])) {

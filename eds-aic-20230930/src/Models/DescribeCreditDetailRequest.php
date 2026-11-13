@@ -57,6 +57,11 @@ class DescribeCreditDetailRequest extends Model
      * @var string[]
      */
     public $taskIds;
+
+    /**
+     * @var string[]
+     */
+    public $userDiskIds;
     protected $_name = [
         'agentTypes' => 'AgentTypes',
         'endTime' => 'EndTime',
@@ -68,6 +73,7 @@ class DescribeCreditDetailRequest extends Model
         'pageSize' => 'PageSize',
         'startTime' => 'StartTime',
         'taskIds' => 'TaskIds',
+        'userDiskIds' => 'UserDiskIds',
     ];
 
     public function validate()
@@ -83,6 +89,9 @@ class DescribeCreditDetailRequest extends Model
         }
         if (\is_array($this->taskIds)) {
             Model::validateArray($this->taskIds);
+        }
+        if (\is_array($this->userDiskIds)) {
+            Model::validateArray($this->userDiskIds);
         }
         parent::validate();
     }
@@ -153,6 +162,17 @@ class DescribeCreditDetailRequest extends Model
                 $n1 = 0;
                 foreach ($this->taskIds as $item1) {
                     $res['TaskIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->userDiskIds) {
+            if (\is_array($this->userDiskIds)) {
+                $res['UserDiskIds'] = [];
+                $n1 = 0;
+                foreach ($this->userDiskIds as $item1) {
+                    $res['UserDiskIds'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -232,6 +252,17 @@ class DescribeCreditDetailRequest extends Model
                 $n1 = 0;
                 foreach ($map['TaskIds'] as $item1) {
                     $model->taskIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['UserDiskIds'])) {
+            if (!empty($map['UserDiskIds'])) {
+                $model->userDiskIds = [];
+                $n1 = 0;
+                foreach ($map['UserDiskIds'] as $item1) {
+                    $model->userDiskIds[$n1] = $item1;
                     ++$n1;
                 }
             }
