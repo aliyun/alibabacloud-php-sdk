@@ -31,12 +31,18 @@ class OSSMountPoint extends Model
     /**
      * @var bool
      */
+    public $nonempty;
+
+    /**
+     * @var bool
+     */
     public $readOnly;
     protected $_name = [
         'bucketName' => 'bucketName',
         'bucketPath' => 'bucketPath',
         'endpoint' => 'endpoint',
         'mountDir' => 'mountDir',
+        'nonempty' => 'nonempty',
         'readOnly' => 'readOnly',
     ];
 
@@ -62,6 +68,10 @@ class OSSMountPoint extends Model
 
         if (null !== $this->mountDir) {
             $res['mountDir'] = $this->mountDir;
+        }
+
+        if (null !== $this->nonempty) {
+            $res['nonempty'] = $this->nonempty;
         }
 
         if (null !== $this->readOnly) {
@@ -93,6 +103,10 @@ class OSSMountPoint extends Model
 
         if (isset($map['mountDir'])) {
             $model->mountDir = $map['mountDir'];
+        }
+
+        if (isset($map['nonempty'])) {
+            $model->nonempty = $map['nonempty'];
         }
 
         if (isset($map['readOnly'])) {

@@ -74,6 +74,11 @@ class Session extends Model
     public $ossMountConfig;
 
     /**
+     * @var int
+     */
+    public $pausedExpirationSeconds;
+
+    /**
      * @var PolarFsConfig
      */
     public $polarFsConfig;
@@ -109,6 +114,11 @@ class Session extends Model
     public $sessionTTLInSeconds;
 
     /**
+     * @var int
+     */
+    public $snapshotExpirationSeconds;
+
+    /**
      * @var string
      */
     public $trafficAccessToken;
@@ -126,6 +136,7 @@ class Session extends Model
         'nasConfig' => 'nasConfig',
         'network' => 'network',
         'ossMountConfig' => 'ossMountConfig',
+        'pausedExpirationSeconds' => 'pausedExpirationSeconds',
         'polarFsConfig' => 'polarFsConfig',
         'qualifier' => 'qualifier',
         'sessionAffinityType' => 'sessionAffinityType',
@@ -133,6 +144,7 @@ class Session extends Model
         'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
         'sessionStatus' => 'sessionStatus',
         'sessionTTLInSeconds' => 'sessionTTLInSeconds',
+        'snapshotExpirationSeconds' => 'snapshotExpirationSeconds',
         'trafficAccessToken' => 'trafficAccessToken',
     ];
 
@@ -211,6 +223,10 @@ class Session extends Model
             $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
         }
 
+        if (null !== $this->pausedExpirationSeconds) {
+            $res['pausedExpirationSeconds'] = $this->pausedExpirationSeconds;
+        }
+
         if (null !== $this->polarFsConfig) {
             $res['polarFsConfig'] = null !== $this->polarFsConfig ? $this->polarFsConfig->toArray($noStream) : $this->polarFsConfig;
         }
@@ -237,6 +253,10 @@ class Session extends Model
 
         if (null !== $this->sessionTTLInSeconds) {
             $res['sessionTTLInSeconds'] = $this->sessionTTLInSeconds;
+        }
+
+        if (null !== $this->snapshotExpirationSeconds) {
+            $res['snapshotExpirationSeconds'] = $this->snapshotExpirationSeconds;
         }
 
         if (null !== $this->trafficAccessToken) {
@@ -306,6 +326,10 @@ class Session extends Model
             $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
         }
 
+        if (isset($map['pausedExpirationSeconds'])) {
+            $model->pausedExpirationSeconds = $map['pausedExpirationSeconds'];
+        }
+
         if (isset($map['polarFsConfig'])) {
             $model->polarFsConfig = PolarFsConfig::fromMap($map['polarFsConfig']);
         }
@@ -332,6 +356,10 @@ class Session extends Model
 
         if (isset($map['sessionTTLInSeconds'])) {
             $model->sessionTTLInSeconds = $map['sessionTTLInSeconds'];
+        }
+
+        if (isset($map['snapshotExpirationSeconds'])) {
+            $model->snapshotExpirationSeconds = $map['snapshotExpirationSeconds'];
         }
 
         if (isset($map['trafficAccessToken'])) {

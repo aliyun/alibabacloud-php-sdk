@@ -54,6 +54,11 @@ class CreateSessionInput extends Model
     public $ossMountConfig;
 
     /**
+     * @var int
+     */
+    public $pausedExpirationSeconds;
+
+    /**
      * @var PolarFsConfig
      */
     public $polarFsConfig;
@@ -74,6 +79,11 @@ class CreateSessionInput extends Model
     public $sessionTTLInSeconds;
 
     /**
+     * @var int
+     */
+    public $snapshotExpirationSeconds;
+
+    /**
      * @var string
      */
     public $snapshotId;
@@ -87,10 +97,12 @@ class CreateSessionInput extends Model
         'nasConfig' => 'nasConfig',
         'network' => 'network',
         'ossMountConfig' => 'ossMountConfig',
+        'pausedExpirationSeconds' => 'pausedExpirationSeconds',
         'polarFsConfig' => 'polarFsConfig',
         'sessionId' => 'sessionId',
         'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
         'sessionTTLInSeconds' => 'sessionTTLInSeconds',
+        'snapshotExpirationSeconds' => 'snapshotExpirationSeconds',
         'snapshotId' => 'snapshotId',
     ];
 
@@ -153,6 +165,10 @@ class CreateSessionInput extends Model
             $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
         }
 
+        if (null !== $this->pausedExpirationSeconds) {
+            $res['pausedExpirationSeconds'] = $this->pausedExpirationSeconds;
+        }
+
         if (null !== $this->polarFsConfig) {
             $res['polarFsConfig'] = null !== $this->polarFsConfig ? $this->polarFsConfig->toArray($noStream) : $this->polarFsConfig;
         }
@@ -167,6 +183,10 @@ class CreateSessionInput extends Model
 
         if (null !== $this->sessionTTLInSeconds) {
             $res['sessionTTLInSeconds'] = $this->sessionTTLInSeconds;
+        }
+
+        if (null !== $this->snapshotExpirationSeconds) {
+            $res['snapshotExpirationSeconds'] = $this->snapshotExpirationSeconds;
         }
 
         if (null !== $this->snapshotId) {
@@ -220,6 +240,10 @@ class CreateSessionInput extends Model
             $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
         }
 
+        if (isset($map['pausedExpirationSeconds'])) {
+            $model->pausedExpirationSeconds = $map['pausedExpirationSeconds'];
+        }
+
         if (isset($map['polarFsConfig'])) {
             $model->polarFsConfig = PolarFsConfig::fromMap($map['polarFsConfig']);
         }
@@ -234,6 +258,10 @@ class CreateSessionInput extends Model
 
         if (isset($map['sessionTTLInSeconds'])) {
             $model->sessionTTLInSeconds = $map['sessionTTLInSeconds'];
+        }
+
+        if (isset($map['snapshotExpirationSeconds'])) {
+            $model->snapshotExpirationSeconds = $map['snapshotExpirationSeconds'];
         }
 
         if (isset($map['snapshotId'])) {

@@ -142,6 +142,7 @@ use AlibabaCloud\SDK\FC\V20230330\Models\UpdateSessionRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateSessionResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateTriggerRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\UpdateTriggerResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -152,6 +153,9 @@ class FC extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'FC';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-1' => 'fcv3.ap-northeast-1.aliyuncs.com',
@@ -395,7 +399,7 @@ class FC extends OpenApiClient
      * Creates a function.
      *
      * @remarks
-     * When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is returned, grant the current user access permissions to the OSS bucket. For example, you can attach the system access policy AliyunOSSReadOnlyAccess or a custom authorization with finer granularity such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user the permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
+     * When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is returned, you must grant the current user access permissions to the OSS bucket. For example, you can attach the system access policy AliyunOSSReadOnlyAccess or a custom authorization with finer granularity such as oss:GetObject. For details about the policy content, refer to [Grant a Resource Access Management (RAM) user the permissions to read all resources in a specific bucket](https://help.aliyun.com/document_detail/199058.html).
      *
      * @param request - CreateFunctionRequest
      * @param headers - map
@@ -435,7 +439,7 @@ class FC extends OpenApiClient
      * Creates a function.
      *
      * @remarks
-     * When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is returned, grant the current user access permissions to the OSS bucket. For example, you can attach the system access policy AliyunOSSReadOnlyAccess or a custom authorization with finer granularity such as oss:GetObject. For details about the policy content, see [Grant a Resource Access Management (RAM) user the permissions to read all resources in a bucket](https://help.aliyun.com/document_detail/199058.html).
+     * When you create a function by using an OSS code package, if the error "unable to access object xxx in bucket xxx" is returned, you must grant the current user access permissions to the OSS bucket. For example, you can attach the system access policy AliyunOSSReadOnlyAccess or a custom authorization with finer granularity such as oss:GetObject. For details about the policy content, refer to [Grant a Resource Access Management (RAM) user the permissions to read all resources in a specific bucket](https://help.aliyun.com/document_detail/199058.html).
      *
      * @param request - CreateFunctionRequest
      *
@@ -512,7 +516,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and binds the instance to the session. You can specify the TTL and idle timeout. This operation applies to the HEADER_FIELD or GENERATED_COOKIE affinity types to implement session warm-up and configuration initialization. After the session is created, you can include the session ID in InvokeFunction requests to route requests.
+     * Creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates function instances, and binds them to the session. You can specify the TTL and idle timeout. This operation applies to the HEADER_FIELD or GENERATED_COOKIE affinity types to implement session warm-up and configuration initialization. After the API is called, the session ID can be included in InvokeFunction requests to route requests.
      *
      * @param request - CreateSessionRequest
      * @param headers - map
@@ -556,7 +560,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates a function instance, and binds the instance to the session. You can specify the TTL and idle timeout. This operation applies to the HEADER_FIELD or GENERATED_COOKIE affinity types to implement session warm-up and configuration initialization. After the session is created, you can include the session ID in InvokeFunction requests to route requests.
+     * Creates an explicit session resource. The system automatically generates a unique session ID, pre-allocates function instances, and binds them to the session. You can specify the TTL and idle timeout. This operation applies to the HEADER_FIELD or GENERATED_COOKIE affinity types to implement session warm-up and configuration initialization. After the API is called, the session ID can be included in InvokeFunction requests to route requests.
      *
      * @param request - CreateSessionRequest
      *
@@ -2339,7 +2343,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified session, including the session ID, associated function, affinity type, lifecycle configuration, status, and instance information. This operation queries the current metadata of a single session and supports precise lookup by functionName and qualifier to facilitate monitoring and debugging by external systems. Only sessions in the Active state can be queried.
+     * Retrieves the details of a specified session, including the session ID, associated function, affinity type, lifecycle configuration, status, and instance information. This operation queries the current metadata of a single session and supports precise lookup by function name and qualifier to facilitate external system monitoring and debugging. Only sessions in the Active state can be queried.
      *
      * @param request - GetSessionRequest
      * @param headers - map
@@ -2383,7 +2387,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified session, including the session ID, associated function, affinity type, lifecycle configuration, status, and instance information. This operation queries the current metadata of a single session and supports precise lookup by functionName and qualifier to facilitate monitoring and debugging by external systems. Only sessions in the Active state can be queried.
+     * Retrieves the details of a specified session, including the session ID, associated function, affinity type, lifecycle configuration, status, and instance information. This operation queries the current metadata of a single session and supports precise lookup by function name and qualifier to facilitate external system monitoring and debugging. Only sessions in the Active state can be queried.
      *
      * @param request - GetSessionRequest
      *
@@ -3177,7 +3181,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Lists function instances.
+     * Queries the list of function instances.
      *
      * @param tmpReq - ListInstancesRequest
      * @param headers - map
@@ -3258,7 +3262,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Lists function instances.
+     * Queries the list of function instances.
      *
      * @param request - ListInstancesRequest
      *
@@ -3560,7 +3564,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Lists the active or expired sessions of a specified function. This operation supports filtering by qualifier, status, and session ID, and supports paging. It returns the basic property of sessions to help you view session distribution and status in batches, facilitate Service Monitoring and external system integration, and improve session visibility and management.
+     * Lists the active or expired sessions of a specified function. Supports filtering by qualifier, status, and session ID, and paging for paged query. Returns the basic session property to help you view session distribution and status in batches, facilitate Service Monitoring and external system integration, and improve session visibility and management.
      *
      * @param request - ListSessionsRequest
      * @param headers - map
@@ -3619,7 +3623,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Lists the active or expired sessions of a specified function. This operation supports filtering by qualifier, status, and session ID, and supports paging. It returns the basic property of sessions to help you view session distribution and status in batches, facilitate Service Monitoring and external system integration, and improve session visibility and management.
+     * Lists the active or expired sessions of a specified function. Supports filtering by qualifier, status, and session ID, and paging for paged query. Returns the basic session property to help you view session distribution and status in batches, facilitate Service Monitoring and external system integration, and improve session visibility and management.
      *
      * @param request - ListSessionsRequest
      *
@@ -3942,7 +3946,7 @@ class FC extends OpenApiClient
      * Pauses or saves a session.
      *
      * @remarks
-     * Pauses an Active session, persists the state of the environment used to execute functions, and then releases compute resources. After you invoke this operation, the session state changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configurations, such as SessionTTL, and the SessionID. It can be used to interrupt long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions that are configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
+     * Pauses an active session, persists the state of its associated environment to execute, and then releases compute resources. After you invoke it, the session state changes to Paused, and the session no longer accepts function calling requests. This operation retains the session configurations, such as SessionTTL, and the SessionID. You can use it to break long-running nodes or save snapshots of development environments to achieve cost optimization and state management. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
      *
      * @param request - PauseSessionRequest
      * @param headers - map
@@ -3993,7 +3997,7 @@ class FC extends OpenApiClient
      * Pauses or saves a session.
      *
      * @remarks
-     * Pauses an Active session, persists the state of the environment used to execute functions, and then releases compute resources. After you invoke this operation, the session state changes to Paused, and the session no longer accepts function invocation requests. This operation retains the session configurations, such as SessionTTL, and the SessionID. It can be used to interrupt long-running tasks or save snapshots of development environments for cost optimization and state management. This operation applies to custom image functions that are configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
+     * Pauses an active session, persists the state of its associated environment to execute, and then releases compute resources. After you invoke it, the session state changes to Paused, and the session no longer accepts function calling requests. This operation retains the session configurations, such as SessionTTL, and the SessionID. You can use it to break long-running nodes or save snapshots of development environments to achieve cost optimization and state management. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
      *
      * @param request - PauseSessionRequest
      *
@@ -4392,7 +4396,7 @@ class FC extends OpenApiClient
      * Resumes a session.
      *
      * @remarks
-     * Resumes a session in the Paused state. The system quickly resumes the session in a new environment to execute based on the previously persisted state, restoring it to the state before it was paused. After the session is successfully resumed, its state changes back to Active, and it can continue to receive requests to invoke functions and route them to the resumed instance. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
+     * Recovers a session in the Paused state. The system quickly recovers the session in a new execution environment based on the previously persisted state, restoring it to the state before it was paused. After the session is successfully recovered, its state changes back to Active, and it can continue to receive requests to invoke functions and route them to the recovered instance. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
      *
      * @param request - ResumeSessionRequest
      * @param headers - map
@@ -4443,7 +4447,7 @@ class FC extends OpenApiClient
      * Resumes a session.
      *
      * @remarks
-     * Resumes a session in the Paused state. The system quickly resumes the session in a new environment to execute based on the previously persisted state, restoring it to the state before it was paused. After the session is successfully resumed, its state changes back to Active, and it can continue to receive requests to invoke functions and route them to the resumed instance. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
+     * Recovers a session in the Paused state. The system quickly recovers the session in a new execution environment based on the previously persisted state, restoring it to the state before it was paused. After the session is successfully recovered, its state changes back to Active, and it can continue to receive requests to invoke functions and route them to the recovered instance. This operation applies to custom image functions configured with the HEADER_FIELD or GENERATED_COOKIE affinity type and session isolation.
      *
      * @param request - ResumeSessionRequest
      *
@@ -4844,7 +4848,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Updates the session configuration for active sessions, such as lifecycle configurations including SessionTTLInSeconds and SessionIdleTimeoutInSeconds. The updates take effect immediately, and LastModifiedTime is automatically refreshed. This operation extends or shortens the session validity period to implement dynamic management without changing the execution environment bound to the session.
+     * Updates the session configuration for active sessions, such as lifecycle configurations including SessionTTLInSeconds and SessionIdleTimeoutInSeconds. The updates take effect immediately, and LastModifiedTime is automatically refreshed. This operation extends or shortens the session validity period for dynamic management without changing the execution environment bound to the session.
      *
      * @param request - UpdateSessionRequest
      * @param headers - map
@@ -4889,7 +4893,7 @@ class FC extends OpenApiClient
     }
 
     /**
-     * Updates the session configuration for active sessions, such as lifecycle configurations including SessionTTLInSeconds and SessionIdleTimeoutInSeconds. The updates take effect immediately, and LastModifiedTime is automatically refreshed. This operation extends or shortens the session validity period to implement dynamic management without changing the execution environment bound to the session.
+     * Updates the session configuration for active sessions, such as lifecycle configurations including SessionTTLInSeconds and SessionIdleTimeoutInSeconds. The updates take effect immediately, and LastModifiedTime is automatically refreshed. This operation extends or shortens the session validity period for dynamic management without changing the execution environment bound to the session.
      *
      * @param request - UpdateSessionRequest
      *
