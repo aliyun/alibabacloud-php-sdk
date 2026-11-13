@@ -29,6 +29,16 @@ class ListPoliciesRequest extends Model
     public $gatewayId;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var bool
      */
     public $withAttachments;
@@ -42,6 +52,8 @@ class ListPoliciesRequest extends Model
         'attachResourceType' => 'attachResourceType',
         'environmentId' => 'environmentId',
         'gatewayId' => 'gatewayId',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
         'withAttachments' => 'withAttachments',
         'withSystemPolicy' => 'withSystemPolicy',
     ];
@@ -68,6 +80,14 @@ class ListPoliciesRequest extends Model
 
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
         }
 
         if (null !== $this->withAttachments) {
@@ -103,6 +123,14 @@ class ListPoliciesRequest extends Model
 
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
         }
 
         if (isset($map['withAttachments'])) {

@@ -32,12 +32,24 @@ class ListGatewayQuotaRulesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $ruleStatus;
+
+    /**
+     * @var string
+     */
+    public $subjectNameLike;
     protected $_name = [
         'keyword' => 'keyword',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
+        'ruleStatus' => 'ruleStatus',
+        'subjectNameLike' => 'subjectNameLike',
     ];
 
     public function validate()
@@ -66,6 +78,14 @@ class ListGatewayQuotaRulesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->ruleStatus) {
+            $res['ruleStatus'] = $this->ruleStatus;
+        }
+
+        if (null !== $this->subjectNameLike) {
+            $res['subjectNameLike'] = $this->subjectNameLike;
         }
 
         return $res;
@@ -97,6 +117,14 @@ class ListGatewayQuotaRulesRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['ruleStatus'])) {
+            $model->ruleStatus = $map['ruleStatus'];
+        }
+
+        if (isset($map['subjectNameLike'])) {
+            $model->subjectNameLike = $map['subjectNameLike'];
         }
 
         return $model;

@@ -24,6 +24,11 @@ class vertexServiceConfig extends Model
     public $vertexAuthServiceName;
 
     /**
+     * @var bool
+     */
+    public $vertexOpenAICompatible;
+
+    /**
      * @var string
      */
     public $vertexProjectId;
@@ -41,6 +46,7 @@ class vertexServiceConfig extends Model
         'geminiSafetySetting' => 'geminiSafetySetting',
         'vertexAuthKey' => 'vertexAuthKey',
         'vertexAuthServiceName' => 'vertexAuthServiceName',
+        'vertexOpenAICompatible' => 'vertexOpenAICompatible',
         'vertexProjectId' => 'vertexProjectId',
         'vertexRegion' => 'vertexRegion',
         'vertexTokenRefreshAhead' => 'vertexTokenRefreshAhead',
@@ -72,6 +78,10 @@ class vertexServiceConfig extends Model
 
         if (null !== $this->vertexAuthServiceName) {
             $res['vertexAuthServiceName'] = $this->vertexAuthServiceName;
+        }
+
+        if (null !== $this->vertexOpenAICompatible) {
+            $res['vertexOpenAICompatible'] = $this->vertexOpenAICompatible;
         }
 
         if (null !== $this->vertexProjectId) {
@@ -112,6 +122,10 @@ class vertexServiceConfig extends Model
 
         if (isset($map['vertexAuthServiceName'])) {
             $model->vertexAuthServiceName = $map['vertexAuthServiceName'];
+        }
+
+        if (isset($map['vertexOpenAICompatible'])) {
+            $model->vertexOpenAICompatible = $map['vertexOpenAICompatible'];
         }
 
         if (isset($map['vertexProjectId'])) {

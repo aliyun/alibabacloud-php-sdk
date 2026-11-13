@@ -11,6 +11,11 @@ class CreateAiModelProviderRequest extends Model
     /**
      * @var string
      */
+    public $defaultServiceId;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -33,6 +38,7 @@ class CreateAiModelProviderRequest extends Model
      */
     public $clientToken;
     protected $_name = [
+        'defaultServiceId' => 'defaultServiceId',
         'displayName' => 'displayName',
         'gatewayId' => 'gatewayId',
         'provider' => 'provider',
@@ -51,6 +57,10 @@ class CreateAiModelProviderRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->defaultServiceId) {
+            $res['defaultServiceId'] = $this->defaultServiceId;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
@@ -89,6 +99,10 @@ class CreateAiModelProviderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['defaultServiceId'])) {
+            $model->defaultServiceId = $map['defaultServiceId'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }

@@ -18,6 +18,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $defaultServiceId;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -56,6 +61,7 @@ class data extends Model
     public $updateTime;
     protected $_name = [
         'boundServices' => 'boundServices',
+        'defaultServiceId' => 'defaultServiceId',
         'displayName' => 'displayName',
         'gatewayId' => 'gatewayId',
         'modelCards' => 'modelCards',
@@ -89,6 +95,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->defaultServiceId) {
+            $res['defaultServiceId'] = $this->defaultServiceId;
         }
 
         if (null !== $this->displayName) {
@@ -150,6 +160,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['defaultServiceId'])) {
+            $model->defaultServiceId = $map['defaultServiceId'];
         }
 
         if (isset($map['displayName'])) {

@@ -1,0 +1,140 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerConsoleSummariesResponseBody;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerConsoleSummariesResponseBody\data\counts;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerConsoleSummariesResponseBody\data\items;
+
+class data extends Model
+{
+    /**
+     * @var bool
+     */
+    public $complete;
+
+    /**
+     * @var counts
+     */
+    public $counts;
+
+    /**
+     * @var items[]
+     */
+    public $items;
+
+    /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
+    protected $_name = [
+        'complete' => 'complete',
+        'counts' => 'counts',
+        'items' => 'items',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
+        'totalCount' => 'totalCount',
+    ];
+
+    public function validate()
+    {
+        if (null !== $this->counts) {
+            $this->counts->validate();
+        }
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->complete) {
+            $res['complete'] = $this->complete;
+        }
+
+        if (null !== $this->counts) {
+            $res['counts'] = null !== $this->counts ? $this->counts->toArray($noStream) : $this->counts;
+        }
+
+        if (null !== $this->items) {
+            if (\is_array($this->items)) {
+                $res['items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['complete'])) {
+            $model->complete = $map['complete'];
+        }
+
+        if (isset($map['counts'])) {
+            $model->counts = counts::fromMap($map['counts']);
+        }
+
+        if (isset($map['items'])) {
+            if (!empty($map['items'])) {
+                $model->items = [];
+                $n1 = 0;
+                foreach ($map['items'] as $item1) {
+                    $model->items[$n1] = items::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['nextToken'])) {
+            $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
+        }
+
+        return $model;
+    }
+}

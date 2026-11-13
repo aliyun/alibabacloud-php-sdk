@@ -5,8 +5,11 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\apiKeyFailover;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\bedrockServiceConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\klingServiceConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\paiEASServiceConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\retryOnFailure;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AiServiceConfig\vertexServiceConfig;
 
 class AiServiceConfig extends Model
@@ -22,9 +25,24 @@ class AiServiceConfig extends Model
     public $address;
 
     /**
+     * @var apiKeyFailover
+     */
+    public $apiKeyFailover;
+
+    /**
+     * @var string[]
+     */
+    public $apiKeyReferences;
+
+    /**
      * @var string[]
      */
     public $apiKeys;
+
+    /**
+     * @var string
+     */
+    public $authHeaderKey;
 
     /**
      * @var bedrockServiceConfig
@@ -32,9 +50,19 @@ class AiServiceConfig extends Model
     public $bedrockServiceConfig;
 
     /**
+     * @var bool
+     */
+    public $claudeCodeMode;
+
+    /**
      * @var string[]
      */
     public $compatibleProtocols;
+
+    /**
+     * @var string
+     */
+    public $configRevision;
 
     /**
      * @var string
@@ -52,6 +80,11 @@ class AiServiceConfig extends Model
     public $enableOutlierDetection;
 
     /**
+     * @var klingServiceConfig
+     */
+    public $klingServiceConfig;
+
+    /**
      * @var paiEASServiceConfig
      */
     public $paiEASServiceConfig;
@@ -67,26 +100,50 @@ class AiServiceConfig extends Model
     public $provider;
 
     /**
+     * @var retryOnFailure
+     */
+    public $retryOnFailure;
+
+    /**
+     * @var string
+     */
+    public $upstreamAuthMode;
+
+    /**
      * @var vertexServiceConfig
      */
     public $vertexServiceConfig;
     protected $_name = [
         'apiKeyGenerateMode' => 'ApiKeyGenerateMode',
         'address' => 'address',
+        'apiKeyFailover' => 'apiKeyFailover',
+        'apiKeyReferences' => 'apiKeyReferences',
         'apiKeys' => 'apiKeys',
+        'authHeaderKey' => 'authHeaderKey',
         'bedrockServiceConfig' => 'bedrockServiceConfig',
+        'claudeCodeMode' => 'claudeCodeMode',
         'compatibleProtocols' => 'compatibleProtocols',
+        'configRevision' => 'configRevision',
         'defaultModelName' => 'defaultModelName',
         'enableHealthCheck' => 'enableHealthCheck',
         'enableOutlierDetection' => 'enableOutlierDetection',
+        'klingServiceConfig' => 'klingServiceConfig',
         'paiEASServiceConfig' => 'paiEASServiceConfig',
         'protocols' => 'protocols',
         'provider' => 'provider',
+        'retryOnFailure' => 'retryOnFailure',
+        'upstreamAuthMode' => 'upstreamAuthMode',
         'vertexServiceConfig' => 'vertexServiceConfig',
     ];
 
     public function validate()
     {
+        if (null !== $this->apiKeyFailover) {
+            $this->apiKeyFailover->validate();
+        }
+        if (\is_array($this->apiKeyReferences)) {
+            Model::validateArray($this->apiKeyReferences);
+        }
         if (\is_array($this->apiKeys)) {
             Model::validateArray($this->apiKeys);
         }
@@ -96,11 +153,17 @@ class AiServiceConfig extends Model
         if (\is_array($this->compatibleProtocols)) {
             Model::validateArray($this->compatibleProtocols);
         }
+        if (null !== $this->klingServiceConfig) {
+            $this->klingServiceConfig->validate();
+        }
         if (null !== $this->paiEASServiceConfig) {
             $this->paiEASServiceConfig->validate();
         }
         if (\is_array($this->protocols)) {
             Model::validateArray($this->protocols);
+        }
+        if (null !== $this->retryOnFailure) {
+            $this->retryOnFailure->validate();
         }
         if (null !== $this->vertexServiceConfig) {
             $this->vertexServiceConfig->validate();
@@ -119,6 +182,21 @@ class AiServiceConfig extends Model
             $res['address'] = $this->address;
         }
 
+        if (null !== $this->apiKeyFailover) {
+            $res['apiKeyFailover'] = null !== $this->apiKeyFailover ? $this->apiKeyFailover->toArray($noStream) : $this->apiKeyFailover;
+        }
+
+        if (null !== $this->apiKeyReferences) {
+            if (\is_array($this->apiKeyReferences)) {
+                $res['apiKeyReferences'] = [];
+                $n1 = 0;
+                foreach ($this->apiKeyReferences as $item1) {
+                    $res['apiKeyReferences'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->apiKeys) {
             if (\is_array($this->apiKeys)) {
                 $res['apiKeys'] = [];
@@ -130,8 +208,16 @@ class AiServiceConfig extends Model
             }
         }
 
+        if (null !== $this->authHeaderKey) {
+            $res['authHeaderKey'] = $this->authHeaderKey;
+        }
+
         if (null !== $this->bedrockServiceConfig) {
             $res['bedrockServiceConfig'] = null !== $this->bedrockServiceConfig ? $this->bedrockServiceConfig->toArray($noStream) : $this->bedrockServiceConfig;
+        }
+
+        if (null !== $this->claudeCodeMode) {
+            $res['claudeCodeMode'] = $this->claudeCodeMode;
         }
 
         if (null !== $this->compatibleProtocols) {
@@ -145,6 +231,10 @@ class AiServiceConfig extends Model
             }
         }
 
+        if (null !== $this->configRevision) {
+            $res['configRevision'] = $this->configRevision;
+        }
+
         if (null !== $this->defaultModelName) {
             $res['defaultModelName'] = $this->defaultModelName;
         }
@@ -155,6 +245,10 @@ class AiServiceConfig extends Model
 
         if (null !== $this->enableOutlierDetection) {
             $res['enableOutlierDetection'] = $this->enableOutlierDetection;
+        }
+
+        if (null !== $this->klingServiceConfig) {
+            $res['klingServiceConfig'] = null !== $this->klingServiceConfig ? $this->klingServiceConfig->toArray($noStream) : $this->klingServiceConfig;
         }
 
         if (null !== $this->paiEASServiceConfig) {
@@ -174,6 +268,14 @@ class AiServiceConfig extends Model
 
         if (null !== $this->provider) {
             $res['provider'] = $this->provider;
+        }
+
+        if (null !== $this->retryOnFailure) {
+            $res['retryOnFailure'] = null !== $this->retryOnFailure ? $this->retryOnFailure->toArray($noStream) : $this->retryOnFailure;
+        }
+
+        if (null !== $this->upstreamAuthMode) {
+            $res['upstreamAuthMode'] = $this->upstreamAuthMode;
         }
 
         if (null !== $this->vertexServiceConfig) {
@@ -199,6 +301,21 @@ class AiServiceConfig extends Model
             $model->address = $map['address'];
         }
 
+        if (isset($map['apiKeyFailover'])) {
+            $model->apiKeyFailover = apiKeyFailover::fromMap($map['apiKeyFailover']);
+        }
+
+        if (isset($map['apiKeyReferences'])) {
+            if (!empty($map['apiKeyReferences'])) {
+                $model->apiKeyReferences = [];
+                $n1 = 0;
+                foreach ($map['apiKeyReferences'] as $item1) {
+                    $model->apiKeyReferences[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['apiKeys'])) {
             if (!empty($map['apiKeys'])) {
                 $model->apiKeys = [];
@@ -210,8 +327,16 @@ class AiServiceConfig extends Model
             }
         }
 
+        if (isset($map['authHeaderKey'])) {
+            $model->authHeaderKey = $map['authHeaderKey'];
+        }
+
         if (isset($map['bedrockServiceConfig'])) {
             $model->bedrockServiceConfig = bedrockServiceConfig::fromMap($map['bedrockServiceConfig']);
+        }
+
+        if (isset($map['claudeCodeMode'])) {
+            $model->claudeCodeMode = $map['claudeCodeMode'];
         }
 
         if (isset($map['compatibleProtocols'])) {
@@ -225,6 +350,10 @@ class AiServiceConfig extends Model
             }
         }
 
+        if (isset($map['configRevision'])) {
+            $model->configRevision = $map['configRevision'];
+        }
+
         if (isset($map['defaultModelName'])) {
             $model->defaultModelName = $map['defaultModelName'];
         }
@@ -235,6 +364,10 @@ class AiServiceConfig extends Model
 
         if (isset($map['enableOutlierDetection'])) {
             $model->enableOutlierDetection = $map['enableOutlierDetection'];
+        }
+
+        if (isset($map['klingServiceConfig'])) {
+            $model->klingServiceConfig = klingServiceConfig::fromMap($map['klingServiceConfig']);
         }
 
         if (isset($map['paiEASServiceConfig'])) {
@@ -254,6 +387,14 @@ class AiServiceConfig extends Model
 
         if (isset($map['provider'])) {
             $model->provider = $map['provider'];
+        }
+
+        if (isset($map['retryOnFailure'])) {
+            $model->retryOnFailure = retryOnFailure::fromMap($map['retryOnFailure']);
+        }
+
+        if (isset($map['upstreamAuthMode'])) {
+            $model->upstreamAuthMode = $map['upstreamAuthMode'];
         }
 
         if (isset($map['vertexServiceConfig'])) {

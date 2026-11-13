@@ -42,6 +42,11 @@ class UpdateServiceRequest extends Model
     public $dnsServers;
 
     /**
+     * @var string
+     */
+    public $expectedConfigRevision;
+
+    /**
      * @var healthCheckConfig
      */
     public $healthCheckConfig;
@@ -77,6 +82,7 @@ class UpdateServiceRequest extends Model
         'apiKeyReferencesToAdd' => 'apiKeyReferencesToAdd',
         'apiKeysToAdd' => 'apiKeysToAdd',
         'dnsServers' => 'dnsServers',
+        'expectedConfigRevision' => 'expectedConfigRevision',
         'healthCheckConfig' => 'healthCheckConfig',
         'healthyPanicThreshold' => 'healthyPanicThreshold',
         'modelProviderId' => 'modelProviderId',
@@ -172,6 +178,10 @@ class UpdateServiceRequest extends Model
             }
         }
 
+        if (null !== $this->expectedConfigRevision) {
+            $res['expectedConfigRevision'] = $this->expectedConfigRevision;
+        }
+
         if (null !== $this->healthCheckConfig) {
             $res['healthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toArray($noStream) : $this->healthCheckConfig;
         }
@@ -264,6 +274,10 @@ class UpdateServiceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['expectedConfigRevision'])) {
+            $model->expectedConfigRevision = $map['expectedConfigRevision'];
         }
 
         if (isset($map['healthCheckConfig'])) {

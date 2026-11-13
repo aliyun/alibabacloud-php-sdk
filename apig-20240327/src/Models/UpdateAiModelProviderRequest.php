@@ -11,6 +11,11 @@ class UpdateAiModelProviderRequest extends Model
     /**
      * @var string
      */
+    public $defaultServiceId;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -18,6 +23,7 @@ class UpdateAiModelProviderRequest extends Model
      */
     public $serviceIds;
     protected $_name = [
+        'defaultServiceId' => 'defaultServiceId',
         'displayName' => 'displayName',
         'serviceIds' => 'serviceIds',
     ];
@@ -33,6 +39,10 @@ class UpdateAiModelProviderRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->defaultServiceId) {
+            $res['defaultServiceId'] = $this->defaultServiceId;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
@@ -59,6 +69,10 @@ class UpdateAiModelProviderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['defaultServiceId'])) {
+            $model->defaultServiceId = $map['defaultServiceId'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }

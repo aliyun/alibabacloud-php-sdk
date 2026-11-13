@@ -27,11 +27,17 @@ class ListConsumerGroupQuotaRulesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $ruleStatus;
     protected $_name = [
         'gatewayId' => 'gatewayId',
         'keyword' => 'keyword',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
+        'ruleStatus' => 'ruleStatus',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ListConsumerGroupQuotaRulesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->ruleStatus) {
+            $res['ruleStatus'] = $this->ruleStatus;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ListConsumerGroupQuotaRulesRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['ruleStatus'])) {
+            $model->ruleStatus = $map['ruleStatus'];
         }
 
         return $model;

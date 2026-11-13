@@ -14,11 +14,17 @@ class credentials extends Model
     public $apikey;
 
     /**
+     * @var int
+     */
+    public $createTimestamp;
+
+    /**
      * @var string
      */
     public $generateMode;
     protected $_name = [
         'apikey' => 'apikey',
+        'createTimestamp' => 'createTimestamp',
         'generateMode' => 'generateMode',
     ];
 
@@ -32,6 +38,10 @@ class credentials extends Model
         $res = [];
         if (null !== $this->apikey) {
             $res['apikey'] = $this->apikey;
+        }
+
+        if (null !== $this->createTimestamp) {
+            $res['createTimestamp'] = $this->createTimestamp;
         }
 
         if (null !== $this->generateMode) {
@@ -51,6 +61,10 @@ class credentials extends Model
         $model = new self();
         if (isset($map['apikey'])) {
             $model->apikey = $map['apikey'];
+        }
+
+        if (isset($map['createTimestamp'])) {
+            $model->createTimestamp = $map['createTimestamp'];
         }
 
         if (isset($map['generateMode'])) {

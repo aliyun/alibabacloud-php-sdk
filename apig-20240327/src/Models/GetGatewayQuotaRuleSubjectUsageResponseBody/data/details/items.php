@@ -39,6 +39,21 @@ class items extends Model
     public $model;
 
     /**
+     * @var string
+     */
+    public $modelCardId;
+
+    /**
+     * @var string
+     */
+    public $modelSourceId;
+
+    /**
+     * @var string
+     */
+    public $modelSourceName;
+
+    /**
      * @var int
      */
     public $outputAmount;
@@ -52,6 +67,11 @@ class items extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $serviceId;
 
     /**
      * @var string
@@ -74,9 +94,13 @@ class items extends Model
         'inputAmount' => 'inputAmount',
         'inputAmountDecimal' => 'inputAmountDecimal',
         'model' => 'model',
+        'modelCardId' => 'modelCardId',
+        'modelSourceId' => 'modelSourceId',
+        'modelSourceName' => 'modelSourceName',
         'outputAmount' => 'outputAmount',
         'outputAmountDecimal' => 'outputAmountDecimal',
         'requestId' => 'requestId',
+        'serviceId' => 'serviceId',
         'startTime' => 'startTime',
         'usedAmount' => 'usedAmount',
         'usedAmountDecimal' => 'usedAmountDecimal',
@@ -114,6 +138,18 @@ class items extends Model
             $res['model'] = $this->model;
         }
 
+        if (null !== $this->modelCardId) {
+            $res['modelCardId'] = $this->modelCardId;
+        }
+
+        if (null !== $this->modelSourceId) {
+            $res['modelSourceId'] = $this->modelSourceId;
+        }
+
+        if (null !== $this->modelSourceName) {
+            $res['modelSourceName'] = $this->modelSourceName;
+        }
+
         if (null !== $this->outputAmount) {
             $res['outputAmount'] = $this->outputAmount;
         }
@@ -124,6 +160,10 @@ class items extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->serviceId) {
+            $res['serviceId'] = $this->serviceId;
         }
 
         if (null !== $this->startTime) {
@@ -173,6 +213,18 @@ class items extends Model
             $model->model = $map['model'];
         }
 
+        if (isset($map['modelCardId'])) {
+            $model->modelCardId = $map['modelCardId'];
+        }
+
+        if (isset($map['modelSourceId'])) {
+            $model->modelSourceId = $map['modelSourceId'];
+        }
+
+        if (isset($map['modelSourceName'])) {
+            $model->modelSourceName = $map['modelSourceName'];
+        }
+
         if (isset($map['outputAmount'])) {
             $model->outputAmount = $map['outputAmount'];
         }
@@ -183,6 +235,10 @@ class items extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['serviceId'])) {
+            $model->serviceId = $map['serviceId'];
         }
 
         if (isset($map['startTime'])) {
