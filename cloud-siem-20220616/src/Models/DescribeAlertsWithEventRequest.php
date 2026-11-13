@@ -56,6 +56,16 @@ class DescribeAlertsWithEventRequest extends Model
     /**
      * @var string
      */
+    public $groupBy;
+
+    /**
+     * @var string
+     */
+    public $groupByValue;
+
+    /**
+     * @var string
+     */
     public $incidentUuid;
 
     /**
@@ -112,6 +122,8 @@ class DescribeAlertsWithEventRequest extends Model
         'endTime' => 'EndTime',
         'entityId' => 'EntityId',
         'entityName' => 'EntityName',
+        'groupBy' => 'GroupBy',
+        'groupByValue' => 'GroupByValue',
         'incidentUuid' => 'IncidentUuid',
         'isDefend' => 'IsDefend',
         'level' => 'Level',
@@ -169,6 +181,14 @@ class DescribeAlertsWithEventRequest extends Model
 
         if (null !== $this->entityName) {
             $res['EntityName'] = $this->entityName;
+        }
+
+        if (null !== $this->groupBy) {
+            $res['GroupBy'] = $this->groupBy;
+        }
+
+        if (null !== $this->groupByValue) {
+            $res['GroupByValue'] = $this->groupByValue;
         }
 
         if (null !== $this->incidentUuid) {
@@ -263,6 +283,14 @@ class DescribeAlertsWithEventRequest extends Model
 
         if (isset($map['EntityName'])) {
             $model->entityName = $map['EntityName'];
+        }
+
+        if (isset($map['GroupBy'])) {
+            $model->groupBy = $map['GroupBy'];
+        }
+
+        if (isset($map['GroupByValue'])) {
+            $model->groupByValue = $map['GroupByValue'];
         }
 
         if (isset($map['IncidentUuid'])) {
