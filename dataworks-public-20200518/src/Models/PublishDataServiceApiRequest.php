@@ -14,6 +14,21 @@ class PublishDataServiceApiRequest extends Model
     public $apiId;
 
     /**
+     * @var string[]
+     */
+    public $apigwDomainIds;
+
+    /**
+     * @var string
+     */
+    public $apigwInstanceId;
+
+    /**
+     * @var string
+     */
+    public $apigwService;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -24,12 +39,18 @@ class PublishDataServiceApiRequest extends Model
     public $tenantId;
     protected $_name = [
         'apiId' => 'ApiId',
+        'apigwDomainIds' => 'ApigwDomainIds',
+        'apigwInstanceId' => 'ApigwInstanceId',
+        'apigwService' => 'ApigwService',
         'projectId' => 'ProjectId',
         'tenantId' => 'TenantId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->apigwDomainIds)) {
+            Model::validateArray($this->apigwDomainIds);
+        }
         parent::validate();
     }
 
@@ -38,6 +59,25 @@ class PublishDataServiceApiRequest extends Model
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
+        }
+
+        if (null !== $this->apigwDomainIds) {
+            if (\is_array($this->apigwDomainIds)) {
+                $res['ApigwDomainIds'] = [];
+                $n1 = 0;
+                foreach ($this->apigwDomainIds as $item1) {
+                    $res['ApigwDomainIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->apigwInstanceId) {
+            $res['ApigwInstanceId'] = $this->apigwInstanceId;
+        }
+
+        if (null !== $this->apigwService) {
+            $res['ApigwService'] = $this->apigwService;
         }
 
         if (null !== $this->projectId) {
@@ -61,6 +101,25 @@ class PublishDataServiceApiRequest extends Model
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
+        }
+
+        if (isset($map['ApigwDomainIds'])) {
+            if (!empty($map['ApigwDomainIds'])) {
+                $model->apigwDomainIds = [];
+                $n1 = 0;
+                foreach ($map['ApigwDomainIds'] as $item1) {
+                    $model->apigwDomainIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ApigwInstanceId'])) {
+            $model->apigwInstanceId = $map['ApigwInstanceId'];
+        }
+
+        if (isset($map['ApigwService'])) {
+            $model->apigwService = $map['ApigwService'];
         }
 
         if (isset($map['ProjectId'])) {

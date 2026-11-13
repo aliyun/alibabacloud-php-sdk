@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineReques
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineRequest\alertSettings\dingRobots;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineRequest\alertSettings\topicSlowConfig;
 
 class alertSettings extends Model
 {
@@ -60,6 +61,11 @@ class alertSettings extends Model
     public $silenceStartTime;
 
     /**
+     * @var topicSlowConfig
+     */
+    public $topicSlowConfig;
+
+    /**
      * @var string[]
      */
     public $topicTypes;
@@ -79,6 +85,7 @@ class alertSettings extends Model
         'dingRobots' => 'DingRobots',
         'silenceEndTime' => 'SilenceEndTime',
         'silenceStartTime' => 'SilenceStartTime',
+        'topicSlowConfig' => 'TopicSlowConfig',
         'topicTypes' => 'TopicTypes',
         'webhooks' => 'Webhooks',
     ];
@@ -90,6 +97,9 @@ class alertSettings extends Model
         }
         if (\is_array($this->dingRobots)) {
             Model::validateArray($this->dingRobots);
+        }
+        if (null !== $this->topicSlowConfig) {
+            $this->topicSlowConfig->validate();
         }
         if (\is_array($this->topicTypes)) {
             Model::validateArray($this->topicTypes);
@@ -155,6 +165,10 @@ class alertSettings extends Model
 
         if (null !== $this->silenceStartTime) {
             $res['SilenceStartTime'] = $this->silenceStartTime;
+        }
+
+        if (null !== $this->topicSlowConfig) {
+            $res['TopicSlowConfig'] = null !== $this->topicSlowConfig ? $this->topicSlowConfig->toArray($noStream) : $this->topicSlowConfig;
         }
 
         if (null !== $this->topicTypes) {
@@ -242,6 +256,10 @@ class alertSettings extends Model
 
         if (isset($map['SilenceStartTime'])) {
             $model->silenceStartTime = $map['SilenceStartTime'];
+        }
+
+        if (isset($map['TopicSlowConfig'])) {
+            $model->topicSlowConfig = topicSlowConfig::fromMap($map['TopicSlowConfig']);
         }
 
         if (isset($map['TopicTypes'])) {

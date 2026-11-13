@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListDataServiceGroupsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $apigwVersion;
+
+    /**
      * @var string
      */
     public $groupNameKeyword;
@@ -33,6 +38,7 @@ class ListDataServiceGroupsRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'apigwVersion' => 'ApigwVersion',
         'groupNameKeyword' => 'GroupNameKeyword',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -48,6 +54,10 @@ class ListDataServiceGroupsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apigwVersion) {
+            $res['ApigwVersion'] = $this->apigwVersion;
+        }
+
         if (null !== $this->groupNameKeyword) {
             $res['GroupNameKeyword'] = $this->groupNameKeyword;
         }
@@ -79,6 +89,10 @@ class ListDataServiceGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApigwVersion'])) {
+            $model->apigwVersion = $map['ApigwVersion'];
+        }
+
         if (isset($map['GroupNameKeyword'])) {
             $model->groupNameKeyword = $map['GroupNameKeyword'];
         }

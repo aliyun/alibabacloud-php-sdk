@@ -11,6 +11,11 @@ class authorizationRecords extends Model
     /**
      * @var string
      */
+    public $consumerAuthorizationRuleId;
+
+    /**
+     * @var string
+     */
     public $createdTime;
 
     /**
@@ -28,6 +33,7 @@ class authorizationRecords extends Model
      */
     public $projectId;
     protected $_name = [
+        'consumerAuthorizationRuleId' => 'ConsumerAuthorizationRuleId',
         'createdTime' => 'CreatedTime',
         'creatorId' => 'CreatorId',
         'endTime' => 'EndTime',
@@ -42,6 +48,10 @@ class authorizationRecords extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->consumerAuthorizationRuleId) {
+            $res['ConsumerAuthorizationRuleId'] = $this->consumerAuthorizationRuleId;
+        }
+
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
@@ -69,6 +79,10 @@ class authorizationRecords extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConsumerAuthorizationRuleId'])) {
+            $model->consumerAuthorizationRuleId = $map['ConsumerAuthorizationRuleId'];
+        }
+
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }

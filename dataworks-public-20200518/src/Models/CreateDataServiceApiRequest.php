@@ -31,6 +31,11 @@ class CreateDataServiceApiRequest extends Model
     /**
      * @var int
      */
+    public $cloudNativeApiGwAuthType;
+
+    /**
+     * @var int
+     */
     public $folderId;
 
     /**
@@ -107,6 +112,7 @@ class CreateDataServiceApiRequest extends Model
         'apiMode' => 'ApiMode',
         'apiName' => 'ApiName',
         'apiPath' => 'ApiPath',
+        'cloudNativeApiGwAuthType' => 'CloudNativeApiGwAuthType',
         'folderId' => 'FolderId',
         'groupId' => 'GroupId',
         'projectId' => 'ProjectId',
@@ -146,6 +152,10 @@ class CreateDataServiceApiRequest extends Model
 
         if (null !== $this->apiPath) {
             $res['ApiPath'] = $this->apiPath;
+        }
+
+        if (null !== $this->cloudNativeApiGwAuthType) {
+            $res['CloudNativeApiGwAuthType'] = $this->cloudNativeApiGwAuthType;
         }
 
         if (null !== $this->folderId) {
@@ -233,6 +243,10 @@ class CreateDataServiceApiRequest extends Model
 
         if (isset($map['ApiPath'])) {
             $model->apiPath = $map['ApiPath'];
+        }
+
+        if (isset($map['CloudNativeApiGwAuthType'])) {
+            $model->cloudNativeApiGwAuthType = $map['CloudNativeApiGwAuthType'];
         }
 
         if (isset($map['FolderId'])) {

@@ -32,6 +32,16 @@ class apis extends Model
     public $apiPath;
 
     /**
+     * @var int
+     */
+    public $apigwVersion;
+
+    /**
+     * @var int
+     */
+    public $cloudNativeApiGwAuthType;
+
+    /**
      * @var string
      */
     public $createdTime;
@@ -125,6 +135,8 @@ class apis extends Model
         'apiMode' => 'ApiMode',
         'apiName' => 'ApiName',
         'apiPath' => 'ApiPath',
+        'apigwVersion' => 'ApigwVersion',
+        'cloudNativeApiGwAuthType' => 'CloudNativeApiGwAuthType',
         'createdTime' => 'CreatedTime',
         'creatorId' => 'CreatorId',
         'description' => 'Description',
@@ -179,6 +191,14 @@ class apis extends Model
 
         if (null !== $this->apiPath) {
             $res['ApiPath'] = $this->apiPath;
+        }
+
+        if (null !== $this->apigwVersion) {
+            $res['ApigwVersion'] = $this->apigwVersion;
+        }
+
+        if (null !== $this->cloudNativeApiGwAuthType) {
+            $res['CloudNativeApiGwAuthType'] = $this->cloudNativeApiGwAuthType;
         }
 
         if (null !== $this->createdTime) {
@@ -285,6 +305,14 @@ class apis extends Model
 
         if (isset($map['ApiPath'])) {
             $model->apiPath = $map['ApiPath'];
+        }
+
+        if (isset($map['ApigwVersion'])) {
+            $model->apigwVersion = $map['ApigwVersion'];
+        }
+
+        if (isset($map['CloudNativeApiGwAuthType'])) {
+            $model->cloudNativeApiGwAuthType = $map['CloudNativeApiGwAuthType'];
         }
 
         if (isset($map['CreatedTime'])) {

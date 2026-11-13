@@ -14,6 +14,11 @@ class AbolishDataServiceApiRequest extends Model
     public $apiId;
 
     /**
+     * @var string
+     */
+    public $apigwInstanceId;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -24,6 +29,7 @@ class AbolishDataServiceApiRequest extends Model
     public $tenantId;
     protected $_name = [
         'apiId' => 'ApiId',
+        'apigwInstanceId' => 'ApigwInstanceId',
         'projectId' => 'ProjectId',
         'tenantId' => 'TenantId',
     ];
@@ -38,6 +44,10 @@ class AbolishDataServiceApiRequest extends Model
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
+        }
+
+        if (null !== $this->apigwInstanceId) {
+            $res['ApigwInstanceId'] = $this->apigwInstanceId;
         }
 
         if (null !== $this->projectId) {
@@ -61,6 +71,10 @@ class AbolishDataServiceApiRequest extends Model
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
+        }
+
+        if (isset($map['ApigwInstanceId'])) {
+            $model->apigwInstanceId = $map['ApigwInstanceId'];
         }
 
         if (isset($map['ProjectId'])) {

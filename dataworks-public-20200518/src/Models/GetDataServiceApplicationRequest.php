@@ -11,6 +11,11 @@ class GetDataServiceApplicationRequest extends Model
     /**
      * @var int
      */
+    public $apigwVersion;
+
+    /**
+     * @var int
+     */
     public $applicationId;
 
     /**
@@ -23,6 +28,7 @@ class GetDataServiceApplicationRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'apigwVersion' => 'ApigwVersion',
         'applicationId' => 'ApplicationId',
         'projectId' => 'ProjectId',
         'tenantId' => 'TenantId',
@@ -36,6 +42,10 @@ class GetDataServiceApplicationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apigwVersion) {
+            $res['ApigwVersion'] = $this->apigwVersion;
+        }
+
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
@@ -59,6 +69,10 @@ class GetDataServiceApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApigwVersion'])) {
+            $model->apigwVersion = $map['ApigwVersion'];
+        }
+
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }

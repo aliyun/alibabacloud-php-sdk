@@ -16,6 +16,11 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     /**
      * @var int
      */
+    public $apigwVersion;
+
+    /**
+     * @var int
+     */
     public $pageNumber;
 
     /**
@@ -34,6 +39,7 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     public $tenantId;
     protected $_name = [
         'apiNameKeyword' => 'ApiNameKeyword',
+        'apigwVersion' => 'ApigwVersion',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
@@ -50,6 +56,10 @@ class ListDataServiceApiAuthoritiesRequest extends Model
         $res = [];
         if (null !== $this->apiNameKeyword) {
             $res['ApiNameKeyword'] = $this->apiNameKeyword;
+        }
+
+        if (null !== $this->apigwVersion) {
+            $res['ApigwVersion'] = $this->apigwVersion;
         }
 
         if (null !== $this->pageNumber) {
@@ -81,6 +91,10 @@ class ListDataServiceApiAuthoritiesRequest extends Model
         $model = new self();
         if (isset($map['ApiNameKeyword'])) {
             $model->apiNameKeyword = $map['ApiNameKeyword'];
+        }
+
+        if (isset($map['ApigwVersion'])) {
+            $model->apigwVersion = $map['ApigwVersion'];
         }
 
         if (isset($map['PageNumber'])) {

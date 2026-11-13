@@ -14,6 +14,16 @@ class groups extends Model
     public $apiGatewayGroupId;
 
     /**
+     * @var int
+     */
+    public $apigwVersion;
+
+    /**
+     * @var string
+     */
+    public $cloudNativeApigwGroupId;
+
+    /**
      * @var string
      */
     public $createdTime;
@@ -54,6 +64,8 @@ class groups extends Model
     public $tenantId;
     protected $_name = [
         'apiGatewayGroupId' => 'ApiGatewayGroupId',
+        'apigwVersion' => 'ApigwVersion',
+        'cloudNativeApigwGroupId' => 'CloudNativeApigwGroupId',
         'createdTime' => 'CreatedTime',
         'creatorId' => 'CreatorId',
         'description' => 'Description',
@@ -74,6 +86,14 @@ class groups extends Model
         $res = [];
         if (null !== $this->apiGatewayGroupId) {
             $res['ApiGatewayGroupId'] = $this->apiGatewayGroupId;
+        }
+
+        if (null !== $this->apigwVersion) {
+            $res['ApigwVersion'] = $this->apigwVersion;
+        }
+
+        if (null !== $this->cloudNativeApigwGroupId) {
+            $res['CloudNativeApigwGroupId'] = $this->cloudNativeApigwGroupId;
         }
 
         if (null !== $this->createdTime) {
@@ -121,6 +141,14 @@ class groups extends Model
         $model = new self();
         if (isset($map['ApiGatewayGroupId'])) {
             $model->apiGatewayGroupId = $map['ApiGatewayGroupId'];
+        }
+
+        if (isset($map['ApigwVersion'])) {
+            $model->apigwVersion = $map['ApigwVersion'];
+        }
+
+        if (isset($map['CloudNativeApigwGroupId'])) {
+            $model->cloudNativeApigwGroupId = $map['CloudNativeApigwGroupId'];
         }
 
         if (isset($map['CreatedTime'])) {

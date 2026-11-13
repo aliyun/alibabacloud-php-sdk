@@ -31,6 +31,11 @@ class apiAuthorizedList extends Model
     /**
      * @var string
      */
+    public $consumerAuthorizationRuleId;
+
+    /**
+     * @var string
+     */
     public $createdTime;
 
     /**
@@ -77,6 +82,7 @@ class apiAuthorizedList extends Model
         'apiName' => 'ApiName',
         'apiPath' => 'ApiPath',
         'apiStatus' => 'ApiStatus',
+        'consumerAuthorizationRuleId' => 'ConsumerAuthorizationRuleId',
         'createdTime' => 'CreatedTime',
         'creatorId' => 'CreatorId',
         'grantCreatedTime' => 'GrantCreatedTime',
@@ -110,6 +116,10 @@ class apiAuthorizedList extends Model
 
         if (null !== $this->apiStatus) {
             $res['ApiStatus'] = $this->apiStatus;
+        }
+
+        if (null !== $this->consumerAuthorizationRuleId) {
+            $res['ConsumerAuthorizationRuleId'] = $this->consumerAuthorizationRuleId;
         }
 
         if (null !== $this->createdTime) {
@@ -173,6 +183,10 @@ class apiAuthorizedList extends Model
 
         if (isset($map['ApiStatus'])) {
             $model->apiStatus = $map['ApiStatus'];
+        }
+
+        if (isset($map['ConsumerAuthorizationRuleId'])) {
+            $model->consumerAuthorizationRuleId = $map['ConsumerAuthorizationRuleId'];
         }
 
         if (isset($map['CreatedTime'])) {

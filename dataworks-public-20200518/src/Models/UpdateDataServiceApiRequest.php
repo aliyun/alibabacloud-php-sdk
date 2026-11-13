@@ -26,6 +26,11 @@ class UpdateDataServiceApiRequest extends Model
     /**
      * @var int
      */
+    public $cloudNativeApiGwAuthType;
+
+    /**
+     * @var int
+     */
     public $projectId;
 
     /**
@@ -81,6 +86,7 @@ class UpdateDataServiceApiRequest extends Model
         'apiDescription' => 'ApiDescription',
         'apiId' => 'ApiId',
         'apiPath' => 'ApiPath',
+        'cloudNativeApiGwAuthType' => 'CloudNativeApiGwAuthType',
         'projectId' => 'ProjectId',
         'protocols' => 'Protocols',
         'registrationDetails' => 'RegistrationDetails',
@@ -112,6 +118,10 @@ class UpdateDataServiceApiRequest extends Model
 
         if (null !== $this->apiPath) {
             $res['ApiPath'] = $this->apiPath;
+        }
+
+        if (null !== $this->cloudNativeApiGwAuthType) {
+            $res['CloudNativeApiGwAuthType'] = $this->cloudNativeApiGwAuthType;
         }
 
         if (null !== $this->projectId) {
@@ -179,6 +189,10 @@ class UpdateDataServiceApiRequest extends Model
 
         if (isset($map['ApiPath'])) {
             $model->apiPath = $map['ApiPath'];
+        }
+
+        if (isset($map['CloudNativeApiGwAuthType'])) {
+            $model->cloudNativeApiGwAuthType = $map['CloudNativeApiGwAuthType'];
         }
 
         if (isset($map['ProjectId'])) {
