@@ -9,10 +9,22 @@ use AlibabaCloud\Dara\Model;
 class systemDisk extends Model
 {
     /**
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
+     * @var string
+     */
+    public $KMSKeyId;
+
+    /**
      * @var string
      */
     public $performanceLevel;
     protected $_name = [
+        'encrypted' => 'Encrypted',
+        'KMSKeyId' => 'KMSKeyId',
         'performanceLevel' => 'PerformanceLevel',
     ];
 
@@ -24,6 +36,14 @@ class systemDisk extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
+        }
+
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
         }
@@ -39,6 +59,14 @@ class systemDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
+        }
+
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
         }

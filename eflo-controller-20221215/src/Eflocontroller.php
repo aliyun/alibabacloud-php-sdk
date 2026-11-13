@@ -158,6 +158,7 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UpdateNodeGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UpdateNodeGroupResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UpdateNodeGroupShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -168,6 +169,9 @@ class Eflocontroller extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'eflo-controller';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eflo-controller', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -541,7 +545,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Creates a Lingjun AI Computing Service cluster.
+     * Creates a Lingjun cluster.
      *
      * @remarks
      * Closes a remote session.
@@ -647,7 +651,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Creates a Lingjun AI Computing Service cluster.
+     * Creates a Lingjun cluster.
      *
      * @remarks
      * Closes a remote session.
@@ -1555,10 +1559,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a hypernode.
+     * Queries the details of a supernode.
      *
      * @remarks
-     * Queries the details of a hypernode.
+     * Queries the details of a supernode.
      *
      * @param request - DescribeHyperNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1597,10 +1601,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the details of a hypernode.
+     * Queries the details of a supernode.
      *
      * @remarks
-     * Queries the details of a hypernode.
+     * Queries the details of a supernode.
      *
      * @param request - DescribeHyperNodeRequest
      *
@@ -1744,10 +1748,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes.
+     * Queries the list of nodes.
      *
      * @remarks
-     * Queries the details of a supernode.
+     * Queries the details of a super node.
      *
      * @param request - DescribeNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1786,10 +1790,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes.
+     * Queries the list of nodes.
      *
      * @remarks
-     * Queries the details of a supernode.
+     * Queries the details of a super node.
      *
      * @param request - DescribeNodeRequest
      *
@@ -2306,7 +2310,7 @@ class Eflocontroller extends OpenApiClient
      * Scales out a cluster.
      *
      * @remarks
-     * Closes a remote session.
+     * The API operation to close a remote session.
      *
      * @param tmpReq - ExtendClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2382,7 +2386,7 @@ class Eflocontroller extends OpenApiClient
      * Scales out a cluster.
      *
      * @remarks
-     * Closes a remote session.
+     * The API operation to close a remote session.
      *
      * @param request - ExtendClusterRequest
      *
@@ -3255,7 +3259,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the list of network tests.
+     * Lists network tests.
      *
      * @param request - ListNetTestResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3306,7 +3310,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the list of network tests.
+     * Lists network tests.
      *
      * @param request - ListNetTestResultsRequest
      *
@@ -3843,7 +3847,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Restarts nodes.
+     * Restarts or starts a machine.
      *
      * @param tmpReq - RebootNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3896,7 +3900,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Restarts nodes.
+     * Restarts or starts a machine.
      *
      * @param request - RebootNodesRequest
      *
@@ -3999,7 +4003,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reinstalls machines.
+     * Reinstalls nodes.
      *
      * @param tmpReq - ReimageNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4056,7 +4060,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reinstalls machines.
+     * Reinstalls nodes.
      *
      * @param request - ReimageNodesRequest
      *
@@ -4234,7 +4238,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Runs a Shell script on one or more Lingjun nodes.
+     * Executes a shell script on one or more Lingjun nodes.
      *
      * @param tmpReq - RunCommandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4343,7 +4347,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Runs a Shell script on one or more Lingjun nodes.
+     * Executes a shell script on one or more Lingjun nodes.
      *
      * @param request - RunCommandRequest
      *

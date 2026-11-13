@@ -19,6 +19,16 @@ class disks extends Model
     public $diskId;
 
     /**
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
+     * @var string
+     */
+    public $KMSKeyId;
+
+    /**
      * @var string
      */
     public $performanceLevel;
@@ -35,6 +45,8 @@ class disks extends Model
     protected $_name = [
         'category' => 'Category',
         'diskId' => 'DiskId',
+        'encrypted' => 'Encrypted',
+        'KMSKeyId' => 'KMSKeyId',
         'performanceLevel' => 'PerformanceLevel',
         'size' => 'Size',
         'type' => 'Type',
@@ -54,6 +66,14 @@ class disks extends Model
 
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
+        }
+
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
 
         if (null !== $this->performanceLevel) {
@@ -85,6 +105,14 @@ class disks extends Model
 
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
+        }
+
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
 
         if (isset($map['PerformanceLevel'])) {

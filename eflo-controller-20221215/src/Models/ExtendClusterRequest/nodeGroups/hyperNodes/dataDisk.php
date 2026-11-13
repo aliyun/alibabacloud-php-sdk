@@ -26,6 +26,21 @@ class dataDisk extends Model
     /**
      * @var string
      */
+    public $device;
+
+    /**
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
+     * @var string
+     */
+    public $KMSKeyId;
+
+    /**
+     * @var string
+     */
     public $performanceLevel;
 
     /**
@@ -41,6 +56,9 @@ class dataDisk extends Model
         'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
         'deleteWithNode' => 'DeleteWithNode',
+        'device' => 'Device',
+        'encrypted' => 'Encrypted',
+        'KMSKeyId' => 'KMSKeyId',
         'performanceLevel' => 'PerformanceLevel',
         'provisionedIops' => 'ProvisionedIops',
         'size' => 'Size',
@@ -64,6 +82,18 @@ class dataDisk extends Model
 
         if (null !== $this->deleteWithNode) {
             $res['DeleteWithNode'] = $this->deleteWithNode;
+        }
+
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
+        }
+
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
 
         if (null !== $this->performanceLevel) {
@@ -99,6 +129,18 @@ class dataDisk extends Model
 
         if (isset($map['DeleteWithNode'])) {
             $model->deleteWithNode = $map['DeleteWithNode'];
+        }
+
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
+        }
+
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
 
         if (isset($map['PerformanceLevel'])) {

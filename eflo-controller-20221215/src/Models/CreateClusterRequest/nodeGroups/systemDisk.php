@@ -14,6 +14,16 @@ class systemDisk extends Model
     public $category;
 
     /**
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
+     * @var string
+     */
+    public $KMSKeyId;
+
+    /**
      * @var string
      */
     public $performanceLevel;
@@ -24,6 +34,8 @@ class systemDisk extends Model
     public $size;
     protected $_name = [
         'category' => 'Category',
+        'encrypted' => 'Encrypted',
+        'KMSKeyId' => 'KMSKeyId',
         'performanceLevel' => 'PerformanceLevel',
         'size' => 'Size',
     ];
@@ -38,6 +50,14 @@ class systemDisk extends Model
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+
+        if (null !== $this->KMSKeyId) {
+            $res['KMSKeyId'] = $this->KMSKeyId;
         }
 
         if (null !== $this->performanceLevel) {
@@ -61,6 +81,14 @@ class systemDisk extends Model
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+
+        if (isset($map['KMSKeyId'])) {
+            $model->KMSKeyId = $map['KMSKeyId'];
         }
 
         if (isset($map['PerformanceLevel'])) {
