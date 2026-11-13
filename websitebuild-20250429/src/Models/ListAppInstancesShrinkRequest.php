@@ -26,6 +26,11 @@ class ListAppInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $endTimeBegin;
 
     /**
@@ -86,6 +91,7 @@ class ListAppInstancesShrinkRequest extends Model
         'applicationType' => 'ApplicationType',
         'bizId' => 'BizId',
         'bizIdsShrink' => 'BizIds',
+        'domain' => 'Domain',
         'endTimeBegin' => 'EndTimeBegin',
         'endTimeEnd' => 'EndTimeEnd',
         'extend' => 'Extend',
@@ -118,6 +124,10 @@ class ListAppInstancesShrinkRequest extends Model
 
         if (null !== $this->bizIdsShrink) {
             $res['BizIds'] = $this->bizIdsShrink;
+        }
+
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         if (null !== $this->endTimeBegin) {
@@ -189,6 +199,10 @@ class ListAppInstancesShrinkRequest extends Model
 
         if (isset($map['BizIds'])) {
             $model->bizIdsShrink = $map['BizIds'];
+        }
+
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         if (isset($map['EndTimeBegin'])) {

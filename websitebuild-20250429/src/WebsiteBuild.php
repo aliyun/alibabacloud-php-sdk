@@ -1241,10 +1241,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Asynchronously initiates a conversation with an AI employee.
+     * Asynchronously initiates a conversation with an AI agent.
      *
      * @remarks
-     * Initiates a WanXiaoZhi 2.0 AI conversation.
+     * Initiates a Wanxiaozhi 2.0 AI conversation.
      *
      * @param request - CreateAIStaffChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1302,10 +1302,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Asynchronously initiates a conversation with an AI employee.
+     * Asynchronously initiates a conversation with an AI agent.
      *
      * @remarks
-     * Initiates a WanXiaoZhi 2.0 AI conversation.
+     * Initiates a Wanxiaozhi 2.0 AI conversation.
      *
      * @param request - CreateAIStaffChatRequest
      *
@@ -1323,10 +1323,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates an AI employee session.
+     * Creates an AI agent session.
      *
      * @remarks
-     * Creates an AI session for Wan Xiaozhi 2.0.
+     * Creates an AI session in Wanxiaozhi 2.0.
      *
      * @param request - CreateAIStaffConversationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1365,10 +1365,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates an AI employee session.
+     * Creates an AI agent session.
      *
      * @remarks
-     * Creates an AI session for Wan Xiaozhi 2.0.
+     * Creates an AI session in Wanxiaozhi 2.0.
      *
      * @param request - CreateAIStaffConversationRequest
      *
@@ -2152,7 +2152,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Activates the Wanxiaozhi inspiration value service.
+     * Enables the Wanxiaozhi inspiration value service.
      *
      * @remarks
      * Retrieves the configuration information of the code generation plugin.
@@ -2194,7 +2194,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Activates the Wanxiaozhi inspiration value service.
+     * Enables the Wanxiaozhi inspiration value service.
      *
      * @remarks
      * Retrieves the configuration information of the code generation plugin.
@@ -3551,7 +3551,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Query website DNS resolution records. Supports CNAME resolution and verification resolution queries.
+     * Queries the DNS resolution records of a website. Supports CNAME and verification resolution queries.
      *
      * @param request - DescribeAppDomainDnsRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3598,7 +3598,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Query website DNS resolution records. Supports CNAME resolution and verification resolution queries.
+     * Queries the DNS resolution records of a website. Supports CNAME and verification resolution queries.
      *
      * @param request - DescribeAppDomainDnsRecordRequest
      *
@@ -3689,7 +3689,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Edits a plug-in configuration.
+     * Modifies the plug-in configuration.
      *
      * @param request - EditPluginConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3744,7 +3744,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Edits a plug-in configuration.
+     * Modifies the plug-in configuration.
      *
      * @param request - EditPluginConfigRequest
      *
@@ -3959,10 +3959,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a code workspace.
+     * Queries the details of a code workspace.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - GetAppCodeWorkspaceDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4001,10 +4001,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a code workspace.
+     * Queries the details of a code workspace.
      *
      * @remarks
-     * Queries application instance information.
+     * Queries the application instance information.
      *
      * @param request - GetAppCodeWorkspaceDetailRequest
      *
@@ -4735,17 +4735,17 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns the encrypted configuration string.
      *
      * @remarks
      * ## Request description
-     * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+     * - This API operation is used in internal platform service design to read the plugin configuration of a specific site by using a service identity.
      * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
-     * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
-     * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
-     * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
-     * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
-     * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+     * - If the specified plugin is not installed on the site or the request parameters are empty, the API operation returns a success status but the Module field is empty. The invoker must handle this as an unconfigured state.
+     * - The returned PluginConfig field contains an AES-encrypted JSON character string. The invoker must perform decryption before use.
+     * - To invoke in user mode, continue to use the GetAppPluginConfig API operation instead of this API operation.
+     * - The BizId and PluginId parameters are required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module field. This is a fault-tolerance behavior, and invokers must not rely on it.
+     * - This API operation supports HTTPS and RPC-style POST requests. Parameters are passed by using form data.
      *
      * @param request - GetAppPluginConfigForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4788,17 +4788,17 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns the encrypted configuration string.
      *
      * @remarks
      * ## Request description
-     * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+     * - This API operation is used in internal platform service design to read the plugin configuration of a specific site by using a service identity.
      * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
-     * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
-     * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
-     * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
-     * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
-     * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+     * - If the specified plugin is not installed on the site or the request parameters are empty, the API operation returns a success status but the Module field is empty. The invoker must handle this as an unconfigured state.
+     * - The returned PluginConfig field contains an AES-encrypted JSON character string. The invoker must perform decryption before use.
+     * - To invoke in user mode, continue to use the GetAppPluginConfig API operation instead of this API operation.
+     * - The BizId and PluginId parameters are required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module field. This is a fault-tolerance behavior, and invokers must not rely on it.
+     * - This API operation supports HTTPS and RPC-style POST requests. Parameters are passed by using form data.
      *
      * @param request - GetAppPluginConfigForAdminRequest
      *
@@ -5807,7 +5807,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the China Internet Content Provider (ICP) filing information of a domain name.
+     * Queries the ICP filing information for a domain name.
      *
      * @param request - GetIcpFilingInfoForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5850,7 +5850,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Queries the China Internet Content Provider (ICP) filing information of a domain name.
+     * Queries the ICP filing information for a domain name.
      *
      * @param request - GetIcpFilingInfoForPartnerRequest
      *
@@ -5871,7 +5871,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the LLM Proxy configuration.
      *
      * @remarks
-     * Queries the Supabase instance configuration information corresponding to a resource.
+     * Queries the configuration information of the Supabase instance associated with the resource.
      *
      * @param request - GetLlmProxyConfigForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5917,7 +5917,7 @@ class WebsiteBuild extends OpenApiClient
      * Queries the LLM Proxy configuration.
      *
      * @remarks
-     * Queries the Supabase instance configuration information corresponding to a resource.
+     * Queries the configuration information of the Supabase instance associated with the resource.
      *
      * @param request - GetLlmProxyConfigForAdminRequest
      *
@@ -6558,7 +6558,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Introspection analysis of免登 accessToken.
+     * Introspects the logon-free access token.
      *
      * @param request - IntrospectAppInstanceTicketForPreviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6601,7 +6601,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Introspection analysis of免登 accessToken.
+     * Introspects the logon-free access token.
      *
      * @param request - IntrospectAppInstanceTicketForPreviewRequest
      *
@@ -6974,10 +6974,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Query Website Build Product Details.
+     * Queries the details of website builder products.
      *
      * @remarks
-     * Get QR code plugin configuration information
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - ListAppCommoditySpecificationsV2ForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7020,10 +7020,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Query Website Build Product Details.
+     * Queries the details of website builder products.
      *
      * @remarks
-     * Get QR code plugin configuration information
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - ListAppCommoditySpecificationsV2ForPartnerRequest
      *
@@ -7409,6 +7409,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->bizIdsShrink) {
             @$query['BizIds'] = $request->bizIdsShrink;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
 
         if (null !== $request->endTimeBegin) {
@@ -9504,7 +9508,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Operates an application by a partner.
+     * Operates a partner application.
      *
      * @param request - OperateAppInstanceForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9547,7 +9551,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Operates an application by a partner.
+     * Operates a partner application.
      *
      * @param request - OperateAppInstanceForPartnerRequest
      *
@@ -11485,7 +11489,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Processes a refund for a channel partner website building service.
+     * Issues a refund for a channel partner\\"s website building service.
      *
      * @param request - RefundAppInstanceForPartnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11536,7 +11540,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Processes a refund for a channel partner website building service.
+     * Issues a refund for a channel partner\\"s website building service.
      *
      * @param request - RefundAppInstanceForPartnerRequest
      *
@@ -12254,10 +12258,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Save Requirement.
+     * Saves a requirement.
      *
      * @remarks
-     * Get code generation plugin configuration information
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - SaveAppRequirementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12302,10 +12306,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Save Requirement.
+     * Saves a requirement.
      *
      * @remarks
-     * Get code generation plugin configuration information
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - SaveAppRequirementRequest
      *
@@ -13442,7 +13446,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a website building instance.
+     * Changes the specifications of a website builder instance.
      *
      * @remarks
      * Queries the information of an application instance.
@@ -13540,7 +13544,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a website building instance.
+     * Changes the specifications of a website builder instance.
      *
      * @remarks
      * Queries the information of an application instance.

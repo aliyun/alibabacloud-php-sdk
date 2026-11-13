@@ -26,6 +26,11 @@ class ListAppInstancesRequest extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $endTimeBegin;
 
     /**
@@ -86,6 +91,7 @@ class ListAppInstancesRequest extends Model
         'applicationType' => 'ApplicationType',
         'bizId' => 'BizId',
         'bizIds' => 'BizIds',
+        'domain' => 'Domain',
         'endTimeBegin' => 'EndTimeBegin',
         'endTimeEnd' => 'EndTimeEnd',
         'extend' => 'Extend',
@@ -131,6 +137,10 @@ class ListAppInstancesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         if (null !== $this->endTimeBegin) {
@@ -216,6 +226,10 @@ class ListAppInstancesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         if (isset($map['EndTimeBegin'])) {
