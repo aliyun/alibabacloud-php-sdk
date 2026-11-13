@@ -19,6 +19,11 @@ class ModifyLifecycleHookRequest extends Model
     public $heartbeatTimeout;
 
     /**
+     * @var string[]
+     */
+    public $lifecycleActionSources;
+
+    /**
      * @var string
      */
     public $lifecycleHookId;
@@ -75,6 +80,7 @@ class ModifyLifecycleHookRequest extends Model
     protected $_name = [
         'defaultResult' => 'DefaultResult',
         'heartbeatTimeout' => 'HeartbeatTimeout',
+        'lifecycleActionSources' => 'LifecycleActionSources',
         'lifecycleHookId' => 'LifecycleHookId',
         'lifecycleHookName' => 'LifecycleHookName',
         'lifecycleHookStatus' => 'LifecycleHookStatus',
@@ -90,6 +96,9 @@ class ModifyLifecycleHookRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->lifecycleActionSources)) {
+            Model::validateArray($this->lifecycleActionSources);
+        }
         parent::validate();
     }
 
@@ -102,6 +111,17 @@ class ModifyLifecycleHookRequest extends Model
 
         if (null !== $this->heartbeatTimeout) {
             $res['HeartbeatTimeout'] = $this->heartbeatTimeout;
+        }
+
+        if (null !== $this->lifecycleActionSources) {
+            if (\is_array($this->lifecycleActionSources)) {
+                $res['LifecycleActionSources'] = [];
+                $n1 = 0;
+                foreach ($this->lifecycleActionSources as $item1) {
+                    $res['LifecycleActionSources'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->lifecycleHookId) {
@@ -165,6 +185,17 @@ class ModifyLifecycleHookRequest extends Model
 
         if (isset($map['HeartbeatTimeout'])) {
             $model->heartbeatTimeout = $map['HeartbeatTimeout'];
+        }
+
+        if (isset($map['LifecycleActionSources'])) {
+            if (!empty($map['LifecycleActionSources'])) {
+                $model->lifecycleActionSources = [];
+                $n1 = 0;
+                foreach ($map['LifecycleActionSources'] as $item1) {
+                    $model->lifecycleActionSources[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['LifecycleHookId'])) {

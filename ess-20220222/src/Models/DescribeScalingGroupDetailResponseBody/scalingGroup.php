@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailResponseBody
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailResponseBody\scalingGroup\serverGroups;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailResponseBody\scalingGroup\tags;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailResponseBody\scalingGroup\VServerGroups;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDetailResponseBody\scalingGroup\zoneShiftOptions;
 
 class scalingGroup extends Model
 {
@@ -308,6 +309,11 @@ class scalingGroup extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var zoneShiftOptions
+     */
+    public $zoneShiftOptions;
     protected $_name = [
         'activeCapacity' => 'ActiveCapacity',
         'activeScalingConfigurationId' => 'ActiveScalingConfigurationId',
@@ -368,6 +374,7 @@ class scalingGroup extends Model
         'vSwitchId' => 'VSwitchId',
         'vSwitchIds' => 'VSwitchIds',
         'vpcId' => 'VpcId',
+        'zoneShiftOptions' => 'ZoneShiftOptions',
     ];
 
     public function validate()
@@ -407,6 +414,9 @@ class scalingGroup extends Model
         }
         if (\is_array($this->vSwitchIds)) {
             Model::validateArray($this->vSwitchIds);
+        }
+        if (null !== $this->zoneShiftOptions) {
+            $this->zoneShiftOptions->validate();
         }
         parent::validate();
     }
@@ -732,6 +742,10 @@ class scalingGroup extends Model
 
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->zoneShiftOptions) {
+            $res['ZoneShiftOptions'] = null !== $this->zoneShiftOptions ? $this->zoneShiftOptions->toArray($noStream) : $this->zoneShiftOptions;
         }
 
         return $res;
@@ -1063,6 +1077,10 @@ class scalingGroup extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['ZoneShiftOptions'])) {
+            $model->zoneShiftOptions = zoneShiftOptions::fromMap($map['ZoneShiftOptions']);
         }
 
         return $model;

@@ -262,6 +262,11 @@ class scalingConfigurations extends Model
     /**
      * @var string
      */
+    public $secondaryEniVSwitchConstraint;
+
+    /**
+     * @var string
+     */
     public $securityEnhancementStrategy;
 
     /**
@@ -442,6 +447,7 @@ class scalingConfigurations extends Model
         'scalingConfigurationName' => 'ScalingConfigurationName',
         'scalingGroupId' => 'ScalingGroupId',
         'schedulerOptions' => 'SchedulerOptions',
+        'secondaryEniVSwitchConstraint' => 'SecondaryEniVSwitchConstraint',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId' => 'SecurityGroupId',
         'securityGroupIds' => 'SecurityGroupIds',
@@ -749,6 +755,10 @@ class scalingConfigurations extends Model
 
         if (null !== $this->schedulerOptions) {
             $res['SchedulerOptions'] = null !== $this->schedulerOptions ? $this->schedulerOptions->toArray($noStream) : $this->schedulerOptions;
+        }
+
+        if (null !== $this->secondaryEniVSwitchConstraint) {
+            $res['SecondaryEniVSwitchConstraint'] = $this->secondaryEniVSwitchConstraint;
         }
 
         if (null !== $this->securityEnhancementStrategy) {
@@ -1130,6 +1140,10 @@ class scalingConfigurations extends Model
 
         if (isset($map['SchedulerOptions'])) {
             $model->schedulerOptions = schedulerOptions::fromMap($map['SchedulerOptions']);
+        }
+
+        if (isset($map['SecondaryEniVSwitchConstraint'])) {
+            $model->secondaryEniVSwitchConstraint = $map['SecondaryEniVSwitchConstraint'];
         }
 
         if (isset($map['SecurityEnhancementStrategy'])) {

@@ -14,6 +14,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\loadBalancer
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\serverGroups;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\tags;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\VServerGroups;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\zoneShiftPolicy;
 
 class CreateScalingGroupRequest extends Model
 {
@@ -261,6 +262,11 @@ class CreateScalingGroupRequest extends Model
      * @var string[]
      */
     public $vSwitchIds;
+
+    /**
+     * @var zoneShiftPolicy
+     */
+    public $zoneShiftPolicy;
     protected $_name = [
         'albServerGroups' => 'AlbServerGroups',
         'allocationStrategy' => 'AllocationStrategy',
@@ -311,6 +317,7 @@ class CreateScalingGroupRequest extends Model
         'VServerGroups' => 'VServerGroups',
         'vSwitchId' => 'VSwitchId',
         'vSwitchIds' => 'VSwitchIds',
+        'zoneShiftPolicy' => 'ZoneShiftPolicy',
     ];
 
     public function validate()
@@ -350,6 +357,9 @@ class CreateScalingGroupRequest extends Model
         }
         if (\is_array($this->vSwitchIds)) {
             Model::validateArray($this->vSwitchIds);
+        }
+        if (null !== $this->zoneShiftPolicy) {
+            $this->zoneShiftPolicy->validate();
         }
         parent::validate();
     }
@@ -628,6 +638,10 @@ class CreateScalingGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->zoneShiftPolicy) {
+            $res['ZoneShiftPolicy'] = null !== $this->zoneShiftPolicy ? $this->zoneShiftPolicy->toArray($noStream) : $this->zoneShiftPolicy;
         }
 
         return $res;
@@ -912,6 +926,10 @@ class CreateScalingGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ZoneShiftPolicy'])) {
+            $model->zoneShiftPolicy = zoneShiftPolicy::fromMap($map['ZoneShiftPolicy']);
         }
 
         return $model;

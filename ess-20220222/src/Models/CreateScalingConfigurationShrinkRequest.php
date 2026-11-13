@@ -258,6 +258,11 @@ class CreateScalingConfigurationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $secondaryEniVSwitchConstraint;
+
+    /**
+     * @var string
+     */
     public $securityEnhancementStrategy;
 
     /**
@@ -377,6 +382,7 @@ class CreateScalingConfigurationShrinkRequest extends Model
         'scalingConfigurationName' => 'ScalingConfigurationName',
         'scalingGroupId' => 'ScalingGroupId',
         'schedulerOptionsShrink' => 'SchedulerOptions',
+        'secondaryEniVSwitchConstraint' => 'SecondaryEniVSwitchConstraint',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId' => 'SecurityGroupId',
         'securityGroupIds' => 'SecurityGroupIds',
@@ -675,6 +681,10 @@ class CreateScalingConfigurationShrinkRequest extends Model
 
         if (null !== $this->schedulerOptionsShrink) {
             $res['SchedulerOptions'] = $this->schedulerOptionsShrink;
+        }
+
+        if (null !== $this->secondaryEniVSwitchConstraint) {
+            $res['SecondaryEniVSwitchConstraint'] = $this->secondaryEniVSwitchConstraint;
         }
 
         if (null !== $this->securityEnhancementStrategy) {
@@ -997,6 +1007,10 @@ class CreateScalingConfigurationShrinkRequest extends Model
 
         if (isset($map['SchedulerOptions'])) {
             $model->schedulerOptionsShrink = $map['SchedulerOptions'];
+        }
+
+        if (isset($map['SecondaryEniVSwitchConstraint'])) {
+            $model->secondaryEniVSwitchConstraint = $map['SecondaryEniVSwitchConstraint'];
         }
 
         if (isset($map['SecurityEnhancementStrategy'])) {

@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scal
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\serverGroups;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\tags;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\VServerGroups;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\warmPoolConfiguration;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\zoneShiftOptions;
 
 class scalingGroups extends Model
 {
@@ -340,6 +342,21 @@ class scalingGroups extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var int
+     */
+    public $warmPoolCapacity;
+
+    /**
+     * @var warmPoolConfiguration
+     */
+    public $warmPoolConfiguration;
+
+    /**
+     * @var zoneShiftOptions
+     */
+    public $zoneShiftOptions;
     protected $_name = [
         'activeCapacity' => 'ActiveCapacity',
         'activeScalingConfigurationId' => 'ActiveScalingConfigurationId',
@@ -406,6 +423,9 @@ class scalingGroups extends Model
         'vSwitchId' => 'VSwitchId',
         'vSwitchIds' => 'VSwitchIds',
         'vpcId' => 'VpcId',
+        'warmPoolCapacity' => 'WarmPoolCapacity',
+        'warmPoolConfiguration' => 'WarmPoolConfiguration',
+        'zoneShiftOptions' => 'ZoneShiftOptions',
     ];
 
     public function validate()
@@ -451,6 +471,12 @@ class scalingGroups extends Model
         }
         if (\is_array($this->vSwitchIds)) {
             Model::validateArray($this->vSwitchIds);
+        }
+        if (null !== $this->warmPoolConfiguration) {
+            $this->warmPoolConfiguration->validate();
+        }
+        if (null !== $this->zoneShiftOptions) {
+            $this->zoneShiftOptions->validate();
         }
         parent::validate();
     }
@@ -807,6 +833,18 @@ class scalingGroups extends Model
 
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->warmPoolCapacity) {
+            $res['WarmPoolCapacity'] = $this->warmPoolCapacity;
+        }
+
+        if (null !== $this->warmPoolConfiguration) {
+            $res['WarmPoolConfiguration'] = null !== $this->warmPoolConfiguration ? $this->warmPoolConfiguration->toArray($noStream) : $this->warmPoolConfiguration;
+        }
+
+        if (null !== $this->zoneShiftOptions) {
+            $res['ZoneShiftOptions'] = null !== $this->zoneShiftOptions ? $this->zoneShiftOptions->toArray($noStream) : $this->zoneShiftOptions;
         }
 
         return $res;
@@ -1169,6 +1207,18 @@ class scalingGroups extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['WarmPoolCapacity'])) {
+            $model->warmPoolCapacity = $map['WarmPoolCapacity'];
+        }
+
+        if (isset($map['WarmPoolConfiguration'])) {
+            $model->warmPoolConfiguration = warmPoolConfiguration::fromMap($map['WarmPoolConfiguration']);
+        }
+
+        if (isset($map['ZoneShiftOptions'])) {
+            $model->zoneShiftOptions = zoneShiftOptions::fromMap($map['ZoneShiftOptions']);
         }
 
         return $model;

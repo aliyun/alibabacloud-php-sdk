@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingGroupRequest\capacityOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingGroupRequest\launchTemplateOverrides;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingGroupRequest\zoneShiftPolicy;
 
 class ModifyScalingGroupRequest extends Model
 {
@@ -189,6 +190,11 @@ class ModifyScalingGroupRequest extends Model
      * @var string[]
      */
     public $vSwitchIds;
+
+    /**
+     * @var zoneShiftPolicy
+     */
+    public $zoneShiftPolicy;
     protected $_name = [
         'activeScalingConfigurationId' => 'ActiveScalingConfigurationId',
         'allocationStrategy' => 'AllocationStrategy',
@@ -226,6 +232,7 @@ class ModifyScalingGroupRequest extends Model
         'spotInstanceRemedy' => 'SpotInstanceRemedy',
         'stopInstanceTimeout' => 'StopInstanceTimeout',
         'vSwitchIds' => 'VSwitchIds',
+        'zoneShiftPolicy' => 'ZoneShiftPolicy',
     ];
 
     public function validate()
@@ -244,6 +251,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (\is_array($this->vSwitchIds)) {
             Model::validateArray($this->vSwitchIds);
+        }
+        if (null !== $this->zoneShiftPolicy) {
+            $this->zoneShiftPolicy->validate();
         }
         parent::validate();
     }
@@ -421,6 +431,10 @@ class ModifyScalingGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->zoneShiftPolicy) {
+            $res['ZoneShiftPolicy'] = null !== $this->zoneShiftPolicy ? $this->zoneShiftPolicy->toArray($noStream) : $this->zoneShiftPolicy;
         }
 
         return $res;
@@ -604,6 +618,10 @@ class ModifyScalingGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ZoneShiftPolicy'])) {
+            $model->zoneShiftPolicy = zoneShiftPolicy::fromMap($map['ZoneShiftPolicy']);
         }
 
         return $model;

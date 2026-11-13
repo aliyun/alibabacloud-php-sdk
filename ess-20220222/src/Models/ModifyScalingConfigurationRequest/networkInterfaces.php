@@ -32,18 +32,27 @@ class networkInterfaces extends Model
      * @var string[]
      */
     public $securityGroupIds;
+
+    /**
+     * @var string[]
+     */
+    public $vSwitchIds;
     protected $_name = [
         'instanceType' => 'InstanceType',
         'ipv6AddressCount' => 'Ipv6AddressCount',
         'networkInterfaceTrafficMode' => 'NetworkInterfaceTrafficMode',
         'secondaryPrivateIpAddressCount' => 'SecondaryPrivateIpAddressCount',
         'securityGroupIds' => 'SecurityGroupIds',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
     public function validate()
     {
         if (\is_array($this->securityGroupIds)) {
             Model::validateArray($this->securityGroupIds);
+        }
+        if (\is_array($this->vSwitchIds)) {
+            Model::validateArray($this->vSwitchIds);
         }
         parent::validate();
     }
@@ -73,6 +82,17 @@ class networkInterfaces extends Model
                 $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
                     $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->vSwitchIds) {
+            if (\is_array($this->vSwitchIds)) {
+                $res['VSwitchIds'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitchIds as $item1) {
+                    $res['VSwitchIds'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -111,6 +131,17 @@ class networkInterfaces extends Model
                 $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
                     $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['VSwitchIds'])) {
+            if (!empty($map['VSwitchIds'])) {
+                $model->vSwitchIds = [];
+                $n1 = 0;
+                foreach ($map['VSwitchIds'] as $item1) {
+                    $model->vSwitchIds[$n1] = $item1;
                     ++$n1;
                 }
             }

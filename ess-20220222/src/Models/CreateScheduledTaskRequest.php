@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScheduledTaskRequest\warmPoolCapacityOptions;
 
 class CreateScheduledTaskRequest extends Model
 {
@@ -92,6 +93,11 @@ class CreateScheduledTaskRequest extends Model
      * @var bool
      */
     public $taskEnabled;
+
+    /**
+     * @var warmPoolCapacityOptions
+     */
+    public $warmPoolCapacityOptions;
     protected $_name = [
         'description' => 'Description',
         'desiredCapacity' => 'DesiredCapacity',
@@ -110,10 +116,14 @@ class CreateScheduledTaskRequest extends Model
         'scheduledAction' => 'ScheduledAction',
         'scheduledTaskName' => 'ScheduledTaskName',
         'taskEnabled' => 'TaskEnabled',
+        'warmPoolCapacityOptions' => 'WarmPoolCapacityOptions',
     ];
 
     public function validate()
     {
+        if (null !== $this->warmPoolCapacityOptions) {
+            $this->warmPoolCapacityOptions->validate();
+        }
         parent::validate();
     }
 
@@ -186,6 +196,10 @@ class CreateScheduledTaskRequest extends Model
 
         if (null !== $this->taskEnabled) {
             $res['TaskEnabled'] = $this->taskEnabled;
+        }
+
+        if (null !== $this->warmPoolCapacityOptions) {
+            $res['WarmPoolCapacityOptions'] = null !== $this->warmPoolCapacityOptions ? $this->warmPoolCapacityOptions->toArray($noStream) : $this->warmPoolCapacityOptions;
         }
 
         return $res;
@@ -265,6 +279,10 @@ class CreateScheduledTaskRequest extends Model
 
         if (isset($map['TaskEnabled'])) {
             $model->taskEnabled = $map['TaskEnabled'];
+        }
+
+        if (isset($map['WarmPoolCapacityOptions'])) {
+            $model->warmPoolCapacityOptions = warmPoolCapacityOptions::fromMap($map['WarmPoolCapacityOptions']);
         }
 
         return $model;

@@ -258,6 +258,11 @@ class CreateScalingConfigurationRequest extends Model
     /**
      * @var string
      */
+    public $secondaryEniVSwitchConstraint;
+
+    /**
+     * @var string
+     */
     public $securityEnhancementStrategy;
 
     /**
@@ -377,6 +382,7 @@ class CreateScalingConfigurationRequest extends Model
         'scalingConfigurationName' => 'ScalingConfigurationName',
         'scalingGroupId' => 'ScalingGroupId',
         'schedulerOptions' => 'SchedulerOptions',
+        'secondaryEniVSwitchConstraint' => 'SecondaryEniVSwitchConstraint',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId' => 'SecurityGroupId',
         'securityGroupIds' => 'SecurityGroupIds',
@@ -683,6 +689,10 @@ class CreateScalingConfigurationRequest extends Model
                     $res['SchedulerOptions'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->secondaryEniVSwitchConstraint) {
+            $res['SecondaryEniVSwitchConstraint'] = $this->secondaryEniVSwitchConstraint;
         }
 
         if (null !== $this->securityEnhancementStrategy) {
@@ -1010,6 +1020,10 @@ class CreateScalingConfigurationRequest extends Model
                     $model->schedulerOptions[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['SecondaryEniVSwitchConstraint'])) {
+            $model->secondaryEniVSwitchConstraint = $map['SecondaryEniVSwitchConstraint'];
         }
 
         if (isset($map['SecurityEnhancementStrategy'])) {
