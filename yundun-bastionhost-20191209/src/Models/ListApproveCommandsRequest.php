@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class ListApproveCommandsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $approvalStatus;
+
+    /**
+     * @var string
+     */
+    public $approveCommandId;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -33,6 +43,8 @@ class ListApproveCommandsRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'approvalStatus' => 'ApprovalStatus',
+        'approveCommandId' => 'ApproveCommandId',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -48,6 +60,14 @@ class ListApproveCommandsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->approvalStatus) {
+            $res['ApprovalStatus'] = $this->approvalStatus;
+        }
+
+        if (null !== $this->approveCommandId) {
+            $res['ApproveCommandId'] = $this->approveCommandId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -79,6 +99,14 @@ class ListApproveCommandsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApprovalStatus'])) {
+            $model->approvalStatus = $map['ApprovalStatus'];
+        }
+
+        if (isset($map['ApproveCommandId'])) {
+            $model->approveCommandId = $map['ApproveCommandId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -19,6 +19,11 @@ class operationTickets extends Model
     public $applyUsername;
 
     /**
+     * @var int
+     */
+    public $approvalStatus;
+
+    /**
      * @var string
      */
     public $approveComment;
@@ -105,6 +110,7 @@ class operationTickets extends Model
     protected $_name = [
         'applyUserId' => 'ApplyUserId',
         'applyUsername' => 'ApplyUsername',
+        'approvalStatus' => 'ApprovalStatus',
         'approveComment' => 'ApproveComment',
         'assetAccountId' => 'AssetAccountId',
         'assetAccountName' => 'AssetAccountName',
@@ -138,6 +144,10 @@ class operationTickets extends Model
 
         if (null !== $this->applyUsername) {
             $res['ApplyUsername'] = $this->applyUsername;
+        }
+
+        if (null !== $this->approvalStatus) {
+            $res['ApprovalStatus'] = $this->approvalStatus;
         }
 
         if (null !== $this->approveComment) {
@@ -225,6 +235,10 @@ class operationTickets extends Model
 
         if (isset($map['ApplyUsername'])) {
             $model->applyUsername = $map['ApplyUsername'];
+        }
+
+        if (isset($map['ApprovalStatus'])) {
+            $model->approvalStatus = $map['ApprovalStatus'];
         }
 
         if (isset($map['ApproveComment'])) {

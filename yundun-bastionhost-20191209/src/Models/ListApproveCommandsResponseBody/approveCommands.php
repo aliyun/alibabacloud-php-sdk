@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class approveCommands extends Model
 {
     /**
+     * @var int
+     */
+    public $approvalStatus;
+
+    /**
      * @var string
      */
     public $approveCommandId;
@@ -63,6 +68,7 @@ class approveCommands extends Model
      */
     public $state;
     protected $_name = [
+        'approvalStatus' => 'ApprovalStatus',
         'approveCommandId' => 'ApproveCommandId',
         'assetAccountName' => 'AssetAccountName',
         'assetIp' => 'AssetIp',
@@ -84,6 +90,10 @@ class approveCommands extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->approvalStatus) {
+            $res['ApprovalStatus'] = $this->approvalStatus;
+        }
+
         if (null !== $this->approveCommandId) {
             $res['ApproveCommandId'] = $this->approveCommandId;
         }
@@ -139,6 +149,10 @@ class approveCommands extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApprovalStatus'])) {
+            $model->approvalStatus = $map['ApprovalStatus'];
+        }
+
         if (isset($map['ApproveCommandId'])) {
             $model->approveCommandId = $map['ApproveCommandId'];
         }

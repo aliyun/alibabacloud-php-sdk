@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListOperationTicketsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $approvalStatus;
+
+    /**
      * @var string
      */
     public $assetAddress;
@@ -17,6 +22,11 @@ class ListOperationTicketsRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $operationTicketId;
 
     /**
      * @var string
@@ -38,8 +48,10 @@ class ListOperationTicketsRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'approvalStatus' => 'ApprovalStatus',
         'assetAddress' => 'AssetAddress',
         'instanceId' => 'InstanceId',
+        'operationTicketId' => 'OperationTicketId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
@@ -54,12 +66,20 @@ class ListOperationTicketsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->approvalStatus) {
+            $res['ApprovalStatus'] = $this->approvalStatus;
+        }
+
         if (null !== $this->assetAddress) {
             $res['AssetAddress'] = $this->assetAddress;
         }
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->operationTicketId) {
+            $res['OperationTicketId'] = $this->operationTicketId;
         }
 
         if (null !== $this->pageNumber) {
@@ -89,12 +109,20 @@ class ListOperationTicketsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApprovalStatus'])) {
+            $model->approvalStatus = $map['ApprovalStatus'];
+        }
+
         if (isset($map['AssetAddress'])) {
             $model->assetAddress = $map['AssetAddress'];
         }
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['OperationTicketId'])) {
+            $model->operationTicketId = $map['OperationTicketId'];
         }
 
         if (isset($map['PageNumber'])) {
