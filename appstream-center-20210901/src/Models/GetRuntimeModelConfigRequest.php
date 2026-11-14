@@ -26,6 +26,11 @@ class GetRuntimeModelConfigRequest extends Model
     /**
      * @var string
      */
+    public $language;
+
+    /**
+     * @var string
+     */
     public $runtimeId;
 
     /**
@@ -41,6 +46,7 @@ class GetRuntimeModelConfigRequest extends Model
         'agentPlatform' => 'AgentPlatform',
         'agentProvider' => 'AgentProvider',
         'includeRiskInfo' => 'IncludeRiskInfo',
+        'language' => 'Language',
         'runtimeId' => 'RuntimeId',
         'runtimeType' => 'RuntimeType',
         'smartModel' => 'SmartModel',
@@ -64,6 +70,10 @@ class GetRuntimeModelConfigRequest extends Model
 
         if (null !== $this->includeRiskInfo) {
             $res['IncludeRiskInfo'] = $this->includeRiskInfo;
+        }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         if (null !== $this->runtimeId) {
@@ -99,6 +109,10 @@ class GetRuntimeModelConfigRequest extends Model
 
         if (isset($map['IncludeRiskInfo'])) {
             $model->includeRiskInfo = $map['IncludeRiskInfo'];
+        }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         if (isset($map['RuntimeId'])) {
