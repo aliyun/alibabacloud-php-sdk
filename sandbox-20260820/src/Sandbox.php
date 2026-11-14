@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateVolumeRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateVolumeResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateWarmPoolRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateWarmPoolResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteApiKeyRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteApiKeyResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteQuotaRequest;
@@ -28,12 +30,16 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteVolumeRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteVolumeResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteWarmPoolRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteWarmPoolResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeApiKeyRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeApiKeyResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeQuotaRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeQuotaResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeTemplateCacheRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeTemplateCacheResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeWarmPoolRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeWarmPoolResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetMetricDataRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetMetricDataResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetMetricDataShrinkRequest;
@@ -59,6 +65,8 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListVolumesRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListVolumesResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListWarmPoolsRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListWarmPoolsResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ResetApiKeyRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ResetApiKeyResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateApiKeyRequest;
@@ -71,6 +79,8 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateTemplateRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateTemplateResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateVolumeRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateVolumeResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateWarmPoolRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateWarmPoolResponse;
 use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -230,7 +240,7 @@ class Sandbox extends OpenApiClient
      * Creates a template.
      *
      * @remarks
-     * Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+     * Creates a template. If runtimeConfig.vpcBindings is null, it is treated as omitted. Inbound bindings are independent of the egress vpcConfig and API key source policy.
      *
      * @param request - CreateTemplateRequest
      * @param headers - map
@@ -270,7 +280,7 @@ class Sandbox extends OpenApiClient
      * Creates a template.
      *
      * @remarks
-     * Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+     * Creates a template. If runtimeConfig.vpcBindings is null, it is treated as omitted. Inbound bindings are independent of the egress vpcConfig and API key source policy.
      *
      * @param request - CreateTemplateRequest
      *
@@ -398,6 +408,64 @@ class Sandbox extends OpenApiClient
         $headers = [];
 
         return $this->createVolumeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a warm pool.
+     *
+     * @param request - CreateWarmPoolRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWarmPoolResponse
+     *
+     * @param string                $teamID
+     * @param CreateWarmPoolRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateWarmPoolResponse
+     */
+    public function createWarmPoolWithOptions($teamID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWarmPool',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/teams/' . Url::percentEncode($teamID) . '/warmPools',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWarmPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a warm pool.
+     *
+     * @param request - CreateWarmPoolRequest
+     *
+     * @returns CreateWarmPoolResponse
+     *
+     * @param string                $teamID
+     * @param CreateWarmPoolRequest $request
+     *
+     * @return CreateWarmPoolResponse
+     */
+    public function createWarmPool($teamID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWarmPoolWithOptions($teamID, $request, $headers, $runtime);
     }
 
     /**
@@ -765,6 +833,65 @@ class Sandbox extends OpenApiClient
     }
 
     /**
+     * Deletes a warm pool.
+     *
+     * @param request - DeleteWarmPoolRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWarmPoolResponse
+     *
+     * @param string                $teamID
+     * @param string                $templateID
+     * @param DeleteWarmPoolRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteWarmPoolResponse
+     */
+    public function deleteWarmPoolWithOptions($teamID, $templateID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWarmPool',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/teams/' . Url::percentEncode($teamID) . '/warmPools/' . Url::percentEncode($templateID) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteWarmPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a warm pool.
+     *
+     * @param request - DeleteWarmPoolRequest
+     *
+     * @returns DeleteWarmPoolResponse
+     *
+     * @param string                $teamID
+     * @param string                $templateID
+     * @param DeleteWarmPoolRequest $request
+     *
+     * @return DeleteWarmPoolResponse
+     */
+    public function deleteWarmPool($teamID, $templateID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWarmPoolWithOptions($teamID, $templateID, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the details of a specified API key.
      *
      * @param request - DescribeApiKeyRequest
@@ -943,6 +1070,65 @@ class Sandbox extends OpenApiClient
         $headers = [];
 
         return $this->describeTemplateCacheWithOptions($templateID, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the warm pool.
+     *
+     * @param request - DescribeWarmPoolRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWarmPoolResponse
+     *
+     * @param string                  $teamID
+     * @param string                  $templateID
+     * @param DescribeWarmPoolRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeWarmPoolResponse
+     */
+    public function describeWarmPoolWithOptions($teamID, $templateID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DescribeWarmPool',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/teams/' . Url::percentEncode($teamID) . '/warmPools/' . Url::percentEncode($templateID) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeWarmPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the warm pool.
+     *
+     * @param request - DescribeWarmPoolRequest
+     *
+     * @returns DescribeWarmPoolResponse
+     *
+     * @param string                  $teamID
+     * @param string                  $templateID
+     * @param DescribeWarmPoolRequest $request
+     *
+     * @return DescribeWarmPoolResponse
+     */
+    public function describeWarmPool($teamID, $templateID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeWarmPoolWithOptions($teamID, $templateID, $request, $headers, $runtime);
     }
 
     /**
@@ -1819,6 +2005,73 @@ class Sandbox extends OpenApiClient
     }
 
     /**
+     * Queries the list of warm pools.
+     *
+     * @param request - ListWarmPoolsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWarmPoolsResponse
+     *
+     * @param string               $teamID
+     * @param ListWarmPoolsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWarmPoolsResponse
+     */
+    public function listWarmPoolsWithOptions($teamID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWarmPools',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/teams/' . Url::percentEncode($teamID) . '/warmPools',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWarmPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of warm pools.
+     *
+     * @param request - ListWarmPoolsRequest
+     *
+     * @returns ListWarmPoolsResponse
+     *
+     * @param string               $teamID
+     * @param ListWarmPoolsRequest $request
+     *
+     * @return ListWarmPoolsResponse
+     */
+    public function listWarmPools($teamID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWarmPoolsWithOptions($teamID, $request, $headers, $runtime);
+    }
+
+    /**
      * Resets a specified API key.
      *
      * @remarks
@@ -2063,7 +2316,7 @@ class Sandbox extends OpenApiClient
      * Updates a template.
      *
      * @remarks
-     * Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+     * Updates a template. For runtimeConfig.vpcBindings, you can omit the field or set it to null to retain the current bindings, provide a non-empty array to replace the entire list, or provide an empty array [] to clear the list. The new list takes effect when the new version is successfully built. Existing sandboxes continue to use the original configuration. If the build fails, the original effective version is retained.
      *
      * @param request - UpdateTemplateRequest
      * @param headers - map
@@ -2110,7 +2363,7 @@ class Sandbox extends OpenApiClient
      * Updates a template.
      *
      * @remarks
-     * Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+     * Updates a template. For runtimeConfig.vpcBindings, you can omit the field or set it to null to retain the current bindings, provide a non-empty array to replace the entire list, or provide an empty array [] to clear the list. The new list takes effect when the new version is successfully built. Existing sandboxes continue to use the original configuration. If the build fails, the original effective version is retained.
      *
      * @param request - UpdateTemplateRequest
      *
@@ -2191,5 +2444,65 @@ class Sandbox extends OpenApiClient
         $headers = [];
 
         return $this->updateVolumeWithOptions($volumeID, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the capacity policy of a warm pool.
+     *
+     * @param request - UpdateWarmPoolRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWarmPoolResponse
+     *
+     * @param string                $teamID
+     * @param string                $templateID
+     * @param UpdateWarmPoolRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateWarmPoolResponse
+     */
+    public function updateWarmPoolWithOptions($teamID, $templateID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWarmPool',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/teams/' . Url::percentEncode($teamID) . '/warmPools/' . Url::percentEncode($templateID) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWarmPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the capacity policy of a warm pool.
+     *
+     * @param request - UpdateWarmPoolRequest
+     *
+     * @returns UpdateWarmPoolResponse
+     *
+     * @param string                $teamID
+     * @param string                $templateID
+     * @param UpdateWarmPoolRequest $request
+     *
+     * @return UpdateWarmPoolResponse
+     */
+    public function updateWarmPool($teamID, $templateID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWarmPoolWithOptions($teamID, $templateID, $request, $headers, $runtime);
     }
 }
