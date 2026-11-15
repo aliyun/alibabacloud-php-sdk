@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\GetKnowledgeBasePreSig
 use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\GetKnowledgeBasePreSignedUrlResponse;
 use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\SearchKnowledgeBaseRequest;
 use AlibabaCloud\SDK\MilvusKnowledgeBase\V20260604\Models\SearchKnowledgeBaseResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -22,6 +23,9 @@ class MilvusKnowledgeBase extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'MilvusKnowledgeBase';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('milvusknowledgebase', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -52,10 +56,10 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * Registers files that have been uploaded to knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Two import types are supported:
-     * - `LOCAL_UPLOAD`: Works with the `GetKnowledgeBasePreSignedUrl` direct upload flow. This operation only registers the file and does not verify whether the file has actually been uploaded. Therefore, you must complete the PUT upload before calling this operation.
-     * - `OSS_IMPORT`: Imports files from an external OSS bucket. The operation creates an asynchronous import task and returns a `knowledge_import_task_id`. The system downloads and registers the files in the background.
-     * A maximum of 100 files can be imported in a single request.
+     * Registers files that have been uploaded to the knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Supports two types of import:
+     * - `LOCAL_UPLOAD`: Used with the `GetKnowledgeBasePreSignedUrl` direct upload process. This operation only registers the files and does not verify whether the files have been actually uploaded. Therefore, you must complete the PUT upload first.
+     * - `OSS_IMPORT`: Imports files from an external OSS bucket. This operation creates an asynchronous import task and returns the `knowledge_import_task_id`. The system downloads and registers the files in the background.
+     * A maximum of 100 files can be processed at a time.
      *
      * @param request - AddDocumentsRequest
      * @param headers - map
@@ -126,10 +130,10 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * Registers files that have been uploaded to knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Two import types are supported:
-     * - `LOCAL_UPLOAD`: Works with the `GetKnowledgeBasePreSignedUrl` direct upload flow. This operation only registers the file and does not verify whether the file has actually been uploaded. Therefore, you must complete the PUT upload before calling this operation.
-     * - `OSS_IMPORT`: Imports files from an external OSS bucket. The operation creates an asynchronous import task and returns a `knowledge_import_task_id`. The system downloads and registers the files in the background.
-     * A maximum of 100 files can be imported in a single request.
+     * Registers files that have been uploaded to the knowledge base storage as knowledge base documents and **automatically triggers parsing** (chunking and embedding). Supports two types of import:
+     * - `LOCAL_UPLOAD`: Used with the `GetKnowledgeBasePreSignedUrl` direct upload process. This operation only registers the files and does not verify whether the files have been actually uploaded. Therefore, you must complete the PUT upload first.
+     * - `OSS_IMPORT`: Imports files from an external OSS bucket. This operation creates an asynchronous import task and returns the `knowledge_import_task_id`. The system downloads and registers the files in the background.
+     * A maximum of 100 files can be processed at a time.
      *
      * @param request - AddDocumentsRequest
      *
@@ -149,7 +153,7 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * Generates an **OSS pre-signed PUT URL** pointing to the knowledge base dedicated storage for each file in `Documents`. The caller uses the URL to upload file content directly to Object Storage Service (OSS), and then calls `AddDocuments` to register the files. A maximum of 100 files can be processed per request.
+     * Generates an **Object Storage Service (OSS) pre-signed PUT URL** pointing to the dedicated storage of the knowledge base for each file in `Documents`. Callers use the URL to upload file content directly to OSS and then call `AddDocuments` to complete the registration. A maximum of 100 files can be processed at a time.
      *
      * @param request - GetKnowledgeBasePreSignedUrlRequest
      * @param headers - map
@@ -200,7 +204,7 @@ class MilvusKnowledgeBase extends OpenApiClient
     }
 
     /**
-     * Generates an **OSS pre-signed PUT URL** pointing to the knowledge base dedicated storage for each file in `Documents`. The caller uses the URL to upload file content directly to Object Storage Service (OSS), and then calls `AddDocuments` to register the files. A maximum of 100 files can be processed per request.
+     * Generates an **Object Storage Service (OSS) pre-signed PUT URL** pointing to the dedicated storage of the knowledge base for each file in `Documents`. Callers use the URL to upload file content directly to OSS and then call `AddDocuments` to complete the registration. A maximum of 100 files can be processed at a time.
      *
      * @param request - GetKnowledgeBasePreSignedUrlRequest
      *
@@ -223,7 +227,7 @@ class MilvusKnowledgeBase extends OpenApiClient
      * Searches a knowledge base.
      *
      * @remarks
-     * Searches a specified knowledge base by using a query or an image. For the version, use the display name DRAFT, LATEST_PUBLISHED, or vN. Pass tag filter conditions based on the actual operators used by the backend.
+     * Searches a specified knowledge base by using a text query or an image. For the version parameter, use the display name DRAFT, LATEST_PUBLISHED, or vN. Pass tag filter conditions based on the actual operators used by the backend.
      *
      * @param request - SearchKnowledgeBaseRequest
      * @param headers - map
@@ -317,7 +321,7 @@ class MilvusKnowledgeBase extends OpenApiClient
      * Searches a knowledge base.
      *
      * @remarks
-     * Searches a specified knowledge base by using a query or an image. For the version, use the display name DRAFT, LATEST_PUBLISHED, or vN. Pass tag filter conditions based on the actual operators used by the backend.
+     * Searches a specified knowledge base by using a text query or an image. For the version parameter, use the display name DRAFT, LATEST_PUBLISHED, or vN. Pass tag filter conditions based on the actual operators used by the backend.
      *
      * @param request - SearchKnowledgeBaseRequest
      *

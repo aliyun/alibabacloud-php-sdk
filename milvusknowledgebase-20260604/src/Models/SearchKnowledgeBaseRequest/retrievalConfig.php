@@ -16,6 +16,11 @@ class retrievalConfig extends Model
     /**
      * @var bool
      */
+    public $enableEvidenceCompletion;
+
+    /**
+     * @var bool
+     */
     public $enableQueryExpansion;
 
     /**
@@ -34,6 +39,7 @@ class retrievalConfig extends Model
     public $translationLanguages;
     protected $_name = [
         'candidateCount' => 'candidateCount',
+        'enableEvidenceCompletion' => 'enableEvidenceCompletion',
         'enableQueryExpansion' => 'enableQueryExpansion',
         'minScore' => 'minScore',
         'semanticWeight' => 'semanticWeight',
@@ -53,6 +59,10 @@ class retrievalConfig extends Model
         $res = [];
         if (null !== $this->candidateCount) {
             $res['candidateCount'] = $this->candidateCount;
+        }
+
+        if (null !== $this->enableEvidenceCompletion) {
+            $res['enableEvidenceCompletion'] = $this->enableEvidenceCompletion;
         }
 
         if (null !== $this->enableQueryExpansion) {
@@ -91,6 +101,10 @@ class retrievalConfig extends Model
         $model = new self();
         if (isset($map['candidateCount'])) {
             $model->candidateCount = $map['candidateCount'];
+        }
+
+        if (isset($map['enableEvidenceCompletion'])) {
+            $model->enableEvidenceCompletion = $map['enableEvidenceCompletion'];
         }
 
         if (isset($map['enableQueryExpansion'])) {
