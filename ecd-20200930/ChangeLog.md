@@ -1,3 +1,8 @@
+2026-11-16 Version: 5.7.0
+- Support API DeleteCloudDriveServices.
+- Update API CreateAndBindNasFileSystem: add request parameters SizeQuota.
+
+
 2026-11-06 Version: 5.6.1
 - Generated php 2020-09-30 for ecd.
 

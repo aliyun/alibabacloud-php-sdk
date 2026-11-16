@@ -44,6 +44,11 @@ class CreateAndBindNasFileSystemRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $sizeQuota;
+
+    /**
      * @var string
      */
     public $storageType;
@@ -55,6 +60,7 @@ class CreateAndBindNasFileSystemRequest extends Model
         'fileSystemName' => 'FileSystemName',
         'officeSiteId' => 'OfficeSiteId',
         'regionId' => 'RegionId',
+        'sizeQuota' => 'SizeQuota',
         'storageType' => 'StorageType',
     ];
 
@@ -102,6 +108,10 @@ class CreateAndBindNasFileSystemRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->sizeQuota) {
+            $res['SizeQuota'] = $this->sizeQuota;
         }
 
         if (null !== $this->storageType) {
@@ -152,6 +162,10 @@ class CreateAndBindNasFileSystemRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SizeQuota'])) {
+            $model->sizeQuota = $map['SizeQuota'];
         }
 
         if (isset($map['StorageType'])) {

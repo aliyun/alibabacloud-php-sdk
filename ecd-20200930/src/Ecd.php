@@ -147,6 +147,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCenterPolicyRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCenterPolicyResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveGroupsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveServicesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveServicesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveUsersRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteCloudDriveUsersResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DeleteConfigGroupRequest;
@@ -1950,7 +1952,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Associates a configuration group with a cloud computer or resource group.
+     * Associates a configuration group with a cloud desktop or a resource group.
      *
      * @param request - BindConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1997,7 +1999,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Associates a configuration group with a cloud computer or resource group.
+     * Associates a configuration group with a cloud desktop or a resource group.
      *
      * @param request - BindConfigGroupRequest
      *
@@ -3070,7 +3072,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a NAS file system and binds it to the office network of a shared cloud computer.
+     * Creates a NAS file system and associates it with the office network of a shared cloud desktop.
      *
      * @param request - CreateAndBindNasFileSystemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3114,6 +3116,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->sizeQuota) {
+            @$query['SizeQuota'] = $request->sizeQuota;
+        }
+
         if (null !== $request->storageType) {
             @$query['StorageType'] = $request->storageType;
         }
@@ -3137,7 +3143,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a NAS file system and binds it to the office network of a shared cloud computer.
+     * Creates a NAS file system and associates it with the office network of a shared cloud desktop.
      *
      * @param request - CreateAndBindNasFileSystemRequest
      *
@@ -4609,10 +4615,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a shared cloud computer.
+     * Creates a shared cloud desktop.
      *
      * @remarks
-     * - For information about the features, common scenarios, limits, and scaling policies of shared cloud computers, see [Shared cloud computers (formerly cloud computer pools) overview](https://help.aliyun.com/document_detail/290959.html).
+     * - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+     * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
      *
      * @param request - CreateDesktopGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4891,10 +4898,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a shared cloud computer.
+     * Creates a shared cloud desktop.
      *
      * @remarks
-     * - For information about the features, common scenarios, limits, and scaling policies of shared cloud computers, see [Shared cloud computers (formerly cloud computer pools) overview](https://help.aliyun.com/document_detail/290959.html).
+     * - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+     * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
      *
      * @param request - CreateDesktopGroupRequest
      *
@@ -6133,7 +6141,7 @@ class Ecd extends OpenApiClient
      * Enables Global Accelerator (GA) for an office network.
      *
      * @remarks
-     * Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
      *
      * @param request - CreateOfficeSiteAcceleratorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6191,7 +6199,7 @@ class Ecd extends OpenApiClient
      * Enables Global Accelerator (GA) for an office network.
      *
      * @remarks
-     * Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/425831.html) of Global Accelerator (GA).
      *
      * @param request - CreateOfficeSiteAcceleratorRequest
      *
@@ -6209,10 +6217,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a cloud computer policy.
+     * Creates a cloud desktop policy.
      *
      * @remarks
-     * A cloud computer policy is a collection of rules that primarily includes configurations for cloud computer performance and security, such as basic policies like disk mapping, USB redirection, and watermarks, as well as rules like DNS management. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+     * A cloud desktop policy is a collection of rules that mainly includes performance and security configurations for cloud desktops, such as basic policies for disk mapping, USB redirection, and watermarks, as well as rules for DNS control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
      *
      * @param request - CreatePolicyGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6475,10 +6483,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a cloud computer policy.
+     * Creates a cloud desktop policy.
      *
      * @remarks
-     * A cloud computer policy is a collection of rules that primarily includes configurations for cloud computer performance and security, such as basic policies like disk mapping, USB redirection, and watermarks, as well as rules like DNS management. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+     * A cloud desktop policy is a collection of rules that mainly includes performance and security configurations for cloud desktops, such as basic policies for disk mapping, USB redirection, and watermarks, as well as rules for DNS control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
      *
      * @param request - CreatePolicyGroupRequest
      *
@@ -6496,10 +6504,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a rate limiting rule.
+     * Creates a bandwidth throttling rule.
      *
      * @remarks
-     * Cloud computer templates include system templates and custom templates. System templates are default templates provided by Alibaba Cloud. Call this operation to create a custom template.
+     * Cloud computer templates are divided into system templates and custom templates. System templates are default templates provided by Alibaba Cloud. You can call this operation to create a custom template.
      *
      * @param request - CreateQosRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6562,10 +6570,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a rate limiting rule.
+     * Creates a bandwidth throttling rule.
      *
      * @remarks
-     * Cloud computer templates include system templates and custom templates. System templates are default templates provided by Alibaba Cloud. Call this operation to create a custom template.
+     * Cloud computer templates are divided into system templates and custom templates. System templates are default templates provided by Alibaba Cloud. You can call this operation to create a custom template.
      *
      * @param request - CreateQosRuleRequest
      *
@@ -7194,12 +7202,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
+     * Creates a custom cloud desktop template. A cloud desktop template (template for short) is a collection of cloud desktop configurations used to reduce configuration steps and accelerate the creation of cloud desktops.
      *
      * @remarks
      * When you call this operation, take note of the following items:
-     * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
-     * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+     * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence and validity of the parameter values in the template. The validity of the parameter values is verified only when an instance is actually created.
+     * - For parameters with region attributes in the template, if the region does not match when you use the template to create a cloud desktop, these parameters do not take effect.
      *
      * @param request - CreateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7329,12 +7337,12 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
+     * Creates a custom cloud desktop template. A cloud desktop template (template for short) is a collection of cloud desktop configurations used to reduce configuration steps and accelerate the creation of cloud desktops.
      *
      * @remarks
      * When you call this operation, take note of the following items:
-     * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
-     * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+     * - Most parameters in an instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence and validity of the parameter values in the template. The validity of the parameter values is verified only when an instance is actually created.
+     * - For parameters with region attributes in the template, if the region does not match when you use the template to create a cloud desktop, these parameters do not take effect.
      *
      * @param request - CreateTemplateRequest
      *
@@ -7355,7 +7363,7 @@ class Ecd extends OpenApiClient
      * Creates a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a cloud desktop.
+     * Deleting an MFA device dissociates the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a Cloud Desktop.
      *
      * @param request - CreateVirtualBridgeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7429,7 +7437,7 @@ class Ecd extends OpenApiClient
      * Creates a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a cloud desktop.
+     * Deleting an MFA device dissociates the MFA device, which is equivalent to resetting or disabling the MFA device. The corresponding AD user must bind a new MFA device when logging on to a Cloud Desktop.
      *
      * @param request - CreateVirtualBridgeRequest
      *
@@ -7642,7 +7650,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a non-region-specific policy.
+     * Deletes a regionless policy.
      *
      * @param request - DeleteCenterPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7693,7 +7701,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a non-region-specific policy.
+     * Deletes a regionless policy.
      *
      * @param request - DeleteCenterPolicyRequest
      *
@@ -7776,6 +7784,67 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Deletes one or more Wuying cloud disks.
+     *
+     * @param request - DeleteCloudDriveServicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloudDriveServicesResponse
+     *
+     * @param DeleteCloudDriveServicesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteCloudDriveServicesResponse
+     */
+    public function deleteCloudDriveServicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cdsId) {
+            @$query['CdsId'] = $request->cdsId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCloudDriveServices',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCloudDriveServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes one or more Wuying cloud disks.
+     *
+     * @param request - DeleteCloudDriveServicesRequest
+     *
+     * @returns DeleteCloudDriveServicesResponse
+     *
+     * @param DeleteCloudDriveServicesRequest $request
+     *
+     * @return DeleteCloudDriveServicesResponse
+     */
+    public function deleteCloudDriveServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudDriveServicesWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete the personal drive of a user in WUYING Workspace.
      *
      * @param request - DeleteCloudDriveUsersRequest
@@ -7841,7 +7910,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a configuration group.
+     * Deletes configuration groups.
      *
      * @param request - DeleteConfigGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7884,7 +7953,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a configuration group.
+     * Deletes configuration groups.
      *
      * @param request - DeleteConfigGroupRequest
      *
@@ -8184,7 +8253,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a cloud drive.
+     * Deletes a drive.
      *
      * @param request - DeleteDriveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8227,7 +8296,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a cloud drive.
+     * Deletes a drive.
      *
      * @param request - DeleteDriveRequest
      *
@@ -8637,7 +8706,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a Global Accelerator (GA) configuration.
+     * Deletes the Global Accelerator configuration.
      *
      * @param request - DeleteOfficeSiteAcceleratorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8680,7 +8749,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a Global Accelerator (GA) configuration.
+     * Deletes the Global Accelerator configuration.
      *
      * @param request - DeleteOfficeSiteAcceleratorRequest
      *
@@ -8840,7 +8909,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes QoS rules.
+     * Deletes a QoS rule.
      *
      * @param request - DeleteQosRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8879,7 +8948,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes QoS rules.
+     * Deletes a QoS rule.
      *
      * @param request - DeleteQosRulesRequest
      *
@@ -9224,10 +9293,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a custom cloud computer template.
+     * Deletes a custom cloud desktop template.
      *
      * @remarks
-     * After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+     * After a template is deleted, cloud desktops created based on the template and resources associated with the template are not affected.
      *
      * @param request - DeleteTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9270,10 +9339,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a custom cloud computer template.
+     * Deletes a custom cloud desktop template.
      *
      * @remarks
-     * After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+     * After a template is deleted, cloud desktops created based on the template and resources associated with the template are not affected.
      *
      * @param request - DeleteTemplatesRequest
      *
@@ -9294,7 +9363,7 @@ class Ecd extends OpenApiClient
      * Modifies the status of a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting and disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
+     * Deleting an MFA device unbinds the device, which is equivalent to resetting and disabling it. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
      *
      * @param request - DeleteVirtualBridgeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9340,7 +9409,7 @@ class Ecd extends OpenApiClient
      * Modifies the status of a virtual bridge.
      *
      * @remarks
-     * Deleting an MFA device unbinds the MFA device, which is equivalent to resetting and disabling the MFA device. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
+     * Deleting an MFA device unbinds the device, which is equivalent to resetting and disabling it. The corresponding Active Directory (AD) user must bind a new MFA device when logging on to a Cloud Desktop.
      *
      * @param request - DeleteVirtualBridgeRequest
      *
@@ -9575,7 +9644,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of cloud computer templates.
+     * Queries the details of cloud desktop templates.
      *
      * @param request - DescribeBundlesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9694,7 +9763,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the details of cloud computer templates.
+     * Queries the details of cloud desktop templates.
      *
      * @param request - DescribeBundlesRequest
      *
@@ -9858,7 +9927,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查詢無地域策略的詳細資訊。
+     * Queries the details of regionless policies.
      *
      * @param request - DescribeCenterPolicyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9929,7 +9998,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查詢無地域策略的詳細資訊。
+     * Queries the details of regionless policies.
      *
      * @param request - DescribeCenterPolicyListRequest
      *
@@ -11031,10 +11100,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the list and metadata of cloud desktops across all regions.
+     * Queries a list of cloud desktops and their metadata across all regions.
      *
      * @remarks
-     * This is a centralized API that only supports queries from the Shanghai and Singapore sites.
+     * This operation is centralized and supports queries only in the Shanghai and Singapore sites.
      *
      * @param request - DescribeDesktopMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11129,10 +11198,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the list and metadata of cloud desktops across all regions.
+     * Queries a list of cloud desktops and their metadata across all regions.
      *
      * @remarks
-     * This is a centralized API that only supports queries from the Shanghai and Singapore sites.
+     * This operation is centralized and supports queries only in the Shanghai and Singapore sites.
      *
      * @param request - DescribeDesktopMetadataRequest
      *
@@ -11850,7 +11919,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the list of cloud desktops in a shared cloud desktop by billing method.
+     * Queries the cloud desktops in a shared cloud desktop by billing method.
      *
      * @param request - DescribeDesktopsInGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11917,7 +11986,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the list of cloud desktops in a shared cloud desktop by billing method.
+     * Queries the cloud desktops in a shared cloud desktop by billing method.
      *
      * @param request - DescribeDesktopsInGroupRequest
      *
@@ -12815,7 +12884,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the execution records of scheduled tasks for cloud computers across regions.
+     * Queries the execution records of scheduled tasks for cloud desktops across regions.
      *
      * @param request - DescribeGlobalTimerRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12906,7 +12975,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the execution records of scheduled tasks for cloud computers across regions.
+     * Queries the execution records of scheduled tasks for cloud desktops across regions.
      *
      * @param request - DescribeGlobalTimerRecordsRequest
      *
@@ -15662,7 +15731,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the list and details of snapshots for a cloud desktop.
+     * Queries the snapshots and their details for a cloud desktop.
      *
      * @param request - DescribeSnapshotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15753,7 +15822,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries the list and details of snapshots for a cloud desktop.
+     * Queries the snapshots and their details for a cloud desktop.
      *
      * @param request - DescribeSnapshotsRequest
      *
@@ -17664,7 +17733,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Generates an access key for a scenario.
+     * Generates a scenario access key.
      *
      * @param request - GenerateSceneKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17715,7 +17784,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Generates an access key for a scenario.
+     * Generates a scenario access key.
      *
      * @param request - GenerateSceneKeyRequest
      *
@@ -21006,13 +21075,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Converts the billing method of cloud desktops to subscription or pay-as-you-go.
+     * Changes the billing method of a cloud desktop to subscription or pay-as-you-go.
      *
      * @remarks
-     * - Before you invoke this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
-     * - When you invoke this operation, make sure that the cloud desktops are in the Running or Stopped state and that no overdue payments exist.
-     * - After the order is paid, the system starts to convert the billing method of the cloud desktops. During the conversion, the cloud desktops are in the Upgrade/Downgrade state and do not support other operations such as starting, stopping, or changing specifications.
-     * <props="china">When you convert the billing method from subscription to pay-as-you-go, refund quota limits apply. For more information, see [Switch from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
+     * - Before you call this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+     * - When you call this operation, make sure that the target cloud desktop is in the Running or Stopped state and has no overdue payments.
+     * - After the order is paid, the system starts to change the billing method of the cloud desktop. During the change, the cloud desktop is in the Upgrade/Downgrade state and does not support other operations, such as starting, stopping, or changing configurations.
+     * <props="china">When you change the billing method from subscription to pay-as-you-go, a refund quota limit applies. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
      *
      * @param request - ModifyDesktopChargeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21083,13 +21152,13 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Converts the billing method of cloud desktops to subscription or pay-as-you-go.
+     * Changes the billing method of a cloud desktop to subscription or pay-as-you-go.
      *
      * @remarks
-     * - Before you invoke this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
-     * - When you invoke this operation, make sure that the cloud desktops are in the Running or Stopped state and that no overdue payments exist.
-     * - After the order is paid, the system starts to convert the billing method of the cloud desktops. During the conversion, the cloud desktops are in the Upgrade/Downgrade state and do not support other operations such as starting, stopping, or changing specifications.
-     * <props="china">When you convert the billing method from subscription to pay-as-you-go, refund quota limits apply. For more information, see [Switch from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
+     * - Before you call this operation, make sure that you fully understand the billing methods of cloud desktops. For more information, see [Billing overview](https://help.aliyun.com/document_detail/188395.html).
+     * - When you call this operation, make sure that the target cloud desktop is in the Running or Stopped state and has no overdue payments.
+     * - After the order is paid, the system starts to change the billing method of the cloud desktop. During the change, the cloud desktop is in the Upgrade/Downgrade state and does not support other operations, such as starting, stopping, or changing configurations.
+     * <props="china">When you change the billing method from subscription to pay-as-you-go, a refund quota limit applies. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/439964.html).
      *
      * @param request - ModifyDesktopChargeTypeRequest
      *
