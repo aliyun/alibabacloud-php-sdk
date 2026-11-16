@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class reportDefinitions extends Model
 {
     /**
-     * @var bool
-     */
-    public $autoTagFields;
-
-    /**
      * @var string
      */
     public $beginBillingCycle;
@@ -54,16 +49,10 @@ class reportDefinitions extends Model
     public $reportType;
 
     /**
-     * @var string[]
-     */
-    public $selectedFields;
-
-    /**
      * @var string
      */
     public $subscribeCreateTime;
     protected $_name = [
-        'autoTagFields' => 'AutoTagFields',
         'beginBillingCycle' => 'BeginBillingCycle',
         'ossBucketName' => 'OssBucketName',
         'ossBucketOwnerAccountId' => 'OssBucketOwnerAccountId',
@@ -72,25 +61,17 @@ class reportDefinitions extends Model
         'reportSourceType' => 'ReportSourceType',
         'reportTaskId' => 'ReportTaskId',
         'reportType' => 'ReportType',
-        'selectedFields' => 'SelectedFields',
         'subscribeCreateTime' => 'SubscribeCreateTime',
     ];
 
     public function validate()
     {
-        if (\is_array($this->selectedFields)) {
-            Model::validateArray($this->selectedFields);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->autoTagFields) {
-            $res['AutoTagFields'] = $this->autoTagFields;
-        }
-
         if (null !== $this->beginBillingCycle) {
             $res['BeginBillingCycle'] = $this->beginBillingCycle;
         }
@@ -123,17 +104,6 @@ class reportDefinitions extends Model
             $res['ReportType'] = $this->reportType;
         }
 
-        if (null !== $this->selectedFields) {
-            if (\is_array($this->selectedFields)) {
-                $res['SelectedFields'] = [];
-                $n1 = 0;
-                foreach ($this->selectedFields as $item1) {
-                    $res['SelectedFields'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->subscribeCreateTime) {
             $res['SubscribeCreateTime'] = $this->subscribeCreateTime;
         }
@@ -149,10 +119,6 @@ class reportDefinitions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AutoTagFields'])) {
-            $model->autoTagFields = $map['AutoTagFields'];
-        }
-
         if (isset($map['BeginBillingCycle'])) {
             $model->beginBillingCycle = $map['BeginBillingCycle'];
         }
@@ -183,17 +149,6 @@ class reportDefinitions extends Model
 
         if (isset($map['ReportType'])) {
             $model->reportType = $map['ReportType'];
-        }
-
-        if (isset($map['SelectedFields'])) {
-            if (!empty($map['SelectedFields'])) {
-                $model->selectedFields = [];
-                $n1 = 0;
-                foreach ($map['SelectedFields'] as $item1) {
-                    $model->selectedFields[$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['SubscribeCreateTime'])) {

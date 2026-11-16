@@ -9,24 +9,14 @@ use AlibabaCloud\Dara\Model;
 class DataStepPriceMapValue extends Model
 {
     /**
-     * @var bool
-     */
-    public $rightClose;
-
-    /**
-     * @var string
-     */
-    public $min;
-
-    /**
-     * @var string
-     */
-    public $max;
-
-    /**
      * @var string
      */
     public $currency;
+
+    /**
+     * @var string
+     */
+    public $deductCycleType;
 
     /**
      * @var bool
@@ -36,12 +26,12 @@ class DataStepPriceMapValue extends Model
     /**
      * @var string
      */
-    public $stepPriceValue;
+    public $max;
 
     /**
      * @var string
      */
-    public $priceValueType;
+    public $min;
 
     /**
      * @var string
@@ -51,17 +41,27 @@ class DataStepPriceMapValue extends Model
     /**
      * @var string
      */
-    public $deductCycleType;
+    public $priceValueType;
+
+    /**
+     * @var bool
+     */
+    public $rightClose;
+
+    /**
+     * @var string
+     */
+    public $stepPriceValue;
     protected $_name = [
-        'rightClose' => 'RightClose',
-        'min' => 'Min',
-        'max' => 'Max',
         'currency' => 'Currency',
-        'leftClose' => 'LeftClose',
-        'stepPriceValue' => 'StepPriceValue',
-        'priceValueType' => 'PriceValueType',
-        'priceValue' => 'PriceValue',
         'deductCycleType' => 'DeductCycleType',
+        'leftClose' => 'LeftClose',
+        'max' => 'Max',
+        'min' => 'Min',
+        'priceValue' => 'PriceValue',
+        'priceValueType' => 'PriceValueType',
+        'rightClose' => 'RightClose',
+        'stepPriceValue' => 'StepPriceValue',
     ];
 
     public function validate()
@@ -72,40 +72,40 @@ class DataStepPriceMapValue extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->rightClose) {
-            $res['RightClose'] = $this->rightClose;
-        }
-
-        if (null !== $this->min) {
-            $res['Min'] = $this->min;
-        }
-
-        if (null !== $this->max) {
-            $res['Max'] = $this->max;
-        }
-
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
+        }
+
+        if (null !== $this->deductCycleType) {
+            $res['DeductCycleType'] = $this->deductCycleType;
         }
 
         if (null !== $this->leftClose) {
             $res['LeftClose'] = $this->leftClose;
         }
 
-        if (null !== $this->stepPriceValue) {
-            $res['StepPriceValue'] = $this->stepPriceValue;
+        if (null !== $this->max) {
+            $res['Max'] = $this->max;
         }
 
-        if (null !== $this->priceValueType) {
-            $res['PriceValueType'] = $this->priceValueType;
+        if (null !== $this->min) {
+            $res['Min'] = $this->min;
         }
 
         if (null !== $this->priceValue) {
             $res['PriceValue'] = $this->priceValue;
         }
 
-        if (null !== $this->deductCycleType) {
-            $res['DeductCycleType'] = $this->deductCycleType;
+        if (null !== $this->priceValueType) {
+            $res['PriceValueType'] = $this->priceValueType;
+        }
+
+        if (null !== $this->rightClose) {
+            $res['RightClose'] = $this->rightClose;
+        }
+
+        if (null !== $this->stepPriceValue) {
+            $res['StepPriceValue'] = $this->stepPriceValue;
         }
 
         return $res;
@@ -119,40 +119,40 @@ class DataStepPriceMapValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RightClose'])) {
-            $model->rightClose = $map['RightClose'];
-        }
-
-        if (isset($map['Min'])) {
-            $model->min = $map['Min'];
-        }
-
-        if (isset($map['Max'])) {
-            $model->max = $map['Max'];
-        }
-
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
+        }
+
+        if (isset($map['DeductCycleType'])) {
+            $model->deductCycleType = $map['DeductCycleType'];
         }
 
         if (isset($map['LeftClose'])) {
             $model->leftClose = $map['LeftClose'];
         }
 
-        if (isset($map['StepPriceValue'])) {
-            $model->stepPriceValue = $map['StepPriceValue'];
+        if (isset($map['Max'])) {
+            $model->max = $map['Max'];
         }
 
-        if (isset($map['PriceValueType'])) {
-            $model->priceValueType = $map['PriceValueType'];
+        if (isset($map['Min'])) {
+            $model->min = $map['Min'];
         }
 
         if (isset($map['PriceValue'])) {
             $model->priceValue = $map['PriceValue'];
         }
 
-        if (isset($map['DeductCycleType'])) {
-            $model->deductCycleType = $map['DeductCycleType'];
+        if (isset($map['PriceValueType'])) {
+            $model->priceValueType = $map['PriceValueType'];
+        }
+
+        if (isset($map['RightClose'])) {
+            $model->rightClose = $map['RightClose'];
+        }
+
+        if (isset($map['StepPriceValue'])) {
+            $model->stepPriceValue = $map['StepPriceValue'];
         }
 
         return $model;

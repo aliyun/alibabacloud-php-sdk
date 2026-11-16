@@ -35,7 +35,6 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateInvoiceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateInvoiceShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionResponse;
-use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterRuleRequest;
@@ -89,6 +88,9 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanShareAccountsShrin
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanUserDeductRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanUserDeductRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\GetSavingPlanUserDeductRuleShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListConsumeSummaryRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListConsumeSummaryResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListConsumeSummaryShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListCouponDeductTagShrinkRequest;
@@ -102,6 +104,9 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListInvoiceCandidateShrinkReque
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListInvoiceTitleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListReportDefinitionsRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListReportDefinitionsResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListSplitSummaryRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListSplitSummaryResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ListSplitSummaryShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRuleRequest;
@@ -141,6 +146,7 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SubmitSlaCouponApplyRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SubmitSlaCouponApplyResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpgradeCreditSeatRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpgradeCreditSeatResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -151,6 +157,9 @@ class BssOpenApi extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'BssOpenApi';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-hangzhou' => 'business.aliyuncs.com',
@@ -1105,43 +1114,37 @@ class BssOpenApi extends OpenApiClient
      * @remarks
      * When you call this operation, note the following items:
      * - You can subscribe to only one type of billing file at a time.
-     * - Except for monthly billing PDFs, starting from the day after the subscription is created, a billing file containing all detailed data from the beginning of the current month to the current day is pushed daily. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
-     * - Monthly billing PDFs for the previous month are pushed before the 4th day of each month.
-     * - Billing files generated on a daily basis may be delayed. Delayed bills are pushed on the day after they are generated and may include bills that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
-     * > Apply for the billing subscription permissions as described in the documentation: [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
-     * - This subscription and the billing subscription in the Expenses and Costs console are the same feature, and subscriptions are interoperable.
+     * - Except for monthly billing PDF files, starting from the day after the subscription is created, a billing file that contains all detailed data from the beginning of the current month to the current day is pushed every day. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
+     * - Monthly billing PDF files for the previous month are pushed before the 4th day of each month.
+     * - Billing files generated on a daily basis may be delayed. Delayed billing files are pushed on the day after they are generated, and may also include billing files that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
+     * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+     * - This subscription and the billing subscription feature in Expenses and Costs are the same feature, and subscriptions are interoperable.
      * - When you subscribe to a directory under a bucket, make sure that the directory naming conventions are met:
-     *     - Emojis are not allowed. Use valid UTF-8 characters.
-     *     - The forward slash (/) is used to separate paths and create subdirectories. Do not start the path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
-     *     - Subdirectories named .. are not allowed.
-     *     - The total length must be 1 to 254 characters.
+     *     - Do not use emojis. Use valid UTF-8 characters.
+     *     - Use forward slashes (/) to separate paths and quickly create subdirectories. Do not start a path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
+     *     - Do not use subdirectories named `..`.
+     *     - Limit the total length to 1 to 254 characters.
      * - File names:
      *     - Example: **consumeDetailBillV2** (billing item details)
      *
-     *         - Format of the file name pushed daily: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+     *         - Format of the file name pushed every day: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
      *
-     *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
+     *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
      * - Monthly billing PDF files are in the .pdf format, and other files are in the .csv format. When the data volume is large, the system automatically splits an exported bill into multiple files and compresses them into one or more ZIP files. The ZIP file names follow the same format.
      *
-     * @param tmpReq - CreateReportDefinitionRequest
+     * @param request - CreateReportDefinitionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateReportDefinitionResponse
      *
-     * @param CreateReportDefinitionRequest $tmpReq
+     * @param CreateReportDefinitionRequest $request
      * @param RuntimeOptions                $runtime
      *
      * @return CreateReportDefinitionResponse
      */
-    public function createReportDefinitionWithOptions($tmpReq, $runtime)
+    public function createReportDefinitionWithOptions($request, $runtime)
     {
-        $tmpReq->validate();
-        $request = new CreateReportDefinitionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->selectedFields) {
-            $request->selectedFieldsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedFields, 'SelectedFields', 'json');
-        }
-
+        $request->validate();
         $query = [];
         if (null !== $request->beginBillingCycle) {
             @$query['BeginBillingCycle'] = $request->beginBillingCycle;
@@ -1173,10 +1176,6 @@ class BssOpenApi extends OpenApiClient
 
         if (null !== $request->reportType) {
             @$query['ReportType'] = $request->reportType;
-        }
-
-        if (null !== $request->selectedFieldsShrink) {
-            @$query['SelectedFields'] = $request->selectedFieldsShrink;
         }
 
         if (null !== $request->sendWithAttach) {
@@ -1225,22 +1224,22 @@ class BssOpenApi extends OpenApiClient
      * @remarks
      * When you call this operation, note the following items:
      * - You can subscribe to only one type of billing file at a time.
-     * - Except for monthly billing PDFs, starting from the day after the subscription is created, a billing file containing all detailed data from the beginning of the current month to the current day is pushed daily. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
-     * - Monthly billing PDFs for the previous month are pushed before the 4th day of each month.
-     * - Billing files generated on a daily basis may be delayed. Delayed bills are pushed on the day after they are generated and may include bills that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
-     * > Apply for the billing subscription permissions as described in the documentation: [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
-     * - This subscription and the billing subscription in the Expenses and Costs console are the same feature, and subscriptions are interoperable.
+     * - Except for monthly billing PDF files, starting from the day after the subscription is created, a billing file that contains all detailed data from the beginning of the current month to the current day is pushed every day. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
+     * - Monthly billing PDF files for the previous month are pushed before the 4th day of each month.
+     * - Billing files generated on a daily basis may be delayed. Delayed billing files are pushed on the day after they are generated, and may also include billing files that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
+     * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+     * - This subscription and the billing subscription feature in Expenses and Costs are the same feature, and subscriptions are interoperable.
      * - When you subscribe to a directory under a bucket, make sure that the directory naming conventions are met:
-     *     - Emojis are not allowed. Use valid UTF-8 characters.
-     *     - The forward slash (/) is used to separate paths and create subdirectories. Do not start the path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
-     *     - Subdirectories named .. are not allowed.
-     *     - The total length must be 1 to 254 characters.
+     *     - Do not use emojis. Use valid UTF-8 characters.
+     *     - Use forward slashes (/) to separate paths and quickly create subdirectories. Do not start a path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
+     *     - Do not use subdirectories named `..`.
+     *     - Limit the total length to 1 to 254 characters.
      * - File names:
      *     - Example: **consumeDetailBillV2** (billing item details)
      *
-     *         - Format of the file name pushed daily: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+     *         - Format of the file name pushed every day: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
      *
-     *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Bill type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
+     *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
      * - Monthly billing PDF files are in the .pdf format, and other files are in the .csv format. When the data volume is large, the system automatically splits an exported bill into multiple files and compresses them into one or more ZIP files. The ZIP file names follow the same format.
      *
      * @param request - CreateReportDefinitionRequest
@@ -1549,7 +1548,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries a list of coupons.
+     * Queries the list of coupons.
      *
      * @param tmpReq - DescribeCouponRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1662,7 +1661,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries a list of coupons.
+     * Queries the list of coupons.
      *
      * @param request - DescribeCouponRequest
      *
@@ -1680,7 +1679,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the list of products available for a coupon.
+     * Queries the products available for a coupon.
      *
      * @param tmpReq - DescribeCouponItemListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1745,7 +1744,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the list of products available for a coupon.
+     * Queries the products available for a coupon.
      *
      * @param request - DescribeCouponItemListRequest
      *
@@ -1763,7 +1762,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries resource plan deduction records.
+     * Queries the deduction records of resource plans.
      *
      * @param tmpReq - DescribeDeductLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1858,7 +1857,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries resource plan deduction records.
+     * Queries the deduction records of resource plans.
      *
      * @param request - DescribeDeductLogsRequest
      *
@@ -2251,7 +2250,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query the transferable amount of a fund account.
+     * Queries the transferable amount of a fund account.
      *
      * @param request - GetFundAccountCanTransferAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2294,7 +2293,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query the transferable amount of a fund account.
+     * Queries the transferable amount of a fund account.
      *
      * @param request - GetFundAccountCanTransferAmountRequest
      *
@@ -2369,7 +2368,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query Fund Account Low Balance Alert.
+     * Queries the low balance alert for a fund account.
      *
      * @param request - GetFundAccountLowAvailableAmountAlarmRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2408,7 +2407,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Query Fund Account Low Balance Alert.
+     * Queries the low balance alert for a fund account.
      *
      * @param request - GetFundAccountLowAvailableAmountAlarmRequest
      *
@@ -2926,6 +2925,115 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * Queries the consumption summary for a specified billing month or billing date, and supports viewing expenses by dimensions such as billing item, resource, product, and account.
+     *
+     * @remarks
+     * 1. The final billing details for the current month will be issued at 12:00 on the 3rd day of the following month. Query results before this time are for reference only and should not be used as a basis for reconciliation (minor scenarios that may occur during the month include but are not limited to delayed billing, refunds, adjustments, and overdue payment write-offs).
+     * 2. Billing details are updated with a 24-hour delay compared to actual expense consumption, and information related to instance IDs (resource names) is updated with a 48-hour delay.
+     * 3. Billing data does not support providing specific expenses for each attached resource (such as domain names, buckets, and EIPs) of split-type cloud products (such as CDN, OSS, and Internet Shared Bandwidth). To view data including attached resources, go to split bills.
+     * 4. Data for the last 18 months is supported.
+     * 5. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts to avoid precision loss caused by binary floating-point numbers.
+     * 6. Whether a field has a value depends on the aggregation dimension, product Billable methods, and billing data. Null values or unreturned fields do not indicate that the value is zero.
+     * 7. This operation uses the field Glossary of the new version of bills. For related concepts, see [Differences and field descriptions of the new version of bills](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The English paths in the help documentation are OSS subscribe fields. The parameter names, field names, and return structures of this operation are subject to this topic.
+     *
+     * @param tmpReq - ListConsumeSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConsumeSummaryResponse
+     *
+     * @param ListConsumeSummaryRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListConsumeSummaryResponse
+     */
+    public function listConsumeSummaryWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListConsumeSummaryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->commonFilters) {
+            $request->commonFiltersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commonFilters, 'CommonFilters', 'json');
+        }
+
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        if (null !== $tmpReq->period) {
+            $request->periodShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->period, 'Period', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->commonFiltersShrink) {
+            @$query['CommonFilters'] = $request->commonFiltersShrink;
+        }
+
+        if (null !== $request->dimensionType) {
+            @$query['DimensionType'] = $request->dimensionType;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->periodShrink) {
+            @$query['Period'] = $request->periodShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConsumeSummary',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConsumeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the consumption summary for a specified billing month or billing date, and supports viewing expenses by dimensions such as billing item, resource, product, and account.
+     *
+     * @remarks
+     * 1. The final billing details for the current month will be issued at 12:00 on the 3rd day of the following month. Query results before this time are for reference only and should not be used as a basis for reconciliation (minor scenarios that may occur during the month include but are not limited to delayed billing, refunds, adjustments, and overdue payment write-offs).
+     * 2. Billing details are updated with a 24-hour delay compared to actual expense consumption, and information related to instance IDs (resource names) is updated with a 48-hour delay.
+     * 3. Billing data does not support providing specific expenses for each attached resource (such as domain names, buckets, and EIPs) of split-type cloud products (such as CDN, OSS, and Internet Shared Bandwidth). To view data including attached resources, go to split bills.
+     * 4. Data for the last 18 months is supported.
+     * 5. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts to avoid precision loss caused by binary floating-point numbers.
+     * 6. Whether a field has a value depends on the aggregation dimension, product Billable methods, and billing data. Null values or unreturned fields do not indicate that the value is zero.
+     * 7. This operation uses the field Glossary of the new version of bills. For related concepts, see [Differences and field descriptions of the new version of bills](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The English paths in the help documentation are OSS subscribe fields. The parameter names, field names, and return structures of this operation are subject to this topic.
+     *
+     * @param request - ListConsumeSummaryRequest
+     *
+     * @returns ListConsumeSummaryResponse
+     *
+     * @param ListConsumeSummaryRequest $request
+     *
+     * @return ListConsumeSummaryResponse
+     */
+    public function listConsumeSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConsumeSummaryWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询优惠券设置的抵扣标签.
      *
      * @param tmpReq - ListCouponDeductTagRequest
@@ -3305,7 +3413,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * View subscribed report list.
+     * Queries the list of subscribed reports.
      *
      * @param request - ListReportDefinitionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3344,7 +3452,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * View subscribed report list.
+     * Queries the list of subscribed reports.
      *
      * @param request - ListReportDefinitionsRequest
      *
@@ -3359,6 +3467,123 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listReportDefinitionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the split bill summary for a specified billing month or date. This operation supports viewing the costs of resources and split items, and filtering by product, account, financial unit, resource group, and tag.
+     *
+     * @remarks
+     * 1. This operation aggregates split bill records by day or month. It can be used to view the cost attribution of split resources. For products that support automatic splitting, you can view costs by attached resource, such as OSS buckets, CDN domain names, and EIPs of Internet Shared Bandwidth. For the supported scope, refer to [Split bill details](https://www.alibabacloud.com/help/en/user-center/splitting-bill).
+     * 2. The final split bill data for the current month is generated at 12:00 on the fourth day of the next month. Query results before this time are for reference only and must not be used as the final basis for reconciliation. The generation of costs for attached resources is delayed. If the data is incomplete, query again after the update.
+     * 3. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts and avoid precision loss caused by binary floating-point numbers.
+     * 4. Whether a field has a value depends on the product billing method, splitting rules, and bill data. A null value or an unreturned field does not mean the value is zero. Information such as public IP, private IP, and resource names also depends on the resource information query capabilities of the product.
+     * 5. This operation uses the field terminology of the new bill version. For related concepts, refer to [Differences and field descriptions of the new bill version](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The parameter names and response structure of this operation are subject to this topic.
+     *
+     * @param tmpReq - ListSplitSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSplitSummaryResponse
+     *
+     * @param ListSplitSummaryRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSplitSummaryResponse
+     */
+    public function listSplitSummaryWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListSplitSummaryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->commonFilters) {
+            $request->commonFiltersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->commonFilters, 'CommonFilters', 'json');
+        }
+
+        if (null !== $tmpReq->costCategoriesFilters) {
+            $request->costCategoriesFiltersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->costCategoriesFilters, 'CostCategoriesFilters', 'json');
+        }
+
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        if (null !== $tmpReq->period) {
+            $request->periodShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->period, 'Period', 'json');
+        }
+
+        if (null !== $tmpReq->tagFilters) {
+            $request->tagFiltersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagFilters, 'TagFilters', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->commonFiltersShrink) {
+            @$query['CommonFilters'] = $request->commonFiltersShrink;
+        }
+
+        if (null !== $request->costCategoriesFiltersShrink) {
+            @$query['CostCategoriesFilters'] = $request->costCategoriesFiltersShrink;
+        }
+
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->periodShrink) {
+            @$query['Period'] = $request->periodShrink;
+        }
+
+        if (null !== $request->tagFiltersShrink) {
+            @$query['TagFilters'] = $request->tagFiltersShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSplitSummary',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSplitSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the split bill summary for a specified billing month or date. This operation supports viewing the costs of resources and split items, and filtering by product, account, financial unit, resource group, and tag.
+     *
+     * @remarks
+     * 1. This operation aggregates split bill records by day or month. It can be used to view the cost attribution of split resources. For products that support automatic splitting, you can view costs by attached resource, such as OSS buckets, CDN domain names, and EIPs of Internet Shared Bandwidth. For the supported scope, refer to [Split bill details](https://www.alibabacloud.com/help/en/user-center/splitting-bill).
+     * 2. The final split bill data for the current month is generated at 12:00 on the fourth day of the next month. Query results before this time are for reference only and must not be used as the final basis for reconciliation. The generation of costs for attached resources is delayed. If the data is incomplete, query again after the update.
+     * 3. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts and avoid precision loss caused by binary floating-point numbers.
+     * 4. Whether a field has a value depends on the product billing method, splitting rules, and bill data. A null value or an unreturned field does not mean the value is zero. Information such as public IP, private IP, and resource names also depends on the resource information query capabilities of the product.
+     * 5. This operation uses the field terminology of the new bill version. For related concepts, refer to [Differences and field descriptions of the new bill version](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The parameter names and response structure of this operation are subject to this topic.
+     *
+     * @param request - ListSplitSummaryRequest
+     *
+     * @returns ListSplitSummaryResponse
+     *
+     * @param ListSplitSummaryRequest $request
+     *
+     * @return ListSplitSummaryResponse
+     */
+    public function listSplitSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSplitSummaryWithOptions($request, $runtime);
     }
 
     /**
@@ -3846,10 +4071,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the automatic allocation rules of a cost center.
+     * Queries cost center rules.
      *
      * @remarks
-     * Queries a parent cost center and its child cost centers.
+     * Queries the parent cost center and its child cost centers.
      *
      * @param request - QueryCostCenterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3898,10 +4123,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the automatic allocation rules of a cost center.
+     * Queries cost center rules.
      *
      * @remarks
-     * Queries a parent cost center and its child cost centers.
+     * Queries the parent cost center and its child cost centers.
      *
      * @param request - QueryCostCenterRuleRequest
      *
@@ -3998,10 +4223,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the SLA compensation list for a user.
+     * Queries the SLA compensation list for users.
      *
      * @remarks
-     * Queries the SLA compensation details list for a user. Only data from the last two months is available.
+     * Provides the list of SLA compensation details for users, including only data from the last two months.
      *
      * @param request - QueryMonthlySlaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4070,10 +4295,10 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * Queries the SLA compensation list for a user.
+     * Queries the SLA compensation list for users.
      *
      * @remarks
-     * Queries the SLA compensation details list for a user. Only data from the last two months is available.
+     * Provides the list of SLA compensation details for users, including only data from the last two months.
      *
      * @param request - QueryMonthlySlaListRequest
      *

@@ -64,11 +64,6 @@ class CreateReportDefinitionRequest extends Model
     public $reportType;
 
     /**
-     * @var string[]
-     */
-    public $selectedFields;
-
-    /**
      * @var string
      */
     public $sendWithAttach;
@@ -89,16 +84,12 @@ class CreateReportDefinitionRequest extends Model
         'ossBucketPath' => 'OssBucketPath',
         'reportSourceType' => 'ReportSourceType',
         'reportType' => 'ReportType',
-        'selectedFields' => 'SelectedFields',
         'sendWithAttach' => 'SendWithAttach',
         'splitFileOnUserId' => 'SplitFileOnUserId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->selectedFields)) {
-            Model::validateArray($this->selectedFields);
-        }
         parent::validate();
     }
 
@@ -147,17 +138,6 @@ class CreateReportDefinitionRequest extends Model
 
         if (null !== $this->reportType) {
             $res['ReportType'] = $this->reportType;
-        }
-
-        if (null !== $this->selectedFields) {
-            if (\is_array($this->selectedFields)) {
-                $res['SelectedFields'] = [];
-                $n1 = 0;
-                foreach ($this->selectedFields as $item1) {
-                    $res['SelectedFields'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->sendWithAttach) {
@@ -221,17 +201,6 @@ class CreateReportDefinitionRequest extends Model
 
         if (isset($map['ReportType'])) {
             $model->reportType = $map['ReportType'];
-        }
-
-        if (isset($map['SelectedFields'])) {
-            if (!empty($map['SelectedFields'])) {
-                $model->selectedFields = [];
-                $n1 = 0;
-                foreach ($map['SelectedFields'] as $item1) {
-                    $model->selectedFields[$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['SendWithAttach'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class filterModules extends Model
 {
     /**
+     * @var string
+     */
+    public $moduleCode;
+
+    /**
      * @var int
      */
     public $moduleId;
@@ -16,15 +21,10 @@ class filterModules extends Model
     /**
      * @var string
      */
-    public $moduleCode;
-
-    /**
-     * @var string
-     */
     public $moduleName;
     protected $_name = [
-        'moduleId' => 'ModuleId',
         'moduleCode' => 'ModuleCode',
+        'moduleId' => 'ModuleId',
         'moduleName' => 'ModuleName',
     ];
 
@@ -36,12 +36,12 @@ class filterModules extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->moduleId) {
-            $res['ModuleId'] = $this->moduleId;
-        }
-
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
+        }
+
+        if (null !== $this->moduleId) {
+            $res['ModuleId'] = $this->moduleId;
         }
 
         if (null !== $this->moduleName) {
@@ -59,12 +59,12 @@ class filterModules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ModuleId'])) {
-            $model->moduleId = $map['ModuleId'];
-        }
-
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];
+        }
+
+        if (isset($map['ModuleId'])) {
+            $model->moduleId = $map['ModuleId'];
         }
 
         if (isset($map['ModuleName'])) {
