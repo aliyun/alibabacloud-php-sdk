@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainResponseBody\domain;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logHeaders extends Model
 {
     /**
-     * @example ALIWAF-TAG
-     *
      * @var string
      */
     public $k;
 
     /**
-     * @example Yes
-     *
      * @var string
      */
     public $v;
@@ -28,14 +24,16 @@ class logHeaders extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->k) {
             $res['k'] = $this->k;
         }
+
         if (null !== $this->v) {
             $res['v'] = $this->v;
         }
@@ -43,17 +41,18 @@ class logHeaders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logHeaders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['k'])) {
             $model->k = $map['k'];
         }
+
         if (isset($map['v'])) {
             $model->v = $map['v'];
         }

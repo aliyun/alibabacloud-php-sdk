@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceSpecInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceSpecInfos extends Model
 {
     /**
-     * @example 103
-     *
      * @var string
      */
     public $code;
@@ -20,20 +18,22 @@ class instanceSpecInfos extends Model
      */
     public $value;
     protected $_name = [
-        'code'  => 'Code',
+        'code' => 'Code',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class instanceSpecInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceSpecInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

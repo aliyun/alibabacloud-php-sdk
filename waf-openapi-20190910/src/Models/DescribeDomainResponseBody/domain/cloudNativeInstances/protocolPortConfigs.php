@@ -4,38 +4,46 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainResponseBody\domain\cloudNativeInstances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class protocolPortConfigs extends Model
 {
     /**
-     * @example [80]
-     *
      * @var int[]
      */
     public $ports;
 
     /**
-     * @example http
-     *
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'ports'    => 'Ports',
+        'ports' => 'Ports',
         'protocol' => 'Protocol',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ports)) {
+            Model::validateArray($this->ports);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ports) {
-            $res['Ports'] = $this->ports;
+            if (\is_array($this->ports)) {
+                $res['Ports'] = [];
+                $n1 = 0;
+                foreach ($this->ports as $item1) {
+                    $res['Ports'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -43,19 +51,25 @@ class protocolPortConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return protocolPortConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ports'])) {
             if (!empty($map['Ports'])) {
-                $model->ports = $map['Ports'];
+                $model->ports = [];
+                $n1 = 0;
+                foreach ($map['Ports'] as $item1) {
+                    $model->ports[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

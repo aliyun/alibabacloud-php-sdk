@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeCertificatesResponseBody\certificates;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCertificatesResponseBody extends Model
 {
@@ -15,32 +15,36 @@ class DescribeCertificatesResponseBody extends Model
     public $certificates;
 
     /**
-     * @example ECF65091-3704-55D5-BC88-EC208B0E238C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'certificates' => 'Certificates',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->certificates)) {
+            Model::validateArray($this->certificates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificates) {
-            $res['Certificates'] = [];
-            if (null !== $this->certificates && \is_array($this->certificates)) {
-                $n = 0;
-                foreach ($this->certificates as $item) {
-                    $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->certificates)) {
+                $res['Certificates'] = [];
+                $n1 = 0;
+                foreach ($this->certificates as $item1) {
+                    $res['Certificates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +52,25 @@ class DescribeCertificatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCertificatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
-                $n                   = 0;
-                foreach ($map['Certificates'] as $item) {
-                    $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Certificates'] as $item1) {
+                    $model->certificates[$n1] = certificates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

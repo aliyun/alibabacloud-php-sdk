@@ -1,3 +1,6 @@
+2026-11-16 Version: 1.2.2
+- Generated php 2019-09-10 for waf-openapi.
+
 2024-05-27 Version: 1.2.1
 - Update API DescribeRules: update param RuleGroupId.
 

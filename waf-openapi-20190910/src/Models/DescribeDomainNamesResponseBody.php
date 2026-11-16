@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainNamesResponseBody extends Model
 {
@@ -14,26 +14,36 @@ class DescribeDomainNamesResponseBody extends Model
     public $domainNames;
 
     /**
-     * @example D7861F61-5B61-46CE-A47C-6B19160D5EB0
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainNames' => 'DomainNames',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainNames)) {
+            Model::validateArray($this->domainNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainNames) {
-            $res['DomainNames'] = $this->domainNames;
+            if (\is_array($this->domainNames)) {
+                $res['DomainNames'] = [];
+                $n1 = 0;
+                foreach ($this->domainNames as $item1) {
+                    $res['DomainNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,19 +51,25 @@ class DescribeDomainNamesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainNamesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainNames'])) {
             if (!empty($map['DomainNames'])) {
-                $model->domainNames = $map['DomainNames'];
+                $model->domainNames = [];
+                $n1 = 0;
+                foreach ($map['DomainNames'] as $item1) {
+                    $model->domainNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeInstanceInfoResponseBody\instanceInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceInfoResponseBody extends Model
 {
     /**
-     * @description The information about the WAF instance.
-     *
      * @var instanceInfo
      */
     public $instanceInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D7861F61-5B61-46CE-A47C-6B19160D5EB0
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceInfo' => 'InstanceInfo',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->instanceInfo) {
+            $this->instanceInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceInfo) {
-            $res['InstanceInfo'] = null !== $this->instanceInfo ? $this->instanceInfo->toMap() : null;
+            $res['InstanceInfo'] = null !== $this->instanceInfo ? $this->instanceInfo->toArray($noStream) : $this->instanceInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeInstanceInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceInfo'])) {
             $model->instanceInfo = instanceInfo::fromMap($map['InstanceInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCertMatchStatusResponseBody extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $matchStatus;
 
     /**
-     * @example D7861F61-5B61-46CE-A47C-6B19160D5EB0
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'matchStatus' => 'MatchStatus',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->matchStatus) {
             $res['MatchStatus'] = $this->matchStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class DescribeCertMatchStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCertMatchStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MatchStatus'])) {
             $model->matchStatus = $map['MatchStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

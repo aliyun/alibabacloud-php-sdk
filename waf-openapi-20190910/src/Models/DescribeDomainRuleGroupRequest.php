@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainRuleGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example www.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example waf-cn-tl32ast****
-     *
      * @var string
      */
     public $instanceId;
@@ -36,28 +28,32 @@ class DescribeDomainRuleGroupRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'domain'          => 'Domain',
-        'instanceId'      => 'InstanceId',
-        'regionId'        => 'RegionId',
+        'domain' => 'Domain',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -65,23 +61,26 @@ class DescribeDomainRuleGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainRuleGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

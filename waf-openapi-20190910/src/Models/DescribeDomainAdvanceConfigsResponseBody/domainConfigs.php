@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainAdvanceConfigsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainAdvanceConfigsResponseBody\domainConfigs\profile;
-use AlibabaCloud\Tea\Model;
 
 class domainConfigs extends Model
 {
     /**
-     * @example www.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
@@ -21,38 +19,44 @@ class domainConfigs extends Model
      */
     public $profile;
     protected $_name = [
-        'domain'  => 'Domain',
+        'domain' => 'Domain',
         'profile' => 'Profile',
     ];
 
     public function validate()
     {
+        if (null !== $this->profile) {
+            $this->profile->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->profile) {
-            $res['Profile'] = null !== $this->profile ? $this->profile->toMap() : null;
+            $res['Profile'] = null !== $this->profile ? $this->profile->toArray($noStream) : $this->profile;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Profile'])) {
             $model->profile = profile::fromMap($map['Profile']);
         }

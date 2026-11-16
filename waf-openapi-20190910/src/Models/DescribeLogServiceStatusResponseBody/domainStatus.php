@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeLogServiceStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainStatus extends Model
 {
     /**
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $slsLogActive;
     protected $_name = [
-        'domain'       => 'Domain',
+        'domain' => 'Domain',
         'slsLogActive' => 'SlsLogActive',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->slsLogActive) {
             $res['SlsLogActive'] = $this->slsLogActive;
         }
@@ -43,17 +41,18 @@ class domainStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['SlsLogActive'])) {
             $model->slsLogActive = $map['SlsLogActive'];
         }

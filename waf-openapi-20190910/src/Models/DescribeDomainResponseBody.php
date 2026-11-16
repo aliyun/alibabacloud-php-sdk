@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20190910\Models\DescribeDomainResponseBody\domain;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainResponseBody extends Model
 {
@@ -15,26 +15,29 @@ class DescribeDomainResponseBody extends Model
     public $domain;
 
     /**
-     * @example D827FCFE-90A7-4330-9326-D33C8B4C7726
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'domain'    => 'Domain',
+        'domain' => 'Domain',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->domain) {
+            $this->domain->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
-            $res['Domain'] = null !== $this->domain ? $this->domain->toMap() : null;
+            $res['Domain'] = null !== $this->domain ? $this->domain->toArray($noStream) : $this->domain;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class DescribeDomainResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = domain::fromMap($map['Domain']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
