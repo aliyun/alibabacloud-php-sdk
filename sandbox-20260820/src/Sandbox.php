@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateApiKeyRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateApiKeyResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateCustomDomainRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateCustomDomainResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateTeamRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateTeamResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateTemplateCacheRequest;
@@ -20,6 +22,8 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateWarmPoolRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\CreateWarmPoolResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteApiKeyRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteApiKeyResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteCustomDomainRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteCustomDomainResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteQuotaRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteQuotaResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DeleteTeamRequest;
@@ -40,6 +44,8 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeTemplateCacheRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeTemplateCacheResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeWarmPoolRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\DescribeWarmPoolResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetCustomDomainRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetCustomDomainResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetMetricDataRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetMetricDataResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetMetricDataShrinkRequest;
@@ -54,6 +60,8 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetVolumeRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\GetVolumeResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListApiKeysResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListCustomDomainsRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListCustomDomainsResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListQuotaRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListQuotaResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ListTeamsRequest;
@@ -71,6 +79,8 @@ use AlibabaCloud\SDK\Sandbox\V20260820\Models\ResetApiKeyRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\ResetApiKeyResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateApiKeyRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateApiKeyResponse;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateCustomDomainRequest;
+use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateCustomDomainResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateQuotaRequest;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateQuotaResponse;
 use AlibabaCloud\SDK\Sandbox\V20260820\Models\UpdateTeamRequest;
@@ -178,6 +188,62 @@ class Sandbox extends OpenApiClient
         $headers = [];
 
         return $this->createApiKeyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a custom domain name.
+     *
+     * @param request - CreateCustomDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomDomainResponse
+     *
+     * @param CreateCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateCustomDomainResponse
+     */
+    public function createCustomDomainWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomDomain',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/custom-domains',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom domain name.
+     *
+     * @param request - CreateCustomDomainRequest
+     *
+     * @returns CreateCustomDomainResponse
+     *
+     * @param CreateCustomDomainRequest $request
+     *
+     * @return CreateCustomDomainResponse
+     */
+    public function createCustomDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCustomDomainWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -523,6 +589,63 @@ class Sandbox extends OpenApiClient
         $headers = [];
 
         return $this->deleteApiKeyWithOptions($apiKeyID, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a custom domain name.
+     *
+     * @param request - DeleteCustomDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomDomainResponse
+     *
+     * @param string                    $domainName
+     * @param DeleteCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteCustomDomainResponse
+     */
+    public function deleteCustomDomainWithOptions($domainName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomDomain',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/custom-domains/' . Url::percentEncode($domainName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a custom domain name.
+     *
+     * @param request - DeleteCustomDomainRequest
+     *
+     * @returns DeleteCustomDomainResponse
+     *
+     * @param string                    $domainName
+     * @param DeleteCustomDomainRequest $request
+     *
+     * @return DeleteCustomDomainResponse
+     */
+    public function deleteCustomDomain($domainName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteCustomDomainWithOptions($domainName, $request, $headers, $runtime);
     }
 
     /**
@@ -1132,10 +1255,67 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询监控指标.
+     * Queries custom domain names.
+     *
+     * @param request - GetCustomDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomDomainResponse
+     *
+     * @param string                 $domainName
+     * @param GetCustomDomainRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCustomDomainResponse
+     */
+    public function getCustomDomainWithOptions($domainName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomDomain',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/custom-domains/' . Url::percentEncode($domainName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries custom domain names.
+     *
+     * @param request - GetCustomDomainRequest
+     *
+     * @returns GetCustomDomainResponse
+     *
+     * @param string                 $domainName
+     * @param GetCustomDomainRequest $request
+     *
+     * @return GetCustomDomainResponse
+     */
+    public function getCustomDomain($domainName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCustomDomainWithOptions($domainName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries monitoring metrics.
      *
      * @remarks
-     * 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+     * Views monitoring metrics at a specific point in time or queries trends over a period of time. Supports querying by account, team, template, or sandbox.
      *
      * @param tmpReq - GetMetricDataRequest
      * @param headers - map
@@ -1223,10 +1403,10 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * 查询监控指标.
+     * Queries monitoring metrics.
      *
      * @remarks
-     * 查看某一时刻的监控指标，或查询一段时间内的变化趋势。支持按账号、团队、模板或沙箱查询。
+     * Views monitoring metrics at a specific point in time or queries trends over a period of time. Supports querying by account, team, template, or sandbox.
      *
      * @param request - GetMetricDataRequest
      *
@@ -1615,6 +1795,71 @@ class Sandbox extends OpenApiClient
         $headers = [];
 
         return $this->listApiKeysWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paging query of custom domain names.
+     *
+     * @param request - ListCustomDomainsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomDomainsResponse
+     *
+     * @param ListCustomDomainsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCustomDomainsResponse
+     */
+    public function listCustomDomainsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomDomains',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/custom-domains',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query of custom domain names.
+     *
+     * @param request - ListCustomDomainsRequest
+     *
+     * @returns ListCustomDomainsResponse
+     *
+     * @param ListCustomDomainsRequest $request
+     *
+     * @return ListCustomDomainsResponse
+     */
+    public function listCustomDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listCustomDomainsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2196,6 +2441,64 @@ class Sandbox extends OpenApiClient
         $headers = [];
 
         return $this->updateApiKeyWithOptions($apiKeyID, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a custom domain name.
+     *
+     * @param request - UpdateCustomDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomDomainResponse
+     *
+     * @param string                    $domainName
+     * @param UpdateCustomDomainRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateCustomDomainResponse
+     */
+    public function updateCustomDomainWithOptions($domainName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCustomDomain',
+            'version' => '2026-08-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-08-20/custom-domains/' . Url::percentEncode($domainName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCustomDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a custom domain name.
+     *
+     * @param request - UpdateCustomDomainRequest
+     *
+     * @returns UpdateCustomDomainResponse
+     *
+     * @param string                    $domainName
+     * @param UpdateCustomDomainRequest $request
+     *
+     * @return UpdateCustomDomainResponse
+     */
+    public function updateCustomDomain($domainName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateCustomDomainWithOptions($domainName, $request, $headers, $runtime);
     }
 
     /**
