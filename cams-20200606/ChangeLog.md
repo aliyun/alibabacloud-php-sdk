@@ -1,3 +1,12 @@
+2026-11-16 Version: 5.4.0
+- Support API GetInstagramUserInfo.
+- Support API GetMessengerUserInfo.
+- Update API CreateChatFlow: add request parameters LifeCycleExtendDataV2.
+- Update API CreateChatappTemplate: add request parameters Components.$.Buttons.$.TtlMinutes.
+- Update API GetChatappTemplateDetail: add response parameters Body.Data.Components.$.Buttons.$.TtlMinutes.
+- Update API ModifyChatappTemplate: add request parameters Components.$.Buttons.$.TtlMinutes.
+
+
 2026-08-27 Version: 5.3.1
 - Update API CreateChatFlow: add request parameters CreateFromFlowCode.
 - Update API CreateChatFlow: add request parameters CreateFromFlowVersion.

@@ -39,6 +39,11 @@ class CreateChatFlowRequest extends Model
     public $lifeCycleExtendData;
 
     /**
+     * @var mixed[]
+     */
+    public $lifeCycleExtendDataV2;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -69,6 +74,7 @@ class CreateChatFlowRequest extends Model
         'createFromFlowVersion' => 'CreateFromFlowVersion',
         'flowTriggerType' => 'FlowTriggerType',
         'lifeCycleExtendData' => 'LifeCycleExtendData',
+        'lifeCycleExtendDataV2' => 'LifeCycleExtendDataV2',
         'ownerId' => 'OwnerId',
         'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -83,6 +89,9 @@ class CreateChatFlowRequest extends Model
         }
         if (\is_array($this->lifeCycleExtendData)) {
             Model::validateArray($this->lifeCycleExtendData);
+        }
+        if (\is_array($this->lifeCycleExtendDataV2)) {
+            Model::validateArray($this->lifeCycleExtendDataV2);
         }
         parent::validate();
     }
@@ -120,6 +129,15 @@ class CreateChatFlowRequest extends Model
                 $res['LifeCycleExtendData'] = [];
                 foreach ($this->lifeCycleExtendData as $key1 => $value1) {
                     $res['LifeCycleExtendData'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->lifeCycleExtendDataV2) {
+            if (\is_array($this->lifeCycleExtendDataV2)) {
+                $res['LifeCycleExtendDataV2'] = [];
+                foreach ($this->lifeCycleExtendDataV2 as $key1 => $value1) {
+                    $res['LifeCycleExtendDataV2'][$key1] = $value1;
                 }
             }
         }
@@ -185,6 +203,15 @@ class CreateChatFlowRequest extends Model
                 $model->lifeCycleExtendData = [];
                 foreach ($map['LifeCycleExtendData'] as $key1 => $value1) {
                     $model->lifeCycleExtendData[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['LifeCycleExtendDataV2'])) {
+            if (!empty($map['LifeCycleExtendDataV2'])) {
+                $model->lifeCycleExtendDataV2 = [];
+                foreach ($map['LifeCycleExtendDataV2'] as $key1 => $value1) {
+                    $model->lifeCycleExtendDataV2[$key1] = $value1;
                 }
             }
         }

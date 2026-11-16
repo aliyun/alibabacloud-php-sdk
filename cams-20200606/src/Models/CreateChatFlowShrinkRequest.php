@@ -39,6 +39,11 @@ class CreateChatFlowShrinkRequest extends Model
     public $lifeCycleExtendDataShrink;
 
     /**
+     * @var string
+     */
+    public $lifeCycleExtendDataV2Shrink;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -69,6 +74,7 @@ class CreateChatFlowShrinkRequest extends Model
         'createFromFlowVersion' => 'CreateFromFlowVersion',
         'flowTriggerType' => 'FlowTriggerType',
         'lifeCycleExtendDataShrink' => 'LifeCycleExtendData',
+        'lifeCycleExtendDataV2Shrink' => 'LifeCycleExtendDataV2',
         'ownerId' => 'OwnerId',
         'remark' => 'Remark',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -106,6 +112,10 @@ class CreateChatFlowShrinkRequest extends Model
 
         if (null !== $this->lifeCycleExtendDataShrink) {
             $res['LifeCycleExtendData'] = $this->lifeCycleExtendDataShrink;
+        }
+
+        if (null !== $this->lifeCycleExtendDataV2Shrink) {
+            $res['LifeCycleExtendDataV2'] = $this->lifeCycleExtendDataV2Shrink;
         }
 
         if (null !== $this->ownerId) {
@@ -161,6 +171,10 @@ class CreateChatFlowShrinkRequest extends Model
 
         if (isset($map['LifeCycleExtendData'])) {
             $model->lifeCycleExtendDataShrink = $map['LifeCycleExtendData'];
+        }
+
+        if (isset($map['LifeCycleExtendDataV2'])) {
+            $model->lifeCycleExtendDataV2Shrink = $map['LifeCycleExtendDataV2'];
         }
 
         if (isset($map['OwnerId'])) {

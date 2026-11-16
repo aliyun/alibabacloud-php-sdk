@@ -191,8 +191,12 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetFlowResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetGroupExistRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetGroupExistResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetGroupExistShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetInstagramUserInfoRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetInstagramUserInfoResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMessageCampaignInsightsRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMessageCampaignInsightsResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetMessengerUserInfoRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetMessengerUserInfoResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPermissionByCodeRequest;
@@ -408,6 +412,7 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\UpdateWhatsappUserNameResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\WhatsappCallRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\WhatsappCallResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\WhatsappCallShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -418,10 +423,10 @@ class Cams extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'cams';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'ap-southeast-1' => 'cams.ap-southeast-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cams', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -451,7 +456,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Submits a request to change the destination, resume, or pause.
+     * Applies for a destination change, resumption, or suspension.
      *
      * @param tmpReq - AddAddressRecoverSuspendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -516,7 +521,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Submits a request to change the destination, resume, or pause.
+     * Applies for a destination change, resumption, or suspension.
      *
      * @param request - AddAddressRecoverSuspendRequest
      *
@@ -534,7 +539,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Signs up for a Viber account.
+     * Registers a Viber account and opens an account.
      *
      * @param tmpReq - AddAuditViberOpenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -599,7 +604,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Signs up for a Viber account.
+     * Registers a Viber account and opens an account.
      *
      * @param request - AddAuditViberOpenRequest
      *
@@ -620,11 +625,10 @@ class Cams extends OpenApiClient
      * Creates an IM group.
      *
      * @remarks
-     * >Notice:
-     * Creating IM groups via the API is a feature in closed beta testing by Meta. Please contact your account manager to be added to the allowlist.
-     * - You can only create an IM group by calling this API.
-     * - After creating an IM group, you can call the [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) API to generate an invite link.
-     * - For the WhatsApp channel type, an IM group is limited to eight members.
+     * >Notice: Creating IM groups by calling API operations is a Meta closed beta feature. Contact your account manager to apply for whitelist access.
+     * - You can call this operation to create an IM group. Currently, you can create IM groups only by calling API operations.
+     * - After the group is created, you can call the [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operation to add an invitation link and invite members to join the IM group.
+     * - The maximum number of members in a group whose channel type is WhatsApp is 8.
      *
      * @param request - AddChatGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -698,11 +702,10 @@ class Cams extends OpenApiClient
      * Creates an IM group.
      *
      * @remarks
-     * >Notice:
-     * Creating IM groups via the API is a feature in closed beta testing by Meta. Please contact your account manager to be added to the allowlist.
-     * - You can only create an IM group by calling this API.
-     * - After creating an IM group, you can call the [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) API to generate an invite link.
-     * - For the WhatsApp channel type, an IM group is limited to eight members.
+     * >Notice: Creating IM groups by calling API operations is a Meta closed beta feature. Contact your account manager to apply for whitelist access.
+     * - You can call this operation to create an IM group. Currently, you can create IM groups only by calling API operations.
+     * - After the group is created, you can call the [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operation to add an invitation link and invite members to join the IM group.
+     * - The maximum number of members in a group whose channel type is WhatsApp is 8.
      *
      * @param request - AddChatGroupRequest
      *
@@ -720,15 +723,15 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Adds an invite link for an IM group.
+     * Creates an IM group invitation link.
      *
      * @remarks
-     * >Notice: Adding IM group invite links through the API is a Meta beta feature. Contact your account manager to apply for access.
-     * - Before calling this operation, make sure that you have a successfully created IM group.
-     * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
-     * - After you call this operation to add an IM group invite link, you can use the link to invite members to join the IM group.
-     * - Currently, members can join an IM group only through an invite link.
-     * - The maximum number of members in a WhatsApp group is 8.
+     * <notice>The feature of adding an IM group invitation link through the API is a Meta beta feature. Contact your account manager to apply for whitelist access.</notice>
+     * - Before calling this API operation, make sure that you have created an IM group.
+     * - If you do not have an IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) API operation to create one.
+     * - After you call this API operation to generate an IM group invitation link, you can use the link to invite members to the IM group.
+     * - Currently, members can only join an IM group by using an invitation link.
+     * - The maximum number of members in a group with the WhatsApp channel type is 8.
      *
      * @param request - AddChatGroupInviteLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -791,15 +794,15 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Adds an invite link for an IM group.
+     * Creates an IM group invitation link.
      *
      * @remarks
-     * >Notice: Adding IM group invite links through the API is a Meta beta feature. Contact your account manager to apply for access.
-     * - Before calling this operation, make sure that you have a successfully created IM group.
-     * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
-     * - After you call this operation to add an IM group invite link, you can use the link to invite members to join the IM group.
-     * - Currently, members can join an IM group only through an invite link.
-     * - The maximum number of members in a WhatsApp group is 8.
+     * <notice>The feature of adding an IM group invitation link through the API is a Meta beta feature. Contact your account manager to apply for whitelist access.</notice>
+     * - Before calling this API operation, make sure that you have created an IM group.
+     * - If you do not have an IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) API operation to create one.
+     * - After you call this API operation to generate an IM group invitation link, you can use the link to invite members to the IM group.
+     * - Currently, members can only join an IM group by using an invitation link.
+     * - The maximum number of members in a group with the WhatsApp channel type is 8.
      *
      * @param request - AddChatGroupInviteLinkRequest
      *
@@ -817,10 +820,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Adds a phone number to a WABA.
+     * Adds a phone number to WABA.
      *
      * @remarks
-     * The China site (Chinese mainland) QPS limit for a single user on this API is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The QPS limit per user for this API operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation as needed.
      *
      * @param request - AddChatappPhoneNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -887,10 +890,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Adds a phone number to a WABA.
+     * Adds a phone number to WABA.
      *
      * @remarks
-     * The China site (Chinese mainland) QPS limit for a single user on this API is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The QPS limit per user for this API operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation as needed.
      *
      * @param request - AddChatappPhoneNumberRequest
      *
@@ -1019,10 +1022,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Adds users to a custom audience.
+     * Adds a custom audience.
      *
      * @remarks
-     * After users are submitted to a custom audience, Meta matches them. If fewer than 100 users are matched, Meta discards the data. This prevents phone numbers from being linked directly to user tokens. Each API call supports up to 10,000 user records.
+     * After the users in the added custom audience are submitted to Meta, Meta discards the matching data if the number of successfully matched users is less than 100. This prevents the submitted phone numbers from being compared with tokens to establish direct relationships. You can pass up to 10,000 user data records at a time in a single request.
      *
      * @param tmpReq - AddCustomAudienceUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1103,10 +1106,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Adds users to a custom audience.
+     * Adds a custom audience.
      *
      * @remarks
-     * After users are submitted to a custom audience, Meta matches them. If fewer than 100 users are matched, Meta discards the data. This prevents phone numbers from being linked directly to user tokens. Each API call supports up to 10,000 user records.
+     * After the users in the added custom audience are submitted to Meta, Meta discards the matching data if the number of successfully matched users is less than 100. This prevents the submitted phone numbers from being compared with tokens to establish direct relationships. You can pass up to 10,000 user data records at a time in a single request.
      *
      * @param request - AddCustomAudienceUserRequest
      *
@@ -1231,7 +1234,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a campaign.
+     * Creates a marketing campaign.
      *
      * @param tmpReq - AddMarketingFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1340,7 +1343,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a campaign.
+     * Creates a marketing campaign.
      *
      * @param request - AddMarketingFlowRequest
      *
@@ -1358,7 +1361,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Archives a Chat App Message Service template. Currently, only WhatsApp templates support archiving.
+     * Archives Chat App templates. Currently, only WhatsApp templates support archiving.
      *
      * @param tmpReq - ArchiveChatappTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1415,7 +1418,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Archives a Chat App Message Service template. Currently, only WhatsApp templates support archiving.
+     * Archives Chat App templates. Currently, only WhatsApp templates support archiving.
      *
      * @param request - ArchiveChatappTemplateRequest
      *
@@ -1516,7 +1519,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Associates a page with an instance.
+     * Binds a page to an instance.
      *
      * @param request - BindInstagramPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1575,7 +1578,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Associates a page with an instance.
+     * Binds a page to an instance.
      *
      * @param request - BindInstagramPageRequest
      *
@@ -1593,7 +1596,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Binds the selected pageId.
+     * Binds the selected page ID.
      *
      * @param request - BindMessengerPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1652,7 +1655,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Binds the selected pageId.
+     * Binds the selected page ID.
      *
      * @param request - BindMessengerPageRequest
      *
@@ -1670,7 +1673,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Moves a resource to a different resource group.
+     * Transfers resources to another resource group.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1717,7 +1720,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Moves a resource to a different resource group.
+     * Transfers resources to another resource group.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -1735,10 +1738,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Binds a WhatsApp Business Account (WABA) through the northbound interface.
+     * Binds a WABA to the northbound interface.
      *
      * @remarks
-     * The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls will be throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * The queries per second (QPS) limit for a single user is 10. If you exceed this limit, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
      *
      * @param request - ChatappBindWabaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1789,10 +1792,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Binds a WhatsApp Business Account (WABA) through the northbound interface.
+     * Binds a WABA to the northbound interface.
      *
      * @remarks
-     * The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls will be throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * The queries per second (QPS) limit for a single user is 10. If you exceed this limit, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
      *
      * @param request - ChatappBindWabaRequest
      *
@@ -1813,7 +1816,7 @@ class Cams extends OpenApiClient
      * Migrates a phone number registration.
      *
      * @remarks
-     * The queries per second (QPS) limit for this operation is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
      *
      * @param request - ChatappMigrationRegisterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1871,7 +1874,7 @@ class Cams extends OpenApiClient
      * Migrates a phone number registration.
      *
      * @remarks
-     * The queries per second (QPS) limit for this operation is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
      *
      * @param request - ChatappMigrationRegisterRequest
      *
@@ -1972,10 +1975,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deregisters a phone number from WABA.
+     * Unregisters a phone number from WABA.
      *
      * @remarks
-     * The China Mainland site (Chinese) QPS limit for a single user for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Manage your calls appropriately.
+     * The queries per second (QPS) limit per user for this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - ChatappPhoneNumberDeregisterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2030,10 +2033,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deregisters a phone number from WABA.
+     * Unregisters a phone number from WABA.
      *
      * @remarks
-     * The China Mainland site (Chinese) QPS limit for a single user for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Manage your calls appropriately.
+     * The queries per second (QPS) limit per user for this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - ChatappPhoneNumberDeregisterRequest
      *
@@ -2051,10 +2054,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Registers a phone number through the northbound interface.
+     * Registers a phone number.
      *
      * @remarks
-     * The China Mainland Messaging API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
      *
      * @param request - ChatappPhoneNumberRegisterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2109,10 +2112,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Registers a phone number through the northbound interface.
+     * Registers a phone number.
      *
      * @remarks
-     * The China Mainland Messaging API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
      *
      * @param request - ChatappPhoneNumberRegisterRequest
      *
@@ -2133,7 +2136,7 @@ class Cams extends OpenApiClient
      * Synchronizes phone number information.
      *
      * @remarks
-     * The China-specific QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * The single-user QPS limit for this API operation is 10 requests per second. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @param request - ChatappSyncPhoneNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2187,7 +2190,7 @@ class Cams extends OpenApiClient
      * Synchronizes phone number information.
      *
      * @remarks
-     * The China-specific QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * The single-user QPS limit for this API operation is 10 requests per second. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @param request - ChatappSyncPhoneNumberRequest
      *
@@ -2205,10 +2208,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Verifies a verification code and registers through the northbound interface.
+     * Verifies the verification code and registers a user through the northbound API.
      *
      * @remarks
-     * The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API appropriately.
+     * The QPS limit per user is 10 requests per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
      *
      * @param request - ChatappVerifyAndRegisterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2267,10 +2270,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Verifies a verification code and registers through the northbound interface.
+     * Verifies the verification code and registers a user through the northbound API.
      *
      * @remarks
-     * The queries per second (QPS) limit for this API is 10 calls per second per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API appropriately.
+     * The QPS limit per user is 10 requests per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
      *
      * @param request - ChatappVerifyAndRegisterRequest
      *
@@ -2451,8 +2454,8 @@ class Cams extends OpenApiClient
      * Creates a flow.
      *
      * @remarks
-     * - You can create a flow by calling this operation or manually in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-     * - After creating a flow, refer to [Flow editor component description](https://help.aliyun.com/document_detail/2836818.html) to orchestrate the canvas.
+     * - You can use this operation to create a flow, or manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) interface.
+     * - After creating a flow, refer to [Flow Editor component description](https://help.aliyun.com/document_detail/2836818.html) for canvas orchestration.
      *
      * @param tmpReq - CreateChatFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2475,6 +2478,10 @@ class Cams extends OpenApiClient
 
         if (null !== $tmpReq->lifeCycleExtendData) {
             $request->lifeCycleExtendDataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lifeCycleExtendData, 'LifeCycleExtendData', 'json');
+        }
+
+        if (null !== $tmpReq->lifeCycleExtendDataV2) {
+            $request->lifeCycleExtendDataV2Shrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lifeCycleExtendDataV2, 'LifeCycleExtendDataV2', 'json');
         }
 
         $query = [];
@@ -2500,6 +2507,10 @@ class Cams extends OpenApiClient
 
         if (null !== $request->lifeCycleExtendDataShrink) {
             @$query['LifeCycleExtendData'] = $request->lifeCycleExtendDataShrink;
+        }
+
+        if (null !== $request->lifeCycleExtendDataV2Shrink) {
+            @$query['LifeCycleExtendDataV2'] = $request->lifeCycleExtendDataV2Shrink;
         }
 
         if (null !== $request->ownerId) {
@@ -2544,8 +2555,8 @@ class Cams extends OpenApiClient
      * Creates a flow.
      *
      * @remarks
-     * - You can create a flow by calling this operation or manually in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-     * - After creating a flow, refer to [Flow editor component description](https://help.aliyun.com/document_detail/2836818.html) to orchestrate the canvas.
+     * - You can use this operation to create a flow, or manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) interface.
+     * - After creating a flow, refer to [Flow Editor component description](https://help.aliyun.com/document_detail/2836818.html) for canvas orchestration.
      *
      * @param request - CreateChatFlowRequest
      *
@@ -2566,9 +2577,9 @@ class Cams extends OpenApiClient
      * Creates and imports a flow.
      *
      * @remarks
-     * - You can call this operation to create and import a flow, or manually create and import a flow in the [flow orchestration](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
-     * - Before calling this operation, make sure you have exported flow DSL data.
-     * - If you do not have exported flow DSL data, go to the [flow orchestration](https://chatapp.console.aliyun.com/ChatFlowBuilder) console, click a flow name to open the canvas orchestration page, arrange canvas components, save the flow, and export it as a JSON data file.
+     * - You can call this operation to create and import a flow, or manually create and import a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that you have the exported flow DSL data.
+     * - If you do not have the exported flow DSL data, click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration interface, orchestrate the canvas components, save the flow, and then export it as a JSON data file.
      *
      * @param tmpReq - CreateChatFlowByImportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2644,9 +2655,9 @@ class Cams extends OpenApiClient
      * Creates and imports a flow.
      *
      * @remarks
-     * - You can call this operation to create and import a flow, or manually create and import a flow in the [flow orchestration](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
-     * - Before calling this operation, make sure you have exported flow DSL data.
-     * - If you do not have exported flow DSL data, go to the [flow orchestration](https://chatapp.console.aliyun.com/ChatFlowBuilder) console, click a flow name to open the canvas orchestration page, arrange canvas components, save the flow, and export it as a JSON data file.
+     * - You can call this operation to create and import a flow, or manually create and import a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that you have the exported flow DSL data.
+     * - If you do not have the exported flow DSL data, click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration interface, orchestrate the canvas components, save the flow, and then export it as a JSON data file.
      *
      * @param request - CreateChatFlowByImportRequest
      *
@@ -2664,13 +2675,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a flow log setting.
+     * Creates chat flow log settings.
      *
      * @remarks
-     * - To update a flow log setting by using an API, you must first create a flow log setting. After the setting is created, you can call the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation to view the flow log setting information, and then call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log setting.
-     * - If you do not need to update the flow log setting by using an API, you can manually update the flow log information in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Log** page.
-     * - Before calling this operation, make sure that you have a successfully created flow.
-     * - If you do not have a successfully created flow, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a flow.
+     * - To update chat flow log settings by calling API operations, you must first create the log settings. After the log settings are created, you can call the [ReadChatFlowLogSetting](https://api.aliyun.com/document/cams/2020-06-06/ReadChatFlowLogSetting) operation to query the log settings, and then call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the log settings.
+     * - If you do not need to update chat flow log settings by calling API operations, you can manually update the log settings by choosing **Settings** > **Log** in [**Chat Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before you call this operation, make sure that a chat flow is created.
+     * - If no chat flow is created, you can manually create a chat flow in [Chat Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a chat flow.
      *
      * @param request - CreateChatFlowLogSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2721,13 +2732,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a flow log setting.
+     * Creates chat flow log settings.
      *
      * @remarks
-     * - To update a flow log setting by using an API, you must first create a flow log setting. After the setting is created, you can call the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation to view the flow log setting information, and then call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log setting.
-     * - If you do not need to update the flow log setting by using an API, you can manually update the flow log information in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Log** page.
-     * - Before calling this operation, make sure that you have a successfully created flow.
-     * - If you do not have a successfully created flow, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a flow.
+     * - To update chat flow log settings by calling API operations, you must first create the log settings. After the log settings are created, you can call the [ReadChatFlowLogSetting](https://api.aliyun.com/document/cams/2020-06-06/ReadChatFlowLogSetting) operation to query the log settings, and then call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the log settings.
+     * - If you do not need to update chat flow log settings by calling API operations, you can manually update the log settings by choosing **Settings** > **Log** in [**Chat Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before you call this operation, make sure that a chat flow is created.
+     * - If no chat flow is created, you can manually create a chat flow in [Chat Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation to create a chat flow.
      *
      * @param request - CreateChatFlowLogSettingRequest
      *
@@ -2828,13 +2839,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a message template. After the template is approved, you can use it to send messages.
+     * Creates a message template. You can send messages after the template is approved.
      *
      * @remarks
      * ### QPS limit
-     * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+     * The QPS limit for a single user calling this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
      * ### Status changes
-     * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+     * You can listen for template status and quality changes by using MNS or HTTP. For more information, see [Message receipts](https://help.aliyun.com/document_detail/421545.html).
      *
      * @param tmpReq - CreateChatappTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2931,13 +2942,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Creates a message template. After the template is approved, you can use it to send messages.
+     * Creates a message template. You can send messages after the template is approved.
      *
      * @remarks
      * ### QPS limit
-     * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+     * The QPS limit for a single user calling this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
      * ### Status changes
-     * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+     * You can listen for template status and quality changes by using MNS or HTTP. For more information, see [Message receipts](https://help.aliyun.com/document_detail/421545.html).
      *
      * @param request - CreateChatappTemplateRequest
      *
@@ -3144,9 +3155,9 @@ class Cams extends OpenApiClient
      * Creates a new flow version by copying an existing flow version.
      *
      * @remarks
-     * - You can call this operation to create a new flow version, or click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to enter the canvas orchestration page and manually copy a new flow version.
-     * - Before calling this operation, make sure that you have a successfully created flow.
-     * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+     * - You can call this operation to create a new flow version. Alternatively, you can go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to go to the canvas orchestration page, and manually copy a new flow version.
+     * - Before calling this operation, ensure that you have created a flow.
+     * - If you have not created a flow, you can manually create one on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation.
      *
      * @param tmpReq - CreateFlowVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3222,9 +3233,9 @@ class Cams extends OpenApiClient
      * Creates a new flow version by copying an existing flow version.
      *
      * @remarks
-     * - You can call this operation to create a new flow version, or click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to enter the canvas orchestration page and manually copy a new flow version.
-     * - Before calling this operation, make sure that you have a successfully created flow.
-     * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+     * - You can call this operation to create a new flow version. Alternatively, you can go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to go to the canvas orchestration page, and manually copy a new flow version.
+     * - Before calling this operation, ensure that you have created a flow.
+     * - If you have not created a flow, you can manually create one on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation.
      *
      * @param request - CreateFlowVersionRequest
      *
@@ -3424,7 +3435,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Authorizes an embedded messenger.
+     * Authorizes an embedded Messenger.
      *
      * @param tmpReq - CreateMessengerPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3497,7 +3508,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Authorizes an embedded messenger.
+     * Authorizes an embedded Messenger.
      *
      * @param request - CreateMessengerPageRequest
      *
@@ -3616,7 +3627,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves and stores the pageId based on the embedded code.
+     * Retrieves the page ID based on the embedded code and stores it in the database.
      *
      * @param tmpReq - CreateWhatsappConversionApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3681,7 +3692,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves and stores the pageId based on the embedded code.
+     * Retrieves the page ID based on the embedded code and stores it in the database.
      *
      * @param request - CreateWhatsappConversionApiRequest
      *
@@ -3702,8 +3713,8 @@ class Cams extends OpenApiClient
      * Deletes a flow.
      *
      * @remarks
-     * - You can call this operation to delete a flow, or manually delete a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-     * - Before deleting a flow, make sure the flow status is offline.
+     * - You can call this operation to delete a flow, or manually delete it in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before deleting a flow, make sure that the flow is offline.
      * - A deleted flow cannot be recovered. Proceed with caution.
      *
      * @param tmpReq - DeleteChatFlowRequest
@@ -3772,8 +3783,8 @@ class Cams extends OpenApiClient
      * Deletes a flow.
      *
      * @remarks
-     * - You can call this operation to delete a flow, or manually delete a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-     * - Before deleting a flow, make sure the flow status is offline.
+     * - You can call this operation to delete a flow, or manually delete it in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before deleting a flow, make sure that the flow is offline.
      * - A deleted flow cannot be recovered. Proceed with caution.
      *
      * @param request - DeleteChatFlowRequest
@@ -3792,13 +3803,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a successfully created IM group.
+     * Deletes an existing IM group.
      *
      * @remarks
-     * >Notice: The API-based IM group deletion feature is a Meta beta feature. Contact your account manager to apply for access.
-     * - Before calling this operation, make sure that you have a successfully created IM group.
-     * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
-     * - A deleted IM group cannot be recovered. Proceed with caution.
+     * <notice>The feature to delete an IM group by calling an API operation is in the closed beta phase of Meta. Contact your account manager to apply for whitelist access.</notice>
+     * - Before calling this operation, make sure that you have created an IM group.
+     * - If you do not have an IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
+     * - An IM group cannot be recovered after it is deleted. Proceed with caution.
      *
      * @param request - DeleteChatGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3861,13 +3872,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a successfully created IM group.
+     * Deletes an existing IM group.
      *
      * @remarks
-     * >Notice: The API-based IM group deletion feature is a Meta beta feature. Contact your account manager to apply for access.
-     * - Before calling this operation, make sure that you have a successfully created IM group.
-     * - If you do not have a successfully created IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
-     * - A deleted IM group cannot be recovered. Proceed with caution.
+     * <notice>The feature to delete an IM group by calling an API operation is in the closed beta phase of Meta. Contact your account manager to apply for whitelist access.</notice>
+     * - Before calling this operation, make sure that you have created an IM group.
+     * - If you do not have an IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
+     * - An IM group cannot be recovered after it is deleted. Proceed with caution.
      *
      * @param request - DeleteChatGroupRequest
      *
@@ -3885,13 +3896,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes an IM group invitation link.
+     * Deletes an IM group invite link.
      *
      * @remarks
-     * >Notice: The ability to delete IM group invitation links through the API is a Meta beta feature. Contact your account manager to request access.
-     * - Before calling this operation, make sure that the IM group you created already has an IM group invitation link added.
-     * - If you do not have an existing IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invitation link.
-     * - After you delete an IM group invitation link, the IM group can no longer invite members to join. Proceed with caution.
+     * >Notice: The feature to delete an IM group invite link through the API is a Meta beta feature. Contact your account manager to apply for whitelist access.</notice>
+     * - Before you call this operation, make sure that an IM group invite link has been added to the IM group you created.
+     * - If you do not have a successfully created IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invite link.
+     * - After the IM group invite link is deleted, the IM group cannot invite members. Proceed with caution.
      *
      * @param request - DeleteChatGroupInviteLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3954,13 +3965,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes an IM group invitation link.
+     * Deletes an IM group invite link.
      *
      * @remarks
-     * >Notice: The ability to delete IM group invitation links through the API is a Meta beta feature. Contact your account manager to request access.
-     * - Before calling this operation, make sure that the IM group you created already has an IM group invitation link added.
-     * - If you do not have an existing IM group, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invitation link.
-     * - After you delete an IM group invitation link, the IM group can no longer invite members to join. Proceed with caution.
+     * >Notice: The feature to delete an IM group invite link through the API is a Meta beta feature. Contact your account manager to apply for whitelist access.</notice>
+     * - Before you call this operation, make sure that an IM group invite link has been added to the IM group you created.
+     * - If you do not have a successfully created IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invite link.
+     * - After the IM group invite link is deleted, the IM group cannot invite members. Proceed with caution.
      *
      * @param request - DeleteChatGroupInviteLinkRequest
      *
@@ -3981,11 +3992,10 @@ class Cams extends OpenApiClient
      * Removes members from an IM group.
      *
      * @remarks
-     * >Notice:
-     * This operation is a beta feature from Meta. Contact your account manager to add your account to the allowlist before use.
-     * - This operation requires an existing IM group that members have joined via an invitation link.
-     * - To create an IM group and add an invitation link, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations.
-     * - Removed members no longer receive messages from the group. Use this operation with caution.
+     * >Notice: The feature of removing IM group members through the API is a Meta beta feature. Contact your account manager to request whitelist access.
+     * - Before calling this API operation, make sure that an IM group invite link has been added to the created IM group and members have joined the group through the link.
+     * - If you do not have a created IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invite link.
+     * - After a member is removed from an IM group, the member no longer receives any messages from the group. Proceed with caution.
      *
      * @param tmpReq - DeleteChatGroupParticipantsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4061,11 +4071,10 @@ class Cams extends OpenApiClient
      * Removes members from an IM group.
      *
      * @remarks
-     * >Notice:
-     * This operation is a beta feature from Meta. Contact your account manager to add your account to the allowlist before use.
-     * - This operation requires an existing IM group that members have joined via an invitation link.
-     * - To create an IM group and add an invitation link, call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations.
-     * - Removed members no longer receive messages from the group. Use this operation with caution.
+     * >Notice: The feature of removing IM group members through the API is a Meta beta feature. Contact your account manager to request whitelist access.
+     * - Before calling this API operation, make sure that an IM group invite link has been added to the created IM group and members have joined the group through the link.
+     * - If you do not have a created IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invite link.
+     * - After a member is removed from an IM group, the member no longer receives any messages from the group. Proceed with caution.
      *
      * @param request - DeleteChatGroupParticipantsRequest
      *
@@ -4184,7 +4193,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a contact from the contact list.
+     * Deletes a contact.
      *
      * @param tmpReq - DeleteContactsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4261,7 +4270,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a contact from the contact list.
+     * Deletes a contact.
      *
      * @param request - DeleteContactsRequest
      *
@@ -4279,7 +4288,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes contacts by selecting and removing them.
+     * Deletes contacts.
      *
      * @param request - DeleteContactsByIdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4330,7 +4339,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes contacts by selecting and removing them.
+     * Deletes contacts.
      *
      * @param request - DeleteContactsByIdsRequest
      *
@@ -4348,10 +4357,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a Flow (only Flows in DRAFT status can be deleted).
+     * Deletes a flow. Only flows in the DRAFT state can be deleted.
      *
      * @remarks
-     * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The queries per second (QPS) limit per user for this API operation is 5. If you exceed this limit, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
      *
      * @param request - DeleteFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4406,10 +4415,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a Flow (only Flows in DRAFT status can be deleted).
+     * Deletes a flow. Only flows in the DRAFT state can be deleted.
      *
      * @remarks
-     * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The queries per second (QPS) limit per user for this API operation is 5. If you exceed this limit, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
      *
      * @param request - DeleteFlowRequest
      *
@@ -4430,10 +4439,10 @@ class Cams extends OpenApiClient
      * Deletes a flow version.
      *
      * @remarks
-     * - You can call this operation to delete a flow version, or click a flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually delete the flow version.
-     * - Before calling this operation, make sure that the flow version is in the offline state and that at least two flow versions exist.
-     * - If the flow version is in the online state, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow version offline.
-     * - After a flow version is deleted, the canvas flow that you orchestrated cannot be recovered. Proceed with caution.
+     * - You can call this operation to delete a flow version, or click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually delete the flow version.
+     * - Before calling this operation, ensure that the flow version is offline and that at least two flow versions are available.
+     * - If your flow version is online, you can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline, or call the [OfflineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OfflineFlowVersion) operation to take the flow version offline.
+     * - After a flow version is deleted, the orchestrated canvas flow cannot be recovered. Proceed with caution.
      *
      * @param tmpReq - DeleteFlowVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4505,10 +4514,10 @@ class Cams extends OpenApiClient
      * Deletes a flow version.
      *
      * @remarks
-     * - You can call this operation to delete a flow version, or click a flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually delete the flow version.
-     * - Before calling this operation, make sure that the flow version is in the offline state and that at least two flow versions exist.
-     * - If the flow version is in the online state, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow version offline.
-     * - After a flow version is deleted, the canvas flow that you orchestrated cannot be recovered. Proceed with caution.
+     * - You can call this operation to delete a flow version, or click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually delete the flow version.
+     * - Before calling this operation, ensure that the flow version is offline and that at least two flow versions are available.
+     * - If your flow version is online, you can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline, or call the [OfflineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OfflineFlowVersion) operation to take the flow version offline.
+     * - After a flow version is deleted, the orchestrated canvas flow cannot be recovered. Proceed with caution.
      *
      * @param request - DeleteFlowVersionRequest
      *
@@ -4595,7 +4604,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a page from an Instagram instance.
+     * Deletes a page of an instance.
      *
      * @param request - DeleteInstagramPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4650,7 +4659,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes a page from an Instagram instance.
+     * Deletes a page of an instance.
      *
      * @param request - DeleteInstagramPageRequest
      *
@@ -4668,7 +4677,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes the specified instance.
+     * Deletes an instance.
      *
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4707,7 +4716,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes the specified instance.
+     * Deletes an instance.
      *
      * @param request - DeleteInstanceRequest
      *
@@ -4798,7 +4807,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes the budget for a marketing campaign.
+     * Deletes the campaign budget created for sending Messenger messages.
      *
      * @param request - DeleteMessageCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4861,7 +4870,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Deletes the budget for a marketing campaign.
+     * Deletes the campaign budget created for sending Messenger messages.
      *
      * @param request - DeleteMessageCampaignRequest
      *
@@ -5270,15 +5279,15 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Binds a phone number or merchant account ID to a flow.
+     * Associates a phone number or business account ID with a flow.
      *
      * @remarks
-     * - You can call this operation to bind a phone number or merchant account ID to a flow, or manually bind them in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
-     * - Before calling this operation, make sure that you have a successfully created flow and a successfully created message channel that corresponds to the flow type.
-     * - For the WhatsApp channel type, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
-     * - For the Messenger channel type, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
-     * - For the Instagram channel type, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
-     * <props="intl">- For the Viber channel type, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
+     * - You can call this operation to associate a phone number or business account ID with a flow. You can also manually bind them on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before you call this operation, ensure that you have created a flow and a message channel of the corresponding flow type.
+     * - For the WhatsApp channel type, you must have completed [WABA registration and binding](https://help.aliyun.com/document_detail/172335.html) and [added a phone number](https://help.aliyun.com/document_detail/2656131.html).
+     * - For the Messenger channel type, you must have [connected a Page account](https://help.aliyun.com/document_detail/2837713.html).
+     * - For the Instagram channel type, you must have [connected a professional account](https://help.aliyun.com/document_detail/2837720.html).
+     * <props="intl">- For the Viber channel type, you must have [applied for a service account](https://help.aliyun.com/document_detail/2807995.html).
      *
      * @param tmpReq - FlowBindPhoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5363,15 +5372,15 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Binds a phone number or merchant account ID to a flow.
+     * Associates a phone number or business account ID with a flow.
      *
      * @remarks
-     * - You can call this operation to bind a phone number or merchant account ID to a flow, or manually bind them in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
-     * - Before calling this operation, make sure that you have a successfully created flow and a successfully created message channel that corresponds to the flow type.
-     * - For the WhatsApp channel type, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
-     * - For the Messenger channel type, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
-     * - For the Instagram channel type, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
-     * <props="intl">- For the Viber channel type, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
+     * - You can call this operation to associate a phone number or business account ID with a flow. You can also manually bind them on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before you call this operation, ensure that you have created a flow and a message channel of the corresponding flow type.
+     * - For the WhatsApp channel type, you must have completed [WABA registration and binding](https://help.aliyun.com/document_detail/172335.html) and [added a phone number](https://help.aliyun.com/document_detail/2656131.html).
+     * - For the Messenger channel type, you must have [connected a Page account](https://help.aliyun.com/document_detail/2837713.html).
+     * - For the Instagram channel type, you must have [connected a professional account](https://help.aliyun.com/document_detail/2837720.html).
+     * <props="intl">- For the Viber channel type, you must have [applied for a service account](https://help.aliyun.com/document_detail/2807995.html).
      *
      * @param request - FlowBindPhoneRequest
      *
@@ -5389,12 +5398,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Rebinds a phone number or merchant account ID to a flow.
+     * Rebinds a phone number or a merchant account ID to a flow.
      *
      * @remarks
-     * - Call this operation to rebind a phone number or merchant account ID to a flow that already has a binding. You can also manually rebind in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**.
-     * - Before calling this operation, make sure that your flow already has a phone number or merchant account ID bound to it.
-     * - If you are binding a phone number or merchant account ID to a flow for the first time, use the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
+     * - You can call this operation to rebind a phone number or a merchant account ID to a bound flow. You can also manually rebind it on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that the flow you created is bound to a phone number or a merchant account ID.
+     * - If you are binding a phone number or a merchant account ID to a flow for the first time, you can call the [FlowBindPhone](https://api.aliyun.com/document/cams/2020-06-06/FlowBindPhone) operation.
      *
      * @param tmpReq - FlowRebindPhoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5479,12 +5488,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Rebinds a phone number or merchant account ID to a flow.
+     * Rebinds a phone number or a merchant account ID to a flow.
      *
      * @remarks
-     * - Call this operation to rebind a phone number or merchant account ID to a flow that already has a binding. You can also manually rebind in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**.
-     * - Before calling this operation, make sure that your flow already has a phone number or merchant account ID bound to it.
-     * - If you are binding a phone number or merchant account ID to a flow for the first time, use the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
+     * - You can call this operation to rebind a phone number or a merchant account ID to a bound flow. You can also manually rebind it on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that the flow you created is bound to a phone number or a merchant account ID.
+     * - If you are binding a phone number or a merchant account ID to a flow for the first time, you can call the [FlowBindPhone](https://api.aliyun.com/document/cams/2020-06-06/FlowBindPhone) operation.
      *
      * @param request - FlowRebindPhoneRequest
      *
@@ -5505,11 +5514,11 @@ class Cams extends OpenApiClient
      * Dissociates a phone number or merchant account ID from a flow.
      *
      * @remarks
-     * - Before calling this operation, make sure your flow is in the offline state. If your flow is in the online state, go to the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually take it offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow offline.
-     * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate them on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
-     * - Before calling this operation, make sure your successfully created flow has a phone number or merchant account ID associated with it.
-     * - If you have not associated a phone number or merchant account ID, you can manually associate one on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to associate one.
-     * - After dissociating a phone number or merchant account ID from a flow, the flow cannot be published. You must re-associate a phone number or merchant account ID before the flow can be published.
+     * - Before you call this operation, ensure that your flow is offline. If your flow is online, click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually take it offline, or call the [OfflineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OfflineFlowVersion) operation to take the flow offline.
+     * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate it on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before you call this operation, ensure that a phone number or merchant account ID is associated with the flow you created.
+     * - If no phone number or merchant account ID is associated, you can manually associate one on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
+     * - After a phone number or merchant account ID is dissociated from a flow, the flow cannot be taken online. You must associate a phone number or merchant account ID again before the flow can be taken online.
      *
      * @param tmpReq - FlowUnbindPhoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5581,11 +5590,11 @@ class Cams extends OpenApiClient
      * Dissociates a phone number or merchant account ID from a flow.
      *
      * @remarks
-     * - Before calling this operation, make sure your flow is in the offline state. If your flow is in the online state, go to the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually take it offline, or call the [OfflineFlowVersion](https://help.aliyun.com/document_detail/2937198.html) operation to take the flow offline.
-     * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate them on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page.
-     * - Before calling this operation, make sure your successfully created flow has a phone number or merchant account ID associated with it.
-     * - If you have not associated a phone number or merchant account ID, you can manually associate one on the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** page, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to associate one.
-     * - After dissociating a phone number or merchant account ID from a flow, the flow cannot be published. You must re-associate a phone number or merchant account ID before the flow can be published.
+     * - Before you call this operation, ensure that your flow is offline. If your flow is online, click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually take it offline, or call the [OfflineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OfflineFlowVersion) operation to take the flow offline.
+     * - You can call this operation to dissociate a phone number or merchant account ID from a flow, or manually dissociate it on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before you call this operation, ensure that a phone number or merchant account ID is associated with the flow you created.
+     * - If no phone number or merchant account ID is associated, you can manually associate one on the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation.
+     * - After a phone number or merchant account ID is dissociated from a flow, the flow cannot be taken online. You must associate a phone number or merchant account ID again before the flow can be taken online.
      *
      * @param request - FlowUnbindPhoneRequest
      *
@@ -5672,7 +5681,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries pending review tickets for an individual by type.
+     * Queries personal pending review requests by type.
      *
      * @param request - GetAuditRequestByTypeUnAuditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5727,7 +5736,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries pending review tickets for an individual by type.
+     * Queries personal pending review requests by type.
      *
      * @param request - GetAuditRequestByTypeUnAuditRequest
      *
@@ -5813,10 +5822,10 @@ class Cams extends OpenApiClient
      * Retrieves ChatFlow runtime data.
      *
      * @remarks
-     * - Before calling this operation, make sure that the flow you created is online and has been triggered.
-     * - If your flow is not online, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually bring the flow online. Alternatively, call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow online.
-     * - For flows with a manual trigger type, call the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation to trigger the flow, or go to the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page and trigger the flow by associating it with a marketing activity.
-     * - For flows with a non-manual trigger type, you do not need to manually trigger the flow. The flow is triggered when a message is sent to the business account bound to the flow.
+     * - Before calling this operation, ensure that the flow you created is online and has been triggered.
+     * - If your flow is not online, click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually bring the flow online, or call the [OnlineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OnlineFlowVersion) operation to bring the flow online.
+     * - For flows with a manual trigger, trigger the flow by calling the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation or by associating a marketing campaign on the [Marketing Campaign Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page.
+     * - Flows with a non-manual trigger do not require manual triggering. The flow is automatically triggered after a message is sent to the merchant from the associated bound merchant account.
      *
      * @param tmpReq - GetChatFlowMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5908,10 +5917,10 @@ class Cams extends OpenApiClient
      * Retrieves ChatFlow runtime data.
      *
      * @remarks
-     * - Before calling this operation, make sure that the flow you created is online and has been triggered.
-     * - If your flow is not online, go to the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page, and manually bring the flow online. Alternatively, call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow online.
-     * - For flows with a manual trigger type, call the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation to trigger the flow, or go to the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page and trigger the flow by associating it with a marketing activity.
-     * - For flows with a non-manual trigger type, you do not need to manually trigger the flow. The flow is triggered when a message is sent to the business account bound to the flow.
+     * - Before calling this operation, ensure that the flow you created is online and has been triggered.
+     * - If your flow is not online, click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually bring the flow online, or call the [OnlineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OnlineFlowVersion) operation to bring the flow online.
+     * - For flows with a manual trigger, trigger the flow by calling the [TriggerChatFlow](https://help.aliyun.com/document_detail/2859101.html) operation or by associating a marketing campaign on the [Marketing Campaign Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page.
+     * - Flows with a non-manual trigger do not require manual triggering. The flow is automatically triggered after a message is sent to the merchant from the associated bound merchant account.
      *
      * @param request - GetChatFlowMetricRequest
      *
@@ -5932,8 +5941,8 @@ class Cams extends OpenApiClient
      * Queries the details of a flow template.
      *
      * @remarks
-     * - You can call this operation to query the details of a flow template. You can also view template details by clicking the template name on the **Template View** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-     * - After you view template details by clicking the template name on the **Template View** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), you can directly use the template to create a flow.
+     * - You can call this operation to query the details of a flow template. You can also click the template name on the **View Templates** page in [**Chat Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) to view the template details.
+     * - After you view the template details by clicking the template name on the **View Templates** page in [**Chat Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder), you can directly use the template to create a flow.
      *
      * @param request - GetChatFlowTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5991,8 +6000,8 @@ class Cams extends OpenApiClient
      * Queries the details of a flow template.
      *
      * @remarks
-     * - You can call this operation to query the details of a flow template. You can also view template details by clicking the template name on the **Template View** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-     * - After you view template details by clicking the template name on the **Template View** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), you can directly use the template to create a flow.
+     * - You can call this operation to query the details of a flow template. You can also click the template name on the **View Templates** page in [**Chat Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) to view the template details.
+     * - After you view the template details by clicking the template name on the **View Templates** page in [**Chat Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder), you can directly use the template to create a flow.
      *
      * @param request - GetChatFlowTemplateRequest
      *
@@ -6180,7 +6189,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves other controls for a ChatApp phone number.
+     * Retrieves other control settings for a Chatapp phone number.
      *
      * @param request - GetChatappPhoneNumberSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6235,7 +6244,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves other controls for a ChatApp phone number.
+     * Retrieves other control settings for a Chatapp phone number.
      *
      * @param request - GetChatappPhoneNumberSettingRequest
      *
@@ -6253,11 +6262,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a Chat App Message Service message template.
+     * Retrieves the details of a Chat App message template.
      *
      * @remarks
-     * ### QPS limit
-     * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+     * ### Rate limit
+     * The rate limit for this API operation is 5 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - GetChatappTemplateDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6320,11 +6329,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a Chat App Message Service message template.
+     * Retrieves the details of a Chat App message template.
      *
      * @remarks
-     * ### QPS limit
-     * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+     * ### Rate limit
+     * The rate limit for this API operation is 5 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - GetChatappTemplateDetailRequest
      *
@@ -6777,7 +6786,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the source site of a customer.
+     * Queries the source site of the customer.
      *
      * @param request - GetCustomerSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6824,7 +6833,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the source site of a customer.
+     * Queries the source site of the customer.
      *
      * @param request - GetCustomerSiteRequest
      *
@@ -6953,7 +6962,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of Instagram pages for an instance.
+     * Retrieves a list of Instagram pages.
      *
      * @param request - GetFbInstagramPagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7008,7 +7017,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of Instagram pages for an instance.
+     * Retrieves a list of Instagram pages.
      *
      * @param request - GetFbInstagramPagesRequest
      *
@@ -7356,7 +7365,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries whether a group name already exists.
+     * Checks whether a group name is duplicated.
      *
      * @param tmpReq - GetGroupExistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7421,7 +7430,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries whether a group name already exists.
+     * Checks whether a group name is duplicated.
      *
      * @param request - GetGroupExistRequest
      *
@@ -7439,7 +7448,68 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves campaign metrics.
+     * Queries Instagram user information.
+     *
+     * @param request - GetInstagramUserInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstagramUserInfoResponse
+     *
+     * @param GetInstagramUserInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetInstagramUserInfoResponse
+     */
+    public function getInstagramUserInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->queryId) {
+            @$query['QueryId'] = $request->queryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstagramUserInfo',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstagramUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries Instagram user information.
+     *
+     * @param request - GetInstagramUserInfoRequest
+     *
+     * @returns GetInstagramUserInfoResponse
+     *
+     * @param GetInstagramUserInfoRequest $request
+     *
+     * @return GetInstagramUserInfoResponse
+     */
+    public function getInstagramUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstagramUserInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries budget metrics.
      *
      * @param request - GetMessageCampaignInsightsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7502,7 +7572,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves campaign metrics.
+     * Queries budget metrics.
      *
      * @param request - GetMessageCampaignInsightsRequest
      *
@@ -7517,6 +7587,67 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMessageCampaignInsightsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries Messenger user information.
+     *
+     * @param request - GetMessengerUserInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMessengerUserInfoResponse
+     *
+     * @param GetMessengerUserInfoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetMessengerUserInfoResponse
+     */
+    public function getMessengerUserInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->custSpaceId) {
+            @$query['CustSpaceId'] = $request->custSpaceId;
+        }
+
+        if (null !== $request->queryId) {
+            @$query['QueryId'] = $request->queryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMessengerUserInfo',
+            'version' => '2020-06-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMessengerUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries Messenger user information.
+     *
+     * @param request - GetMessengerUserInfoRequest
+     *
+     * @returns GetMessengerUserInfoResponse
+     *
+     * @param GetMessengerUserInfoRequest $request
+     *
+     * @return GetMessengerUserInfoResponse
+     */
+    public function getMessengerUserInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMessengerUserInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -7784,13 +7915,13 @@ class Cams extends OpenApiClient
      * Retrieves the verification status of a phone number.
      *
      * @remarks
-     * - You can call this operation to retrieve the verification status of a phone number. You can also view the verification status in the
+     * - You can call this operation to retrieve the verification status of a phone number. You can also view the verification status on the
      * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
-     * <props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList)> **Manage** > **WABA Management** > **Phone Number Management** page.
-     * - This operation only queries the verification status of a phone number. If the phone number status is verified, you can directly call the registration operation to register the phone number without obtaining a new verification code.
-     * - Before calling this operation, make sure that a phone number has been added to your WABA and that phone number verification has been submitted.
-     * - If a phone number has been added to your WABA and needs to be registered, but the verification status is unverified or verification has expired, call [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) to obtain a verification code and register the phone number.
-     * The queries per second (QPS) limit for a single user on this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * <props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **WABA Management** > **Number Management** page.
+     * - This operation only queries the verification status of a phone number. If the phone number is verified, you can directly call the registration operation to register the phone number without obtaining a new verification code.
+     * - Before calling this operation, make sure that you have added a phone number to your WABA and submitted it for verification.
+     * - If you have a new phone number in your WABA that needs to be registered, but its verification status is unverified or the verification has expired, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) operations to obtain a verification code, verify the phone number, and register it.
+     * The queries per second (QPS) limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation within the limit.
      *
      * @param request - GetPhoneNumberVerificationStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7848,13 +7979,13 @@ class Cams extends OpenApiClient
      * Retrieves the verification status of a phone number.
      *
      * @remarks
-     * - You can call this operation to retrieve the verification status of a phone number. You can also view the verification status in the
+     * - You can call this operation to retrieve the verification status of a phone number. You can also view the verification status on the
      * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
-     * <props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList)> **Manage** > **WABA Management** > **Phone Number Management** page.
-     * - This operation only queries the verification status of a phone number. If the phone number status is verified, you can directly call the registration operation to register the phone number without obtaining a new verification code.
-     * - Before calling this operation, make sure that a phone number has been added to your WABA and that phone number verification has been submitted.
-     * - If a phone number has been added to your WABA and needs to be registered, but the verification status is unverified or verification has expired, call [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) to obtain a verification code and register the phone number.
-     * The queries per second (QPS) limit for a single user on this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * <props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **WABA Management** > **Number Management** page.
+     * - This operation only queries the verification status of a phone number. If the phone number is verified, you can directly call the registration operation to register the phone number without obtaining a new verification code.
+     * - Before calling this operation, make sure that you have added a phone number to your WABA and submitted it for verification.
+     * - If you have a new phone number in your WABA that needs to be registered, but its verification status is unverified or the verification has expired, call the [GetChatappVerifyCode](https://help.aliyun.com/document_detail/600746.html) and [ChatappVerifyAndRegister](https://help.aliyun.com/document_detail/600770.html) operations to obtain a verification code, verify the phone number, and register it.
+     * The queries per second (QPS) limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation within the limit.
      *
      * @param request - GetPhoneNumberVerificationStatusRequest
      *
@@ -8012,7 +8143,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the application by its requestNo.
+     * Queries an application by request number.
      *
      * @param request - GetViberByRequestNoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8067,7 +8198,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the application by its requestNo.
+     * Queries an application by request number.
      *
      * @param request - GetViberByRequestNoRequest
      *
@@ -8085,7 +8216,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the number of times that a pause can be requested.
+     * Queries the number of allowed pause requests.
      *
      * @param request - GetViberPauseTimesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8136,7 +8267,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the number of times that a pause can be requested.
+     * Queries the number of allowed pause requests.
      *
      * @param request - GetViberPauseTimesRequest
      *
@@ -8302,12 +8433,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the messaging health status of different types of nodes.
+     * Retrieves the message sending health status for different node types.
      *
      * @remarks
-     * ### [](#qps-)QPS limit
-     * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
-     * This operation retrieves data directly from Meta. Meta imposes its own rate limits on the total number of calls. Stay within the specified limit.
+     * ### QPS limits
+     * The QPS limit per user is 5 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
+     * This API directly retrieves data from Facebook. The total number of Facebook API calls is limited. Use this API as needed.
      *
      * @param request - GetWhatsappHealthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8378,12 +8509,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the messaging health status of different types of nodes.
+     * Retrieves the message sending health status for different node types.
      *
      * @remarks
-     * ### [](#qps-)QPS limit
-     * This operation allows a maximum of 5 requests per second per account. Excess requests are throttled, which may affect your business. Stay within the specified limit.
-     * This operation retrieves data directly from Meta. Meta imposes its own rate limits on the total number of calls. Stay within the specified limit.
+     * ### QPS limits
+     * The QPS limit per user is 5 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
+     * This API directly retrieves data from Facebook. The total number of Facebook API calls is limited. Use this API as needed.
      *
      * @param request - GetWhatsappHealthStatusRequest
      *
@@ -8606,7 +8737,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of groups.
+     * Queries a list of groups.
      *
      * @param tmpReq - ListAllGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8667,7 +8798,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of groups.
+     * Queries a list of groups.
      *
      * @param request - ListAllGroupsRequest
      *
@@ -8754,12 +8885,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of phone numbers or business account IDs bound to a flow based on the flow code.
+     * Queries the list of phone numbers or merchant account IDs bound to a flow based on the flow code.
      *
      * @remarks
-     * - You can call this operation to query the list of phone numbers or business account IDs bound to a flow. You can also view the list in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**.
-     * - Before calling this operation, make sure that your flow is already bound to phone numbers or business account IDs.
-     * - If your flow is not bound to phone numbers or business account IDs, manually bind them in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to bind them.
+     * - You can call this operation to query the list of phone numbers or merchant account IDs bound to a flow. You can also view the list on the **Settings** page of the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that the flow you created is bound to a phone number or merchant account ID.
+     * - If the flow you created is not bound to a phone number or merchant account ID, you can manually bind a phone number or merchant account ID on the **Settings** page of the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), or call the [FlowBindPhone](https://api.aliyun.com/document/cams/2020-06-06/FlowBindPhone) operation to bind a phone number or merchant account ID.
      *
      * @param request - ListBindingRelationsForFlowVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8814,12 +8945,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of phone numbers or business account IDs bound to a flow based on the flow code.
+     * Queries the list of phone numbers or merchant account IDs bound to a flow based on the flow code.
      *
      * @remarks
-     * - You can call this operation to query the list of phone numbers or business account IDs bound to a flow. You can also view the list in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**.
-     * - Before calling this operation, make sure that your flow is already bound to phone numbers or business account IDs.
-     * - If your flow is not bound to phone numbers or business account IDs, manually bind them in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings**, or call the [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operation to bind them.
+     * - You can call this operation to query the list of phone numbers or merchant account IDs bound to a flow. You can also view the list on the **Settings** page of the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that the flow you created is bound to a phone number or merchant account ID.
+     * - If the flow you created is not bound to a phone number or merchant account ID, you can manually bind a phone number or merchant account ID on the **Settings** page of the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder), or call the [FlowBindPhone](https://api.aliyun.com/document/cams/2020-06-06/FlowBindPhone) operation to bind a phone number or merchant account ID.
      *
      * @param request - ListBindingRelationsForFlowVersionRequest
      *
@@ -8840,10 +8971,10 @@ class Cams extends OpenApiClient
      * Lists flows.
      *
      * @remarks
-     * - You can call this operation to query flows, or manually query flows in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
-     * - Before calling this operation, make sure that you have successfully created flows.
-     * - If you do not have any successfully created flows, you can manually create a flow in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
-     * - The optional parameters in this operation are filter conditions for querying flows. If you do not specify them, all flows are queried.
+     * - You can call this operation to query flows, or manually query flows in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+     * - Before you call this operation, make sure that you have created at least one flow.
+     * - If you have not created any flows, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create a flow.
+     * - The optional parameters in this operation are used as filter conditions for querying flows. If you do not specify these parameters, all flows are queried.
      *
      * @param tmpReq - ListChatFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8947,10 +9078,10 @@ class Cams extends OpenApiClient
      * Lists flows.
      *
      * @remarks
-     * - You can call this operation to query flows, or manually query flows in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
-     * - Before calling this operation, make sure that you have successfully created flows.
-     * - If you do not have any successfully created flows, you can manually create a flow in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
-     * - The optional parameters in this operation are filter conditions for querying flows. If you do not specify them, all flows are queried.
+     * - You can call this operation to query flows, or manually query flows in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+     * - Before you call this operation, make sure that you have created at least one flow.
+     * - If you have not created any flows, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) console or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create a flow.
+     * - The optional parameters in this operation are used as filter conditions for querying flows. If you do not specify these parameters, all flows are queried.
      *
      * @param request - ListChatFlowRequest
      *
@@ -8971,8 +9102,8 @@ class Cams extends OpenApiClient
      * Lists flow templates.
      *
      * @remarks
-     * - You can call this operation to view the template list, or view the template list in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Template View** page.
-     * - The optional parameters in this operation are filter conditions for the template list. If not specified, all templates are queried.
+     * - You can call this operation to view the template list. You can also view the template list on the **View Templates** page in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - The optional parameters in this operation are filter conditions for the template list. If you do not specify these parameters, all templates are queried.
      *
      * @param request - ListChatFlowTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9042,8 +9173,8 @@ class Cams extends OpenApiClient
      * Lists flow templates.
      *
      * @remarks
-     * - You can call this operation to view the template list, or view the template list in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Template View** page.
-     * - The optional parameters in this operation are filter conditions for the template list. If not specified, all templates are queried.
+     * - You can call this operation to view the template list. You can also view the template list on the **View Templates** page in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - The optional parameters in this operation are filter conditions for the template list. If you do not specify these parameters, all templates are queried.
      *
      * @param request - ListChatFlowTemplateRequest
      *
@@ -9061,13 +9192,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of IM groups.
+     * Queries the list of IM groups.
      *
      * @remarks
-     * >Notice: The feature of retrieving IM group lists through API is a Meta beta feature. Contact your account manager to apply for access.
-     * - Before calling this operation, make sure you have successfully created IM groups.
-     * - If you do not have any created IM groups, you can only create IM groups through the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation.
-     * - The optional parameters of this operation are filter conditions for the IM group list. If you do not specify them, all IM groups are returned.
+     * >Notice: The feature to query the list of IM groups through the API is a Meta closed beta feature. Contact your account manager to apply for whitelist access.</notice>
+     * - Before calling this API operation, make sure that you have created an IM group.
+     * - If you have not created an IM group, you can only create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) API operation.
+     * - The optional parameters of this API operation are filter conditions for the IM group list. If you do not specify these parameters, all IM groups are queried.
      *
      * @param tmpReq - ListChatGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9152,13 +9283,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of IM groups.
+     * Queries the list of IM groups.
      *
      * @remarks
-     * >Notice: The feature of retrieving IM group lists through API is a Meta beta feature. Contact your account manager to apply for access.
-     * - Before calling this operation, make sure you have successfully created IM groups.
-     * - If you do not have any created IM groups, you can only create IM groups through the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation.
-     * - The optional parameters of this operation are filter conditions for the IM group list. If you do not specify them, all IM groups are returned.
+     * >Notice: The feature to query the list of IM groups through the API is a Meta closed beta feature. Contact your account manager to apply for whitelist access.</notice>
+     * - Before calling this API operation, make sure that you have created an IM group.
+     * - If you have not created an IM group, you can only create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) API operation.
+     * - The optional parameters of this API operation are filter conditions for the IM group list. If you do not specify these parameters, all IM groups are queried.
      *
      * @param request - ListChatGroupRequest
      *
@@ -9179,9 +9310,9 @@ class Cams extends OpenApiClient
      * Retrieves the member list of an IM group.
      *
      * @remarks
-     * >Notice: The feature of retrieving IM group member lists through API is a Meta beta feature. Contact your account manager to apply for access.
-     * - Before calling this operation, make sure that the IM group you created has an IM group invitation link added and that members have joined the IM group through the link.
-     * - If you do not have a created IM group, use the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invitation link.
+     * <notice>The feature to retrieve the IM group member list through the API is a Meta beta feature. Contact your account manager to apply for whitelist access.</notice>
+     * - Before you call this operation, make sure that an IM group invite link has been added to the created IM group and that members have joined the group through the link.
+     * - If you do not have a created IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invite link.
      *
      * @param tmpReq - ListChatGroupParticipantsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9257,9 +9388,9 @@ class Cams extends OpenApiClient
      * Retrieves the member list of an IM group.
      *
      * @remarks
-     * >Notice: The feature of retrieving IM group member lists through API is a Meta beta feature. Contact your account manager to apply for access.
-     * - Before calling this operation, make sure that the IM group you created has an IM group invitation link added and that members have joined the IM group through the link.
-     * - If you do not have a created IM group, use the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invitation link.
+     * <notice>The feature to retrieve the IM group member list through the API is a Meta beta feature. Contact your account manager to apply for whitelist access.</notice>
+     * - Before you call this operation, make sure that an IM group invite link has been added to the created IM group and that members have joined the group through the link.
+     * - If you do not have a created IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) and [AddChatGroupInviteLink](https://help.aliyun.com/document_detail/3019211.html) operations to create an IM group and add an invite link.
      *
      * @param request - ListChatGroupParticipantsRequest
      *
@@ -9280,9 +9411,9 @@ class Cams extends OpenApiClient
      * Queries the message list.
      *
      * @remarks
-     * - You can call this operation to query the message list. You can also view the message list in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message List** console.
-     * - This operation only supports querying the message list for WhatsApp<props="intl"> and Viber channel types.
-     * - Before calling this operation, make sure that you have created a WhatsApp<props="intl"> or Viber channel, bound a phone number or merchant account ID, created a template that has passed the review, and sent messages through the channel.
+     * - You can call this operation to query the message list, or view it on the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message List** page.
+     * - This operation only supports querying the message list for WhatsApp<props="intl"> and Viber channels.
+     * - Before you call this operation, make sure that you have created a WhatsApp<props="intl"> or Viber channel, associated a phone number or business account ID, created and approved a template, and sent messages by using the channel.
      *
      * @param tmpReq - ListChatappMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9394,9 +9525,9 @@ class Cams extends OpenApiClient
      * Queries the message list.
      *
      * @remarks
-     * - You can call this operation to query the message list. You can also view the message list in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message List** console.
-     * - This operation only supports querying the message list for WhatsApp<props="intl"> and Viber channel types.
-     * - Before calling this operation, make sure that you have created a WhatsApp<props="intl"> or Viber channel, bound a phone number or merchant account ID, created a template that has passed the review, and sent messages through the channel.
+     * - You can call this operation to query the message list, or view it on the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message List** page.
+     * - This operation only supports querying the message list for WhatsApp<props="intl"> and Viber channels.
+     * - Before you call this operation, make sure that you have created a WhatsApp<props="intl"> or Viber channel, associated a phone number or business account ID, created and approved a template, and sent messages by using the channel.
      *
      * @param request - ListChatappMessageRequest
      *
@@ -9414,11 +9545,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of message templates.
+     * Retrieves the list of message templates.
      *
      * @remarks
-     * ### QPS limit
-     * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+     * ### Rate limits
+     * The rate limit for this API operation is 5 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
      *
      * @param tmpReq - ListChatappTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9511,11 +9642,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of message templates.
+     * Retrieves the list of message templates.
      *
      * @remarks
-     * ### QPS limit
-     * The single-user QPS limit for this operation is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
+     * ### Rate limits
+     * The rate limit for this API operation is 5 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your services. Make API calls at a reasonable frequency.
      *
      * @param request - ListChatappTemplateRequest
      *
@@ -9632,7 +9763,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the DirectMail accounts under your Alibaba Cloud account.
+     * Queries the Direct Mail accounts under the account.
      *
      * @param request - ListDmAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9695,7 +9826,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the DirectMail accounts under your Alibaba Cloud account.
+     * Queries the Direct Mail accounts under the account.
      *
      * @param request - ListDmAccountRequest
      *
@@ -9713,7 +9844,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the tags of DirectMail.
+     * Queries DM tags.
      *
      * @param request - ListDmTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9772,7 +9903,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the tags of DirectMail.
+     * Queries DM tags.
      *
      * @param request - ListDmTagRequest
      *
@@ -9790,7 +9921,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of Facebook posts.
+     * Queries a list of Facebook posts.
      *
      * @param request - ListFacebookPostsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9841,7 +9972,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of Facebook posts.
+     * Queries a list of Facebook posts.
      *
      * @param request - ListFacebookPostsRequest
      *
@@ -10024,8 +10155,8 @@ class Cams extends OpenApiClient
      * Lists flow component prototypes.
      *
      * @remarks
-     * - You can call this operation to query flow component prototypes. You can also click a flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view flow component prototypes.
-     * - The optional parameters in this operation are filter conditions for flow component prototypes. If you do not specify them, all flow component prototypes are queried.
+     * - You can call this operation to query flow component prototypes. Alternatively, you can click a flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view the flow component prototypes.
+     * - The optional parameters in this operation are used as filter conditions for flow component prototypes. If you do not specify these parameters, all flow component prototypes are queried.
      *
      * @param request - ListFlowNodePrototypeV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10095,8 +10226,8 @@ class Cams extends OpenApiClient
      * Lists flow component prototypes.
      *
      * @remarks
-     * - You can call this operation to query flow component prototypes. You can also click a flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view flow component prototypes.
-     * - The optional parameters in this operation are filter conditions for flow component prototypes. If you do not specify them, all flow component prototypes are queried.
+     * - You can call this operation to query flow component prototypes. Alternatively, you can click a flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view the flow component prototypes.
+     * - The optional parameters in this operation are used as filter conditions for flow component prototypes. If you do not specify these parameters, all flow component prototypes are queried.
      *
      * @param request - ListFlowNodePrototypeV2Request
      *
@@ -10117,10 +10248,10 @@ class Cams extends OpenApiClient
      * Lists flow versions.
      *
      * @remarks
-     * - You can call this operation to query flow versions. You can also click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view flow versions.
-     * - Before calling this operation, make sure that you have a successfully created flow.
-     * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
-     * - The optional parameters in this operation are filter conditions for querying flow versions. If you do not specify them, all flow versions are queried.
+     * - You can call this operation to query flow versions, or click a flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view the flow versions.
+     * - Before calling this operation, make sure that you have created a flow.
+     * - If you have not created a flow, you can manually create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create a flow.
+     * - The optional parameters in this operation are used as filter conditions for querying flow versions. If you do not specify these parameters, all flow versions are queried.
      *
      * @param tmpReq - ListFlowVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10200,10 +10331,10 @@ class Cams extends OpenApiClient
      * Lists flow versions.
      *
      * @remarks
-     * - You can call this operation to query flow versions. You can also click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view flow versions.
-     * - Before calling this operation, make sure that you have a successfully created flow.
-     * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
-     * - The optional parameters in this operation are filter conditions for querying flow versions. If you do not specify them, all flow versions are queried.
+     * - You can call this operation to query flow versions, or click a flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view the flow versions.
+     * - Before calling this operation, make sure that you have created a flow.
+     * - If you have not created a flow, you can manually create one in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create a flow.
+     * - The optional parameters in this operation are used as filter conditions for querying flow versions. If you do not specify these parameters, all flow versions are queried.
      *
      * @param request - ListFlowVersionRequest
      *
@@ -10221,7 +10352,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the Instagram pages associated with an instance.
+     * Retrieves Instagram pages.
      *
      * @param request - ListInstagramPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10272,7 +10403,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves the Instagram pages associated with an instance.
+     * Retrieves Instagram pages.
      *
      * @param request - ListInstagramPageRequest
      *
@@ -10290,7 +10421,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of Instagram posts.
+     * Queries a list of Instagram posts.
      *
      * @param request - ListInstagramPostsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10341,7 +10472,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of Instagram posts.
+     * Queries a list of Instagram posts.
      *
      * @param request - ListInstagramPostsRequest
      *
@@ -10359,7 +10490,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Queries the list of instances.
      *
      * @param request - ListInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10434,7 +10565,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Queries the list of instances.
      *
      * @param request - ListInstanceRequest
      *
@@ -10452,7 +10583,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries a list of marketing campaigns.
+     * Queries the list of operational activities.
      *
      * @param tmpReq - ListMarketingFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10541,7 +10672,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries a list of marketing campaigns.
+     * Queries the list of operational activities.
      *
      * @param request - ListMarketingFlowRequest
      *
@@ -10559,7 +10690,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of budgets.
+     * Queries the budget list.
      *
      * @param tmpReq - ListMessageCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10640,7 +10771,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of budgets.
+     * Queries the budget list.
      *
      * @param request - ListMessageCampaignRequest
      *
@@ -10747,7 +10878,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of ad accounts bound to a page.
+     * Queries the ad accounts bound to a page.
      *
      * @param request - ListPageAdAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10802,7 +10933,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the list of ad accounts bound to a page.
+     * Queries the ad accounts bound to a page.
      *
      * @param request - ListPageAdAccountRequest
      *
@@ -10998,10 +11129,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the catalog list of the Meta Business platform.
+     * Queries the list of catalogs on the Meta Business platform.
      *
      * @remarks
-     * The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
      *
      * @param request - ListProductCatalogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11072,10 +11203,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the catalog list of the Meta Business platform.
+     * Queries the list of catalogs on the Meta Business platform.
      *
      * @remarks
-     * The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The China (Hangzhou) region is used as an example. The per-user QPS limit for this API is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+     * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
      *
      * @param request - ListProductCatalogRequest
      *
@@ -11093,7 +11224,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Displays the Viber service number card for an application form.
+     * Retrieves the Viber service account card of an application.
      *
      * @param request - ListViberServiceMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11144,7 +11275,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Displays the Viber service number card for an application form.
+     * Retrieves the Viber service account card of an application.
      *
      * @param request - ListViberServiceMessageRequest
      *
@@ -11162,7 +11293,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Lists message templates.
+     * Queries a list of templates.
      *
      * @param request - ListWhatAppTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11205,7 +11336,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Lists message templates.
+     * Queries a list of templates.
      *
      * @param request - ListWhatAppTemplateRequest
      *
@@ -11223,13 +11354,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies a message template. Only templates that have not been reviewed or that failed the review can be modified.
+     * Modifies a message template. Only templates that are pending review or have failed the review can be modified.
      *
      * @remarks
      * ### QPS limit
-     * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+     * The queries per second (QPS) limit per user for this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      * ### Status changes
-     * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+     * You can listen for template status and quality changes by using MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
      *
      * @param tmpReq - ModifyChatappTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11326,13 +11457,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies a message template. Only templates that have not been reviewed or that failed the review can be modified.
+     * Modifies a message template. Only templates that are pending review or have failed the review can be modified.
      *
      * @remarks
      * ### QPS limit
-     * The single-user QPS limit for this operation is 50 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
+     * The queries per second (QPS) limit per user for this API operation is 50. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      * ### Status changes
-     * You can monitor template status and quality changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+     * You can listen for template status and quality changes by using MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
      *
      * @param request - ModifyChatappTemplateRequest
      *
@@ -11350,7 +11481,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies some properties of a template.
+     * Modifies specific attributes of a template.
      *
      * @param request - ModifyChatappTemplatePropertiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11421,7 +11552,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies some properties of a template.
+     * Modifies specific attributes of a template.
      *
      * @param request - ModifyChatappTemplatePropertiesRequest
      *
@@ -11536,10 +11667,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the commercial information of a phone number.
+     * Updates the business information of a phone number.
      *
      * @remarks
-     * The China Message Service (China) API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, throttling is triggered, which may affect your business. Manage your calls appropriately.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
      *
      * @param tmpReq - ModifyPhoneBusinessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11628,10 +11759,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the commercial information of a phone number.
+     * Updates the business information of a phone number.
      *
      * @remarks
-     * The China Message Service (China) API has a single-user QPS limit of 10 calls per second. If this limit is exceeded, throttling is triggered, which may affect your business. Manage your calls appropriately.
+     * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
      *
      * @param request - ModifyPhoneBusinessProfileRequest
      *
@@ -11649,7 +11780,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the group associations of contacts.
+     * Modifies the groups of contacts.
      *
      * @param tmpReq - MoveContactToGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11722,7 +11853,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the group associations of contacts.
+     * Modifies the groups of contacts.
      *
      * @param request - MoveContactToGroupRequest
      *
@@ -11740,13 +11871,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Offlines a flow version.
+     * Takes a flow version offline.
      *
      * @remarks
-     * - You can call this operation to offline a flow version, or click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually offline the flow version.
-     * - Before calling this operation, make sure the flow you created is already online.
-     * - If the flow you created is not online, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually bring the flow version online, or call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow version online.
-     * - After the flow version is offlined, the orchestrated flow stops running, which may affect your business. Proceed with caution.
+     * - You can call this operation to take a flow version offline, or click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline.
+     * - Before calling this operation, make sure that the flow you created is online.
+     * - If the flow you created is not online, you can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually bring the flow version online, or call the [OnlineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OnlineFlowVersion) operation to bring the flow version online.
+     * - After a flow version is taken offline, the orchestrated flow stops running. This may affect your business. Proceed with caution.
      *
      * @param tmpReq - OfflineFlowVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11819,13 +11950,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Offlines a flow version.
+     * Takes a flow version offline.
      *
      * @remarks
-     * - You can call this operation to offline a flow version, or click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually offline the flow version.
-     * - Before calling this operation, make sure the flow you created is already online.
-     * - If the flow you created is not online, click the flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to enter the canvas orchestration page and manually bring the flow version online, or call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) operation to bring the flow version online.
-     * - After the flow version is offlined, the orchestrated flow stops running, which may affect your business. Proceed with caution.
+     * - You can call this operation to take a flow version offline, or click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually take the flow version offline.
+     * - Before calling this operation, make sure that the flow you created is online.
+     * - If the flow you created is not online, you can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually bring the flow version online, or call the [OnlineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OnlineFlowVersion) operation to bring the flow version online.
+     * - After a flow version is taken offline, the orchestrated flow stops running. This may affect your business. Proceed with caution.
      *
      * @param request - OfflineFlowVersionRequest
      *
@@ -11846,10 +11977,10 @@ class Cams extends OpenApiClient
      * Publishes a flow version.
      *
      * @remarks
-     * - You can call this operation to publish a flow version. You can also click a flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually publish a flow version.
-     * - Before calling this operation, make sure that you have a successfully created flow and that your flow is bindded to a phone number or merchant account ID.
-     * - If you do not have a successfully created flow, you can manually create a flow and bindded it to a phone number or merchant account ID on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and bind it to a phone number or merchant account ID.
-     * - After a flow with a non-manual trigger type is published, the flow is triggered when the bound phone number or merchant account sends a message to the merchant. If your flow contains components that incur fees for corresponding cloud services, such as message sending or function calling, make sure that you fully understand the billing methods and pricing of the related services before using this operation.
+     * - You can call this operation to publish a flow version. You can also click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually publish the flow version.
+     * - Before you call this operation, make sure that you have created a flow and bound a phone number or merchant account ID to it.
+     * - If you do not have a created flow, you can manually create a flow and bind a phone number or merchant account ID to it in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and bind a phone number or merchant account ID to it.
+     * - After a flow with a non-manual trigger type is published, the flow is triggered when the bound phone number or merchant account sends a message to the merchant. If your flow contains components that incur fees for corresponding cloud services, such as message sending and function calling, make sure that you fully understand the billing methods and pricing of the related services before you use this operation.
      *
      * @param tmpReq - OnlineFlowVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11925,10 +12056,10 @@ class Cams extends OpenApiClient
      * Publishes a flow version.
      *
      * @remarks
-     * - You can call this operation to publish a flow version. You can also click a flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and manually publish a flow version.
-     * - Before calling this operation, make sure that you have a successfully created flow and that your flow is bindded to a phone number or merchant account ID.
-     * - If you do not have a successfully created flow, you can manually create a flow and bindded it to a phone number or merchant account ID on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, or call the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and bind it to a phone number or merchant account ID.
-     * - After a flow with a non-manual trigger type is published, the flow is triggered when the bound phone number or merchant account sends a message to the merchant. If your flow contains components that incur fees for corresponding cloud services, such as message sending or function calling, make sure that you fully understand the billing methods and pricing of the related services before using this operation.
+     * - You can call this operation to publish a flow version. You can also click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and manually publish the flow version.
+     * - Before you call this operation, make sure that you have created a flow and bound a phone number or merchant account ID to it.
+     * - If you do not have a created flow, you can manually create a flow and bind a phone number or merchant account ID to it in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder), or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) and [FlowBindPhone](https://help.aliyun.com/document_detail/2937190.html) operations to create a flow and bind a phone number or merchant account ID to it.
+     * - After a flow with a non-manual trigger type is published, the flow is triggered when the bound phone number or merchant account sends a message to the merchant. If your flow contains components that incur fees for corresponding cloud services, such as message sending and function calling, make sure that you fully understand the billing methods and pricing of the related services before you use this operation.
      *
      * @param request - OnlineFlowVersionRequest
      *
@@ -12169,10 +12300,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the WhatsApp Business Account (WABA) that is bound to a customer account.
+     * Queries the WABA bound to a customer.
      *
      * @remarks
-     * This API has a per-user QPS limit of 10. Calls that exceed this limit are subject to flow control, which may impact your business. Make API calls at a reasonable rate.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled. This may affect your business. Call this operation at a reasonable rate.
      *
      * @param request - QueryChatappBindWabaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12227,10 +12358,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries the WhatsApp Business Account (WABA) that is bound to a customer account.
+     * Queries the WABA bound to a customer.
      *
      * @remarks
-     * This API has a per-user QPS limit of 10. Calls that exceed this limit are subject to flow control, which may impact your business. Make API calls at a reasonable rate.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled. This may affect your business. Call this operation at a reasonable rate.
      *
      * @param request - QueryChatappBindWabaRequest
      *
@@ -12248,10 +12379,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries all phone numbers used for sending messages and their statuses for a customer.
+     * Queries all sender phone numbers and their statuses for a customer.
      *
      * @remarks
-     * This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+     * The queries per second (QPS) limit per user for this API operation is 10. If you exceed this limit, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
      *
      * @param request - QueryChatappPhoneNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12310,10 +12441,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries all phone numbers used for sending messages and their statuses for a customer.
+     * Queries all sender phone numbers and their statuses for a customer.
      *
      * @remarks
-     * This API is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled, which can affect your business. Call this API within the specified limit.
+     * The queries per second (QPS) limit per user for this API operation is 10. If you exceed this limit, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
      *
      * @param request - QueryChatappPhoneNumbersRequest
      *
@@ -12331,7 +12462,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified instance.
+     * Queries an instance.
      *
      * @param request - QueryInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12370,7 +12501,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Gets the details of a specified instance.
+     * Queries an instance.
      *
      * @param request - QueryInstanceRequest
      *
@@ -12388,7 +12519,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries whether a marketing message is effective.
+     * Queries whether a marketing message takes effect.
      *
      * @param request - QueryMMLActiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12439,7 +12570,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Queries whether a marketing message is effective.
+     * Queries whether a marketing message takes effect.
      *
      * @param request - QueryMMLActiveRequest
      *
@@ -12460,7 +12591,7 @@ class Cams extends OpenApiClient
      * Queries the business information of a phone number.
      *
      * @remarks
-     * The queries per second (QPS) limit for this operation is 10 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
      *
      * @param request - QueryPhoneBusinessProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12518,7 +12649,7 @@ class Cams extends OpenApiClient
      * Queries the business information of a phone number.
      *
      * @remarks
-     * The queries per second (QPS) limit for this operation is 10 per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
      *
      * @param request - QueryPhoneBusinessProfileRequest
      *
@@ -12618,9 +12749,9 @@ class Cams extends OpenApiClient
      * Retrieves the details of a flow.
      *
      * @remarks
-     * - You can call this operation to retrieve flow details, or manually view flow details in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-     * - Before calling this operation, ensure that you have a successfully created flow.
-     * - If you do not have a successfully created flow, you can manually create a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+     * - You can call this operation to retrieve flow details or manually view the flow details in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that you have successfully created a flow.
+     * - If you do not have a successfully created flow, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create one.
      *
      * @param tmpReq - ReadChatFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12688,9 +12819,9 @@ class Cams extends OpenApiClient
      * Retrieves the details of a flow.
      *
      * @remarks
-     * - You can call this operation to retrieve flow details, or manually view flow details in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
-     * - Before calling this operation, ensure that you have a successfully created flow.
-     * - If you do not have a successfully created flow, you can manually create a flow in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+     * - You can call this operation to retrieve flow details or manually view the flow details in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that you have successfully created a flow.
+     * - If you do not have a successfully created flow, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create one.
      *
      * @param request - ReadChatFlowRequest
      *
@@ -12711,9 +12842,9 @@ class Cams extends OpenApiClient
      * Queries the flow log settings.
      *
      * @remarks
-     * - Before calling this operation, make sure that flow log settings have been created for your flow.
-     * - If flow log settings have not been created for your flow, first create them by calling the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation.
-     * - You can use the unique ID returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log settings.
+     * - Before calling this operation, make sure that flow log settings are created for your flow.
+     * - If flow log settings are not created for your flow, call the [CreateChatFlowLogSetting](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlowLogSetting) operation to create flow log settings first.
+     * - You can use the unique ID of the settings returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log settings.
      *
      * @param request - ReadChatFlowLogSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12767,9 +12898,9 @@ class Cams extends OpenApiClient
      * Queries the flow log settings.
      *
      * @remarks
-     * - Before calling this operation, make sure that flow log settings have been created for your flow.
-     * - If flow log settings have not been created for your flow, first create them by calling the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation.
-     * - You can use the unique ID returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log settings.
+     * - Before calling this operation, make sure that flow log settings are created for your flow.
+     * - If flow log settings are not created for your flow, call the [CreateChatFlowLogSetting](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlowLogSetting) operation to create flow log settings first.
+     * - You can use the unique ID of the settings returned by this operation to call the [UpdateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937210.html) operation to update the flow log settings.
      *
      * @param request - ReadChatFlowLogSettingRequest
      *
@@ -12787,12 +12918,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves a flow version.
+     * Retrieves the flow version.
      *
      * @remarks
-     * - You can call this operation to query a flow version. You can also click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view the flow version.
-     * - Before calling this operation, make sure that you have successfully created a flow.
-     * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html).
+     * - You can call this operation to query the flow version, or click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view the flow version.
+     * - Before calling this operation, make sure that you have created a flow.
+     * - If you do not have a created flow, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create a flow.
      *
      * @param tmpReq - ReadFlowVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12869,12 +13000,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Retrieves a flow version.
+     * Retrieves the flow version.
      *
      * @remarks
-     * - You can call this operation to query a flow version. You can also click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view the flow version.
-     * - Before calling this operation, make sure that you have successfully created a flow.
-     * - If you do not have a successfully created flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html).
+     * - You can call this operation to query the flow version, or click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view the flow version.
+     * - Before calling this operation, make sure that you have created a flow.
+     * - If you do not have a created flow, you can manually create a flow in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create a flow.
      *
      * @param request - ReadFlowVersionRequest
      *
@@ -12965,10 +13096,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Sends a request to the WhatsApp Conversions API.
+     * Calls the WhatsApp Conversion API.
      *
      * @remarks
-     * The China-specific QPS limit for a single user of this API operation is 100 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+     * The queries per second (QPS) limit per user is 100. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @param tmpReq - RequestWhatsappConversionApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13033,10 +13164,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Sends a request to the WhatsApp Conversions API.
+     * Calls the WhatsApp Conversion API.
      *
      * @remarks
-     * The China-specific QPS limit for a single user of this API operation is 100 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+     * The queries per second (QPS) limit per user is 100. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
      *
      * @param request - RequestWhatsappConversionApiRequest
      *
@@ -13057,17 +13188,17 @@ class Cams extends OpenApiClient
      * Sends Chat App messages in batches.
      *
      * @remarks
-     * - You can call this operation to send messages in batches. You can also manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message Sending** page.
+     * - You can call this operation to send messages in batches, or manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Message Sending** page.
      * - Before calling this operation, make sure that you have created a channel and have an approved template.
-     * - For WhatsApp channels, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
-     * - For Messenger channels, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
-     * - For Instagram channels, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
-     * <props="intl">- For Viber channels, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
-     * ### QPS limit
-     * - The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
-     * - A maximum of 1,000 phone numbers are supported per request.
+     * - For the WhatsApp channel type, complete [WABA registration and binding](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+     * - For the Messenger channel type, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+     * - For the Instagram channel type, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+     * <props="intl">- For the Viber channel type, complete [applying for a service number](https://help.aliyun.com/document_detail/2807995.html).
+     * ### QPS limits
+     * - The QPS limit for this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+     * - A single request supports a maximum of 1,000 phone numbers.
      * ### Status changes
-     * You can monitor message sending status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+     * You can monitor message delivery status changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
      *
      * @param tmpReq - SendChatappMassMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13191,17 +13322,17 @@ class Cams extends OpenApiClient
      * Sends Chat App messages in batches.
      *
      * @remarks
-     * - You can call this operation to send messages in batches. You can also manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message Sending** page.
+     * - You can call this operation to send messages in batches, or manually send messages in batches on the <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Manage** > **Message Sending** page.
      * - Before calling this operation, make sure that you have created a channel and have an approved template.
-     * - For WhatsApp channels, complete [WABA registration and bindng](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
-     * - For Messenger channels, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
-     * - For Instagram channels, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
-     * <props="intl">- For Viber channels, complete [applying for a service ID](https://help.aliyun.com/document_detail/2807995.html).
-     * ### QPS limit
-     * - The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation as appropriate.
-     * - A maximum of 1,000 phone numbers are supported per request.
+     * - For the WhatsApp channel type, complete [WABA registration and binding](https://help.aliyun.com/document_detail/172335.html) and [add a phone number](https://help.aliyun.com/document_detail/2656131.html).
+     * - For the Messenger channel type, complete [connecting a public page account](https://help.aliyun.com/document_detail/2837713.html).
+     * - For the Instagram channel type, complete [connecting a professional account](https://help.aliyun.com/document_detail/2837720.html).
+     * <props="intl">- For the Viber channel type, complete [applying for a service number](https://help.aliyun.com/document_detail/2807995.html).
+     * ### QPS limits
+     * - The QPS limit for this operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+     * - A single request supports a maximum of 1,000 phone numbers.
      * ### Status changes
-     * You can monitor message sending status through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
+     * You can monitor message delivery status changes through MNS or HTTP. For more information, see [Receipt messages](https://help.aliyun.com/document_detail/421545.html).
      *
      * @param request - SendChatappMassMessageRequest
      *
@@ -13450,7 +13581,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Submits the result of a verification code check.
+     * Submits the verification code validation result.
      *
      * @param request - SubmitVerifyCodeResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13497,7 +13628,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Submits the result of a verification code check.
+     * Submits the verification code validation result.
      *
      * @param request - SubmitVerifyCodeResultRequest
      *
@@ -13515,11 +13646,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Synchronizes business app historical records.
+     * Synchronizes the history records of a business app.
      *
      * @remarks
-     * - Before calling this operation, configure the webhooks for messages and receipts by using [UpdatePhoneWebhook](https://help.aliyun.com/document_detail/600763.html) and [UpdateAccountWebhook](https://help.aliyun.com/document_detail/600765.html). Otherwise, the webhook address cannot be found during historical message synchronization, which causes the synchronization to fail.
-     * - This operation takes effect only once. After the first call, subsequent calls do not trigger historical message pushes.
+     * - Before calling this operation, configure webhooks for messages and receipts by using [UpdatePhoneWebhook](https://help.aliyun.com/document_detail/600763.html) and [UpdateAccountWebhook](https://help.aliyun.com/document_detail/600765.html). Otherwise, the system cannot find the configured webhook URLs during history message synchronization, which causes the synchronization to fail.
+     * - This operation takes effect only once. Subsequent calls do not push history messages again.
      *
      * @param request - SyncBusinessAppHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13574,11 +13705,11 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Synchronizes business app historical records.
+     * Synchronizes the history records of a business app.
      *
      * @remarks
-     * - Before calling this operation, configure the webhooks for messages and receipts by using [UpdatePhoneWebhook](https://help.aliyun.com/document_detail/600763.html) and [UpdateAccountWebhook](https://help.aliyun.com/document_detail/600765.html). Otherwise, the webhook address cannot be found during historical message synchronization, which causes the synchronization to fail.
-     * - This operation takes effect only once. After the first call, subsequent calls do not trigger historical message pushes.
+     * - Before calling this operation, configure webhooks for messages and receipts by using [UpdatePhoneWebhook](https://help.aliyun.com/document_detail/600763.html) and [UpdateAccountWebhook](https://help.aliyun.com/document_detail/600765.html). Otherwise, the system cannot find the configured webhook URLs during history message synchronization, which causes the synchronization to fail.
+     * - This operation takes effect only once. Subsequent calls do not push history messages again.
      *
      * @param request - SyncBusinessAppHistoryRequest
      *
@@ -13596,7 +13727,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Syncs a WhatsApp flow.
+     * Synchronizes a flow.
      *
      * @param request - SyncFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13647,7 +13778,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Syncs a WhatsApp flow.
+     * Synchronizes a flow.
      *
      * @param request - SyncFlowRequest
      *
@@ -13665,7 +13796,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Synchronously queries the budget.
+     * Queries the budget synchronously.
      *
      * @param request - SyncMessageCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13720,7 +13851,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Synchronously queries the budget.
+     * Queries the budget synchronously.
      *
      * @param request - SyncMessageCampaignRequest
      *
@@ -13819,13 +13950,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Triggers an online chat flow that has a manual trigger.
+     * Triggers an online flow version with a manual trigger.
      *
      * @remarks
-     * - You can call this operation to trigger a published version of a flow that has a manual trigger. You can also trigger the flow from the [Marketing Campaign Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page if the flow is associated with a marketing campaign.
-     * - Before you call this operation, make sure that the flow has a manual trigger and is published.
-     * - If a flow with a manual trigger does not have a published version, you must publish it. In [Chat Flow](https://chatapp.console.aliyun.com/ChatFlowBuilder), you can click the flow name to open the canvas and publish the version. Alternatively, you can call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) API to publish the version.
-     * - If your flow contains components that incur costs, such as message sending or function invocations, make sure that you understand the billing methods and pricing for these products before you trigger the flow.
+     * - You can call this operation to trigger an online flow version with a manual trigger. You can also trigger the flow in the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) console by using a flow with a manual trigger that is associated with a marketing activity.
+     * - Before calling this operation, make sure that the flow you created has a manual trigger and is online.
+     * - If the flow with a manual trigger that you created does not have an online version, you can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) console to go to the canvas orchestration page and manually publish the flow version, or call the [OnlineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OnlineFlowVersion) operation to publish the flow version.
+     * - After triggering an online flow, if your flow contains components that incur fees for corresponding cloud services, such as message sending and function calling, make sure that you fully understand the billing methods and pricing of the related services before using this operation.
      *
      * @param tmpReq - TriggerChatFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13902,13 +14033,13 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Triggers an online chat flow that has a manual trigger.
+     * Triggers an online flow version with a manual trigger.
      *
      * @remarks
-     * - You can call this operation to trigger a published version of a flow that has a manual trigger. You can also trigger the flow from the [Marketing Campaign Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) page if the flow is associated with a marketing campaign.
-     * - Before you call this operation, make sure that the flow has a manual trigger and is published.
-     * - If a flow with a manual trigger does not have a published version, you must publish it. In [Chat Flow](https://chatapp.console.aliyun.com/ChatFlowBuilder), you can click the flow name to open the canvas and publish the version. Alternatively, you can call the [OnlineFlowVersion](https://help.aliyun.com/document_detail/2937203.html) API to publish the version.
-     * - If your flow contains components that incur costs, such as message sending or function invocations, make sure that you understand the billing methods and pricing for these products before you trigger the flow.
+     * - You can call this operation to trigger an online flow version with a manual trigger. You can also trigger the flow in the [Marketing Activity Management](https://chatapp.console.aliyun.com/MarketingActivityManagement) console by using a flow with a manual trigger that is associated with a marketing activity.
+     * - Before calling this operation, make sure that the flow you created has a manual trigger and is online.
+     * - If the flow with a manual trigger that you created does not have an online version, you can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) console to go to the canvas orchestration page and manually publish the flow version, or call the [OnlineFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/OnlineFlowVersion) operation to publish the flow version.
+     * - After triggering an online flow, if your flow contains components that incur fees for corresponding cloud services, such as message sending and function calling, make sure that you fully understand the billing methods and pricing of the related services before using this operation.
      *
      * @param request - TriggerChatFlowRequest
      *
@@ -13926,7 +14057,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Unbinds an email account.
+     * Disassociates an email account.
      *
      * @param request - UnbindDmAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13977,7 +14108,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Unbinds an email account.
+     * Disassociates an email account.
      *
      * @param request - UnbindDmAccountRequest
      *
@@ -14082,7 +14213,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies a Viber application.
+     * Updates a Viber application form.
      *
      * @param tmpReq - UpdateAuditRequestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14151,7 +14282,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies a Viber application.
+     * Updates a Viber application form.
      *
      * @param request - UpdateAuditRequestRequest
      *
@@ -14172,9 +14303,9 @@ class Cams extends OpenApiClient
      * Updates the basic information of a flow based on the flow code.
      *
      * @remarks
-     * - You can call this operation to update the basic information of a flow, or manually update it in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Basic Information**.
-     * - Before calling this operation, make sure you have a successfully created flow.
-     * - If you do not have a successfully created flow, click **Create Flow** in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) to manually create one.
+     * - You can call this operation to update the basic information of a flow, or manually update it on the **Basic Information** page by choosing **Settings** > **Basic Information** in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that you have created a flow.
+     * - If you do not have a created flow, you can click **Create Flow** in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) to manually create one.
      *
      * @param tmpReq - UpdateChatFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14250,9 +14381,9 @@ class Cams extends OpenApiClient
      * Updates the basic information of a flow based on the flow code.
      *
      * @remarks
-     * - You can call this operation to update the basic information of a flow, or manually update it in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Basic Information**.
-     * - Before calling this operation, make sure you have a successfully created flow.
-     * - If you do not have a successfully created flow, click **Create Flow** in the [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) to manually create one.
+     * - You can call this operation to update the basic information of a flow, or manually update it on the **Basic Information** page by choosing **Settings** > **Basic Information** in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before calling this operation, ensure that you have created a flow.
+     * - If you do not have a created flow, you can click **Create Flow** in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder) to manually create one.
      *
      * @param request - UpdateChatFlowRequest
      *
@@ -14273,10 +14404,10 @@ class Cams extends OpenApiClient
      * Updates the flow log settings.
      *
      * @remarks
-     * - You can call this operation to update flow log settings, or manually update them in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Log**.
-     * - Before calling this operation, make sure that you have activated [Simple Log Service](https://sls.console.aliyun.com/lognext/open) and created flow log settings.
-     * - If you have not created flow log settings for the flow, first create them by calling the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation.
-     * - Updating flow log settings may affect your business. Proceed with caution.
+     * - You can call this operation to update the flow log settings, or manually update them on the **Logs** tab of the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before you call this operation, make sure that you have activated [Simple Log Service](https://sls.console.aliyun.com/lognext/open) and created flow log settings.
+     * - If you have not created flow log settings for the flow, call the [CreateChatFlowLogSetting](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlowLogSetting) operation to create flow log settings first.
+     * - Updating the flow log settings may affect your business. Proceed with caution.
      *
      * @param request - UpdateChatFlowLogSettingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14338,10 +14469,10 @@ class Cams extends OpenApiClient
      * Updates the flow log settings.
      *
      * @remarks
-     * - You can call this operation to update flow log settings, or manually update them in [**Flow Builder**](https://chatapp.console.aliyun.com/ChatFlowBuilder) > **Settings** > **Log**.
-     * - Before calling this operation, make sure that you have activated [Simple Log Service](https://sls.console.aliyun.com/lognext/open) and created flow log settings.
-     * - If you have not created flow log settings for the flow, first create them by calling the [CreateChatFlowLogSetting](https://help.aliyun.com/document_detail/2937211.html) operation.
-     * - Updating flow log settings may affect your business. Proceed with caution.
+     * - You can call this operation to update the flow log settings, or manually update them on the **Logs** tab of the **Settings** page in the [**Flow Editor**](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+     * - Before you call this operation, make sure that you have activated [Simple Log Service](https://sls.console.aliyun.com/lognext/open) and created flow log settings.
+     * - If you have not created flow log settings for the flow, call the [CreateChatFlowLogSetting](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlowLogSetting) operation to create flow log settings first.
+     * - Updating the flow log settings may affect your business. Proceed with caution.
      *
      * @param request - UpdateChatFlowLogSettingRequest
      *
@@ -14362,10 +14493,10 @@ class Cams extends OpenApiClient
      * Modifies the information of an IM group.
      *
      * @remarks
-     * >Notice: Modifying IM group information through API is a Meta beta feature. Contact your account manager to request allowlisting.
-     * - Creating WhatsApp groups through API is a Meta beta feature. Contact your account manager to request allowlisting.
-     * - Before calling this operation, make sure that you have an IM group that has been created.
-     * - If you do not have a created IM group, create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation.
+     * <notice>The feature to modify IM groups through the API is in the Meta closed beta. Contact your account manager to apply for whitelist access.</notice>
+     * - The feature to create WhatsApp groups through the API is in the Meta closed beta. Contact your account manager to apply for whitelist access.
+     * - Before you call this operation, make sure that you have created an IM group.
+     * - If you do not have an IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
      *
      * @param request - UpdateChatGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14443,10 +14574,10 @@ class Cams extends OpenApiClient
      * Modifies the information of an IM group.
      *
      * @remarks
-     * >Notice: Modifying IM group information through API is a Meta beta feature. Contact your account manager to request allowlisting.
-     * - Creating WhatsApp groups through API is a Meta beta feature. Contact your account manager to request allowlisting.
-     * - Before calling this operation, make sure that you have an IM group that has been created.
-     * - If you do not have a created IM group, create one by calling the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation.
+     * <notice>The feature to modify IM groups through the API is in the Meta closed beta. Contact your account manager to apply for whitelist access.</notice>
+     * - The feature to create WhatsApp groups through the API is in the Meta closed beta. Contact your account manager to apply for whitelist access.
+     * - Before you call this operation, make sure that you have created an IM group.
+     * - If you do not have an IM group, you can call the [AddChatGroup](https://help.aliyun.com/document_detail/2998429.html) operation to create one.
      *
      * @param request - UpdateChatGroupRequest
      *
@@ -14551,7 +14682,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies a contact.
+     * Updates a contact.
      *
      * @param tmpReq - UpdateContactByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14636,7 +14767,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies a contact.
+     * Updates a contact.
      *
      * @param request - UpdateContactByIdRequest
      *
@@ -14654,12 +14785,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the welcome message, conversation starters, and commands for a phone number.
+     * Modifies the welcome message, prompts, and commands for a phone number.
      *
      * @remarks
-     * ### QPS limit
-     * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
-     * This API directly retrieves data from Facebook. Facebook imposes a limit on the total number of API calls. Use this API appropriately.
+     * ### QPS limits
+     * The QPS limit per user is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     * This operation directly pulls data from Facebook. The total number of Facebook API calls is limited. Use this operation reasonably.
      *
      * @param tmpReq - UpdateConversationalAutomationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14736,12 +14867,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the welcome message, conversation starters, and commands for a phone number.
+     * Modifies the welcome message, prompts, and commands for a phone number.
      *
      * @remarks
-     * ### QPS limit
-     * The single-user QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
-     * This API directly retrieves data from Facebook. Facebook imposes a limit on the total number of API calls. Use this API appropriately.
+     * ### QPS limits
+     * The QPS limit per user is 5 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     * This operation directly pulls data from Facebook. The total number of Facebook API calls is limited. Use this operation reasonably.
      *
      * @param request - UpdateConversationalAutomationRequest
      *
@@ -14762,7 +14893,7 @@ class Cams extends OpenApiClient
      * Updates the content of a flow by using JSON.
      *
      * @remarks
-     * The China Mobile (China) QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Manage your calls appropriately.
+     * The queries per second (QPS) limit per user is 5. If the number of API calls exceeds this limit, throttling is triggered, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - UpdateFlowJSONAssetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14824,7 +14955,7 @@ class Cams extends OpenApiClient
      * Updates the content of a flow by using JSON.
      *
      * @remarks
-     * The China Mobile (China) QPS limit for this API is 5 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Manage your calls appropriately.
+     * The queries per second (QPS) limit per user is 5. If the number of API calls exceeds this limit, throttling is triggered, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - UpdateFlowJSONAssetRequest
      *
@@ -14842,12 +14973,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Updates the DSL data of a flow version, used for updating the flow version on the canvas.
+     * Updates the DSL data of a flow version for updating the flow version on the canvas.
      *
      * @remarks
-     * - You can call this operation to update the DSL data of a flow version, or click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and update the DSL data of the flow version.
-     * - Before calling this operation, make sure that you have created a flow and the flow status is offline.
-     * - If you have not created a flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+     * - You can call this operation to update the DSL data of a flow version. Alternatively, you can click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and update the DSL data of the flow version.
+     * - Before calling this operation, ensure that you have created a flow and the flow is offline.
+     * - If you have not created a flow, you can manually create one on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create a flow.
      *
      * @param tmpReq - UpdateFlowVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14928,12 +15059,12 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Updates the DSL data of a flow version, used for updating the flow version on the canvas.
+     * Updates the DSL data of a flow version for updating the flow version on the canvas.
      *
      * @remarks
-     * - You can call this operation to update the DSL data of a flow version, or click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and update the DSL data of the flow version.
-     * - Before calling this operation, make sure that you have created a flow and the flow status is offline.
-     * - If you have not created a flow, you can manually create a flow on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or create a flow by calling the [CreateChatFlow](https://help.aliyun.com/document_detail/2937204.html) operation.
+     * - You can call this operation to update the DSL data of a flow version. Alternatively, you can click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and update the DSL data of the flow version.
+     * - Before calling this operation, ensure that you have created a flow and the flow is offline.
+     * - If you have not created a flow, you can manually create one on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page or call the [CreateChatFlow](https://api.aliyun.com/document/cams/2020-06-06/CreateChatFlow) operation to create a flow.
      *
      * @param request - UpdateFlowVersionRequest
      *
@@ -15024,7 +15155,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Updates the specified instance.
+     * Modifies an instance.
      *
      * @param request - UpdateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15095,7 +15226,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Updates the specified instance.
+     * Modifies an instance.
      *
      * @param request - UpdateInstanceRequest
      *
@@ -15113,7 +15244,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies campaign information.
+     * Updates the marketing campaign information.
      *
      * @param tmpReq - UpdateMarketingFLowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15218,7 +15349,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies campaign information.
+     * Updates the marketing campaign information.
      *
      * @param request - UpdateMarketingFLowRequest
      *
@@ -15424,10 +15555,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the callback URL information for a phone number.
+     * Updates the callback URL information for a phone number.
      *
      * @remarks
-     * The per-user QPS limit for this API is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this API at a reasonable frequency.
+     * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
      *
      * @param request - UpdatePhoneWebhookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15498,10 +15629,10 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * Modifies the callback URL information for a phone number.
+     * Updates the callback URL information for a phone number.
      *
      * @remarks
-     * The per-user QPS limit for this API is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Call this API at a reasonable frequency.
+     * The queries per second (QPS) limit per user is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
      *
      * @param request - UpdatePhoneWebhookRequest
      *

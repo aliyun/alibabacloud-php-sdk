@@ -71,6 +71,11 @@ class buttons extends Model
     public $text;
 
     /**
+     * @var int
+     */
+    public $ttlMinutes;
+
+    /**
      * @var string
      */
     public $type;
@@ -97,6 +102,7 @@ class buttons extends Model
         'signatureHash' => 'SignatureHash',
         'supportedApps' => 'SupportedApps',
         'text' => 'Text',
+        'ttlMinutes' => 'TtlMinutes',
         'type' => 'Type',
         'url' => 'Url',
         'urlType' => 'UrlType',
@@ -169,6 +175,10 @@ class buttons extends Model
 
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+
+        if (null !== $this->ttlMinutes) {
+            $res['TtlMinutes'] = $this->ttlMinutes;
         }
 
         if (null !== $this->type) {
@@ -247,6 +257,10 @@ class buttons extends Model
 
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+
+        if (isset($map['TtlMinutes'])) {
+            $model->ttlMinutes = $map['TtlMinutes'];
         }
 
         if (isset($map['Type'])) {
