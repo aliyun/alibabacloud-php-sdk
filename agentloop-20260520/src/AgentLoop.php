@@ -656,7 +656,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+     * Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. When a version is no longer needed, you can call DeleteDatasetVersion to delete it.
      *
      * @param request - CreateDatasetVersionRequest
      * @param headers - map
@@ -710,7 +710,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+     * Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. When a version is no longer needed, you can call DeleteDatasetVersion to delete it.
      *
      * @param request - CreateDatasetVersionRequest
      *
@@ -1041,7 +1041,7 @@ class AgentLoop extends OpenApiClient
      * Creates an experiment plan.
      *
      * @remarks
-     * Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
+     * Calls CreateExperimentPlan to create an experiment plan in a specified AgentSpace. This operation is used to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
      *
      * @param request - CreateExperimentPlanRequest
      * @param headers - map
@@ -1123,7 +1123,7 @@ class AgentLoop extends OpenApiClient
      * Creates an experiment plan.
      *
      * @remarks
-     * Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
+     * Calls CreateExperimentPlan to create an experiment plan in a specified AgentSpace. This operation is used to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
      *
      * @param request - CreateExperimentPlanRequest
      *
@@ -1751,7 +1751,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+     * Deletes a historical version of a dataset in a specified agent space. After the deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, current data, or other historical versions.
      *
      * @param request - DeleteDatasetVersionRequest
      * @param headers - map
@@ -1790,7 +1790,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+     * Deletes a historical version of a dataset in a specified agent space. After the deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, current data, or other historical versions.
      *
      * @param request - DeleteDatasetVersionRequest
      *
@@ -3295,7 +3295,10 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single pipeline run.
+     * Queries the details of a single run, including the data window, execute status, retry information, run statistics, and fault message.
+     *
+     * @remarks
+     * Invokes GetPipelineRun to retrieve the details of a single pipeline run, including the data window, execute status, retry information, run statistics, and fault message.
      *
      * @param request - GetPipelineRunRequest
      * @param headers - map
@@ -3334,7 +3337,10 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single pipeline run.
+     * Queries the details of a single run, including the data window, execute status, retry information, run statistics, and fault message.
+     *
+     * @remarks
+     * Invokes GetPipelineRun to retrieve the details of a single pipeline run, including the data window, execute status, retry information, run statistics, and fault message.
      *
      * @param request - GetPipelineRunRequest
      *
@@ -3666,7 +3672,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+     * Performs a paged query to retrieve the historical versions of a dataset in a specified agent space and returns the version names, descriptions, and creation time. Deleted versions are not returned in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken from the previous response to continue paging.
      *
      * @param request - ListDatasetVersionsRequest
      * @param headers - map
@@ -3714,7 +3720,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+     * Performs a paged query to retrieve the historical versions of a dataset in a specified agent space and returns the version names, descriptions, and creation time. Deleted versions are not returned in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken from the previous response to continue paging.
      *
      * @param request - ListDatasetVersionsRequest
      *
@@ -4053,7 +4059,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of evaluators.
+     * Queries the list of evaluators.
      *
      * @param request - ListEvaluatorsRequest
      * @param headers - map
@@ -4115,7 +4121,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of evaluators.
+     * Queries the list of evaluators.
      *
      * @param request - ListEvaluatorsRequest
      *
@@ -4137,7 +4143,7 @@ class AgentLoop extends OpenApiClient
      * Queries the list of experiment plans.
      *
      * @remarks
-     * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination by using `offset`/`limit`.
+     * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. This operation supports fuzzy match by plan name, filtering by status, and pagination by using `offset` and `limit`.
      *
      * @param request - ListExperimentPlansRequest
      * @param headers - map
@@ -4203,7 +4209,7 @@ class AgentLoop extends OpenApiClient
      * Queries the list of experiment plans.
      *
      * @remarks
-     * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination by using `offset`/`limit`.
+     * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. This operation supports fuzzy match by plan name, filtering by status, and pagination by using `offset` and `limit`.
      *
      * @param request - ListExperimentPlansRequest
      *
@@ -4320,7 +4326,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+     * Queries the run records of a specified optimization task by using paging. Complete result references and frozen outputs are queried by calling GetOptimizeRun.
      *
      * @param request - ListOptimizeRunsRequest
      * @param headers - map
@@ -4380,7 +4386,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the run records of a specified optimization task. To obtain complete result references and frozen outputs, call GetOptimizeRun.
+     * Queries the run records of a specified optimization task by using paging. Complete result references and frozen outputs are queried by calling GetOptimizeRun.
      *
      * @param request - ListOptimizeRunsRequest
      *
@@ -4401,7 +4407,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+     * Performs a paging query on the optimization tasks in a specified AgentSpace and returns the task status, configurations, and scheduling checkpoints.
      *
      * @param request - ListOptimizeTasksRequest
      * @param headers - map
@@ -4456,7 +4462,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries optimization tasks in a specified AgentSpace by using paging and returns the task status, configurations, and scheduling checkpoints.
+     * Performs a paging query on the optimization tasks in a specified AgentSpace and returns the task status, configurations, and scheduling checkpoints.
      *
      * @param request - ListOptimizeTasksRequest
      *
@@ -4476,7 +4482,10 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
+     * Queries the run history. Supports filtering by status, trigger type, and time range, and uses cursor-based pagination.
+     *
+     * @remarks
+     * Calls the ListPipelineRuns operation to query the pipeline run history. You can filter the results by status, trigger type, and time range, and use cursor-based pagination.
      *
      * @param request - ListPipelineRunsRequest
      * @param headers - map
@@ -4540,7 +4549,10 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries the run history. Supports filtering by status, trigger type, and time range, and cursor-based pagination.
+     * Queries the run history. Supports filtering by status, trigger type, and time range, and uses cursor-based pagination.
+     *
+     * @remarks
+     * Calls the ListPipelineRuns operation to query the pipeline run history. You can filter the results by status, trigger type, and time range, and use cursor-based pagination.
      *
      * @param request - ListPipelineRunsRequest
      *
@@ -4713,8 +4725,8 @@ class AgentLoop extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - **agentSpace** must be an AgentSpace instance created under the current account.
-     * - **source.type** currently supports only the `logstore` type, and `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
+     * - **agentSpace** must be an existing AgentSpace instance under the current account.
+     * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
      * - **pipeline.nodes** must contain at least one `Source` node and cannot be empty.
      * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be earlier than **toTime**.
      * - A maximum of 5 records are returned, and internal fields of the data source system are automatically filtered out.
@@ -4776,8 +4788,8 @@ class AgentLoop extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - **agentSpace** must be an AgentSpace instance created under the current account.
-     * - **source.type** currently supports only the `logstore` type, and `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
+     * - **agentSpace** must be an existing AgentSpace instance under the current account.
+     * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and reside in the same region.
      * - **pipeline.nodes** must contain at least one `Source` node and cannot be empty.
      * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be earlier than **toTime**.
      * - A maximum of 5 records are returned, and internal fields of the data source system are automatically filtered out.

@@ -49,6 +49,11 @@ class GetEvaluationTaskResponseBody extends Model
     public $evaluators;
 
     /**
+     * @var mixed[]
+     */
+    public $qualityMetrics;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -101,6 +106,7 @@ class GetEvaluationTaskResponseBody extends Model
         'dataType' => 'dataType',
         'description' => 'description',
         'evaluators' => 'evaluators',
+        'qualityMetrics' => 'qualityMetrics',
         'regionId' => 'regionId',
         'requestId' => 'requestId',
         'runStrategyConfig' => 'runStrategyConfig',
@@ -119,6 +125,9 @@ class GetEvaluationTaskResponseBody extends Model
         }
         if (\is_array($this->evaluators)) {
             Model::validateArray($this->evaluators);
+        }
+        if (\is_array($this->qualityMetrics)) {
+            Model::validateArray($this->qualityMetrics);
         }
         if (null !== $this->runStrategyConfig) {
             $this->runStrategyConfig->validate();
@@ -172,6 +181,15 @@ class GetEvaluationTaskResponseBody extends Model
                 foreach ($this->evaluators as $item1) {
                     $res['evaluators'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->qualityMetrics) {
+            if (\is_array($this->qualityMetrics)) {
+                $res['qualityMetrics'] = [];
+                foreach ($this->qualityMetrics as $key1 => $value1) {
+                    $res['qualityMetrics'][$key1] = $value1;
                 }
             }
         }
@@ -268,6 +286,15 @@ class GetEvaluationTaskResponseBody extends Model
                 foreach ($map['evaluators'] as $item1) {
                     $model->evaluators[$n1] = Evaluator::fromMap($item1);
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['qualityMetrics'])) {
+            if (!empty($map['qualityMetrics'])) {
+                $model->qualityMetrics = [];
+                foreach ($map['qualityMetrics'] as $key1 => $value1) {
+                    $model->qualityMetrics[$key1] = $value1;
                 }
             }
         }

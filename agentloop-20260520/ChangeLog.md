@@ -1,3 +1,8 @@
+2026-11-16 Version: 2.2.2
+- Update API GetEvaluationRun: add response parameters Body.qualityMetrics.
+- Update API GetEvaluationTask: add response parameters Body.qualityMetrics.
+
+
 2026-11-12 Version: 2.2.1
 - Generated php 2026-05-20 for AgentLoop.
 

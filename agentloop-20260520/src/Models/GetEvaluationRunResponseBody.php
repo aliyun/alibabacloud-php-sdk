@@ -40,6 +40,11 @@ class GetEvaluationRunResponseBody extends Model
     public $failedCount;
 
     /**
+     * @var mixed[]
+     */
+    public $qualityMetrics;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -90,6 +95,7 @@ class GetEvaluationRunResponseBody extends Model
         'evaluatorProgress' => 'evaluatorProgress',
         'evaluators' => 'evaluators',
         'failedCount' => 'failedCount',
+        'qualityMetrics' => 'qualityMetrics',
         'requestId' => 'requestId',
         'runId' => 'runId',
         'runName' => 'runName',
@@ -105,6 +111,9 @@ class GetEvaluationRunResponseBody extends Model
     {
         if (\is_array($this->evaluatorProgress)) {
             Model::validateArray($this->evaluatorProgress);
+        }
+        if (\is_array($this->qualityMetrics)) {
+            Model::validateArray($this->qualityMetrics);
         }
         parent::validate();
     }
@@ -141,6 +150,15 @@ class GetEvaluationRunResponseBody extends Model
 
         if (null !== $this->failedCount) {
             $res['failedCount'] = $this->failedCount;
+        }
+
+        if (null !== $this->qualityMetrics) {
+            if (\is_array($this->qualityMetrics)) {
+                $res['qualityMetrics'] = [];
+                foreach ($this->qualityMetrics as $key1 => $value1) {
+                    $res['qualityMetrics'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->requestId) {
@@ -219,6 +237,15 @@ class GetEvaluationRunResponseBody extends Model
 
         if (isset($map['failedCount'])) {
             $model->failedCount = $map['failedCount'];
+        }
+
+        if (isset($map['qualityMetrics'])) {
+            if (!empty($map['qualityMetrics'])) {
+                $model->qualityMetrics = [];
+                foreach ($map['qualityMetrics'] as $key1 => $value1) {
+                    $model->qualityMetrics[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['requestId'])) {
