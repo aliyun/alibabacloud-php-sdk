@@ -77,6 +77,7 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateThreadRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateThreadResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpsertDigitalEmployeeUmodelCommonSchemaRefRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpsertDigitalEmployeeUmodelCommonSchemaRefResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -87,6 +88,9 @@ class STAROps extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'STAROps';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('starops', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);

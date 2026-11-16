@@ -11,6 +11,16 @@ class ConnectorRuntime extends Model
     /**
      * @var string
      */
+    public $capabilityId;
+
+    /**
+     * @var string
+     */
+    public $extensionName;
+
+    /**
+     * @var string
+     */
     public $mode;
 
     /**
@@ -23,6 +33,8 @@ class ConnectorRuntime extends Model
      */
     public $satelliteId;
     protected $_name = [
+        'capabilityId' => 'capabilityId',
+        'extensionName' => 'extensionName',
         'mode' => 'mode',
         'pluginId' => 'pluginId',
         'satelliteId' => 'satelliteId',
@@ -36,6 +48,14 @@ class ConnectorRuntime extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->capabilityId) {
+            $res['capabilityId'] = $this->capabilityId;
+        }
+
+        if (null !== $this->extensionName) {
+            $res['extensionName'] = $this->extensionName;
+        }
+
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
         }
@@ -59,6 +79,14 @@ class ConnectorRuntime extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['capabilityId'])) {
+            $model->capabilityId = $map['capabilityId'];
+        }
+
+        if (isset($map['extensionName'])) {
+            $model->extensionName = $map['extensionName'];
+        }
+
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
         }

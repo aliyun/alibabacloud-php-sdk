@@ -1,3 +1,12 @@
+2026-11-16 Version: 1.2.7
+- Update API CreateDigitalEmployee: add request parameters body.toolPolicy.global.
+- Update API CreateDigitalEmployee: add request parameters body.toolPolicy.hooks.
+- Update API GetDigitalEmployee: add response parameters Body.toolPolicy.global.
+- Update API GetDigitalEmployee: add response parameters Body.toolPolicy.hooks.
+- Update API UpdateDigitalEmployee: add request parameters body.toolPolicy.global.
+- Update API UpdateDigitalEmployee: add request parameters body.toolPolicy.hooks.
+
+
 2026-10-22 Version: 1.2.6
 - Update API GetDigitalEmployee: add response parameters Body.status.
 - Update API ListDigitalEmployees: add response parameters Body.digitalEmployees.$.status.
