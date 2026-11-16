@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryCreateInstancePrice
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryCreateInstancePriceResponseBody\priceInfo\depreciateInfo;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryCreateInstancePriceResponseBody\priceInfo\modulePrices;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryCreateInstancePriceResponseBody\priceInfo\optionalPromotions;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\QueryCreateInstancePriceResponseBody\priceInfo\rules;
 
@@ -47,6 +48,11 @@ class priceInfo extends Model
     public $message;
 
     /**
+     * @var modulePrices[]
+     */
+    public $modulePrices;
+
+    /**
      * @var optionalPromotions[]
      */
     public $optionalPromotions;
@@ -83,6 +89,7 @@ class priceInfo extends Model
         'isContractActivity' => 'IsContractActivity',
         'lxRequestId' => 'LxRequestId',
         'message' => 'Message',
+        'modulePrices' => 'ModulePrices',
         'optionalPromotions' => 'OptionalPromotions',
         'originalAmount' => 'OriginalAmount',
         'rules' => 'Rules',
@@ -95,6 +102,9 @@ class priceInfo extends Model
     {
         if (null !== $this->depreciateInfo) {
             $this->depreciateInfo->validate();
+        }
+        if (\is_array($this->modulePrices)) {
+            Model::validateArray($this->modulePrices);
         }
         if (\is_array($this->optionalPromotions)) {
             Model::validateArray($this->optionalPromotions);
@@ -134,6 +144,17 @@ class priceInfo extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->modulePrices) {
+            if (\is_array($this->modulePrices)) {
+                $res['ModulePrices'] = [];
+                $n1 = 0;
+                foreach ($this->modulePrices as $item1) {
+                    $res['ModulePrices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->optionalPromotions) {
@@ -211,6 +232,17 @@ class priceInfo extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['ModulePrices'])) {
+            if (!empty($map['ModulePrices'])) {
+                $model->modulePrices = [];
+                $n1 = 0;
+                foreach ($map['ModulePrices'] as $item1) {
+                    $model->modulePrices[$n1] = modulePrices::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['OptionalPromotions'])) {

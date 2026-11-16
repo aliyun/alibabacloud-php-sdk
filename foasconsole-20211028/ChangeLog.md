@@ -1,3 +1,7 @@
+2026-11-16 Version: 2.4.1
+- Update API QueryCreateInstancePrice: add response parameters Body.PriceInfo.ModulePrices.
+
+
 2026-11-13 Version: 2.4.0
 - Support API ChangeResourceGroup.
 
