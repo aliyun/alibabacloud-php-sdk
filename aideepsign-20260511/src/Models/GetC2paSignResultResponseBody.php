@@ -41,6 +41,11 @@ class GetC2paSignResultResponseBody extends Model
     /**
      * @var string
      */
+    public $objectKey;
+
+    /**
+     * @var string
+     */
     public $reportFileUrl;
 
     /**
@@ -94,6 +99,7 @@ class GetC2paSignResultResponseBody extends Model
         'failedCount' => 'FailedCount',
         'httpStatusCode' => 'HttpStatusCode',
         'message' => 'Message',
+        'objectKey' => 'ObjectKey',
         'reportFileUrl' => 'ReportFileUrl',
         'reportObjectKey' => 'ReportObjectKey',
         'requestId' => 'RequestId',
@@ -136,6 +142,10 @@ class GetC2paSignResultResponseBody extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->objectKey) {
+            $res['ObjectKey'] = $this->objectKey;
         }
 
         if (null !== $this->reportFileUrl) {
@@ -211,6 +221,10 @@ class GetC2paSignResultResponseBody extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['ObjectKey'])) {
+            $model->objectKey = $map['ObjectKey'];
         }
 
         if (isset($map['ReportFileUrl'])) {

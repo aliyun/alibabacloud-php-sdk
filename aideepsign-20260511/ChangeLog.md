@@ -1,3 +1,16 @@
+2026-11-16 Version: 2.1.0
+- Support API CreateWatermarkSignTask.
+- Support API GetWatermarkSignTaskResult.
+- Update API CreateC2paSignTask: add request parameters AllowOverwrite.
+- Update API CreateC2paSignTask: add request parameters BucketName.
+- Update API CreateC2paSignTask: add request parameters BucketRegionId.
+- Update API CreateC2paSignTask: add request parameters ObjectKey.
+- Update API CreateC2paSignTask: add request parameters TargetBucketName.
+- Update API CreateC2paSignTask: add request parameters TargetBucketRegion.
+- Update API CreateC2paSignTask: add request parameters TargetObjectKey.
+- Update API GetC2paSignResult: add response parameters Body.ObjectKey.
+
+
 2026-11-05 Version: 2.0.2
 - Update API CreateC2paBucketSignTask: add request parameters CustomAssertions.
 - Update API CreateC2paSignTask: add request parameters CustomAssertions.

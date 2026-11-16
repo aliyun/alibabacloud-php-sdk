@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\CreateWatermarkEmbedTaskRequest
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\CreateWatermarkEmbedTaskResponse;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\CreateWatermarkExtractTaskRequest;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\CreateWatermarkExtractTaskResponse;
+use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\CreateWatermarkSignTaskRequest;
+use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\CreateWatermarkSignTaskResponse;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\DetectAigcImageRequest;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\DetectAigcImageResponse;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\DetectImageBasicInfoRequest;
@@ -49,6 +51,8 @@ use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetWatermarkEmbedTaskResultRequ
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetWatermarkEmbedTaskResultResponse;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetWatermarkExtractTaskResultRequest;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetWatermarkExtractTaskResultResponse;
+use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetWatermarkSignTaskResultRequest;
+use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetWatermarkSignTaskResultResponse;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\PauseC2paBucketSignTaskRequest;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\PauseC2paBucketSignTaskResponse;
 use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\ResumeC2paBucketSignTaskRequest;
@@ -173,13 +177,11 @@ class AIDeepSign extends OpenApiClient
      * Creates a batch C2PA content credential signing task for files in a specified OSS bucket.
      *
      * @remarks
-     * ## Request description
-     * - **BucketRegionId** and **BucketName** must match the actual OSS bucket information.
-     * - **SourcePrefix** must be located in `ai-deepsign/` or its subdirectories, and cannot overlap with the reserved output prefix `ai-deepsign-signed/`.
-     * - Supports processing JPEG/JPG, PNG, MP4, and audio files in FLAC, M4A, MP3, and WAV formats.
-     * - A single task includes up to 20,000 non-directory objects by default, and each file size cannot exceed 800 MiB.
-     * - Make sure that the service-linked role `AliyunServiceRoleForAIDeepSign` has been granted access permissions to the specified bucket and related paths.
-     * - The optional parameters `SourceType` and `SoftwareAgent` are used to declare the content source and software name. `CustomAssertions` is used to add custom assertions.
+     * Creates a batch standard C2PA content credential signing task for an OSS bucket. The service recursively scans non-directory objects under `SourcePrefix` and supports JPEG/JPG, PNG, MP4, and audio formats including FLAC, M4A, MP3, and WAV. By default, a single task includes up to 20,000 non-directory objects, and the size of a single file cannot exceed 800 MiB.
+     * Before you call this operation, make sure that the `AliyunServiceRoleForAIDeepSign` service-linked role has been granted the OSS List and Get permissions on the source prefix, and the Get and Put permissions on the output prefix. `SourceType`, `SoftwareAgent`, and `CustomAssertions` are optional parameters. The values specified during creation are applied to each file in the batch.
+     * A successful creation only indicates that the task has been accepted. Save the returned `TaskId` and call `GetC2paSignResult` to query the status and statistics. You can use `PauseC2paBucketSignTask`, `ResumeC2paBucketSignTask`, and `CancelC2paBucketSignTask` to control the task.
+     * The signature files are written to `ai-deepsign-signed/<TaskId>/<folder of the object relative to SourcePrefix>/<original file name>_signed.<extension>` in the same bucket, preserving the relative subdirectory and source file extensions. The final JSON report is saved as `ai-deepsign-signed/<TaskId>/c2pa_report.json`.
+     * This operation is metered based on the number of successfully signed files. The same account can create multiple tasks for the same bucket and prefix, and each task uses an independent output directory. Duplicate creations may result in duplicate signing and metering.
      *
      * @param request - CreateC2paBucketSignTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -241,13 +243,11 @@ class AIDeepSign extends OpenApiClient
      * Creates a batch C2PA content credential signing task for files in a specified OSS bucket.
      *
      * @remarks
-     * ## Request description
-     * - **BucketRegionId** and **BucketName** must match the actual OSS bucket information.
-     * - **SourcePrefix** must be located in `ai-deepsign/` or its subdirectories, and cannot overlap with the reserved output prefix `ai-deepsign-signed/`.
-     * - Supports processing JPEG/JPG, PNG, MP4, and audio files in FLAC, M4A, MP3, and WAV formats.
-     * - A single task includes up to 20,000 non-directory objects by default, and each file size cannot exceed 800 MiB.
-     * - Make sure that the service-linked role `AliyunServiceRoleForAIDeepSign` has been granted access permissions to the specified bucket and related paths.
-     * - The optional parameters `SourceType` and `SoftwareAgent` are used to declare the content source and software name. `CustomAssertions` is used to add custom assertions.
+     * Creates a batch standard C2PA content credential signing task for an OSS bucket. The service recursively scans non-directory objects under `SourcePrefix` and supports JPEG/JPG, PNG, MP4, and audio formats including FLAC, M4A, MP3, and WAV. By default, a single task includes up to 20,000 non-directory objects, and the size of a single file cannot exceed 800 MiB.
+     * Before you call this operation, make sure that the `AliyunServiceRoleForAIDeepSign` service-linked role has been granted the OSS List and Get permissions on the source prefix, and the Get and Put permissions on the output prefix. `SourceType`, `SoftwareAgent`, and `CustomAssertions` are optional parameters. The values specified during creation are applied to each file in the batch.
+     * A successful creation only indicates that the task has been accepted. Save the returned `TaskId` and call `GetC2paSignResult` to query the status and statistics. You can use `PauseC2paBucketSignTask`, `ResumeC2paBucketSignTask`, and `CancelC2paBucketSignTask` to control the task.
+     * The signature files are written to `ai-deepsign-signed/<TaskId>/<folder of the object relative to SourcePrefix>/<original file name>_signed.<extension>` in the same bucket, preserving the relative subdirectory and source file extensions. The final JSON report is saved as `ai-deepsign-signed/<TaskId>/c2pa_report.json`.
+     * This operation is metered based on the number of successfully signed files. The same account can create multiple tasks for the same bucket and prefix, and each task uses an independent output directory. Duplicate creations may result in duplicate signing and metering.
      *
      * @param request - CreateC2paBucketSignTaskRequest
      *
@@ -268,13 +268,10 @@ class AIDeepSign extends OpenApiClient
      * Creates a C2PA content credential signing task for a specified file and returns the task ID.
      *
      * @remarks
-     * ## Request description
-     * - This operation adds standard C2PA content credentials to a single JPEG, JPG, PNG, MP4, FLAC, M4A, MP3, or WAV file.
-     * - The operation receives the HTTP or HTTPS URL of the file, asynchronously retrieves the file and signs the content credentials, and returns a TaskId for subsequent queries.
-     * - The FileUrl must be an accessible absolute URL and cannot contain a userinfo component.
-     * - You can provide additional content source, software information, and custom assertions by using the SourceType, SoftwareAgent, and CustomAssertions parameters.
-     * - The size of a single file cannot exceed 800 MiB, and only specific file formats are supported.
-     * - Do not repeatedly create tasks before confirming the task results to avoid duplicate signing and metering.
+     * Adds standard C2PA content credentials to a single JPEG/JPG, PNG, MP4, FLAC, M4A, MP3, or WAV file. The operation receives an accessible absolute HTTP or HTTPS file URL, asynchronously retrieves and signs the file, and returns a TaskId for querying the result. The size of a single file cannot exceed 800 MiB.
+     * You can declare the content source, software name, and custom business data by using the optional SourceType, SoftwareAgent, and CustomAssertions parameters. This information is written into the content credentials of the signed file.
+     * A successful creation only indicates that the request has been accepted. Save the returned TaskId and call GetC2paSignResult to query the final status and signing result.
+     * This operation is independent of the synchronous SignUserImage operation. It only supports creating tasks through file URLs and does not accept file content, buckets, object keys, caller-specified TaskIds, or idempotency keys. This operation is metered based on the number of successfully signed files. Repeated calls create different tasks. Do not create tasks repeatedly before confirming the task result to avoid duplicate signing and metering.
      *
      * @param request - CreateC2paSignTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -290,6 +287,18 @@ class AIDeepSign extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->allowOverwrite) {
+            @$query['AllowOverwrite'] = $request->allowOverwrite;
+        }
+
+        if (null !== $request->bucketName) {
+            @$query['BucketName'] = $request->bucketName;
+        }
+
+        if (null !== $request->bucketRegionId) {
+            @$query['BucketRegionId'] = $request->bucketRegionId;
+        }
+
         if (null !== $request->customAssertions) {
             @$query['CustomAssertions'] = $request->customAssertions;
         }
@@ -298,12 +307,28 @@ class AIDeepSign extends OpenApiClient
             @$query['FileUrl'] = $request->fileUrl;
         }
 
+        if (null !== $request->objectKey) {
+            @$query['ObjectKey'] = $request->objectKey;
+        }
+
         if (null !== $request->softwareAgent) {
             @$query['SoftwareAgent'] = $request->softwareAgent;
         }
 
         if (null !== $request->sourceType) {
             @$query['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->targetBucketName) {
+            @$query['TargetBucketName'] = $request->targetBucketName;
+        }
+
+        if (null !== $request->targetBucketRegion) {
+            @$query['TargetBucketRegion'] = $request->targetBucketRegion;
+        }
+
+        if (null !== $request->targetObjectKey) {
+            @$query['TargetObjectKey'] = $request->targetObjectKey;
         }
 
         $req = new OpenApiRequest([
@@ -328,13 +353,10 @@ class AIDeepSign extends OpenApiClient
      * Creates a C2PA content credential signing task for a specified file and returns the task ID.
      *
      * @remarks
-     * ## Request description
-     * - This operation adds standard C2PA content credentials to a single JPEG, JPG, PNG, MP4, FLAC, M4A, MP3, or WAV file.
-     * - The operation receives the HTTP or HTTPS URL of the file, asynchronously retrieves the file and signs the content credentials, and returns a TaskId for subsequent queries.
-     * - The FileUrl must be an accessible absolute URL and cannot contain a userinfo component.
-     * - You can provide additional content source, software information, and custom assertions by using the SourceType, SoftwareAgent, and CustomAssertions parameters.
-     * - The size of a single file cannot exceed 800 MiB, and only specific file formats are supported.
-     * - Do not repeatedly create tasks before confirming the task results to avoid duplicate signing and metering.
+     * Adds standard C2PA content credentials to a single JPEG/JPG, PNG, MP4, FLAC, M4A, MP3, or WAV file. The operation receives an accessible absolute HTTP or HTTPS file URL, asynchronously retrieves and signs the file, and returns a TaskId for querying the result. The size of a single file cannot exceed 800 MiB.
+     * You can declare the content source, software name, and custom business data by using the optional SourceType, SoftwareAgent, and CustomAssertions parameters. This information is written into the content credentials of the signed file.
+     * A successful creation only indicates that the request has been accepted. Save the returned TaskId and call GetC2paSignResult to query the final status and signing result.
+     * This operation is independent of the synchronous SignUserImage operation. It only supports creating tasks through file URLs and does not accept file content, buckets, object keys, caller-specified TaskIds, or idempotency keys. This operation is metered based on the number of successfully signed files. Repeated calls create different tasks. Do not create tasks repeatedly before confirming the task result to avoid duplicate signing and metering.
      *
      * @param request - CreateC2paSignTaskRequest
      *
@@ -352,15 +374,15 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Submits an image for defect detection and returns a task ID for querying results.
+     * Submits an image for defect detection and returns a task ID for querying the result.
      *
      * @remarks
      * ## Request description
-     * - This operation commits an image to the server for defect detection, including but not limited to blurriness, distortion, glare, and other anomalies in the image subject.
-     * - **ImageUrl is required** and must be a publicly accessible HTTP/HTTPS URL. Currently, only image URLs accessible from the Chinese mainland public network are supported. Upload the image to an Alibaba Cloud OSS bucket in a Chinese mainland region first, and then use the presigned URL of the image as the input parameter for this operation. References: [How to obtain the URL of a single object or the URLs of multiple objects](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
-     * - After successful commit, a node ID is returned immediately. Regardless of whether the node has been completed or is still being processed, call the GetImageDefectDetectionTaskResult operation to perform polling for the final detection result.
-     * - If a parameter fault or other issue occurs during the commit procedure, the corresponding error message is returned directly without creating a node record.
-     * - The image file size cannot exceed 10 MB. Detection is failed for images that exceed this limit.
+     * - This operation submits an image to the server for defect detection, including but not limited to abnormal issues such as a blurred main subject, distortion, and reflection.
+     * - **ImageUrl is required** and must be a publicly accessible HTTP or HTTPS URL. Currently, images from outside the Chinese mainland are not supported. Only image URLs accessible over the public network in the Chinese mainland are supported. We recommend that you upload the image to an Alibaba Cloud OSS bucket in a region in the Chinese mainland, and then use the presigned URL of the image as the input parameter for this operation. Reference: [How to obtain the URL of a single file or the URLs of multiple files](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects).
+     * - After a successful submission, a task ID is immediately returned. Regardless of whether the task is completed immediately or is still being processed, you must poll the GetImageDefectDetectionTaskResult operation to obtain the final detection result.
+     * - If a parameter error or other issue occurs during the submission process, the corresponding error message is directly returned without creating a task record.
+     * - The image size cannot exceed 10 MB. Detection fails for images that exceed this limit.
      *
      * @param request - CreateImageDefectDetectionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -403,15 +425,15 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Submits an image for defect detection and returns a task ID for querying results.
+     * Submits an image for defect detection and returns a task ID for querying the result.
      *
      * @remarks
      * ## Request description
-     * - This operation commits an image to the server for defect detection, including but not limited to blurriness, distortion, glare, and other anomalies in the image subject.
-     * - **ImageUrl is required** and must be a publicly accessible HTTP/HTTPS URL. Currently, only image URLs accessible from the Chinese mainland public network are supported. Upload the image to an Alibaba Cloud OSS bucket in a Chinese mainland region first, and then use the presigned URL of the image as the input parameter for this operation. References: [How to obtain the URL of a single object or the URLs of multiple objects](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
-     * - After successful commit, a node ID is returned immediately. Regardless of whether the node has been completed or is still being processed, call the GetImageDefectDetectionTaskResult operation to perform polling for the final detection result.
-     * - If a parameter fault or other issue occurs during the commit procedure, the corresponding error message is returned directly without creating a node record.
-     * - The image file size cannot exceed 10 MB. Detection is failed for images that exceed this limit.
+     * - This operation submits an image to the server for defect detection, including but not limited to abnormal issues such as a blurred main subject, distortion, and reflection.
+     * - **ImageUrl is required** and must be a publicly accessible HTTP or HTTPS URL. Currently, images from outside the Chinese mainland are not supported. Only image URLs accessible over the public network in the Chinese mainland are supported. We recommend that you upload the image to an Alibaba Cloud OSS bucket in a region in the Chinese mainland, and then use the presigned URL of the image as the input parameter for this operation. Reference: [How to obtain the URL of a single file or the URLs of multiple files](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects).
+     * - After a successful submission, a task ID is immediately returned. Regardless of whether the task is completed immediately or is still being processed, you must poll the GetImageDefectDetectionTaskResult operation to obtain the final detection result.
+     * - If a parameter error or other issue occurs during the submission process, the corresponding error message is directly returned without creating a task record.
+     * - The image size cannot exceed 10 MB. Detection fails for images that exceed this limit.
      *
      * @param request - CreateImageDefectDetectionTaskRequest
      *
@@ -433,12 +455,10 @@ class AIDeepSign extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - **ImageUrl** is required and must be a publicly accessible HTTP/HTTPS URL.
-     * - External images are not currently supported. Only image URLs accessible from the Chinese mainland public network are supported. Upload images to an Alibaba Cloud OSS bucket in a Chinese mainland region first, and then use the presigned URL as the input parameter for this operation. References: [How to obtain the URL of a single object or the URLs of multiple objects](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects).
-     * - The **DetectType** parameter is deprecated. This parameter is still accepted (`tamper`/`aigc`) but does not affect the actual detection pattern. Regardless of the value passed, tampering detection is executed and `DetectMode=tamper` is returned. New callers should not pass this parameter.
-     * - The **UseTamperSmallModel** parameter specifies whether to use the small model. If set to `true`, the small model is used and no large model report is generated. If set to `false` or not passed, the large model is used by default and a comprehensive large model analysis report is returned.
-     * ## Settings
-     * - When **UseTamperSmallModel** is not specified, the large model is used by default.
+     * - **ImageUrl** is required and must be a publicly accessible HTTP or HTTPS URL.
+     * - Images from outside the Chinese mainland are not supported. Only image URLs accessible over the public network in the Chinese mainland are supported. Upload the image to an Alibaba Cloud OSS bucket in a region in the Chinese mainland and then use the pre-signed URL of the image as the input parameter for this operation. References: [How to obtain the URL of a single file or the URLs of multiple files](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects).
+     * - The **DetectType** parameter is deprecated. This parameter is still accepted (`tamper` or `aigc`) but does not affect the actual detection mode. Regardless of the value passed, tampering detection is executed and `DetectMode=tamper` is returned. Do not pass this parameter when you invoke the operation.
+     * - The **UseTamperSmallModel** parameter specifies whether to use a small model. If it is set to `true`, the small model is used and no large model report is generated. If it is set to `false` or left empty, the large model is used by default and a comprehensive analysis report from the large model is returned.
      *
      * @param request - CreateImageDetectionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -493,12 +513,10 @@ class AIDeepSign extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - **ImageUrl** is required and must be a publicly accessible HTTP/HTTPS URL.
-     * - External images are not currently supported. Only image URLs accessible from the Chinese mainland public network are supported. Upload images to an Alibaba Cloud OSS bucket in a Chinese mainland region first, and then use the presigned URL as the input parameter for this operation. References: [How to obtain the URL of a single object or the URLs of multiple objects](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects).
-     * - The **DetectType** parameter is deprecated. This parameter is still accepted (`tamper`/`aigc`) but does not affect the actual detection pattern. Regardless of the value passed, tampering detection is executed and `DetectMode=tamper` is returned. New callers should not pass this parameter.
-     * - The **UseTamperSmallModel** parameter specifies whether to use the small model. If set to `true`, the small model is used and no large model report is generated. If set to `false` or not passed, the large model is used by default and a comprehensive large model analysis report is returned.
-     * ## Settings
-     * - When **UseTamperSmallModel** is not specified, the large model is used by default.
+     * - **ImageUrl** is required and must be a publicly accessible HTTP or HTTPS URL.
+     * - Images from outside the Chinese mainland are not supported. Only image URLs accessible over the public network in the Chinese mainland are supported. Upload the image to an Alibaba Cloud OSS bucket in a region in the Chinese mainland and then use the pre-signed URL of the image as the input parameter for this operation. References: [How to obtain the URL of a single file or the URLs of multiple files](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects).
+     * - The **DetectType** parameter is deprecated. This parameter is still accepted (`tamper` or `aigc`) but does not affect the actual detection mode. Regardless of the value passed, tampering detection is executed and `DetectMode=tamper` is returned. Do not pass this parameter when you invoke the operation.
+     * - The **UseTamperSmallModel** parameter specifies whether to use a small model. If it is set to `true`, the small model is used and no large model report is generated. If it is set to `false` or left empty, the large model is used by default and a comprehensive analysis report from the large model is returned.
      *
      * @param request - CreateImageDetectionTaskRequest
      *
@@ -516,13 +534,13 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Submits a personal income tax record screenshot for forgery detection and returns a task ID.
+     * Submits a screenshot of an individual income tax record for forgery detection and returns a task ID.
      *
      * @remarks
-     * ## Request description
-     * - **ImageUrl** is required and must be a publicly accessible HTTP/HTTPS URL (the server needs to download the image).
-     * - External images are not supported. Only image URLs accessible from the Chinese mainland public network are supported. Upload the image to an Alibaba Cloud OSS bucket in a Chinese mainland region first, and then use the presigned URL of the image as the input parameter of this operation. References: [How do I obtain the URL of one or more files?](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
-     * - The image file size cannot exceed 10 MB. Detection of images that exceed this limit will be failed.
+     * ## Request instructions
+     * - **ImageUrl** is required and must be a publicly accessible HTTP or HTTPS URL. The server must be able to download the image from this URL.
+     * - Currently, images from outside the Chinese mainland are not supported. Only images accessible from the public network within the Chinese mainland are supported. We recommend that you first upload the image to an Alibaba Cloud OSS bucket in a region within the Chinese mainland, and then use the pre-signed URL of the image as the input parameter for this operation. References: [How to obtain the URL of a single file or the URLs of multiple files](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
+     * - The image size cannot exceed 10 MB. Detection will be failed for images that exceed this limit.
      *
      * @param request - CreateImageIncomeTaxDetectionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -565,13 +583,13 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Submits a personal income tax record screenshot for forgery detection and returns a task ID.
+     * Submits a screenshot of an individual income tax record for forgery detection and returns a task ID.
      *
      * @remarks
-     * ## Request description
-     * - **ImageUrl** is required and must be a publicly accessible HTTP/HTTPS URL (the server needs to download the image).
-     * - External images are not supported. Only image URLs accessible from the Chinese mainland public network are supported. Upload the image to an Alibaba Cloud OSS bucket in a Chinese mainland region first, and then use the presigned URL of the image as the input parameter of this operation. References: [How do I obtain the URL of one or more files?](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
-     * - The image file size cannot exceed 10 MB. Detection of images that exceed this limit will be failed.
+     * ## Request instructions
+     * - **ImageUrl** is required and must be a publicly accessible HTTP or HTTPS URL. The server must be able to download the image from this URL.
+     * - Currently, images from outside the Chinese mainland are not supported. Only images accessible from the public network within the Chinese mainland are supported. We recommend that you first upload the image to an Alibaba Cloud OSS bucket in a region within the Chinese mainland, and then use the pre-signed URL of the image as the input parameter for this operation. References: [How to obtain the URL of a single file or the URLs of multiple files](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
+     * - The image size cannot exceed 10 MB. Detection will be failed for images that exceed this limit.
      *
      * @param request - CreateImageIncomeTaxDetectionTaskRequest
      *
@@ -589,15 +607,15 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Generates images based on a provided text description and returns a task ID.
+     * Generates an image based on the provided text description and returns the task ID.
      *
      * @remarks
-     * ## Operation description
-     * - This operation creates an AI image generation task. The system generates images based on the positive prompt provided by the user.
-     * - You can configure parameters such as negative prompt, model, and image size to optimize the generation results.
-     * - By default, generated images are automatically embedded with a C2PA digital signature. You can optionally add a watermark in the lower-right corner.
-     * - Set the ClientToken parameter to ensure the idempotence of the request and guarantee uniqueness across different requests.
-     * - After the task is created, call the GetImageTaskResult operation with the TaskId to query the generation results.
+     * ## Request description
+     * - This operation creates an AI image generation task. The system generates the corresponding image based on the positive prompt provided by the user.
+     * - You can configure parameters such as the negative prompt, model, and image size to optimize the generation results.
+     * - By default, the generated image is automatically embedded with a C2PA digital signature. You can choose whether to add a watermark in the lower-right corner.
+     * - You can set the `ClientToken` parameter to ensure the idempotence of the request and guarantee uniqueness across different requests.
+     * - After the task is created, use the `TaskId` to call the `GetImageTaskResult` operation to query the generation result.
      *
      * @param request - CreateImageTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -664,15 +682,15 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Generates images based on a provided text description and returns a task ID.
+     * Generates an image based on the provided text description and returns the task ID.
      *
      * @remarks
-     * ## Operation description
-     * - This operation creates an AI image generation task. The system generates images based on the positive prompt provided by the user.
-     * - You can configure parameters such as negative prompt, model, and image size to optimize the generation results.
-     * - By default, generated images are automatically embedded with a C2PA digital signature. You can optionally add a watermark in the lower-right corner.
-     * - Set the ClientToken parameter to ensure the idempotence of the request and guarantee uniqueness across different requests.
-     * - After the task is created, call the GetImageTaskResult operation with the TaskId to query the generation results.
+     * ## Request description
+     * - This operation creates an AI image generation task. The system generates the corresponding image based on the positive prompt provided by the user.
+     * - You can configure parameters such as the negative prompt, model, and image size to optimize the generation results.
+     * - By default, the generated image is automatically embedded with a C2PA digital signature. You can choose whether to add a watermark in the lower-right corner.
+     * - You can set the `ClientToken` parameter to ensure the idempotence of the request and guarantee uniqueness across different requests.
+     * - After the task is created, use the `TaskId` to call the `GetImageTaskResult` operation to query the generation result.
      *
      * @param request - CreateImageTaskRequest
      *
@@ -877,12 +895,12 @@ class AIDeepSign extends OpenApiClient
      * Submits an image or video file for invisible watermark embedding and returns a task ID for querying the result.
      *
      * @remarks
-     * ## Operation description
-     * - **FileUrl** must be a publicly accessible HTTP/HTTPS URL. External files are not supported. Only file URLs accessible over the Chinese mainland public network are supported. Upload the file to an Alibaba Cloud Object Storage Service (OSS) bucket in a Chinese mainland region first, and then use the presigned URL of the file as the input parameter for this operation. References: [How do I obtain the URL of one or more objects?](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
-     * - **FileType** must match the actual file type. The same value must be specified during both embedding and fetch.
-     * - Supported file specifications: Video files must be no longer than 10 minutes and no larger than 100 MB. Image files must be no larger than 100 MB.
-     * - The task completion time is approximately equal to the file duration. For example, embedding a 10-second video takes about 10 seconds.
-     * - If the submission fails, no task record is created and a synchronous error is returned.
+     * ## Request description
+     * - **FileUrl** must be a publicly accessible HTTP or HTTPS URL. Files from outside the Chinese mainland are not supported. Only file URLs accessible over the public network in the Chinese mainland are supported. Upload the file to an Object Storage Service (OSS) bucket in a region in the Chinese mainland and then use the presigned URL of the file as the input parameter for this operation. References: [How to obtain the URL of a single object or the URLs of multiple objects](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects).
+     * - **FileType** must match the actual file type and must be the same for both embedding and fetch.
+     * - The maximum supported file size is **512 MB**.
+     * - The node completion time is approximately equal to the duration of the file. For example, embedding a 10-second video takes about 10 seconds.
+     * - If the commit failed, no node record is created, and a synchronization fault is returned directly.
      *
      * @param request - CreateWatermarkEmbedTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -944,12 +962,12 @@ class AIDeepSign extends OpenApiClient
      * Submits an image or video file for invisible watermark embedding and returns a task ID for querying the result.
      *
      * @remarks
-     * ## Operation description
-     * - **FileUrl** must be a publicly accessible HTTP/HTTPS URL. External files are not supported. Only file URLs accessible over the Chinese mainland public network are supported. Upload the file to an Alibaba Cloud Object Storage Service (OSS) bucket in a Chinese mainland region first, and then use the presigned URL of the file as the input parameter for this operation. References: [How do I obtain the URL of one or more objects?](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
-     * - **FileType** must match the actual file type. The same value must be specified during both embedding and fetch.
-     * - Supported file specifications: Video files must be no longer than 10 minutes and no larger than 100 MB. Image files must be no larger than 100 MB.
-     * - The task completion time is approximately equal to the file duration. For example, embedding a 10-second video takes about 10 seconds.
-     * - If the submission fails, no task record is created and a synchronous error is returned.
+     * ## Request description
+     * - **FileUrl** must be a publicly accessible HTTP or HTTPS URL. Files from outside the Chinese mainland are not supported. Only file URLs accessible over the public network in the Chinese mainland are supported. Upload the file to an Object Storage Service (OSS) bucket in a region in the Chinese mainland and then use the presigned URL of the file as the input parameter for this operation. References: [How to obtain the URL of a single object or the URLs of multiple objects](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects).
+     * - **FileType** must match the actual file type and must be the same for both embedding and fetch.
+     * - The maximum supported file size is **512 MB**.
+     * - The node completion time is approximately equal to the duration of the file. For example, embedding a 10-second video takes about 10 seconds.
+     * - If the commit failed, no node record is created, and a synchronization fault is returned directly.
      *
      * @param request - CreateWatermarkEmbedTaskRequest
      *
@@ -967,14 +985,14 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Submits an image or video file to extract a dark watermark and returns a task ID.
+     * Submits an image or video file to extract an invisible watermark and returns the task ID.
      *
      * @remarks
      * ## Request description
-     * - **FileUrl** must be a publicly accessible HTTP/HTTPS URL. External files are not supported. Only file URLs accessible from the Chinese mainland public network are supported. Upload the file to an Alibaba Cloud OSS bucket in a region within the Chinese mainland first, and then use the presigned URL of the file as the input parameter of this operation. References: [How do I obtain the URL of one or more objects?](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
-     * - **FileType must be the same as the one used during embedding**: Make sure that the file type (image or video) for extraction is the same as the file type used when the watermark was embedded.
-     * - **File specification limits**: Video files must be no longer than 10 minutes and no larger than 100 MB. Image files must also be no larger than 100 MB.
-     * - **Processing time**: Approximately equal to the actual playback duration of the file. For example, a 10-second video takes approximately 10 seconds to complete the watermark fetch procedure.
+     * - **FileUrl** must be a publicly accessible HTTP or HTTPS URL. Files on external networks are not supported. Only files accessible over the public network in the Chinese mainland are supported. Upload the file to an OSS bucket in a region in the Chinese mainland and use the presigned URL of the file as the input parameter for this operation. References: [How to obtain the URL of a single object or the URLs of multiple objects](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
+     * - **FileType must be consistent with the embedding phase**: Ensure that the file type (image, video, or audio) for fetching matches the file type used when the watermark was embedded.
+     * - **File size limit**: The maximum file size is 512 MB.
+     * - **Processing time**: The processing time is approximately equal to the actual playback duration of the file. For example, it takes about 10 seconds to complete the watermark fetching procedure for a 10-second video.
      *
      * @param request - CreateWatermarkExtractTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1025,14 +1043,14 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Submits an image or video file to extract a dark watermark and returns a task ID.
+     * Submits an image or video file to extract an invisible watermark and returns the task ID.
      *
      * @remarks
      * ## Request description
-     * - **FileUrl** must be a publicly accessible HTTP/HTTPS URL. External files are not supported. Only file URLs accessible from the Chinese mainland public network are supported. Upload the file to an Alibaba Cloud OSS bucket in a region within the Chinese mainland first, and then use the presigned URL of the file as the input parameter of this operation. References: [How do I obtain the URL of one or more objects?](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
-     * - **FileType must be the same as the one used during embedding**: Make sure that the file type (image or video) for extraction is the same as the file type used when the watermark was embedded.
-     * - **File specification limits**: Video files must be no longer than 10 minutes and no larger than 100 MB. Image files must also be no larger than 100 MB.
-     * - **Processing time**: Approximately equal to the actual playback duration of the file. For example, a 10-second video takes approximately 10 seconds to complete the watermark fetch procedure.
+     * - **FileUrl** must be a publicly accessible HTTP or HTTPS URL. Files on external networks are not supported. Only files accessible over the public network in the Chinese mainland are supported. Upload the file to an OSS bucket in a region in the Chinese mainland and use the presigned URL of the file as the input parameter for this operation. References: [How to obtain the URL of a single object or the URLs of multiple objects](https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects)
+     * - **FileType must be consistent with the embedding phase**: Ensure that the file type (image, video, or audio) for fetching matches the file type used when the watermark was embedded.
+     * - **File size limit**: The maximum file size is 512 MB.
+     * - **Processing time**: The processing time is approximately equal to the actual playback duration of the file. For example, it takes about 10 seconds to complete the watermark fetching procedure for a 10-second video.
      *
      * @param request - CreateWatermarkExtractTaskRequest
      *
@@ -1050,14 +1068,127 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Determines whether an image is AI-generated and returns detection labels with confidence scores.
+     * Submits a combined task for invisible watermark embedding and C2PA signing.
+     *
+     * @remarks
+     * Completes invisible watermark embedding and official C2PA signing in a single call. It first embeds an invisible watermark into an image, video, or audio file, and then applies an official DigiCert C2PA signature to the result. You only need to upload and download the file once.
+     *
+     * @param request - CreateWatermarkSignTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWatermarkSignTaskResponse
+     *
+     * @param CreateWatermarkSignTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateWatermarkSignTaskResponse
+     */
+    public function createWatermarkSignTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowOverwrite) {
+            @$query['AllowOverwrite'] = $request->allowOverwrite;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->customAssertions) {
+            @$query['CustomAssertions'] = $request->customAssertions;
+        }
+
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
+        }
+
+        if (null !== $request->reserved) {
+            @$query['Reserved'] = $request->reserved;
+        }
+
+        if (null !== $request->softwareAgent) {
+            @$query['SoftwareAgent'] = $request->softwareAgent;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->targetBucketName) {
+            @$query['TargetBucketName'] = $request->targetBucketName;
+        }
+
+        if (null !== $request->targetBucketRegion) {
+            @$query['TargetBucketRegion'] = $request->targetBucketRegion;
+        }
+
+        if (null !== $request->targetObjectKey) {
+            @$query['TargetObjectKey'] = $request->targetObjectKey;
+        }
+
+        if (null !== $request->watermarkContent) {
+            @$query['WatermarkContent'] = $request->watermarkContent;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWatermarkSignTask',
+            'version' => '2026-05-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWatermarkSignTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a combined task for invisible watermark embedding and C2PA signing.
+     *
+     * @remarks
+     * Completes invisible watermark embedding and official C2PA signing in a single call. It first embeds an invisible watermark into an image, video, or audio file, and then applies an official DigiCert C2PA signature to the result. You only need to upload and download the file once.
+     *
+     * @param request - CreateWatermarkSignTaskRequest
+     *
+     * @returns CreateWatermarkSignTaskResponse
+     *
+     * @param CreateWatermarkSignTaskRequest $request
+     *
+     * @return CreateWatermarkSignTaskResponse
+     */
+    public function createWatermarkSignTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWatermarkSignTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Determines whether an image is AI-generated and returns the detection label and confidence score.
      *
      * @remarks
      * ## Request description
-     * - This operation detects whether a specified image is AI-generated content (AIGC). You can specify the image to detect by using an image URL or an OSS ObjectKey.
-     * - You must provide at least one of ImageUrl and ObjectKey. If both are provided, ObjectKey takes precedence.
-     * - When using the ObjectKey method, the system verifies whether the ObjectKey belongs to the current caller. Cross-tenant access is not allowed.
-     * - This is a synchronous operation suitable for real-time detection of a single image. If you need asynchronous detection or credential detection at the same time, use the CreateImageDetectionTask operation.
+     * - This operation detects whether a specified image is AI-generated content (AIGC). You can specify the image to be detected by using an image URL or an OSS ObjectKey.
+     * - You must specify at least one of ImageUrl and ObjectKey. If both are specified, ObjectKey takes precedence.
+     * - When ObjectKey is used, the system verifies whether the ObjectKey belongs to the current caller. Cross-tenant access is not allowed.
+     * - This operation is synchronous and suitable for real-time detection of a single image. If you need asynchronous detection or simultaneous credential detection, use the CreateImageDetectionTask operation.
+     *
+     * @deprecated openAPI DetectAigcImage is deprecated, please use AIDeepSign::2026-05-11::CreateImageDetectionTask instead
      *
      * @param request - DetectAigcImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1095,15 +1226,18 @@ class AIDeepSign extends OpenApiClient
         return DetectAigcImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * Determines whether an image is AI-generated and returns detection labels with confidence scores.
+     * Determines whether an image is AI-generated and returns the detection label and confidence score.
      *
      * @remarks
      * ## Request description
-     * - This operation detects whether a specified image is AI-generated content (AIGC). You can specify the image to detect by using an image URL or an OSS ObjectKey.
-     * - You must provide at least one of ImageUrl and ObjectKey. If both are provided, ObjectKey takes precedence.
-     * - When using the ObjectKey method, the system verifies whether the ObjectKey belongs to the current caller. Cross-tenant access is not allowed.
-     * - This is a synchronous operation suitable for real-time detection of a single image. If you need asynchronous detection or credential detection at the same time, use the CreateImageDetectionTask operation.
+     * - This operation detects whether a specified image is AI-generated content (AIGC). You can specify the image to be detected by using an image URL or an OSS ObjectKey.
+     * - You must specify at least one of ImageUrl and ObjectKey. If both are specified, ObjectKey takes precedence.
+     * - When ObjectKey is used, the system verifies whether the ObjectKey belongs to the current caller. Cross-tenant access is not allowed.
+     * - This operation is synchronous and suitable for real-time detection of a single image. If you need asynchronous detection or simultaneous credential detection, use the CreateImageDetectionTask operation.
+     *
+     * @deprecated openAPI DetectAigcImage is deprecated, please use AIDeepSign::2026-05-11::CreateImageDetectionTask instead
      *
      * @param request - DetectAigcImageRequest
      *
@@ -1192,10 +1326,10 @@ class AIDeepSign extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This operation queries the status and final results of nodes created by using CreateC2paSignTask or CreateC2paBucketSignTask.
-     * - It supports signing node queries for images, videos, and various audio formats (FLAC, M4A, MP3, and WAV).
-     * - For BUCKET nodes, intermediate statistics information is not provided when the node is in the PROCESSING, PAUSING, PAUSED, or CANCELING state. Complete statistics information and the report location are returned only after the node enters the SUCCEEDED or CANCELED state.
-     * - A valid TaskId must be provided for the query. This ID must be the value returned when the node was created. It supports the standard UUID format and is compatible with legacy decimal node IDs.
+     * - This operation queries the status and final results of tasks created by invoking CreateC2paSignTask or CreateC2paBucketSignTask.
+     * - You can query signing tasks for images, videos, and various audio formats such as FLAC, M4A, MP3, and WAV.
+     * - For BUCKET tasks, intermediate statistics information is not provided when the task is in the PROCESSING, PAUSING, PAUSED, or CANCELING state. Complete statistics information and the report location are returned only after the task enters the SUCCEEDED or CANCELED state.
+     * - You must provide a valid TaskId when querying. The ID must be the value returned when the task was created. Standard UUID formats are supported and compatible with legacy decimal task IDs.
      *
      * @param request - GetC2paSignResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1238,10 +1372,10 @@ class AIDeepSign extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This operation queries the status and final results of nodes created by using CreateC2paSignTask or CreateC2paBucketSignTask.
-     * - It supports signing node queries for images, videos, and various audio formats (FLAC, M4A, MP3, and WAV).
-     * - For BUCKET nodes, intermediate statistics information is not provided when the node is in the PROCESSING, PAUSING, PAUSED, or CANCELING state. Complete statistics information and the report location are returned only after the node enters the SUCCEEDED or CANCELED state.
-     * - A valid TaskId must be provided for the query. This ID must be the value returned when the node was created. It supports the standard UUID format and is compatible with legacy decimal node IDs.
+     * - This operation queries the status and final results of tasks created by invoking CreateC2paSignTask or CreateC2paBucketSignTask.
+     * - You can query signing tasks for images, videos, and various audio formats such as FLAC, M4A, MP3, and WAV.
+     * - For BUCKET tasks, intermediate statistics information is not provided when the task is in the PROCESSING, PAUSING, PAUSED, or CANCELING state. Complete statistics information and the report location are returned only after the task enters the SUCCEEDED or CANCELED state.
+     * - You must provide a valid TaskId when querying. The ID must be the value returned when the task was created. Standard UUID formats are supported and compatible with legacy decimal task IDs.
      *
      * @param request - GetC2paSignResultRequest
      *
@@ -1336,14 +1470,14 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Queries the status and result of an image detection task created by CreateImageDetectionTask.
+     * Queries the status and results of an image detection task created by calling CreateImageDetectionTask.
      *
      * @remarks
-     * ## Description
-     * Call this operation to query the execution status and result of a specified image detection task, including AIGC detection labels and tamper detection results. Poll at intervals of 2 to 5 seconds until the task status changes to succeeded or failed.
+     * ## Request description
+     * Call this operation to query the execution status and results of a specified image detection task, including AIGC detection labels and tampering detection results. Poll the task at an interval of 2 to 5 seconds until the task status changes to succeeded or failed.
      * ## Precautions
-     * * Ensure that you use a valid TaskId for the query.
-     * * If the task is not complete, increase the polling interval to avoid wasting resources due to frequent requests.
+     * * Use a valid TaskId for the query.
+     * * If the task is not completed, increase the polling interval to avoid resource waste caused by frequent requests.
      *
      * @param request - GetImageDetectionTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1386,14 +1520,14 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Queries the status and result of an image detection task created by CreateImageDetectionTask.
+     * Queries the status and results of an image detection task created by calling CreateImageDetectionTask.
      *
      * @remarks
-     * ## Description
-     * Call this operation to query the execution status and result of a specified image detection task, including AIGC detection labels and tamper detection results. Poll at intervals of 2 to 5 seconds until the task status changes to succeeded or failed.
+     * ## Request description
+     * Call this operation to query the execution status and results of a specified image detection task, including AIGC detection labels and tampering detection results. Poll the task at an interval of 2 to 5 seconds until the task status changes to succeeded or failed.
      * ## Precautions
-     * * Ensure that you use a valid TaskId for the query.
-     * * If the task is not complete, increase the polling interval to avoid wasting resources due to frequent requests.
+     * * Use a valid TaskId for the query.
+     * * If the task is not completed, increase the polling interval to avoid resource waste caused by frequent requests.
      *
      * @param request - GetImageDetectionTaskResultRequest
      *
@@ -1563,13 +1697,13 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Queries the status and result of a sensitive information scan task and returns the details of the sensitive data discovered during the scan.
+     * Queries the status and results of a sensitive information scan task, and returns the details of the sensitive data discovered by the scan.
      *
      * @remarks
-     * ## Operation description
-     * - Call this operation to query the execution status and result of a sensitive information scan task created by `CreateSensitiveScanTask`.
-     * - Poll at intervals of 3 to 5 seconds until the task status changes to `completed` or `terminated`.
-     * - The `ClientToken` parameter ensures the idempotence of the request. It is generated by the client, must be unique across different requests, supports ASCII characters, and cannot exceed 64 characters in length.
+     * ## Request description
+     * - Call this operation to query the execution status and results of a sensitive information scan task created by calling `CreateSensitiveScanTask`.
+     * - Poll the task at an interval of 3 to 5 seconds until the task status changes to `completed` or `terminated`.
+     * - The `ClientToken` parameter is used to ensure the idempotence of the request. It is generated by the client and must be unique across different requests. It supports ASCII characters and can be up to 64 characters in length.
      *
      * @param request - GetSensitiveScanResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1608,13 +1742,13 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Queries the status and result of a sensitive information scan task and returns the details of the sensitive data discovered during the scan.
+     * Queries the status and results of a sensitive information scan task, and returns the details of the sensitive data discovered by the scan.
      *
      * @remarks
-     * ## Operation description
-     * - Call this operation to query the execution status and result of a sensitive information scan task created by `CreateSensitiveScanTask`.
-     * - Poll at intervals of 3 to 5 seconds until the task status changes to `completed` or `terminated`.
-     * - The `ClientToken` parameter ensures the idempotence of the request. It is generated by the client, must be unique across different requests, supports ASCII characters, and cannot exceed 64 characters in length.
+     * ## Request description
+     * - Call this operation to query the execution status and results of a sensitive information scan task created by calling `CreateSensitiveScanTask`.
+     * - Poll the task at an interval of 3 to 5 seconds until the task status changes to `completed` or `terminated`.
+     * - The `ClientToken` parameter is used to ensure the idempotence of the request. It is generated by the client and must be unique across different requests. It supports ASCII characters and can be up to 64 characters in length.
      *
      * @param request - GetSensitiveScanResultRequest
      *
@@ -1776,13 +1910,13 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Queries the status and extraction result of a dark watermark extraction task.
+     * Queries the status and extraction results of an invisible watermark extraction task.
      *
      * @remarks
-     * ## Operation description
-     * - **Polling recommendation**: Set the polling interval to at least 5 seconds. The task completion time is approximately equal to the duration of the carrier media (approximately 1x speed).
-     * - **Timeout handling**: The total timeout window for video tasks is 10 minutes, and for image tasks is 5 minutes. If a task is not completed within this time, the task status changes to `failed`.
-     * - **Desired state confirmation**: `succeeded` or `failed` is the final status. The result does not change after the task reaches either status.
+     * ## Request description
+     * - **Polling recommendation**: Set the polling interval to at least 5 seconds. The task completion time is approximately equal to the duration of the media file (about 1x speed).
+     * - **Timeout handling**: The total timeout window is 10 minutes for video tasks and 5 minutes for image tasks. If a task is not completed within this period, the task status changes to `failed`.
+     * - **Final state confirmation**: `succeeded` and `failed` are final states. The results do not change after a task reaches a final state.
      *
      * @param request - GetWatermarkExtractTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1825,13 +1959,13 @@ class AIDeepSign extends OpenApiClient
     }
 
     /**
-     * Queries the status and extraction result of a dark watermark extraction task.
+     * Queries the status and extraction results of an invisible watermark extraction task.
      *
      * @remarks
-     * ## Operation description
-     * - **Polling recommendation**: Set the polling interval to at least 5 seconds. The task completion time is approximately equal to the duration of the carrier media (approximately 1x speed).
-     * - **Timeout handling**: The total timeout window for video tasks is 10 minutes, and for image tasks is 5 minutes. If a task is not completed within this time, the task status changes to `failed`.
-     * - **Desired state confirmation**: `succeeded` or `failed` is the final status. The result does not change after the task reaches either status.
+     * ## Request description
+     * - **Polling recommendation**: Set the polling interval to at least 5 seconds. The task completion time is approximately equal to the duration of the media file (about 1x speed).
+     * - **Timeout handling**: The total timeout window is 10 minutes for video tasks and 5 minutes for image tasks. If a task is not completed within this period, the task status changes to `failed`.
+     * - **Final state confirmation**: `succeeded` and `failed` are final states. The results do not change after a task reaches a final state.
      *
      * @param request - GetWatermarkExtractTaskResultRequest
      *
@@ -1846,6 +1980,73 @@ class AIDeepSign extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWatermarkExtractTaskResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the task result of the combined node for invisible watermark embedding and C2PA signing.
+     *
+     * @remarks
+     * Queries the status and results of the combined task submitted by CreateWatermarkSignTask, and returns the current processing stage (invisible watermark embedding or C2PA signing) and the URL of the final output.
+     *
+     * @param request - GetWatermarkSignTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWatermarkSignTaskResultResponse
+     *
+     * @param GetWatermarkSignTaskResultRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetWatermarkSignTaskResultResponse
+     */
+    public function getWatermarkSignTaskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWatermarkSignTaskResult',
+            'version' => '2026-05-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWatermarkSignTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the task result of the combined node for invisible watermark embedding and C2PA signing.
+     *
+     * @remarks
+     * Queries the status and results of the combined task submitted by CreateWatermarkSignTask, and returns the current processing stage (invisible watermark embedding or C2PA signing) and the URL of the final output.
+     *
+     * @param request - GetWatermarkSignTaskResultRequest
+     *
+     * @returns GetWatermarkSignTaskResultResponse
+     *
+     * @param GetWatermarkSignTaskResultRequest $request
+     *
+     * @return GetWatermarkSignTaskResultResponse
+     */
+    public function getWatermarkSignTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWatermarkSignTaskResultWithOptions($request, $runtime);
     }
 
     /**
