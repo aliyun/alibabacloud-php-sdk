@@ -85,6 +85,7 @@ use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\SaveRecordingRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\SaveRecordingResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\SilenceTimeoutRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\SilenceTimeoutResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -95,6 +96,9 @@ class VoiceNavigator extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'VoiceNavigator';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('voicenavigator', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -125,7 +129,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Associates a Chatbot instance.
+     * Associates a chatbot.
      *
      * @param request - AssociateChatbotInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -184,7 +188,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Associates a Chatbot instance.
+     * Associates a chatbot.
      *
      * @param request - AssociateChatbotInstanceRequest
      *
@@ -506,7 +510,11 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Creates a Voice Navigator instance.
+     * Creates an intelligent navigation instance, configures the instance name, description, and maximum number of concurrent sessions, and returns the ID of the new instance.
+     *
+     * @remarks
+     * Call this operation to create an intelligent navigation instance as the configuration object for a digital worker scenario.
+     * When you integrate with Cloud Call Center, specify the integration source and associated instance by using `UnionSource` and `UnionInstanceId`. After a successful call, `InstanceId` is returned for subsequent API calls.
      *
      * @param request - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -565,7 +573,11 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Creates a Voice Navigator instance.
+     * Creates an intelligent navigation instance, configures the instance name, description, and maximum number of concurrent sessions, and returns the ID of the new instance.
+     *
+     * @remarks
+     * Call this operation to create an intelligent navigation instance as the configuration object for a digital worker scenario.
+     * When you integrate with Cloud Call Center, specify the integration source and associated instance by using `UnionSource` and `UnionInstanceId`. After a successful call, `InstanceId` is returned for subsequent API calls.
      *
      * @param request - CreateInstanceRequest
      *
@@ -583,7 +595,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Starts a conversation in a debugging environment.
+     * Starts a session in the debug environment.
      *
      * @param request - DebugBeginDialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -642,7 +654,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Starts a conversation in a debugging environment.
+     * Starts a session in the debug environment.
      *
      * @param request - DebugBeginDialogueRequest
      *
@@ -725,7 +737,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Debugs a conversation in the debug environment.
+     * Tests a conversation in the debug environment.
      *
      * @param request - DebugDialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -776,7 +788,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Debugs a conversation in the debug environment.
+     * Tests a conversation in the debug environment.
      *
      * @param request - DebugDialogueRequest
      *
@@ -851,7 +863,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries conversation information.
+     * Queries the conversation information.
      *
      * @param request - DescribeConversationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -886,7 +898,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries conversation information.
+     * Queries the conversation information.
      *
      * @param request - DescribeConversationRequest
      *
@@ -1010,7 +1022,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries instance information.
+     * Retrieves the details of a navigation instance.
      *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1045,7 +1057,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries instance information.
+     * Retrieves the details of a navigation instance.
      *
      * @param request - DescribeInstanceRequest
      *
@@ -1063,7 +1075,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * View the instance IVR configuration.
+     * Queries the IVR configuration of an instance.
      *
      * @param request - DescribeNavigationConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1098,7 +1110,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * View the instance IVR configuration.
+     * Queries the IVR configuration of an instance.
      *
      * @param request - DescribeNavigationConfigRequest
      *
@@ -1116,7 +1128,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves the recording of a conversation.
+     * Retrieves the conversation recording.
      *
      * @param request - DescribeRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1151,7 +1163,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves the recording of a conversation.
+     * Retrieves the conversation recording.
      *
      * @param request - DescribeRecordingRequest
      *
@@ -1831,7 +1843,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Lists instances.
      *
      * @param request - ListChatbotInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1866,7 +1878,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Lists instances.
      *
      * @param request - ListChatbotInstancesRequest
      *
@@ -2051,7 +2063,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of intelligent navigation instances for the current tenant.
+     * Queries a paginated list of intelligent navigation instances for the current tenant.
      *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2086,7 +2098,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of intelligent navigation instances for the current tenant.
+     * Queries a paginated list of intelligent navigation instances for the current tenant.
      *
      * @param request - ListInstancesRequest
      *
@@ -2130,6 +2142,10 @@ class VoiceNavigator extends OpenApiClient
 
         if (null !== $request->asrClassVocabularyId) {
             @$query['AsrClassVocabularyId'] = $request->asrClassVocabularyId;
+        }
+
+        if (null !== $request->asrContextEnabled) {
+            @$query['AsrContextEnabled'] = $request->asrContextEnabled;
         }
 
         if (null !== $request->asrCustomizationId) {
@@ -2274,7 +2290,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Modify an instance.
+     * Modifies an instance.
      *
      * @param request - ModifyInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2325,7 +2341,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Modify an instance.
+     * Modifies an instance.
      *
      * @param request - ModifyInstanceRequest
      *

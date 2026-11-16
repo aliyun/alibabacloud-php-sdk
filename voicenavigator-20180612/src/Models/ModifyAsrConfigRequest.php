@@ -24,6 +24,11 @@ class ModifyAsrConfigRequest extends Model
     public $asrClassVocabularyId;
 
     /**
+     * @var bool
+     */
+    public $asrContextEnabled;
+
+    /**
      * @var string
      */
     public $asrCustomizationId;
@@ -71,6 +76,7 @@ class ModifyAsrConfigRequest extends Model
         'appKey' => 'AppKey',
         'asrAcousticModelId' => 'AsrAcousticModelId',
         'asrClassVocabularyId' => 'AsrClassVocabularyId',
+        'asrContextEnabled' => 'AsrContextEnabled',
         'asrCustomizationId' => 'AsrCustomizationId',
         'asrOverrides' => 'AsrOverrides',
         'asrOverridesUuid' => 'AsrOverridesUuid',
@@ -100,6 +106,10 @@ class ModifyAsrConfigRequest extends Model
 
         if (null !== $this->asrClassVocabularyId) {
             $res['AsrClassVocabularyId'] = $this->asrClassVocabularyId;
+        }
+
+        if (null !== $this->asrContextEnabled) {
+            $res['AsrContextEnabled'] = $this->asrContextEnabled;
         }
 
         if (null !== $this->asrCustomizationId) {
@@ -159,6 +169,10 @@ class ModifyAsrConfigRequest extends Model
 
         if (isset($map['AsrClassVocabularyId'])) {
             $model->asrClassVocabularyId = $map['AsrClassVocabularyId'];
+        }
+
+        if (isset($map['AsrContextEnabled'])) {
+            $model->asrContextEnabled = $map['AsrContextEnabled'];
         }
 
         if (isset($map['AsrCustomizationId'])) {

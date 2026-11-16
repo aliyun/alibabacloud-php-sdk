@@ -1,3 +1,8 @@
+2026-11-16 Version: 2.0.7
+- Update API GetAsrConfig: add response parameters Body.Data.AsrContextEnabled.
+- Update API ModifyAsrConfig: add request parameters AsrContextEnabled.
+
+
 2026-10-12 Version: 2.0.6
 - Update API ListConversations: add response parameters Body.Conversations.$.Voice.
 
