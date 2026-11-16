@@ -46,6 +46,11 @@ class ModifyDefenseRuleRequest extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $rules;
 
     /**
@@ -60,6 +65,7 @@ class ModifyDefenseRuleRequest extends Model
         'regionId' => 'RegionId',
         'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'resourceType' => 'ResourceType',
         'rules' => 'Rules',
         'templateId' => 'TemplateId',
     ];
@@ -98,6 +104,10 @@ class ModifyDefenseRuleRequest extends Model
 
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         if (null !== $this->rules) {
@@ -145,6 +155,10 @@ class ModifyDefenseRuleRequest extends Model
 
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         if (isset($map['Rules'])) {

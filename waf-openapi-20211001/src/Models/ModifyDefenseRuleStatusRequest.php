@@ -31,7 +31,17 @@ class ModifyDefenseRuleStatusRequest extends Model
     /**
      * @var string
      */
+    public $resource;
+
+    /**
+     * @var string
+     */
     public $resourceManagerResourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
 
     /**
      * @var int
@@ -52,7 +62,9 @@ class ModifyDefenseRuleStatusRequest extends Model
         'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'resourceType' => 'ResourceType',
         'ruleId' => 'RuleId',
         'ruleStatus' => 'RuleStatus',
         'templateId' => 'TemplateId',
@@ -82,8 +94,16 @@ class ModifyDefenseRuleStatusRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resource) {
+            $res['Resource'] = $this->resource;
+        }
+
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         if (null !== $this->ruleId) {
@@ -125,8 +145,16 @@ class ModifyDefenseRuleStatusRequest extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['Resource'])) {
+            $model->resource = $map['Resource'];
+        }
+
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         if (isset($map['RuleId'])) {

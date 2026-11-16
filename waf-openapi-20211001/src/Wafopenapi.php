@@ -88,10 +88,30 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DeleteMemberAccountResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAbnormalCloudResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAbnormalCloudResourcesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccessConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccessConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAccountDelegatedStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAddressesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAddressesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventNodesRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventNodesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventOperationsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventOperationsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventsShrinkRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventTrendsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEventTrendsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEvidenceRequestRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEvidenceRequestResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEvidenceRequestsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEvidenceRequestsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineEvidenceRequestsShrinkRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineOverviewRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAiEngineOverviewResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmBannerRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmBannerResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeAlarmListRequest;
@@ -404,6 +424,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ListTagValuesResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyAccessConfigRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyAccessConfigResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyAiEngineEventStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyAiEngineEventStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecAbnormalsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecAbnormalsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyApisecApiResourceRequest;
@@ -1013,7 +1037,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Uploads an international certificate to WAF for CNAME-based access.
+     * Uploads an international certificate for WAF CNAME access.
      *
      * @param request - CreateCertsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1072,7 +1096,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Uploads an international certificate to WAF for CNAME-based access.
+     * Uploads an international certificate for WAF CNAME access.
      *
      * @param request - CreateCertsRequest
      *
@@ -1458,7 +1482,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a Web core protection rule.
+     * Creates a web core protection rule.
      *
      * @param request - CreateDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1502,6 +1526,10 @@ class Wafopenapi extends OpenApiClient
             @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
 
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
         if (null !== $request->templateId) {
             @$query['TemplateId'] = $request->templateId;
         }
@@ -1531,7 +1559,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a Web core protection rule.
+     * Creates a web core protection rule.
      *
      * @param request - CreateDefenseRuleRequest
      *
@@ -1658,12 +1686,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds a domain name to a WAF instance for Website Config protection.
+     * Adds a website config to a WAF instance for protection.
      *
      * @remarks
-     * Before you call this operation, the domain name (**Domain**) must meet the following requirements.
-     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must first complete domain ownership authentication. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership authentication. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, use the **DomainName** parameter to specify the domain name. The **DescribeVerifyContent** operation also requires the **AccessOrigin** parameter to specify the access source. For valid values, refer to the metric description of the DescribeVerifyContent operation.
-     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is added to Website Config in a region in the Chinese mainland, the domain name must have a valid ICP filing.
+     * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
+     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
      *
      * @param tmpReq - CreateDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1740,12 +1768,12 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds a domain name to a WAF instance for Website Config protection.
+     * Adds a website config to a WAF instance for protection.
      *
      * @remarks
-     * Before you call this operation, the domain name (**Domain**) must meet the following requirements.
-     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must first complete domain ownership authentication. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain domain verification information, configure a DNS TXT record or upload an HTTP verification file based on the response, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to complete domain ownership authentication. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, use the **DomainName** parameter to specify the domain name. The **DescribeVerifyContent** operation also requires the **AccessOrigin** parameter to specify the access source. For valid values, refer to the metric description of the DescribeVerifyContent operation.
-     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the domain name is added to Website Config in a region in the Chinese mainland, the domain name must have a valid ICP filing.
+     * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
+     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
      *
      * @param request - CreateDomainRequest
      *
@@ -1763,7 +1791,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a hybrid cloud Web Application Firewall (WAF) cluster.
+     * Creates a hybrid cloud cluster.
+     *
+     * @remarks
+     * Before calling this operation, ensure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Specifically, when you call the DescribeInstance operation, the Details.HybridCloud parameter in the response must be true. If the feature is not enabled, upgrade the instance to a hybrid cloud-compatible version in the WAF console.
      *
      * @param request - CreateHybridCloudClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1862,7 +1893,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a hybrid cloud Web Application Firewall (WAF) cluster.
+     * Creates a hybrid cloud cluster.
+     *
+     * @remarks
+     * Before calling this operation, ensure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Specifically, when you call the DescribeInstance operation, the Details.HybridCloud parameter in the response must be true. If the feature is not enabled, upgrade the instance to a hybrid cloud-compatible version in the WAF console.
      *
      * @param request - CreateHybridCloudClusterRequest
      *
@@ -1883,7 +1917,7 @@ class Wafopenapi extends OpenApiClient
      * Creates cluster rule information.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - CreateHybridCloudClusterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1949,7 +1983,7 @@ class Wafopenapi extends OpenApiClient
      * Creates cluster rule information.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - CreateHybridCloudClusterRuleRequest
      *
@@ -2060,10 +2094,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a log delivery configuration for hybrid cloud environments.
+     * Creates a hybrid cloud log delivery configuration.
      *
      * @remarks
-     * Before you call this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
+     * Before you call this operation, ensure that you have purchased hybrid cloud extension nodes for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes are purchased. If no hybrid cloud extension nodes are purchased, you can log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
      *
      * @param request - CreateLogDeliveryConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2122,10 +2156,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Creates a log delivery configuration for hybrid cloud environments.
+     * Creates a hybrid cloud log delivery configuration.
      *
      * @remarks
-     * Before you call this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
+     * Before you call this operation, ensure that you have purchased hybrid cloud extension nodes for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the value of the Details.HybridCloudNodeExtend response parameter is greater than 0, hybrid cloud extension nodes are purchased. If no hybrid cloud extension nodes are purchased, you can log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
      *
      * @param request - CreateLogDeliveryConfigRequest
      *
@@ -2313,7 +2347,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Starts a trial for a proof of concept (POC) feature.
+     * Enables the POC feature trial.
      *
      * @param request - CreatePocFunctionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2364,7 +2398,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Starts a trial for a proof of concept (POC) feature.
+     * Enables the POC feature trial.
      *
      * @param request - CreatePocFunctionRequest
      *
@@ -2449,7 +2483,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Uploads a China National Cryptographic Algorithm (SM) certificate for a domain that is added to WAF in CNAME mode.
+     * Uploads a ShangMi certificate for WAF CNAME access.
      *
      * @param request - CreateSM2CertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2516,7 +2550,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Uploads a China National Cryptographic Algorithm (SM) certificate for a domain that is added to WAF in CNAME mode.
+     * Uploads a ShangMi certificate for WAF CNAME access.
      *
      * @param request - CreateSM2CertRequest
      *
@@ -2834,7 +2868,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes the extended certificate for a resource onboarded in cloud native mode.
+     * Deletes the extension certificate for cloud native mode.
      *
      * @param request - DeleteCloudResourceExtensionCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2889,7 +2923,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes the extended certificate for a resource onboarded in cloud native mode.
+     * Deletes the extension certificate for cloud native mode.
      *
      * @param request - DeleteCloudResourceExtensionCertRequest
      *
@@ -3083,6 +3117,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->resourceManagerResourceGroupId) {
             @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
 
         if (null !== $request->ruleIds) {
@@ -3799,6 +3837,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Queries the user access configuration.
+     *
+     * @param request - DescribeAccessConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAccessConfigResponse
+     *
+     * @param DescribeAccessConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAccessConfigResponse
+     */
+    public function describeAccessConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configKey) {
+            @$query['ConfigKey'] = $request->configKey;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAccessConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAccessConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the user access configuration.
+     *
+     * @param request - DescribeAccessConfigRequest
+     *
+     * @returns DescribeAccessConfigResponse
+     *
+     * @param DescribeAccessConfigRequest $request
+     *
+     * @return DescribeAccessConfigResponse
+     */
+    public function describeAccessConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAccessConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries whether the current user is a delegated administrator of WAF in the multi-account management feature.
      *
      * @param request - DescribeAccountDelegatedStatusRequest
@@ -3942,6 +4049,734 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAddressesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of an AI Engine event.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If the edition is not supported, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAiEngineEventResponse
+     *
+     * @param DescribeAiEngineEventRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAiEngineEventResponse
+     */
+    public function describeAiEngineEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAiEngineEvent',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAiEngineEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an AI Engine event.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If the edition is not supported, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEventRequest
+     *
+     * @returns DescribeAiEngineEventResponse
+     *
+     * @param DescribeAiEngineEventRequest $request
+     *
+     * @return DescribeAiEngineEventResponse
+     */
+    public function describeAiEngineEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAiEngineEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of AI Engine event nodes.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEventNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAiEngineEventNodesResponse
+     *
+     * @param DescribeAiEngineEventNodesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeAiEngineEventNodesResponse
+     */
+    public function describeAiEngineEventNodesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAiEngineEventNodes',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAiEngineEventNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of AI Engine event nodes.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEventNodesRequest
+     *
+     * @returns DescribeAiEngineEventNodesResponse
+     *
+     * @param DescribeAiEngineEventNodesRequest $request
+     *
+     * @return DescribeAiEngineEventNodesResponse
+     */
+    public function describeAiEngineEventNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAiEngineEventNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the operation records of AI Engine events.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEventOperationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAiEngineEventOperationsResponse
+     *
+     * @param DescribeAiEngineEventOperationsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeAiEngineEventOperationsResponse
+     */
+    public function describeAiEngineEventOperationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAiEngineEventOperations',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAiEngineEventOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the operation records of AI Engine events.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEventOperationsRequest
+     *
+     * @returns DescribeAiEngineEventOperationsResponse
+     *
+     * @param DescribeAiEngineEventOperationsRequest $request
+     *
+     * @return DescribeAiEngineEventOperationsResponse
+     */
+    public function describeAiEngineEventOperations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAiEngineEventOperationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the event trends of AI Engine.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the edition is not supported, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEventTrendsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAiEngineEventTrendsResponse
+     *
+     * @param DescribeAiEngineEventTrendsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeAiEngineEventTrendsResponse
+     */
+    public function describeAiEngineEventTrendsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAiEngineEventTrends',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAiEngineEventTrendsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the event trends of AI Engine.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the edition is not supported, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEventTrendsRequest
+     *
+     * @returns DescribeAiEngineEventTrendsResponse
+     *
+     * @param DescribeAiEngineEventTrendsRequest $request
+     *
+     * @return DescribeAiEngineEventTrendsResponse
+     */
+    public function describeAiEngineEventTrends($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAiEngineEventTrendsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of AI Engine events.
+     *
+     * @remarks
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param tmpReq - DescribeAiEngineEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAiEngineEventsResponse
+     *
+     * @param DescribeAiEngineEventsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeAiEngineEventsResponse
+     */
+    public function describeAiEngineEventsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeAiEngineEventsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->seachValue) {
+            @$query['SeachValue'] = $request->seachValue;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAiEngineEvents',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAiEngineEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of AI Engine events.
+     *
+     * @remarks
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEventsRequest
+     *
+     * @returns DescribeAiEngineEventsResponse
+     *
+     * @param DescribeAiEngineEventsRequest $request
+     *
+     * @return DescribeAiEngineEventsResponse
+     */
+    public function describeAiEngineEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAiEngineEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of an AI Engine evidence request.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticWaf response parameter is set to true, the instance is of the Agentic WAF edition. If the instance is not of this edition, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEvidenceRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAiEngineEvidenceRequestResponse
+     *
+     * @param DescribeAiEngineEvidenceRequestRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeAiEngineEvidenceRequestResponse
+     */
+    public function describeAiEngineEvidenceRequestWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->evidenceId) {
+            @$query['EvidenceId'] = $request->evidenceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAiEngineEvidenceRequest',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAiEngineEvidenceRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an AI Engine evidence request.
+     *
+     * @remarks
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticWaf response parameter is set to true, the instance is of the Agentic WAF edition. If the instance is not of this edition, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEvidenceRequestRequest
+     *
+     * @returns DescribeAiEngineEvidenceRequestResponse
+     *
+     * @param DescribeAiEngineEvidenceRequestRequest $request
+     *
+     * @return DescribeAiEngineEvidenceRequestResponse
+     */
+    public function describeAiEngineEvidenceRequest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAiEngineEvidenceRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of AI Engine evidence requests.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     *
+     * @param tmpReq - DescribeAiEngineEvidenceRequestsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAiEngineEvidenceRequestsResponse
+     *
+     * @param DescribeAiEngineEvidenceRequestsRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeAiEngineEvidenceRequestsResponse
+     */
+    public function describeAiEngineEvidenceRequestsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeAiEngineEvidenceRequestsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->seachValue) {
+            @$query['SeachValue'] = $request->seachValue;
+        }
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAiEngineEvidenceRequests',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAiEngineEvidenceRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of AI Engine evidence requests.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineEvidenceRequestsRequest
+     *
+     * @returns DescribeAiEngineEvidenceRequestsResponse
+     *
+     * @param DescribeAiEngineEvidenceRequestsRequest $request
+     *
+     * @return DescribeAiEngineEvidenceRequestsResponse
+     */
+    public function describeAiEngineEvidenceRequests($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAiEngineEvidenceRequestsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the AI Engine overview data.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineOverviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAiEngineOverviewResponse
+     *
+     * @param DescribeAiEngineOverviewRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAiEngineOverviewResponse
+     */
+    public function describeAiEngineOverviewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAiEngineOverview',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAiEngineOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the AI Engine overview data.
+     *
+     * @remarks
+     * Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - DescribeAiEngineOverviewRequest
+     *
+     * @returns DescribeAiEngineOverviewResponse
+     *
+     * @param DescribeAiEngineOverviewRequest $request
+     *
+     * @return DescribeAiEngineOverviewResponse
+     */
+    public function describeAiEngineOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAiEngineOverviewWithOptions($request, $runtime);
     }
 
     /**
@@ -5413,7 +6248,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries statistics on data endpoints associated with API security sensitive data domains.
+     * Queries the data domain statistics for API security sensitive data.
      *
      * @param request - DescribeApisecSensitiveDomainStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5488,7 +6323,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries statistics on data endpoints associated with API security sensitive data domains.
+     * Queries the data domain statistics for API security sensitive data.
      *
      * @param request - DescribeApisecSensitiveDomainStatisticRequest
      *
@@ -6604,7 +7439,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the ports of cloud services added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+     * Queries the ports of cloud service instances that are added to WAF. Only ECS and CLB are supported.
      *
      * @param request - DescribeCloudResourceAccessedPortsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6655,7 +7490,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the ports of cloud services added to Web Application Firewall (WAF). This operation is supported only for Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
+     * Queries the ports of cloud service instances that are added to WAF. Only ECS and CLB are supported.
      *
      * @param request - DescribeCloudResourceAccessedPortsRequest
      *
@@ -8178,7 +9013,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the protection configurations for a specific defense scenario.
+     * Queries the protection settings for user protection scenarios.
      *
      * @param request - DescribeDefenseSceneConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8233,7 +9068,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the protection configurations for a specific defense scenario.
+     * Queries the protection settings for user protection scenarios.
      *
      * @param request - DescribeDefenseSceneConfigRequest
      *
@@ -8664,7 +9499,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the details of a Website Config.
+     * Queries the details of the website config.
      *
      * @param request - DescribeDomainDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8715,7 +9550,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the details of a Website Config.
+     * Queries the details of the website config.
      *
      * @param request - DescribeDomainDetailRequest
      *
@@ -9769,7 +10604,13 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of hybrid cloud clusters.
+     * Queries the hybrid cloud clusters.
+     *
+     * @remarks
+     * Queries the hybrid cloud clusters of a specified Web Application Firewall (WAF) instance. The response includes information such as the cluster name, cluster type, network access mode, HTTP and HTTPS ports, proxy gateway mode, and the number of protection nodes that can be added.
+     * ## Before you begin
+     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * If you call this API operation when the hybrid cloud feature is not enabled, the error code Waf.HybridCloud.HybridCloudNotsupport is returned.
      *
      * @param request - DescribeHybridCloudClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9816,7 +10657,13 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of hybrid cloud clusters.
+     * Queries the hybrid cloud clusters.
+     *
+     * @remarks
+     * Queries the hybrid cloud clusters of a specified Web Application Firewall (WAF) instance. The response includes information such as the cluster name, cluster type, network access mode, HTTP and HTTPS ports, proxy gateway mode, and the number of protection nodes that can be added.
+     * ## Before you begin
+     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * If you call this API operation when the hybrid cloud feature is not enabled, the error code Waf.HybridCloud.HybridCloudNotsupport is returned.
      *
      * @param request - DescribeHybridCloudClustersRequest
      *
@@ -10008,7 +10855,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the count of protectable nodes that can be added to a hybrid cloud cluster.
+     * Retrieves the number of protection nodes that can be added to a hybrid cloud cluster.
+     *
+     * @remarks
+     * ## Before you begin
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudProtectableCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10055,7 +10906,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the count of protectable nodes that can be added to a hybrid cloud cluster.
+     * Retrieves the number of protection nodes that can be added to a hybrid cloud cluster.
+     *
+     * @remarks
+     * ## Before you begin
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudProtectableCountRequest
      *
@@ -10711,7 +11566,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a WAF instance in the current Alibaba Cloud account.
+     * Queries the details of the WAF instance in the current Alibaba Cloud account.
      *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10754,7 +11609,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a WAF instance in the current Alibaba Cloud account.
+     * Queries the details of the WAF instance in the current Alibaba Cloud account.
      *
      * @param request - DescribeInstanceRequest
      *
@@ -11639,7 +12494,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the burstable pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
+     * Queries the elastic pay-as-you-go bills for an upfront WAF instance, such as burstable QPS.
      *
      * @param request - DescribePrepayDailyBillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11694,7 +12549,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the burstable pay-as-you-go billing details of a subscription WAF instance, such as burstable QPS.
+     * Queries the elastic pay-as-you-go bills for an upfront WAF instance, such as burstable QPS.
      *
      * @param request - DescribePrepayDailyBillsRequest
      *
@@ -13280,13 +14135,13 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the time series data of attack traffic. Attack requests are requests that hit a rule and are identified as a threat.
+     * Queries the time series data of attack traffic. Attack requests refer to requests that hit rules and are identified as risky.
      *
      * @remarks
-     * Attack traffic refers to requests that hit a rule and are identified as a threat. The following data is excluded:
-     * - Requests that hit a whitelist rule.
-     * - Requests that hit a bot rule where the rule action is "Mark for origin fetch".
-     * - Requests that hit a rule with the action "Dynamic Token", "Slider", "Strict Slider", or "JS Challenge", but are allowed because the user passed the verification.
+     * Attack traffic refers to requests that hit rules and are identified as risky. The following three types of data are not included:
+     * - Requests that hit whitelist rules.
+     * - Requests that hit bot rules, but the rule action is back-to-origin mark.
+     * - Requests that hit rules and the rule action is set to dynamic token, slider CAPTCHA, strict slider CAPTCHA, or JavaScript authenticate, but the requests passed user verification and were allowed.
      *
      * @param tmpReq - DescribeSecurityEventTimeSeriesMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13347,13 +14202,13 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the time series data of attack traffic. Attack requests are requests that hit a rule and are identified as a threat.
+     * Queries the time series data of attack traffic. Attack requests refer to requests that hit rules and are identified as risky.
      *
      * @remarks
-     * Attack traffic refers to requests that hit a rule and are identified as a threat. The following data is excluded:
-     * - Requests that hit a whitelist rule.
-     * - Requests that hit a bot rule where the rule action is "Mark for origin fetch".
-     * - Requests that hit a rule with the action "Dynamic Token", "Slider", "Strict Slider", or "JS Challenge", but are allowed because the user passed the verification.
+     * Attack traffic refers to requests that hit rules and are identified as risky. The following three types of data are not included:
+     * - Requests that hit whitelist rules.
+     * - Requests that hit bot rules, but the rule action is back-to-origin mark.
+     * - Requests that hit rules and the rule action is set to dynamic token, slider CAPTCHA, strict slider CAPTCHA, or JavaScript authenticate, but the requests passed user verification and were allowed.
      *
      * @param request - DescribeSecurityEventTimeSeriesMetricRequest
      *
@@ -16094,6 +16949,162 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Modifies the user access configuration.
+     *
+     * @param request - ModifyAccessConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAccessConfigResponse
+     *
+     * @param ModifyAccessConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyAccessConfigResponse
+     */
+    public function modifyAccessConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configKey) {
+            @$query['ConfigKey'] = $request->configKey;
+        }
+
+        if (null !== $request->configValue) {
+            @$query['ConfigValue'] = $request->configValue;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAccessConfig',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAccessConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the user access configuration.
+     *
+     * @param request - ModifyAccessConfigRequest
+     *
+     * @returns ModifyAccessConfigResponse
+     *
+     * @param ModifyAccessConfigRequest $request
+     *
+     * @return ModifyAccessConfigResponse
+     */
+    public function modifyAccessConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAccessConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the status of an AI Engine event.
+     *
+     * @remarks
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. Otherwise, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - ModifyAiEngineEventStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAiEngineEventStatusResponse
+     *
+     * @param ModifyAiEngineEventStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyAiEngineEventStatusResponse
+     */
+    public function modifyAiEngineEventStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->targetStatus) {
+            @$query['TargetStatus'] = $request->targetStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyAiEngineEventStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyAiEngineEventStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the status of an AI Engine event.
+     *
+     * @remarks
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. Otherwise, upgrade the instance to the Agentic WAF edition.
+     *
+     * @param request - ModifyAiEngineEventStatusRequest
+     *
+     * @returns ModifyAiEngineEventStatusResponse
+     *
+     * @param ModifyAiEngineEventStatusRequest $request
+     *
+     * @return ModifyAiEngineEventStatusResponse
+     */
+    public function modifyAiEngineEventStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAiEngineEventStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the status of API security risks in batches.
      *
      * @param request - ModifyApisecAbnormalsRequest
@@ -17237,6 +18248,10 @@ class Wafopenapi extends OpenApiClient
             @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
 
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
         if (null !== $request->templateId) {
             @$query['TemplateId'] = $request->templateId;
         }
@@ -17392,8 +18407,16 @@ class Wafopenapi extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
+        }
+
         if (null !== $request->resourceManagerResourceGroupId) {
             @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
 
         if (null !== $request->ruleId) {
@@ -17448,7 +18471,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the mitigation settings for a protection scenario.
+     * Modifies the protection settings for a defense scene.
      *
      * @param request - ModifyDefenseSceneConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17507,7 +18530,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the mitigation settings for a protection scenario.
+     * Modifies the protection settings for a defense scene.
      *
      * @param request - ModifyDefenseSceneConfigRequest
      *
@@ -17687,7 +18710,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies a CNAME-based domain name.
+     * Modifies a domain name added in CNAME mode.
      *
      * @param tmpReq - ModifyDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17760,7 +18783,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies a CNAME-based domain name.
+     * Modifies a domain name added in CNAME mode.
      *
      * @param request - ModifyDomainRequest
      *
@@ -18727,10 +19750,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP blacklist for a critical event protection scenario.
+     * Modifies the IP blacklist for critical event protection.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
+     * Before you call this operation, make sure that the WAF instance supports critical event protection. Critical event protection must be purchased separately through an upgrade. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.MajorProtection parameter is set to true, the instance supports critical event protection. If the instance does not support critical event protection, you can upgrade the instance to enable this feature.
      *
      * @param request - ModifyMajorProtectionBlackIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18797,10 +19820,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP blacklist for a critical event protection scenario.
+     * Modifies the IP blacklist for critical event protection.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance supports critical event protection. Critical event protection requires a separate upgrade purchase. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.MajorProtection is true, the instance supports critical event protection. If not, upgrade the instance to enable critical event protection.
+     * Before you call this operation, make sure that the WAF instance supports critical event protection. Critical event protection must be purchased separately through an upgrade. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.MajorProtection parameter is set to true, the instance supports critical event protection. If the instance does not support critical event protection, you can upgrade the instance to enable this feature.
      *
      * @param request - ModifyMajorProtectionBlackIpRequest
      *

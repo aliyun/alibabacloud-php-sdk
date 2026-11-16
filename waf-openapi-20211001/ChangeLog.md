@@ -1,3 +1,24 @@
+2026-11-16 Version: 7.9.0
+- Support API DescribeAccessConfig.
+- Support API DescribeAiEngineEvent.
+- Support API DescribeAiEngineEventNodes.
+- Support API DescribeAiEngineEventOperations.
+- Support API DescribeAiEngineEventTrends.
+- Support API DescribeAiEngineEvents.
+- Support API DescribeAiEngineEvidenceRequest.
+- Support API DescribeAiEngineEvidenceRequests.
+- Support API DescribeAiEngineOverview.
+- Support API ModifyAccessConfig.
+- Support API ModifyAiEngineEventStatus.
+- Update API CreateDefenseRule: add request parameters ResourceType.
+- Update API DeleteDefenseRule: add request parameters ResourceType.
+- Update API DescribeInstance: add response parameters Body.Details.AgenticWaf.
+- Update API DescribePrepayDailyBills: add response parameters Body.Bills.$.AgenticWaf.
+- Update API ModifyDefenseRule: add request parameters ResourceType.
+- Update API ModifyDefenseRuleStatus: add request parameters Resource.
+- Update API ModifyDefenseRuleStatus: add request parameters ResourceType.
+
+
 2026-11-10 Version: 7.8.7
 - Update API DescribeChargeResult: add request parameters ChargeModules.$.UsageDecimal.
 

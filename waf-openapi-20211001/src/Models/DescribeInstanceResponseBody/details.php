@@ -21,6 +21,11 @@ class details extends Model
     /**
      * @var bool
      */
+    public $agenticWaf;
+
+    /**
+     * @var bool
+     */
     public $antiScan;
 
     /**
@@ -310,6 +315,7 @@ class details extends Model
     protected $_name = [
         'aclRuleMaxIpCount' => 'AclRuleMaxIpCount',
         'agenticApisec' => 'AgenticApisec',
+        'agenticWaf' => 'AgenticWaf',
         'antiScan' => 'AntiScan',
         'antiScanTemplateMaxCount' => 'AntiScanTemplateMaxCount',
         'apisec' => 'Apisec',
@@ -384,6 +390,10 @@ class details extends Model
 
         if (null !== $this->agenticApisec) {
             $res['AgenticApisec'] = $this->agenticApisec;
+        }
+
+        if (null !== $this->agenticWaf) {
+            $res['AgenticWaf'] = $this->agenticWaf;
         }
 
         if (null !== $this->antiScan) {
@@ -635,6 +645,10 @@ class details extends Model
 
         if (isset($map['AgenticApisec'])) {
             $model->agenticApisec = $map['AgenticApisec'];
+        }
+
+        if (isset($map['AgenticWaf'])) {
+            $model->agenticWaf = $map['AgenticWaf'];
         }
 
         if (isset($map['AntiScan'])) {

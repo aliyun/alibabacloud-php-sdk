@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class bills extends Model
 {
     /**
+     * @var bool
+     */
+    public $agenticWaf;
+
+    /**
      * @var int
      */
     public $elasticQpsSetValue;
@@ -78,6 +83,7 @@ class bills extends Model
      */
     public $type;
     protected $_name = [
+        'agenticWaf' => 'AgenticWaf',
         'elasticQpsSetValue' => 'ElasticQpsSetValue',
         'endTime' => 'EndTime',
         'exceedStatus' => 'ExceedStatus',
@@ -105,6 +111,10 @@ class bills extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agenticWaf) {
+            $res['AgenticWaf'] = $this->agenticWaf;
+        }
+
         if (null !== $this->elasticQpsSetValue) {
             $res['ElasticQpsSetValue'] = $this->elasticQpsSetValue;
         }
@@ -179,6 +189,10 @@ class bills extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgenticWaf'])) {
+            $model->agenticWaf = $map['AgenticWaf'];
+        }
+
         if (isset($map['ElasticQpsSetValue'])) {
             $model->elasticQpsSetValue = $map['ElasticQpsSetValue'];
         }
