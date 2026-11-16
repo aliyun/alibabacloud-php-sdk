@@ -1,3 +1,6 @@
+2026-11-16 Version: 2.7.1
+- Generated php 2026-07-07 for Yike.
+
 2026-11-16 Version: 2.7.0
 - Support API AddProjectMembers.
 - Support API BatchGetVideoCharacterReplaceJobs.
