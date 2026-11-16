@@ -66,6 +66,11 @@ class ImportMediaRequest extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
     public $registerConfig;
 
     /**
@@ -94,6 +99,7 @@ class ImportMediaRequest extends Model
         'mediaTags' => 'MediaTags',
         'mediaType' => 'MediaType',
         'overwrite' => 'Overwrite',
+        'projectId' => 'ProjectId',
         'registerConfig' => 'RegisterConfig',
         'title' => 'Title',
         'userData' => 'UserData',
@@ -150,6 +156,10 @@ class ImportMediaRequest extends Model
 
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->registerConfig) {
@@ -221,6 +231,10 @@ class ImportMediaRequest extends Model
 
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['RegisterConfig'])) {

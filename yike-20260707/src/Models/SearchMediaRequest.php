@@ -36,6 +36,11 @@ class SearchMediaRequest extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
     public $scrollToken;
 
     /**
@@ -48,6 +53,7 @@ class SearchMediaRequest extends Model
         'match' => 'Match',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'scrollToken' => 'ScrollToken',
         'sortBy' => 'SortBy',
     ];
@@ -78,6 +84,10 @@ class SearchMediaRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->scrollToken) {
@@ -117,6 +127,10 @@ class SearchMediaRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['ScrollToken'])) {

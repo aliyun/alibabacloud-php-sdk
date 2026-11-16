@@ -30,11 +30,17 @@ class mediaInfos extends Model
      * @var string
      */
     public $mediaId;
+
+    /**
+     * @var string
+     */
+    public $projectId;
     protected $_name = [
         'fileInfoList' => 'FileInfoList',
         'mediaBasicInfo' => 'MediaBasicInfo',
         'mediaDynamicInfo' => 'MediaDynamicInfo',
         'mediaId' => 'MediaId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -77,6 +83,10 @@ class mediaInfos extends Model
             $res['MediaId'] = $this->mediaId;
         }
 
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
+        }
+
         return $res;
     }
 
@@ -109,6 +119,10 @@ class mediaInfos extends Model
 
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

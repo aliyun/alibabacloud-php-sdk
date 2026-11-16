@@ -21,6 +21,11 @@ class CreateInfiniteCanvasRequest extends Model
     /**
      * @var string
      */
+    public $projectId;
+
+    /**
+     * @var string
+     */
     public $title;
 
     /**
@@ -30,6 +35,7 @@ class CreateInfiniteCanvasRequest extends Model
     protected $_name = [
         'coverUrl' => 'CoverUrl',
         'productionId' => 'ProductionId',
+        'projectId' => 'ProjectId',
         'title' => 'Title',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -48,6 +54,10 @@ class CreateInfiniteCanvasRequest extends Model
 
         if (null !== $this->productionId) {
             $res['ProductionId'] = $this->productionId;
+        }
+
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         if (null !== $this->title) {
@@ -75,6 +85,10 @@ class CreateInfiniteCanvasRequest extends Model
 
         if (isset($map['ProductionId'])) {
             $model->productionId = $map['ProductionId'];
+        }
+
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         if (isset($map['Title'])) {

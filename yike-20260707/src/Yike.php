@@ -5,20 +5,30 @@
 namespace AlibabaCloud\SDK\Yike\V20260707;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Yike\V20260707\Models\AddProjectMembersRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\AddProjectMembersResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetMediasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetMediasResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetVideoCharacterReplaceJobsRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetVideoCharacterReplaceJobsResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CancelGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CancelGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateInfiniteCanvasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateInfiniteCanvasResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateProjectRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateWorkspaceRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteInfiniteCanvasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteMediasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteMediasResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteProjectRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GenerateYikeLoginTokenRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GenerateYikeLoginTokenResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetAgentJobRequest;
@@ -33,14 +43,20 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaComprehensionJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaComprehensionJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetProjectRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetRemakeScriptJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetRemakeScriptJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoCharacterReplaceJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoCharacterReplaceJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoCreativeGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoCreativeGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoDetextJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoDetextJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoRemakeJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoRemakeJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoRenderJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoRenderJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoTranslationJobRequest;
@@ -55,6 +71,12 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\ListAssetCategoriesRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListAssetCategoriesResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListInfiniteCanvasesRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListInfiniteCanvasesResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListProjectsRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListWorkspacesRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListWorkspacesResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\PrecheckVideoCharacterReplaceJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\PrecheckVideoCharacterReplaceJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitAgentJobRequest;
@@ -65,12 +87,16 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitRemakeScriptJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitRemakeScriptJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoCharacterReplaceJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoCharacterReplaceJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoCreativeGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoCreativeGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoDetextJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoDetextJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoRemakeJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoRemakeJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoRenderJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoRenderJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoTranslationJobRequest;
@@ -81,6 +107,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateInfiniteCanvasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateInfiniteCanvasResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateMediaResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateProjectRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateProjectResponse;
 use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -125,10 +153,78 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves information about multiple media assets in a batch.
+     * Adds members to a project.
      *
      * @remarks
-     * ## Request description.
+     * Adds users under the same Alibaba Cloud account to a specified project in the default workspace of the Alibaba Cloud account, and grants the Edit permission by default. ProjectId specifies the project ID. YikeUserIds specifies a comma-separated list of Yike user IDs, which are not Alibaba Cloud UIDs. Currently, only the default workspace of the Alibaba Cloud account is supported, and projects in newly created workspaces are not supported. This operation follows the behavior of the original member API operation: adding an existing member resets the project permissions. Regular members are assigned the Edit permission, and SuperAdmins of the default workspace retain the Manage permission. Only Alibaba Cloud accounts that have activated ProductionOpenAPI are supported. Default Alibaba Cloud account projects (pd_Alibaba Cloud account ID) are not supported.
+     *
+     * @param request - AddProjectMembersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddProjectMembersResponse
+     *
+     * @param AddProjectMembersRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AddProjectMembersResponse
+     */
+    public function addProjectMembersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->yikeUserIds) {
+            @$query['YikeUserIds'] = $request->yikeUserIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddProjectMembers',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds members to a project.
+     *
+     * @remarks
+     * Adds users under the same Alibaba Cloud account to a specified project in the default workspace of the Alibaba Cloud account, and grants the Edit permission by default. ProjectId specifies the project ID. YikeUserIds specifies a comma-separated list of Yike user IDs, which are not Alibaba Cloud UIDs. Currently, only the default workspace of the Alibaba Cloud account is supported, and projects in newly created workspaces are not supported. This operation follows the behavior of the original member API operation: adding an existing member resets the project permissions. Regular members are assigned the Edit permission, and SuperAdmins of the default workspace retain the Manage permission. Only Alibaba Cloud accounts that have activated ProductionOpenAPI are supported. Default Alibaba Cloud account projects (pd_Alibaba Cloud account ID) are not supported.
+     *
+     * @param request - AddProjectMembersRequest
+     *
+     * @returns AddProjectMembersResponse
+     *
+     * @param AddProjectMembersRequest $request
+     *
+     * @return AddProjectMembersResponse
+     */
+    public function addProjectMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addProjectMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the information of multiple media assets.
+     *
+     * @remarks
+     * ## Request description
+     * This API operation queries media asset content understanding jobs.
      *
      * @param request - BatchGetMediasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -179,10 +275,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves information about multiple media assets in a batch.
+     * Retrieves the information of multiple media assets.
      *
      * @remarks
-     * ## Request description.
+     * ## Request description
+     * This API operation queries media asset content understanding jobs.
      *
      * @param request - BatchGetMediasRequest
      *
@@ -200,7 +297,70 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Cancels an AI generation task.
+     * Queries video character replacement jobs in batches.
+     *
+     * @remarks
+     * Queries the status and results of video character replacement jobs in batches. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from Result.
+     *
+     * @param request - BatchGetVideoCharacterReplaceJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetVideoCharacterReplaceJobsResponse
+     *
+     * @param BatchGetVideoCharacterReplaceJobsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return BatchGetVideoCharacterReplaceJobsResponse
+     */
+    public function batchGetVideoCharacterReplaceJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchGetVideoCharacterReplaceJobs',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchGetVideoCharacterReplaceJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries video character replacement jobs in batches.
+     *
+     * @remarks
+     * Queries the status and results of video character replacement jobs in batches. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from Result.
+     *
+     * @param request - BatchGetVideoCharacterReplaceJobsRequest
+     *
+     * @returns BatchGetVideoCharacterReplaceJobsResponse
+     *
+     * @param BatchGetVideoCharacterReplaceJobsRequest $request
+     *
+     * @return BatchGetVideoCharacterReplaceJobsResponse
+     */
+    public function batchGetVideoCharacterReplaceJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchGetVideoCharacterReplaceJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Cancels a generation task.
      *
      * @param request - CancelGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -239,7 +399,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Cancels an AI generation task.
+     * Cancels a generation task.
      *
      * @param request - CancelGenerationJobRequest
      *
@@ -260,7 +420,7 @@ class Yike extends OpenApiClient
      * Creates a media asset category.
      *
      * @remarks
-     * Categories support up to three levels, and each level supports up to 100 subcategories.
+     * Categories support up to three levels of hierarchy, and each level supports up to 100 subcategories.
      *
      * @param request - CreateAssetCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -306,7 +466,7 @@ class Yike extends OpenApiClient
      * Creates a media asset category.
      *
      * @remarks
-     * Categories support up to three levels, and each level supports up to 100 subcategories.
+     * Categories support up to three levels of hierarchy, and each level supports up to 100 subcategories.
      *
      * @param request - CreateAssetCategoryRequest
      *
@@ -327,8 +487,8 @@ class Yike extends OpenApiClient
      * Creates an infinite canvas.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query media asset content understanding jobs.
+     * ## Request description
+     * This API queries media asset content understanding jobs.
      *
      * @param request - CreateInfiniteCanvasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -350,6 +510,10 @@ class Yike extends OpenApiClient
 
         if (null !== $request->productionId) {
             @$query['ProductionId'] = $request->productionId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
 
         if (null !== $request->title) {
@@ -382,8 +546,8 @@ class Yike extends OpenApiClient
      * Creates an infinite canvas.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query media asset content understanding jobs.
+     * ## Request description
+     * This API queries media asset content understanding jobs.
      *
      * @param request - CreateInfiniteCanvasRequest
      *
@@ -401,10 +565,144 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * Creates a project.
+     *
+     * @remarks
+     * Creates a project in a specified workspace and returns the ProjectId. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
+     *
+     * @param request - CreateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProject',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a project.
+     *
+     * @remarks
+     * Creates a project in a specified workspace and returns the ProjectId. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
+     *
+     * @param request - CreateProjectRequest
+     *
+     * @returns CreateProjectResponse
+     *
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
+     */
+    public function createProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a studio.
+     *
+     * @remarks
+     * Creates a studio and triggers automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can directly use the ProjectId without creating the default project again.
+     *
+     * @param request - CreateWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkspaceResponse
+     *
+     * @param CreateWorkspaceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateWorkspaceResponse
+     */
+    public function createWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        if (null !== $request->userCountLimit) {
+            @$query['UserCountLimit'] = $request->userCountLimit;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkspace',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a studio.
+     *
+     * @remarks
+     * Creates a studio and triggers automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can directly use the ProjectId without creating the default project again.
+     *
+     * @param request - CreateWorkspaceRequest
+     *
+     * @returns CreateWorkspaceResponse
+     *
+     * @param CreateWorkspaceRequest $request
+     *
+     * @return CreateWorkspaceResponse
+     */
+    public function createWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a media asset category.
      *
      * @remarks
-     * This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
+     * This operation also deletes its subcategories, including level-2 and level-3 subcategories. Proceed with caution.
      *
      * @param request - DeleteAssetCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -446,7 +744,7 @@ class Yike extends OpenApiClient
      * Deletes a media asset category.
      *
      * @remarks
-     * This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
+     * This operation also deletes its subcategories, including level-2 and level-3 subcategories. Proceed with caution.
      *
      * @param request - DeleteAssetCategoryRequest
      *
@@ -467,8 +765,8 @@ class Yike extends OpenApiClient
      * Deletes an infinite canvas.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query media asset content understanding jobs.
+     * ## Request description
+     * This API operation queries media asset content understanding jobs.
      *
      * @param request - DeleteInfiniteCanvasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -510,8 +808,8 @@ class Yike extends OpenApiClient
      * Deletes an infinite canvas.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query media asset content understanding jobs.
+     * ## Request description
+     * This API operation queries media asset content understanding jobs.
      *
      * @param request - DeleteInfiniteCanvasRequest
      *
@@ -598,10 +896,75 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves a login token for an enterprise account.
+     * Deletes a project.
      *
      * @remarks
-     * >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+     * Deletes a project by ProjectId. The caller must have project management permissions.
+     * Default projects cannot be deleted. If you attempt to delete a default project, DefaultProductionNotSupported is returned. This operation marks the project as deleted and does not physically delete all assets in the project.
+     *
+     * @param request - DeleteProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProject',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a project.
+     *
+     * @remarks
+     * Deletes a project by ProjectId. The caller must have project management permissions.
+     * Default projects cannot be deleted. If you attempt to delete a default project, DefaultProductionNotSupported is returned. This operation marks the project as deleted and does not physically delete all assets in the project.
+     *
+     * @param request - DeleteProjectRequest
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the logon token for an enterprise account.
+     *
+     * @remarks
+     * >Notice:  The AI generation-related API operations in the current 2026-03-19 API version will be retired soon. Upgrade to the 2026-07-07 API version.
      *
      * @param request - GenerateYikeLoginTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -668,10 +1031,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves a login token for an enterprise account.
+     * Retrieves the logon token for an enterprise account.
      *
      * @remarks
-     * >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+     * >Notice:  The AI generation-related API operations in the current 2026-03-19 API version will be retired soon. Upgrade to the 2026-07-07 API version.
      *
      * @param request - GenerateYikeLoginTokenRequest
      *
@@ -689,7 +1052,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries an agent asynchronous task.
+     * Queries an asynchronous task of the agent node.
      *
      * @param request - GetAgentJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -728,7 +1091,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries an agent asynchronous task.
+     * Queries an asynchronous task of the agent node.
      *
      * @param request - GetAgentJobRequest
      *
@@ -746,7 +1109,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
+     * Retrieves the details of a specified category and a list of its subcategories.
      *
      * @param request - GetAssetCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -785,7 +1148,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
+     * Retrieves the details of a specified category and a list of its subcategories.
      *
      * @param request - GetAssetCategoryRequest
      *
@@ -863,8 +1226,8 @@ class Yike extends OpenApiClient
      * Queries an infinite canvas.
      *
      * @remarks
-     * ## Description
-     * This API is used to query a media asset content understanding job.
+     * ## Request description
+     * This API queries media asset content understanding jobs.
      *
      * @param request - GetInfiniteCanvasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -906,8 +1269,8 @@ class Yike extends OpenApiClient
      * Queries an infinite canvas.
      *
      * @remarks
-     * ## Description
-     * This API is used to query a media asset content understanding job.
+     * ## Request description
+     * This API queries media asset content understanding jobs.
      *
      * @param request - GetInfiniteCanvasRequest
      *
@@ -925,11 +1288,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a media asset.
+     * Queries media assets.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query a media content analysis job.
+     * ## Request description
+     * This API operation queries media asset content understanding jobs.
      *
      * @param request - GetMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -980,11 +1343,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a media asset.
+     * Queries media assets.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query a media content analysis job.
+     * ## Request description
+     * This API operation queries media asset content understanding jobs.
      *
      * @param request - GetMediaRequest
      *
@@ -1067,6 +1430,69 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * Queries the details of a project.
+     *
+     * @remarks
+     * Queries the basic information of a project and the project permissions of the current caller by ProjectId. The project information is located in the Project object of the response and does not include the project asset list.
+     *
+     * @param request - GetProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetProjectResponse
+     */
+    public function getProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProject',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a project.
+     *
+     * @remarks
+     * Queries the basic information of a project and the project permissions of the current caller by ProjectId. The project information is located in the Project object of the response and does not include the project asset list.
+     *
+     * @param request - GetProjectRequest
+     *
+     * @returns GetProjectResponse
+     *
+     * @param GetProjectRequest $request
+     *
+     * @return GetProjectResponse
+     */
+    public function getProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a creative script generation task.
      *
      * @param request - GetRemakeScriptJobRequest
@@ -1124,7 +1550,72 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a video creative generation job.
+     * Queries a video character replacement task.
+     *
+     * @remarks
+     * Queries the status and result of a single task by using the JobId returned by the submit operation. When Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
+     * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each item contains MediaId and OutputUrl.
+     *
+     * @param request - GetVideoCharacterReplaceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoCharacterReplaceJobResponse
+     *
+     * @param GetVideoCharacterReplaceJobRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetVideoCharacterReplaceJobResponse
+     */
+    public function getVideoCharacterReplaceJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoCharacterReplaceJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoCharacterReplaceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a video character replacement task.
+     *
+     * @remarks
+     * Queries the status and result of a single task by using the JobId returned by the submit operation. When Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
+     * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each item contains MediaId and OutputUrl.
+     *
+     * @param request - GetVideoCharacterReplaceJobRequest
+     *
+     * @returns GetVideoCharacterReplaceJobResponse
+     *
+     * @param GetVideoCharacterReplaceJobRequest $request
+     *
+     * @return GetVideoCharacterReplaceJobResponse
+     */
+    public function getVideoCharacterReplaceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoCharacterReplaceJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries video creative generation jobs.
      *
      * @param request - GetVideoCreativeGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1163,7 +1654,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a video creative generation job.
+     * Queries video creative generation jobs.
      *
      * @param request - GetVideoCreativeGenerationJobRequest
      *
@@ -1181,10 +1672,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries the status, input parameters, and video result of a video text erasure task.
+     * Queries the status, input parameters, and video results of a video text removal job.
      *
      * @remarks
-     * Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+     * Queries the status, input, parameters, and final results of a video text removal job based on the `JobId`.
      *
      * @param request - GetVideoDetextJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1223,10 +1714,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries the status, input parameters, and video result of a video text erasure task.
+     * Queries the status, input parameters, and video results of a video text removal job.
      *
      * @remarks
-     * Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+     * Queries the status, input, parameters, and final results of a video text removal job based on the `JobId`.
      *
      * @param request - GetVideoDetextJobRequest
      *
@@ -1244,7 +1735,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a video generation task.
+     * Queries a video generation job.
      *
      * @param request - GetVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1287,7 +1778,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a video generation task.
+     * Queries a video generation job.
      *
      * @param request - GetVideoGenerationJobRequest
      *
@@ -1302,6 +1793,69 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getVideoGenerationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a content understanding and creative script generation task.
+     *
+     * @remarks
+     * Queries the task status based on the JobId returned by SubmitVideoRemakeJob. Upon completion, returns the download URLs of the JSON files for the video content understanding results and the creative script. If the task fails, returns ErrorCode and ErrorMessage.
+     *
+     * @param request - GetVideoRemakeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoRemakeJobResponse
+     *
+     * @param GetVideoRemakeJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetVideoRemakeJobResponse
+     */
+    public function getVideoRemakeJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoRemakeJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoRemakeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a content understanding and creative script generation task.
+     *
+     * @remarks
+     * Queries the task status based on the JobId returned by SubmitVideoRemakeJob. Upon completion, returns the download URLs of the JSON files for the video content understanding results and the creative script. If the task fails, returns ErrorCode and ErrorMessage.
+     *
+     * @param request - GetVideoRemakeJobRequest
+     *
+     * @returns GetVideoRemakeJobResponse
+     *
+     * @param GetVideoRemakeJobRequest $request
+     *
+     * @return GetVideoRemakeJobResponse
+     */
+    public function getVideoRemakeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoRemakeJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1365,7 +1919,7 @@ class Yike extends OpenApiClient
      * Queries the status, input parameters, and multilingual outputs of a video translation job.
      *
      * @remarks
-     * Queries the status, input, parameters, and final results of a video translation job by `JobId`.
+     * Queries the status, input, parameters, and final results of a video translation job based on JobId.
      *
      * @param request - GetVideoTranslationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1407,7 +1961,7 @@ class Yike extends OpenApiClient
      * Queries the status, input parameters, and multilingual outputs of a video translation job.
      *
      * @remarks
-     * Queries the status, input, parameters, and final results of a video translation job by `JobId`.
+     * Queries the status, input, parameters, and final results of a video translation job based on JobId.
      *
      * @param request - GetVideoTranslationJobRequest
      *
@@ -1425,7 +1979,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves the membership plan and credit information for a Yike primary account.
+     * Retrieves the membership plan and credit information of the Yike main account.
      *
      * @param request - GetYikeAccountCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1457,7 +2011,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves the membership plan and credit information for a Yike primary account.
+     * Retrieves the membership plan and credit information of the Yike main account.
      *
      * @param request - GetYikeAccountCreditRequest
      *
@@ -1475,7 +2029,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries the actual credit consumption of a task.
+     * Queries the actual credits consumed by a task.
      *
      * @param request - GetYikeJobCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1514,7 +2068,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries the actual credit consumption of a task.
+     * Queries the actual credits consumed by a task.
      *
      * @param request - GetYikeJobCreditRequest
      *
@@ -1532,11 +2086,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Imports a media asset.
+     * Imports media assets.
      *
      * @remarks
      * ## Request description
-     * This API is used to query media content analysis jobs.
+     * This API operation queries media content understanding jobs.
      *
      * @param request - ImportMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1596,6 +2150,10 @@ class Yike extends OpenApiClient
             @$query['Overwrite'] = $request->overwrite;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->registerConfig) {
             @$query['RegisterConfig'] = $request->registerConfig;
         }
@@ -1631,11 +2189,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Imports a media asset.
+     * Imports media assets.
      *
      * @remarks
      * ## Request description
-     * This API is used to query media content analysis jobs.
+     * This API operation queries media content understanding jobs.
      *
      * @param request - ImportMediaRequest
      *
@@ -1653,7 +2211,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves a paged list of categories.
+     * Retrieves a paginated list of categories.
      *
      * @param request - ListAssetCategoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1696,7 +2254,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves a paged list of categories.
+     * Retrieves a paginated list of categories.
      *
      * @param request - ListAssetCategoriesRequest
      *
@@ -1718,7 +2276,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This API operation queries media asset content understanding jobs.
+     * This operation queries media asset content understanding jobs.
      *
      * @param request - ListInfiniteCanvasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1785,7 +2343,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This API operation queries media asset content understanding jobs.
+     * This operation queries media asset content understanding jobs.
      *
      * @param request - ListInfiniteCanvasesRequest
      *
@@ -1803,7 +2361,216 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries media assets that match the specified parameters.
+     * Queries the list of projects.
+     *
+     * @remarks
+     * Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace.
+     * For pagination, specify both PageNo and PageSize with valid positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response returns ProjectList but does not return TotalCount. MaxResults and NextToken are retained for compatibility and are not used for current pagination.
+     *
+     * @param request - ListProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListProjects',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of projects.
+     *
+     * @remarks
+     * Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace.
+     * For pagination, specify both PageNo and PageSize with valid positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response returns ProjectList but does not return TotalCount. MaxResults and NextToken are retained for compatibility and are not used for current pagination.
+     *
+     * @param request - ListProjectsRequest
+     *
+     * @returns ListProjectsResponse
+     *
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
+     */
+    public function listProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of workspaces.
+     *
+     * @remarks
+     * Queries a list of workspaces accessible to the current caller. Pagination is supported by using PageNo and PageSize. The default value of PageNo is 1, and the default value of PageSize is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
+     *
+     * @param request - ListWorkspacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkspacesResponse
+     *
+     * @param ListWorkspacesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListWorkspacesResponse
+     */
+    public function listWorkspacesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkspaces',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of workspaces.
+     *
+     * @remarks
+     * Queries a list of workspaces accessible to the current caller. Pagination is supported by using PageNo and PageSize. The default value of PageNo is 1, and the default value of PageSize is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
+     *
+     * @param request - ListWorkspacesRequest
+     *
+     * @returns ListWorkspacesResponse
+     *
+     * @param ListWorkspacesRequest $request
+     *
+     * @return ListWorkspacesResponse
+     */
+    public function listWorkspaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkspacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Pre-validates a video character replacement task.
+     *
+     * @remarks
+     * Validates the input materials of a specified application before submitting a task. AppParams is a JSON-serialized string. The field names must be consistent with the input definition of the application corresponding to AppId. Image, audio, and video materials must match the input types and be accessible.
+     * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter Key and ErrorCode for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
+     *
+     * @param request - PrecheckVideoCharacterReplaceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PrecheckVideoCharacterReplaceJobResponse
+     *
+     * @param PrecheckVideoCharacterReplaceJobRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return PrecheckVideoCharacterReplaceJobResponse
+     */
+    public function precheckVideoCharacterReplaceJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appParams) {
+            @$query['AppParams'] = $request->appParams;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PrecheckVideoCharacterReplaceJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PrecheckVideoCharacterReplaceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Pre-validates a video character replacement task.
+     *
+     * @remarks
+     * Validates the input materials of a specified application before submitting a task. AppParams is a JSON-serialized string. The field names must be consistent with the input definition of the application corresponding to AppId. Image, audio, and video materials must match the input types and be accessible.
+     * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter Key and ErrorCode for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
+     *
+     * @param request - PrecheckVideoCharacterReplaceJobRequest
+     *
+     * @returns PrecheckVideoCharacterReplaceJobResponse
+     *
+     * @param PrecheckVideoCharacterReplaceJobRequest $request
+     *
+     * @return PrecheckVideoCharacterReplaceJobResponse
+     */
+    public function precheckVideoCharacterReplaceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->precheckVideoCharacterReplaceJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves media asset information that matches the specified parameters.
      *
      * @param request - SearchMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1839,6 +2606,10 @@ class Yike extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
         if (null !== $request->scrollToken) {
             @$query['ScrollToken'] = $request->scrollToken;
         }
@@ -1866,7 +2637,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries media assets that match the specified parameters.
+     * Retrieves media asset information that matches the specified parameters.
      *
      * @param request - SearchMediaRequest
      *
@@ -1884,7 +2655,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an agent asynchronous node.
+     * Submits an asynchronous task for an agent node.
      *
      * @param request - SubmitAgentJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1943,7 +2714,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an agent asynchronous node.
+     * Submits an asynchronous task for an agent node.
      *
      * @param request - SubmitAgentJobRequest
      *
@@ -1961,7 +2732,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an image generation request.
+     * Submits an image generation task.
      *
      * @param request - SubmitImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2036,7 +2807,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an image generation request.
+     * Submits an image generation task.
      *
      * @param request - SubmitImageGenerationJobRequest
      *
@@ -2134,7 +2905,7 @@ class Yike extends OpenApiClient
      * Submits a creative script generation task.
      *
      * @remarks
-     * This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
+     * This API generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in the callback.
      *
      * @param request - SubmitRemakeScriptJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2184,7 +2955,7 @@ class Yike extends OpenApiClient
      * Submits a creative script generation task.
      *
      * @remarks
-     * This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
+     * This API generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in the callback.
      *
      * @param request - SubmitRemakeScriptJobRequest
      *
@@ -2199,6 +2970,83 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitRemakeScriptJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a video character replacement task.
+     *
+     * @remarks
+     * Submits a video character replacement node via asynchronous commit. Invoke PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to validate the input assets first.
+     * The returned JobId only indicates that the node is submitted, not completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId specifies the project, and FolderId specifies the file folder.
+     *
+     * @param request - SubmitVideoCharacterReplaceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoCharacterReplaceJobResponse
+     *
+     * @param SubmitVideoCharacterReplaceJobRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SubmitVideoCharacterReplaceJobResponse
+     */
+    public function submitVideoCharacterReplaceJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->appParams) {
+            @$body['AppParams'] = $request->appParams;
+        }
+
+        if (null !== $request->folderId) {
+            @$body['FolderId'] = $request->folderId;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoCharacterReplaceJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoCharacterReplaceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a video character replacement task.
+     *
+     * @remarks
+     * Submits a video character replacement node via asynchronous commit. Invoke PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to validate the input assets first.
+     * The returned JobId only indicates that the node is submitted, not completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId specifies the project, and FolderId specifies the file folder.
+     *
+     * @param request - SubmitVideoCharacterReplaceJobRequest
+     *
+     * @returns SubmitVideoCharacterReplaceJobResponse
+     *
+     * @param SubmitVideoCharacterReplaceJobRequest $request
+     *
+     * @return SubmitVideoCharacterReplaceJobResponse
+     */
+    public function submitVideoCharacterReplaceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoCharacterReplaceJobWithOptions($request, $runtime);
     }
 
     /**
@@ -2291,10 +3139,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
+     * Submits an asynchronous video text erasure task that supports full-area erasure, time ranges, and specified regions.
      *
      * @remarks
-     * Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
+     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text region.
      *
      * @param request - SubmitVideoDetextJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2349,10 +3197,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
+     * Submits an asynchronous video text erasure task that supports full-area erasure, time ranges, and specified regions.
      *
      * @remarks
-     * Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
+     * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text region.
      *
      * @param request - SubmitVideoDetextJobRequest
      *
@@ -2471,6 +3319,77 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * Submits a content understanding and creative script generation task.
+     *
+     * @remarks
+     * Submits the original video and remake information such as new products and characters to asynchronously complete video content understanding and creative script generation. Uses the returned JobId to call GetVideoRemakeJob to query the progress and outputs. Video rendering requires a separate call to SubmitVideoRenderJob.
+     *
+     * @param request - SubmitVideoRemakeJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoRemakeJobResponse
+     *
+     * @param SubmitVideoRemakeJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitVideoRemakeJobResponse
+     */
+    public function submitVideoRemakeJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
+        }
+
+        if (null !== $request->remakeParams) {
+            @$query['RemakeParams'] = $request->remakeParams;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoRemakeJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoRemakeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a content understanding and creative script generation task.
+     *
+     * @remarks
+     * Submits the original video and remake information such as new products and characters to asynchronously complete video content understanding and creative script generation. Uses the returned JobId to call GetVideoRemakeJob to query the progress and outputs. Video rendering requires a separate call to SubmitVideoRenderJob.
+     *
+     * @param request - SubmitVideoRemakeJobRequest
+     *
+     * @returns SubmitVideoRemakeJobResponse
+     *
+     * @param SubmitVideoRemakeJobRequest $request
+     *
+     * @return SubmitVideoRemakeJobResponse
+     */
+    public function submitVideoRemakeJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoRemakeJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Submits a video rendering and compositing task.
      *
      * @param request - SubmitVideoRenderJobRequest
@@ -2536,10 +3455,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
+     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle removal, and on-screen text translation.
      *
      * @remarks
-     * Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
+     * Submits an asynchronous video translation task. The input supports a media URL or a Yike media asset ID. The task parameters are used to select the source language, target language, and the translation capabilities to be enabled.
      *
      * @param request - SubmitVideoTranslationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2606,10 +3525,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
+     * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle removal, and on-screen text translation.
      *
      * @remarks
-     * Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
+     * Submits an asynchronous video translation task. The input supports a media URL or a Yike media asset ID. The task parameters are used to select the source language, target language, and the translation capabilities to be enabled.
      *
      * @param request - SubmitVideoTranslationJobRequest
      *
@@ -2630,7 +3549,7 @@ class Yike extends OpenApiClient
      * Updates a media asset category.
      *
      * @remarks
-     * After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
+     * After you create a media asset category, you can call this operation to update the name of the category by specifying its ID.
      *
      * @param request - UpdateAssetCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2676,7 +3595,7 @@ class Yike extends OpenApiClient
      * Updates a media asset category.
      *
      * @remarks
-     * After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
+     * After you create a media asset category, you can call this operation to update the name of the category by specifying its ID.
      *
      * @param request - UpdateAssetCategoryRequest
      *
@@ -2697,8 +3616,8 @@ class Yike extends OpenApiClient
      * Updates the information of an infinite canvas.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query media asset content understanding jobs.
+     * ## Request description
+     * This API queries media asset content understanding jobs.
      *
      * @param request - UpdateInfiniteCanvasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2748,8 +3667,8 @@ class Yike extends OpenApiClient
      * Updates the information of an infinite canvas.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query media asset content understanding jobs.
+     * ## Request description
+     * This API queries media asset content understanding jobs.
      *
      * @param request - UpdateInfiniteCanvasRequest
      *
@@ -2770,8 +3689,8 @@ class Yike extends OpenApiClient
      * Updates media asset information.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query media content understanding jobs.
+     * ## Request description
+     * This API queries media asset content understanding jobs.
      *
      * @param request - UpdateMediaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2853,8 +3772,8 @@ class Yike extends OpenApiClient
      * Updates media asset information.
      *
      * @remarks
-     * ## Operation description
-     * This API operation is used to query media content understanding jobs.
+     * ## Request description
+     * This API queries media asset content understanding jobs.
      *
      * @param request - UpdateMediaRequest
      *
@@ -2869,5 +3788,72 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMediaWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the name of a project.
+     *
+     * @remarks
+     * Updates the name of a project specified by ProjectId. Use Title to specify the new name. This operation only supports modifying the project name. You cannot modify the description or cover image. The caller must have edit permissions for the project.
+     *
+     * @param request - UpdateProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProjectResponse
+     *
+     * @param UpdateProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateProjectResponse
+     */
+    public function updateProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProject',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name of a project.
+     *
+     * @remarks
+     * Updates the name of a project specified by ProjectId. Use Title to specify the new name. This operation only supports modifying the project name. You cannot modify the description or cover image. The caller must have edit permissions for the project.
+     *
+     * @param request - UpdateProjectRequest
+     *
+     * @returns UpdateProjectResponse
+     *
+     * @param UpdateProjectRequest $request
+     *
+     * @return UpdateProjectResponse
+     */
+    public function updateProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProjectWithOptions($request, $runtime);
     }
 }
