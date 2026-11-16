@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListSelectionProductsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $cursor;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -23,6 +28,7 @@ class ListSelectionProductsRequest extends Model
      */
     public $purchaserId;
     protected $_name = [
+        'cursor' => 'cursor',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'purchaserId' => 'purchaserId',
@@ -36,6 +42,10 @@ class ListSelectionProductsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cursor) {
+            $res['cursor'] = $this->cursor;
+        }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
@@ -59,6 +69,10 @@ class ListSelectionProductsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cursor'])) {
+            $model->cursor = $map['cursor'];
+        }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }

@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SearchProductsResponseBody\prod
 class SearchProductsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $nextCursor;
+
+    /**
      * @var products[]
      */
     public $products;
@@ -19,6 +24,7 @@ class SearchProductsResponseBody extends Model
      */
     public $total;
     protected $_name = [
+        'nextCursor' => 'nextCursor',
         'products' => 'products',
         'total' => 'total',
     ];
@@ -34,6 +40,10 @@ class SearchProductsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->nextCursor) {
+            $res['nextCursor'] = $this->nextCursor;
+        }
+
         if (null !== $this->products) {
             if (\is_array($this->products)) {
                 $res['products'] = [];
@@ -60,6 +70,10 @@ class SearchProductsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['nextCursor'])) {
+            $model->nextCursor = $map['nextCursor'];
+        }
+
         if (isset($map['products'])) {
             if (!empty($map['products'])) {
                 $model->products = [];

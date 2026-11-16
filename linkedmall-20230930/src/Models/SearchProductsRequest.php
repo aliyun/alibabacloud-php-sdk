@@ -29,6 +29,11 @@ class SearchProductsRequest extends Model
     public $createStartTime;
 
     /**
+     * @var string
+     */
+    public $cursor;
+
+    /**
      * @var int
      */
     public $distributionHighPrice;
@@ -162,6 +167,7 @@ class SearchProductsRequest extends Model
         'categoryIds' => 'categoryIds',
         'createEndTime' => 'createEndTime',
         'createStartTime' => 'createStartTime',
+        'cursor' => 'cursor',
         'distributionHighPrice' => 'distributionHighPrice',
         'distributionHighPriceRatio' => 'distributionHighPriceRatio',
         'distributionLowPrice' => 'distributionLowPrice',
@@ -222,6 +228,10 @@ class SearchProductsRequest extends Model
 
         if (null !== $this->createStartTime) {
             $res['createStartTime'] = $this->createStartTime;
+        }
+
+        if (null !== $this->cursor) {
+            $res['cursor'] = $this->cursor;
         }
 
         if (null !== $this->distributionHighPrice) {
@@ -360,6 +370,10 @@ class SearchProductsRequest extends Model
 
         if (isset($map['createStartTime'])) {
             $model->createStartTime = $map['createStartTime'];
+        }
+
+        if (isset($map['cursor'])) {
+            $model->cursor = $map['cursor'];
         }
 
         if (isset($map['distributionHighPrice'])) {

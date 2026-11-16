@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ProductPageResult extends Model
 {
     /**
+     * @var string
+     */
+    public $nextCursor;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -33,6 +38,7 @@ class ProductPageResult extends Model
      */
     public $total;
     protected $_name = [
+        'nextCursor' => 'nextCursor',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'products' => 'products',
@@ -51,6 +57,10 @@ class ProductPageResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->nextCursor) {
+            $res['nextCursor'] = $this->nextCursor;
+        }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
@@ -89,6 +99,10 @@ class ProductPageResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['nextCursor'])) {
+            $model->nextCursor = $map['nextCursor'];
+        }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
