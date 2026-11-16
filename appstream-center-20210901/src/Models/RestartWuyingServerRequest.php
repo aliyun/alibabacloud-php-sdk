@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class RestartWuyingServerRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableRestartRetry;
+
+    /**
      * @var string
      */
     public $productType;
@@ -18,6 +23,7 @@ class RestartWuyingServerRequest extends Model
      */
     public $wuyingServerIdList;
     protected $_name = [
+        'enableRestartRetry' => 'EnableRestartRetry',
         'productType' => 'ProductType',
         'wuyingServerIdList' => 'WuyingServerIdList',
     ];
@@ -33,6 +39,10 @@ class RestartWuyingServerRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableRestartRetry) {
+            $res['EnableRestartRetry'] = $this->enableRestartRetry;
+        }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -59,6 +69,10 @@ class RestartWuyingServerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableRestartRetry'])) {
+            $model->enableRestartRetry = $map['EnableRestartRetry'];
+        }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

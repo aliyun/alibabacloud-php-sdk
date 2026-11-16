@@ -1,3 +1,7 @@
+2026-11-16 Version: 5.17.1
+- Update API RestartWuyingServer: add request parameters EnableRestartRetry.
+
+
 2026-11-14 Version: 5.17.0
 - Support API ClearAgentInstanceMemory.
 - Support API DescribeUserProfilePathRules.

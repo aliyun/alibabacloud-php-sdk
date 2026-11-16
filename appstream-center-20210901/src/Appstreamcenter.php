@@ -12048,6 +12048,11 @@ class Appstreamcenter extends OpenApiClient
     public function restartWuyingServerWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->enableRestartRetry) {
+            @$query['EnableRestartRetry'] = $request->enableRestartRetry;
+        }
+
         $body = [];
         if (null !== $request->productType) {
             @$body['ProductType'] = $request->productType;
@@ -12061,6 +12066,7 @@ class Appstreamcenter extends OpenApiClient
         $body = Dara::merge([
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
