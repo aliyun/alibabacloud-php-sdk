@@ -1,3 +1,9 @@
+2026-11-16 Version: 1.3.1
+- Update API ListScanTasksByTarget: add response parameters Body.Data.$.ReportLanguage.
+- Update API ListScanTasksByTarget: add response parameters Body.Data.$.SampleLanguage.
+- Update API ListScanTasksByTarget: add response parameters Body.Data.$.ScannerType.
+
+
 2026-09-18 Version: 1.3.0
 - Support API CreateAttackTarget.
 - Support API CreateTargetScanTask.

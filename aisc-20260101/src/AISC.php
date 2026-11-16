@@ -35,6 +35,7 @@ use AlibabaCloud\SDK\AISC\V20260101\Models\StopScannerTaskRequest;
 use AlibabaCloud\SDK\AISC\V20260101\Models\StopScannerTaskResponse;
 use AlibabaCloud\SDK\AISC\V20260101\Models\TestConnectivityRequest;
 use AlibabaCloud\SDK\AISC\V20260101\Models\TestConnectivityResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -45,6 +46,9 @@ class AISC extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'AISC';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-zhangjiakou' => 'aisc.cn-shanghai.aliyuncs.com',
@@ -803,7 +807,7 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of agent risk events.
+     * Queries the event list.
      *
      * @param request - ListAIAgentEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -914,7 +918,7 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of agent risk events.
+     * Queries the event list.
      *
      * @param request - ListAIAgentEventRequest
      *
@@ -1037,18 +1041,18 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of scan tasks under a specified scan target for AI Red Teaming. Supports filtering by detection intensity, task status, and scan mode.
+     * Queries the scan tasks of a specified scan target for AI Red Teaming with paging, and supports filtering by detection intensity, task status, and scan mode.
      *
      * @remarks
-     * Performs a paged query of the scan task list under a specified scan target. Only tasks belonging to targets owned by the current tenant are returned.
+     * Queries the list of scan tasks under a specified scan target with paging. Only returns the tasks of targets that belong to the current tenant.
      * Query scope and sorting:
-     * - Only tasks created within the last 366 days are returned.
-     * - Results are sorted by creation time in descending order.
-     * - TaskStatus filters by task status. ScanType filters by scan mode. The scan mode is stored in the task execute parameters. Historical tasks without a recorded scan mode are treated as attack.
-     * Paged query rules:
-     * - PageNumber starts from 1. Values less than 1 are normalized to 1.
-     * - PageSize defaults to 10, with a maximum of 100 per page. Values greater than 100 are clamped to 100. Values less than 1 return HTTP status code 400.
-     * - The PageNumber and PageSize values in the response are the normalization values that actually take effect.
+     * - Only returns tasks created within the last 366 days.
+     * - Sorts tasks in descending order of creation time.
+     * - TaskStatus filters tasks by status. ScanType filters tasks by scan mode. The scan mode is stored in the task execution parameters. Tasks that do not have a recorded scan mode are processed as attack.
+     * Paging rules:
+     * - PageNumber starts from 1. If the value is less than 1, it is normalized to 1.
+     * - PageSize defaults to 10, with a maximum of 100 per page. If the value is greater than 100, it is clamped to 100. If the value is less than 1, a 400 error is returned.
+     * - The PageNumber and PageSize in the response are the actual effective values after normalization.
      *
      * @param request - ListScanTasksByTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1107,18 +1111,18 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of scan tasks under a specified scan target for AI Red Teaming. Supports filtering by detection intensity, task status, and scan mode.
+     * Queries the scan tasks of a specified scan target for AI Red Teaming with paging, and supports filtering by detection intensity, task status, and scan mode.
      *
      * @remarks
-     * Performs a paged query of the scan task list under a specified scan target. Only tasks belonging to targets owned by the current tenant are returned.
+     * Queries the list of scan tasks under a specified scan target with paging. Only returns the tasks of targets that belong to the current tenant.
      * Query scope and sorting:
-     * - Only tasks created within the last 366 days are returned.
-     * - Results are sorted by creation time in descending order.
-     * - TaskStatus filters by task status. ScanType filters by scan mode. The scan mode is stored in the task execute parameters. Historical tasks without a recorded scan mode are treated as attack.
-     * Paged query rules:
-     * - PageNumber starts from 1. Values less than 1 are normalized to 1.
-     * - PageSize defaults to 10, with a maximum of 100 per page. Values greater than 100 are clamped to 100. Values less than 1 return HTTP status code 400.
-     * - The PageNumber and PageSize values in the response are the normalization values that actually take effect.
+     * - Only returns tasks created within the last 366 days.
+     * - Sorts tasks in descending order of creation time.
+     * - TaskStatus filters tasks by status. ScanType filters tasks by scan mode. The scan mode is stored in the task execution parameters. Tasks that do not have a recorded scan mode are processed as attack.
+     * Paging rules:
+     * - PageNumber starts from 1. If the value is less than 1, it is normalized to 1.
+     * - PageSize defaults to 10, with a maximum of 100 per page. If the value is greater than 100, it is clamped to 100. If the value is less than 1, a 400 error is returned.
+     * - The PageNumber and PageSize in the response are the actual effective values after normalization.
      *
      * @param request - ListScanTasksByTargetRequest
      *
@@ -1136,7 +1140,7 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * Get subtask information.
+     * Retrieves subtask information.
      *
      * @param request - ListSubTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1187,7 +1191,7 @@ class AISC extends OpenApiClient
     }
 
     /**
-     * Get subtask information.
+     * Retrieves subtask information.
      *
      * @param request - ListSubTasksRequest
      *

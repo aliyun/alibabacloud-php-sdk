@@ -26,7 +26,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $reportLanguage;
+
+    /**
+     * @var string
+     */
     public $riskLevel;
+
+    /**
+     * @var string
+     */
+    public $sampleLanguage;
 
     /**
      * @var int
@@ -54,6 +64,11 @@ class data extends Model
     public $scannerTaskStatus;
 
     /**
+     * @var string
+     */
+    public $scannerType;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -71,12 +86,15 @@ class data extends Model
         'createTime' => 'CreateTime',
         'endTime' => 'EndTime',
         'executeCaseCount' => 'ExecuteCaseCount',
+        'reportLanguage' => 'ReportLanguage',
         'riskLevel' => 'RiskLevel',
+        'sampleLanguage' => 'SampleLanguage',
         'sampleLevel' => 'SampleLevel',
         'scanType' => 'ScanType',
         'scannerTaskId' => 'ScannerTaskId',
         'scannerTaskMessage' => 'ScannerTaskMessage',
         'scannerTaskStatus' => 'ScannerTaskStatus',
+        'scannerType' => 'ScannerType',
         'startTime' => 'StartTime',
         'taskName' => 'TaskName',
         'totalCaseCount' => 'TotalCaseCount',
@@ -102,8 +120,16 @@ class data extends Model
             $res['ExecuteCaseCount'] = $this->executeCaseCount;
         }
 
+        if (null !== $this->reportLanguage) {
+            $res['ReportLanguage'] = $this->reportLanguage;
+        }
+
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+
+        if (null !== $this->sampleLanguage) {
+            $res['SampleLanguage'] = $this->sampleLanguage;
         }
 
         if (null !== $this->sampleLevel) {
@@ -124,6 +150,10 @@ class data extends Model
 
         if (null !== $this->scannerTaskStatus) {
             $res['ScannerTaskStatus'] = $this->scannerTaskStatus;
+        }
+
+        if (null !== $this->scannerType) {
+            $res['ScannerType'] = $this->scannerType;
         }
 
         if (null !== $this->startTime) {
@@ -161,8 +191,16 @@ class data extends Model
             $model->executeCaseCount = $map['ExecuteCaseCount'];
         }
 
+        if (isset($map['ReportLanguage'])) {
+            $model->reportLanguage = $map['ReportLanguage'];
+        }
+
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+
+        if (isset($map['SampleLanguage'])) {
+            $model->sampleLanguage = $map['SampleLanguage'];
         }
 
         if (isset($map['SampleLevel'])) {
@@ -183,6 +221,10 @@ class data extends Model
 
         if (isset($map['ScannerTaskStatus'])) {
             $model->scannerTaskStatus = $map['ScannerTaskStatus'];
+        }
+
+        if (isset($map['ScannerType'])) {
+            $model->scannerType = $map['ScannerType'];
         }
 
         if (isset($map['StartTime'])) {
