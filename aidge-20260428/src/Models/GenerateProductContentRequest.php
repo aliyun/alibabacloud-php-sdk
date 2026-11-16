@@ -56,6 +56,11 @@ class GenerateProductContentRequest extends Model
     /**
      * @var string
      */
+    public $prompt;
+
+    /**
+     * @var string
+     */
     public $sourceLanguage;
 
     /**
@@ -77,6 +82,7 @@ class GenerateProductContentRequest extends Model
         'platform' => 'Platform',
         'productAttributes' => 'ProductAttributes',
         'productCategory' => 'ProductCategory',
+        'prompt' => 'Prompt',
         'sourceLanguage' => 'SourceLanguage',
         'sourceText' => 'SourceText',
         'targetLanguage' => 'TargetLanguage',
@@ -124,6 +130,10 @@ class GenerateProductContentRequest extends Model
 
         if (null !== $this->productCategory) {
             $res['ProductCategory'] = $this->productCategory;
+        }
+
+        if (null !== $this->prompt) {
+            $res['Prompt'] = $this->prompt;
         }
 
         if (null !== $this->sourceLanguage) {
@@ -183,6 +193,10 @@ class GenerateProductContentRequest extends Model
 
         if (isset($map['ProductCategory'])) {
             $model->productCategory = $map['ProductCategory'];
+        }
+
+        if (isset($map['Prompt'])) {
+            $model->prompt = $map['Prompt'];
         }
 
         if (isset($map['SourceLanguage'])) {
