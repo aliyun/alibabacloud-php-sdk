@@ -156,6 +156,11 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $isForceFaceCentered;
+
+    /**
+     * @var string
+     */
     public $languageConfig;
 
     /**
@@ -337,6 +342,7 @@ class InitializeShrinkRequest extends Model
         'idFaceQuality' => 'IdFaceQuality',
         'idSpoof' => 'IdSpoof',
         'idThreshold' => 'IdThreshold',
+        'isForceFaceCentered' => 'IsForceFaceCentered',
         'languageConfig' => 'LanguageConfig',
         'MRTDInput' => 'MRTDInput',
         'merchantBizId' => 'MerchantBizId',
@@ -492,6 +498,10 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->idThreshold) {
             $res['IdThreshold'] = $this->idThreshold;
+        }
+
+        if (null !== $this->isForceFaceCentered) {
+            $res['IsForceFaceCentered'] = $this->isForceFaceCentered;
         }
 
         if (null !== $this->languageConfig) {
@@ -743,6 +753,10 @@ class InitializeShrinkRequest extends Model
 
         if (isset($map['IdThreshold'])) {
             $model->idThreshold = $map['IdThreshold'];
+        }
+
+        if (isset($map['IsForceFaceCentered'])) {
+            $model->isForceFaceCentered = $map['IsForceFaceCentered'];
         }
 
         if (isset($map['LanguageConfig'])) {
