@@ -17,6 +17,11 @@ class TranscribeChatVoiceAdvanceRequest extends Model
     /**
      * @var string
      */
+    public $fileContentBase64;
+
+    /**
+     * @var string
+     */
     public $fileName;
 
     /**
@@ -30,6 +35,7 @@ class TranscribeChatVoiceAdvanceRequest extends Model
     public $tenantId;
     protected $_name = [
         'contentType' => 'contentType',
+        'fileContentBase64' => 'fileContentBase64',
         'fileName' => 'fileName',
         'fileUrlObject' => 'fileUrl',
         'tenantId' => 'tenantId',
@@ -45,6 +51,10 @@ class TranscribeChatVoiceAdvanceRequest extends Model
         $res = [];
         if (null !== $this->contentType) {
             $res['contentType'] = $this->contentType;
+        }
+
+        if (null !== $this->fileContentBase64) {
+            $res['fileContentBase64'] = $this->fileContentBase64;
         }
 
         if (null !== $this->fileName) {
@@ -72,6 +82,10 @@ class TranscribeChatVoiceAdvanceRequest extends Model
         $model = new self();
         if (isset($map['contentType'])) {
             $model->contentType = $map['contentType'];
+        }
+
+        if (isset($map['fileContentBase64'])) {
+            $model->fileContentBase64 = $map['fileContentBase64'];
         }
 
         if (isset($map['fileName'])) {

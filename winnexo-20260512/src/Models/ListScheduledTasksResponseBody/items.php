@@ -96,6 +96,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $outputMode;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -135,6 +140,7 @@ class items extends Model
         'isOpen' => 'isOpen',
         'model' => 'model',
         'name' => 'name',
+        'outputMode' => 'outputMode',
         'status' => 'status',
         'taskId' => 'taskId',
         'triggerType' => 'triggerType',
@@ -229,6 +235,10 @@ class items extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->outputMode) {
+            $res['outputMode'] = $this->outputMode;
         }
 
         if (null !== $this->status) {
@@ -342,6 +352,10 @@ class items extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['outputMode'])) {
+            $model->outputMode = $map['outputMode'];
         }
 
         if (isset($map['status'])) {

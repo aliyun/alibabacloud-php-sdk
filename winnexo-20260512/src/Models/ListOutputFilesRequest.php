@@ -61,6 +61,11 @@ class ListOutputFilesRequest extends Model
     /**
      * @var string
      */
+    public $taskExecutionId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
         'bizId' => 'bizId',
@@ -73,6 +78,7 @@ class ListOutputFilesRequest extends Model
         'sessionId' => 'sessionId',
         'sharedOnly' => 'sharedOnly',
         'tags' => 'tags',
+        'taskExecutionId' => 'taskExecutionId',
         'tenantId' => 'tenantId',
     ];
 
@@ -132,6 +138,10 @@ class ListOutputFilesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->taskExecutionId) {
+            $res['taskExecutionId'] = $this->taskExecutionId;
         }
 
         if (null !== $this->tenantId) {
@@ -194,6 +204,10 @@ class ListOutputFilesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['taskExecutionId'])) {
+            $model->taskExecutionId = $map['taskExecutionId'];
         }
 
         if (isset($map['tenantId'])) {

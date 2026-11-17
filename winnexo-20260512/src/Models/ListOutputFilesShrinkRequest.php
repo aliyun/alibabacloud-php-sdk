@@ -61,6 +61,11 @@ class ListOutputFilesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $taskExecutionId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
         'bizId' => 'bizId',
@@ -73,6 +78,7 @@ class ListOutputFilesShrinkRequest extends Model
         'sessionId' => 'sessionId',
         'sharedOnly' => 'sharedOnly',
         'tagsShrink' => 'tags',
+        'taskExecutionId' => 'taskExecutionId',
         'tenantId' => 'tenantId',
     ];
 
@@ -122,6 +128,10 @@ class ListOutputFilesShrinkRequest extends Model
 
         if (null !== $this->tagsShrink) {
             $res['tags'] = $this->tagsShrink;
+        }
+
+        if (null !== $this->taskExecutionId) {
+            $res['taskExecutionId'] = $this->taskExecutionId;
         }
 
         if (null !== $this->tenantId) {
@@ -177,6 +187,10 @@ class ListOutputFilesShrinkRequest extends Model
 
         if (isset($map['tags'])) {
             $model->tagsShrink = $map['tags'];
+        }
+
+        if (isset($map['taskExecutionId'])) {
+            $model->taskExecutionId = $map['taskExecutionId'];
         }
 
         if (isset($map['tenantId'])) {

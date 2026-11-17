@@ -29,6 +29,11 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $conversationId;
+
+    /**
+     * @var string
+     */
     public $creator;
 
     /**
@@ -60,6 +65,11 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
      * @var string
      */
     public $message;
+
+    /**
+     * @var string
+     */
+    public $messageId;
 
     /**
      * @var metadata
@@ -124,6 +134,7 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
         'code' => 'code',
         'completedAt' => 'completedAt',
         'content' => 'content',
+        'conversationId' => 'conversationId',
         'creator' => 'creator',
         'digitalEmployeeName' => 'digitalEmployeeName',
         'errorMessage' => 'errorMessage',
@@ -131,6 +142,7 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
         'files' => 'files',
         'gmtCreate' => 'gmtCreate',
         'message' => 'message',
+        'messageId' => 'messageId',
         'metadata' => 'metadata',
         'outputContent' => 'outputContent',
         'pushResult' => 'pushResult',
@@ -180,6 +192,10 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
             $res['content'] = $this->content;
         }
 
+        if (null !== $this->conversationId) {
+            $res['conversationId'] = $this->conversationId;
+        }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
@@ -220,6 +236,10 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
 
         if (null !== $this->message) {
             $res['message'] = $this->message;
+        }
+
+        if (null !== $this->messageId) {
+            $res['messageId'] = $this->messageId;
         }
 
         if (null !== $this->metadata) {
@@ -300,6 +320,10 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
             $model->content = $map['content'];
         }
 
+        if (isset($map['conversationId'])) {
+            $model->conversationId = $map['conversationId'];
+        }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
@@ -340,6 +364,10 @@ class GetScheduledTaskExecutionDetailResponseBody extends Model
 
         if (isset($map['message'])) {
             $model->message = $map['message'];
+        }
+
+        if (isset($map['messageId'])) {
+            $model->messageId = $map['messageId'];
         }
 
         if (isset($map['metadata'])) {

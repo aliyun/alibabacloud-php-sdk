@@ -21,12 +21,22 @@ class SendAsyncChatMessageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $contextItemsShrink;
+
+    /**
+     * @var string
+     */
     public $digitalEmployeeNameShrink;
 
     /**
      * @var bool
      */
     public $directChat;
+
+    /**
+     * @var mixed
+     */
+    public $directMaxHistoryRounds;
 
     /**
      * @var bool
@@ -41,12 +51,22 @@ class SendAsyncChatMessageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $locale;
+
+    /**
+     * @var string
+     */
     public $model;
 
     /**
      * @var bool
      */
     public $reuseLastSession;
+
+    /**
+     * @var string
+     */
+    public $segmentsShrink;
 
     /**
      * @var string
@@ -75,12 +95,16 @@ class SendAsyncChatMessageShrinkRequest extends Model
     protected $_name = [
         'content' => 'content',
         'contentType' => 'contentType',
+        'contextItemsShrink' => 'contextItems',
         'digitalEmployeeNameShrink' => 'digitalEmployeeName',
         'directChat' => 'directChat',
+        'directMaxHistoryRounds' => 'directMaxHistoryRounds',
         'enableWebSearch' => 'enableWebSearch',
         'filesShrink' => 'files',
+        'locale' => 'locale',
         'model' => 'model',
         'reuseLastSession' => 'reuseLastSession',
+        'segmentsShrink' => 'segments',
         'sessionId' => 'sessionId',
         'stream' => 'stream',
         'taskExecutionShrink' => 'taskExecution',
@@ -104,12 +128,20 @@ class SendAsyncChatMessageShrinkRequest extends Model
             $res['contentType'] = $this->contentType;
         }
 
+        if (null !== $this->contextItemsShrink) {
+            $res['contextItems'] = $this->contextItemsShrink;
+        }
+
         if (null !== $this->digitalEmployeeNameShrink) {
             $res['digitalEmployeeName'] = $this->digitalEmployeeNameShrink;
         }
 
         if (null !== $this->directChat) {
             $res['directChat'] = $this->directChat;
+        }
+
+        if (null !== $this->directMaxHistoryRounds) {
+            $res['directMaxHistoryRounds'] = $this->directMaxHistoryRounds;
         }
 
         if (null !== $this->enableWebSearch) {
@@ -120,12 +152,20 @@ class SendAsyncChatMessageShrinkRequest extends Model
             $res['files'] = $this->filesShrink;
         }
 
+        if (null !== $this->locale) {
+            $res['locale'] = $this->locale;
+        }
+
         if (null !== $this->model) {
             $res['model'] = $this->model;
         }
 
         if (null !== $this->reuseLastSession) {
             $res['reuseLastSession'] = $this->reuseLastSession;
+        }
+
+        if (null !== $this->segmentsShrink) {
+            $res['segments'] = $this->segmentsShrink;
         }
 
         if (null !== $this->sessionId) {
@@ -167,12 +207,20 @@ class SendAsyncChatMessageShrinkRequest extends Model
             $model->contentType = $map['contentType'];
         }
 
+        if (isset($map['contextItems'])) {
+            $model->contextItemsShrink = $map['contextItems'];
+        }
+
         if (isset($map['digitalEmployeeName'])) {
             $model->digitalEmployeeNameShrink = $map['digitalEmployeeName'];
         }
 
         if (isset($map['directChat'])) {
             $model->directChat = $map['directChat'];
+        }
+
+        if (isset($map['directMaxHistoryRounds'])) {
+            $model->directMaxHistoryRounds = $map['directMaxHistoryRounds'];
         }
 
         if (isset($map['enableWebSearch'])) {
@@ -183,12 +231,20 @@ class SendAsyncChatMessageShrinkRequest extends Model
             $model->filesShrink = $map['files'];
         }
 
+        if (isset($map['locale'])) {
+            $model->locale = $map['locale'];
+        }
+
         if (isset($map['model'])) {
             $model->model = $map['model'];
         }
 
         if (isset($map['reuseLastSession'])) {
             $model->reuseLastSession = $map['reuseLastSession'];
+        }
+
+        if (isset($map['segments'])) {
+            $model->segmentsShrink = $map['segments'];
         }
 
         if (isset($map['sessionId'])) {

@@ -36,6 +36,11 @@ class UpdateScheduledTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $outputMode;
+
+    /**
+     * @var string
+     */
     public $segmentsShrink;
 
     /**
@@ -73,6 +78,7 @@ class UpdateScheduledTaskShrinkRequest extends Model
         'isOpen' => 'isOpen',
         'model' => 'model',
         'name' => 'name',
+        'outputMode' => 'outputMode',
         'segmentsShrink' => 'segments',
         'taskDetailShrink' => 'taskDetail',
         'taskId' => 'taskId',
@@ -108,6 +114,10 @@ class UpdateScheduledTaskShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->outputMode) {
+            $res['outputMode'] = $this->outputMode;
         }
 
         if (null !== $this->segmentsShrink) {
@@ -167,6 +177,10 @@ class UpdateScheduledTaskShrinkRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['outputMode'])) {
+            $model->outputMode = $map['outputMode'];
         }
 
         if (isset($map['segments'])) {

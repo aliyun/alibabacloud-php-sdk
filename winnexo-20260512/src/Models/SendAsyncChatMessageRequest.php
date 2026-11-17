@@ -5,7 +5,9 @@
 namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendAsyncChatMessageRequest\contextItems;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendAsyncChatMessageRequest\files;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendAsyncChatMessageRequest\segments;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendAsyncChatMessageRequest\taskExecution;
 
 class SendAsyncChatMessageRequest extends Model
@@ -21,6 +23,11 @@ class SendAsyncChatMessageRequest extends Model
     public $contentType;
 
     /**
+     * @var contextItems[]
+     */
+    public $contextItems;
+
+    /**
      * @var string[]
      */
     public $digitalEmployeeName;
@@ -29,6 +36,11 @@ class SendAsyncChatMessageRequest extends Model
      * @var bool
      */
     public $directChat;
+
+    /**
+     * @var mixed
+     */
+    public $directMaxHistoryRounds;
 
     /**
      * @var bool
@@ -43,12 +55,22 @@ class SendAsyncChatMessageRequest extends Model
     /**
      * @var string
      */
+    public $locale;
+
+    /**
+     * @var string
+     */
     public $model;
 
     /**
      * @var bool
      */
     public $reuseLastSession;
+
+    /**
+     * @var segments[]
+     */
+    public $segments;
 
     /**
      * @var string
@@ -77,12 +99,16 @@ class SendAsyncChatMessageRequest extends Model
     protected $_name = [
         'content' => 'content',
         'contentType' => 'contentType',
+        'contextItems' => 'contextItems',
         'digitalEmployeeName' => 'digitalEmployeeName',
         'directChat' => 'directChat',
+        'directMaxHistoryRounds' => 'directMaxHistoryRounds',
         'enableWebSearch' => 'enableWebSearch',
         'files' => 'files',
+        'locale' => 'locale',
         'model' => 'model',
         'reuseLastSession' => 'reuseLastSession',
+        'segments' => 'segments',
         'sessionId' => 'sessionId',
         'stream' => 'stream',
         'taskExecution' => 'taskExecution',
@@ -92,11 +118,17 @@ class SendAsyncChatMessageRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->contextItems)) {
+            Model::validateArray($this->contextItems);
+        }
         if (\is_array($this->digitalEmployeeName)) {
             Model::validateArray($this->digitalEmployeeName);
         }
         if (\is_array($this->files)) {
             Model::validateArray($this->files);
+        }
+        if (\is_array($this->segments)) {
+            Model::validateArray($this->segments);
         }
         if (null !== $this->taskExecution) {
             $this->taskExecution->validate();
@@ -115,6 +147,17 @@ class SendAsyncChatMessageRequest extends Model
             $res['contentType'] = $this->contentType;
         }
 
+        if (null !== $this->contextItems) {
+            if (\is_array($this->contextItems)) {
+                $res['contextItems'] = [];
+                $n1 = 0;
+                foreach ($this->contextItems as $item1) {
+                    $res['contextItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->digitalEmployeeName) {
             if (\is_array($this->digitalEmployeeName)) {
                 $res['digitalEmployeeName'] = [];
@@ -128,6 +171,10 @@ class SendAsyncChatMessageRequest extends Model
 
         if (null !== $this->directChat) {
             $res['directChat'] = $this->directChat;
+        }
+
+        if (null !== $this->directMaxHistoryRounds) {
+            $res['directMaxHistoryRounds'] = $this->directMaxHistoryRounds;
         }
 
         if (null !== $this->enableWebSearch) {
@@ -145,12 +192,27 @@ class SendAsyncChatMessageRequest extends Model
             }
         }
 
+        if (null !== $this->locale) {
+            $res['locale'] = $this->locale;
+        }
+
         if (null !== $this->model) {
             $res['model'] = $this->model;
         }
 
         if (null !== $this->reuseLastSession) {
             $res['reuseLastSession'] = $this->reuseLastSession;
+        }
+
+        if (null !== $this->segments) {
+            if (\is_array($this->segments)) {
+                $res['segments'] = [];
+                $n1 = 0;
+                foreach ($this->segments as $item1) {
+                    $res['segments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->sessionId) {
@@ -192,6 +254,17 @@ class SendAsyncChatMessageRequest extends Model
             $model->contentType = $map['contentType'];
         }
 
+        if (isset($map['contextItems'])) {
+            if (!empty($map['contextItems'])) {
+                $model->contextItems = [];
+                $n1 = 0;
+                foreach ($map['contextItems'] as $item1) {
+                    $model->contextItems[$n1] = contextItems::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['digitalEmployeeName'])) {
             if (!empty($map['digitalEmployeeName'])) {
                 $model->digitalEmployeeName = [];
@@ -205,6 +278,10 @@ class SendAsyncChatMessageRequest extends Model
 
         if (isset($map['directChat'])) {
             $model->directChat = $map['directChat'];
+        }
+
+        if (isset($map['directMaxHistoryRounds'])) {
+            $model->directMaxHistoryRounds = $map['directMaxHistoryRounds'];
         }
 
         if (isset($map['enableWebSearch'])) {
@@ -222,12 +299,27 @@ class SendAsyncChatMessageRequest extends Model
             }
         }
 
+        if (isset($map['locale'])) {
+            $model->locale = $map['locale'];
+        }
+
         if (isset($map['model'])) {
             $model->model = $map['model'];
         }
 
         if (isset($map['reuseLastSession'])) {
             $model->reuseLastSession = $map['reuseLastSession'];
+        }
+
+        if (isset($map['segments'])) {
+            if (!empty($map['segments'])) {
+                $model->segments = [];
+                $n1 = 0;
+                foreach ($map['segments'] as $item1) {
+                    $model->segments[$n1] = segments::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['sessionId'])) {

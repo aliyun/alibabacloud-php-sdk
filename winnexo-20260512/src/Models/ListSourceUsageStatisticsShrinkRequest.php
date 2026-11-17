@@ -1,0 +1,216 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\WinNexo\V20260512\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class ListSourceUsageStatisticsShrinkRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $collaborationGroupId;
+
+    /**
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $eventType;
+
+    /**
+     * @var string
+     */
+    public $knowledgeBaseIdsShrink;
+
+    /**
+     * @var int
+     */
+    public $page;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $scopeType;
+
+    /**
+     * @var string
+     */
+    public $sortBy;
+
+    /**
+     * @var string
+     */
+    public $sortOrder;
+
+    /**
+     * @var string
+     */
+    public $sourceIdsShrink;
+
+    /**
+     * @var string
+     */
+    public $sourceName;
+
+    /**
+     * @var string
+     */
+    public $startTime;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
+    protected $_name = [
+        'collaborationGroupId' => 'collaborationGroupId',
+        'endTime' => 'endTime',
+        'eventType' => 'eventType',
+        'knowledgeBaseIdsShrink' => 'knowledgeBaseIds',
+        'page' => 'page',
+        'pageSize' => 'pageSize',
+        'scopeType' => 'scopeType',
+        'sortBy' => 'sortBy',
+        'sortOrder' => 'sortOrder',
+        'sourceIdsShrink' => 'sourceIds',
+        'sourceName' => 'sourceName',
+        'startTime' => 'startTime',
+        'tenantId' => 'tenantId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->collaborationGroupId) {
+            $res['collaborationGroupId'] = $this->collaborationGroupId;
+        }
+
+        if (null !== $this->endTime) {
+            $res['endTime'] = $this->endTime;
+        }
+
+        if (null !== $this->eventType) {
+            $res['eventType'] = $this->eventType;
+        }
+
+        if (null !== $this->knowledgeBaseIdsShrink) {
+            $res['knowledgeBaseIds'] = $this->knowledgeBaseIdsShrink;
+        }
+
+        if (null !== $this->page) {
+            $res['page'] = $this->page;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->scopeType) {
+            $res['scopeType'] = $this->scopeType;
+        }
+
+        if (null !== $this->sortBy) {
+            $res['sortBy'] = $this->sortBy;
+        }
+
+        if (null !== $this->sortOrder) {
+            $res['sortOrder'] = $this->sortOrder;
+        }
+
+        if (null !== $this->sourceIdsShrink) {
+            $res['sourceIds'] = $this->sourceIdsShrink;
+        }
+
+        if (null !== $this->sourceName) {
+            $res['sourceName'] = $this->sourceName;
+        }
+
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
+        }
+
+        if (null !== $this->tenantId) {
+            $res['tenantId'] = $this->tenantId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['collaborationGroupId'])) {
+            $model->collaborationGroupId = $map['collaborationGroupId'];
+        }
+
+        if (isset($map['endTime'])) {
+            $model->endTime = $map['endTime'];
+        }
+
+        if (isset($map['eventType'])) {
+            $model->eventType = $map['eventType'];
+        }
+
+        if (isset($map['knowledgeBaseIds'])) {
+            $model->knowledgeBaseIdsShrink = $map['knowledgeBaseIds'];
+        }
+
+        if (isset($map['page'])) {
+            $model->page = $map['page'];
+        }
+
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['scopeType'])) {
+            $model->scopeType = $map['scopeType'];
+        }
+
+        if (isset($map['sortBy'])) {
+            $model->sortBy = $map['sortBy'];
+        }
+
+        if (isset($map['sortOrder'])) {
+            $model->sortOrder = $map['sortOrder'];
+        }
+
+        if (isset($map['sourceIds'])) {
+            $model->sourceIdsShrink = $map['sourceIds'];
+        }
+
+        if (isset($map['sourceName'])) {
+            $model->sourceName = $map['sourceName'];
+        }
+
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
+        }
+
+        if (isset($map['tenantId'])) {
+            $model->tenantId = $map['tenantId'];
+        }
+
+        return $model;
+    }
+}

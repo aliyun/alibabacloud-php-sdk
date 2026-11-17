@@ -16,6 +16,11 @@ class timeline extends Model
     /**
      * @var string
      */
+    public $conversationId;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -36,6 +41,11 @@ class timeline extends Model
     /**
      * @var string
      */
+    public $messageId;
+
+    /**
+     * @var string
+     */
     public $outputContent;
 
     /**
@@ -49,10 +59,12 @@ class timeline extends Model
     public $status;
     protected $_name = [
         'actualTime' => 'actualTime',
+        'conversationId' => 'conversationId',
         'displayName' => 'displayName',
         'errorMessage' => 'errorMessage',
         'executionId' => 'executionId',
         'isExpired' => 'isExpired',
+        'messageId' => 'messageId',
         'outputContent' => 'outputContent',
         'scheduledTime' => 'scheduledTime',
         'status' => 'status',
@@ -70,6 +82,10 @@ class timeline extends Model
             $res['actualTime'] = $this->actualTime;
         }
 
+        if (null !== $this->conversationId) {
+            $res['conversationId'] = $this->conversationId;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
@@ -84,6 +100,10 @@ class timeline extends Model
 
         if (null !== $this->isExpired) {
             $res['isExpired'] = $this->isExpired;
+        }
+
+        if (null !== $this->messageId) {
+            $res['messageId'] = $this->messageId;
         }
 
         if (null !== $this->outputContent) {
@@ -113,6 +133,10 @@ class timeline extends Model
             $model->actualTime = $map['actualTime'];
         }
 
+        if (isset($map['conversationId'])) {
+            $model->conversationId = $map['conversationId'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }
@@ -127,6 +151,10 @@ class timeline extends Model
 
         if (isset($map['isExpired'])) {
             $model->isExpired = $map['isExpired'];
+        }
+
+        if (isset($map['messageId'])) {
+            $model->messageId = $map['messageId'];
         }
 
         if (isset($map['outputContent'])) {
