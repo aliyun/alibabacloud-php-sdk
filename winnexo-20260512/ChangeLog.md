@@ -1,3 +1,6 @@
+2026-11-17 Version: 1.9.1
+- Generated php 2026-05-12 for WinNexo.
+
 2026-11-17 Version: 1.9.0
 - Support API ConvertDirectConversationToWork.
 - Support API GetScheduledTaskConversationRecords.
