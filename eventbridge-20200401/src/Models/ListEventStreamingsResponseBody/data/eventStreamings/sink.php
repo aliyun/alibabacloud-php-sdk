@@ -21,6 +21,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBod
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkSLSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkAgentCoreKnowledgeBaseParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkAgentRunParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkApiDestinationParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
@@ -33,6 +34,11 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkRabbitMQMsgSyncParameters;
 
 class sink extends Model
 {
+    /**
+     * @var SinkAgentCoreKnowledgeBaseParameters
+     */
+    public $sinkAgentCoreKnowledgeBaseParameters;
+
     /**
      * @var SinkAgentRunParameters
      */
@@ -158,6 +164,7 @@ class sink extends Model
      */
     public $sinkSLSParameters;
     protected $_name = [
+        'sinkAgentCoreKnowledgeBaseParameters' => 'SinkAgentCoreKnowledgeBaseParameters',
         'sinkAgentRunParameters' => 'SinkAgentRunParameters',
         'sinkApacheRocketMQCheckpointParameters' => 'SinkApacheRocketMQCheckpointParameters',
         'sinkApiDestinationParameters' => 'SinkApiDestinationParameters',
@@ -187,6 +194,9 @@ class sink extends Model
 
     public function validate()
     {
+        if (null !== $this->sinkAgentCoreKnowledgeBaseParameters) {
+            $this->sinkAgentCoreKnowledgeBaseParameters->validate();
+        }
         if (null !== $this->sinkAgentRunParameters) {
             $this->sinkAgentRunParameters->validate();
         }
@@ -268,6 +278,10 @@ class sink extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->sinkAgentCoreKnowledgeBaseParameters) {
+            $res['SinkAgentCoreKnowledgeBaseParameters'] = null !== $this->sinkAgentCoreKnowledgeBaseParameters ? $this->sinkAgentCoreKnowledgeBaseParameters->toArray($noStream) : $this->sinkAgentCoreKnowledgeBaseParameters;
+        }
+
         if (null !== $this->sinkAgentRunParameters) {
             $res['SinkAgentRunParameters'] = null !== $this->sinkAgentRunParameters ? $this->sinkAgentRunParameters->toArray($noStream) : $this->sinkAgentRunParameters;
         }
@@ -379,6 +393,10 @@ class sink extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SinkAgentCoreKnowledgeBaseParameters'])) {
+            $model->sinkAgentCoreKnowledgeBaseParameters = SinkAgentCoreKnowledgeBaseParameters::fromMap($map['SinkAgentCoreKnowledgeBaseParameters']);
+        }
+
         if (isset($map['SinkAgentRunParameters'])) {
             $model->sinkAgentRunParameters = SinkAgentRunParameters::fromMap($map['SinkAgentRunParameters']);
         }

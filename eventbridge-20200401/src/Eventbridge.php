@@ -1310,10 +1310,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role based on the service-linked role name associated with an Alibaba Cloud service.
+     * Creates a service-linked role based on the service-linked role name associated with a product.
      *
      * @remarks
-     * Creates a service-linked role based on the service-linked role name associated with an Alibaba Cloud service.
+     * Creates a service-linked role based on the service-linked role name associated with a product.
      *
      * @param request - CreateServiceLinkedRoleForProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1352,10 +1352,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role based on the service-linked role name associated with an Alibaba Cloud service.
+     * Creates a service-linked role based on the service-linked role name associated with a product.
      *
      * @remarks
-     * Creates a service-linked role based on the service-linked role name associated with an Alibaba Cloud service.
+     * Creates a service-linked role based on the service-linked role name associated with a product.
      *
      * @param request - CreateServiceLinkedRoleForProductRequest
      *
@@ -2105,7 +2105,7 @@ class Eventbridge extends OpenApiClient
      * Deletes an event rule.
      *
      * @remarks
-     * You can call this API operation to delete an event rule.
+     * Deletes an event rule.
      *
      * @param request - DeleteRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2151,7 +2151,7 @@ class Eventbridge extends OpenApiClient
      * Deletes an event rule.
      *
      * @remarks
-     * You can call this API operation to delete an event rule.
+     * Deletes an event rule.
      *
      * @param request - DeleteRuleRequest
      *
@@ -7800,10 +7800,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information, event source information, event filtering pattern, or event target information of an event stream.
+     * Modifies the basic information, event source, event filter pattern, or event target of an event stream.
      *
      * @remarks
-     * Modifies the basic information, event source information, event filtering pattern, or event target information of an event stream.
+     * Modifies the basic information, event source, event filter pattern, or event target of an event stream.
      *
      * @param tmpReq - UpdateEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7888,10 +7888,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information, event source information, event filtering pattern, or event target information of an event stream.
+     * Modifies the basic information, event source, event filter pattern, or event target of an event stream.
      *
      * @remarks
-     * Modifies the basic information, event source information, event filtering pattern, or event target information of an event stream.
+     * Modifies the basic information, event source, event filter pattern, or event target of an event stream.
      *
      * @param request - UpdateEventStreamingRequest
      *
