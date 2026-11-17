@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddKnowledgeBaseAdministratorRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddKnowledgeBaseAdministratorResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApplyResourceAccessPermissionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApplyResourceAccessPermissionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApplyResourceAccessPermissionShrinkRequest;
@@ -136,6 +138,21 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateIdentifyCredentialSh
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateImageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateImageShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeBaseBuildTaskInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeBaseBuildTaskInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeBaseBuildTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeBaseBuildTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeBaseBuildTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeObjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeObjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeObjectShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeObjectUploadRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeObjectUploadResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeSourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateKnowledgeSourceShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipShrinkRequest;
@@ -255,6 +272,14 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteImageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteImageResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteKnowledgeBaseBuildTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteKnowledgeBaseBuildTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteKnowledgeObjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteKnowledgeObjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteKnowledgeSourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteKnowledgeSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMcpServerRequest;
@@ -419,10 +444,20 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetImageTestResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetImageTestResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeBaseBuildTaskInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeBaseBuildTaskInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeBaseBuildTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeBaseBuildTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeBaseBuildTaskResultRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeBaseBuildTaskResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeObjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeObjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgePointRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgePointResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeSourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetKnowledgeSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMcpServerRequest;
@@ -491,6 +526,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowInstanceRequest
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetWorkflowResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantKnowledgeBaseRetrievalRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantKnowledgeBaseRetrievalResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GrantMemberProjectRolesShrinkRequest;
@@ -627,10 +664,22 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageTestResultsReques
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageTestResultsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageVersionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListImageVersionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBaseAdministratorsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBaseAdministratorsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBaseBuildTaskInstancesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBaseBuildTaskInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBaseBuildTasksRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBaseBuildTasksResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBaseRetrievalGrantsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBaseRetrievalGrantsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBasesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeBasesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeObjectsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeObjectsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgePointsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgePointsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeSourcesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListKnowledgeSourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineagesRequest;
@@ -760,6 +809,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PublishImageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\PublishImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveEntityFromMetaCollectionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveKnowledgeBaseAdministratorRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveKnowledgeBaseAdministratorResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RemoveTaskInstanceDependenciesShrinkRequest;
@@ -786,6 +837,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ResumeTaskInstancesShrinkR
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RetrieveKnowledgePointsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RetrieveKnowledgePointsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RetrieveKnowledgePointsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RetryKnowledgeBaseBuildTaskInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RetryKnowledgeBaseBuildTaskInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeKnowledgeBaseRetrievalRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeKnowledgeBaseRetrievalResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\RevokeMemberProjectRolesShrinkRequest;
@@ -814,6 +869,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopCrawlerRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopCrawlerResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopKnowledgeBaseBuildTaskInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopKnowledgeBaseBuildTaskInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopProcessInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopProcessInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopServerIdeInstanceRequest;
@@ -917,6 +974,17 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateIDEEventResultRespon
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateImageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateImageShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeBaseBuildTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeBaseBuildTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeBaseBuildTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeObjectRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeObjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeObjectShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeSourceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateKnowledgeSourceShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMcpServerRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMcpServerResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMcpServerShrinkRequest;
@@ -1189,7 +1257,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Terminates a cross-workspace deployment pipeline run.
+     * Stops the cross-workspace deployment pipeline.
      *
      * @param Request - AbolishCrossProjectPipelineRunRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1236,7 +1304,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Terminates a cross-workspace deployment pipeline run.
+     * Stops the cross-workspace deployment pipeline.
      *
      * @param Request - AbolishCrossProjectPipelineRunRequest
      *
@@ -1389,6 +1457,73 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addEntityIntoMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds an administrator to a specified knowledge base.
+     *
+     * @remarks
+     * Adds an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - AddKnowledgeBaseAdministratorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddKnowledgeBaseAdministratorResponse
+     *
+     * @param AddKnowledgeBaseAdministratorRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return AddKnowledgeBaseAdministratorResponse
+     */
+    public function addKnowledgeBaseAdministratorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->administratorUserId) {
+            @$body['AdministratorUserId'] = $request->administratorUserId;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddKnowledgeBaseAdministrator',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddKnowledgeBaseAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds an administrator to a specified knowledge base.
+     *
+     * @remarks
+     * Adds an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - AddKnowledgeBaseAdministratorRequest
+     *
+     * @returns AddKnowledgeBaseAdministratorResponse
+     *
+     * @param AddKnowledgeBaseAdministratorRequest $request
+     *
+     * @return AddKnowledgeBaseAdministratorResponse
+     */
+    public function addKnowledgeBaseAdministrator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addKnowledgeBaseAdministratorWithOptions($request, $runtime);
     }
 
     /**
@@ -3258,7 +3393,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a cross-workspace deployment pipeline.
      *
      * @remarks
-     * Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
+     * Creates and finalizes a cross-workspace deployment pipeline. The ObjectIds parameter must contain one and only one top-level object ID from the source workspace. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects. After creation, call ExecCrossProjectPipelineRun to execute the deployment, and call GetCrossProjectPipelineRun to query the status.
      *
      * @param tmpReq - CreateCrossProjectPipelineRunRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3322,7 +3457,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a cross-workspace deployment pipeline.
      *
      * @remarks
-     * Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
+     * Creates and finalizes a cross-workspace deployment pipeline. The ObjectIds parameter must contain one and only one top-level object ID from the source workspace. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects. After creation, call ExecCrossProjectPipelineRun to execute the deployment, and call GetCrossProjectPipelineRun to query the status.
      *
      * @param Request - CreateCrossProjectPipelineRunRequest
      *
@@ -5394,6 +5529,554 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a knowledge base and returns the knowledge base ID, name, ownership, and the access role of the current caller. This operation does not automatically add sources, build knowledge, or generate retrieval results. You can continue to configure knowledge sources and build tasks. The tenant and owner of the knowledge base are determined by the current caller identity. You do not need to specify a workspace or resource group.
+     *
+     * @remarks
+     * Creates a knowledge base. The tenant and caller identity are determined by the POP authentication context.
+     *
+     * @param Request - CreateKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param CreateKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBase',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a knowledge base and returns the knowledge base ID, name, ownership, and the access role of the current caller. This operation does not automatically add sources, build knowledge, or generate retrieval results. You can continue to configure knowledge sources and build tasks. The tenant and owner of the knowledge base are determined by the current caller identity. You do not need to specify a workspace or resource group.
+     *
+     * @remarks
+     * Creates a knowledge base. The tenant and caller identity are determined by the POP authentication context.
+     *
+     * @param Request - CreateKnowledgeBaseRequest
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param CreateKnowledgeBaseRequest $request
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a repeatable knowledge build task and configures the input scope, trigger mode, and runtime resources.
+     *
+     * @remarks
+     * Creates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param tmpReq - CreateKnowledgeBaseBuildTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBaseBuildTaskResponse
+     *
+     * @param CreateKnowledgeBaseBuildTaskRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateKnowledgeBaseBuildTaskResponse
+     */
+    public function createKnowledgeBaseBuildTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateKnowledgeBaseBuildTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+
+        if (null !== $tmpReq->runtimeResource) {
+            $request->runtimeResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
+        }
+
+        if (null !== $tmpReq->trigger) {
+            $request->triggerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->contentLocale) {
+            @$body['ContentLocale'] = $request->contentLocale;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->inputShrink) {
+            @$body['Input'] = $request->inputShrink;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->llmModel) {
+            @$body['LlmModel'] = $request->llmModel;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->runtimeResourceShrink) {
+            @$body['RuntimeResource'] = $request->runtimeResourceShrink;
+        }
+
+        if (null !== $request->triggerShrink) {
+            @$body['Trigger'] = $request->triggerShrink;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBaseBuildTask',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBaseBuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a repeatable knowledge build task and configures the input scope, trigger mode, and runtime resources.
+     *
+     * @remarks
+     * Creates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - CreateKnowledgeBaseBuildTaskRequest
+     *
+     * @returns CreateKnowledgeBaseBuildTaskResponse
+     *
+     * @param CreateKnowledgeBaseBuildTaskRequest $request
+     *
+     * @return CreateKnowledgeBaseBuildTaskResponse
+     */
+    public function createKnowledgeBaseBuildTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKnowledgeBaseBuildTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a build instance based on the current configuration of a specified task, and freezes the input and runtime configurations for this execution.
+     *
+     * @remarks
+     * Creates a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - CreateKnowledgeBaseBuildTaskInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBaseBuildTaskInstanceResponse
+     *
+     * @param CreateKnowledgeBaseBuildTaskInstanceRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return CreateKnowledgeBaseBuildTaskInstanceResponse
+     */
+    public function createKnowledgeBaseBuildTaskInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBaseBuildTaskInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBaseBuildTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a build instance based on the current configuration of a specified task, and freezes the input and runtime configurations for this execution.
+     *
+     * @remarks
+     * Creates a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - CreateKnowledgeBaseBuildTaskInstanceRequest
+     *
+     * @returns CreateKnowledgeBaseBuildTaskInstanceResponse
+     *
+     * @param CreateKnowledgeBaseBuildTaskInstanceRequest $request
+     *
+     * @return CreateKnowledgeBaseBuildTaskInstanceResponse
+     */
+    public function createKnowledgeBaseBuildTaskInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKnowledgeBaseBuildTaskInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a document object in a knowledge base by using the document body or an uploaded file.
+     *
+     * @remarks
+     * Creates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param tmpReq - CreateKnowledgeObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeObjectResponse
+     *
+     * @param CreateKnowledgeObjectRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateKnowledgeObjectResponse
+     */
+    public function createKnowledgeObjectWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateKnowledgeObjectShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->contentShrink) {
+            @$body['Content'] = $request->contentShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->uploadId) {
+            @$body['UploadId'] = $request->uploadId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeObject',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a document object in a knowledge base by using the document body or an uploaded file.
+     *
+     * @remarks
+     * Creates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - CreateKnowledgeObjectRequest
+     *
+     * @returns CreateKnowledgeObjectResponse
+     *
+     * @param CreateKnowledgeObjectRequest $request
+     *
+     * @return CreateKnowledgeObjectResponse
+     */
+    public function createKnowledgeObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKnowledgeObjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Requests a file upload session and a temporary direct upload URL without creating a knowledge object or starting a build.
+     *
+     * @remarks
+     * Creates an upload session for a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - CreateKnowledgeObjectUploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeObjectUploadResponse
+     *
+     * @param CreateKnowledgeObjectUploadRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateKnowledgeObjectUploadResponse
+     */
+    public function createKnowledgeObjectUploadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->contentMd5) {
+            @$body['ContentMd5'] = $request->contentMd5;
+        }
+
+        if (null !== $request->contentSha256) {
+            @$body['ContentSha256'] = $request->contentSha256;
+        }
+
+        if (null !== $request->contentType) {
+            @$body['ContentType'] = $request->contentType;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->sizeBytes) {
+            @$body['SizeBytes'] = $request->sizeBytes;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeObjectUpload',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeObjectUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Requests a file upload session and a temporary direct upload URL without creating a knowledge object or starting a build.
+     *
+     * @remarks
+     * Creates an upload session for a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - CreateKnowledgeObjectUploadRequest
+     *
+     * @returns CreateKnowledgeObjectUploadResponse
+     *
+     * @param CreateKnowledgeObjectUploadRequest $request
+     *
+     * @return CreateKnowledgeObjectUploadResponse
+     */
+    public function createKnowledgeObjectUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKnowledgeObjectUploadWithOptions($request, $runtime);
+    }
+
+    /**
+     * Registers projects, data sources, or external document sources that can be referenced by a knowledge base.
+     *
+     * @remarks
+     * Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in query responses.
+     *
+     * @param tmpReq - CreateKnowledgeSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeSourceResponse
+     *
+     * @param CreateKnowledgeSourceRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateKnowledgeSourceResponse
+     */
+    public function createKnowledgeSourceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateKnowledgeSourceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataSource) {
+            $request->dataSourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
+        }
+
+        if (null !== $tmpReq->document) {
+            $request->documentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->document, 'Document', 'json');
+        }
+
+        if (null !== $tmpReq->project) {
+            $request->projectShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->project, 'Project', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dataSourceShrink) {
+            @$body['DataSource'] = $request->dataSourceShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->documentShrink) {
+            @$body['Document'] = $request->documentShrink;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectShrink) {
+            @$body['Project'] = $request->projectShrink;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeSource',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Registers projects, data sources, or external document sources that can be referenced by a knowledge base.
+     *
+     * @remarks
+     * Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in query responses.
+     *
+     * @param Request - CreateKnowledgeSourceRequest
+     *
+     * @returns CreateKnowledgeSourceResponse
+     *
+     * @param CreateKnowledgeSourceRequest $request
+     *
+     * @return CreateKnowledgeSourceResponse
+     */
+    public function createKnowledgeSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKnowledgeSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -8746,6 +9429,9 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Deletes a data quality monitoring rule.
      *
+     * @remarks
+     * 需要购买DataWorks基础版及以上版本才能使用
+     *
      * @param Request - DeleteDataQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8788,6 +9474,9 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * Deletes a data quality monitoring rule.
+     *
+     * @remarks
+     * 需要购买DataWorks基础版及以上版本才能使用
      *
      * @param Request - DeleteDataQualityRuleRequest
      *
@@ -9518,6 +10207,270 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a specified knowledge base and returns the deleted status upon success.
+     *
+     * @remarks
+     * Deletes a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - DeleteKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param DeleteKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeBase',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified knowledge base and returns the deleted status upon success.
+     *
+     * @remarks
+     * Deletes a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - DeleteKnowledgeBaseRequest
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param DeleteKnowledgeBaseRequest $request
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a specified knowledge base build task.
+     *
+     * @remarks
+     * Deletes a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - DeleteKnowledgeBaseBuildTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeBaseBuildTaskResponse
+     *
+     * @param DeleteKnowledgeBaseBuildTaskRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteKnowledgeBaseBuildTaskResponse
+     */
+    public function deleteKnowledgeBaseBuildTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeBaseBuildTask',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeBaseBuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified knowledge base build task.
+     *
+     * @remarks
+     * Deletes a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - DeleteKnowledgeBaseBuildTaskRequest
+     *
+     * @returns DeleteKnowledgeBaseBuildTaskResponse
+     *
+     * @param DeleteKnowledgeBaseBuildTaskRequest $request
+     *
+     * @return DeleteKnowledgeBaseBuildTaskResponse
+     */
+    public function deleteKnowledgeBaseBuildTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKnowledgeBaseBuildTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes a document object from a knowledge base or archives a semantic model object.
+     *
+     * @remarks
+     * Deletes a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - DeleteKnowledgeObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeObjectResponse
+     *
+     * @param DeleteKnowledgeObjectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteKnowledgeObjectResponse
+     */
+    public function deleteKnowledgeObjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->knowledgeObjectId) {
+            @$body['KnowledgeObjectId'] = $request->knowledgeObjectId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeObject',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes a document object from a knowledge base or archives a semantic model object.
+     *
+     * @remarks
+     * Deletes a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - DeleteKnowledgeObjectRequest
+     *
+     * @returns DeleteKnowledgeObjectResponse
+     *
+     * @param DeleteKnowledgeObjectRequest $request
+     *
+     * @return DeleteKnowledgeObjectResponse
+     */
+    public function deleteKnowledgeObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKnowledgeObjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a knowledge source from a specified knowledge base.
+     *
+     * @remarks
+     * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+     *
+     * @param Request - DeleteKnowledgeSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeSourceResponse
+     *
+     * @param DeleteKnowledgeSourceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteKnowledgeSourceResponse
+     */
+    public function deleteKnowledgeSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['SourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeSource',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a knowledge source from a specified knowledge base.
+     *
+     * @remarks
+     * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+     *
+     * @param Request - DeleteKnowledgeSourceRequest
+     *
+     * @returns DeleteKnowledgeSourceResponse
+     *
+     * @param DeleteKnowledgeSourceRequest $request
+     *
+     * @return DeleteKnowledgeSourceResponse
+     */
+    public function deleteKnowledgeSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKnowledgeSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -14972,6 +15925,278 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Retrieves the current configuration of a specified knowledge base build task.
+     *
+     * @remarks
+     * Reads a knowledge base build task or instance. The tenant and caller identity are determined by the POP authentication context.
+     *
+     * @param Request - GetKnowledgeBaseBuildTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeBaseBuildTaskResponse
+     *
+     * @param GetKnowledgeBaseBuildTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetKnowledgeBaseBuildTaskResponse
+     */
+    public function getKnowledgeBaseBuildTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeBaseBuildTask',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeBaseBuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the current configuration of a specified knowledge base build task.
+     *
+     * @remarks
+     * Reads a knowledge base build task or instance. The tenant and caller identity are determined by the POP authentication context.
+     *
+     * @param Request - GetKnowledgeBaseBuildTaskRequest
+     *
+     * @returns GetKnowledgeBaseBuildTaskResponse
+     *
+     * @param GetKnowledgeBaseBuildTaskRequest $request
+     *
+     * @return GetKnowledgeBaseBuildTaskResponse
+     */
+    public function getKnowledgeBaseBuildTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKnowledgeBaseBuildTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the execution status, input and configuration snapshots, and failure details for a build.
+     *
+     * @remarks
+     * Retrieves a knowledge base build task or instance. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - GetKnowledgeBaseBuildTaskInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeBaseBuildTaskInstanceResponse
+     *
+     * @param GetKnowledgeBaseBuildTaskInstanceRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetKnowledgeBaseBuildTaskInstanceResponse
+     */
+    public function getKnowledgeBaseBuildTaskInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->taskInstanceId) {
+            @$body['TaskInstanceId'] = $request->taskInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeBaseBuildTaskInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeBaseBuildTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the execution status, input and configuration snapshots, and failure details for a build.
+     *
+     * @remarks
+     * Retrieves a knowledge base build task or instance. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - GetKnowledgeBaseBuildTaskInstanceRequest
+     *
+     * @returns GetKnowledgeBaseBuildTaskInstanceResponse
+     *
+     * @param GetKnowledgeBaseBuildTaskInstanceRequest $request
+     *
+     * @return GetKnowledgeBaseBuildTaskInstanceResponse
+     */
+    public function getKnowledgeBaseBuildTaskInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKnowledgeBaseBuildTaskInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the original artifact information and temporary download URL of a successful build.
+     *
+     * @remarks
+     * Retrieves the temporary download link for the original artifact package of a successful build instance. The model YAML is obtained through the knowledge object API and is not included in the TGZ result of this API.
+     *
+     * @param Request - GetKnowledgeBaseBuildTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeBaseBuildTaskResultResponse
+     *
+     * @param GetKnowledgeBaseBuildTaskResultRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetKnowledgeBaseBuildTaskResultResponse
+     */
+    public function getKnowledgeBaseBuildTaskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->taskInstanceId) {
+            @$body['TaskInstanceId'] = $request->taskInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeBaseBuildTaskResult',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeBaseBuildTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the original artifact information and temporary download URL of a successful build.
+     *
+     * @remarks
+     * Retrieves the temporary download link for the original artifact package of a successful build instance. The model YAML is obtained through the knowledge object API and is not included in the TGZ result of this API.
+     *
+     * @param Request - GetKnowledgeBaseBuildTaskResultRequest
+     *
+     * @returns GetKnowledgeBaseBuildTaskResultResponse
+     *
+     * @param GetKnowledgeBaseBuildTaskResultRequest $request
+     *
+     * @return GetKnowledgeBaseBuildTaskResultResponse
+     */
+    public function getKnowledgeBaseBuildTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKnowledgeBaseBuildTaskResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the current content and available download URLs of a document or semantic model.
+     *
+     * @remarks
+     * Retrieves a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - GetKnowledgeObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeObjectResponse
+     *
+     * @param GetKnowledgeObjectRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetKnowledgeObjectResponse
+     */
+    public function getKnowledgeObjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->knowledgeObjectId) {
+            @$body['KnowledgeObjectId'] = $request->knowledgeObjectId;
+        }
+
+        if (null !== $request->versionNo) {
+            @$body['VersionNo'] = $request->versionNo;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeObject',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the current content and available download URLs of a document or semantic model.
+     *
+     * @remarks
+     * Retrieves a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - GetKnowledgeObjectRequest
+     *
+     * @returns GetKnowledgeObjectResponse
+     *
+     * @param GetKnowledgeObjectRequest $request
+     *
+     * @return GetKnowledgeObjectResponse
+     */
+    public function getKnowledgeObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKnowledgeObjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the current details of a single knowledge point, supporting local graphs, topic pages, and knowledge content.
      *
      * @remarks
@@ -15048,6 +16273,73 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getKnowledgePointWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the current configuration of a knowledge source without returning connector credentials.
+     *
+     * @remarks
+     * Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+     *
+     * @param Request - GetKnowledgeSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeSourceResponse
+     *
+     * @param GetKnowledgeSourceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetKnowledgeSourceResponse
+     */
+    public function getKnowledgeSourceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['SourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeSource',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the current configuration of a knowledge source without returning connector credentials.
+     *
+     * @remarks
+     * Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+     *
+     * @param Request - GetKnowledgeSourceRequest
+     *
+     * @returns GetKnowledgeSourceResponse
+     *
+     * @param GetKnowledgeSourceRequest $request
+     *
+     * @return GetKnowledgeSourceResponse
+     */
+    public function getKnowledgeSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKnowledgeSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -17159,6 +18451,77 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Grants a specified user retrieval access to a knowledge base.
+     *
+     * @remarks
+     * Grants retrieval permissions to a user. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - GrantKnowledgeBaseRetrievalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GrantKnowledgeBaseRetrievalResponse
+     *
+     * @param GrantKnowledgeBaseRetrievalRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GrantKnowledgeBaseRetrievalResponse
+     */
+    public function grantKnowledgeBaseRetrievalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->principalId) {
+            @$body['PrincipalId'] = $request->principalId;
+        }
+
+        if (null !== $request->principalType) {
+            @$body['PrincipalType'] = $request->principalType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GrantKnowledgeBaseRetrieval',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GrantKnowledgeBaseRetrievalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Grants a specified user retrieval access to a knowledge base.
+     *
+     * @remarks
+     * Grants retrieval permissions to a user. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - GrantKnowledgeBaseRetrievalRequest
+     *
+     * @returns GrantKnowledgeBaseRetrievalResponse
+     *
+     * @param GrantKnowledgeBaseRetrievalRequest $request
+     *
+     * @return GrantKnowledgeBaseRetrievalResponse
+     */
+    public function grantKnowledgeBaseRetrieval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantKnowledgeBaseRetrievalWithOptions($request, $runtime);
+    }
+
+    /**
      * Assigns roles to members in a workspace.
      *
      * @remarks
@@ -18831,7 +20194,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries cross-workspace deployment candidates.
+     * Queries candidate objects for cross-workspace deployment.
      *
      * @param Request - ListCrossProjectDeploymentCandidatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18910,7 +20273,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries cross-workspace deployment candidates.
+     * Queries candidate objects for cross-workspace deployment.
      *
      * @param Request - ListCrossProjectDeploymentCandidatesRequest
      *
@@ -21836,7 +23199,299 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the knowledge bases that the current caller has permission to view in a specified region by using paging.
+     * Lists administrators of a specified knowledge base with pagination.
+     *
+     * @remarks
+     * Lists the administrators. Only the owner or administrators of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeBaseAdministratorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBaseAdministratorsResponse
+     *
+     * @param ListKnowledgeBaseAdministratorsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ListKnowledgeBaseAdministratorsResponse
+     */
+    public function listKnowledgeBaseAdministratorsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBaseAdministrators',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBaseAdministratorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists administrators of a specified knowledge base with pagination.
+     *
+     * @remarks
+     * Lists the administrators. Only the owner or administrators of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeBaseAdministratorsRequest
+     *
+     * @returns ListKnowledgeBaseAdministratorsResponse
+     *
+     * @param ListKnowledgeBaseAdministratorsRequest $request
+     *
+     * @return ListKnowledgeBaseAdministratorsResponse
+     */
+    public function listKnowledgeBaseAdministrators($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeBaseAdministratorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists knowledge base build task instances and their run statuses with pagination.
+     *
+     * @remarks
+     * Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeBaseBuildTaskInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBaseBuildTaskInstancesResponse
+     *
+     * @param ListKnowledgeBaseBuildTaskInstancesRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListKnowledgeBaseBuildTaskInstancesResponse
+     */
+    public function listKnowledgeBaseBuildTaskInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBaseBuildTaskInstances',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBaseBuildTaskInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists knowledge base build task instances and their run statuses with pagination.
+     *
+     * @remarks
+     * Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeBaseBuildTaskInstancesRequest
+     *
+     * @returns ListKnowledgeBaseBuildTaskInstancesResponse
+     *
+     * @param ListKnowledgeBaseBuildTaskInstancesRequest $request
+     *
+     * @return ListKnowledgeBaseBuildTaskInstancesResponse
+     */
+    public function listKnowledgeBaseBuildTaskInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeBaseBuildTaskInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the build tasks for a specified knowledge base with pagination.
+     *
+     * @remarks
+     * Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeBaseBuildTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBaseBuildTasksResponse
+     *
+     * @param ListKnowledgeBaseBuildTasksRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListKnowledgeBaseBuildTasksResponse
+     */
+    public function listKnowledgeBaseBuildTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBaseBuildTasks',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBaseBuildTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the build tasks for a specified knowledge base with pagination.
+     *
+     * @remarks
+     * Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeBaseBuildTasksRequest
+     *
+     * @returns ListKnowledgeBaseBuildTasksResponse
+     *
+     * @param ListKnowledgeBaseBuildTasksRequest $request
+     *
+     * @return ListKnowledgeBaseBuildTasksResponse
+     */
+    public function listKnowledgeBaseBuildTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeBaseBuildTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists retrieval grants for a specified knowledge base with pagination.
+     *
+     * @remarks
+     * Lists user retrieval authorizations. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeBaseRetrievalGrantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBaseRetrievalGrantsResponse
+     *
+     * @param ListKnowledgeBaseRetrievalGrantsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListKnowledgeBaseRetrievalGrantsResponse
+     */
+    public function listKnowledgeBaseRetrievalGrantsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->principalType) {
+            @$body['PrincipalType'] = $request->principalType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBaseRetrievalGrants',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBaseRetrievalGrantsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists retrieval grants for a specified knowledge base with pagination.
+     *
+     * @remarks
+     * Lists user retrieval authorizations. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeBaseRetrievalGrantsRequest
+     *
+     * @returns ListKnowledgeBaseRetrievalGrantsResponse
+     *
+     * @param ListKnowledgeBaseRetrievalGrantsRequest $request
+     *
+     * @return ListKnowledgeBaseRetrievalGrantsResponse
+     */
+    public function listKnowledgeBaseRetrievalGrants($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeBaseRetrievalGrantsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the knowledge bases that the current caller can view in the specified region, with pagination.
      *
      * @remarks
      * Lists knowledge bases. The tenant and caller identities are determined by the POP authentication context.
@@ -21882,7 +23537,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the knowledge bases that the current caller has permission to view in a specified region by using paging.
+     * Lists the knowledge bases that the current caller can view in the specified region, with pagination.
      *
      * @remarks
      * Lists knowledge bases. The tenant and caller identities are determined by the POP authentication context.
@@ -21900,6 +23555,81 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listKnowledgeBasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists knowledge objects in a knowledge base with pagination.
+     *
+     * @remarks
+     * Lists knowledge objects. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeObjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeObjectsResponse
+     *
+     * @param ListKnowledgeObjectsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListKnowledgeObjectsResponse
+     */
+    public function listKnowledgeObjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeObjects',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists knowledge objects in a knowledge base with pagination.
+     *
+     * @remarks
+     * Lists knowledge objects. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - ListKnowledgeObjectsRequest
+     *
+     * @returns ListKnowledgeObjectsResponse
+     *
+     * @param ListKnowledgeObjectsRequest $request
+     *
+     * @return ListKnowledgeObjectsResponse
+     */
+    public function listKnowledgeObjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeObjectsWithOptions($request, $runtime);
     }
 
     /**
@@ -21975,6 +23705,81 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listKnowledgePointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the registered knowledge sources for a specified knowledge base with pagination.
+     *
+     * @remarks
+     * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+     *
+     * @param Request - ListKnowledgeSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeSourcesResponse
+     *
+     * @param ListKnowledgeSourcesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListKnowledgeSourcesResponse
+     */
+    public function listKnowledgeSourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeSources',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the registered knowledge sources for a specified knowledge base with pagination.
+     *
+     * @remarks
+     * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+     *
+     * @param Request - ListKnowledgeSourcesRequest
+     *
+     * @returns ListKnowledgeSourcesResponse
+     *
+     * @param ListKnowledgeSourcesRequest $request
+     *
+     * @return ListKnowledgeSourcesResponse
+     */
+    public function listKnowledgeSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeSourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -26553,7 +28358,74 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Removes multiple upstream dependencies of a node instance in batches.
+     * Removes an administrator from a specified knowledge base.
+     *
+     * @remarks
+     * Removes an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - RemoveKnowledgeBaseAdministratorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveKnowledgeBaseAdministratorResponse
+     *
+     * @param RemoveKnowledgeBaseAdministratorRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return RemoveKnowledgeBaseAdministratorResponse
+     */
+    public function removeKnowledgeBaseAdministratorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->administratorUserId) {
+            @$body['AdministratorUserId'] = $request->administratorUserId;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveKnowledgeBaseAdministrator',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveKnowledgeBaseAdministratorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes an administrator from a specified knowledge base.
+     *
+     * @remarks
+     * Removes an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - RemoveKnowledgeBaseAdministratorRequest
+     *
+     * @returns RemoveKnowledgeBaseAdministratorResponse
+     *
+     * @param RemoveKnowledgeBaseAdministratorRequest $request
+     *
+     * @return RemoveKnowledgeBaseAdministratorResponse
+     */
+    public function removeKnowledgeBaseAdministrator($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeKnowledgeBaseAdministratorWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes multiple upstream dependencies from a node instance in a single call.
      *
      * @remarks
      * You must purchase DataWorks Basic Edition or a later edition to use this operation.
@@ -26611,7 +28483,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Removes multiple upstream dependencies of a node instance in batches.
+     * Removes multiple upstream dependencies from a node instance in a single call.
      *
      * @remarks
      * You must purchase DataWorks Basic Edition or a later edition to use this operation.
@@ -27311,6 +29183,148 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Retries a specified build instance using the original frozen input and configuration.
+     *
+     * @remarks
+     * Retries a knowledge base build task instance. The tenant and caller identity are determined by the POP authentication context.
+     *
+     * @param Request - RetryKnowledgeBaseBuildTaskInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetryKnowledgeBaseBuildTaskInstanceResponse
+     *
+     * @param RetryKnowledgeBaseBuildTaskInstanceRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return RetryKnowledgeBaseBuildTaskInstanceResponse
+     */
+    public function retryKnowledgeBaseBuildTaskInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->taskInstanceId) {
+            @$body['TaskInstanceId'] = $request->taskInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RetryKnowledgeBaseBuildTaskInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RetryKnowledgeBaseBuildTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retries a specified build instance using the original frozen input and configuration.
+     *
+     * @remarks
+     * Retries a knowledge base build task instance. The tenant and caller identity are determined by the POP authentication context.
+     *
+     * @param Request - RetryKnowledgeBaseBuildTaskInstanceRequest
+     *
+     * @returns RetryKnowledgeBaseBuildTaskInstanceResponse
+     *
+     * @param RetryKnowledgeBaseBuildTaskInstanceRequest $request
+     *
+     * @return RetryKnowledgeBaseBuildTaskInstanceResponse
+     */
+    public function retryKnowledgeBaseBuildTaskInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryKnowledgeBaseBuildTaskInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Revokes a specified user’s retrieval access to a knowledge base.
+     *
+     * @remarks
+     * Revokes user retrieval permissions. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - RevokeKnowledgeBaseRetrievalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeKnowledgeBaseRetrievalResponse
+     *
+     * @param RevokeKnowledgeBaseRetrievalRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RevokeKnowledgeBaseRetrievalResponse
+     */
+    public function revokeKnowledgeBaseRetrievalWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->principalId) {
+            @$body['PrincipalId'] = $request->principalId;
+        }
+
+        if (null !== $request->principalType) {
+            @$body['PrincipalType'] = $request->principalType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeKnowledgeBaseRetrieval',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeKnowledgeBaseRetrievalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Revokes a specified user’s retrieval access to a knowledge base.
+     *
+     * @remarks
+     * Revokes user retrieval permissions. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+     *
+     * @param Request - RevokeKnowledgeBaseRetrievalRequest
+     *
+     * @returns RevokeKnowledgeBaseRetrievalResponse
+     *
+     * @param RevokeKnowledgeBaseRetrievalRequest $request
+     *
+     * @return RevokeKnowledgeBaseRetrievalResponse
+     */
+    public function revokeKnowledgeBaseRetrieval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeKnowledgeBaseRetrievalWithOptions($request, $runtime);
+    }
+
+    /**
      * Revokes roles from a workspace member.
      *
      * @remarks
@@ -27765,10 +29779,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Marks multiple task instances as successful.
+     * Marks multiple node instances as successful.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or higher to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param tmpReq - SetSuccessTaskInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27817,10 +29831,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Marks multiple task instances as successful.
+     * Marks multiple node instances as successful.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or higher to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param Request - SetSuccessTaskInstancesRequest
      *
@@ -28176,6 +30190,73 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Requests that a specified build task instance stop and returns its current status.
+     *
+     * @remarks
+     * Stops a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - StopKnowledgeBaseBuildTaskInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopKnowledgeBaseBuildTaskInstanceResponse
+     *
+     * @param StopKnowledgeBaseBuildTaskInstanceRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return StopKnowledgeBaseBuildTaskInstanceResponse
+     */
+    public function stopKnowledgeBaseBuildTaskInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->taskInstanceId) {
+            @$body['TaskInstanceId'] = $request->taskInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StopKnowledgeBaseBuildTaskInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopKnowledgeBaseBuildTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Requests that a specified build task instance stop and returns its current status.
+     *
+     * @remarks
+     * Stops a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - StopKnowledgeBaseBuildTaskInstanceRequest
+     *
+     * @returns StopKnowledgeBaseBuildTaskInstanceResponse
+     *
+     * @param StopKnowledgeBaseBuildTaskInstanceRequest $request
+     *
+     * @return StopKnowledgeBaseBuildTaskInstanceResponse
+     */
+    public function stopKnowledgeBaseBuildTaskInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopKnowledgeBaseBuildTaskInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -31758,6 +33839,392 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Updates the editable information of a knowledge base.
+     *
+     * @remarks
+     * Updates a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - UpdateKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param UpdateKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBase',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the editable information of a knowledge base.
+     *
+     * @remarks
+     * Updates a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - UpdateKnowledgeBaseRequest
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param UpdateKnowledgeBaseRequest $request
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the configuration of a knowledge base build task without changing the input and configuration snapshots of created instances.
+     *
+     * @remarks
+     * Updates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param tmpReq - UpdateKnowledgeBaseBuildTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseBuildTaskResponse
+     *
+     * @param UpdateKnowledgeBaseBuildTaskRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateKnowledgeBaseBuildTaskResponse
+     */
+    public function updateKnowledgeBaseBuildTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateKnowledgeBaseBuildTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+
+        if (null !== $tmpReq->runtimeResource) {
+            $request->runtimeResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
+        }
+
+        if (null !== $tmpReq->trigger) {
+            $request->triggerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->contentLocale) {
+            @$body['ContentLocale'] = $request->contentLocale;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->inputShrink) {
+            @$body['Input'] = $request->inputShrink;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->llmModel) {
+            @$body['LlmModel'] = $request->llmModel;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$body['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->runtimeResourceShrink) {
+            @$body['RuntimeResource'] = $request->runtimeResourceShrink;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->triggerShrink) {
+            @$body['Trigger'] = $request->triggerShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBaseBuildTask',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseBuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the configuration of a knowledge base build task without changing the input and configuration snapshots of created instances.
+     *
+     * @remarks
+     * Updates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - UpdateKnowledgeBaseBuildTaskRequest
+     *
+     * @returns UpdateKnowledgeBaseBuildTaskResponse
+     *
+     * @param UpdateKnowledgeBaseBuildTaskRequest $request
+     *
+     * @return UpdateKnowledgeBaseBuildTaskResponse
+     */
+    public function updateKnowledgeBaseBuildTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeBaseBuildTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the name, description, or content of a document or semantic model.
+     *
+     * @remarks
+     * Updates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param tmpReq - UpdateKnowledgeObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeObjectResponse
+     *
+     * @param UpdateKnowledgeObjectRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateKnowledgeObjectResponse
+     */
+    public function updateKnowledgeObjectWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateKnowledgeObjectShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->contentShrink) {
+            @$body['Content'] = $request->contentShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->expectedModifyTime) {
+            @$body['ExpectedModifyTime'] = $request->expectedModifyTime;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->knowledgeObjectId) {
+            @$body['KnowledgeObjectId'] = $request->knowledgeObjectId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->uploadId) {
+            @$body['UploadId'] = $request->uploadId;
+        }
+
+        if (null !== $request->versionNo) {
+            @$body['VersionNo'] = $request->versionNo;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeObject',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name, description, or content of a document or semantic model.
+     *
+     * @remarks
+     * Updates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+     *
+     * @param Request - UpdateKnowledgeObjectRequest
+     *
+     * @returns UpdateKnowledgeObjectResponse
+     *
+     * @param UpdateKnowledgeObjectRequest $request
+     *
+     * @return UpdateKnowledgeObjectResponse
+     */
+    public function updateKnowledgeObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeObjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the name, description, or supported connector configuration of a knowledge source.
+     *
+     * @remarks
+     * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+     *
+     * @param tmpReq - UpdateKnowledgeSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeSourceResponse
+     *
+     * @param UpdateKnowledgeSourceRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateKnowledgeSourceResponse
+     */
+    public function updateKnowledgeSourceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateKnowledgeSourceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataSource) {
+            $request->dataSourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSource, 'DataSource', 'json');
+        }
+
+        if (null !== $tmpReq->document) {
+            $request->documentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->document, 'Document', 'json');
+        }
+
+        if (null !== $tmpReq->project) {
+            $request->projectShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->project, 'Project', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dataSourceShrink) {
+            @$body['DataSource'] = $request->dataSourceShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->documentShrink) {
+            @$body['Document'] = $request->documentShrink;
+        }
+
+        if (null !== $request->knowledgeBaseId) {
+            @$body['KnowledgeBaseId'] = $request->knowledgeBaseId;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectShrink) {
+            @$body['Project'] = $request->projectShrink;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['SourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeSource',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name, description, or supported connector configuration of a knowledge source.
+     *
+     * @remarks
+     * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+     *
+     * @param Request - UpdateKnowledgeSourceRequest
+     *
+     * @returns UpdateKnowledgeSourceResponse
+     *
+     * @param UpdateKnowledgeSourceRequest $request
+     *
+     * @return UpdateKnowledgeSourceResponse
+     */
+    public function updateKnowledgeSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates an MCP server.
      *
      * @remarks
@@ -33391,14 +35858,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
+     * Asynchronously updates a specified node and syncs the updates to Data Studio to generate a new saved version.
      *
      * @remarks
-     * ## Operation description
-     * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
-     * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
-     * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
-     * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
+     * ## Request description
+     * - This API operation is asynchronous. You must call the `GetUpdateTaskResult` operation to poll the update result.
+     * - This API operation is used to update the information of a specified node, including but not limited to the node name, description, and owner.
+     * - The modifications are synced to Data Studio, and a new saved version is generated in Data Studio.
+     * - You can set detailed parameters such as the trigger mode, runtime environment configuration, and dependencies of the node.
      *
      * @param tmpReq - UpdateTaskAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33543,14 +36010,14 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
+     * Asynchronously updates a specified node and syncs the updates to Data Studio to generate a new saved version.
      *
      * @remarks
-     * ## Operation description
-     * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
-     * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
-     * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
-     * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
+     * ## Request description
+     * - This API operation is asynchronous. You must call the `GetUpdateTaskResult` operation to poll the update result.
+     * - This API operation is used to update the information of a specified node, including but not limited to the node name, description, and owner.
+     * - The modifications are synced to Data Studio, and a new saved version is generated in Data Studio.
+     * - You can set detailed parameters such as the trigger mode, runtime environment configuration, and dependencies of the node.
      *
      * @param Request - UpdateTaskAsyncRequest
      *
@@ -33948,10 +36415,20 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 上传 Agent 会话附件.
+     * Issues a file upload URL for an agent session and confirms that the file has been written to the session instance for use in later messages. This operation is available during a canary release. Before calling it, make sure the canary release is enabled for your account and the target region.
      *
      * @remarks
-     * 将文件通过 OSS 上传到当前账号有权访问的 Agent 会话。先用 prepare 获取 5 分钟公网 PUT 签名，上传原始字节后用 complete 确认，由会话 runtime 下载、校验并写入工作目录。UploadMode 必填，不接受 ContentBase64。须同时检查 POP/BFF 外层错误与 JsonRpcResponse.Error。
+     * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+     * Uploads a local file to an agent session that the current caller has access to, and references the file in the conversation. The size of a single file ranges from 1 byte to 10,485,760 bytes (10 MiB). The caller must have access permissions to the target session and the dataworks:UploadAgentSessionFile permission.
+     * Call sequence.
+     * 1. Use the SessionId of an existing session, set UploadMode to prepare, and pass the original file name, the byte count Size, and the 32-character lowercase hexadecimal ContentMd5 of the original bytes. The prepare step returns UploadId and Signature, issuing only the upload URL without starting a cold session instance.
+     * 2. Within the validity period of the signature, send an HTTP PUT request to Signature.Url with the original file bytes as the request body, using all the request headers returned in Signature.Headers. The URL and request headers must be used exactly as provided. The ContentMd5 parameter is in hexadecimal format, while the Content-MD5 signature header is Base64-encoded. The two are not interchangeable. The signature is valid for 5 minutes. For the exact expiration time, see ExpiresAt.
+     * 3. After the PUT request succeeds, set UploadMode to complete, pass the UploadId returned by prepare, and keep SessionId, Name, Size, and ContentMd5 consistent. The server resumes the session, and the runtime within the instance downloads the staged object, verifies the size and MD5, writes it to the working directory, and returns Id, Name, RelativePath, and Size. Repeated complete calls use the same UploadId. The same attachment receipt is returned only when the existing file content is identical.
+     * 4. Call PromptAgentSession, add a content block with Type set to resource_link, Name set to the original file name, and Uri set to dataagent-attachment: followed by RelativePath in Params.Prompt, and send it along with the text content block. The backend resolves the reference to the working directory of the session based on the current authenticated session.
+     * For the sample file sample.csv, the original bytes are hello followed by a line feed, Size is 6, and ContentMd5 is b1946ac92492d2347c6235b4d2611184. The SessionId example session and the upload identifier examples are used only to illustrate the parameter structure. Actual calls must use a created session and the values returned by prepare. The Signature.Url example is used only to illustrate the format. The actual PUT request must use the complete signed URL returned by the current prepare call.
+     * Error handling.
+     * You must check the outer POP/BFF failures, JsonRpcResponse.Error, and the expected result fields simultaneously. Missing upload stages or size limit exceedances may result in an HTTP 400 response from the gateway, such as MissingUploadMode or InvalidSize. Business rejections such as object not found or metadata mismatch return an HTTP 400 response with a general Code 400 in the public POP, and the Message retains the actual business code, such as SESSION_ATTACHMENT_OBJECT_MISMATCH. Dependency failures, HTTP 5xx errors, timeouts, and unknown execution results must not be treated as parameter rejections or successful uploads, and automatic write retries must not be performed. When the result is unknown, retain the original upload metadata and UploadId, and verify the result first.
+     * This API operation does not accept ContentBase64. Signature expiration only invalidates the upload authorization and does not indicate that the staged object has been deleted. This description does not guarantee an automatic cleanup cycle for the object.
      *
      * @param tmpReq - UploadAgentSessionFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34004,10 +36481,20 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 上传 Agent 会话附件.
+     * Issues a file upload URL for an agent session and confirms that the file has been written to the session instance for use in later messages. This operation is available during a canary release. Before calling it, make sure the canary release is enabled for your account and the target region.
      *
      * @remarks
-     * 将文件通过 OSS 上传到当前账号有权访问的 Agent 会话。先用 prepare 获取 5 分钟公网 PUT 签名，上传原始字节后用 complete 确认，由会话 runtime 下载、校验并写入工作目录。UploadMode 必填，不接受 ContentBase64。须同时检查 POP/BFF 外层错误与 JsonRpcResponse.Error。
+     * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+     * Uploads a local file to an agent session that the current caller has access to, and references the file in the conversation. The size of a single file ranges from 1 byte to 10,485,760 bytes (10 MiB). The caller must have access permissions to the target session and the dataworks:UploadAgentSessionFile permission.
+     * Call sequence.
+     * 1. Use the SessionId of an existing session, set UploadMode to prepare, and pass the original file name, the byte count Size, and the 32-character lowercase hexadecimal ContentMd5 of the original bytes. The prepare step returns UploadId and Signature, issuing only the upload URL without starting a cold session instance.
+     * 2. Within the validity period of the signature, send an HTTP PUT request to Signature.Url with the original file bytes as the request body, using all the request headers returned in Signature.Headers. The URL and request headers must be used exactly as provided. The ContentMd5 parameter is in hexadecimal format, while the Content-MD5 signature header is Base64-encoded. The two are not interchangeable. The signature is valid for 5 minutes. For the exact expiration time, see ExpiresAt.
+     * 3. After the PUT request succeeds, set UploadMode to complete, pass the UploadId returned by prepare, and keep SessionId, Name, Size, and ContentMd5 consistent. The server resumes the session, and the runtime within the instance downloads the staged object, verifies the size and MD5, writes it to the working directory, and returns Id, Name, RelativePath, and Size. Repeated complete calls use the same UploadId. The same attachment receipt is returned only when the existing file content is identical.
+     * 4. Call PromptAgentSession, add a content block with Type set to resource_link, Name set to the original file name, and Uri set to dataagent-attachment: followed by RelativePath in Params.Prompt, and send it along with the text content block. The backend resolves the reference to the working directory of the session based on the current authenticated session.
+     * For the sample file sample.csv, the original bytes are hello followed by a line feed, Size is 6, and ContentMd5 is b1946ac92492d2347c6235b4d2611184. The SessionId example session and the upload identifier examples are used only to illustrate the parameter structure. Actual calls must use a created session and the values returned by prepare. The Signature.Url example is used only to illustrate the format. The actual PUT request must use the complete signed URL returned by the current prepare call.
+     * Error handling.
+     * You must check the outer POP/BFF failures, JsonRpcResponse.Error, and the expected result fields simultaneously. Missing upload stages or size limit exceedances may result in an HTTP 400 response from the gateway, such as MissingUploadMode or InvalidSize. Business rejections such as object not found or metadata mismatch return an HTTP 400 response with a general Code 400 in the public POP, and the Message retains the actual business code, such as SESSION_ATTACHMENT_OBJECT_MISMATCH. Dependency failures, HTTP 5xx errors, timeouts, and unknown execution results must not be treated as parameter rejections or successful uploads, and automatic write retries must not be performed. When the result is unknown, retain the original upload metadata and UploadId, and verify the result first.
+     * This API operation does not accept ContentBase64. Signature expiration only invalidates the upload authorization and does not indicate that the staged object has been deleted. This description does not guarantee an automatic cleanup cycle for the object.
      *
      * @param Request - UploadAgentSessionFileRequest
      *
