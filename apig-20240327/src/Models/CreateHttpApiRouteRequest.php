@@ -42,6 +42,11 @@ class CreateHttpApiRouteRequest extends Model
     public $environmentId;
 
     /**
+     * @var string
+     */
+    public $gatewayId;
+
+    /**
      * @var HttpRouteMatch
      */
     public $match;
@@ -67,6 +72,7 @@ class CreateHttpApiRouteRequest extends Model
         'dfpConfig' => 'dfpConfig',
         'domainIds' => 'domainIds',
         'environmentId' => 'environmentId',
+        'gatewayId' => 'gatewayId',
         'match' => 'match',
         'mcpRouteConfig' => 'mcpRouteConfig',
         'name' => 'name',
@@ -140,6 +146,10 @@ class CreateHttpApiRouteRequest extends Model
             $res['environmentId'] = $this->environmentId;
         }
 
+        if (null !== $this->gatewayId) {
+            $res['gatewayId'] = $this->gatewayId;
+        }
+
         if (null !== $this->match) {
             $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
         }
@@ -210,6 +220,10 @@ class CreateHttpApiRouteRequest extends Model
 
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
+        }
+
+        if (isset($map['gatewayId'])) {
+            $model->gatewayId = $map['gatewayId'];
         }
 
         if (isset($map['match'])) {

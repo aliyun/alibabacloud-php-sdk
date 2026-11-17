@@ -1,3 +1,8 @@
+2026-11-17 Version: 11.10.1
+- Update API CreateHttpApiRoute: add request parameters body.gatewayId.
+- Update API UpdateHttpApiRoute: add request parameters body.gatewayId.
+
+
 2026-11-13 Version: 11.10.0
 - Support API AuthorizeConsumerModelCardGrants.
 - Support API CreateAiModelSource.
