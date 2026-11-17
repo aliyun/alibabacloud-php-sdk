@@ -21,17 +21,29 @@ class ListSkillReferencesRequest extends Model
     /**
      * @var string
      */
+    public $refType;
+
+    /**
+     * @var string
+     */
     public $selectorType;
 
     /**
      * @var string
      */
     public $selectorValue;
+
+    /**
+     * @var string
+     */
+    public $sourceId;
     protected $_name = [
         'pageNo' => 'pageNo',
         'pageSize' => 'pageSize',
+        'refType' => 'refType',
         'selectorType' => 'selectorType',
         'selectorValue' => 'selectorValue',
+        'sourceId' => 'sourceId',
     ];
 
     public function validate()
@@ -50,12 +62,20 @@ class ListSkillReferencesRequest extends Model
             $res['pageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->refType) {
+            $res['refType'] = $this->refType;
+        }
+
         if (null !== $this->selectorType) {
             $res['selectorType'] = $this->selectorType;
         }
 
         if (null !== $this->selectorValue) {
             $res['selectorValue'] = $this->selectorValue;
+        }
+
+        if (null !== $this->sourceId) {
+            $res['sourceId'] = $this->sourceId;
         }
 
         return $res;
@@ -77,12 +97,20 @@ class ListSkillReferencesRequest extends Model
             $model->pageSize = $map['pageSize'];
         }
 
+        if (isset($map['refType'])) {
+            $model->refType = $map['refType'];
+        }
+
         if (isset($map['selectorType'])) {
             $model->selectorType = $map['selectorType'];
         }
 
         if (isset($map['selectorValue'])) {
             $model->selectorValue = $map['selectorValue'];
+        }
+
+        if (isset($map['sourceId'])) {
+            $model->sourceId = $map['sourceId'];
         }
 
         return $model;

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderSCIM
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderSCIMResponseBody\data\configuration;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderSCIMResponseBody\data\metadata;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderSCIMResponseBody\data\oidc;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderSCIMResponseBody\data\saml;
 
 class data extends Model
@@ -45,6 +46,11 @@ class data extends Model
      * @var metadata
      */
     public $metadata;
+
+    /**
+     * @var oidc
+     */
+    public $oidc;
 
     /**
      * @var string
@@ -93,6 +99,7 @@ class data extends Model
         'loginCallbackUrl' => 'loginCallbackUrl',
         'loginEnabled' => 'loginEnabled',
         'metadata' => 'metadata',
+        'oidc' => 'oidc',
         'operationStatus' => 'operationStatus',
         'protocol' => 'protocol',
         'saml' => 'saml',
@@ -110,6 +117,9 @@ class data extends Model
         }
         if (null !== $this->metadata) {
             $this->metadata->validate();
+        }
+        if (null !== $this->oidc) {
+            $this->oidc->validate();
         }
         if (null !== $this->saml) {
             $this->saml->validate();
@@ -146,6 +156,10 @@ class data extends Model
 
         if (null !== $this->metadata) {
             $res['metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
+        }
+
+        if (null !== $this->oidc) {
+            $res['oidc'] = null !== $this->oidc ? $this->oidc->toArray($noStream) : $this->oidc;
         }
 
         if (null !== $this->operationStatus) {
@@ -217,6 +231,10 @@ class data extends Model
 
         if (isset($map['metadata'])) {
             $model->metadata = metadata::fromMap($map['metadata']);
+        }
+
+        if (isset($map['oidc'])) {
+            $model->oidc = oidc::fromMap($map['oidc']);
         }
 
         if (isset($map['operationStatus'])) {

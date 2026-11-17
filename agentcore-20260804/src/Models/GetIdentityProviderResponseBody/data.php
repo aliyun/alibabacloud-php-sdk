@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderRespons
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderResponseBody\data\configuration;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderResponseBody\data\metadata;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderResponseBody\data\oidc;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderResponseBody\data\oidcConfiguration;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderResponseBody\data\saml;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderResponseBody\data\syncScope;
 
@@ -46,6 +48,16 @@ class data extends Model
      * @var metadata
      */
     public $metadata;
+
+    /**
+     * @var oidc
+     */
+    public $oidc;
+
+    /**
+     * @var oidcConfiguration
+     */
+    public $oidcConfiguration;
 
     /**
      * @var string
@@ -89,6 +101,8 @@ class data extends Model
         'loginCallbackUrl' => 'loginCallbackUrl',
         'loginEnabled' => 'loginEnabled',
         'metadata' => 'metadata',
+        'oidc' => 'oidc',
+        'oidcConfiguration' => 'oidcConfiguration',
         'protocol' => 'protocol',
         'saml' => 'saml',
         'status' => 'status',
@@ -105,6 +119,12 @@ class data extends Model
         }
         if (null !== $this->metadata) {
             $this->metadata->validate();
+        }
+        if (null !== $this->oidc) {
+            $this->oidc->validate();
+        }
+        if (null !== $this->oidcConfiguration) {
+            $this->oidcConfiguration->validate();
         }
         if (null !== $this->saml) {
             $this->saml->validate();
@@ -144,6 +164,14 @@ class data extends Model
 
         if (null !== $this->metadata) {
             $res['metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
+        }
+
+        if (null !== $this->oidc) {
+            $res['oidc'] = null !== $this->oidc ? $this->oidc->toArray($noStream) : $this->oidc;
+        }
+
+        if (null !== $this->oidcConfiguration) {
+            $res['oidcConfiguration'] = null !== $this->oidcConfiguration ? $this->oidcConfiguration->toArray($noStream) : $this->oidcConfiguration;
         }
 
         if (null !== $this->protocol) {
@@ -211,6 +239,14 @@ class data extends Model
 
         if (isset($map['metadata'])) {
             $model->metadata = metadata::fromMap($map['metadata']);
+        }
+
+        if (isset($map['oidc'])) {
+            $model->oidc = oidc::fromMap($map['oidc']);
+        }
+
+        if (isset($map['oidcConfiguration'])) {
+            $model->oidcConfiguration = oidcConfiguration::fromMap($map['oidcConfiguration']);
         }
 
         if (isset($map['protocol'])) {

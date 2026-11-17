@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteIdentityProviderResp
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteIdentityProviderResponseBody\data\configuration;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteIdentityProviderResponseBody\data\oidc;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteIdentityProviderResponseBody\data\saml;
 
 class data extends Model
@@ -19,6 +20,11 @@ class data extends Model
      * @var string
      */
     public $identityProviderType;
+
+    /**
+     * @var oidc
+     */
+    public $oidc;
 
     /**
      * @var string
@@ -42,6 +48,7 @@ class data extends Model
     protected $_name = [
         'configuration' => 'configuration',
         'identityProviderType' => 'identityProviderType',
+        'oidc' => 'oidc',
         'protocol' => 'protocol',
         'saml' => 'saml',
         'status' => 'status',
@@ -52,6 +59,9 @@ class data extends Model
     {
         if (null !== $this->configuration) {
             $this->configuration->validate();
+        }
+        if (null !== $this->oidc) {
+            $this->oidc->validate();
         }
         if (null !== $this->saml) {
             $this->saml->validate();
@@ -68,6 +78,10 @@ class data extends Model
 
         if (null !== $this->identityProviderType) {
             $res['identityProviderType'] = $this->identityProviderType;
+        }
+
+        if (null !== $this->oidc) {
+            $res['oidc'] = null !== $this->oidc ? $this->oidc->toArray($noStream) : $this->oidc;
         }
 
         if (null !== $this->protocol) {
@@ -103,6 +117,10 @@ class data extends Model
 
         if (isset($map['identityProviderType'])) {
             $model->identityProviderType = $map['identityProviderType'];
+        }
+
+        if (isset($map['oidc'])) {
+            $model->oidc = oidc::fromMap($map['oidc']);
         }
 
         if (isset($map['protocol'])) {

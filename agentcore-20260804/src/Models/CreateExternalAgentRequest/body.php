@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentRequest\body\environment;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentRequest\body\model_;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentRequest\body\skills;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentRequest\body\template;
@@ -16,6 +17,11 @@ class body extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var environment
+     */
+    public $environment;
 
     /**
      * @var string
@@ -53,6 +59,7 @@ class body extends Model
     public $tools;
     protected $_name = [
         'description' => 'description',
+        'environment' => 'environment',
         'instruction' => 'instruction',
         'model' => 'model',
         'modelSource' => 'modelSource',
@@ -64,6 +71,9 @@ class body extends Model
 
     public function validate()
     {
+        if (null !== $this->environment) {
+            $this->environment->validate();
+        }
         if (null !== $this->model) {
             $this->model->validate();
         }
@@ -84,6 +94,10 @@ class body extends Model
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->environment) {
+            $res['environment'] = null !== $this->environment ? $this->environment->toArray($noStream) : $this->environment;
         }
 
         if (null !== $this->instruction) {
@@ -141,6 +155,10 @@ class body extends Model
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['environment'])) {
+            $model->environment = environment::fromMap($map['environment']);
         }
 
         if (isset($map['instruction'])) {

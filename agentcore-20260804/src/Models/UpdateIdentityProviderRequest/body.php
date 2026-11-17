@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderRequ
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderRequest\body\metadata;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderRequest\body\oidc;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderRequest\body\saml;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderRequest\body\syncScope;
 
@@ -20,6 +21,11 @@ class body extends Model
      * @var metadata
      */
     public $metadata;
+
+    /**
+     * @var oidc
+     */
+    public $oidc;
 
     /**
      * @var string
@@ -43,6 +49,7 @@ class body extends Model
     protected $_name = [
         'loginEnabled' => 'loginEnabled',
         'metadata' => 'metadata',
+        'oidc' => 'oidc',
         'protocol' => 'protocol',
         'saml' => 'saml',
         'syncEnabled' => 'syncEnabled',
@@ -53,6 +60,9 @@ class body extends Model
     {
         if (null !== $this->metadata) {
             $this->metadata->validate();
+        }
+        if (null !== $this->oidc) {
+            $this->oidc->validate();
         }
         if (null !== $this->saml) {
             $this->saml->validate();
@@ -72,6 +82,10 @@ class body extends Model
 
         if (null !== $this->metadata) {
             $res['metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
+        }
+
+        if (null !== $this->oidc) {
+            $res['oidc'] = null !== $this->oidc ? $this->oidc->toArray($noStream) : $this->oidc;
         }
 
         if (null !== $this->protocol) {
@@ -107,6 +121,10 @@ class body extends Model
 
         if (isset($map['metadata'])) {
             $model->metadata = metadata::fromMap($map['metadata']);
+        }
+
+        if (isset($map['oidc'])) {
+            $model->oidc = oidc::fromMap($map['oidc']);
         }
 
         if (isset($map['protocol'])) {

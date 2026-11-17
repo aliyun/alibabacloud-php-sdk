@@ -19,9 +19,19 @@ class data extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $eventCount;
+
+    /**
      * @var string
      */
     public $extractInstructions;
+
+    /**
+     * @var int
+     */
+    public $memoryCount;
 
     /**
      * @var string
@@ -50,7 +60,9 @@ class data extends Model
     protected $_name = [
         'createdAt' => 'createdAt',
         'description' => 'description',
+        'eventCount' => 'eventCount',
         'extractInstructions' => 'extractInstructions',
+        'memoryCount' => 'memoryCount',
         'memoryStoreId' => 'memoryStoreId',
         'memoryStoreName' => 'memoryStoreName',
         'status' => 'status',
@@ -74,8 +86,16 @@ class data extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->eventCount) {
+            $res['eventCount'] = $this->eventCount;
+        }
+
         if (null !== $this->extractInstructions) {
             $res['extractInstructions'] = $this->extractInstructions;
+        }
+
+        if (null !== $this->memoryCount) {
+            $res['memoryCount'] = $this->memoryCount;
         }
 
         if (null !== $this->memoryStoreId) {
@@ -117,8 +137,16 @@ class data extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['eventCount'])) {
+            $model->eventCount = $map['eventCount'];
+        }
+
         if (isset($map['extractInstructions'])) {
             $model->extractInstructions = $map['extractInstructions'];
+        }
+
+        if (isset($map['memoryCount'])) {
+            $model->memoryCount = $map['memoryCount'];
         }
 
         if (isset($map['memoryStoreId'])) {

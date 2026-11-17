@@ -1,0 +1,66 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentRequest\body;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentRequest\body\environment\credentialReferences;
+
+class environment extends Model
+{
+    /**
+     * @var credentialReferences[]
+     */
+    public $credentialReferences;
+    protected $_name = [
+        'credentialReferences' => 'credentialReferences',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->credentialReferences)) {
+            Model::validateArray($this->credentialReferences);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->credentialReferences) {
+            if (\is_array($this->credentialReferences)) {
+                $res['credentialReferences'] = [];
+                $n1 = 0;
+                foreach ($this->credentialReferences as $item1) {
+                    $res['credentialReferences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['credentialReferences'])) {
+            if (!empty($map['credentialReferences'])) {
+                $model->credentialReferences = [];
+                $n1 = 0;
+                foreach ($map['credentialReferences'] as $item1) {
+                    $model->credentialReferences[$n1] = credentialReferences::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        return $model;
+    }
+}

@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponse
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\agenticFsMounts;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\configuredSkills;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\contextConfiguration;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\effectiveContextConfiguration;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\environment;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\harness;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponseBody\data\model_;
@@ -47,6 +49,11 @@ class data extends Model
     public $configuredSkills;
 
     /**
+     * @var contextConfiguration
+     */
+    public $contextConfiguration;
+
+    /**
      * @var string
      */
     public $createMode;
@@ -65,6 +72,11 @@ class data extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var effectiveContextConfiguration
+     */
+    public $effectiveContextConfiguration;
 
     /**
      * @var environment
@@ -171,10 +183,12 @@ class data extends Model
         'agentId' => 'agentId',
         'agenticFsMounts' => 'agenticFsMounts',
         'configuredSkills' => 'configuredSkills',
+        'contextConfiguration' => 'contextConfiguration',
         'createMode' => 'createMode',
         'createdAt' => 'createdAt',
         'deployType' => 'deployType',
         'description' => 'description',
+        'effectiveContextConfiguration' => 'effectiveContextConfiguration',
         'environment' => 'environment',
         'harness' => 'harness',
         'instruction' => 'instruction',
@@ -204,6 +218,12 @@ class data extends Model
         }
         if (\is_array($this->configuredSkills)) {
             Model::validateArray($this->configuredSkills);
+        }
+        if (null !== $this->contextConfiguration) {
+            $this->contextConfiguration->validate();
+        }
+        if (null !== $this->effectiveContextConfiguration) {
+            $this->effectiveContextConfiguration->validate();
         }
         if (null !== $this->environment) {
             $this->environment->validate();
@@ -281,6 +301,10 @@ class data extends Model
             }
         }
 
+        if (null !== $this->contextConfiguration) {
+            $res['contextConfiguration'] = null !== $this->contextConfiguration ? $this->contextConfiguration->toArray($noStream) : $this->contextConfiguration;
+        }
+
         if (null !== $this->createMode) {
             $res['createMode'] = $this->createMode;
         }
@@ -295,6 +319,10 @@ class data extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->effectiveContextConfiguration) {
+            $res['effectiveContextConfiguration'] = null !== $this->effectiveContextConfiguration ? $this->effectiveContextConfiguration->toArray($noStream) : $this->effectiveContextConfiguration;
         }
 
         if (null !== $this->environment) {
@@ -462,6 +490,10 @@ class data extends Model
             }
         }
 
+        if (isset($map['contextConfiguration'])) {
+            $model->contextConfiguration = contextConfiguration::fromMap($map['contextConfiguration']);
+        }
+
         if (isset($map['createMode'])) {
             $model->createMode = $map['createMode'];
         }
@@ -476,6 +508,10 @@ class data extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['effectiveContextConfiguration'])) {
+            $model->effectiveContextConfiguration = effectiveContextConfiguration::fromMap($map['effectiveContextConfiguration']);
         }
 
         if (isset($map['environment'])) {

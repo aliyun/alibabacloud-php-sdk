@@ -16,9 +16,15 @@ class messages extends Model
     /**
      * @var string
      */
+    public $referenceTime;
+
+    /**
+     * @var string
+     */
     public $role;
     protected $_name = [
         'content' => 'content',
+        'referenceTime' => 'referenceTime',
         'role' => 'role',
     ];
 
@@ -32,6 +38,10 @@ class messages extends Model
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
+        }
+
+        if (null !== $this->referenceTime) {
+            $res['referenceTime'] = $this->referenceTime;
         }
 
         if (null !== $this->role) {
@@ -51,6 +61,10 @@ class messages extends Model
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
+        }
+
+        if (isset($map['referenceTime'])) {
+            $model->referenceTime = $map['referenceTime'];
         }
 
         if (isset($map['role'])) {

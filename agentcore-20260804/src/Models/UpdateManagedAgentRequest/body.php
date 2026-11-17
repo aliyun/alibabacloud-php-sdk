@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\agenticFsMounts;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\contextConfiguration;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\environment;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\harness;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest\body\model_;
@@ -34,6 +35,11 @@ class body extends Model
      * @var agenticFsMounts[]
      */
     public $agenticFsMounts;
+
+    /**
+     * @var contextConfiguration
+     */
+    public $contextConfiguration;
 
     /**
      * @var string
@@ -108,6 +114,7 @@ class body extends Model
         'accessMode' => 'accessMode',
         'accessScope' => 'accessScope',
         'agenticFsMounts' => 'agenticFsMounts',
+        'contextConfiguration' => 'contextConfiguration',
         'description' => 'description',
         'environment' => 'environment',
         'harness' => 'harness',
@@ -128,6 +135,9 @@ class body extends Model
     {
         if (\is_array($this->agenticFsMounts)) {
             Model::validateArray($this->agenticFsMounts);
+        }
+        if (null !== $this->contextConfiguration) {
+            $this->contextConfiguration->validate();
         }
         if (null !== $this->environment) {
             $this->environment->validate();
@@ -185,6 +195,10 @@ class body extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->contextConfiguration) {
+            $res['contextConfiguration'] = null !== $this->contextConfiguration ? $this->contextConfiguration->toArray($noStream) : $this->contextConfiguration;
         }
 
         if (null !== $this->description) {
@@ -306,6 +320,10 @@ class body extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['contextConfiguration'])) {
+            $model->contextConfiguration = contextConfiguration::fromMap($map['contextConfiguration']);
         }
 
         if (isset($map['description'])) {

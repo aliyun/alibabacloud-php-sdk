@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentRespons
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentResponseBody\data\configuredSkills;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentResponseBody\data\environment;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentResponseBody\data\externalAgentStatus;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentResponseBody\data\model_;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateExternalAgentResponseBody\data\skills;
@@ -43,6 +44,11 @@ class data extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var environment
+     */
+    public $environment;
 
     /**
      * @var externalAgentStatus
@@ -125,6 +131,7 @@ class data extends Model
         'createdAt' => 'createdAt',
         'deployType' => 'deployType',
         'description' => 'description',
+        'environment' => 'environment',
         'externalAgentStatus' => 'externalAgentStatus',
         'instruction' => 'instruction',
         'latestSpecVersion' => 'latestSpecVersion',
@@ -146,6 +153,9 @@ class data extends Model
     {
         if (\is_array($this->configuredSkills)) {
             Model::validateArray($this->configuredSkills);
+        }
+        if (null !== $this->environment) {
+            $this->environment->validate();
         }
         if (null !== $this->externalAgentStatus) {
             $this->externalAgentStatus->validate();
@@ -197,6 +207,10 @@ class data extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->environment) {
+            $res['environment'] = null !== $this->environment ? $this->environment->toArray($noStream) : $this->environment;
         }
 
         if (null !== $this->externalAgentStatus) {
@@ -313,6 +327,10 @@ class data extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['environment'])) {
+            $model->environment = environment::fromMap($map['environment']);
         }
 
         if (isset($map['externalAgentStatus'])) {

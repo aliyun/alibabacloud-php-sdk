@@ -43,6 +43,11 @@ class body extends Model
      * @var int
      */
     public $topK;
+
+    /**
+     * @var string[]
+     */
+    public $types;
     protected $_name = [
         'enableRerank' => 'enableRerank',
         'metadata' => 'metadata',
@@ -51,6 +56,7 @@ class body extends Model
         'query' => 'query',
         'scope' => 'scope',
         'topK' => 'topK',
+        'types' => 'types',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class body extends Model
         }
         if (null !== $this->scope) {
             $this->scope->validate();
+        }
+        if (\is_array($this->types)) {
+            Model::validateArray($this->types);
         }
         parent::validate();
     }
@@ -98,6 +107,17 @@ class body extends Model
 
         if (null !== $this->topK) {
             $res['topK'] = $this->topK;
+        }
+
+        if (null !== $this->types) {
+            if (\is_array($this->types)) {
+                $res['types'] = [];
+                $n1 = 0;
+                foreach ($this->types as $item1) {
+                    $res['types'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -142,6 +162,17 @@ class body extends Model
 
         if (isset($map['topK'])) {
             $model->topK = $map['topK'];
+        }
+
+        if (isset($map['types'])) {
+            if (!empty($map['types'])) {
+                $model->types = [];
+                $n1 = 0;
+                foreach ($map['types'] as $item1) {
+                    $model->types[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

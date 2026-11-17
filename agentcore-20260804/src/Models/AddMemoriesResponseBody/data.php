@@ -18,15 +18,24 @@ class data extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string[]
+     */
+    public $taskIds;
     protected $_name = [
         'memories' => 'memories',
         'taskId' => 'taskId',
+        'taskIds' => 'taskIds',
     ];
 
     public function validate()
     {
         if (\is_array($this->memories)) {
             Model::validateArray($this->memories);
+        }
+        if (\is_array($this->taskIds)) {
+            Model::validateArray($this->taskIds);
         }
         parent::validate();
     }
@@ -47,6 +56,17 @@ class data extends Model
 
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
+        }
+
+        if (null !== $this->taskIds) {
+            if (\is_array($this->taskIds)) {
+                $res['taskIds'] = [];
+                $n1 = 0;
+                foreach ($this->taskIds as $item1) {
+                    $res['taskIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -73,6 +93,17 @@ class data extends Model
 
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
+        }
+
+        if (isset($map['taskIds'])) {
+            if (!empty($map['taskIds'])) {
+                $model->taskIds = [];
+                $n1 = 0;
+                foreach ($map['taskIds'] as $item1) {
+                    $model->taskIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

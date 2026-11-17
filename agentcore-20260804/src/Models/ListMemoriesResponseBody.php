@@ -48,6 +48,11 @@ class ListMemoriesResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'code' => 'code',
         'httpStatusCode' => 'httpStatusCode',
@@ -57,6 +62,7 @@ class ListMemoriesResponseBody extends Model
         'nextToken' => 'nextToken',
         'requestId' => 'requestId',
         'success' => 'success',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
@@ -109,6 +115,10 @@ class ListMemoriesResponseBody extends Model
             $res['success'] = $this->success;
         }
 
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
+        }
+
         return $res;
     }
 
@@ -157,6 +167,10 @@ class ListMemoriesResponseBody extends Model
 
         if (isset($map['success'])) {
             $model->success = $map['success'];
+        }
+
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

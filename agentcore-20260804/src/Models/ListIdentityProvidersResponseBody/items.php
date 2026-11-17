@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersRespo
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody\items\configuration;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody\items\metadata;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody\items\oidc;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody\items\saml;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponseBody\items\syncScope;
 
@@ -46,6 +47,11 @@ class items extends Model
      * @var metadata
      */
     public $metadata;
+
+    /**
+     * @var oidc
+     */
+    public $oidc;
 
     /**
      * @var string
@@ -89,6 +95,7 @@ class items extends Model
         'loginCallbackUrl' => 'loginCallbackUrl',
         'loginEnabled' => 'loginEnabled',
         'metadata' => 'metadata',
+        'oidc' => 'oidc',
         'protocol' => 'protocol',
         'saml' => 'saml',
         'status' => 'status',
@@ -105,6 +112,9 @@ class items extends Model
         }
         if (null !== $this->metadata) {
             $this->metadata->validate();
+        }
+        if (null !== $this->oidc) {
+            $this->oidc->validate();
         }
         if (null !== $this->saml) {
             $this->saml->validate();
@@ -144,6 +154,10 @@ class items extends Model
 
         if (null !== $this->metadata) {
             $res['metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
+        }
+
+        if (null !== $this->oidc) {
+            $res['oidc'] = null !== $this->oidc ? $this->oidc->toArray($noStream) : $this->oidc;
         }
 
         if (null !== $this->protocol) {
@@ -211,6 +225,10 @@ class items extends Model
 
         if (isset($map['metadata'])) {
             $model->metadata = metadata::fromMap($map['metadata']);
+        }
+
+        if (isset($map['oidc'])) {
+            $model->oidc = oidc::fromMap($map['oidc']);
         }
 
         if (isset($map['protocol'])) {

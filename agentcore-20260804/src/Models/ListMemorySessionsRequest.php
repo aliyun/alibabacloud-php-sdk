@@ -26,11 +26,17 @@ class ListMemorySessionsRequest extends Model
     /**
      * @var string
      */
+    public $teamId;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'agentId' => 'agentId',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'teamId' => 'teamId',
         'userId' => 'userId',
     ];
 
@@ -52,6 +58,10 @@ class ListMemorySessionsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->teamId) {
+            $res['teamId'] = $this->teamId;
         }
 
         if (null !== $this->userId) {
@@ -79,6 +89,10 @@ class ListMemorySessionsRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['teamId'])) {
+            $model->teamId = $map['teamId'];
         }
 
         if (isset($map['userId'])) {

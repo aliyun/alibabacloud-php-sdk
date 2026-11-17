@@ -5,11 +5,22 @@
 namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\AddMemoriesRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\AddMemoriesRequest\body\memories;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\AddMemoriesRequest\body\messages;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\AddMemoriesRequest\body\scope;
 
 class body extends Model
 {
+    /**
+     * @var bool
+     */
+    public $extract;
+
+    /**
+     * @var memories[]
+     */
+    public $memories;
+
     /**
      * @var messages[]
      */
@@ -40,6 +51,8 @@ class body extends Model
      */
     public $text;
     protected $_name = [
+        'extract' => 'extract',
+        'memories' => 'memories',
         'messages' => 'messages',
         'metadata' => 'metadata',
         'referenceTime' => 'referenceTime',
@@ -50,6 +63,9 @@ class body extends Model
 
     public function validate()
     {
+        if (\is_array($this->memories)) {
+            Model::validateArray($this->memories);
+        }
         if (\is_array($this->messages)) {
             Model::validateArray($this->messages);
         }
@@ -65,6 +81,21 @@ class body extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->extract) {
+            $res['extract'] = $this->extract;
+        }
+
+        if (null !== $this->memories) {
+            if (\is_array($this->memories)) {
+                $res['memories'] = [];
+                $n1 = 0;
+                foreach ($this->memories as $item1) {
+                    $res['memories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->messages) {
             if (\is_array($this->messages)) {
                 $res['messages'] = [];
@@ -112,6 +143,21 @@ class body extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['extract'])) {
+            $model->extract = $map['extract'];
+        }
+
+        if (isset($map['memories'])) {
+            if (!empty($map['memories'])) {
+                $model->memories = [];
+                $n1 = 0;
+                foreach ($map['memories'] as $item1) {
+                    $model->memories[$n1] = memories::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['messages'])) {
             if (!empty($map['messages'])) {
                 $model->messages = [];

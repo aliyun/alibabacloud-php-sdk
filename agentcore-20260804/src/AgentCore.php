@@ -35,6 +35,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateEventsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateEventsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateEventsShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentBootstrapTokenRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentBootstrapTokenResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateExternalAgentRequest;
@@ -56,6 +59,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMcpShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMemoryRuleRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMemoryRuleResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMemoryRuleShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMemoryStoreRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMemoryStoreResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateMemoryStoreShrinkRequest;
@@ -68,6 +74,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateModelShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreatePermissionRulesRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreatePermissionRulesResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreatePermissionRulesShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateServiceEndpointRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateServiceEndpointResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateServiceEndpointShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateSkillDraftRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateSkillDraftResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateSkillDraftShrinkRequest;
@@ -97,6 +106,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCustomAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCustomAgentResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteEventsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteEventsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteEventsShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteExternalAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteExternalAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteIdentityProviderRequest;
@@ -111,6 +123,10 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMcpRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMcpResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryRuleRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryRuleResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemorySessionRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemorySessionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryStoreRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMemoryStoreResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteModelConnectionRequest;
@@ -197,6 +213,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryRuleRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryRuleResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryStoreRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryStoreResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMemoryTaskRequest;
@@ -254,6 +272,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCredentialsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCredentialsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCustomAgentsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListCustomAgentsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListEventsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListEventsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListExternalAgentsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListExternalAgentsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProviderDepartmentsRequest;
@@ -274,12 +294,16 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpToolsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpToolsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoriesRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoriesResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoryRulesRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoryRulesResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemorySessionMessagesRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemorySessionMessagesResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemorySessionsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemorySessionsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoryStoresRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoryStoresResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoryTasksRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMemoryTasksResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListModelConnectionsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListModelConnectionsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListModelsRequest;
@@ -331,6 +355,10 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ResetUserPasswordShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\RetryImageCacheRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\RetryImageCacheResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\RetryImageCacheShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\RetryMemoryTaskRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\RetryMemoryTaskResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\RevokeMemoryRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\RevokeMemoryResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchMemoriesRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchMemoriesResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchMemoriesShrinkRequest;
@@ -381,6 +409,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpTemplateConfigResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMcpTemplateConfigShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryRuleRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryRuleResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryRuleShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryStoreRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateMemoryStoreResponse;
@@ -391,6 +422,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelConnectionShrinkReque
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateModelShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateServiceEndpointRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateServiceEndpointResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateServiceEndpointShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateSkillBizTagsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateSkillBizTagsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateSkillBizTagsShrinkRequest;
@@ -473,12 +507,12 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, it returns only a taskId that can be queried by using GetMemoryTask.
+     * Extracts memories from text or messages, or directly writes organized memories. When the extract parameter is omitted or set to true, either the text parameter or non-empty messages must be provided. When the extract parameter is set to false, the memories parameter is used. When the sync parameter is omitted or set to true, the operation waits for processing to complete and returns memory references. An empty array is returned if no new memories are generated. When the sync parameter is set to false, a task ID is returned, and you can use GetMemoryTask to query the result. Direct writes do not create extraction tasks.
      *
      * @remarks
-     * Writes messages or text to a memory store to extract long-term memory for subsequent retrieval and use.
-     * - sync omitted or set to true: Waits for extraction to complete and returns memories. If no memory is extracted, an empty array is returned.
-     * - sync=false: Returns a taskId. You can query the extraction progress and results by using [GetMemoryTask](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMemoryTask).
+     * Writes messages or text to a memory store to fetch long-term memory to retrieve and use later.
+     * - If `sync` is omitted or set to `true`: waits for the extraction to complete and returns `memories`. Returns an empty array if no memories are extracted.
+     * - If `sync` is set to `false`: returns a `taskId`. You can use [GetMemoryTask](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMemoryTask) to query the extraction progress and results.
      *
      * @param tmpReq - AddMemoriesRequest
      * @param headers - map
@@ -528,12 +562,12 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, it returns only a taskId that can be queried by using GetMemoryTask.
+     * Extracts memories from text or messages, or directly writes organized memories. When the extract parameter is omitted or set to true, either the text parameter or non-empty messages must be provided. When the extract parameter is set to false, the memories parameter is used. When the sync parameter is omitted or set to true, the operation waits for processing to complete and returns memory references. An empty array is returned if no new memories are generated. When the sync parameter is set to false, a task ID is returned, and you can use GetMemoryTask to query the result. Direct writes do not create extraction tasks.
      *
      * @remarks
-     * Writes messages or text to a memory store to extract long-term memory for subsequent retrieval and use.
-     * - sync omitted or set to true: Waits for extraction to complete and returns memories. If no memory is extracted, an empty array is returned.
-     * - sync=false: Returns a taskId. You can query the extraction progress and results by using [GetMemoryTask](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMemoryTask).
+     * Writes messages or text to a memory store to fetch long-term memory to retrieve and use later.
+     * - If `sync` is omitted or set to `true`: waits for the extraction to complete and returns `memories`. Returns an empty array if no memories are extracted.
+     * - If `sync` is set to `false`: returns a `taskId`. You can use [GetMemoryTask](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMemoryTask) to query the extraction progress and results.
      *
      * @param request - AddMemoriesRequest
      *
@@ -1415,10 +1449,87 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an agent that runs in an external environment, saves the configurations for the platform model, instructions, tools, and skills, and asynchronously processes the access configuration.
+     * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
      *
      * @remarks
-     * Registers an agent hosted in a user runtime environment, which corresponds to the "Managed Agent" in the console. After registration, you can continue to obtain access information and complete the connection.
+     * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+     *
+     * @param tmpReq - CreateEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEventsResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param CreateEventsRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateEventsResponse
+     */
+    public function createEventsWithOptions($workspaceId, $memoryStoreName, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateEventsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEvents',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/events',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+     *
+     * @remarks
+     * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write result for each event in the same order as the request. A successful request does not indicate that every event is written successfully or that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+     *
+     * @param request - CreateEventsRequest
+     *
+     * @returns CreateEventsResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param CreateEventsRequest $request
+     *
+     * @return CreateEventsResponse
+     */
+    public function createEvents($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createEventsWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an agent that runs in an external environment, saves the configurations for the platform model, instructions, tools, and skills, and asynchronously processes the onboarding configuration.
+     *
+     * @remarks
+     * Registers an agent hosted in a user runtime environment, which corresponds to the "Managed Agent" in the console. After registration, you can continue to obtain onboarding information and complete the connection.
      * ### Configure a managed agent
      * Provide `name` and select the configuration based on the model source:
      * | `modelSource` | Model configuration |
@@ -1426,12 +1537,12 @@ class AgentCore extends OpenApiClient
      * | `PLATFORM` | Uses a platform model. Provide `model.modelConnectionId` and `model.modelName`. |
      * | `RUNTIME` | The model is managed by an external runtime environment. Do not submit `model`. |
      * If `modelSource` is omitted but `model` is provided, it is processed as `PLATFORM`. If both are omitted, the agent cannot be created.
-     * Configure instructions, MCP tools, and skills through `instruction`, `tools`, and `skills`. You can also reference an agent template through `template.aiRegistry`. The external process is deployed by the caller. This operation does not create a platform runtime instance.
-     * ### Access sequence
+     * Configure instructions, MCP tools, and skills by using `instruction`, `tools`, and `skills`. You can also reference an agent template by using `template.aiRegistry`. The external process is deployed by the caller. This operation does not create a platform runtime instance.
+     * ### Onboarding sequence
      * **Step 1:** After creation, save the `agentId` and call [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration processing result.
-     * **Step 2:** After the latest configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to obtain the available access networks.
-     * **Step 3:** Select an available network and call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain the access token and CMS configuration. The external process then completes the access.
-     * `clientToken` is a reserved query parameter and currently does not provide idempotency guarantees.
+     * **Step 2:** After the latest configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to obtain the available onboarding networks.
+     * **Step 3:** Select an available network and call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain the onboarding token and CMS configuration. The external process completes the onboarding.
+     * `clientToken` is a reserved query parameter and does not provide idempotency guarantees at this time.
      *
      * @param tmpReq - CreateExternalAgentRequest
      * @param headers - map
@@ -1486,10 +1597,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an agent that runs in an external environment, saves the configurations for the platform model, instructions, tools, and skills, and asynchronously processes the access configuration.
+     * Creates an agent that runs in an external environment, saves the configurations for the platform model, instructions, tools, and skills, and asynchronously processes the onboarding configuration.
      *
      * @remarks
-     * Registers an agent hosted in a user runtime environment, which corresponds to the "Managed Agent" in the console. After registration, you can continue to obtain access information and complete the connection.
+     * Registers an agent hosted in a user runtime environment, which corresponds to the "Managed Agent" in the console. After registration, you can continue to obtain onboarding information and complete the connection.
      * ### Configure a managed agent
      * Provide `name` and select the configuration based on the model source:
      * | `modelSource` | Model configuration |
@@ -1497,12 +1608,12 @@ class AgentCore extends OpenApiClient
      * | `PLATFORM` | Uses a platform model. Provide `model.modelConnectionId` and `model.modelName`. |
      * | `RUNTIME` | The model is managed by an external runtime environment. Do not submit `model`. |
      * If `modelSource` is omitted but `model` is provided, it is processed as `PLATFORM`. If both are omitted, the agent cannot be created.
-     * Configure instructions, MCP tools, and skills through `instruction`, `tools`, and `skills`. You can also reference an agent template through `template.aiRegistry`. The external process is deployed by the caller. This operation does not create a platform runtime instance.
-     * ### Access sequence
+     * Configure instructions, MCP tools, and skills by using `instruction`, `tools`, and `skills`. You can also reference an agent template by using `template.aiRegistry`. The external process is deployed by the caller. This operation does not create a platform runtime instance.
+     * ### Onboarding sequence
      * **Step 1:** After creation, save the `agentId` and call [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration processing result.
-     * **Step 2:** After the latest configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to obtain the available access networks.
-     * **Step 3:** Select an available network and call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain the access token and CMS configuration. The external process then completes the access.
-     * `clientToken` is a reserved query parameter and currently does not provide idempotency guarantees.
+     * **Step 2:** After the latest configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to obtain the available onboarding networks.
+     * **Step 3:** Select an available network and call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain the onboarding token and CMS configuration. The external process completes the onboarding.
+     * `clientToken` is a reserved query parameter and does not provide idempotency guarantees at this time.
      *
      * @param request - CreateExternalAgentRequest
      *
@@ -1603,30 +1714,30 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Binds an external identity provider such as DingTalk, Lark, or a custom identity source to a workspace for enterprise account logon and user synchronization.
+     * Integrates an external identity provider such as DingTalk, Lark, or a custom identity source into a workspace for enterprise account logon and user synchronization.
      *
      * @remarks
-     * Binds an enterprise identity source to a workspace to allow application users to log on with enterprise accounts or synchronize users from the enterprise address book to the workspace.
-     * DingTalk, Lark, and custom identity sources (`CustomSSO`) are supported. A workspace can be bound to only one identity source. To change the access method, you must unbind the current identity source first.
-     * ### Select an access method
-     * | Access method | Scenario | Task completed by this operation |
+     * Integrates an enterprise identity source into a workspace to allow application users to log on with enterprise accounts or synchronize users from the enterprise address book to the workspace.
+     * DingTalk, Lark, and custom identity sources (`CustomSSO`) are supported. A workspace can be bound to only one identity source. To change the integration method, you must unbind the current identity source first.
+     * ### Select an integration method
+     * | Integration method | Scenario | Operation performed by this API |
      * | --- | --- | --- |
      * | DingTalk or Lark | The enterprise already uses DingTalk or Lark and wants to integrate enterprise accounts and the address book. | Saves the enterprise application credentials and establishes a binding for subsequent logon and address book synchronization configuration. |
      * | Custom identity source (`CustomSSO`) | The enterprise wants to integrate its own identity authentication and user management system. | Creates a shared user pool to prepare for subsequent SAML single sign-on (SSO) and SCIM user synchronization configuration. |
-     * A user pool is used to store application users and identity access configurations. SAML handles enterprise account logon, and SCIM handles provisioning users from the enterprise identity system to the user pool. You can configure these two capabilities separately.
+     * The user pool is used to store application users and identity integration configurations. SAML handles enterprise account logon, and SCIM handles provisioning users from the enterprise identity system to the user pool. You can configure these two capabilities separately.
      * ### Bind DingTalk or Lark
      * Enter the enterprise application credentials in `metadata`: DingTalk requires `appKey`, `appSecret`, and `corpId`, while Lark requires `appId` and `appSecret`.
-     * Logon is enabled by default. A user synchronization task is executed by default upon the first binding. If you want to select departments before synchronization, set `syncOnBind=false`.
+     * Logon is enabled by default. A user synchronization task is executed by default upon the first binding. If you want to select departments before synchronization, set `syncOnBind` to `false`.
      * Subsequent address book change synchronization is controlled by `syncEnabled` and is disabled by default. When enabled, you must also provide `encryptKey` and `verificationToken`.
      * ### Bind a custom identity source
-     * When you create a `CustomSSO` binding, you only need to specify the identity source type:
+     * When creating a `CustomSSO` binding, you only need to specify the identity source type:
      * ```http
      * POST /workspaces/{workspaceId}/identity-providers
      * {"identityProviderType":"CustomSSO"}
      * ```
-     * This call only creates a user pool. Logon and user synchronization are disabled by default. Do not fill in `metadata` or enable `loginEnabled` and `syncEnabled` during creation.
-     * After creation, query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider). A return value of `WAITING_CONFIGURATION` indicates that the user pool is created and you can continue to configure access:
-     * - **Integrate enterprise account logon**: Call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the SAML access information of AgentCore and configure it in the enterprise identity system. Then, call [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) to save the SAML configuration of the enterprise identity system and enable logon as needed.
+     * This call only creates the user pool. Logon and user synchronization are disabled by default. Do not enter `metadata` or enable `loginEnabled` and `syncEnabled` during creation.
+     * After creation, call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress. If `WAITING_CONFIGURATION` is returned, the user pool is created and you can proceed with the integration configuration:
+     * - **Integrate enterprise account logon**: Call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the SAML integration information of AgentCore and configure it in the enterprise identity system. Then, call [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) to save the SAML configuration of the enterprise identity system and enable logon as needed.
      * - **Integrate user synchronization**: Call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to obtain the SCIM receiving endpoint and credentials, and configure them in the enterprise identity system. After the external configuration is complete, call [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM) to enable AgentCore user synchronization.
      * The two processes are independent of each other. You can select one or both based on your business requirements.
      *
@@ -1677,30 +1788,30 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Binds an external identity provider such as DingTalk, Lark, or a custom identity source to a workspace for enterprise account logon and user synchronization.
+     * Integrates an external identity provider such as DingTalk, Lark, or a custom identity source into a workspace for enterprise account logon and user synchronization.
      *
      * @remarks
-     * Binds an enterprise identity source to a workspace to allow application users to log on with enterprise accounts or synchronize users from the enterprise address book to the workspace.
-     * DingTalk, Lark, and custom identity sources (`CustomSSO`) are supported. A workspace can be bound to only one identity source. To change the access method, you must unbind the current identity source first.
-     * ### Select an access method
-     * | Access method | Scenario | Task completed by this operation |
+     * Integrates an enterprise identity source into a workspace to allow application users to log on with enterprise accounts or synchronize users from the enterprise address book to the workspace.
+     * DingTalk, Lark, and custom identity sources (`CustomSSO`) are supported. A workspace can be bound to only one identity source. To change the integration method, you must unbind the current identity source first.
+     * ### Select an integration method
+     * | Integration method | Scenario | Operation performed by this API |
      * | --- | --- | --- |
      * | DingTalk or Lark | The enterprise already uses DingTalk or Lark and wants to integrate enterprise accounts and the address book. | Saves the enterprise application credentials and establishes a binding for subsequent logon and address book synchronization configuration. |
      * | Custom identity source (`CustomSSO`) | The enterprise wants to integrate its own identity authentication and user management system. | Creates a shared user pool to prepare for subsequent SAML single sign-on (SSO) and SCIM user synchronization configuration. |
-     * A user pool is used to store application users and identity access configurations. SAML handles enterprise account logon, and SCIM handles provisioning users from the enterprise identity system to the user pool. You can configure these two capabilities separately.
+     * The user pool is used to store application users and identity integration configurations. SAML handles enterprise account logon, and SCIM handles provisioning users from the enterprise identity system to the user pool. You can configure these two capabilities separately.
      * ### Bind DingTalk or Lark
      * Enter the enterprise application credentials in `metadata`: DingTalk requires `appKey`, `appSecret`, and `corpId`, while Lark requires `appId` and `appSecret`.
-     * Logon is enabled by default. A user synchronization task is executed by default upon the first binding. If you want to select departments before synchronization, set `syncOnBind=false`.
+     * Logon is enabled by default. A user synchronization task is executed by default upon the first binding. If you want to select departments before synchronization, set `syncOnBind` to `false`.
      * Subsequent address book change synchronization is controlled by `syncEnabled` and is disabled by default. When enabled, you must also provide `encryptKey` and `verificationToken`.
      * ### Bind a custom identity source
-     * When you create a `CustomSSO` binding, you only need to specify the identity source type:
+     * When creating a `CustomSSO` binding, you only need to specify the identity source type:
      * ```http
      * POST /workspaces/{workspaceId}/identity-providers
      * {"identityProviderType":"CustomSSO"}
      * ```
-     * This call only creates a user pool. Logon and user synchronization are disabled by default. Do not fill in `metadata` or enable `loginEnabled` and `syncEnabled` during creation.
-     * After creation, query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider). A return value of `WAITING_CONFIGURATION` indicates that the user pool is created and you can continue to configure access:
-     * - **Integrate enterprise account logon**: Call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the SAML access information of AgentCore and configure it in the enterprise identity system. Then, call [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) to save the SAML configuration of the enterprise identity system and enable logon as needed.
+     * This call only creates the user pool. Logon and user synchronization are disabled by default. Do not enter `metadata` or enable `loginEnabled` and `syncEnabled` during creation.
+     * After creation, call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress. If `WAITING_CONFIGURATION` is returned, the user pool is created and you can proceed with the integration configuration:
+     * - **Integrate enterprise account logon**: Call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the SAML integration information of AgentCore and configure it in the enterprise identity system. Then, call [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) to save the SAML configuration of the enterprise identity system and enable logon as needed.
      * - **Integrate user synchronization**: Call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to obtain the SCIM receiving endpoint and credentials, and configure them in the enterprise identity system. After the external configuration is complete, call [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM) to enable AgentCore user synchronization.
      * The two processes are independent of each other. You can select one or both based on your business requirements.
      *
@@ -1894,18 +2005,18 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates or reuses an image cache for an ACR Enterprise Edition image in a workspace, and returns the cache status upon acceptance.
+     * Creates or reuses an image cache for ACR Enterprise Edition images in a workspace, and returns the cache status upon acceptance.
      *
      * @remarks
-     * Pre-builds or reuses an ACR Enterprise Edition image cache for custom code or image agents for subsequent deployment and startup.
+     * Prepares or reuses an ACR Enterprise Edition image cache for custom code or image agents for subsequent deployment and startup.
      * ### Request parameters
-     * regionId, workspaceId, and clientToken are passed as query parameters. The region must match the entry endpoint and the workspace.
-     * The JSON request body provides acrInstanceId, namespace, repository, and tag. For repository, specify only the repository name without repeating the namespace. The source repository must have pull authorization for the workspace resource role. You can obtain the authorization URL by calling [GetWorkspaceAcrRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAcrRamAuthorizeUrl).
+     * `regionId`, `workspaceId`, and `clientToken` are passed as query parameters. The region must match the entry endpoint and the workspace.
+     * The JSON request body provides `acrInstanceId`, `namespace`, `repository`, and `tag`. For `repository`, specify only the repository name without repeating the namespace. The source repository must have pull authorization for the workspace resource role. You can obtain the authorization URL by calling [GetWorkspaceAcrRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAcrRamAuthorizeUrl).
      * ### Transfer network
-     * Both accessInternet and accessVpc must be provided, and at least one of them must be set to true. The server validates these parameters based on the network conditions of the workspace. These parameters control the source reading and transfer for the current operation and do not modify the runtime network of the agent.
+     * Both `accessInternet` and `accessVpc` must be provided, and at least one of them must be set to `true`. The server validates these parameters based on the network conditions of the workspace. These parameters control the source reading and transfer for the current operation and do not modify the runtime network of the agent.
      * ### Acceptance and readiness
-     * A successful response returns the current cache snapshot. PENDING indicates that the cache is being prepared, READY indicates that the cache is ready, and FAILED indicates a failure. For failures, check the error field. Save the imageId and call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) to query subsequent results. If the image digest has not been parsed, digest may be empty.
-     * Currently, clientToken is only validated to ensure it is not empty. It does not guarantee deduplication based on this identifier or recovery of the original acceptance result. If the result is not confirmed, query existing caches first.
+     * A successful response returns the current cache snapshot. `PENDING` indicates that the cache is being prepared, `READY` indicates that the cache is ready, and `FAILED` indicates a failure. For failures, check the `error` field. Save the `imageId` and call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) to query subsequent results. If the image digest has not been parsed, `digest` may be empty.
+     * Currently, `clientToken` is only validated to ensure it is not empty. It does not guarantee deduplication by this identifier or recovery of the original acceptance result. If the result is not confirmed, query the existing cache first.
      *
      * @param tmpReq - CreateImageCacheRequest
      * @param headers - map
@@ -1967,18 +2078,18 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates or reuses an image cache for an ACR Enterprise Edition image in a workspace, and returns the cache status upon acceptance.
+     * Creates or reuses an image cache for ACR Enterprise Edition images in a workspace, and returns the cache status upon acceptance.
      *
      * @remarks
-     * Pre-builds or reuses an ACR Enterprise Edition image cache for custom code or image agents for subsequent deployment and startup.
+     * Prepares or reuses an ACR Enterprise Edition image cache for custom code or image agents for subsequent deployment and startup.
      * ### Request parameters
-     * regionId, workspaceId, and clientToken are passed as query parameters. The region must match the entry endpoint and the workspace.
-     * The JSON request body provides acrInstanceId, namespace, repository, and tag. For repository, specify only the repository name without repeating the namespace. The source repository must have pull authorization for the workspace resource role. You can obtain the authorization URL by calling [GetWorkspaceAcrRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAcrRamAuthorizeUrl).
+     * `regionId`, `workspaceId`, and `clientToken` are passed as query parameters. The region must match the entry endpoint and the workspace.
+     * The JSON request body provides `acrInstanceId`, `namespace`, `repository`, and `tag`. For `repository`, specify only the repository name without repeating the namespace. The source repository must have pull authorization for the workspace resource role. You can obtain the authorization URL by calling [GetWorkspaceAcrRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAcrRamAuthorizeUrl).
      * ### Transfer network
-     * Both accessInternet and accessVpc must be provided, and at least one of them must be set to true. The server validates these parameters based on the network conditions of the workspace. These parameters control the source reading and transfer for the current operation and do not modify the runtime network of the agent.
+     * Both `accessInternet` and `accessVpc` must be provided, and at least one of them must be set to `true`. The server validates these parameters based on the network conditions of the workspace. These parameters control the source reading and transfer for the current operation and do not modify the runtime network of the agent.
      * ### Acceptance and readiness
-     * A successful response returns the current cache snapshot. PENDING indicates that the cache is being prepared, READY indicates that the cache is ready, and FAILED indicates a failure. For failures, check the error field. Save the imageId and call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) to query subsequent results. If the image digest has not been parsed, digest may be empty.
-     * Currently, clientToken is only validated to ensure it is not empty. It does not guarantee deduplication based on this identifier or recovery of the original acceptance result. If the result is not confirmed, query existing caches first.
+     * A successful response returns the current cache snapshot. `PENDING` indicates that the cache is being prepared, `READY` indicates that the cache is ready, and `FAILED` indicates a failure. For failures, check the `error` field. Save the `imageId` and call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) to query subsequent results. If the image digest has not been parsed, `digest` may be empty.
+     * Currently, `clientToken` is only validated to ensure it is not empty. It does not guarantee deduplication by this identifier or recovery of the original acceptance result. If the result is not confirmed, query the existing cache first.
      *
      * @param request - CreateImageCacheRequest
      *
@@ -2002,18 +2113,18 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Creates an agent by using a platform-managed runtime framework. This corresponds to the "Managed Harness" creation method in the console, where you can configure the model, instructions, and skills.
      * ### Required configurations
-     * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform. You do not need to provide a code package or container image.
+     * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform, so you do not need to provide a code package or container image.
      * ### Harness and model
      * | Harness | Model and connector configurations |
      * | --- | --- |
-     * | `qwenpaw` | If you omit `harness` during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
-     * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). You can omit `model.modelName`. |
-     * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. You can omit this parameter if only one key record exists. You must specify it if multiple records exist. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
+     * | `qwenpaw` | If `harness` is omitted during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
+     * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
+     * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This parameter can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
      * The harness type cannot be changed after creation.
      * ### Instructions, templates, and skills
-     * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, the version is referenced by `versionSelector`: use `LABEL` with a label name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
+     * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, versions are referenced by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
      * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions by using `configuredSkills` and `skills`.
-     * If no template is used, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty. Each sub-agent name must be unique. Tools currently use `tools[].type=MCP`.
+     * If no template is used, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty, and the name of each sub-agent must be unique. Tools currently use `tools[].type=MCP`.
      * ### Runtime configurations and mounts
      * Omitted fields in `runtime.hpa` use the following default values:
      * | Field | Default value | Valid values and description |
@@ -2025,7 +2136,7 @@ class AgentCore extends OpenApiClient
      * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
      * If `sessionPolicy.type=ISOLATED_HEADER_FIELD`, you must provide `headerName`. Do not specify this parameter for other policies.
      * If `network` is provided, you must specify both `accessInternet.enabled` and `accessVpc.enabled`. Actual access is restricted by the workspace network configurations.
-     * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform-reserved directories, be duplicated, or form parent-child directory overwrites.
+     * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform-reserved directories, and cannot be duplicated or form parent-child directory overwrites.
      * File mounts are used to allow the agent to access persistent data. When you use AgenticFS, you can first complete the access point authorization by using [GetWorkspaceAgenticFsMountRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAgenticFsMountRamAuthorizeUrl).
      * The `path` for an OSS mount must be a non-empty directory prefix in a bucket. The `server` for an AgenticFS mount is the access point domain name, without a protocol, port, or path. The `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
      * `environment.variables` configures environment variables, and `environment.credentialReferences` references workspace credentials. Environment variable names must be non-empty and unique, and values must be strings.
@@ -2090,18 +2201,18 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Creates an agent by using a platform-managed runtime framework. This corresponds to the "Managed Harness" creation method in the console, where you can configure the model, instructions, and skills.
      * ### Required configurations
-     * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform. You do not need to provide a code package or container image.
+     * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform, so you do not need to provide a code package or container image.
      * ### Harness and model
      * | Harness | Model and connector configurations |
      * | --- | --- |
-     * | `qwenpaw` | If you omit `harness` during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
-     * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). You can omit `model.modelName`. |
-     * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. You can omit this parameter if only one key record exists. You must specify it if multiple records exist. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
+     * | `qwenpaw` | If `harness` is omitted during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
+     * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
+     * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This parameter can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
      * The harness type cannot be changed after creation.
      * ### Instructions, templates, and skills
-     * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, the version is referenced by `versionSelector`: use `LABEL` with a label name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
+     * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, versions are referenced by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
      * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions by using `configuredSkills` and `skills`.
-     * If no template is used, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty. Each sub-agent name must be unique. Tools currently use `tools[].type=MCP`.
+     * If no template is used, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty, and the name of each sub-agent must be unique. Tools currently use `tools[].type=MCP`.
      * ### Runtime configurations and mounts
      * Omitted fields in `runtime.hpa` use the following default values:
      * | Field | Default value | Valid values and description |
@@ -2113,7 +2224,7 @@ class AgentCore extends OpenApiClient
      * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
      * If `sessionPolicy.type=ISOLATED_HEADER_FIELD`, you must provide `headerName`. Do not specify this parameter for other policies.
      * If `network` is provided, you must specify both `accessInternet.enabled` and `accessVpc.enabled`. Actual access is restricted by the workspace network configurations.
-     * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform-reserved directories, be duplicated, or form parent-child directory overwrites.
+     * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform-reserved directories, and cannot be duplicated or form parent-child directory overwrites.
      * File mounts are used to allow the agent to access persistent data. When you use AgenticFS, you can first complete the access point authorization by using [GetWorkspaceAgenticFsMountRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAgenticFsMountRamAuthorizeUrl).
      * The `path` for an OSS mount must be a non-empty directory prefix in a bucket. The `server` for an AgenticFS mount is the access point domain name, without a protocol, port, or path. The `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
      * `environment.variables` configures environment variables, and `environment.credentialReferences` references workspace credentials. Environment variable names must be non-empty and unique, and values must be strings.
@@ -2222,6 +2333,83 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->createMcpWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an extraction rule for a memory store, specifying the rule name, enabling status, and extraction strategy. After the rule is enabled, extraction is triggered when 8 pending extraction events accumulate in a session or when no new pending extraction events are added for 60 consecutive seconds.
+     *
+     * @remarks
+     * Creates an extraction rule for a memory store, specifying the rule name, enabling status, and extraction strategy. After the rule is enabled, extraction is triggered when 8 pending extraction events accumulate in a session or when no new pending extraction events are added for 60 consecutive seconds.
+     *
+     * @param tmpReq - CreateMemoryRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMemoryRuleResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $memoryStoreName
+     * @param CreateMemoryRuleRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateMemoryRuleResponse
+     */
+    public function createMemoryRuleWithOptions($workspaceId, $memoryStoreName, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateMemoryRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMemoryRule',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memory-rules',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMemoryRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an extraction rule for a memory store, specifying the rule name, enabling status, and extraction strategy. After the rule is enabled, extraction is triggered when 8 pending extraction events accumulate in a session or when no new pending extraction events are added for 60 consecutive seconds.
+     *
+     * @remarks
+     * Creates an extraction rule for a memory store, specifying the rule name, enabling status, and extraction strategy. After the rule is enabled, extraction is triggered when 8 pending extraction events accumulate in a session or when no new pending extraction events are added for 60 consecutive seconds.
+     *
+     * @param request - CreateMemoryRuleRequest
+     *
+     * @returns CreateMemoryRuleResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $memoryStoreName
+     * @param CreateMemoryRuleRequest $request
+     *
+     * @return CreateMemoryRuleResponse
+     */
+    public function createMemoryRule($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMemoryRuleWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -2389,10 +2577,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Initiates model creation for a connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
+     * Creates a model connection in a specified workspace and configures the upstream model service endpoint, invoke protocol, and access credentials for model creation.
      *
      * @remarks
-     * Initiates model creation for a connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
+     * Creates a model connection in a specified workspace and configures the upstream model service endpoint, invoke protocol, and access credentials for model creation.
      *
      * @param tmpReq - CreateModelConnectionRequest
      * @param headers - map
@@ -2447,10 +2635,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Initiates model creation for a connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
+     * Creates a model connection in a specified workspace and configures the upstream model service endpoint, invoke protocol, and access credentials for model creation.
      *
      * @remarks
-     * Initiates model creation for a connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
+     * Creates a model connection in a specified workspace and configures the upstream model service endpoint, invoke protocol, and access credentials for model creation.
      *
      * @param request - CreateModelConnectionRequest
      *
@@ -2551,6 +2739,87 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Creates a service endpoint.
+     *
+     * @remarks
+     * Creates a named service endpoint that routes to a specific agent version within a specified workspace. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
+     *
+     * @param tmpReq - CreateServiceEndpointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceEndpointResponse
+     *
+     * @param string                       $workspaceId
+     * @param CreateServiceEndpointRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateServiceEndpointResponse
+     */
+    public function createServiceEndpointWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateServiceEndpointShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceEndpoint',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/service-endpoints',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a service endpoint.
+     *
+     * @remarks
+     * Creates a named service endpoint that routes to a specific agent version within a specified workspace. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
+     *
+     * @param request - CreateServiceEndpointRequest
+     *
+     * @returns CreateServiceEndpointResponse
+     *
+     * @param string                       $workspaceId
+     * @param CreateServiceEndpointRequest $request
+     *
+     * @return CreateServiceEndpointResponse
+     */
+    public function createServiceEndpoint($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceEndpointWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a skill in a specified workspace and generates an editable draft version. You can derive the draft from an existing version, or specify a target version and a commit message.
      *
      * @remarks
@@ -2626,10 +2895,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates a team in a specified workspace and configures user and agent members. The user members must include exactly one member with the ADMIN role, and the agent members can only have the LEADER or WORKER role.
+     * Creates a team in a specified workspace and configures user members and agent members at the same time. The user members must include exactly one member with the ADMIN role, and agent members can only have the LEADER or WORKER role.
      *
      * @remarks
-     * Creates a team in a specified workspace and configures user and agent members.
+     * Creates a team in a specified workspace and configures user members and agent members at the same time.
      *
      * @param tmpReq - CreateTeamRequest
      * @param headers - map
@@ -2684,10 +2953,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates a team in a specified workspace and configures user and agent members. The user members must include exactly one member with the ADMIN role, and the agent members can only have the LEADER or WORKER role.
+     * Creates a team in a specified workspace and configures user members and agent members at the same time. The user members must include exactly one member with the ADMIN role, and agent members can only have the LEADER or WORKER role.
      *
      * @remarks
-     * Creates a team in a specified workspace and configures user and agent members.
+     * Creates a team in a specified workspace and configures user members and agent members at the same time.
      *
      * @param request - CreateTeamRequest
      *
@@ -2788,11 +3057,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, Model Context Protocol (MCP) services, and collaboration configurations.
+     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
      *
      * @remarks
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, Model Context Protocol (MCP) services, and collaboration configurations.
-     * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query details and manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
+     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+     * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query the details, and then manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
      *
      * @param tmpReq - CreateWorkspaceRequest
      * @param headers - map
@@ -2846,11 +3115,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, Model Context Protocol (MCP) services, and collaboration configurations.
+     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
      *
      * @remarks
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, Model Context Protocol (MCP) services, and collaboration configurations.
-     * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query details and manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
+     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+     * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query the details, and then manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
      *
      * @param request - CreateWorkspaceRequest
      *
@@ -3437,6 +3706,83 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion result for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+     *
+     * @remarks
+     * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion result for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+     *
+     * @param tmpReq - DeleteEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventsResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param DeleteEventsRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteEventsResponse
+     */
+    public function deleteEventsWithOptions($workspaceId, $memoryStoreName, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteEventsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEvents',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/events',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion result for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+     *
+     * @remarks
+     * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion result for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+     *
+     * @param request - DeleteEventsRequest
+     *
+     * @returns DeleteEventsResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param DeleteEventsRequest $request
+     *
+     * @return DeleteEventsResponse
+     */
+    public function deleteEvents($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteEventsWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a managed agent from a specified workspace and asynchronously cleans up its associated platform resources.
      *
      * @remarks
@@ -3512,18 +3858,18 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Disconnects the identity source integration of a workspace. For CustomSSO, this operation clears the shared user pool and related SAML and SCIM resources. To disable only logon or synchronization, use the corresponding API operations.
+     * Disconnects the identity source integration for a workspace. For CustomSSO, this operation clears the shared user pool and related SAML and SCIM resources. To disable only logon or synchronization, use the corresponding API operations.
      *
      * @remarks
-     * Disconnects the association between a workspace and an enterprise identity source. This operation is used to terminate identity federation or clear the current configuration before you attach another identity source.
-     * Disconnecting removes the AgentCore users and associated configurations imported from the identity source. For CustomSSO, it also clears the shared user pool and SAML and SCIM access resources. Applications created by users in the enterprise identity system must still be managed on the enterprise side.
-     * ### Preparations
-     * Remove the references between the relevant users and collaboration teams. If any team still references these users, the API operation rejects the disconnection request.
-     * If you only need to temporarily disable a specific capability, you can retain the identity source binding. You can disable logon by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) or disable SCIM synchronization by calling [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM).
+     * Disconnects the workspace from the enterprise identity source to end identity federation, or clears the current attachment before attaching another identity source.
+     * Disconnecting clears the AgentCore users and associated configurations imported from the identity source. For `CustomSSO`, it also clears the shared user pool and SAML and SCIM access resources. Applications created by users in the enterprise identity system must still be managed on the enterprise side.
+     * ### Preparations before disconnection
+     * First, remove the references between the relevant users and collaboration teams. If any team still references these users, the API operation rejects the disconnection request.
+     * If you only want to temporarily disable a specific capability, you can retain the identity source binding: disable logon by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider), or disable SCIM synchronization by calling [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM).
      * ### Verify the disconnection result
-     * The disconnection is executed in the background. After the request is accepted, DISCONNECTING is returned. You can call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress:
-     * - If the query returns IdentityProviderNotFound, the binding has been removed and the disconnection is complete.
-     * - If DISCONNECT_FAILED is returned, the cleanup failed. Some resources may have already been cleared. You can initiate the disconnection again.
+     * The disconnection is executed in the background. After the request is accepted, `DISCONNECTING` is returned. You can query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider):
+     * - If the query returns `IdentityProviderNotFound`, the binding has been removed and the disconnection is complete.
+     * - If `DISCONNECT_FAILED` is returned, the cleanup failed. Some resources may have already been cleaned up. You can initiate the disconnection again.
      * You can bind a new identity source to the workspace only after the disconnection is complete.
      *
      * @param request - DeleteIdentityProviderRequest
@@ -3568,18 +3914,18 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Disconnects the identity source integration of a workspace. For CustomSSO, this operation clears the shared user pool and related SAML and SCIM resources. To disable only logon or synchronization, use the corresponding API operations.
+     * Disconnects the identity source integration for a workspace. For CustomSSO, this operation clears the shared user pool and related SAML and SCIM resources. To disable only logon or synchronization, use the corresponding API operations.
      *
      * @remarks
-     * Disconnects the association between a workspace and an enterprise identity source. This operation is used to terminate identity federation or clear the current configuration before you attach another identity source.
-     * Disconnecting removes the AgentCore users and associated configurations imported from the identity source. For CustomSSO, it also clears the shared user pool and SAML and SCIM access resources. Applications created by users in the enterprise identity system must still be managed on the enterprise side.
-     * ### Preparations
-     * Remove the references between the relevant users and collaboration teams. If any team still references these users, the API operation rejects the disconnection request.
-     * If you only need to temporarily disable a specific capability, you can retain the identity source binding. You can disable logon by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) or disable SCIM synchronization by calling [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM).
+     * Disconnects the workspace from the enterprise identity source to end identity federation, or clears the current attachment before attaching another identity source.
+     * Disconnecting clears the AgentCore users and associated configurations imported from the identity source. For `CustomSSO`, it also clears the shared user pool and SAML and SCIM access resources. Applications created by users in the enterprise identity system must still be managed on the enterprise side.
+     * ### Preparations before disconnection
+     * First, remove the references between the relevant users and collaboration teams. If any team still references these users, the API operation rejects the disconnection request.
+     * If you only want to temporarily disable a specific capability, you can retain the identity source binding: disable logon by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider), or disable SCIM synchronization by calling [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM).
      * ### Verify the disconnection result
-     * The disconnection is executed in the background. After the request is accepted, DISCONNECTING is returned. You can call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress:
-     * - If the query returns IdentityProviderNotFound, the binding has been removed and the disconnection is complete.
-     * - If DISCONNECT_FAILED is returned, the cleanup failed. Some resources may have already been cleared. You can initiate the disconnection again.
+     * The disconnection is executed in the background. After the request is accepted, `DISCONNECTING` is returned. You can query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider):
+     * - If the query returns `IdentityProviderNotFound`, the binding has been removed and the disconnection is complete.
+     * - If `DISCONNECT_FAILED` is returned, the cleanup failed. Some resources may have already been cleaned up. You can initiate the disconnection again.
      * You can bind a new identity source to the workspace only after the disconnection is complete.
      *
      * @param request - DeleteIdentityProviderRequest
@@ -3683,9 +4029,9 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Deletes the image cache association in a workspace and checks agent references and instance usage before submission.
      * ### Deletion conditions
-     * The deletion request is rejected if the cache is still referenced by an agent with the cache switch enabled, or if instances are still using it or resources are being released. You can first query `agentCount`, `canDelete`, and `deleteBlockReason` by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
+     * The deletion request is rejected if the cache is still referenced by an agent with the cache switch enabled, or if the cache is still in use by instances or being released. You can first query `agentCount`, `canDelete`, and `deleteBlockReason` by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
      * ### Query results
-     * The `imageId` in the response corresponds to this request. The current implementation of `deletionPending` returns `false`. To confirm whether the cache is still visible, call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) or [ListImageCaches](https://api.aliyun.com/document/AgentCore/2026-08-04/ListImageCaches).
+     * The `imageId` in the response corresponds to this request. The current implementation of `deletionPending` returns `false`. To check whether the cache is still visible, call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) or [ListImageCaches](https://api.aliyun.com/document/AgentCore/2026-08-04/ListImageCaches).
      * This operation deletes the cache association in the specified workspace. It does not delete the source ACR repository or the source image.
      *
      * @param request - DeleteImageCacheRequest
@@ -3738,9 +4084,9 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Deletes the image cache association in a workspace and checks agent references and instance usage before submission.
      * ### Deletion conditions
-     * The deletion request is rejected if the cache is still referenced by an agent with the cache switch enabled, or if instances are still using it or resources are being released. You can first query `agentCount`, `canDelete`, and `deleteBlockReason` by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
+     * The deletion request is rejected if the cache is still referenced by an agent with the cache switch enabled, or if the cache is still in use by instances or being released. You can first query `agentCount`, `canDelete`, and `deleteBlockReason` by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
      * ### Query results
-     * The `imageId` in the response corresponds to this request. The current implementation of `deletionPending` returns `false`. To confirm whether the cache is still visible, call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) or [ListImageCaches](https://api.aliyun.com/document/AgentCore/2026-08-04/ListImageCaches).
+     * The `imageId` in the response corresponds to this request. The current implementation of `deletionPending` returns `false`. To check whether the cache is still visible, call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) or [ListImageCaches](https://api.aliyun.com/document/AgentCore/2026-08-04/ListImageCaches).
      * This operation deletes the cache association in the specified workspace. It does not delete the source ACR repository or the source image.
      *
      * @param request - DeleteImageCacheRequest
@@ -3903,10 +4249,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Deletes a long-term memory by memory ID.
+     * Deletes a long-term memory based on the memory ID.
      *
      * @remarks
-     * Deletes a long-term memory by memory ID.
+     * Deletes a long-term memory based on the memory ID.
      *
      * @param request - DeleteMemoryRequest
      * @param headers - map
@@ -3945,10 +4291,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Deletes a long-term memory by memory ID.
+     * Deletes a long-term memory based on the memory ID.
      *
      * @remarks
-     * Deletes a long-term memory by memory ID.
+     * Deletes a long-term memory based on the memory ID.
      *
      * @param request - DeleteMemoryRequest
      *
@@ -3970,7 +4316,155 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Asynchronously deletes a MemoryStore and all its long-term memory.
+     * Deletes a specified memory rule. Subsequent new content is no longer extracted by using this rule. Existing memories are retained. Repeatedly deleting the same rule returns a success response.
+     *
+     * @remarks
+     * Deletes a specified memory rule. Subsequent new content is no longer extracted by using this rule. Existing memories are retained. Repeatedly deleting the same rule returns a success response.
+     *
+     * @param request - DeleteMemoryRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemoryRuleResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $memoryStoreName
+     * @param string                  $ruleId
+     * @param DeleteMemoryRuleRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteMemoryRuleResponse
+     */
+    public function deleteMemoryRuleWithOptions($workspaceId, $memoryStoreName, $ruleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemoryRule',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memory-rules/' . Url::percentEncode($ruleId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemoryRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a specified memory rule. Subsequent new content is no longer extracted by using this rule. Existing memories are retained. Repeatedly deleting the same rule returns a success response.
+     *
+     * @remarks
+     * Deletes a specified memory rule. Subsequent new content is no longer extracted by using this rule. Existing memories are retained. Repeatedly deleting the same rule returns a success response.
+     *
+     * @param request - DeleteMemoryRuleRequest
+     *
+     * @returns DeleteMemoryRuleResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $memoryStoreName
+     * @param string                  $ruleId
+     * @param DeleteMemoryRuleRequest $request
+     *
+     * @return DeleteMemoryRuleResponse
+     */
+    public function deleteMemoryRule($workspaceId, $memoryStoreName, $ruleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemoryRuleWithOptions($workspaceId, $memoryStoreName, $ruleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and session ID again, a new session is created. You cannot query the historical content of the deleted session. Extracted memories are retained after the session is deleted.
+     *
+     * @remarks
+     * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and session ID again, a new session is created. You cannot query the historical content of the deleted session. Extracted memories are retained after the session is deleted.
+     *
+     * @param request - DeleteMemorySessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMemorySessionResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $memoryStoreName
+     * @param string                     $sessionId
+     * @param DeleteMemorySessionRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteMemorySessionResponse
+     */
+    public function deleteMemorySessionWithOptions($workspaceId, $memoryStoreName, $sessionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->teamId) {
+            @$query['teamId'] = $request->teamId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMemorySession',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memory-sessions/' . Url::percentEncode($sessionId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMemorySessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and session ID again, a new session is created. You cannot query the historical content of the deleted session. Extracted memories are retained after the session is deleted.
+     *
+     * @remarks
+     * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and session ID again, a new session is created. You cannot query the historical content of the deleted session. Extracted memories are retained after the session is deleted.
+     *
+     * @param request - DeleteMemorySessionRequest
+     *
+     * @returns DeleteMemorySessionResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $memoryStoreName
+     * @param string                     $sessionId
+     * @param DeleteMemorySessionRequest $request
+     *
+     * @return DeleteMemorySessionResponse
+     */
+    public function deleteMemorySession($workspaceId, $memoryStoreName, $sessionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMemorySessionWithOptions($workspaceId, $memoryStoreName, $sessionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Asynchronously deletes a MemoryStore and all long-term memory within it.
      *
      * @remarks
      * Asynchronously deletes a specified long-term memory store (MemoryStore) and all long-term memories within it.
@@ -4011,7 +4505,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Asynchronously deletes a MemoryStore and all its long-term memory.
+     * Asynchronously deletes a MemoryStore and all long-term memory within it.
      *
      * @remarks
      * Asynchronously deletes a specified long-term memory store (MemoryStore) and all long-term memories within it.
@@ -6037,9 +6531,9 @@ class AgentCore extends OpenApiClient
      * Queries the configuration, model source, version processing status, and external runtime status of a managed agent.
      *
      * @remarks
-     * Queries the platform configuration, version processing status, and external runtime status of a managed agent to verify access and configuration application.
+     * Queries the platform configuration, version processing status, and external runtime status of a managed agent to verify access and configuration effectiveness.
      * ### Configuration processing and runtime status
-     * `latestSpecVersion` and `latestVersionStatus` indicate the latest submitted configuration and its processing status. `status` indicates the platform resource status, and `externalAgentStatus` indicates the external runtime status. A successfully accepted configuration does not mean that the external process is connected.
+     * `latestSpecVersion` and `latestVersionStatus` indicate the latest submitted configuration and its processing status. `status` represents the platform resource status, and `externalAgentStatus` represents the external runtime status. A successful configuration acceptance does not indicate that the external process is connected.
      * If `modelSource` is `PLATFORM`, the returned model configuration is used. `RUNTIME` indicates that the model is managed by the external environment. `configuredSkills` indicates explicit skill configurations, and `skills` represents the aggregated skill information.
      * ### External access
      * After the configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to query available networks, and then call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain access information. If the agent does not exist, has been deleted, or does not belong to the workspace, a resource not found error is returned.
@@ -6083,9 +6577,9 @@ class AgentCore extends OpenApiClient
      * Queries the configuration, model source, version processing status, and external runtime status of a managed agent.
      *
      * @remarks
-     * Queries the platform configuration, version processing status, and external runtime status of a managed agent to verify access and configuration application.
+     * Queries the platform configuration, version processing status, and external runtime status of a managed agent to verify access and configuration effectiveness.
      * ### Configuration processing and runtime status
-     * `latestSpecVersion` and `latestVersionStatus` indicate the latest submitted configuration and its processing status. `status` indicates the platform resource status, and `externalAgentStatus` indicates the external runtime status. A successfully accepted configuration does not mean that the external process is connected.
+     * `latestSpecVersion` and `latestVersionStatus` indicate the latest submitted configuration and its processing status. `status` represents the platform resource status, and `externalAgentStatus` represents the external runtime status. A successful configuration acceptance does not indicate that the external process is connected.
      * If `modelSource` is `PLATFORM`, the returned model configuration is used. `RUNTIME` indicates that the model is managed by the external environment. `configuredSkills` indicates explicit skill configurations, and `skills` represents the aggregated skill information.
      * ### External access
      * After the configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to query available networks, and then call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain access information. If the agent does not exist, has been deleted, or does not belong to the workspace, a resource not found error is returned.
@@ -6185,20 +6679,20 @@ class AgentCore extends OpenApiClient
      * Queries the binding and expected configuration of a specified identity provider. When SAML is configured for CustomSSO, this operation reads back the actual upstream SSO configuration. The SCIM status is queried through a separate API operation.
      *
      * @remarks
-     * Queries the enterprise identity providers bound to a workspace to view the access configuration, logon and user synchronization toggles, and configuration processing progress.
-     * For a custom identity provider (`CustomSSO`), this API operation also reads the saved SAML logon configuration for viewing or modifying enterprise single sign-on (SSO) settings.
+     * Queries the enterprise identity providers bound to a workspace. You can use this operation to view the access configuration, logon and user synchronization switches, and configuration processing progress.
+     * For custom identity providers (`CustomSSO`), this API operation also retrieves the saved SAML logon configuration for viewing or modifying enterprise single sign-on (SSO) settings.
      * ### How to interpret the query results
      * | Field | Purpose |
      * | --- | --- |
      * | `identityProviderType` | Indicates whether DingTalk, Lark, or a custom identity provider is currently integrated. |
      * | `loginEnabled` | Indicates whether enterprise account logon is enabled. |
-     * | `saml` | The saved SAML configuration of the enterprise identity system, used to backfill fields when editing the configuration. |
+     * | `saml` | The saved SAML configuration of the enterprise identity system, used for backfilling when editing the configuration. |
      * | `configuration` | The actual SAML configuration read from the identity service, used to verify whether the logon configuration has taken effect. |
-     * | `status` | The processing progress of attaching the identity provider or the logon configuration. |
-     * If `CustomSSO` returns `WAITING_CONFIGURATION`, it indicates that the user pool is ready and the SAML logon configuration is pending. In this case, you can call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information of AgentCore and continue configuring enterprise single sign-on.
-     * After saving the logon configuration, you can query `status` to track the processing progress. `READY` indicates that the configuration processing is complete. To check whether logon is enabled, you also need to verify `loginEnabled` and `configuration`.
-     * ### Query user synchronization status
-     * SAML logon and SCIM user synchronization are configured separately. SCIM is used to pre-provision users from the enterprise identity system into the user pool. You can call [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM) to query the receiver configuration and synchronization task results.
+     * | `status` | The processing progress of the identity provider attachment or logon configuration. |
+     * When `CustomSSO` returns `WAITING_CONFIGURATION`, it indicates that the user pool is ready and the SAML logon configuration is pending. In this case, you can call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information for AgentCore and continue configuring enterprise single sign-on.
+     * After you save the logon configuration, you can query `status` to track the processing progress. `READY` indicates that the configuration processing is complete. To check whether logon is enabled, you must also verify `loginEnabled` and `configuration`.
+     * ### Query the user synchronization status
+     * SAML logon and SCIM user synchronization are configured separately. SCIM is used to pre-provision users from the enterprise identity system to the user pool. You can call [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM) to query the receiver configuration and synchronization task results.
      *
      * @param request - GetIdentityProviderRequest
      * @param headers - map
@@ -6239,20 +6733,20 @@ class AgentCore extends OpenApiClient
      * Queries the binding and expected configuration of a specified identity provider. When SAML is configured for CustomSSO, this operation reads back the actual upstream SSO configuration. The SCIM status is queried through a separate API operation.
      *
      * @remarks
-     * Queries the enterprise identity providers bound to a workspace to view the access configuration, logon and user synchronization toggles, and configuration processing progress.
-     * For a custom identity provider (`CustomSSO`), this API operation also reads the saved SAML logon configuration for viewing or modifying enterprise single sign-on (SSO) settings.
+     * Queries the enterprise identity providers bound to a workspace. You can use this operation to view the access configuration, logon and user synchronization switches, and configuration processing progress.
+     * For custom identity providers (`CustomSSO`), this API operation also retrieves the saved SAML logon configuration for viewing or modifying enterprise single sign-on (SSO) settings.
      * ### How to interpret the query results
      * | Field | Purpose |
      * | --- | --- |
      * | `identityProviderType` | Indicates whether DingTalk, Lark, or a custom identity provider is currently integrated. |
      * | `loginEnabled` | Indicates whether enterprise account logon is enabled. |
-     * | `saml` | The saved SAML configuration of the enterprise identity system, used to backfill fields when editing the configuration. |
+     * | `saml` | The saved SAML configuration of the enterprise identity system, used for backfilling when editing the configuration. |
      * | `configuration` | The actual SAML configuration read from the identity service, used to verify whether the logon configuration has taken effect. |
-     * | `status` | The processing progress of attaching the identity provider or the logon configuration. |
-     * If `CustomSSO` returns `WAITING_CONFIGURATION`, it indicates that the user pool is ready and the SAML logon configuration is pending. In this case, you can call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information of AgentCore and continue configuring enterprise single sign-on.
-     * After saving the logon configuration, you can query `status` to track the processing progress. `READY` indicates that the configuration processing is complete. To check whether logon is enabled, you also need to verify `loginEnabled` and `configuration`.
-     * ### Query user synchronization status
-     * SAML logon and SCIM user synchronization are configured separately. SCIM is used to pre-provision users from the enterprise identity system into the user pool. You can call [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM) to query the receiver configuration and synchronization task results.
+     * | `status` | The processing progress of the identity provider attachment or logon configuration. |
+     * When `CustomSSO` returns `WAITING_CONFIGURATION`, it indicates that the user pool is ready and the SAML logon configuration is pending. In this case, you can call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information for AgentCore and continue configuring enterprise single sign-on.
+     * After you save the logon configuration, you can query `status` to track the processing progress. `READY` indicates that the configuration processing is complete. To check whether logon is enabled, you must also verify `loginEnabled` and `configuration`.
+     * ### Query the user synchronization status
+     * SAML logon and SCIM user synchronization are configured separately. SCIM is used to pre-provision users from the enterprise identity system to the user pool. You can call [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM) to query the receiver configuration and synchronization task results.
      *
      * @param request - GetIdentityProviderRequest
      *
@@ -6372,29 +6866,29 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the SAML service provider (SP) information of CustomSSO, including the Entity ID, ACS URL, and SP metadata XML, for users to configure an external IdP.
+     * Queries the SAML service provider (SP) information for CustomSSO, including the Entity ID, ACS URL, and SP metadata XML, to help users configure an external IdP.
      *
      * @remarks
      * Retrieves the SAML service provider (SP) access information of AgentCore for configuring single sign-on (SSO) in an enterprise identity provider (IdP).
      * An SP is a service provider that receives logon assertions. An IdP is an enterprise identity provider that verifies user identities and issues logon assertions. This operation returns the SP information on the AgentCore side.
      * ### Before you begin
-     * The workspace is bound to CustomSSO, and the shared user pool is initialized. The protocol parameter is required and must be set to SAML.
-     * You can call the [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) operation to query the binding information. After the user pool becomes available, you can obtain the SP information and then complete the SAML configuration.
+     * The workspace is bound to `CustomSSO`, and the shared user pool is initialized. The `protocol` parameter is required and must be set to `SAML`.
+     * You can call the [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) operation to query the binding information. After the user pool becomes available, you can retrieve the SP information and then complete the SAML configuration.
      * ### Request example
      * ```http
      * GET /workspaces/{workspaceId}/identity-providers/CustomSSO/service-provider?protocol=SAML
      * ```
-     * ### Response elements
+     * ### Response information
      * | Field | Purpose |
      * | --- | --- |
-     * | protocol | The access protocol. This operation returns SAML. |
-     * | entityId | The SP identifier of AgentCore. Configure it as the service provider Entity ID in the enterprise IdP. |
-     * | acsUrl | The URL where AgentCore receives SAML logon assertions. Configure it as the ACS URL in the enterprise IdP. |
-     * | metadataXml | The SP metadata XML. Use it to import the SP configuration in an enterprise IdP that supports metadata import. |
+     * | `protocol` | The access protocol. This operation returns `SAML`. |
+     * | `entityId` | The SP identifier of AgentCore. Configure this value as the service provider Entity ID in the enterprise IdP. |
+     * | `acsUrl` | The URL where AgentCore receives SAML logon assertions. Configure this value as the ACS URL in the enterprise IdP. |
+     * | `metadataXml` | The SP metadata XML. Use this file to import the SP configuration in an enterprise IdP that supports metadata import. |
      * ### Configuration procedure
-     * **Step 1:** Call this operation to obtain the SP information, and configure the SP identifier and assertion receiving URL of AgentCore in the enterprise IdP.
-     * **Step 2:** Export the metadata XML from the enterprise IdP and save it to AgentCore by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider).
-     * **Step 3:** After the configuration is complete, enable single sign-on by using loginEnabled as needed.
+     * **Step 1:** Call this operation to retrieve the SP information, and configure the SP identifier and assertion receiving URL of AgentCore in the enterprise IdP.
+     * **Step 2:** Export the metadata XML from the enterprise IdP and save it to AgentCore by calling the [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) operation.
+     * **Step 3:** After the configuration is complete, enable single sign-on by setting `loginEnabled` as needed.
      *
      * @param request - GetIdentityProviderServiceProviderRequest
      * @param headers - map
@@ -6438,29 +6932,29 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the SAML service provider (SP) information of CustomSSO, including the Entity ID, ACS URL, and SP metadata XML, for users to configure an external IdP.
+     * Queries the SAML service provider (SP) information for CustomSSO, including the Entity ID, ACS URL, and SP metadata XML, to help users configure an external IdP.
      *
      * @remarks
      * Retrieves the SAML service provider (SP) access information of AgentCore for configuring single sign-on (SSO) in an enterprise identity provider (IdP).
      * An SP is a service provider that receives logon assertions. An IdP is an enterprise identity provider that verifies user identities and issues logon assertions. This operation returns the SP information on the AgentCore side.
      * ### Before you begin
-     * The workspace is bound to CustomSSO, and the shared user pool is initialized. The protocol parameter is required and must be set to SAML.
-     * You can call the [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) operation to query the binding information. After the user pool becomes available, you can obtain the SP information and then complete the SAML configuration.
+     * The workspace is bound to `CustomSSO`, and the shared user pool is initialized. The `protocol` parameter is required and must be set to `SAML`.
+     * You can call the [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) operation to query the binding information. After the user pool becomes available, you can retrieve the SP information and then complete the SAML configuration.
      * ### Request example
      * ```http
      * GET /workspaces/{workspaceId}/identity-providers/CustomSSO/service-provider?protocol=SAML
      * ```
-     * ### Response elements
+     * ### Response information
      * | Field | Purpose |
      * | --- | --- |
-     * | protocol | The access protocol. This operation returns SAML. |
-     * | entityId | The SP identifier of AgentCore. Configure it as the service provider Entity ID in the enterprise IdP. |
-     * | acsUrl | The URL where AgentCore receives SAML logon assertions. Configure it as the ACS URL in the enterprise IdP. |
-     * | metadataXml | The SP metadata XML. Use it to import the SP configuration in an enterprise IdP that supports metadata import. |
+     * | `protocol` | The access protocol. This operation returns `SAML`. |
+     * | `entityId` | The SP identifier of AgentCore. Configure this value as the service provider Entity ID in the enterprise IdP. |
+     * | `acsUrl` | The URL where AgentCore receives SAML logon assertions. Configure this value as the ACS URL in the enterprise IdP. |
+     * | `metadataXml` | The SP metadata XML. Use this file to import the SP configuration in an enterprise IdP that supports metadata import. |
      * ### Configuration procedure
-     * **Step 1:** Call this operation to obtain the SP information, and configure the SP identifier and assertion receiving URL of AgentCore in the enterprise IdP.
-     * **Step 2:** Export the metadata XML from the enterprise IdP and save it to AgentCore by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider).
-     * **Step 3:** After the configuration is complete, enable single sign-on by using loginEnabled as needed.
+     * **Step 1:** Call this operation to retrieve the SP information, and configure the SP identifier and assertion receiving URL of AgentCore in the enterprise IdP.
+     * **Step 2:** Export the metadata XML from the enterprise IdP and save it to AgentCore by calling the [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) operation.
+     * **Step 3:** After the configuration is complete, enable single sign-on by setting `loginEnabled` as needed.
      *
      * @param request - GetIdentityProviderServiceProviderRequest
      *
@@ -6656,17 +7150,17 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Queries the creation status and usage of an image cache to determine whether the cache is available and meets the deletion conditions.
      * ### Cache status
-     * | status | Description |
+     * | `status` | Description |
      * | --- | --- |
-     * | PENDING | Preparing. Continue querying. |
-     * | READY | Ready. |
-     * | FAILED | Preparation failed. Troubleshoot based on the error field. |
-     * | DELETING | Deleting. |
-     * | DISABLED | Disabled. |
-     * The digest is provided after the source resolution is complete. The unit of cacheSizeBytes is bytes, and it may be empty when the cache is not yet available.
+     * | `PENDING` | Preparing. Continue querying. |
+     * | `READY` | Ready. |
+     * | `FAILED` | Preparation failed. Troubleshoot based on the `error` field. |
+     * | `DELETING` | Deleting. |
+     * | `DISABLED` | Disabled. |
+     * The `digest` is provided after the source resolution is completed. The unit of `cacheSizeBytes` is bytes, and it may be empty when the cache is not yet available.
      * ### Usage and deletion
-     * agentCount indicates the number of agents that have enabled the cache feature and reference this cache. canDelete and deleteBlockReason indicate whether the cache can be deleted and the reason for blocking deletion. Deletion requests still recheck the usage.
-     * The query scope of this operation is determined by regionId, workspaceId, and imageId.
+     * `agentCount` indicates the number of agents that have the cache switch enabled and reference this cache. `canDelete` and `deleteBlockReason` indicate whether the cache can be deleted and the reason for blocking deletion. Deletion requests will recheck the usage.
+     * The query scope of this operation is determined by `regionId`, `workspaceId`, and `imageId`.
      *
      * @param request - GetImageCacheRequest
      * @param headers - map
@@ -6718,17 +7212,17 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Queries the creation status and usage of an image cache to determine whether the cache is available and meets the deletion conditions.
      * ### Cache status
-     * | status | Description |
+     * | `status` | Description |
      * | --- | --- |
-     * | PENDING | Preparing. Continue querying. |
-     * | READY | Ready. |
-     * | FAILED | Preparation failed. Troubleshoot based on the error field. |
-     * | DELETING | Deleting. |
-     * | DISABLED | Disabled. |
-     * The digest is provided after the source resolution is complete. The unit of cacheSizeBytes is bytes, and it may be empty when the cache is not yet available.
+     * | `PENDING` | Preparing. Continue querying. |
+     * | `READY` | Ready. |
+     * | `FAILED` | Preparation failed. Troubleshoot based on the `error` field. |
+     * | `DELETING` | Deleting. |
+     * | `DISABLED` | Disabled. |
+     * The `digest` is provided after the source resolution is completed. The unit of `cacheSizeBytes` is bytes, and it may be empty when the cache is not yet available.
      * ### Usage and deletion
-     * agentCount indicates the number of agents that have enabled the cache feature and reference this cache. canDelete and deleteBlockReason indicate whether the cache can be deleted and the reason for blocking deletion. Deletion requests still recheck the usage.
-     * The query scope of this operation is determined by regionId, workspaceId, and imageId.
+     * `agentCount` indicates the number of agents that have the cache switch enabled and reference this cache. `canDelete` and `deleteBlockReason` indicate whether the cache can be deleted and the reason for blocking deletion. Deletion requests will recheck the usage.
+     * The query scope of this operation is determined by `regionId`, `workspaceId`, and `imageId`.
      *
      * @param request - GetImageCacheRequest
      *
@@ -6762,7 +7256,7 @@ class AgentCore extends OpenApiClient
      * | `sandboxPhaseCounts` | The current snapshot of the number of instances in each phase. |
      * Successful configuration processing does not mean that all old instances have been replaced. To view specific instances or active sessions, call [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes) and [ListSandboxSessions](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxSessions) respectively.
      * ### Harness and skill versions
-     * `harness.type` indicates the runtime framework determined at creation. The `connectorServiceAccountKey` of qodercli returns the ID of the bound account key record, not the original key.
+     * `harness.type` indicates the runtime framework determined at creation. For qodercli, `connectorServiceAccountKey` returns the ID of the bound account key record, not the original key.
      * `configuredSkills` are explicitly configured skills. `skills` contains the aggregated results of templates and explicit configurations. `resolvedVersion` is the current target version, and `appliedVersion` is the version that has taken effect at runtime. These two may differ during an update. `fromTemplate=true` indicates that the skill comes from a template.
      * If the queried agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
      *
@@ -6816,7 +7310,7 @@ class AgentCore extends OpenApiClient
      * | `sandboxPhaseCounts` | The current snapshot of the number of instances in each phase. |
      * Successful configuration processing does not mean that all old instances have been replaced. To view specific instances or active sessions, call [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes) and [ListSandboxSessions](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxSessions) respectively.
      * ### Harness and skill versions
-     * `harness.type` indicates the runtime framework determined at creation. The `connectorServiceAccountKey` of qodercli returns the ID of the bound account key record, not the original key.
+     * `harness.type` indicates the runtime framework determined at creation. For qodercli, `connectorServiceAccountKey` returns the ID of the bound account key record, not the original key.
      * `configuredSkills` are explicitly configured skills. `skills` contains the aggregated results of templates and explicit configurations. `resolvedVersion` is the current target version, and `appliedVersion` is the version that has taken effect at runtime. These two may differ during an update. `fromTemplate=true` indicates that the skill comes from a template.
      * If the queried agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
      *
@@ -7060,10 +7554,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries a long-term memory by memory ID.
+     * Queries the content, associated scope, metadata, source, type, and validity status based on the memory ID.
      *
      * @remarks
-     * Queries a long-term memory by memory ID.
+     * Queries a long-term memory based on the memory ID.
      *
      * @param request - GetMemoryRequest
      * @param headers - map
@@ -7102,10 +7596,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries a long-term memory by memory ID.
+     * Queries the content, associated scope, metadata, source, type, and validity status based on the memory ID.
      *
      * @remarks
-     * Queries a long-term memory by memory ID.
+     * Queries a long-term memory based on the memory ID.
      *
      * @param request - GetMemoryRequest
      *
@@ -7127,10 +7621,77 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Queries the configuration and task statistics of a specified memory rule, including the number of tasks and the latest execution status.
+     *
+     * @remarks
+     * Queries the configuration and task statistics of a specified memory rule, including the number of tasks and the latest execution status.
+     *
+     * @param request - GetMemoryRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMemoryRuleResponse
+     *
+     * @param string               $workspaceId
+     * @param string               $memoryStoreName
+     * @param string               $ruleId
+     * @param GetMemoryRuleRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMemoryRuleResponse
+     */
+    public function getMemoryRuleWithOptions($workspaceId, $memoryStoreName, $ruleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMemoryRule',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memory-rules/' . Url::percentEncode($ruleId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMemoryRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the configuration and task statistics of a specified memory rule, including the number of tasks and the latest execution status.
+     *
+     * @remarks
+     * Queries the configuration and task statistics of a specified memory rule, including the number of tasks and the latest execution status.
+     *
+     * @param request - GetMemoryRuleRequest
+     *
+     * @returns GetMemoryRuleResponse
+     *
+     * @param string               $workspaceId
+     * @param string               $memoryStoreName
+     * @param string               $ruleId
+     * @param GetMemoryRuleRequest $request
+     *
+     * @return GetMemoryRuleResponse
+     */
+    public function getMemoryRule($workspaceId, $memoryStoreName, $ruleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMemoryRuleWithOptions($workspaceId, $memoryStoreName, $ruleId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the public information and current status of a MemoryStore in a specified workspace.
      *
      * @remarks
-     * Queries the configuration and current status of a long-term memory store (MemoryStore) for viewing memory store information.
+     * Queries the configuration and current status of a long-term memory store (MemoryStore) to view memory store information.
      *
      * @param request - GetMemoryStoreRequest
      * @param headers - map
@@ -7171,7 +7732,7 @@ class AgentCore extends OpenApiClient
      * Queries the public information and current status of a MemoryStore in a specified workspace.
      *
      * @remarks
-     * Queries the configuration and current status of a long-term memory store (MemoryStore) for viewing memory store information.
+     * Queries the configuration and current status of a long-term memory store (MemoryStore) to view memory store information.
      *
      * @param request - GetMemoryStoreRequest
      *
@@ -7192,10 +7753,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the memory extraction task by using the taskId returned by the asynchronous AddMemories operation.
+     * Queries the status, input, execute results, and error message of a memory extraction node. A successful node may not generate new memories. If a fault occurs, check the error field for the cause.
      *
      * @remarks
-     * Queries the progress and results of a memory extraction task by using the taskId returned when asynchronously writing data through [AddMemories](https://api.aliyun.com/document/AgentCore/2026-08-04/AddMemories).
+     * Uses the `taskId` returned by [AddMemories](https://api.aliyun.com/document/AgentCore/2026-08-04/AddMemories) during asynchronous writes to query the progress and results of a memory extraction task.
      *
      * @param request - GetMemoryTaskRequest
      * @param headers - map
@@ -7234,10 +7795,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the memory extraction task by using the taskId returned by the asynchronous AddMemories operation.
+     * Queries the status, input, execute results, and error message of a memory extraction node. A successful node may not generate new memories. If a fault occurs, check the error field for the cause.
      *
      * @remarks
-     * Queries the progress and results of a memory extraction task by using the taskId returned when asynchronously writing data through [AddMemories](https://api.aliyun.com/document/AgentCore/2026-08-04/AddMemories).
+     * Uses the `taskId` returned by [AddMemories](https://api.aliyun.com/document/AgentCore/2026-08-04/AddMemories) during asynchronous writes to query the progress and results of a memory extraction task.
      *
      * @param request - GetMemoryTaskRequest
      *
@@ -7389,10 +7950,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox without tracking the rebuild task and subsequent creation tasks separately. Only the SUCCEEDED status indicates completion. Do not treat UNKNOWN, missing status, or query exceptions as success, and do not automatically resubmit the rebuild.
+     * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox, without tracking the rebuild task and subsequent creation tasks separately. Only a status of SUCCEEDED indicates completion. UNKNOWN, missing status, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted.
      *
      * @remarks
-     * Always use the initial operationId returned by RebuildSandbox for the query. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. Do not treat UNKNOWN, missing fields, or query exceptions as success, and do not automatically resubmit the rebuild. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
+     * Always use the initial operationId returned by RebuildSandbox for the query. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. UNKNOWN, missing fields, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
      *
      * @param request - GetSandboxRebuildOperationRequest
      * @param headers - map
@@ -7438,10 +7999,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox without tracking the rebuild task and subsequent creation tasks separately. Only the SUCCEEDED status indicates completion. Do not treat UNKNOWN, missing status, or query exceptions as success, and do not automatically resubmit the rebuild.
+     * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox, without tracking the rebuild task and subsequent creation tasks separately. Only a status of SUCCEEDED indicates completion. UNKNOWN, missing status, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted.
      *
      * @remarks
-     * Always use the initial operationId returned by RebuildSandbox for the query. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. Do not treat UNKNOWN, missing fields, or query exceptions as success, and do not automatically resubmit the rebuild. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
+     * Always use the initial operationId returned by RebuildSandbox for the query. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. UNKNOWN, missing fields, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
      *
      * @param request - GetSandboxRebuildOperationRequest
      *
@@ -9160,6 +9721,97 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used during write operations. Write or delete operations during paging may affect the results of subsequent pages.
+     *
+     * @remarks
+     * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used during write operations. Write or delete operations during paging may affect the results of subsequent pages.
+     *
+     * @param request - ListEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEventsResponse
+     *
+     * @param string            $workspaceId
+     * @param string            $memoryStoreName
+     * @param ListEventsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListEventsResponse
+     */
+    public function listEventsWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->teamId) {
+            @$query['teamId'] = $request->teamId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['userId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEvents',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/events',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used during write operations. Write or delete operations during paging may affect the results of subsequent pages.
+     *
+     * @remarks
+     * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used during write operations. Write or delete operations during paging may affect the results of subsequent pages.
+     *
+     * @param request - ListEventsRequest
+     *
+     * @returns ListEventsResponse
+     *
+     * @param string            $workspaceId
+     * @param string            $memoryStoreName
+     * @param ListEventsRequest $request
+     *
+     * @return ListEventsResponse
+     */
+    public function listEvents($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEventsWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
      * Performs a paging query for the identity, configuration version, and status summary of managed agents in a workspace.
      *
      * @remarks
@@ -9466,16 +10118,16 @@ class AgentCore extends OpenApiClient
      * Queries the summary of existing identity provider bindings for a workspace, including CustomSSO. Returns local binding information without querying the actual upstream SAML or SCIM configurations.
      *
      * @remarks
-     * Queries the enterprise identity providers currently connected to a workspace. This operation is used to display the identity provider list or to check whether a binding already exists before configuring a connection.
-     * A workspace can be bound to at most one external identity provider at a time: DingTalk, Lark, or a custom identity provider (`CustomSSO`). If no identity provider is bound, the returned `items` is an empty array.
+     * Queries the enterprise identity providers currently connected to a workspace. You can use this operation to display the identity provider list or check whether a binding exists before configuring a connection.
+     * A workspace can be bound to at most one external identity provider: DingTalk, Lark, or a custom identity provider (`CustomSSO`). If no identity provider is bound, the returned `items` array is empty.
      * ### What you can view in the list
-     * The list returns the identity provider type, binding status, and the switches for logon and user synchronization. When the status of `CustomSSO` is `WAITING_CONFIGURATION`, it indicates that the user pool is ready and you can proceed to configure the connection.
+     * The list returns the identity provider type, binding status, and the switches for logon and user synchronization. If the status of `CustomSSO` is `WAITING_CONFIGURATION`, it indicates that the user pool is ready and you can proceed to fill in the connection configuration.
      * This operation returns a binding summary. To view specific connection configurations, use the corresponding operations:
      * - [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider): Retrieves the identity provider details and SAML logon configuration.
      * - [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider): Retrieves the SAML connection information required to configure AgentCore in the enterprise identity system.
-     * - [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM): Retrieves the SCIM receiver configuration and user synchronization status.
+     * - [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM): Queries the SCIM receiver configuration and user synchronization status.
      * ### Pagination
-     * Currently, at most one binding is returned. `nextToken` should be omitted or set to an empty string. The default value of `maxResults` is 10. Valid values: 1 to 100.
+     * Currently, at most one binding is returned. The `nextToken` parameter should be omitted or set to an empty string. The default value of `maxResults` is 10, and valid values are 1 to 100.
      *
      * @param request - ListIdentityProvidersRequest
      * @param headers - map
@@ -9525,16 +10177,16 @@ class AgentCore extends OpenApiClient
      * Queries the summary of existing identity provider bindings for a workspace, including CustomSSO. Returns local binding information without querying the actual upstream SAML or SCIM configurations.
      *
      * @remarks
-     * Queries the enterprise identity providers currently connected to a workspace. This operation is used to display the identity provider list or to check whether a binding already exists before configuring a connection.
-     * A workspace can be bound to at most one external identity provider at a time: DingTalk, Lark, or a custom identity provider (`CustomSSO`). If no identity provider is bound, the returned `items` is an empty array.
+     * Queries the enterprise identity providers currently connected to a workspace. You can use this operation to display the identity provider list or check whether a binding exists before configuring a connection.
+     * A workspace can be bound to at most one external identity provider: DingTalk, Lark, or a custom identity provider (`CustomSSO`). If no identity provider is bound, the returned `items` array is empty.
      * ### What you can view in the list
-     * The list returns the identity provider type, binding status, and the switches for logon and user synchronization. When the status of `CustomSSO` is `WAITING_CONFIGURATION`, it indicates that the user pool is ready and you can proceed to configure the connection.
+     * The list returns the identity provider type, binding status, and the switches for logon and user synchronization. If the status of `CustomSSO` is `WAITING_CONFIGURATION`, it indicates that the user pool is ready and you can proceed to fill in the connection configuration.
      * This operation returns a binding summary. To view specific connection configurations, use the corresponding operations:
      * - [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider): Retrieves the identity provider details and SAML logon configuration.
      * - [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider): Retrieves the SAML connection information required to configure AgentCore in the enterprise identity system.
-     * - [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM): Retrieves the SCIM receiver configuration and user synchronization status.
+     * - [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM): Queries the SCIM receiver configuration and user synchronization status.
      * ### Pagination
-     * Currently, at most one binding is returned. `nextToken` should be omitted or set to an empty string. The default value of `maxResults` is 10. Valid values: 1 to 100.
+     * Currently, at most one binding is returned. The `nextToken` parameter should be omitted or set to an empty string. The default value of `maxResults` is 10, and valid values are 1 to 100.
      *
      * @param request - ListIdentityProvidersRequest
      *
@@ -9554,16 +10206,16 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the image caches of a workspace and supports filtering by image source and cache status.
+     * Performs a paged query on image caches in a workspace, and supports paging and filtering by image source and cache status.
      *
      * @remarks
-     * Performs a paging query on the image caches of a workspace and supports filtering by image source and cache status.
+     * Performs a paged query on image caches in a workspace, and supports paging and filtering by image source and cache status.
      * ### Filter conditions
-     * Provide `regionId` and `workspaceId` in the query parameters. You can filter by ACR instance, `registry`, namespace, repository, tag, digest, and status. Use `imageRefContains` to search for image address fragments.
+     * Provide regionId and workspaceId in the query parameters. You can filter by ACR instance, registry, namespace, repository, tag, digest, and status. Use imageRefContains to search for image address fragments.
      * ### Pagination rules
-     * The default value of `maxResults` is 20, and the valid values are 1 to 100. Omit `nextToken` for the first request. For subsequent requests, use the response token as is, and keep the workspace, region, page size, and all filter conditions unchanged. An empty token indicates that there are no more pages.
+     * The default value of maxResults is 20. Valid values are 1 to 100. Omit nextToken for the first request. For subsequent requests, use the response token as is, and keep the workspace, region, page size, and all filter conditions unchanged. An empty token indicates that no more pages are available.
      * ### Response content
-     * Each item includes `imageId`, source, digest, status, size, reference count, and deletion conditions. `PENDING` only indicates that the cache is being prepared. For the cause of failure, see `error`. You can query a single cache by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
+     * Each item includes the imageId, source, digest, status, size, reference count, and deletion conditions. PENDING only indicates that the cache is being prepared. For the cause of failure, see error. You can query a single cache by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
      *
      * @param request - ListImageCachesRequest
      * @param headers - map
@@ -9649,16 +10301,16 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the image caches of a workspace and supports filtering by image source and cache status.
+     * Performs a paged query on image caches in a workspace, and supports paging and filtering by image source and cache status.
      *
      * @remarks
-     * Performs a paging query on the image caches of a workspace and supports filtering by image source and cache status.
+     * Performs a paged query on image caches in a workspace, and supports paging and filtering by image source and cache status.
      * ### Filter conditions
-     * Provide `regionId` and `workspaceId` in the query parameters. You can filter by ACR instance, `registry`, namespace, repository, tag, digest, and status. Use `imageRefContains` to search for image address fragments.
+     * Provide regionId and workspaceId in the query parameters. You can filter by ACR instance, registry, namespace, repository, tag, digest, and status. Use imageRefContains to search for image address fragments.
      * ### Pagination rules
-     * The default value of `maxResults` is 20, and the valid values are 1 to 100. Omit `nextToken` for the first request. For subsequent requests, use the response token as is, and keep the workspace, region, page size, and all filter conditions unchanged. An empty token indicates that there are no more pages.
+     * The default value of maxResults is 20. Valid values are 1 to 100. Omit nextToken for the first request. For subsequent requests, use the response token as is, and keep the workspace, region, page size, and all filter conditions unchanged. An empty token indicates that no more pages are available.
      * ### Response content
-     * Each item includes `imageId`, source, digest, status, size, reference count, and deletion conditions. `PENDING` only indicates that the cache is being prepared. For the cause of failure, see `error`. You can query a single cache by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
+     * Each item includes the imageId, source, digest, status, size, reference count, and deletion conditions. PENDING only indicates that the cache is being prepared. For the cause of failure, see error. You can query a single cache by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
      *
      * @param request - ListImageCachesRequest
      *
@@ -10011,10 +10663,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query for long-term memory and supports independent paging and filtering by UserId, AgentId, and SessionId.
+     * Performs a paged query on memories in a memory store. Supports paging and filtering by associate scope, content type, source, validity status, and update time. Unspecified scope dimensions are excluded from filtering. If valid is omitted, only valid memories are returned. If valid is set to false, revoked memories are returned.
      *
      * @remarks
-     * Performs a paged query for long-term memory and supports paging and filtering by `UserId`, `AgentId`, and `SessionId`.
+     * Performs a paged query on long-term memory. Supports paging and filtering by `UserId`, `AgentId`, and `SessionId`.
      *
      * @param request - ListMemoriesRequest
      * @param headers - map
@@ -10050,8 +10702,32 @@ class AgentCore extends OpenApiClient
             @$query['sessionId'] = $request->sessionId;
         }
 
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
+        }
+
+        if (null !== $request->teamId) {
+            @$query['teamId'] = $request->teamId;
+        }
+
+        if (null !== $request->types) {
+            @$query['types'] = $request->types;
+        }
+
+        if (null !== $request->updatedAtFrom) {
+            @$query['updatedAtFrom'] = $request->updatedAtFrom;
+        }
+
+        if (null !== $request->updatedAtTo) {
+            @$query['updatedAtTo'] = $request->updatedAtTo;
+        }
+
         if (null !== $request->userId) {
             @$query['userId'] = $request->userId;
+        }
+
+        if (null !== $request->valid) {
+            @$query['valid'] = $request->valid;
         }
 
         $req = new OpenApiRequest([
@@ -10074,10 +10750,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query for long-term memory and supports independent paging and filtering by UserId, AgentId, and SessionId.
+     * Performs a paged query on memories in a memory store. Supports paging and filtering by associate scope, content type, source, validity status, and update time. Unspecified scope dimensions are excluded from filtering. If valid is omitted, only valid memories are returned. If valid is set to false, revoked memories are returned.
      *
      * @remarks
-     * Performs a paged query for long-term memory and supports paging and filtering by `UserId`, `AgentId`, and `SessionId`.
+     * Performs a paged query on long-term memory. Supports paging and filtering by `UserId`, `AgentId`, and `SessionId`.
      *
      * @param request - ListMemoriesRequest
      *
@@ -10098,10 +10774,94 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of raw messages by exact scope through paging. SessionId is required, and at least one of UserId or AgentId must be provided.
+     * Performs a paged query of the extraction rules in a memory store. Supports paging, filtering by name and enabled status, and returns the rule configurations.
      *
      * @remarks
-     * Performs a paged query of the raw messages of a specific session in the memory store through paging, allowing you to view the session content used to generate long-term memory. SessionId is required, and at least one of UserId or AgentId must be provided to identify the target session.
+     * Performs a paged query of the extraction rules in a memory store. Supports paging, filtering by name and enabled status, and returns the rule configurations.
+     *
+     * @param request - ListMemoryRulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoryRulesResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $memoryStoreName
+     * @param ListMemoryRulesRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListMemoryRulesResponse
+     */
+    public function listMemoryRulesWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enabled) {
+            @$query['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemoryRules',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memory-rules',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemoryRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query of the extraction rules in a memory store. Supports paging, filtering by name and enabled status, and returns the rule configurations.
+     *
+     * @remarks
+     * Performs a paged query of the extraction rules in a memory store. Supports paging, filtering by name and enabled status, and returns the rule configurations.
+     *
+     * @param request - ListMemoryRulesRequest
+     *
+     * @returns ListMemoryRulesResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $memoryStoreName
+     * @param ListMemoryRulesRequest $request
+     *
+     * @return ListMemoryRulesResponse
+     */
+    public function listMemoryRules($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoryRulesWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paging query for raw messages by exact scope. SessionId is required, and at least one of UserId or AgentId must be provided.
+     *
+     * @remarks
+     * Performs a paging query for raw messages of a specific session in a memory store to view the session content used to generate long-term memory.
+     * `SessionId` is required, and at least one of `UserId` or `AgentId` must be provided to identify the target session.
      *
      * @param request - ListMemorySessionMessagesRequest
      * @param headers - map
@@ -10161,10 +10921,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paged query of raw messages by exact scope through paging. SessionId is required, and at least one of UserId or AgentId must be provided.
+     * Performs a paging query for raw messages by exact scope. SessionId is required, and at least one of UserId or AgentId must be provided.
      *
      * @remarks
-     * Performs a paged query of the raw messages of a specific session in the memory store through paging, allowing you to view the session content used to generate long-term memory. SessionId is required, and at least one of UserId or AgentId must be provided to identify the target session.
+     * Performs a paging query for raw messages of a specific session in a memory store to view the session content used to generate long-term memory.
+     * `SessionId` is required, and at least one of `UserId` or `AgentId` must be provided to identify the target session.
      *
      * @param request - ListMemorySessionMessagesRequest
      *
@@ -10185,10 +10946,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for sessions in a MemoryStore. You can filter sessions independently by user ID and agent ID.
+     * Performs a paging query of sessions in a memory store. You can filter the sessions by user, team, or agent. Unspecified dimensions are not used for filtering.
      *
      * @remarks
-     * Performs a paging query for source sessions in a long-term memory store (MemoryStore). Supports filtering by `UserId` and `AgentId` respectively.
+     * Performs a paging query of source sessions in a long-term memory store (MemoryStore). You can filter the sessions by UserId and AgentId.
      *
      * @param request - ListMemorySessionsRequest
      * @param headers - map
@@ -10220,6 +10981,10 @@ class AgentCore extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->teamId) {
+            @$query['teamId'] = $request->teamId;
+        }
+
         if (null !== $request->userId) {
             @$query['userId'] = $request->userId;
         }
@@ -10244,10 +11009,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for sessions in a MemoryStore. You can filter sessions independently by user ID and agent ID.
+     * Performs a paging query of sessions in a memory store. You can filter the sessions by user, team, or agent. Unspecified dimensions are not used for filtering.
      *
      * @remarks
-     * Performs a paging query for source sessions in a long-term memory store (MemoryStore). Supports filtering by `UserId` and `AgentId` respectively.
+     * Performs a paging query of source sessions in a long-term memory store (MemoryStore). You can filter the sessions by UserId and AgentId.
      *
      * @param request - ListMemorySessionsRequest
      *
@@ -10338,6 +11103,89 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->listMemoryStoresWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query for memory extraction nodes of a specified rule. The ruleId parameter is required. You can further filter the nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned. Paging is supported.
+     *
+     * @remarks
+     * Performs a paged query for memory extraction nodes of a specified rule. The ruleId parameter is required. You can further filter the nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned. Paging is supported.
+     *
+     * @param request - ListMemoryTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMemoryTasksResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $memoryStoreName
+     * @param ListMemoryTasksRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListMemoryTasksResponse
+     */
+    public function listMemoryTasksWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['ruleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMemoryTasks',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memory-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMemoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query for memory extraction nodes of a specified rule. The ruleId parameter is required. You can further filter the nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned. Paging is supported.
+     *
+     * @remarks
+     * Performs a paged query for memory extraction nodes of a specified rule. The ruleId parameter is required. You can further filter the nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned. Paging is supported.
+     *
+     * @param request - ListMemoryTasksRequest
+     *
+     * @returns ListMemoryTasksResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $memoryStoreName
+     * @param ListMemoryTasksRequest $request
+     *
+     * @return ListMemoryTasksResponse
+     */
+    public function listMemoryTasks($workspaceId, $memoryStoreName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMemoryTasksWithOptions($workspaceId, $memoryStoreName, $request, $headers, $runtime);
     }
 
     /**
@@ -10744,16 +11592,16 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the current active sessions and their sources in a specified agent instance by using paging.
+     * Performs a paging query to retrieve the current active sessions and their sources in a specified agent instance.
      *
      * @remarks
      * Queries the active sessions in a specified running instance to view the current mapping between sessions and instances.
      * ### Query scope
-     * Locates the instance by using workspaceId, agentId, and sandboxId. You can obtain the sandboxId from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
+     * Locates the instance by using `workspaceId`, `agentId`, and `sandboxId`. You can obtain the `sandboxId` from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
      * ### Pagination
-     * The default value of maxResults is 20. Valid values: 1 to 100. Omit nextToken in the first request. For subsequent requests, use the returned token as is and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
+     * The default value of `maxResults` is 20. Valid values: 1 to 100. Omit `nextToken` in the first request. For subsequent requests, use the returned token as is, and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
      * ### Session sources
-     * The source can be API, CONSOLE_DEBUG, EXTERNAL_CHANNEL, or UNKNOWN. For external channels, the channel type is additionally returned. If no source information is provided, UNKNOWN is returned.
+     * The source can be `API`, `CONSOLE_DEBUG`, `EXTERNAL_CHANNEL`, or `UNKNOWN`. For external channels, the channel type is additionally returned. If no source information is provided, `UNKNOWN` is returned.
      *
      * @param request - ListSandboxSessionsRequest
      * @param headers - map
@@ -10806,16 +11654,16 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Queries the current active sessions and their sources in a specified agent instance by using paging.
+     * Performs a paging query to retrieve the current active sessions and their sources in a specified agent instance.
      *
      * @remarks
      * Queries the active sessions in a specified running instance to view the current mapping between sessions and instances.
      * ### Query scope
-     * Locates the instance by using workspaceId, agentId, and sandboxId. You can obtain the sandboxId from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
+     * Locates the instance by using `workspaceId`, `agentId`, and `sandboxId`. You can obtain the `sandboxId` from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
      * ### Pagination
-     * The default value of maxResults is 20. Valid values: 1 to 100. Omit nextToken in the first request. For subsequent requests, use the returned token as is and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
+     * The default value of `maxResults` is 20. Valid values: 1 to 100. Omit `nextToken` in the first request. For subsequent requests, use the returned token as is, and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
      * ### Session sources
-     * The source can be API, CONSOLE_DEBUG, EXTERNAL_CHANNEL, or UNKNOWN. For external channels, the channel type is additionally returned. If no source information is provided, UNKNOWN is returned.
+     * The source can be `API`, `CONSOLE_DEBUG`, `EXTERNAL_CHANNEL`, or `UNKNOWN`. For external channels, the channel type is additionally returned. If no source information is provided, `UNKNOWN` is returned.
      *
      * @param request - ListSandboxSessionsRequest
      *
@@ -11068,12 +11916,20 @@ class AgentCore extends OpenApiClient
             @$query['pageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->refType) {
+            @$query['refType'] = $request->refType;
+        }
+
         if (null !== $request->selectorType) {
             @$query['selectorType'] = $request->selectorType;
         }
 
         if (null !== $request->selectorValue) {
             @$query['selectorValue'] = $request->selectorValue;
+        }
+
+        if (null !== $request->sourceId) {
+            @$query['sourceId'] = $request->sourceId;
         }
 
         $req = new OpenApiRequest([
@@ -11867,10 +12723,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild request if the query times out, returns UNKNOWN, or the result is unclear.
+     * Submits a single sandbox image rebuild for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild if the query times out, returns UNKNOWN, or the result is unclear.
      *
      * @remarks
-     * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates completion. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify the endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
+     * Submits a single sandbox image rebuild for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates completion. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify the endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
      *
      * @param request - RebuildSandboxRequest
      * @param headers - map
@@ -11915,10 +12771,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild request if the query times out, returns UNKNOWN, or the result is unclear.
+     * Submits a single sandbox image rebuild for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild if the query times out, returns UNKNOWN, or the result is unclear.
      *
      * @remarks
-     * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates completion. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify the endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
+     * Submits a single sandbox image rebuild for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates completion. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify the endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
      *
      * @param request - RebuildSandboxRequest
      *
@@ -12099,10 +12955,10 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Resubmits the creation request for an existing image cache to recreate a cache that has not been successfully created.
      * ### Scope
-     * Pass `regionId`, `workspaceId`, and `clientToken` as query parameters, and use `imageId` to locate the cache. This operation applies to ACR-sourced caches and re-verifies the source repository authorization before submission.
+     * Pass `regionId`, `workspaceId`, and `clientToken` as query parameters, and use `imageId` to locate the cache. This operation is intended for ACR-sourced caches and re-verifies the source repository authorization before submission.
      * ### Query retry results
-     * A successful response indicates that a retry acceptance snapshot is returned, which does not mean that the creation is complete. Query the status by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache). `READY` indicates that the cache is ready. If the status is `FAILED`, check `error`.
-     * Currently, `clientToken` is only verified to be non-empty and does not guarantee deduplication by this token or restoration of the original acceptance result.
+     * A successful response indicates that a retry acceptance snapshot is returned, but it does not mean that the creation is complete. Query the status by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache). `READY` indicates that the cache is ready. If the status is `FAILED`, check the `error` field.
+     * Currently, `clientToken` is only verified to be non-empty and does not guarantee deduplication or recovery of the original acceptance result based on this token.
      *
      * @param tmpReq - RetryImageCacheRequest
      * @param headers - map
@@ -12170,10 +13026,10 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Resubmits the creation request for an existing image cache to recreate a cache that has not been successfully created.
      * ### Scope
-     * Pass `regionId`, `workspaceId`, and `clientToken` as query parameters, and use `imageId` to locate the cache. This operation applies to ACR-sourced caches and re-verifies the source repository authorization before submission.
+     * Pass `regionId`, `workspaceId`, and `clientToken` as query parameters, and use `imageId` to locate the cache. This operation is intended for ACR-sourced caches and re-verifies the source repository authorization before submission.
      * ### Query retry results
-     * A successful response indicates that a retry acceptance snapshot is returned, which does not mean that the creation is complete. Query the status by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache). `READY` indicates that the cache is ready. If the status is `FAILED`, check `error`.
-     * Currently, `clientToken` is only verified to be non-empty and does not guarantee deduplication by this token or restoration of the original acceptance result.
+     * A successful response indicates that a retry acceptance snapshot is returned, but it does not mean that the creation is complete. Query the status by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache). `READY` indicates that the cache is ready. If the status is `FAILED`, check the `error` field.
+     * Currently, `clientToken` is only verified to be non-empty and does not guarantee deduplication or recovery of the original acceptance result based on this token.
      *
      * @param request - RetryImageCacheRequest
      *
@@ -12193,10 +13049,144 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Retrieves long-term memory from a MemoryStore based on semantics.
+     * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state support retries. After a retry, you can query the progress by calling GetMemoryTask.
      *
      * @remarks
-     * Retrieves relevant memories from a long-term memory store (MemoryStore) based on semantic search, allowing agents to obtain information required for subsequent tasks.
+     * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state support retries. After a retry, you can query the progress by calling GetMemoryTask.
+     *
+     * @param request - RetryMemoryTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetryMemoryTaskResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $memoryStoreName
+     * @param string                 $taskId
+     * @param RetryMemoryTaskRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RetryMemoryTaskResponse
+     */
+    public function retryMemoryTaskWithOptions($workspaceId, $memoryStoreName, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'RetryMemoryTask',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memory-tasks/' . Url::percentEncode($taskId) . '/actions/retry',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RetryMemoryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state support retries. After a retry, you can query the progress by calling GetMemoryTask.
+     *
+     * @remarks
+     * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state support retries. After a retry, you can query the progress by calling GetMemoryTask.
+     *
+     * @param request - RetryMemoryTaskRequest
+     *
+     * @returns RetryMemoryTaskResponse
+     *
+     * @param string                 $workspaceId
+     * @param string                 $memoryStoreName
+     * @param string                 $taskId
+     * @param RetryMemoryTaskRequest $request
+     *
+     * @return RetryMemoryTaskResponse
+     */
+    public function retryMemoryTask($workspaceId, $memoryStoreName, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->retryMemoryTaskWithOptions($workspaceId, $memoryStoreName, $taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory. You can query it by setting valid=false in ListMemories. Repeated revocations return a success response.
+     *
+     * @remarks
+     * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory. You can query it by setting valid=false in ListMemories. Repeated revocations return a success response.
+     *
+     * @param request - RevokeMemoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeMemoryResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param RevokeMemoryRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RevokeMemoryResponse
+     */
+    public function revokeMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'RevokeMemory',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memories/' . Url::percentEncode($memoryId) . '/actions/revoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeMemoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory. You can query it by setting valid=false in ListMemories. Repeated revocations return a success response.
+     *
+     * @remarks
+     * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory. You can query it by setting valid=false in ListMemories. Repeated revocations return a success response.
+     *
+     * @param request - RevokeMemoryRequest
+     *
+     * @returns RevokeMemoryResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $memoryStoreName
+     * @param string              $memoryId
+     * @param RevokeMemoryRequest $request
+     *
+     * @return RevokeMemoryResponse
+     */
+    public function revokeMemory($workspaceId, $memoryStoreName, $memoryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->revokeMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves relevant memories based on the query text. Supports filtering by association scope, type, and metadata, and sets result thresholds through similarity and relevance scores. If topK is omitted or set to 0, the default value 10 is used, with a maximum of 200.
+     *
+     * @remarks
+     * Retrieves relevant memories semantically from a long-term memory store (MemoryStore) for an agent to obtain information required for subsequent tasks.
      *
      * @param tmpReq - SearchMemoriesRequest
      * @param headers - map
@@ -12246,10 +13236,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Retrieves long-term memory from a MemoryStore based on semantics.
+     * Retrieves relevant memories based on the query text. Supports filtering by association scope, type, and metadata, and sets result thresholds through similarity and relevance scores. If topK is omitted or set to 0, the default value 10 is used, with a maximum of 200.
      *
      * @remarks
-     * Retrieves relevant memories from a long-term memory store (MemoryStore) based on semantic search, allowing agents to obtain information required for subsequent tasks.
+     * Retrieves relevant memories semantically from a long-term memory store (MemoryStore) for an agent to obtain information required for subsequent tasks.
      *
      * @param request - SearchMemoriesRequest
      *
@@ -13190,13 +14180,13 @@ class AgentCore extends OpenApiClient
      * Updates the model source, instructions, tools, and skills of a managed agent, and processes the configuration asynchronously.
      *
      * @remarks
-     * Updates the model, instruction, tool, or skill configurations saved on the platform side for a managed agent to adjust its capability configurations after integration.
+     * Updates the model, instruction, tool, or skill configurations saved on the platform for a managed agent to adjust its capability configurations after integration.
      * ### Update rules
-     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set description=null to clear the description. The tools and skills fields are replaced as a whole upon submission. You must include the items to be retained, and pass [] to clear the corresponding explicit list.
+     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set description=null to clear the description. The tools and skills fields are replaced in their entirety upon submission. You must include the items that you want to retain. Pass [] to clear the corresponding explicit list.
      * ### Switch model sources
      * - To switch to PLATFORM, provide modelSource=PLATFORM and a valid model configuration, including the model connection ID and model name.
      * - To switch to RUNTIME, update the Settings to modelSource=RUNTIME and do not commit the platform model. The original platform model configuration is removed when the source is switched.
-     * When a template is used, configurations belonging to the template, such as instructions, are read from the template. A successful update indicates that the request is accepted. Invoke [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration version and external accessed state. The clientToken parameter does not provide idempotence guarantees at this time.
+     * When a template is used, configurations that belong to the template, such as instructions, are read from the template. A successful update indicates that the request is accepted. Invoke [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration version and external accessed state. The clientToken parameter does not provide idempotence guarantees at this time.
      *
      * @param tmpReq - UpdateExternalAgentRequest
      * @param headers - map
@@ -13255,13 +14245,13 @@ class AgentCore extends OpenApiClient
      * Updates the model source, instructions, tools, and skills of a managed agent, and processes the configuration asynchronously.
      *
      * @remarks
-     * Updates the model, instruction, tool, or skill configurations saved on the platform side for a managed agent to adjust its capability configurations after integration.
+     * Updates the model, instruction, tool, or skill configurations saved on the platform for a managed agent to adjust its capability configurations after integration.
      * ### Update rules
-     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set description=null to clear the description. The tools and skills fields are replaced as a whole upon submission. You must include the items to be retained, and pass [] to clear the corresponding explicit list.
+     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set description=null to clear the description. The tools and skills fields are replaced in their entirety upon submission. You must include the items that you want to retain. Pass [] to clear the corresponding explicit list.
      * ### Switch model sources
      * - To switch to PLATFORM, provide modelSource=PLATFORM and a valid model configuration, including the model connection ID and model name.
      * - To switch to RUNTIME, update the Settings to modelSource=RUNTIME and do not commit the platform model. The original platform model configuration is removed when the source is switched.
-     * When a template is used, configurations belonging to the template, such as instructions, are read from the template. A successful update indicates that the request is accepted. Invoke [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration version and external accessed state. The clientToken parameter does not provide idempotence guarantees at this time.
+     * When a template is used, configurations that belong to the template, such as instructions, are read from the template. A successful update indicates that the request is accepted. Invoke [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration version and external accessed state. The clientToken parameter does not provide idempotence guarantees at this time.
      *
      * @param request - UpdateExternalAgentRequest
      *
@@ -13282,33 +14272,33 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Modifies the logon configuration of a bound identity provider in a specified workspace. DingTalk and Lark support the logon switch, incremental synchronization switch, application configuration, and synchronization scope. CustomSSO supports SAML configuration and the logon switch. Updates take effect asynchronously. Call GetIdentityProvider to query the status.
+     * Modifies the configuration of a bound identity provider in a specified workspace. DingTalk and Feishu support login switches, address book synchronization switches, application configurations, and synchronization scopes. CustomSSO supports SAML or OIDC login configurations and login switches. SCIM user synchronization is configured independently. Updates take effect asynchronously. You can query the status by calling GetIdentityProvider.
      *
      * @remarks
-     * Modifies the logon or directory configuration of a bound enterprise identity provider to update enterprise application credentials, adjust synchronized departments, or configure custom single sign-on (SSO).
+     * Modifies the login or address book configuration of a bound enterprise identity provider to update enterprise application credentials, adjust synchronized departments, or configure custom single sign-on (SSO).
      * ### Select the configuration to modify
      * | Identity provider | Updatable content |
      * | --- | --- |
-     * | DingTalk (`DingTalk`), Lark (`Feishu`) | Enterprise application credentials `metadata`, logon switch `loginEnabled`, directory change synchronization switch `syncEnabled`, and synchronization scope `syncScope`. You must submit at least one item. |
-     * | Custom identity provider (`CustomSSO`) | SAML protocol `protocol`, logon configuration `saml`, and logon switch `loginEnabled`. SCIM-based user synchronization is configured separately by using [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM). |
-     * ### Update DingTalk or Lark
-     * `metadata` is updated by field. You only need to submit the fields that you want to modify. Omitted fields and existing keys remain unchanged. The provided values must be non-empty strings. When you enable directory change synchronization, the configuration must include `encryptKey` and `verificationToken`.
+     * | DingTalk, Feishu | Enterprise application credentials metadata, login switch loginEnabled, address book change synchronization switch syncEnabled, and synchronization scope syncScope. At least one item must be submitted. |
+     * | Custom identity provider (CustomSSO) | SAML protocol, login configuration saml, and login switch loginEnabled. SCIM user synchronization is configured independently by using [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM). |
+     * ### Update DingTalk or Feishu
+     * metadata is updated by field: submit only the fields that need to be modified. Omitted fields and existing keys remain unchanged. The provided values must be non-empty strings. When you enable address book change synchronization, the configuration must include encryptKey and verificationToken.
      * To adjust synchronized departments:
-     * **Step 1:** Call [ListIdentityProviderDepartments](https://api.aliyun.com/document/AgentCore/2026-08-04/ListIdentityProviderDepartments) to query and select departments.
-     * **Step 2:** Call this operation to save `syncScope`. If you omit this field or pass `null`, the current scope is retained.
-     * **Step 3:** Call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to wait for the configuration processing to complete, and then call [CreateIdentityProviderSyncJob](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateIdentityProviderSyncJob) to synchronize users based on the new scope.
-     * Saving the scope does not automatically trigger a full synchronization. `syncEnabled` controls subsequent directory change events. The initial synchronization and manual synchronization are executed separately.
+     * **Step 1:** Query and select departments by calling [ListIdentityProviderDepartments](https://api.aliyun.com/document/AgentCore/2026-08-04/ListIdentityProviderDepartments).
+     * **Step 2:** Save syncScope by calling this operation. If you omit this field or pass null, the current scope is retained.
+     * **Step 3:** Wait for the configuration processing to complete by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider), and then call [CreateIdentityProviderSyncJob](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateIdentityProviderSyncJob) to synchronize users based on the new scope.
+     * Saving the scope does not automatically trigger a full synchronization. syncEnabled controls subsequent address book change events. The initial synchronization and manual synchronization are executed separately.
      * ### Configure custom single sign-on
-     * `CustomSSO` uses the SAML protocol to allow users to log on through the enterprise identity system. First, call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information of AgentCore and configure it in the enterprise identity system. Then, fill in the enterprise-side information in `saml`.
+     * CustomSSO uses the SAML protocol to allow users to log on through the enterprise identity system. First, obtain the access information of AgentCore by calling [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) and configure it in the enterprise identity system. Then, fill in the enterprise-side information in saml.
      * Choose one of the following two methods:
      * | Method | Required configuration |
      * | --- | --- |
-     * | Import metadata | `metadataXml`: A single IdP metadata XML text exported from the enterprise identity provider. The maximum size is 1 MiB. Enter the XML content instead of a download URL or file path. |
-     * | Manual entry | Provide `entityId`, `loginUrl`, `bindingType`, and `x509Certificates` at the same time. Use an HTTPS logon URL and a signing certificate within its validity period. Set `bindingType` to `HTTP-Redirect` or `HTTP-POST`. You can provide up to two certificates. |
-     * The `entityId` cannot be changed after it is saved. If the XML contains both binding methods at the same time, `HTTP-POST` and its corresponding URL are used first.
-     * After saving the configuration, set `loginEnabled=true` to enable logon. You can also enable it when submitting a valid SAML configuration. Setting it to `false` disables logon and retains the existing configuration.
+     * | Import metadata | metadataXml: a single IdP metadata XML text exported from the enterprise identity provider, with a maximum size of 1 MiB. Enter the XML content instead of a download URL or file path. |
+     * | Manual entry | Provide entityId, loginUrl, bindingType, and x509Certificates at the same time. Use an HTTPS login URL and a valid signing certificate. Set bindingType to HTTP-Redirect or HTTP-POST. You can provide up to two certificates. |
+     * The entityId cannot be changed after it is saved. If the XML contains both binding methods, HTTP-POST and its corresponding URL take precedence.
+     * After saving the configuration, set loginEnabled=true to enable login. You can also enable it when submitting a valid SAML configuration. Setting it to false disables login and retains the existing configuration.
      * ### Confirm that the configuration takes effect
-     * After the request is accepted, `UPDATING` is usually returned. Call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress. `READY` indicates that the configuration processing is complete. If it fails, check the returned status and configuration.
+     * After the request is accepted, UPDATING is usually returned. Query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider). READY indicates that the configuration processing is complete. If it fails, check the returned status and configuration.
      * If the request times out, query the current configuration and processing status first, and then decide whether to retry. Query the SCIM processing result by calling [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM).
      *
      * @param tmpReq - UpdateIdentityProviderRequest
@@ -13359,33 +14349,33 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Modifies the logon configuration of a bound identity provider in a specified workspace. DingTalk and Lark support the logon switch, incremental synchronization switch, application configuration, and synchronization scope. CustomSSO supports SAML configuration and the logon switch. Updates take effect asynchronously. Call GetIdentityProvider to query the status.
+     * Modifies the configuration of a bound identity provider in a specified workspace. DingTalk and Feishu support login switches, address book synchronization switches, application configurations, and synchronization scopes. CustomSSO supports SAML or OIDC login configurations and login switches. SCIM user synchronization is configured independently. Updates take effect asynchronously. You can query the status by calling GetIdentityProvider.
      *
      * @remarks
-     * Modifies the logon or directory configuration of a bound enterprise identity provider to update enterprise application credentials, adjust synchronized departments, or configure custom single sign-on (SSO).
+     * Modifies the login or address book configuration of a bound enterprise identity provider to update enterprise application credentials, adjust synchronized departments, or configure custom single sign-on (SSO).
      * ### Select the configuration to modify
      * | Identity provider | Updatable content |
      * | --- | --- |
-     * | DingTalk (`DingTalk`), Lark (`Feishu`) | Enterprise application credentials `metadata`, logon switch `loginEnabled`, directory change synchronization switch `syncEnabled`, and synchronization scope `syncScope`. You must submit at least one item. |
-     * | Custom identity provider (`CustomSSO`) | SAML protocol `protocol`, logon configuration `saml`, and logon switch `loginEnabled`. SCIM-based user synchronization is configured separately by using [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM). |
-     * ### Update DingTalk or Lark
-     * `metadata` is updated by field. You only need to submit the fields that you want to modify. Omitted fields and existing keys remain unchanged. The provided values must be non-empty strings. When you enable directory change synchronization, the configuration must include `encryptKey` and `verificationToken`.
+     * | DingTalk, Feishu | Enterprise application credentials metadata, login switch loginEnabled, address book change synchronization switch syncEnabled, and synchronization scope syncScope. At least one item must be submitted. |
+     * | Custom identity provider (CustomSSO) | SAML protocol, login configuration saml, and login switch loginEnabled. SCIM user synchronization is configured independently by using [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM). |
+     * ### Update DingTalk or Feishu
+     * metadata is updated by field: submit only the fields that need to be modified. Omitted fields and existing keys remain unchanged. The provided values must be non-empty strings. When you enable address book change synchronization, the configuration must include encryptKey and verificationToken.
      * To adjust synchronized departments:
-     * **Step 1:** Call [ListIdentityProviderDepartments](https://api.aliyun.com/document/AgentCore/2026-08-04/ListIdentityProviderDepartments) to query and select departments.
-     * **Step 2:** Call this operation to save `syncScope`. If you omit this field or pass `null`, the current scope is retained.
-     * **Step 3:** Call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to wait for the configuration processing to complete, and then call [CreateIdentityProviderSyncJob](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateIdentityProviderSyncJob) to synchronize users based on the new scope.
-     * Saving the scope does not automatically trigger a full synchronization. `syncEnabled` controls subsequent directory change events. The initial synchronization and manual synchronization are executed separately.
+     * **Step 1:** Query and select departments by calling [ListIdentityProviderDepartments](https://api.aliyun.com/document/AgentCore/2026-08-04/ListIdentityProviderDepartments).
+     * **Step 2:** Save syncScope by calling this operation. If you omit this field or pass null, the current scope is retained.
+     * **Step 3:** Wait for the configuration processing to complete by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider), and then call [CreateIdentityProviderSyncJob](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateIdentityProviderSyncJob) to synchronize users based on the new scope.
+     * Saving the scope does not automatically trigger a full synchronization. syncEnabled controls subsequent address book change events. The initial synchronization and manual synchronization are executed separately.
      * ### Configure custom single sign-on
-     * `CustomSSO` uses the SAML protocol to allow users to log on through the enterprise identity system. First, call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information of AgentCore and configure it in the enterprise identity system. Then, fill in the enterprise-side information in `saml`.
+     * CustomSSO uses the SAML protocol to allow users to log on through the enterprise identity system. First, obtain the access information of AgentCore by calling [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) and configure it in the enterprise identity system. Then, fill in the enterprise-side information in saml.
      * Choose one of the following two methods:
      * | Method | Required configuration |
      * | --- | --- |
-     * | Import metadata | `metadataXml`: A single IdP metadata XML text exported from the enterprise identity provider. The maximum size is 1 MiB. Enter the XML content instead of a download URL or file path. |
-     * | Manual entry | Provide `entityId`, `loginUrl`, `bindingType`, and `x509Certificates` at the same time. Use an HTTPS logon URL and a signing certificate within its validity period. Set `bindingType` to `HTTP-Redirect` or `HTTP-POST`. You can provide up to two certificates. |
-     * The `entityId` cannot be changed after it is saved. If the XML contains both binding methods at the same time, `HTTP-POST` and its corresponding URL are used first.
-     * After saving the configuration, set `loginEnabled=true` to enable logon. You can also enable it when submitting a valid SAML configuration. Setting it to `false` disables logon and retains the existing configuration.
+     * | Import metadata | metadataXml: a single IdP metadata XML text exported from the enterprise identity provider, with a maximum size of 1 MiB. Enter the XML content instead of a download URL or file path. |
+     * | Manual entry | Provide entityId, loginUrl, bindingType, and x509Certificates at the same time. Use an HTTPS login URL and a valid signing certificate. Set bindingType to HTTP-Redirect or HTTP-POST. You can provide up to two certificates. |
+     * The entityId cannot be changed after it is saved. If the XML contains both binding methods, HTTP-POST and its corresponding URL take precedence.
+     * After saving the configuration, set loginEnabled=true to enable login. You can also enable it when submitting a valid SAML configuration. Setting it to false disables login and retains the existing configuration.
      * ### Confirm that the configuration takes effect
-     * After the request is accepted, `UPDATING` is usually returned. Call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress. `READY` indicates that the configuration processing is complete. If it fails, check the returned status and configuration.
+     * After the request is accepted, UPDATING is usually returned. Query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider). READY indicates that the configuration processing is complete. If it fails, check the returned status and configuration.
      * If the request times out, query the current configuration and processing status first, and then decide whether to retry. Query the SCIM processing result by calling [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM).
      *
      * @param request - UpdateIdentityProviderRequest
@@ -13412,23 +14402,23 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Enables or disables SCIM-based user synchronization for AgentCore. When enabled, all existing users in the shared user pool are fully imported into the workspace. Users in the user pool are provisioned by the enterprise identity system through SCIM.
      * ### Preparations before enabling
-     * **Step 1:** Call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to enable the receiving endpoint and obtain the receiving URL and a valid token.
+     * **Step 1:** Enable the receiving endpoint by calling [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to obtain the receiving URL and a valid token.
      * **Step 2:** Complete the SCIM configuration, connection test, and user assignment in the enterprise identity system.
-     * **Step 3:** Call this operation and set `syncEnabled` to `true`.
+     * **Step 3:** Call this operation and set syncEnabled to true.
      * ```http
      * PUT /workspaces/{workspaceId}/scim-provisioning
      * {"syncEnabled":true}
      * ```
      * When the enabling task is executed, the system checks whether the receiving endpoint is enabled and whether valid credentials exist. If no users are provisioned in the enterprise identity system, the initial import may succeed but contain no user records.
      * ### Impact after disabling
-     * Setting `syncEnabled` to `false` disables user synchronization and the upstream SCIM receiving endpoint. Imported users, existing credentials, and the SAML logon configuration are retained.
+     * Setting syncEnabled to false disables user synchronization and the upstream SCIM receiving endpoint. The imported users, existing credentials, and SAML logon configuration are retained.
      * To re-enable synchronization later, call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to prepare the receiving endpoint first, and then enable synchronization.
-     * ### Verify the operation result
+     * ### Confirm the operation result
      * After this operation accepts the request, it executes the enabling or disabling task in the background. You can query the progress by calling [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM):
-     * - `syncEnabled` indicates whether synchronization is expected to be enabled or disabled.
-     * - `operationStatus` indicates the execution result of the most recent operation.
-     * - The `status` field in the query operation comprehensively indicates the current stage of SCIM, such as pending configuration, processing, available, or disabled.
-     * If the operation fails, the saved `syncEnabled` value is not automatically rolled back. Verify the configuration based on the operation result before deciding on subsequent actions.
+     * - syncEnabled indicates whether synchronization is expected to be enabled or disabled.
+     * - operationStatus indicates the execution result of the most recent operation.
+     * - The status field in the query operation comprehensively indicates the current stage of SCIM, such as pending configuration, processing, available, or disabled.
+     * If the operation fails, the saved syncEnabled value is not automatically rolled back. Verify the configuration based on the operation result and determine the subsequent actions.
      *
      * @param tmpReq - UpdateIdentityProviderSCIMRequest
      * @param headers - map
@@ -13482,23 +14472,23 @@ class AgentCore extends OpenApiClient
      * @remarks
      * Enables or disables SCIM-based user synchronization for AgentCore. When enabled, all existing users in the shared user pool are fully imported into the workspace. Users in the user pool are provisioned by the enterprise identity system through SCIM.
      * ### Preparations before enabling
-     * **Step 1:** Call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to enable the receiving endpoint and obtain the receiving URL and a valid token.
+     * **Step 1:** Enable the receiving endpoint by calling [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to obtain the receiving URL and a valid token.
      * **Step 2:** Complete the SCIM configuration, connection test, and user assignment in the enterprise identity system.
-     * **Step 3:** Call this operation and set `syncEnabled` to `true`.
+     * **Step 3:** Call this operation and set syncEnabled to true.
      * ```http
      * PUT /workspaces/{workspaceId}/scim-provisioning
      * {"syncEnabled":true}
      * ```
      * When the enabling task is executed, the system checks whether the receiving endpoint is enabled and whether valid credentials exist. If no users are provisioned in the enterprise identity system, the initial import may succeed but contain no user records.
      * ### Impact after disabling
-     * Setting `syncEnabled` to `false` disables user synchronization and the upstream SCIM receiving endpoint. Imported users, existing credentials, and the SAML logon configuration are retained.
+     * Setting syncEnabled to false disables user synchronization and the upstream SCIM receiving endpoint. The imported users, existing credentials, and SAML logon configuration are retained.
      * To re-enable synchronization later, call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to prepare the receiving endpoint first, and then enable synchronization.
-     * ### Verify the operation result
+     * ### Confirm the operation result
      * After this operation accepts the request, it executes the enabling or disabling task in the background. You can query the progress by calling [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM):
-     * - `syncEnabled` indicates whether synchronization is expected to be enabled or disabled.
-     * - `operationStatus` indicates the execution result of the most recent operation.
-     * - The `status` field in the query operation comprehensively indicates the current stage of SCIM, such as pending configuration, processing, available, or disabled.
-     * If the operation fails, the saved `syncEnabled` value is not automatically rolled back. Verify the configuration based on the operation result before deciding on subsequent actions.
+     * - syncEnabled indicates whether synchronization is expected to be enabled or disabled.
+     * - operationStatus indicates the execution result of the most recent operation.
+     * - The status field in the query operation comprehensively indicates the current stage of SCIM, such as pending configuration, processing, available, or disabled.
+     * If the operation fails, the saved syncEnabled value is not automatically rolled back. Verify the configuration based on the operation result and determine the subsequent actions.
      *
      * @param request - UpdateIdentityProviderSCIMRequest
      *
@@ -13518,45 +14508,45 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configurations.
+     * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configuration.
      *
      * @remarks
      * Updates the model, instructions, skills, or runtime configuration of a managed Harness agent to adjust the capabilities and runtime behavior of an existing agent.
      * ### Update rules
-     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set `description=null` to clear the description.
+     * At least one updatable field must be provided. Omitted top-level fields retain their original configuration. You can set description=null to clear the description.
      * | Configuration | Update method |
      * | --- | --- |
-     * | `harness` | The type cannot be changed. When updating the qodercli account binding, keep the original `type` and submit the corresponding `configuration`. |
-     * | `model` | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
-     * | `runtime` | Specify both `compute` and `sessionPolicy` when submitting. Omitting the entire object retains the original runtime configuration. |
-     * | `tools`, `skills`, `promptVariables`, `subAgents` | The corresponding lists are entirely replaced upon submission. You must include the items to be retained. Pass `[]` to clear the corresponding explicit lists. |
-     * | `environment` | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
-     * | `network` | Specify both `accessInternet.enabled` and `accessVpc.enabled` when submitting. |
-     * | `ossMounts`, `agenticFsMounts` | Entirely replaced respectively. Pass `[]` to clear the corresponding lists. `agenticFsMounts` does not accept `null`. |
-     * ### Harnesses, templates, and skills
+     * | harness | The type cannot be changed. When updating the qodercli account binding, keep the original type and submit the corresponding configuration. |
+     * | model | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
+     * | runtime | Specify both compute and sessionPolicy when submitting. Omitting the entire object retains the original runtime configuration. |
+     * | tools, skills, promptVariables, subAgents | The corresponding list is entirely replaced upon submission and must include the items to be retained. Pass [] to clear the corresponding explicit list. |
+     * | environment | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
+     * | network | Specify both accessInternet.enabled and accessVpc.enabled when submitting. |
+     * | ossMounts, agenticFsMounts | Entirely replaced respectively. Pass [] to clear the corresponding list. agenticFsMounts does not accept null. |
+     * ### Harness, templates, and skills
      * | Harness | Model and connector configuration |
      * | --- | --- |
-     * | `qwenpaw` | This type is used by default if `harness` is omitted during creation. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
-     * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
-     * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
-     * `skills` uses the skill names in the workspace AI Registry. For `sourceType=REFERENCE`, reference the version by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. For `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
-     * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through `configuredSkills` and `skills`.
+     * | qwenpaw | This type is used by default if harness is omitted during creation. Set model.modelConnectionId to the workspace model connection ID, and set model.modelName to the name of a model created under this connection. |
+     * | qodercli | The qodercli connector must be enabled in the workspace. Set model.modelConnectionId to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). model.modelName can be omitted. |
+     * harness is an object, such as {"type":"qwenpaw"}. For qodercli, set harness.configuration.connectorServiceAccountKey to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. connectorServiceAccountName is the account name. Do not specify these two binding fields for qwenpaw.
+     * skills uses the skill names in the workspace AI Registry. For sourceType=REFERENCE, versions are referenced by versionSelector: use LABEL with a tag name, or VERSION with a specific version number. If the selector is omitted, LABEL/latest is used. For sourceType=STATIC, static files bundled with the package are used, and no version selector is provided.
+     * For template.aiRegistry, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, instruction, promptVariables, and subAgents are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through configuredSkills and skills.
      * ### Elasticity and instances
-     * If `runtime` is committed but `hpa` or some of its fields are omitted, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete `hpa`.
+     * If you commit runtime but omit hpa or some of its fields, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete hpa together.
      * | Field | Default value | Value and description |
      * | --- | --- | --- |
-     * | `enabled` | `false` | Specifies whether elastic scaling is enabled. |
-     * | `minSandboxCount` | `1` | The minimum number of instances. Valid values: 0 to 100. |
-     * | `maxSandboxCount` | `10` | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
-     * | `maxConcurrentSessionsPerSandbox` | `20` | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
-     * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
-     * If you only modify instructions, models, or skills, you can omit the entire `runtime` to keep the original runtime configuration unchanged. The minimum and maximum numbers of instances are configuration borders. You can query the actual number through `sandboxPhaseCounts`.
+     * | enabled | false | Specifies whether to enable elastic scaling. |
+     * | minSandboxCount | 1 | The minimum number of instances. Valid values: 0 to 100. |
+     * | maxSandboxCount | 10 | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
+     * | maxConcurrentSessionsPerSandbox | 20 | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
+     * | sessionTtlSeconds | 600 | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
+     * If you only modify instructions, models, or skills, you can omit the entire runtime object, and the original runtime configuration remains unchanged. The minimum and maximum number of instances are configuration borders. You can query the actual number through sandboxPhaseCounts.
      * ### Environment and mounts
-     * Omitting the entire `environment` retains the original configuration. Submitting `environment={}` or `environment=null` clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
-     * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overwrites.
-     * The `path` for OSS mounts must be a non-empty directory prefix in the bucket. For AgenticFS mounts, `server` is the access point domain name, without a protocol, port, or path. `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
+     * Omitting the entire environment object retains the original configuration. Submitting environment={} or environment=null clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
+     * The total number of ossMounts and agenticFsMounts cannot exceed 10. The mount target mountPath uses an absolute path within the container, such as /data/train. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overrides.
+     * The path for OSS mounts must be a non-empty directory prefix within the bucket. For AgenticFS mounts, server is the AccessPoint domain name, without a protocol, port, or path. path is an existing non-empty relative directory within the AccessPoint, and the root directory of the AccessPoint cannot be mounted. If readOnly is omitted, the default value is false.
      * ### Query update results
-     * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query `latestSpecVersion`, `latestVersionStatus`, `status`, and `sandboxPhaseCounts` to confirm the configuration processing and instance status. `clientToken` does not provide idempotency guarantees at this time.
+     * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query latestSpecVersion, latestVersionStatus, status, and sandboxPhaseCounts to confirm the configuration processing and instance status. clientToken does not currently provide idempotency guarantees.
      *
      * @param tmpReq - UpdateManagedAgentRequest
      * @param headers - map
@@ -13612,45 +14602,45 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configurations.
+     * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configuration.
      *
      * @remarks
      * Updates the model, instructions, skills, or runtime configuration of a managed Harness agent to adjust the capabilities and runtime behavior of an existing agent.
      * ### Update rules
-     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set `description=null` to clear the description.
+     * At least one updatable field must be provided. Omitted top-level fields retain their original configuration. You can set description=null to clear the description.
      * | Configuration | Update method |
      * | --- | --- |
-     * | `harness` | The type cannot be changed. When updating the qodercli account binding, keep the original `type` and submit the corresponding `configuration`. |
-     * | `model` | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
-     * | `runtime` | Specify both `compute` and `sessionPolicy` when submitting. Omitting the entire object retains the original runtime configuration. |
-     * | `tools`, `skills`, `promptVariables`, `subAgents` | The corresponding lists are entirely replaced upon submission. You must include the items to be retained. Pass `[]` to clear the corresponding explicit lists. |
-     * | `environment` | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
-     * | `network` | Specify both `accessInternet.enabled` and `accessVpc.enabled` when submitting. |
-     * | `ossMounts`, `agenticFsMounts` | Entirely replaced respectively. Pass `[]` to clear the corresponding lists. `agenticFsMounts` does not accept `null`. |
-     * ### Harnesses, templates, and skills
+     * | harness | The type cannot be changed. When updating the qodercli account binding, keep the original type and submit the corresponding configuration. |
+     * | model | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
+     * | runtime | Specify both compute and sessionPolicy when submitting. Omitting the entire object retains the original runtime configuration. |
+     * | tools, skills, promptVariables, subAgents | The corresponding list is entirely replaced upon submission and must include the items to be retained. Pass [] to clear the corresponding explicit list. |
+     * | environment | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
+     * | network | Specify both accessInternet.enabled and accessVpc.enabled when submitting. |
+     * | ossMounts, agenticFsMounts | Entirely replaced respectively. Pass [] to clear the corresponding list. agenticFsMounts does not accept null. |
+     * ### Harness, templates, and skills
      * | Harness | Model and connector configuration |
      * | --- | --- |
-     * | `qwenpaw` | This type is used by default if `harness` is omitted during creation. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
-     * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
-     * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
-     * `skills` uses the skill names in the workspace AI Registry. For `sourceType=REFERENCE`, reference the version by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. For `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
-     * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through `configuredSkills` and `skills`.
+     * | qwenpaw | This type is used by default if harness is omitted during creation. Set model.modelConnectionId to the workspace model connection ID, and set model.modelName to the name of a model created under this connection. |
+     * | qodercli | The qodercli connector must be enabled in the workspace. Set model.modelConnectionId to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). model.modelName can be omitted. |
+     * harness is an object, such as {"type":"qwenpaw"}. For qodercli, set harness.configuration.connectorServiceAccountKey to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. connectorServiceAccountName is the account name. Do not specify these two binding fields for qwenpaw.
+     * skills uses the skill names in the workspace AI Registry. For sourceType=REFERENCE, versions are referenced by versionSelector: use LABEL with a tag name, or VERSION with a specific version number. If the selector is omitted, LABEL/latest is used. For sourceType=STATIC, static files bundled with the package are used, and no version selector is provided.
+     * For template.aiRegistry, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, instruction, promptVariables, and subAgents are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through configuredSkills and skills.
      * ### Elasticity and instances
-     * If `runtime` is committed but `hpa` or some of its fields are omitted, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete `hpa`.
+     * If you commit runtime but omit hpa or some of its fields, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete hpa together.
      * | Field | Default value | Value and description |
      * | --- | --- | --- |
-     * | `enabled` | `false` | Specifies whether elastic scaling is enabled. |
-     * | `minSandboxCount` | `1` | The minimum number of instances. Valid values: 0 to 100. |
-     * | `maxSandboxCount` | `10` | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
-     * | `maxConcurrentSessionsPerSandbox` | `20` | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
-     * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
-     * If you only modify instructions, models, or skills, you can omit the entire `runtime` to keep the original runtime configuration unchanged. The minimum and maximum numbers of instances are configuration borders. You can query the actual number through `sandboxPhaseCounts`.
+     * | enabled | false | Specifies whether to enable elastic scaling. |
+     * | minSandboxCount | 1 | The minimum number of instances. Valid values: 0 to 100. |
+     * | maxSandboxCount | 10 | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
+     * | maxConcurrentSessionsPerSandbox | 20 | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
+     * | sessionTtlSeconds | 600 | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
+     * If you only modify instructions, models, or skills, you can omit the entire runtime object, and the original runtime configuration remains unchanged. The minimum and maximum number of instances are configuration borders. You can query the actual number through sandboxPhaseCounts.
      * ### Environment and mounts
-     * Omitting the entire `environment` retains the original configuration. Submitting `environment={}` or `environment=null` clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
-     * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overwrites.
-     * The `path` for OSS mounts must be a non-empty directory prefix in the bucket. For AgenticFS mounts, `server` is the access point domain name, without a protocol, port, or path. `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
+     * Omitting the entire environment object retains the original configuration. Submitting environment={} or environment=null clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
+     * The total number of ossMounts and agenticFsMounts cannot exceed 10. The mount target mountPath uses an absolute path within the container, such as /data/train. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overrides.
+     * The path for OSS mounts must be a non-empty directory prefix within the bucket. For AgenticFS mounts, server is the AccessPoint domain name, without a protocol, port, or path. path is an existing non-empty relative directory within the AccessPoint, and the root directory of the AccessPoint cannot be mounted. If readOnly is omitted, the default value is false.
      * ### Query update results
-     * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query `latestSpecVersion`, `latestVersionStatus`, `status`, and `sandboxPhaseCounts` to confirm the configuration processing and instance status. `clientToken` does not provide idempotency guarantees at this time.
+     * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query latestSpecVersion, latestVersionStatus, status, and sandboxPhaseCounts to confirm the configuration processing and instance status. clientToken does not currently provide idempotency guarantees.
      *
      * @param request - UpdateManagedAgentRequest
      *
@@ -13843,10 +14833,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the long-term memory text or metadata based on the memory ID.
+     * Updates the content or metadata of a specified memory. At least one field must be provided for the update, and unprovided fields retain their original values. The metadata is fully replaced. Pass an empty object to clear the metadata.
      *
      * @remarks
-     * Updates the long-term memory text or metadata based on the memory ID.
+     * Updates the text or metadata of a long-term memory based on the memory ID.
      *
      * @param tmpReq - UpdateMemoryRequest
      * @param headers - map
@@ -13897,10 +14887,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the long-term memory text or metadata based on the memory ID.
+     * Updates the content or metadata of a specified memory. At least one field must be provided for the update, and unprovided fields retain their original values. The metadata is fully replaced. Pass an empty object to clear the metadata.
      *
      * @remarks
-     * Updates the long-term memory text or metadata based on the memory ID.
+     * Updates the text or metadata of a long-term memory based on the memory ID.
      *
      * @param request - UpdateMemoryRequest
      *
@@ -13919,6 +14909,85 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->updateMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the name, description, enabling status, or extraction strategy of a memory rule. At least one field to update must be provided. Fields that are not provided remain unchanged.
+     *
+     * @remarks
+     * Updates the name, description, enabling status, or extraction strategy of a memory rule. At least one field to update must be provided. Fields that are not provided remain unchanged.
+     *
+     * @param tmpReq - UpdateMemoryRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMemoryRuleResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $memoryStoreName
+     * @param string                  $ruleId
+     * @param UpdateMemoryRuleRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateMemoryRuleResponse
+     */
+    public function updateMemoryRuleWithOptions($workspaceId, $memoryStoreName, $ruleId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMemoryRuleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMemoryRule',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/memorystores/' . Url::percentEncode($memoryStoreName) . '/memory-rules/' . Url::percentEncode($ruleId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMemoryRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name, description, enabling status, or extraction strategy of a memory rule. At least one field to update must be provided. Fields that are not provided remain unchanged.
+     *
+     * @remarks
+     * Updates the name, description, enabling status, or extraction strategy of a memory rule. At least one field to update must be provided. Fields that are not provided remain unchanged.
+     *
+     * @param request - UpdateMemoryRuleRequest
+     *
+     * @returns UpdateMemoryRuleResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $memoryStoreName
+     * @param string                  $ruleId
+     * @param UpdateMemoryRuleRequest $request
+     *
+     * @return UpdateMemoryRuleResponse
+     */
+    public function updateMemoryRule($workspaceId, $memoryStoreName, $ruleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMemoryRuleWithOptions($workspaceId, $memoryStoreName, $ruleId, $request, $headers, $runtime);
     }
 
     /**
@@ -14102,10 +15171,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the mutable configurations of a specified model connection and resubmits the publish task. The invocation protocol cannot be modified after creation.
+     * Updates the mutable configurations of a specified model connection and resubmits the publishing task. The invocation protocol cannot be modified after creation.
      *
      * @remarks
-     * Updates the mutable configurations of a specified model connection and resubmits the publish task. The invocation protocol cannot be modified after creation.
+     * Updates the mutable configurations of a specified model connection and resubmits the publishing task. The invocation protocol cannot be modified after creation.
+     * The request body must contain at least one non-null update field. If a field is omitted or set to null, the original value is retained. When apiKeys is submitted, the existing keys are completely replaced by the new list.
      *
      * @param tmpReq - UpdateModelConnectionRequest
      * @param headers - map
@@ -14161,10 +15231,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the mutable configurations of a specified model connection and resubmits the publish task. The invocation protocol cannot be modified after creation.
+     * Updates the mutable configurations of a specified model connection and resubmits the publishing task. The invocation protocol cannot be modified after creation.
      *
      * @remarks
-     * Updates the mutable configurations of a specified model connection and resubmits the publish task. The invocation protocol cannot be modified after creation.
+     * Updates the mutable configurations of a specified model connection and resubmits the publishing task. The invocation protocol cannot be modified after creation.
+     * The request body must contain at least one non-null update field. If a field is omitted or set to null, the original value is retained. When apiKeys is submitted, the existing keys are completely replaced by the new list.
      *
      * @param request - UpdateModelConnectionRequest
      *
@@ -14182,6 +15253,89 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->updateModelConnectionWithOptions($workspaceId, $connectionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a service endpoint.
+     *
+     * @remarks
+     * Updates the name, attached version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to reattach the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Reattaching or changing the elastic policy triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support reattaching the agentVersion to switch to the target version within the namespace of the original gateway runtime instance. If the original gateway runtime instance is inactive, ServiceEndpointTargetNotReady is returned. This type does not support elastic policy updates. If updateElasticity is set to true, InvalidParameter is returned, and the elastic policy inherits the configuration of the attached version. When a DEFAULT service endpoint is reattached from latest to another version, if the same agent still has a service endpoint attached to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit commit can trigger the initial initialization or a retry of a failed node. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status.
+     *
+     * @param tmpReq - UpdateServiceEndpointRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceEndpointResponse
+     *
+     * @param string                       $workspaceId
+     * @param string                       $serviceEndpointId
+     * @param UpdateServiceEndpointRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateServiceEndpointResponse
+     */
+    public function updateServiceEndpointWithOptions($workspaceId, $serviceEndpointId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateServiceEndpointShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateServiceEndpoint',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/service-endpoints/' . Url::percentEncode($serviceEndpointId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateServiceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a service endpoint.
+     *
+     * @remarks
+     * Updates the name, attached version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to reattach the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Reattaching or changing the elastic policy triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support reattaching the agentVersion to switch to the target version within the namespace of the original gateway runtime instance. If the original gateway runtime instance is inactive, ServiceEndpointTargetNotReady is returned. This type does not support elastic policy updates. If updateElasticity is set to true, InvalidParameter is returned, and the elastic policy inherits the configuration of the attached version. When a DEFAULT service endpoint is reattached from latest to another version, if the same agent still has a service endpoint attached to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit commit can trigger the initial initialization or a retry of a failed node. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status.
+     *
+     * @param request - UpdateServiceEndpointRequest
+     *
+     * @returns UpdateServiceEndpointResponse
+     *
+     * @param string                       $workspaceId
+     * @param string                       $serviceEndpointId
+     * @param UpdateServiceEndpointRequest $request
+     *
+     * @return UpdateServiceEndpointResponse
+     */
+    public function updateServiceEndpoint($workspaceId, $serviceEndpointId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateServiceEndpointWithOptions($workspaceId, $serviceEndpointId, $request, $headers, $runtime);
     }
 
     /**
@@ -14416,7 +15570,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the description and members of a specified team. If users or agents are provided, the corresponding member list is replaced by using full overwrite semantics. Unprovided member lists remain unchanged. The team name cannot be modified after creation.
+     * Updates the description and members of a specified team. When users or agents are provided, the corresponding member list is replaced based on full overwrite semantics. Member lists that are not provided remain unchanged. The team name cannot be modified after creation.
      *
      * @remarks
      * Updates the description and members of a specified team.
@@ -14475,7 +15629,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the description and members of a specified team. If users or agents are provided, the corresponding member list is replaced by using full overwrite semantics. Unprovided member lists remain unchanged. The team name cannot be modified after creation.
+     * Updates the description and members of a specified team. When users or agents are provided, the corresponding member list is replaced based on full overwrite semantics. Member lists that are not provided remain unchanged. The team name cannot be modified after creation.
      *
      * @remarks
      * Updates the description and members of a specified team.
@@ -14582,7 +15736,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId parameters are maintained by the server and cannot be modified through this operation.
+     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
      *
      * @remarks
      * Modifies the name or network configuration of a workspace to adjust workspace information and the private network access environment for agents. The workspace must be in the `Initialized` state. To enable VPC networking, set `Enabled` in the network configuration to `true` and provide both `VpcId` and at least one `VSwitchIds`.
@@ -14640,7 +15794,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId parameters are maintained by the server and cannot be modified through this operation.
+     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
      *
      * @remarks
      * Modifies the name or network configuration of a workspace to adjust workspace information and the private network access environment for agents. The workspace must be in the `Initialized` state. To enable VPC networking, set `Enabled` in the network configuration to `true` and provide both `VpcId` and at least one `VSwitchIds`.

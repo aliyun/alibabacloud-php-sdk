@@ -1,3 +1,81 @@
+2026-11-17 Version: 2.8.0
+- Support API CreateEvents.
+- Support API CreateMemoryRule.
+- Support API CreateServiceEndpoint.
+- Support API DeleteEvents.
+- Support API DeleteMemoryRule.
+- Support API DeleteMemorySession.
+- Support API GetMemoryRule.
+- Support API ListEvents.
+- Support API ListMemoryRules.
+- Support API ListMemoryTasks.
+- Support API RetryMemoryTask.
+- Support API RevokeMemory.
+- Support API UpdateMemoryRule.
+- Support API UpdateServiceEndpoint.
+- Update API AddMemories: add request parameters body.extract.
+- Update API AddMemories: add request parameters body.memories.
+- Update API AddMemories: add request parameters body.messages.$.referenceTime.
+- Update API AddMemories: add request parameters body.scope.teamId.
+- Update API AddMemories: add response parameters Body.data.taskIds.
+- Update API CreateManagedAgent: add request parameters body.contextConfiguration.
+- Update API CreateManagedAgent: add response parameters Body.data.contextConfiguration.
+- Update API CreateManagedAgent: add response parameters Body.data.effectiveContextConfiguration.
+- Update API CreateMemoryStore: add response parameters Body.data.eventCount.
+- Update API CreateMemoryStore: add response parameters Body.data.memoryCount.
+- Update API DeleteMemoryStore: add response parameters Body.data.eventCount.
+- Update API DeleteMemoryStore: add response parameters Body.data.memoryCount.
+- Update API GetManagedAgent: add response parameters Body.data.contextConfiguration.
+- Update API GetManagedAgent: add response parameters Body.data.effectiveContextConfiguration.
+- Update API GetMemory: add response parameters Body.data.source.
+- Update API GetMemory: add response parameters Body.data.type.
+- Update API GetMemory: add response parameters Body.data.valid.
+- Update API GetMemory: add response parameters Body.data.scope.teamId.
+- Update API GetMemoryStore: add response parameters Body.data.eventCount.
+- Update API GetMemoryStore: add response parameters Body.data.memoryCount.
+- Update API GetMemoryTask: add response parameters Body.data.changes.
+- Update API GetMemoryTask: add response parameters Body.data.createdAt.
+- Update API GetMemoryTask: add response parameters Body.data.finishedAt.
+- Update API GetMemoryTask: add response parameters Body.data.input.
+- Update API GetMemoryTask: add response parameters Body.data.inputMessageCount.
+- Update API GetMemoryTask: add response parameters Body.data.inputTokenCount.
+- Update API GetMemoryTask: add response parameters Body.data.startedAt.
+- Update API GetMemoryTask: add response parameters Body.data.strategyConfig.
+- Update API GetMemoryTask: add response parameters Body.data.triggerType.
+- Update API ListMemories: add request parameters source.
+- Update API ListMemories: add request parameters teamId.
+- Update API ListMemories: add request parameters types.
+- Update API ListMemories: add request parameters updatedAtFrom.
+- Update API ListMemories: add request parameters updatedAtTo.
+- Update API ListMemories: add request parameters valid.
+- Update API ListMemories: add response parameters Body.totalCount.
+- Update API ListMemories: add response parameters Body.items.$.source.
+- Update API ListMemories: add response parameters Body.items.$.type.
+- Update API ListMemories: add response parameters Body.items.$.valid.
+- Update API ListMemories: add response parameters Body.items.$.scope.teamId.
+- Update API ListMemorySessions: add request parameters teamId.
+- Update API ListMemorySessions: add response parameters Body.totalCount.
+- Update API ListMemorySessions: add response parameters Body.items.$.createdAt.
+- Update API ListMemorySessions: add response parameters Body.items.$.metadata.
+- Update API ListMemorySessions: add response parameters Body.items.$.teamId.
+- Update API ListMemorySessions: add response parameters Body.items.$.title.
+- Update API SearchMemories: add request parameters body.types.
+- Update API SearchMemories: add request parameters body.scope.teamId.
+- Update API SearchMemories: add response parameters Body.data.memories.$.memory.source.
+- Update API SearchMemories: add response parameters Body.data.memories.$.memory.type.
+- Update API SearchMemories: add response parameters Body.data.memories.$.memory.valid.
+- Update API SearchMemories: add response parameters Body.data.memories.$.memory.scope.teamId.
+- Update API UpdateManagedAgent: add request parameters body.contextConfiguration.
+- Update API UpdateManagedAgent: add response parameters Body.data.contextConfiguration.
+- Update API UpdateManagedAgent: add response parameters Body.data.effectiveContextConfiguration.
+- Update API UpdateMemory: add response parameters Body.data.source.
+- Update API UpdateMemory: add response parameters Body.data.type.
+- Update API UpdateMemory: add response parameters Body.data.valid.
+- Update API UpdateMemory: add response parameters Body.data.scope.teamId.
+- Update API UpdateMemoryStore: add response parameters Body.data.eventCount.
+- Update API UpdateMemoryStore: add response parameters Body.data.memoryCount.
+
+
 2026-11-12 Version: 2.7.1
 - Update API GetServiceEndpoint: add response parameters Body.data.currentInstances.
 - Update API GetServiceEndpoint: add response parameters Body.data.effectiveCapacity.

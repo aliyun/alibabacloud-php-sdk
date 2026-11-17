@@ -26,6 +26,11 @@ class pageItems extends Model
     /**
      * @var string
      */
+    public $refType;
+
+    /**
+     * @var string
+     */
     public $selectorType;
 
     /**
@@ -41,14 +46,27 @@ class pageItems extends Model
     /**
      * @var string
      */
+    public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceName;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'ownerId' => 'ownerId',
         'ownerType' => 'ownerType',
         'ownerVersion' => 'ownerVersion',
+        'refType' => 'refType',
         'selectorType' => 'selectorType',
         'selectorValue' => 'selectorValue',
         'skillName' => 'skillName',
+        'sourceId' => 'sourceId',
+        'sourceName' => 'sourceName',
         'workspaceId' => 'workspaceId',
     ];
 
@@ -72,6 +90,10 @@ class pageItems extends Model
             $res['ownerVersion'] = $this->ownerVersion;
         }
 
+        if (null !== $this->refType) {
+            $res['refType'] = $this->refType;
+        }
+
         if (null !== $this->selectorType) {
             $res['selectorType'] = $this->selectorType;
         }
@@ -82,6 +104,14 @@ class pageItems extends Model
 
         if (null !== $this->skillName) {
             $res['skillName'] = $this->skillName;
+        }
+
+        if (null !== $this->sourceId) {
+            $res['sourceId'] = $this->sourceId;
+        }
+
+        if (null !== $this->sourceName) {
+            $res['sourceName'] = $this->sourceName;
         }
 
         if (null !== $this->workspaceId) {
@@ -111,6 +141,10 @@ class pageItems extends Model
             $model->ownerVersion = $map['ownerVersion'];
         }
 
+        if (isset($map['refType'])) {
+            $model->refType = $map['refType'];
+        }
+
         if (isset($map['selectorType'])) {
             $model->selectorType = $map['selectorType'];
         }
@@ -121,6 +155,14 @@ class pageItems extends Model
 
         if (isset($map['skillName'])) {
             $model->skillName = $map['skillName'];
+        }
+
+        if (isset($map['sourceId'])) {
+            $model->sourceId = $map['sourceId'];
+        }
+
+        if (isset($map['sourceName'])) {
+            $model->sourceName = $map['sourceName'];
         }
 
         if (isset($map['workspaceId'])) {

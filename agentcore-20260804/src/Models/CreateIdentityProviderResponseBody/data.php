@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateIdentityProviderResp
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateIdentityProviderResponseBody\data\configuration;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateIdentityProviderResponseBody\data\oidc;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateIdentityProviderResponseBody\data\saml;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateIdentityProviderResponseBody\data\syncScope;
 
@@ -25,6 +26,11 @@ class data extends Model
      * @var bool
      */
     public $loginEnabled;
+
+    /**
+     * @var oidc
+     */
+    public $oidc;
 
     /**
      * @var string
@@ -59,6 +65,7 @@ class data extends Model
         'configuration' => 'configuration',
         'identityProviderType' => 'identityProviderType',
         'loginEnabled' => 'loginEnabled',
+        'oidc' => 'oidc',
         'protocol' => 'protocol',
         'saml' => 'saml',
         'status' => 'status',
@@ -71,6 +78,9 @@ class data extends Model
     {
         if (null !== $this->configuration) {
             $this->configuration->validate();
+        }
+        if (null !== $this->oidc) {
+            $this->oidc->validate();
         }
         if (null !== $this->saml) {
             $this->saml->validate();
@@ -94,6 +104,10 @@ class data extends Model
 
         if (null !== $this->loginEnabled) {
             $res['loginEnabled'] = $this->loginEnabled;
+        }
+
+        if (null !== $this->oidc) {
+            $res['oidc'] = null !== $this->oidc ? $this->oidc->toArray($noStream) : $this->oidc;
         }
 
         if (null !== $this->protocol) {
@@ -141,6 +155,10 @@ class data extends Model
 
         if (isset($map['loginEnabled'])) {
             $model->loginEnabled = $map['loginEnabled'];
+        }
+
+        if (isset($map['oidc'])) {
+            $model->oidc = oidc::fromMap($map['oidc']);
         }
 
         if (isset($map['protocol'])) {

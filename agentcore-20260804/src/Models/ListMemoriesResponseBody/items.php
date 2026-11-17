@@ -38,14 +38,32 @@ class items extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $updatedAt;
+
+    /**
+     * @var bool
+     */
+    public $valid;
     protected $_name = [
         'content' => 'content',
         'createdAt' => 'createdAt',
         'memoryId' => 'memoryId',
         'metadata' => 'metadata',
         'scope' => 'scope',
+        'source' => 'source',
+        'type' => 'type',
         'updatedAt' => 'updatedAt',
+        'valid' => 'valid',
     ];
 
     public function validate()
@@ -90,8 +108,20 @@ class items extends Model
             $res['scope'] = null !== $this->scope ? $this->scope->toArray($noStream) : $this->scope;
         }
 
+        if (null !== $this->source) {
+            $res['source'] = $this->source;
+        }
+
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
+        }
+
         if (null !== $this->updatedAt) {
             $res['updatedAt'] = $this->updatedAt;
+        }
+
+        if (null !== $this->valid) {
+            $res['valid'] = $this->valid;
         }
 
         return $res;
@@ -130,8 +160,20 @@ class items extends Model
             $model->scope = scope::fromMap($map['scope']);
         }
 
+        if (isset($map['source'])) {
+            $model->source = $map['source'];
+        }
+
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
+        }
+
         if (isset($map['updatedAt'])) {
             $model->updatedAt = $map['updatedAt'];
+        }
+
+        if (isset($map['valid'])) {
+            $model->valid = $map['valid'];
         }
 
         return $model;

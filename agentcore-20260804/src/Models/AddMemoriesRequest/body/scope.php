@@ -21,10 +21,16 @@ class scope extends Model
     /**
      * @var string
      */
+    public $teamId;
+
+    /**
+     * @var string
+     */
     public $userId;
     protected $_name = [
         'agentId' => 'agentId',
         'sessionId' => 'sessionId',
+        'teamId' => 'teamId',
         'userId' => 'userId',
     ];
 
@@ -42,6 +48,10 @@ class scope extends Model
 
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->teamId) {
+            $res['teamId'] = $this->teamId;
         }
 
         if (null !== $this->userId) {
@@ -65,6 +75,10 @@ class scope extends Model
 
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
+        }
+
+        if (isset($map['teamId'])) {
+            $model->teamId = $map['teamId'];
         }
 
         if (isset($map['userId'])) {

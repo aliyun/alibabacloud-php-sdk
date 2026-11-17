@@ -27,11 +27,17 @@ class data extends Model
      * @var string
      */
     public $protocol;
+
+    /**
+     * @var string
+     */
+    public $redirectUri;
     protected $_name = [
         'acsUrl' => 'acsUrl',
         'entityId' => 'entityId',
         'metadataXml' => 'metadataXml',
         'protocol' => 'protocol',
+        'redirectUri' => 'redirectUri',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class data extends Model
 
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
+        }
+
+        if (null !== $this->redirectUri) {
+            $res['redirectUri'] = $this->redirectUri;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class data extends Model
 
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
+        }
+
+        if (isset($map['redirectUri'])) {
+            $model->redirectUri = $map['redirectUri'];
         }
 
         return $model;
