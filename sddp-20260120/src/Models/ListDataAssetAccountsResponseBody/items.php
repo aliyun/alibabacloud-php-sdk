@@ -31,6 +31,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $encryptionKeyMode;
 
     /**
@@ -77,6 +82,7 @@ class items extends Model
         'aliUid' => 'AliUid',
         'authDb' => 'AuthDb',
         'authRole' => 'AuthRole',
+        'description' => 'Description',
         'encryptionKeyMode' => 'EncryptionKeyMode',
         'engineType' => 'EngineType',
         'expireTime' => 'ExpireTime',
@@ -110,6 +116,10 @@ class items extends Model
 
         if (null !== $this->authRole) {
             $res['AuthRole'] = $this->authRole;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->encryptionKeyMode) {
@@ -173,6 +183,10 @@ class items extends Model
 
         if (isset($map['AuthRole'])) {
             $model->authRole = $map['AuthRole'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['EncryptionKeyMode'])) {
