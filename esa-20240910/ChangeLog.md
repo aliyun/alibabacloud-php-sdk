@@ -1,3 +1,10 @@
+2026-11-17 Version: 3.14.2
+- Update API CreateRoutineBuild: add response parameters Body.Status.
+- Update API GetRoutineBuild: add response parameters Body.FileName.
+- Update API ListRoutineBuilds: add response parameters Body.Data.$.FileName.
+- Update API ReDoRoutineBuild: add response parameters Body.Status.
+
+
 2026-11-12 Version: 3.14.1
 - Update API GetRealtimeDeliveryField: add request parameters SiteId.
 - Update API GetRealtimeDeliveryField: add response parameters Body.FieldContent.FieldList.$.IsSupported.

@@ -44,6 +44,11 @@ class data extends Model
     public $environmentVariables;
 
     /**
+     * @var string
+     */
+    public $fileName;
+
+    /**
      * @var int
      */
     public $gitAccountId;
@@ -135,6 +140,7 @@ class data extends Model
         'commitMessage' => 'CommitMessage',
         'createTime' => 'CreateTime',
         'environmentVariables' => 'EnvironmentVariables',
+        'fileName' => 'FileName',
         'gitAccountId' => 'GitAccountId',
         'gitAccountName' => 'GitAccountName',
         'installCommand' => 'InstallCommand',
@@ -196,6 +202,10 @@ class data extends Model
                     $res['EnvironmentVariables'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
 
         if (null !== $this->gitAccountId) {
@@ -308,6 +318,10 @@ class data extends Model
                     $model->environmentVariables[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
 
         if (isset($map['GitAccountId'])) {

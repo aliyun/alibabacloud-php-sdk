@@ -22,10 +22,16 @@ class CreateRoutineBuildResponseBody extends Model
      * @var int
      */
     public $routineBuildId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'pipeLineRunId' => 'PipeLineRunId',
         'requestId' => 'RequestId',
         'routineBuildId' => 'RoutineBuildId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class CreateRoutineBuildResponseBody extends Model
 
         if (null !== $this->routineBuildId) {
             $res['RoutineBuildId'] = $this->routineBuildId;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class CreateRoutineBuildResponseBody extends Model
 
         if (isset($map['RoutineBuildId'])) {
             $model->routineBuildId = $map['RoutineBuildId'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

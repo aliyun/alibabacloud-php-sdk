@@ -1321,7 +1321,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a user opportunity ticket.
+     * Creates a user business opportunity ticket.
      *
      * @param Request - AddUserBusinessFormRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1384,7 +1384,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a user opportunity ticket.
+     * Creates a user business opportunity ticket.
      *
      * @param Request - AddUserBusinessFormRequest
      *
@@ -3866,7 +3866,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a site environment.
+     * Creates a new site environment.
      *
      * @param Request - CreateEnvironmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3917,7 +3917,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a site environment.
+     * Creates a new site environment.
      *
      * @param Request - CreateEnvironmentRequest
      *
@@ -3935,7 +3935,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an error code redirect rule.
+     * Creates an error code redirection rule.
      *
      * @param tmpReq - CreateErrorPagesRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4004,7 +4004,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an error code redirect rule.
+     * Creates an error code redirection rule.
      *
      * @param Request - CreateErrorPagesRedirectRuleRequest
      *
@@ -5882,7 +5882,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an Edge Routine (ER) build configuration.
+     * Creates an Edge Routine build configuration.
      *
      * @param tmpReq - CreateRoutineBuildConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5983,7 +5983,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an Edge Routine (ER) build configuration.
+     * Creates an Edge Routine build configuration.
      *
      * @param Request - CreateRoutineBuildConfigurationRequest
      *
@@ -10375,8 +10375,8 @@ class ESA extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
-     * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
+     * - When you deploy a routine code version, the `Env` parameter only supports the test environment `staging` or the production environment `production`.
+     * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic weights for these versions must equal 100%.
      *
      * @param tmpReq - DeleteRoutineEnvironmentVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10433,8 +10433,8 @@ class ESA extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
-     * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
+     * - When you deploy a routine code version, the `Env` parameter only supports the test environment `staging` or the production environment `production`.
+     * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic weights for these versions must equal 100%.
      *
      * @param Request - DeleteRoutineEnvironmentVariablesRequest
      *
@@ -11194,7 +11194,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a version of a site. Version 0 cannot be deleted.
+     * Deletes a site version. Version 0 cannot be deleted.
      *
      * @param Request - DeleteVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11237,7 +11237,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a version of a site. Version 0 cannot be deleted.
+     * Deletes a site version. Version 0 cannot be deleted.
      *
      * @param Request - DeleteVersionRequest
      *
@@ -11633,7 +11633,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price of a bot instance.
+     * Queries the pricing of a bot instance.
      *
      * @param Request - DescribeBotPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11672,7 +11672,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price of a bot instance.
+     * Queries the pricing of a bot instance.
      *
      * @param Request - DescribeBotPriceRequest
      *
@@ -11690,7 +11690,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Invokes DescribeCacheReservePrice to query the price of a query cache reserve instance.
+     * Invokes DescribeCacheReservePrice to query the price of a query cache reservation instance.
      *
      * @param Request - DescribeCacheReservePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11737,7 +11737,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Invokes DescribeCacheReservePrice to query the price of a query cache reserve instance.
+     * Invokes DescribeCacheReservePrice to query the price of a query cache reservation instance.
      *
      * @param Request - DescribeCacheReservePriceRequest
      *
@@ -11755,7 +11755,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price for a cache-retained specification change.
+     * Queries the price for a cache retention specification change.
      *
      * @param Request - DescribeCacheReservePriceGapRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11798,7 +11798,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price for a cache-retained specification change.
+     * Queries the price for a cache retention specification change.
      *
      * @param Request - DescribeCacheReservePriceGapRequest
      *
@@ -11816,7 +11816,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the region information supported by the rule engine, including countries, regions, and ISPs.
+     * Queries the region information supported by the rule engine, including countries, regions, and Internet service providers (ISPs).
      *
      * @param Request - DescribeConditionIPBInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11851,7 +11851,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the region information supported by the rule engine, including countries, regions, and ISPs.
+     * Queries the region information supported by the rule engine, including countries, regions, and Internet service providers (ISPs).
      *
      * @param Request - DescribeConditionIPBInfoRequest
      *
@@ -12117,7 +12117,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the peak values of DDoS attack events within a specified time range.
+     * Queries the peak data of DDoS attack events within a specified time range.
      *
      * @param Request - DescribeDDoSEventMaxRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12164,7 +12164,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the peak values of DDoS attack events within a specified time range.
+     * Queries the peak data of DDoS attack events within a specified time range.
      *
      * @param Request - DescribeDDoSEventMaxRequest
      *
@@ -12255,7 +12255,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the number of DDoS attacks outside China.
+     * Queries the number of DDoS attacks from outside China.
      *
      * @param Request - DescribeDDoSOverseasAttackCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12290,7 +12290,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the number of DDoS attacks outside China.
+     * Queries the number of DDoS attacks from outside China.
      *
      * @param Request - DescribeDDoSOverseasAttackCountRequest
      *
@@ -12308,7 +12308,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Queries the pricing of Anti-DDoS instances.
      *
      * @param Request - DescribeDDoSPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12355,7 +12355,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Queries the pricing of Anti-DDoS instances.
      *
      * @param Request - DescribeDDoSPriceRequest
      *
@@ -13012,10 +13012,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price of a plan, including its type and status.
+     * Queries the pricing of plans, including information such as the plan type and plan status.
      *
      * @remarks
-     * The purchase period is measured in months.
+     * The subscription period is measured in months.
      *
      * @param Request - DescribeRatePlanPriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13062,10 +13062,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price of a plan, including its type and status.
+     * Queries the pricing of plans, including information such as the plan type and plan status.
      *
      * @remarks
-     * The purchase period is measured in months.
+     * The subscription period is measured in months.
      *
      * @param Request - DescribeRatePlanPriceRequest
      *
@@ -13083,10 +13083,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price difference for a plan specification change by calling DescribeRatePlanPriceGap.
+     * Queries the price difference for a plan specification change.
      *
      * @remarks
-     * The plan name and plan code can be obtained from the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
+     * You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
      *
      * @param Request - DescribeRatePlanPriceGapRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13137,10 +13137,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price difference for a plan specification change by calling DescribeRatePlanPriceGap.
+     * Queries the price difference for a plan specification change.
      *
      * @remarks
-     * The plan name and plan code can be obtained from the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
+     * You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
      *
      * @param Request - DescribeRatePlanPriceGapRequest
      *
@@ -13158,7 +13158,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves metadata related to the rules engine.
+     * Retrieves metadata related to the rule engine.
      *
      * @param Request - DescribeRuleMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13193,7 +13193,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves metadata related to the rules engine.
+     * Retrieves metadata related to the rule engine.
      *
      * @param Request - DescribeRuleMetadataRequest
      *
@@ -13486,17 +13486,17 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves time series data for WAF event analysis of a site.
+     * Retrieves the time series data for WAF event analysis of a site.
      *
      * @remarks
-     * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
-     *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
-     *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
-     *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
-     *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
-     *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
-     * - Because the number of access requests during the query period may be large, the data analytics results may be based on sampling.
+     * - If you do not specify StartTime and EndTime, this operation returns data for the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - Returns data with different time granularities based on the time span between StartTime and EndTime.
+     *   * If the span is less than or equal to 3 hours, data with a 1-minute time granularity is returned.
+     *   * If the span is greater than 3 hours and less than or equal to 12 hours, data with a 5-minute time granularity is returned.
+     *   * If the span is greater than 12 hours and less than or equal to 1 day, data with a 15-minute time granularity is returned.
+     *   * If the span is greater than 1 day and less than or equal to 10 days, data with a 1-hour time granularity is returned.
+     *   * If the span is greater than 10 days and less than or equal to 31 days, data with a 1-day time granularity is returned.
+     * - Because the number of accesses in the queried time range is large, data analytics may involve sampling.
      *
      * @param tmpReq - DescribeSiteWafTimeSeriesDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13557,17 +13557,17 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves time series data for WAF event analysis of a site.
+     * Retrieves the time series data for WAF event analysis of a site.
      *
      * @remarks
-     * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
-     *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
-     *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
-     *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
-     *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
-     *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
-     * - Because the number of access requests during the query period may be large, the data analytics results may be based on sampling.
+     * - If you do not specify StartTime and EndTime, this operation returns data for the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - Returns data with different time granularities based on the time span between StartTime and EndTime.
+     *   * If the span is less than or equal to 3 hours, data with a 1-minute time granularity is returned.
+     *   * If the span is greater than 3 hours and less than or equal to 12 hours, data with a 5-minute time granularity is returned.
+     *   * If the span is greater than 12 hours and less than or equal to 1 day, data with a 15-minute time granularity is returned.
+     *   * If the span is greater than 1 day and less than or equal to 10 days, data with a 1-hour time granularity is returned.
+     *   * If the span is greater than 10 days and less than or equal to 31 days, data with a 1-day time granularity is returned.
+     * - Because the number of accesses in the queried time range is large, data analytics may involve sampling.
      *
      * @param Request - DescribeSiteWafTimeSeriesDataRequest
      *
@@ -13585,11 +13585,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the top data from WAF event analysis for a website.
+     * Retrieves the top WAF event analysis data for a site.
      *
      * @remarks
-     * - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - Because of the high number of access requests during the query time range, data analytics may involve sampling.
+     * - If you do not specify StartTime and EndTime, this operation returns data for the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - Due to the high volume of access requests in the queried time range, data analytics may involve sampling.
      *
      * @param tmpReq - DescribeSiteWafTopDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13654,11 +13654,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the top data from WAF event analysis for a website.
+     * Retrieves the top WAF event analysis data for a site.
      *
      * @remarks
-     * - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-     * - Because of the high number of access requests during the query time range, data analytics may involve sampling.
+     * - If you do not specify StartTime and EndTime, this operation returns data for the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - Due to the high volume of access requests in the queried time range, data analytics may involve sampling.
      *
      * @param Request - DescribeSiteWafTopDataRequest
      *
@@ -13676,10 +13676,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
+     * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete the client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
      *
      * @remarks
-     * >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
+     * >Notice: Make sure that the Layer 4 acceleration service is enabled before you call this operation.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete the client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
      *
      * @param Request - DescribeTraceDiagnoseReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13722,10 +13722,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
+     * Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete the client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
      *
      * @remarks
-     * >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
+     * >Notice: Make sure that the Layer 4 acceleration service is enabled before you call this operation.1. Call GenerateTraceDiagnose to obtain the diagnostic link. 2. Open the link in a browser to complete the client-side diagnosis. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
      *
      * @param Request - DescribeTraceDiagnoseReportRequest
      *
@@ -13826,7 +13826,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the resource plan information of the current user.
+     * Queries the current resource plan information of a user.
      *
      * @param Request - DescribeUserResourcePackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13889,7 +13889,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the resource plan information of the current user.
+     * Queries the current resource plan information of a user.
      *
      * @param Request - DescribeUserResourcePackageRequest
      *
@@ -13907,13 +13907,13 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the usage data of WAF by calling DescribeWafUsageData.
+     * Queries the usage data of WAF.
      *
      * @remarks
-     * Maximum storage duration: 93 days.
-     * * Maximum query time range: 31 days.
-     * * Default time range: 24 hours.
-     * All times are expressed in UTC+0.
+     * Maximum data storage duration: 93 days
+     * * Maximum allowed query time span: 31 days
+     * * Default time span: 24 hours
+     * All times are expressed in UTC.
      *
      * @param Request - DescribeWafUsageDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13972,13 +13972,13 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the usage data of WAF by calling DescribeWafUsageData.
+     * Queries the usage data of WAF.
      *
      * @remarks
-     * Maximum storage duration: 93 days.
-     * * Maximum query time range: 31 days.
-     * * Default time range: 24 hours.
-     * All times are expressed in UTC+0.
+     * Maximum data storage duration: 93 days
+     * * Maximum allowed query time span: 31 days
+     * * Default time span: 24 hours
+     * All times are expressed in UTC.
      *
      * @param Request - DescribeWafUsageDataRequest
      *
@@ -14183,7 +14183,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
+     * Exports the CNAME values of all records for the current site. When you switch the site onboarding method to CNAME onboarding, you can call this operation to retrieve pre-configured CNAME records to prevent service interruptions.
      *
      * @param Request - ExportRecordCnamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14218,7 +14218,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
+     * Exports the CNAME values of all records for the current site. When you switch the site onboarding method to CNAME onboarding, you can call this operation to retrieve pre-configured CNAME records to prevent service interruptions.
      *
      * @param Request - ExportRecordCnamesRequest
      *
@@ -14841,7 +14841,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the domain name bindinglist for a specified client CA certificate. If no certificate is specified, the domain name binding list for the ESA CA certificate is returned.
+     * Retrieves the list of domain names bound to a specified client CA certificate. If no certificate is specified, retrieves the list of domain names bound to the ESA CA certificate.
      *
      * @param Request - GetClientCaCertificateHostnamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14884,7 +14884,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the domain name bindinglist for a specified client CA certificate. If no certificate is specified, the domain name binding list for the ESA CA certificate is returned.
+     * Retrieves the list of domain names bound to a specified client CA certificate. If no certificate is specified, retrieves the list of domain names bound to the ESA CA certificate.
      *
      * @param Request - GetClientCaCertificateHostnamesRequest
      *
@@ -15796,7 +15796,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
+     * Retrieves the version information of an edge container application to select a version for release.
      *
      * @param Request - GetEdgeContainerAppVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15831,7 +15831,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
+     * Retrieves the version information of an edge container application to select a version for release.
      *
      * @param Request - GetEdgeContainerAppVersionRequest
      *
@@ -16179,7 +16179,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Downloads the failed file for a specified upload task.
+     * Retrieves the download link for failed files.
      *
      * @param Request - GetFailFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16214,7 +16214,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Downloads the failed file for a specified upload task.
+     * Retrieves the download link for failed files.
      *
      * @param Request - GetFailFileRequest
      *
@@ -17149,10 +17149,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+     * Queries the information of the longest matching active site based on the record name entered by the user. For example, if the user enters www.test.example.com and has two active sites, test.example.com and example.com, the API returns the longest matching active site, test.example.com. If no active site is matched, an error is returned.
      *
      * @remarks
-     * Used with the Edge Routine (ER) feature to automatically match an active site.
+     * Automatically matches an active site when the Edge Routine (ER) feature is used.
      *
      * @param Request - GetMatchSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17187,10 +17187,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+     * Queries the information of the longest matching active site based on the record name entered by the user. For example, if the user enters www.test.example.com and has two active sites, test.example.com and example.com, the API returns the longest matching active site, test.example.com. If no active site is matched, an error is returned.
      *
      * @remarks
-     * Used with the Edge Routine (ER) feature to automatically match an active site.
+     * Automatically matches an active site when the Edge Routine (ER) feature is used.
      *
      * @param Request - GetMatchSiteRequest
      *
@@ -18373,11 +18373,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the status and other information of a specific code version of a specified Routine.
+     * Queries the status and other information of a specific code version of a specified routine.
      *
      * @remarks
-     * ## Operation description
-     * By calling this API operation, you can retrieve detailed information about a specific code version of a Routine, including but not limited to the version status, creation time, and whether the version contains Assets resource files. You must specify the Routine name and the code version number as request parameters.
+     * ## Request description
+     * Invoke this API to obtain detailed information about a specific code version of a routine, including but not limited to the version status, creation time, and whether it contains asset files. You must provide the routine name and the specific code version number as parameters in the request.
      *
      * @param Request - GetRoutineCodeVersionInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18420,11 +18420,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the status and other information of a specific code version of a specified Routine.
+     * Queries the status and other information of a specific code version of a specified routine.
      *
      * @remarks
-     * ## Operation description
-     * By calling this API operation, you can retrieve detailed information about a specific code version of a Routine, including but not limited to the version status, creation time, and whether the version contains Assets resource files. You must specify the Routine name and the code version number as request parameters.
+     * ## Request description
+     * Invoke this API to obtain detailed information about a specific code version of a routine, including but not limited to the version status, creation time, and whether it contains asset files. You must provide the routine name and the specific code version number as parameters in the request.
      *
      * @param Request - GetRoutineCodeVersionInfoRequest
      *
@@ -20160,7 +20160,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the preview page URL of a waiting room.
+     * Queries the preview page URL of the waiting room.
      *
      * @param Request - GetWaitingRoomPreviewPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20195,7 +20195,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the preview page URL of a waiting room.
+     * Queries the preview page URL of the waiting room.
      *
      * @param Request - GetWaitingRoomPreviewPageRequest
      *
@@ -20319,7 +20319,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries bot security instances.
+     * Queries Bot security instances.
      *
      * @param Request - ListBotInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20378,7 +20378,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries bot security instances.
+     * Queries Bot security instances.
      *
      * @param Request - ListBotInstancesRequest
      *
@@ -20502,7 +20502,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of China Shield certificates.
+     * Queries the list of SSL certificates.
      *
      * @param Request - ListCasCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20553,7 +20553,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of China Shield certificates.
+     * Queries the list of SSL certificates.
      *
      * @param Request - ListCasCertificatesRequest
      *
@@ -21679,7 +21679,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the error code redirection configurations.
+     * Queries the error code redirect configurations.
      *
      * @param Request - ListErrorPagesRedirectRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21742,7 +21742,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the error code redirection configurations.
+     * Queries the error code redirect configurations.
      *
      * @param Request - ListErrorPagesRedirectRulesRequest
      *
@@ -23065,10 +23065,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the pay-as-you-go plan instances.
+     * Queries pay-as-you-go plan instances.
      *
      * @remarks
-     * Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
+     * Queries pay-as-you-go plan instances under a user account. You can filter and sort the instances by various conditions.
      *
      * @param Request - ListPostpaidRatePlanInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23103,10 +23103,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the pay-as-you-go plan instances.
+     * Queries pay-as-you-go plan instances.
      *
      * @remarks
-     * Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
+     * Queries pay-as-you-go plan instances under a user account. You can filter and sort the instances by various conditions.
      *
      * @param Request - ListPostpaidRatePlanInstancesRequest
      *
@@ -23124,10 +23124,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of pay-as-you-go site plans available for purchase by a user.
+     * Queries the pay-as-you-go site plans available for purchase.
      *
      * @remarks
-     * By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+     * This operation returns all pay-as-you-go site plans applicable to a user based on the specified AliUid and service region (Chinese site or International site). The response includes details such as the plan name, billing method, and pricing.
      *
      * @param Request - ListPostpaidSitePlansRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23159,10 +23159,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of pay-as-you-go site plans available for purchase by a user.
+     * Queries the pay-as-you-go site plans available for purchase.
      *
      * @remarks
-     * By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+     * This operation returns all pay-as-you-go site plans applicable to a user based on the specified AliUid and service region (Chinese site or International site). The response includes details such as the plan name, billing method, and pricing.
      *
      * @param Request - ListPostpaidSitePlansRequest
      *
@@ -23180,7 +23180,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
+     * Queries the minimum plan version required for a site plan quota to take effect. This indicates the minimum plan version to which you must upgrade to use the quota.
      *
      * @param Request - ListQuotasMinEffectPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23215,7 +23215,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
+     * Queries the minimum plan version required for a site plan quota to take effect. This indicates the minimum plan version to which you must upgrade to use the quota.
      *
      * @param Request - ListQuotasMinEffectPlanRequest
      *
@@ -23398,7 +23398,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists the build configurations for multiple routines by name.
+     * Queries the build configurations of one or more routines.
      *
      * @param Request - ListRoutineBuildConfigurationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23437,7 +23437,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists the build configurations for multiple routines by name.
+     * Queries the build configurations of one or more routines.
      *
      * @param Request - ListRoutineBuildConfigurationsRequest
      *
@@ -23455,7 +23455,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of Edge Routine (ER) build tasks.
+     * Retrieves a list of ER build tasks.
      *
      * @param Request - ListRoutineBuildsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23514,7 +23514,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the list of Edge Routine (ER) build tasks.
+     * Retrieves a list of ER build tasks.
      *
      * @param Request - ListRoutineBuildsRequest
      *
@@ -23652,10 +23652,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the environment variables of a Routine.
+     * Queries the environment variables of an Edge Routine.
      *
      * @remarks
-     * This operation allows you to perform a paged query of all Edge Routines (Routines) created under your account, and provides the Routine quota and usage for your current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Routine names.
+     * This operation allows you to perform a paged query to list all Edge Routines created under your account and provides the quota and usage of Edge Routines for the current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Edge Routine names.
      *
      * @param Request - ListRoutineEnvironmentVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23710,10 +23710,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the environment variables of a Routine.
+     * Queries the environment variables of an Edge Routine.
      *
      * @remarks
-     * This operation allows you to perform a paged query of all Edge Routines (Routines) created under your account, and provides the Routine quota and usage for your current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Routine names.
+     * This operation allows you to perform a paged query to list all Edge Routines created under your account and provides the quota and usage of Edge Routines for the current plan. You can specify the paging parameters `PageNumber` and `PageSize` to control the number of returned results, and use `SearchKeyWord` to perform a fuzzy search to filter specific Edge Routine names.
      *
      * @param Request - ListRoutineEnvironmentVariablesRequest
      *
@@ -25812,7 +25812,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Disables plan-related configurations with one click when changing the plan for a site.
+     * Disables plan-related configurations when a site changes its plan.
      *
      * @param Request - ModifySiteFeaturesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25859,7 +25859,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Disables plan-related configurations with one click when changing the plan for a site.
+     * Disables plan-related configurations when a site changes its plan.
      *
      * @param Request - ModifySiteFeaturesRequest
      *
@@ -25877,7 +25877,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Activates the edge container service.
+     * Activates Edge Container Service.
      *
      * @param Request - OpenEdgeContainerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25916,7 +25916,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Activates the edge container service.
+     * Activates Edge Container Service.
      *
      * @param Request - OpenEdgeContainerRequest
      *
@@ -26169,7 +26169,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Publishes a specific version of Edge Routine code to a staging or production environment. When publishing to the production environment, you can perform a canary release to specific regions.
+     * Publishes a specific version of Edge Routine code to a test or production environment. For production environments, you can perform a canary release to specific regions.
      *
      * @param Request - PublishRoutineCodeVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26216,7 +26216,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Publishes a specific version of Edge Routine code to a staging or production environment. When publishing to the production environment, you can perform a canary release to specific regions.
+     * Publishes a specific version of Edge Routine code to a test or production environment. For production environments, you can perform a canary release to specific regions.
      *
      * @param Request - PublishRoutineCodeVersionRequest
      *
@@ -26234,7 +26234,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Purchases a new bot instance.
+     * Purchases a bot instance.
      *
      * @param Request - PurchaseBotInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26277,7 +26277,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Purchases a new bot instance.
+     * Purchases a bot instance.
      *
      * @param Request - PurchaseBotInstanceRequest
      *
@@ -26372,7 +26372,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Purchases a new Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Purchases a DDoS instance.
      *
      * @param Request - PurchaseDDoSInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26423,7 +26423,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Purchases a new Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Purchases a DDoS instance.
      *
      * @param Request - PurchaseDDoSInstanceRequest
      *
@@ -26441,11 +26441,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Calls the PurchaseRatePlan operation to purchase a plan.
+     * Purchases a plan.
      *
      * @remarks
-     * 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
-     * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
+     * 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+     * 2. If the acceleration region is not overseas, the site must have a valid ICP filing.
      *
      * @param Request - PurchaseRatePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26528,11 +26528,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Calls the PurchaseRatePlan operation to purchase a plan.
+     * Purchases a plan.
      *
      * @remarks
-     * 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
-     * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
+     * 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+     * 2. If the acceleration region is not overseas, the site must have a valid ICP filing.
      *
      * @param Request - PurchaseRatePlanRequest
      *
@@ -26943,7 +26943,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retries a routine replication task.
+     * Retries task replication.
      *
      * @param Request - ReDoRoutineBuildRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26982,7 +26982,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retries a routine replication task.
+     * Retries task replication.
      *
      * @param Request - ReDoRoutineBuildRequest
      *
@@ -27057,7 +27057,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Restores the status of a site that has been deactivated.
+     * Restores a disabled site.
      *
      * @param Request - RecoverSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27096,7 +27096,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Restores the status of a site that has been deactivated.
+     * Restores a disabled site.
      *
      * @param Request - RecoverSiteRequest
      *
@@ -27585,7 +27585,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Binds hostnames to a specified client CA certificate. If you do not specify a certificate, the hostnames are bound to the ESA CA certificate.
+     * Binds a domain name to a specified client CA certificate. If no certificate is specified, the domain name is bound to the ESA CA certificate.
      *
      * @param tmpReq - SetClientCaCertificateHostnamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27640,7 +27640,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Binds hostnames to a specified client CA certificate. If you do not specify a certificate, the hostnames are bound to the ESA CA certificate.
+     * Binds a domain name to a specified client CA certificate. If no certificate is specified, the domain name is bound to the ESA CA certificate.
      *
      * @param Request - SetClientCaCertificateHostnamesRequest
      *
@@ -28527,7 +28527,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Starts a cache purge or prefetch task after the file is uploaded successfully.
+     * Starts a refresh or prefetch task after the refresh or prefetch file is successfully uploaded.
      *
      * @param Request - SubmitUploadTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28562,7 +28562,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Starts a cache purge or prefetch task after the file is uploaded successfully.
+     * Starts a refresh or prefetch task after the refresh or prefetch file is successfully uploaded.
      *
      * @param Request - SubmitUploadTaskRequest
      *
@@ -28657,10 +28657,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Performs Tracing Analysis. You can use this operation to construct and initiate an impersonation HTTP/HTTPS request to the ESA platform, displaying the site configuration matching and effective settings on the ESA platform for the request.
+     * Performs Tracing Analysis. You can use this operation to construct and perform impersonation of an HTTP or HTTPS request to the Edge Security Acceleration (ESA) platform to display the matched and effective configurations for the requested site.
      *
      * @remarks
-     * >Notice: Before you use this operation, make sure that the site is connected to the ESA platform and enabled.
+     * <notice>Make sure that the site is connected to and enabled on the ESA platform before you call this operation.</notice>
      *
      * @param tmpReq - TraceSiteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28741,10 +28741,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Performs Tracing Analysis. You can use this operation to construct and initiate an impersonation HTTP/HTTPS request to the ESA platform, displaying the site configuration matching and effective settings on the ESA platform for the request.
+     * Performs Tracing Analysis. You can use this operation to construct and perform impersonation of an HTTP or HTTPS request to the Edge Security Acceleration (ESA) platform to display the matched and effective configurations for the requested site.
      *
      * @remarks
-     * >Notice: Before you use this operation, make sure that the site is connected to the ESA platform and enabled.
+     * <notice>Make sure that the site is connected to and enabled on the ESA platform before you call this operation.</notice>
      *
      * @param Request - TraceSiteRequest
      *
@@ -28900,7 +28900,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the cache reserve configuration of a site.
+     * Modifies the cache reserve configuration for a site.
      *
      * @param Request - UpdateCacheReserveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28947,7 +28947,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the cache reserve configuration of a site.
+     * Modifies the cache reserve configuration for a site.
      *
      * @param Request - UpdateCacheReserveRequest
      *
@@ -29425,7 +29425,7 @@ class ESA extends OpenApiClient
      * Modifies the priority of a single rule configuration.
      *
      * @remarks
-     * You can only modify the priority of a rule configuration. You cannot modify global configurations.
+     * You can only modify the priority of a rule configuration, not global configurations.
      *
      * @param Request - UpdateConfigSequenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29475,7 +29475,7 @@ class ESA extends OpenApiClient
      * Modifies the priority of a single rule configuration.
      *
      * @remarks
-     * You can only modify the priority of a rule configuration. You cannot modify global configurations.
+     * You can only modify the priority of a rule configuration, not global configurations.
      *
      * @param Request - UpdateConfigSequenceRequest
      *
@@ -29814,11 +29814,11 @@ class ESA extends OpenApiClient
      * Modifies the specifications of a DDoS instance.
      *
      * @remarks
-     * - Call `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
-     * - Call `ListDDoSInstances` to query the list of DDoS instances.
-     * - Specification changes are not allowed within 31 days of purchase.
-     * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
-     * - After a successful specification change, billing starts immediately on the same day based on the new instance specifications.
+     * - Use `PurchaseDDoSInstance` to purchase a DDoS instance. Newly purchased DDoS instances can only be associated with pay-as-you-go plan instances.
+     * - Use `ListDDoSInstances` to query the list of DDoS instances.
+     * - You cannot modify the specifications within 31 days of the initial purchase.
+     * - You can modify the specifications once per calendar month (from the 1st to the 31st).
+     * - After the specifications are modified, billing is based on the new instance specifications starting from the same day.
      *
      * @param Request - UpdateDDoSSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29872,11 +29872,11 @@ class ESA extends OpenApiClient
      * Modifies the specifications of a DDoS instance.
      *
      * @remarks
-     * - Call `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
-     * - Call `ListDDoSInstances` to query the list of DDoS instances.
-     * - Specification changes are not allowed within 31 days of purchase.
-     * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
-     * - After a successful specification change, billing starts immediately on the same day based on the new instance specifications.
+     * - Use `PurchaseDDoSInstance` to purchase a DDoS instance. Newly purchased DDoS instances can only be associated with pay-as-you-go plan instances.
+     * - Use `ListDDoSInstances` to query the list of DDoS instances.
+     * - You cannot modify the specifications within 31 days of the initial purchase.
+     * - You can modify the specifications once per calendar month (from the 1st to the 31st).
+     * - After the specifications are modified, billing is based on the new instance specifications starting from the same day.
      *
      * @param Request - UpdateDDoSSpecRequest
      *
@@ -30176,7 +30176,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the deployment version of an environment.
+     * Updates the deployment version of an environment.
      *
      * @param Request - UpdateEnvironmentVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30223,7 +30223,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the deployment version of an environment.
+     * Updates the deployment version of an environment.
      *
      * @param Request - UpdateEnvironmentVersionRequest
      *
@@ -33086,7 +33086,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Replaces the plan instance for a site.
+     * Changes the plan instance for a site.
      *
      * @param Request - UpdateSiteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33133,7 +33133,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Replaces the plan instance for a site.
+     * Changes the plan instance for a site.
      *
      * @param Request - UpdateSiteInstanceRequest
      *
