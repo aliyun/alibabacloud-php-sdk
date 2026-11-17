@@ -26,11 +26,17 @@ class CuaChatCompletionStreamHeaders extends Model
     /**
      * @var string
      */
+    public $xQIRequestId;
+
+    /**
+     * @var string
+     */
     public $xQISessionId;
     protected $_name = [
         'commonHeaders' => 'commonHeaders',
         'xQIAgentApiKey' => 'X-QI-Agent-Api-Key',
         'xQIInstanceId' => 'X-QI-Instance-Id',
+        'xQIRequestId' => 'X-QI-Request-Id',
         'xQISessionId' => 'X-QI-Session-Id',
     ];
 
@@ -60,6 +66,10 @@ class CuaChatCompletionStreamHeaders extends Model
 
         if (null !== $this->xQIInstanceId) {
             $res['X-QI-Instance-Id'] = $this->xQIInstanceId;
+        }
+
+        if (null !== $this->xQIRequestId) {
+            $res['X-QI-Request-Id'] = $this->xQIRequestId;
         }
 
         if (null !== $this->xQISessionId) {
@@ -92,6 +102,10 @@ class CuaChatCompletionStreamHeaders extends Model
 
         if (isset($map['X-QI-Instance-Id'])) {
             $model->xQIInstanceId = $map['X-QI-Instance-Id'];
+        }
+
+        if (isset($map['X-QI-Request-Id'])) {
+            $model->xQIRequestId = $map['X-QI-Request-Id'];
         }
 
         if (isset($map['X-QI-Session-Id'])) {

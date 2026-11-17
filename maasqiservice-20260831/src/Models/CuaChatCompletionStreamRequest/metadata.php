@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class metadata extends Model
 {
     /**
+     * @var string
+     */
+    public $actionMode;
+
+    /**
      * @var int
      */
     public $screenHeight;
@@ -18,6 +23,7 @@ class metadata extends Model
      */
     public $screenWidth;
     protected $_name = [
+        'actionMode' => 'actionMode',
         'screenHeight' => 'screenHeight',
         'screenWidth' => 'screenWidth',
     ];
@@ -30,6 +36,10 @@ class metadata extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->actionMode) {
+            $res['actionMode'] = $this->actionMode;
+        }
+
         if (null !== $this->screenHeight) {
             $res['screenHeight'] = $this->screenHeight;
         }
@@ -49,6 +59,10 @@ class metadata extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['actionMode'])) {
+            $model->actionMode = $map['actionMode'];
+        }
+
         if (isset($map['screenHeight'])) {
             $model->screenHeight = $map['screenHeight'];
         }
