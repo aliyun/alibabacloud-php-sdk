@@ -72,6 +72,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $livyReleaseVersion;
+
+    /**
+     * @var string
+     */
     public $livyServerConf;
 
     /**
@@ -83,6 +88,11 @@ class data extends Model
      * @var string
      */
     public $memoryLimit;
+
+    /**
+     * @var string
+     */
+    public $meta;
 
     /**
      * @var string
@@ -131,9 +141,11 @@ class data extends Model
         'environmentId' => 'environmentId',
         'fusion' => 'fusion',
         'gmtCreate' => 'gmtCreate',
+        'livyReleaseVersion' => 'livyReleaseVersion',
         'livyServerConf' => 'livyServerConf',
         'livyVersion' => 'livyVersion',
         'memoryLimit' => 'memoryLimit',
+        'meta' => 'meta',
         'name' => 'name',
         'networkName' => 'networkName',
         'queueName' => 'queueName',
@@ -202,6 +214,10 @@ class data extends Model
             $res['gmtCreate'] = $this->gmtCreate;
         }
 
+        if (null !== $this->livyReleaseVersion) {
+            $res['livyReleaseVersion'] = $this->livyReleaseVersion;
+        }
+
         if (null !== $this->livyServerConf) {
             $res['livyServerConf'] = $this->livyServerConf;
         }
@@ -212,6 +228,10 @@ class data extends Model
 
         if (null !== $this->memoryLimit) {
             $res['memoryLimit'] = $this->memoryLimit;
+        }
+
+        if (null !== $this->meta) {
+            $res['meta'] = $this->meta;
         }
 
         if (null !== $this->name) {
@@ -301,6 +321,10 @@ class data extends Model
             $model->gmtCreate = $map['gmtCreate'];
         }
 
+        if (isset($map['livyReleaseVersion'])) {
+            $model->livyReleaseVersion = $map['livyReleaseVersion'];
+        }
+
         if (isset($map['livyServerConf'])) {
             $model->livyServerConf = $map['livyServerConf'];
         }
@@ -311,6 +335,10 @@ class data extends Model
 
         if (isset($map['memoryLimit'])) {
             $model->memoryLimit = $map['memoryLimit'];
+        }
+
+        if (isset($map['meta'])) {
+            $model->meta = $map['meta'];
         }
 
         if (isset($map['name'])) {

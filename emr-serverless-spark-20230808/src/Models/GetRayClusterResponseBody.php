@@ -47,6 +47,11 @@ class GetRayClusterResponseBody extends Model
     public $displayReleaseVersion;
 
     /**
+     * @var bool
+     */
+    public $enableMetricsUpload;
+
+    /**
      * @var string
      */
     public $extraParam;
@@ -122,6 +127,16 @@ class GetRayClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $slsLogStore;
+
+    /**
+     * @var string
+     */
+    public $slsProject;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -158,6 +173,7 @@ class GetRayClusterResponseBody extends Model
         'dashboardUrl' => 'dashboardUrl',
         'description' => 'description',
         'displayReleaseVersion' => 'displayReleaseVersion',
+        'enableMetricsUpload' => 'enableMetricsUpload',
         'extraParam' => 'extraParam',
         'grpcEndpoint' => 'grpcEndpoint',
         'headSpec' => 'headSpec',
@@ -173,6 +189,8 @@ class GetRayClusterResponseBody extends Model
         'name' => 'name',
         'networkServiceName' => 'networkServiceName',
         'requestId' => 'requestId',
+        'slsLogStore' => 'slsLogStore',
+        'slsProject' => 'slsProject',
         'startTime' => 'startTime',
         'state' => 'state',
         'submitToken' => 'submitToken',
@@ -227,6 +245,10 @@ class GetRayClusterResponseBody extends Model
 
         if (null !== $this->displayReleaseVersion) {
             $res['displayReleaseVersion'] = $this->displayReleaseVersion;
+        }
+
+        if (null !== $this->enableMetricsUpload) {
+            $res['enableMetricsUpload'] = $this->enableMetricsUpload;
         }
 
         if (null !== $this->extraParam) {
@@ -294,6 +316,14 @@ class GetRayClusterResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->slsLogStore) {
+            $res['slsLogStore'] = $this->slsLogStore;
+        }
+
+        if (null !== $this->slsProject) {
+            $res['slsProject'] = $this->slsProject;
         }
 
         if (null !== $this->startTime) {
@@ -373,6 +403,10 @@ class GetRayClusterResponseBody extends Model
             $model->displayReleaseVersion = $map['displayReleaseVersion'];
         }
 
+        if (isset($map['enableMetricsUpload'])) {
+            $model->enableMetricsUpload = $map['enableMetricsUpload'];
+        }
+
         if (isset($map['extraParam'])) {
             $model->extraParam = $map['extraParam'];
         }
@@ -438,6 +472,14 @@ class GetRayClusterResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['slsLogStore'])) {
+            $model->slsLogStore = $map['slsLogStore'];
+        }
+
+        if (isset($map['slsProject'])) {
+            $model->slsProject = $map['slsProject'];
         }
 
         if (isset($map['startTime'])) {

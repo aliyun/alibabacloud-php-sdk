@@ -21,6 +21,11 @@ class UpdateRayClusterRequest extends Model
     public $displayReleaseVersion;
 
     /**
+     * @var bool
+     */
+    public $enableMetricsUpload;
+
+    /**
      * @var string
      */
     public $extraParam;
@@ -41,6 +46,16 @@ class UpdateRayClusterRequest extends Model
     public $networkServiceName;
 
     /**
+     * @var string
+     */
+    public $slsLogStore;
+
+    /**
+     * @var string
+     */
+    public $slsProject;
+
+    /**
      * @var string[]
      */
     public $volumeIds;
@@ -52,10 +67,13 @@ class UpdateRayClusterRequest extends Model
     protected $_name = [
         'description' => 'description',
         'displayReleaseVersion' => 'displayReleaseVersion',
+        'enableMetricsUpload' => 'enableMetricsUpload',
         'extraParam' => 'extraParam',
         'headSpec' => 'headSpec',
         'name' => 'name',
         'networkServiceName' => 'networkServiceName',
+        'slsLogStore' => 'slsLogStore',
+        'slsProject' => 'slsProject',
         'volumeIds' => 'volumeIds',
         'workerSpec' => 'workerSpec',
     ];
@@ -85,6 +103,10 @@ class UpdateRayClusterRequest extends Model
             $res['displayReleaseVersion'] = $this->displayReleaseVersion;
         }
 
+        if (null !== $this->enableMetricsUpload) {
+            $res['enableMetricsUpload'] = $this->enableMetricsUpload;
+        }
+
         if (null !== $this->extraParam) {
             $res['extraParam'] = $this->extraParam;
         }
@@ -99,6 +121,14 @@ class UpdateRayClusterRequest extends Model
 
         if (null !== $this->networkServiceName) {
             $res['networkServiceName'] = $this->networkServiceName;
+        }
+
+        if (null !== $this->slsLogStore) {
+            $res['slsLogStore'] = $this->slsLogStore;
+        }
+
+        if (null !== $this->slsProject) {
+            $res['slsProject'] = $this->slsProject;
         }
 
         if (null !== $this->volumeIds) {
@@ -142,6 +172,10 @@ class UpdateRayClusterRequest extends Model
             $model->displayReleaseVersion = $map['displayReleaseVersion'];
         }
 
+        if (isset($map['enableMetricsUpload'])) {
+            $model->enableMetricsUpload = $map['enableMetricsUpload'];
+        }
+
         if (isset($map['extraParam'])) {
             $model->extraParam = $map['extraParam'];
         }
@@ -156,6 +190,14 @@ class UpdateRayClusterRequest extends Model
 
         if (isset($map['networkServiceName'])) {
             $model->networkServiceName = $map['networkServiceName'];
+        }
+
+        if (isset($map['slsLogStore'])) {
+            $model->slsLogStore = $map['slsLogStore'];
+        }
+
+        if (isset($map['slsProject'])) {
+            $model->slsProject = $map['slsProject'];
         }
 
         if (isset($map['volumeIds'])) {

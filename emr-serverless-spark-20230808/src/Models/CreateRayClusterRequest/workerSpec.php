@@ -26,6 +26,11 @@ class workerSpec extends Model
     /**
      * @var string
      */
+    public $gpuDriverVersion;
+
+    /**
+     * @var string
+     */
     public $gpuSpec;
 
     /**
@@ -71,6 +76,7 @@ class workerSpec extends Model
         'cpu' => 'cpu',
         'displayReleaseVersion' => 'displayReleaseVersion',
         'env' => 'env',
+        'gpuDriverVersion' => 'gpuDriverVersion',
         'gpuSpec' => 'gpuSpec',
         'groupName' => 'groupName',
         'maxReplica' => 'maxReplica',
@@ -100,6 +106,10 @@ class workerSpec extends Model
 
         if (null !== $this->env) {
             $res['env'] = $this->env;
+        }
+
+        if (null !== $this->gpuDriverVersion) {
+            $res['gpuDriverVersion'] = $this->gpuDriverVersion;
         }
 
         if (null !== $this->gpuSpec) {
@@ -159,6 +169,10 @@ class workerSpec extends Model
 
         if (isset($map['env'])) {
             $model->env = $map['env'];
+        }
+
+        if (isset($map['gpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['gpuDriverVersion'];
         }
 
         if (isset($map['gpuSpec'])) {

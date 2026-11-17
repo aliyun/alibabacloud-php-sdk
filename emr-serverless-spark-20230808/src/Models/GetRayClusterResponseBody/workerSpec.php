@@ -26,12 +26,22 @@ class workerSpec extends Model
     /**
      * @var string
      */
+    public $gpuDriverVersion;
+
+    /**
+     * @var string
+     */
     public $gpuSpec;
 
     /**
      * @var string
      */
     public $groupName;
+
+    /**
+     * @var string
+     */
+    public $kubernetesGroupName;
 
     /**
      * @var int
@@ -71,8 +81,10 @@ class workerSpec extends Model
         'cpu' => 'cpu',
         'displayReleaseVersion' => 'displayReleaseVersion',
         'env' => 'env',
+        'gpuDriverVersion' => 'gpuDriverVersion',
         'gpuSpec' => 'gpuSpec',
         'groupName' => 'groupName',
+        'kubernetesGroupName' => 'kubernetesGroupName',
         'maxReplica' => 'maxReplica',
         'memory' => 'memory',
         'minReplica' => 'minReplica',
@@ -102,12 +114,20 @@ class workerSpec extends Model
             $res['env'] = $this->env;
         }
 
+        if (null !== $this->gpuDriverVersion) {
+            $res['gpuDriverVersion'] = $this->gpuDriverVersion;
+        }
+
         if (null !== $this->gpuSpec) {
             $res['gpuSpec'] = $this->gpuSpec;
         }
 
         if (null !== $this->groupName) {
             $res['groupName'] = $this->groupName;
+        }
+
+        if (null !== $this->kubernetesGroupName) {
+            $res['kubernetesGroupName'] = $this->kubernetesGroupName;
         }
 
         if (null !== $this->maxReplica) {
@@ -161,12 +181,20 @@ class workerSpec extends Model
             $model->env = $map['env'];
         }
 
+        if (isset($map['gpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['gpuDriverVersion'];
+        }
+
         if (isset($map['gpuSpec'])) {
             $model->gpuSpec = $map['gpuSpec'];
         }
 
         if (isset($map['groupName'])) {
             $model->groupName = $map['groupName'];
+        }
+
+        if (isset($map['kubernetesGroupName'])) {
+            $model->kubernetesGroupName = $map['kubernetesGroupName'];
         }
 
         if (isset($map['maxReplica'])) {

@@ -42,6 +42,11 @@ class gpuSubscription extends Model
      * @var string
      */
     public $paymentDurationUnit;
+
+    /**
+     * @var string
+     */
+    public $promotionOptionNo;
     protected $_name = [
         'autoRenew' => 'autoRenew',
         'duration' => 'duration',
@@ -50,6 +55,7 @@ class gpuSubscription extends Model
         'instanceTypeId' => 'instanceTypeId',
         'operation' => 'operation',
         'paymentDurationUnit' => 'paymentDurationUnit',
+        'promotionOptionNo' => 'promotionOptionNo',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class gpuSubscription extends Model
 
         if (null !== $this->paymentDurationUnit) {
             $res['paymentDurationUnit'] = $this->paymentDurationUnit;
+        }
+
+        if (null !== $this->promotionOptionNo) {
+            $res['promotionOptionNo'] = $this->promotionOptionNo;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class gpuSubscription extends Model
 
         if (isset($map['paymentDurationUnit'])) {
             $model->paymentDurationUnit = $map['paymentDurationUnit'];
+        }
+
+        if (isset($map['promotionOptionNo'])) {
+            $model->promotionOptionNo = $map['promotionOptionNo'];
         }
 
         return $model;

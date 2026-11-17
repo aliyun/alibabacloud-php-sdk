@@ -39,6 +39,11 @@ class subscription extends Model
     public $paymentDurationUnit;
 
     /**
+     * @var string
+     */
+    public $promotionOptionNo;
+
+    /**
      * @var string[]
      */
     public $queue;
@@ -49,6 +54,7 @@ class subscription extends Model
         'clientToken' => 'clientToken',
         'duration' => 'duration',
         'paymentDurationUnit' => 'paymentDurationUnit',
+        'promotionOptionNo' => 'promotionOptionNo',
         'queue' => 'queue',
     ];
 
@@ -85,6 +91,10 @@ class subscription extends Model
 
         if (null !== $this->paymentDurationUnit) {
             $res['paymentDurationUnit'] = $this->paymentDurationUnit;
+        }
+
+        if (null !== $this->promotionOptionNo) {
+            $res['promotionOptionNo'] = $this->promotionOptionNo;
         }
 
         if (null !== $this->queue) {
@@ -131,6 +141,10 @@ class subscription extends Model
 
         if (isset($map['paymentDurationUnit'])) {
             $model->paymentDurationUnit = $map['paymentDurationUnit'];
+        }
+
+        if (isset($map['promotionOptionNo'])) {
+            $model->promotionOptionNo = $map['promotionOptionNo'];
         }
 
         if (isset($map['queue'])) {

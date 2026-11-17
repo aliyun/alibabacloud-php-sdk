@@ -81,6 +81,11 @@ class applications extends Model
     public $tags;
 
     /**
+     * @var string
+     */
+    public $userName;
+
+    /**
      * @var int
      */
     public $vcoreSeconds;
@@ -104,6 +109,7 @@ class applications extends Model
         'startTime' => 'startTime',
         'state' => 'state',
         'tags' => 'tags',
+        'userName' => 'userName',
         'vcoreSeconds' => 'vcoreSeconds',
         'webUI' => 'webUI',
     ];
@@ -183,6 +189,10 @@ class applications extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->userName) {
+            $res['userName'] = $this->userName;
         }
 
         if (null !== $this->vcoreSeconds) {
@@ -265,6 +275,10 @@ class applications extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['userName'])) {
+            $model->userName = $map['userName'];
         }
 
         if (isset($map['vcoreSeconds'])) {

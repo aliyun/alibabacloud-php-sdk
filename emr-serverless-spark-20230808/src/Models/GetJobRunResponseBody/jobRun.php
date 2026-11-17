@@ -45,6 +45,11 @@ class jobRun extends Model
     public $executionTimeoutSeconds;
 
     /**
+     * @var int
+     */
+    public $firstReportTime;
+
+    /**
      * @var bool
      */
     public $fusion;
@@ -95,6 +100,16 @@ class jobRun extends Model
     public $resourceQueueId;
 
     /**
+     * @var int
+     */
+    public $resourceStartupDurationMs;
+
+    /**
+     * @var int
+     */
+    public $runDurationMs;
+
+    /**
      * @var string
      */
     public $state;
@@ -140,6 +155,7 @@ class jobRun extends Model
         'endTime' => 'endTime',
         'environmentId' => 'environmentId',
         'executionTimeoutSeconds' => 'executionTimeoutSeconds',
+        'firstReportTime' => 'firstReportTime',
         'fusion' => 'fusion',
         'jobDriver' => 'jobDriver',
         'jobRunId' => 'jobRunId',
@@ -150,6 +166,8 @@ class jobRun extends Model
         'releaseVersion' => 'releaseVersion',
         'resourceOwnerId' => 'resourceOwnerId',
         'resourceQueueId' => 'resourceQueueId',
+        'resourceStartupDurationMs' => 'resourceStartupDurationMs',
+        'runDurationMs' => 'runDurationMs',
         'state' => 'state',
         'stateChangeReason' => 'stateChangeReason',
         'submitTime' => 'submitTime',
@@ -210,6 +228,10 @@ class jobRun extends Model
             $res['executionTimeoutSeconds'] = $this->executionTimeoutSeconds;
         }
 
+        if (null !== $this->firstReportTime) {
+            $res['firstReportTime'] = $this->firstReportTime;
+        }
+
         if (null !== $this->fusion) {
             $res['fusion'] = $this->fusion;
         }
@@ -248,6 +270,14 @@ class jobRun extends Model
 
         if (null !== $this->resourceQueueId) {
             $res['resourceQueueId'] = $this->resourceQueueId;
+        }
+
+        if (null !== $this->resourceStartupDurationMs) {
+            $res['resourceStartupDurationMs'] = $this->resourceStartupDurationMs;
+        }
+
+        if (null !== $this->runDurationMs) {
+            $res['runDurationMs'] = $this->runDurationMs;
         }
 
         if (null !== $this->state) {
@@ -331,6 +361,10 @@ class jobRun extends Model
             $model->executionTimeoutSeconds = $map['executionTimeoutSeconds'];
         }
 
+        if (isset($map['firstReportTime'])) {
+            $model->firstReportTime = $map['firstReportTime'];
+        }
+
         if (isset($map['fusion'])) {
             $model->fusion = $map['fusion'];
         }
@@ -369,6 +403,14 @@ class jobRun extends Model
 
         if (isset($map['resourceQueueId'])) {
             $model->resourceQueueId = $map['resourceQueueId'];
+        }
+
+        if (isset($map['resourceStartupDurationMs'])) {
+            $model->resourceStartupDurationMs = $map['resourceStartupDurationMs'];
+        }
+
+        if (isset($map['runDurationMs'])) {
+            $model->runDurationMs = $map['runDurationMs'];
         }
 
         if (isset($map['state'])) {

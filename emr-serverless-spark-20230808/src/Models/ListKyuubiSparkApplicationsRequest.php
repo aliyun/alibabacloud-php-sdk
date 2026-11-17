@@ -69,6 +69,11 @@ class ListKyuubiSparkApplicationsRequest extends Model
      * @var string
      */
     public $states;
+
+    /**
+     * @var string
+     */
+    public $userName;
     protected $_name = [
         'applicationId' => 'applicationId',
         'applicationName' => 'applicationName',
@@ -82,6 +87,7 @@ class ListKyuubiSparkApplicationsRequest extends Model
         'sort' => 'sort',
         'startTime' => 'startTime',
         'states' => 'states',
+        'userName' => 'userName',
     ];
 
     public function validate()
@@ -156,6 +162,10 @@ class ListKyuubiSparkApplicationsRequest extends Model
             $res['states'] = $this->states;
         }
 
+        if (null !== $this->userName) {
+            $res['userName'] = $this->userName;
+        }
+
         return $res;
     }
 
@@ -220,6 +230,10 @@ class ListKyuubiSparkApplicationsRequest extends Model
 
         if (isset($map['states'])) {
             $model->states = $map['states'];
+        }
+
+        if (isset($map['userName'])) {
+            $model->userName = $map['userName'];
         }
 
         return $model;

@@ -14,6 +14,11 @@ class kyuubiServices extends Model
     public $computeInstance;
 
     /**
+     * @var bool
+     */
+    public $configRefreshRequired;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -89,6 +94,7 @@ class kyuubiServices extends Model
     public $webUi;
     protected $_name = [
         'computeInstance' => 'computeInstance',
+        'configRefreshRequired' => 'configRefreshRequired',
         'createTime' => 'createTime',
         'creator' => 'creator',
         'innerEndpoint' => 'innerEndpoint',
@@ -116,6 +122,10 @@ class kyuubiServices extends Model
         $res = [];
         if (null !== $this->computeInstance) {
             $res['computeInstance'] = $this->computeInstance;
+        }
+
+        if (null !== $this->configRefreshRequired) {
+            $res['configRefreshRequired'] = $this->configRefreshRequired;
         }
 
         if (null !== $this->createTime) {
@@ -191,6 +201,10 @@ class kyuubiServices extends Model
         $model = new self();
         if (isset($map['computeInstance'])) {
             $model->computeInstance = $map['computeInstance'];
+        }
+
+        if (isset($map['configRefreshRequired'])) {
+            $model->configRefreshRequired = $map['configRefreshRequired'];
         }
 
         if (isset($map['createTime'])) {

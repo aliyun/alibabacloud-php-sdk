@@ -67,6 +67,11 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
      * @var string
      */
     public $states;
+
+    /**
+     * @var string
+     */
+    public $userName;
     protected $_name = [
         'applicationId' => 'applicationId',
         'applicationName' => 'applicationName',
@@ -80,6 +85,7 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
         'sort' => 'sort',
         'startTimeShrink' => 'startTime',
         'states' => 'states',
+        'userName' => 'userName',
     ];
 
     public function validate()
@@ -136,6 +142,10 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
 
         if (null !== $this->states) {
             $res['states'] = $this->states;
+        }
+
+        if (null !== $this->userName) {
+            $res['userName'] = $this->userName;
         }
 
         return $res;
@@ -195,6 +205,10 @@ class ListKyuubiSparkApplicationsShrinkRequest extends Model
 
         if (isset($map['states'])) {
             $model->states = $map['states'];
+        }
+
+        if (isset($map['userName'])) {
+            $model->userName = $map['userName'];
         }
 
         return $model;

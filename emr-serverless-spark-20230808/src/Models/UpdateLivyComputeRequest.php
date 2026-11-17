@@ -53,6 +53,11 @@ class UpdateLivyComputeRequest extends Model
     /**
      * @var string
      */
+    public $livyReleaseVersion;
+
+    /**
+     * @var string
+     */
     public $livyServerConf;
 
     /**
@@ -98,6 +103,7 @@ class UpdateLivyComputeRequest extends Model
         'enablePublic' => 'enablePublic',
         'environmentId' => 'environmentId',
         'fusion' => 'fusion',
+        'livyReleaseVersion' => 'livyReleaseVersion',
         'livyServerConf' => 'livyServerConf',
         'livyVersion' => 'livyVersion',
         'memoryLimit' => 'memoryLimit',
@@ -152,6 +158,10 @@ class UpdateLivyComputeRequest extends Model
 
         if (null !== $this->fusion) {
             $res['fusion'] = $this->fusion;
+        }
+
+        if (null !== $this->livyReleaseVersion) {
+            $res['livyReleaseVersion'] = $this->livyReleaseVersion;
         }
 
         if (null !== $this->livyServerConf) {
@@ -227,6 +237,10 @@ class UpdateLivyComputeRequest extends Model
 
         if (isset($map['fusion'])) {
             $model->fusion = $map['fusion'];
+        }
+
+        if (isset($map['livyReleaseVersion'])) {
+            $model->livyReleaseVersion = $map['livyReleaseVersion'];
         }
 
         if (isset($map['livyServerConf'])) {

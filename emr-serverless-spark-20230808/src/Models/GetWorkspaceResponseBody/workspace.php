@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetWorkspaceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetWorkspaceResponseBody\workspace\features;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetWorkspaceResponseBody\workspace\prePaidQuota;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetWorkspaceResponseBody\workspace\prePaidQuotaGpu;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetWorkspaceResponseBody\workspace\stateChangeReason;
@@ -56,6 +57,11 @@ class workspace extends Model
      * @var string
      */
     public $failReason;
+
+    /**
+     * @var features
+     */
+    public $features;
 
     /**
      * @var string[]
@@ -161,6 +167,7 @@ class workspace extends Model
         'duration' => 'duration',
         'endTime' => 'endTime',
         'failReason' => 'failReason',
+        'features' => 'features',
         'gpuSpec' => 'gpuSpec',
         'ipWhiteList' => 'ipWhiteList',
         'paymentDurationUnit' => 'paymentDurationUnit',
@@ -184,6 +191,9 @@ class workspace extends Model
 
     public function validate()
     {
+        if (null !== $this->features) {
+            $this->features->validate();
+        }
         if (\is_array($this->gpuSpec)) {
             Model::validateArray($this->gpuSpec);
         }
@@ -242,6 +252,10 @@ class workspace extends Model
 
         if (null !== $this->failReason) {
             $res['failReason'] = $this->failReason;
+        }
+
+        if (null !== $this->features) {
+            $res['features'] = null !== $this->features ? $this->features->toArray($noStream) : $this->features;
         }
 
         if (null !== $this->gpuSpec) {
@@ -393,6 +407,10 @@ class workspace extends Model
 
         if (isset($map['failReason'])) {
             $model->failReason = $map['failReason'];
+        }
+
+        if (isset($map['features'])) {
+            $model->features = features::fromMap($map['features']);
         }
 
         if (isset($map['gpuSpec'])) {

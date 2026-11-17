@@ -73,6 +73,11 @@ class CreateWorkspaceRequest extends Model
     /**
      * @var string
      */
+    public $promotionOptionNo;
+
+    /**
+     * @var string
+     */
     public $ramRoleName;
 
     /**
@@ -117,6 +122,7 @@ class CreateWorkspaceRequest extends Model
         'ossBucket' => 'ossBucket',
         'paymentDurationUnit' => 'paymentDurationUnit',
         'paymentType' => 'paymentType',
+        'promotionOptionNo' => 'promotionOptionNo',
         'ramRoleName' => 'ramRoleName',
         'releaseType' => 'releaseType',
         'resourceGroupId' => 'resourceGroupId',
@@ -196,6 +202,10 @@ class CreateWorkspaceRequest extends Model
 
         if (null !== $this->paymentType) {
             $res['paymentType'] = $this->paymentType;
+        }
+
+        if (null !== $this->promotionOptionNo) {
+            $res['promotionOptionNo'] = $this->promotionOptionNo;
         }
 
         if (null !== $this->ramRoleName) {
@@ -297,6 +307,10 @@ class CreateWorkspaceRequest extends Model
 
         if (isset($map['paymentType'])) {
             $model->paymentType = $map['paymentType'];
+        }
+
+        if (isset($map['promotionOptionNo'])) {
+            $model->promotionOptionNo = $map['promotionOptionNo'];
         }
 
         if (isset($map['ramRoleName'])) {

@@ -26,6 +26,11 @@ class releaseVersions extends Model
     /**
      * @var bool
      */
+    public $flameGraphEnabled;
+
+    /**
+     * @var bool
+     */
     public $fusion;
 
     /**
@@ -66,6 +71,7 @@ class releaseVersions extends Model
         'communityVersion' => 'communityVersion',
         'cpuArchitectures' => 'cpuArchitectures',
         'displayReleaseVersion' => 'displayReleaseVersion',
+        'flameGraphEnabled' => 'flameGraphEnabled',
         'fusion' => 'fusion',
         'gmtCreate' => 'gmtCreate',
         'iaasType' => 'iaasType',
@@ -104,6 +110,10 @@ class releaseVersions extends Model
 
         if (null !== $this->displayReleaseVersion) {
             $res['displayReleaseVersion'] = $this->displayReleaseVersion;
+        }
+
+        if (null !== $this->flameGraphEnabled) {
+            $res['flameGraphEnabled'] = $this->flameGraphEnabled;
         }
 
         if (null !== $this->fusion) {
@@ -166,6 +176,10 @@ class releaseVersions extends Model
 
         if (isset($map['displayReleaseVersion'])) {
             $model->displayReleaseVersion = $map['displayReleaseVersion'];
+        }
+
+        if (isset($map['flameGraphEnabled'])) {
+            $model->flameGraphEnabled = $map['flameGraphEnabled'];
         }
 
         if (isset($map['fusion'])) {

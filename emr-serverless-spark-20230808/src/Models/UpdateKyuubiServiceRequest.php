@@ -14,6 +14,11 @@ class UpdateKyuubiServiceRequest extends Model
     public $computeInstance;
 
     /**
+     * @var int
+     */
+    public $expectedReplica;
+
+    /**
      * @var string
      */
     public $kyuubiConfigs;
@@ -39,6 +44,11 @@ class UpdateKyuubiServiceRequest extends Model
     public $queue;
 
     /**
+     * @var bool
+     */
+    public $refresh;
+
+    /**
      * @var string
      */
     public $releaseVersion;
@@ -54,19 +64,27 @@ class UpdateKyuubiServiceRequest extends Model
     public $restart;
 
     /**
+     * @var bool
+     */
+    public $scale;
+
+    /**
      * @var string
      */
     public $sparkConfigs;
     protected $_name = [
         'computeInstance' => 'computeInstance',
+        'expectedReplica' => 'expectedReplica',
         'kyuubiConfigs' => 'kyuubiConfigs',
         'kyuubiReleaseVersion' => 'kyuubiReleaseVersion',
         'name' => 'name',
         'publicEndpointEnabled' => 'publicEndpointEnabled',
         'queue' => 'queue',
+        'refresh' => 'refresh',
         'releaseVersion' => 'releaseVersion',
         'replica' => 'replica',
         'restart' => 'restart',
+        'scale' => 'scale',
         'sparkConfigs' => 'sparkConfigs',
     ];
 
@@ -80,6 +98,10 @@ class UpdateKyuubiServiceRequest extends Model
         $res = [];
         if (null !== $this->computeInstance) {
             $res['computeInstance'] = $this->computeInstance;
+        }
+
+        if (null !== $this->expectedReplica) {
+            $res['expectedReplica'] = $this->expectedReplica;
         }
 
         if (null !== $this->kyuubiConfigs) {
@@ -102,6 +124,10 @@ class UpdateKyuubiServiceRequest extends Model
             $res['queue'] = $this->queue;
         }
 
+        if (null !== $this->refresh) {
+            $res['refresh'] = $this->refresh;
+        }
+
         if (null !== $this->releaseVersion) {
             $res['releaseVersion'] = $this->releaseVersion;
         }
@@ -112,6 +138,10 @@ class UpdateKyuubiServiceRequest extends Model
 
         if (null !== $this->restart) {
             $res['restart'] = $this->restart;
+        }
+
+        if (null !== $this->scale) {
+            $res['scale'] = $this->scale;
         }
 
         if (null !== $this->sparkConfigs) {
@@ -131,6 +161,10 @@ class UpdateKyuubiServiceRequest extends Model
         $model = new self();
         if (isset($map['computeInstance'])) {
             $model->computeInstance = $map['computeInstance'];
+        }
+
+        if (isset($map['expectedReplica'])) {
+            $model->expectedReplica = $map['expectedReplica'];
         }
 
         if (isset($map['kyuubiConfigs'])) {
@@ -153,6 +187,10 @@ class UpdateKyuubiServiceRequest extends Model
             $model->queue = $map['queue'];
         }
 
+        if (isset($map['refresh'])) {
+            $model->refresh = $map['refresh'];
+        }
+
         if (isset($map['releaseVersion'])) {
             $model->releaseVersion = $map['releaseVersion'];
         }
@@ -163,6 +201,10 @@ class UpdateKyuubiServiceRequest extends Model
 
         if (isset($map['restart'])) {
             $model->restart = $map['restart'];
+        }
+
+        if (isset($map['scale'])) {
+            $model->scale = $map['scale'];
         }
 
         if (isset($map['sparkConfigs'])) {

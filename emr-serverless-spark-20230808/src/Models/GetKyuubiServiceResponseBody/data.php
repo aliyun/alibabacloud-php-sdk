@@ -14,6 +14,11 @@ class data extends Model
     public $computeInstance;
 
     /**
+     * @var bool
+     */
+    public $configRefreshRequired;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -64,6 +69,11 @@ class data extends Model
     public $queue;
 
     /**
+     * @var int
+     */
+    public $readyReplicas;
+
+    /**
      * @var string
      */
     public $releaseVersion;
@@ -89,6 +99,7 @@ class data extends Model
     public $state;
     protected $_name = [
         'computeInstance' => 'computeInstance',
+        'configRefreshRequired' => 'configRefreshRequired',
         'createTime' => 'createTime',
         'creator' => 'creator',
         'innerEndpoint' => 'innerEndpoint',
@@ -99,6 +110,7 @@ class data extends Model
         'publicEndpoint' => 'publicEndpoint',
         'publicEndpointEnabled' => 'publicEndpointEnabled',
         'queue' => 'queue',
+        'readyReplicas' => 'readyReplicas',
         'releaseVersion' => 'releaseVersion',
         'replica' => 'replica',
         'sparkConfigs' => 'sparkConfigs',
@@ -116,6 +128,10 @@ class data extends Model
         $res = [];
         if (null !== $this->computeInstance) {
             $res['computeInstance'] = $this->computeInstance;
+        }
+
+        if (null !== $this->configRefreshRequired) {
+            $res['configRefreshRequired'] = $this->configRefreshRequired;
         }
 
         if (null !== $this->createTime) {
@@ -158,6 +174,10 @@ class data extends Model
             $res['queue'] = $this->queue;
         }
 
+        if (null !== $this->readyReplicas) {
+            $res['readyReplicas'] = $this->readyReplicas;
+        }
+
         if (null !== $this->releaseVersion) {
             $res['releaseVersion'] = $this->releaseVersion;
         }
@@ -191,6 +211,10 @@ class data extends Model
         $model = new self();
         if (isset($map['computeInstance'])) {
             $model->computeInstance = $map['computeInstance'];
+        }
+
+        if (isset($map['configRefreshRequired'])) {
+            $model->configRefreshRequired = $map['configRefreshRequired'];
         }
 
         if (isset($map['createTime'])) {
@@ -231,6 +255,10 @@ class data extends Model
 
         if (isset($map['queue'])) {
             $model->queue = $map['queue'];
+        }
+
+        if (isset($map['readyReplicas'])) {
+            $model->readyReplicas = $map['readyReplicas'];
         }
 
         if (isset($map['releaseVersion'])) {

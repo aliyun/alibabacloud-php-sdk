@@ -42,6 +42,11 @@ class headSpec extends Model
     /**
      * @var string
      */
+    public $gpuDriverVersion;
+
+    /**
+     * @var string
+     */
     public $gpuSpec;
 
     /**
@@ -70,6 +75,7 @@ class headSpec extends Model
         'env' => 'env',
         'gftConfig' => 'gftConfig',
         'gftEnabled' => 'gftEnabled',
+        'gpuDriverVersion' => 'gpuDriverVersion',
         'gpuSpec' => 'gpuSpec',
         'idleTimeoutSeconds' => 'idleTimeoutSeconds',
         'memory' => 'memory',
@@ -110,6 +116,10 @@ class headSpec extends Model
 
         if (null !== $this->gftEnabled) {
             $res['gftEnabled'] = $this->gftEnabled;
+        }
+
+        if (null !== $this->gpuDriverVersion) {
+            $res['gpuDriverVersion'] = $this->gpuDriverVersion;
         }
 
         if (null !== $this->gpuSpec) {
@@ -165,6 +175,10 @@ class headSpec extends Model
 
         if (isset($map['gftEnabled'])) {
             $model->gftEnabled = $map['gftEnabled'];
+        }
+
+        if (isset($map['gpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['gpuDriverVersion'];
         }
 
         if (isset($map['gpuSpec'])) {
