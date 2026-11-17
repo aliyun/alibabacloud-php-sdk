@@ -1,3 +1,31 @@
+2026-11-17 Version: 1.7.0
+- Support API BeginSession.
+- Support API BeginTrialSession.
+- Support API BridgeTrialWebCall.
+- Support API BridgeWebCall.
+- Support API CreateLlmAccessProfile.
+- Support API DeleteCorpNumber.
+- Support API DeleteLlmAccessProfile.
+- Support API DeleteNumbers.
+- Support API Dialogue.
+- Support API EndSession.
+- Support API EndTrialSession.
+- Support API GetDataChannelCredential.
+- Support API GetTrialAccessChannel.
+- Support API GetTrialDataChannelCredential.
+- Support API ListAsrModels.
+- Support API ListCorpNumbers.
+- Support API ListInstanceBindingsOfNumber.
+- Support API ListLlmAccessProfiles.
+- Support API ListNumberBindingsOfInstance.
+- Support API ListNumbers.
+- Support API MakePilotCall.
+- Support API TrialDialogue.
+- Support API UpdateInstanceBindingsOfNumber.
+- Support API UpdateLlmAccessProfile.
+- Support API UpdateNumberBindingsOfInstance.
+
+
 2026-10-27 Version: 1.6.3
 - Update API GetCallDetailRecord: add response parameters Body.Data.Transcripts.$.PlaybackStatus.
 - Update API GetCallDetailRecord: add response parameters Body.Data.Transcripts.$.PlayedAnswer.

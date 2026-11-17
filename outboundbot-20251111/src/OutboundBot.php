@@ -13,6 +13,14 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AbortCasesShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AppendCasesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AppendCasesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\AppendCasesShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\BeginSessionRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\BeginSessionResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\BeginTrialSessionRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\BeginTrialSessionResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\BridgeTrialWebCallRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\BridgeTrialWebCallResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\BridgeWebCallRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\BridgeWebCallResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateCampaignRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateCampaignResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateCampaignShrinkRequest;
@@ -23,6 +31,9 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateFlashSmsAccessProfileRes
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateFlashSmsAccessProfileShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateLlmAccessProfileRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateLlmAccessProfileResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateLlmAccessProfileShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateOutboundCallRestrictionRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateOutboundCallRestrictionResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateOutboundCallRestrictionShrinkRequest;
@@ -36,10 +47,17 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateVoiceAccessProfileRespon
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\CreateVoiceAccessProfileShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteCloneVoiceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteCloneVoiceResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteCorpNumberRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteCorpNumberResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteFlashSmsAccessProfileRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteFlashSmsAccessProfileResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteLlmAccessProfileRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteLlmAccessProfileResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteNumbersRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteNumbersResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteNumbersShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteOutboundCallRestrictionRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteOutboundCallRestrictionResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteOutboundCallRestrictionShrinkRequest;
@@ -47,14 +65,22 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteScriptRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteScriptResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteVoiceAccessProfileRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DeleteVoiceAccessProfileResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DialogueRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DialogueResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DisableSubscriptionRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\DisableSubscriptionResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\EndSessionRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\EndSessionResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\EndTrialSessionRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\EndTrialSessionResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCallDetailRecordRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCallDetailRecordResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCampaignRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCampaignResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCaseDetailRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetCaseDetailResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetDataChannelCredentialRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetDataChannelCredentialResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetRecordingRequest;
@@ -63,6 +89,12 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetScriptProfileTemplateReques
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetScriptProfileTemplateResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetSubscriptionRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetSubscriptionResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetTrialAccessChannelRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetTrialAccessChannelResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetTrialDataChannelCredentialRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\GetTrialDataChannelCredentialResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListAsrModelsRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListAsrModelsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCampaignsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCampaignsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCasesRequest;
@@ -72,14 +104,24 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoiceModelsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoiceModelsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoicesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCloneVoicesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCorpNumbersRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListCorpNumbersResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListFlashSmsAccessProfilesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListFlashSmsAccessProfilesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListFlashSmsProvidersRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListFlashSmsProvidersResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListFlashSmsTemplatesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListFlashSmsTemplatesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListInstanceBindingsOfNumberRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListInstanceBindingsOfNumberResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListLlmAccessProfilesRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListLlmAccessProfilesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListNumberBindingsOfInstanceRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListNumberBindingsOfInstanceResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListNumbersRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListNumbersResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListOutboundCallRestrictionsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListOutboundCallRestrictionsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListScriptProfileTemplatesRequest;
@@ -93,6 +135,8 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListSystemConfigsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListSystemConfigsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListVoiceAccessProfilesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ListVoiceAccessProfilesResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\MakePilotCallRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\MakePilotCallResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\PauseCampaignRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\PauseCampaignResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\PublishScriptRequest;
@@ -101,13 +145,24 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ResumeCampaignRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\ResumeCampaignResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\SubmitCampaignRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\SubmitCampaignResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\TrialDialogueRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\TrialDialogueResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateCloneVoiceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateCloneVoiceResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateFlashSmsAccessProfileRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateFlashSmsAccessProfileResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateFlashSmsAccessProfileShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateInstanceBindingsOfNumberRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateInstanceBindingsOfNumberResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateInstanceBindingsOfNumberShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateInstanceResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateLlmAccessProfileRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateLlmAccessProfileResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateLlmAccessProfileShrinkRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateNumberBindingsOfInstanceRequest;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateNumberBindingsOfInstanceResponse;
+use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateNumberBindingsOfInstanceShrinkRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateScriptRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateScriptResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateScriptVersionRequest;
@@ -122,6 +177,7 @@ use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateSystemConfigsShrinkReque
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateVoiceAccessProfileRequest;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateVoiceAccessProfileResponse;
 use AlibabaCloud\SDK\OutboundBot\V20251111\Models\UpdateVoiceAccessProfileShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -132,6 +188,9 @@ class OutboundBot extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'OutboundBot';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('outboundbot', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -162,7 +221,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Terminates an outbound call campaign.
+     * Stops an outbound campaign.
      *
      * @remarks
      *
@@ -207,7 +266,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Terminates an outbound call campaign.
+     * Stops an outbound campaign.
      *
      * @remarks
      *
@@ -227,7 +286,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Stops an outbound call case.
+     * Terminates outbound call cases.
      *
      * @remarks
      *
@@ -282,7 +341,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Stops an outbound call case.
+     * Terminates outbound call cases.
      *
      * @remarks
      *
@@ -302,7 +361,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Appends contacts to an outbound call campaign.
+     * Appends outbound call cases.
      *
      * @remarks
      *
@@ -359,7 +418,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Appends contacts to an outbound call campaign.
+     * Appends outbound call cases.
      *
      * @remarks
      *
@@ -379,7 +438,485 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates an outbound call campaign.
+     * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot.
+     *
+     * @remarks
+     * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot. An available scenario version must exist before you call this operation. Use DraftVersion to select the draft or published version, and use VendorParams to pass the accompanying variables required by the scenario. The response uses Server-Sent Events (SSE), and each data event carries a business response object. Save the returned SessionId for subsequent Dialogue and EndSession calls. A StreamEnd value of true indicates that the current response stream has ended, but the session remains active. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values in production calls.
+     *
+     * @param request - BeginSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BeginSessionResponse
+     *
+     * @param BeginSessionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return BeginSessionResponse
+     */
+    public function beginSessionWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->vendorParams) {
+            @$query['VendorParams'] = $request->vendorParams;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BeginSession',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield BeginSessionResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot.
+     *
+     * @remarks
+     * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot. An available scenario version must exist before you call this operation. Use DraftVersion to select the draft or published version, and use VendorParams to pass the accompanying variables required by the scenario. The response uses Server-Sent Events (SSE), and each data event carries a business response object. Save the returned SessionId for subsequent Dialogue and EndSession calls. A StreamEnd value of true indicates that the current response stream has ended, but the session remains active. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values in production calls.
+     *
+     * @param request - BeginSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BeginSessionResponse
+     *
+     * @param BeginSessionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return BeginSessionResponse
+     */
+    public function beginSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->vendorParams) {
+            @$query['VendorParams'] = $request->vendorParams;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BeginSession',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BeginSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot.
+     *
+     * @remarks
+     * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot. An available scenario version must exist before you call this operation. Use DraftVersion to select the draft or published version, and use VendorParams to pass the accompanying variables required by the scenario. The response uses Server-Sent Events (SSE), and each data event carries a business response object. Save the returned SessionId for subsequent Dialogue and EndSession calls. A StreamEnd value of true indicates that the current response stream has ended, but the session remains active. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values in production calls.
+     *
+     * @param request - BeginSessionRequest
+     *
+     * @returns BeginSessionResponse
+     *
+     * @param BeginSessionRequest $request
+     *
+     * @return BeginSessionResponse
+     */
+    public function beginSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->beginSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Initiates a trial session.
+     *
+     * @remarks
+     * Creates a trial text session in a specified instance and scenario by using the VisitorToken from a trial link, and returns the first-round reply in Server-Sent Events (SSE) format. The service verifies the channel and expiration time corresponding to the token, and then starts the session based on the tenant to which the channel belongs. The token does not replace the business parameters of the scenario and instance. Save the returned SessionId for subsequent calls to TrialDialogue to send user input, and call EndTrialSession to end the session. StreamEnd=true only indicates that the streaming response for the current round has ended. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - BeginTrialSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BeginTrialSessionResponse
+     *
+     * @param BeginTrialSessionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return BeginTrialSessionResponse
+     */
+    public function beginTrialSessionWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->vendorParams) {
+            @$query['VendorParams'] = $request->vendorParams;
+        }
+
+        if (null !== $request->visitorToken) {
+            @$query['VisitorToken'] = $request->visitorToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BeginTrialSession',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield BeginTrialSessionResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Initiates a trial session.
+     *
+     * @remarks
+     * Creates a trial text session in a specified instance and scenario by using the VisitorToken from a trial link, and returns the first-round reply in Server-Sent Events (SSE) format. The service verifies the channel and expiration time corresponding to the token, and then starts the session based on the tenant to which the channel belongs. The token does not replace the business parameters of the scenario and instance. Save the returned SessionId for subsequent calls to TrialDialogue to send user input, and call EndTrialSession to end the session. StreamEnd=true only indicates that the streaming response for the current round has ended. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - BeginTrialSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BeginTrialSessionResponse
+     *
+     * @param BeginTrialSessionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return BeginTrialSessionResponse
+     */
+    public function beginTrialSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->vendorParams) {
+            @$query['VendorParams'] = $request->vendorParams;
+        }
+
+        if (null !== $request->visitorToken) {
+            @$query['VisitorToken'] = $request->visitorToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BeginTrialSession',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BeginTrialSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates a trial session.
+     *
+     * @remarks
+     * Creates a trial text session in a specified instance and scenario by using the VisitorToken from a trial link, and returns the first-round reply in Server-Sent Events (SSE) format. The service verifies the channel and expiration time corresponding to the token, and then starts the session based on the tenant to which the channel belongs. The token does not replace the business parameters of the scenario and instance. Save the returned SessionId for subsequent calls to TrialDialogue to send user input, and call EndTrialSession to end the session. StreamEnd=true only indicates that the streaming response for the current round has ended. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - BeginTrialSessionRequest
+     *
+     * @returns BeginTrialSessionResponse
+     *
+     * @param BeginTrialSessionRequest $request
+     *
+     * @return BeginTrialSessionResponse
+     */
+    public function beginTrialSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->beginTrialSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Initiates a trial call.
+     *
+     * @remarks
+     * Initiates a trial web voice call for a specified scenario by using the VisitorToken of a trial link. The service verifies the token, the associated channel, and the validity period, and then delegates the web call service to bridge the web voice channel and the robot channel. The DeviceId must be consistent with the data channel device identifier of the trial client. After the call is initiated, use the returned ChannelId, ServerUrl, and Token to connect to the voice channel. If the data event channel of the trial client is required, you can call GetTrialDataChannelCredential with the same DeviceId. The web voice connection token and the data channel username and password are not the same set of credentials. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - BridgeTrialWebCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BridgeTrialWebCallResponse
+     *
+     * @param BridgeTrialWebCallRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BridgeTrialWebCallResponse
+     */
+    public function bridgeTrialWebCallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->sampleRate) {
+            @$query['SampleRate'] = $request->sampleRate;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->timeoutSeconds) {
+            @$query['TimeoutSeconds'] = $request->timeoutSeconds;
+        }
+
+        if (null !== $request->visitorToken) {
+            @$query['VisitorToken'] = $request->visitorToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BridgeTrialWebCall',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BridgeTrialWebCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates a trial call.
+     *
+     * @remarks
+     * Initiates a trial web voice call for a specified scenario by using the VisitorToken of a trial link. The service verifies the token, the associated channel, and the validity period, and then delegates the web call service to bridge the web voice channel and the robot channel. The DeviceId must be consistent with the data channel device identifier of the trial client. After the call is initiated, use the returned ChannelId, ServerUrl, and Token to connect to the voice channel. If the data event channel of the trial client is required, you can call GetTrialDataChannelCredential with the same DeviceId. The web voice connection token and the data channel username and password are not the same set of credentials. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - BridgeTrialWebCallRequest
+     *
+     * @returns BridgeTrialWebCallResponse
+     *
+     * @param BridgeTrialWebCallRequest $request
+     *
+     * @return BridgeTrialWebCallResponse
+     */
+    public function bridgeTrialWebCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bridgeTrialWebCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * Initiates a call.
+     *
+     * @remarks
+     * Initiates a web voice call for a specified instance and scenario by bridging the web voice channel and the robot SIP channel through an RTC gateway. Pass information such as DeviceId, audio sampling rate, and scenario version in the request. TimeoutSeconds specifies the timeout for unanswered calls, defaults to 60 seconds, and does not indicate the maximum duration of an answered call. Upon success, returns the connection context such as SessionId, ChannelId, ServerUrl, and Token. The client must use the returned address and valid credentials to establish the web voice connection. This operation initiates a web interactive voice response instead of dialing a real phone number specified by Number. Resource identity, numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values when you invoke the operation.
+     *
+     * @param request - BridgeWebCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BridgeWebCallResponse
+     *
+     * @param BridgeWebCallRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BridgeWebCallResponse
+     */
+    public function bridgeWebCallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->sampleRate) {
+            @$query['SampleRate'] = $request->sampleRate;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->timeoutSeconds) {
+            @$query['TimeoutSeconds'] = $request->timeoutSeconds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BridgeWebCall',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BridgeWebCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates a call.
+     *
+     * @remarks
+     * Initiates a web voice call for a specified instance and scenario by bridging the web voice channel and the robot SIP channel through an RTC gateway. Pass information such as DeviceId, audio sampling rate, and scenario version in the request. TimeoutSeconds specifies the timeout for unanswered calls, defaults to 60 seconds, and does not indicate the maximum duration of an answered call. Upon success, returns the connection context such as SessionId, ChannelId, ServerUrl, and Token. The client must use the returned address and valid credentials to establish the web voice connection. This operation initiates a web interactive voice response instead of dialing a real phone number specified by Number. Resource identity, numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values when you invoke the operation.
+     *
+     * @param request - BridgeWebCallRequest
+     *
+     * @returns BridgeWebCallResponse
+     *
+     * @param BridgeWebCallRequest $request
+     *
+     * @return BridgeWebCallResponse
+     */
+    public function bridgeWebCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bridgeWebCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an outbound campaign.
      *
      * @remarks
      *
@@ -504,7 +1041,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates an outbound call campaign.
+     * Creates an outbound campaign.
      *
      * @remarks
      *
@@ -729,6 +1266,79 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a language model access configuration.
+     *
+     * @remarks
+     * Creates a language model access configuration for a specified instance.
+     *
+     * @param tmpReq - CreateLlmAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLlmAccessProfileResponse
+     *
+     * @param CreateLlmAccessProfileRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateLlmAccessProfileResponse
+     */
+    public function createLlmAccessProfileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateLlmAccessProfileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->profile) {
+            $request->profileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->profile, 'Profile', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->profileShrink) {
+            @$body['Profile'] = $request->profileShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLlmAccessProfile',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLlmAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a language model access configuration.
+     *
+     * @remarks
+     * Creates a language model access configuration for a specified instance.
+     *
+     * @param request - CreateLlmAccessProfileRequest
+     *
+     * @returns CreateLlmAccessProfileResponse
+     *
+     * @param CreateLlmAccessProfileRequest $request
+     *
+     * @return CreateLlmAccessProfileResponse
+     */
+    public function createLlmAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLlmAccessProfileWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an instance.
      *
      * @param tmpReq - CreateOutboundCallRestrictionRequest
@@ -869,7 +1479,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates a scenario configuration.
+     * Creates a script configuration.
      *
      * @param tmpReq - CreateScriptVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -958,7 +1568,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Creates a scenario configuration.
+     * Creates a script configuration.
      *
      * @param request - CreateScriptVersionRequest
      *
@@ -1108,6 +1718,77 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes a tenant number.
+     *
+     * @remarks
+     * Deletes a tenant number.
+     *
+     * @param request - DeleteCorpNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCorpNumberResponse
+     *
+     * @param DeleteCorpNumberRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteCorpNumberResponse
+     */
+    public function deleteCorpNumberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->force) {
+            @$body['Force'] = $request->force;
+        }
+
+        if (null !== $request->number) {
+            @$body['Number'] = $request->number;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCorpNumber',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCorpNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a tenant number.
+     *
+     * @remarks
+     * Deletes a tenant number.
+     *
+     * @param request - DeleteCorpNumberRequest
+     *
+     * @returns DeleteCorpNumberResponse
+     *
+     * @param DeleteCorpNumberRequest $request
+     *
+     * @return DeleteCorpNumberResponse
+     */
+    public function deleteCorpNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCorpNumberWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a flash message configuration.
      *
      * @param request - DeleteFlashSmsAccessProfileRequest
@@ -1223,6 +1904,152 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the language model access configuration.
+     *
+     * @remarks
+     * Deletes the language model access configuration for a specified instance.
+     *
+     * @param request - DeleteLlmAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLlmAccessProfileResponse
+     *
+     * @param DeleteLlmAccessProfileRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteLlmAccessProfileResponse
+     */
+    public function deleteLlmAccessProfileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accessProfileId) {
+            @$body['AccessProfileId'] = $request->accessProfileId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLlmAccessProfile',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLlmAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the language model access configuration.
+     *
+     * @remarks
+     * Deletes the language model access configuration for a specified instance.
+     *
+     * @param request - DeleteLlmAccessProfileRequest
+     *
+     * @returns DeleteLlmAccessProfileResponse
+     *
+     * @param DeleteLlmAccessProfileRequest $request
+     *
+     * @return DeleteLlmAccessProfileResponse
+     */
+    public function deleteLlmAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLlmAccessProfileWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the numbers of an instance.
+     *
+     * @remarks
+     * Deletes the numbers of a specified instance.
+     *
+     * @param tmpReq - DeleteNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNumbersResponse
+     *
+     * @param DeleteNumbersRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteNumbersResponse
+     */
+    public function deleteNumbersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteNumbersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->numbersShrink) {
+            @$body['Numbers'] = $request->numbersShrink;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNumbers',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the numbers of an instance.
+     *
+     * @remarks
+     * Deletes the numbers of a specified instance.
+     *
+     * @param request - DeleteNumbersRequest
+     *
+     * @returns DeleteNumbersResponse
+     *
+     * @param DeleteNumbersRequest $request
+     *
+     * @return DeleteNumbersResponse
+     */
+    public function deleteNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNumbersWithOptions($request, $runtime);
     }
 
     /**
@@ -1415,6 +2242,156 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Initiates a session.
+     *
+     * @remarks
+     * Sends a round of user input to a text session created by BeginSession and returns the robot reply and control instructions in Server-Sent Events (SSE) format. The InstanceId, ScriptId, and SessionId must be consistent with those used when the session was initiated. The SessionId must use the value returned by the session initiation operation. The conversation cannot continue if the session context does not exist. Utterance is used for plain text input, and Extras is used to pass structured events such as key presses and silence. You can call this operation multiple times in succession. StreamId identifies the reply round, and StreamEnd=true indicates that the output of the current round has ended. Call EndSession after the entire interaction is completed. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - DialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DialogueResponse
+     *
+     * @param DialogueRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DialogueResponse
+     */
+    public function dialogueWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extras) {
+            @$query['Extras'] = $request->extras;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'Dialogue',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield DialogueResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Initiates a session.
+     *
+     * @remarks
+     * Sends a round of user input to a text session created by BeginSession and returns the robot reply and control instructions in Server-Sent Events (SSE) format. The InstanceId, ScriptId, and SessionId must be consistent with those used when the session was initiated. The SessionId must use the value returned by the session initiation operation. The conversation cannot continue if the session context does not exist. Utterance is used for plain text input, and Extras is used to pass structured events such as key presses and silence. You can call this operation multiple times in succession. StreamId identifies the reply round, and StreamEnd=true indicates that the output of the current round has ended. Call EndSession after the entire interaction is completed. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - DialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DialogueResponse
+     *
+     * @param DialogueRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DialogueResponse
+     */
+    public function dialogueWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extras) {
+            @$query['Extras'] = $request->extras;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'Dialogue',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates a session.
+     *
+     * @remarks
+     * Sends a round of user input to a text session created by BeginSession and returns the robot reply and control instructions in Server-Sent Events (SSE) format. The InstanceId, ScriptId, and SessionId must be consistent with those used when the session was initiated. The SessionId must use the value returned by the session initiation operation. The conversation cannot continue if the session context does not exist. Utterance is used for plain text input, and Extras is used to pass structured events such as key presses and silence. You can call this operation multiple times in succession. StreamId identifies the reply round, and StreamEnd=true indicates that the output of the current round has ended. Call EndSession after the entire interaction is completed. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - DialogueRequest
+     *
+     * @returns DialogueResponse
+     *
+     * @param DialogueRequest $request
+     *
+     * @return DialogueResponse
+     */
+    public function dialogue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dialogueWithOptions($request, $runtime);
+    }
+
+    /**
      * Disables message subscription.
      *
      * @param request - DisableSubscriptionRequest
@@ -1472,7 +2449,153 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a call session.
+     * Ends a session.
+     *
+     * @remarks
+     * Ends a text session created by BeginSession, notifies the dialog engine to end the interaction, and clears the text session state. The InstanceId, ScriptId, and SessionId must match those used when the session was started. The Data field in the response returns the SessionId of the ended session. If the text session no longer exists due to prolonged inactivity or cache expiration, the current implementation still returns the SessionId without reporting a session not found error. This operation is used to conclude a text session and is not intended for hanging up web voice or actual phone calls. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values for real calls.
+     *
+     * @param request - EndSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EndSessionResponse
+     *
+     * @param EndSessionRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return EndSessionResponse
+     */
+    public function endSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EndSession',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EndSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Ends a session.
+     *
+     * @remarks
+     * Ends a text session created by BeginSession, notifies the dialog engine to end the interaction, and clears the text session state. The InstanceId, ScriptId, and SessionId must match those used when the session was started. The Data field in the response returns the SessionId of the ended session. If the text session no longer exists due to prolonged inactivity or cache expiration, the current implementation still returns the SessionId without reporting a session not found error. This operation is used to conclude a text session and is not intended for hanging up web voice or actual phone calls. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values for real calls.
+     *
+     * @param request - EndSessionRequest
+     *
+     * @returns EndSessionResponse
+     *
+     * @param EndSessionRequest $request
+     *
+     * @return EndSessionResponse
+     */
+    public function endSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->endSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Ends a trial session.
+     *
+     * @remarks
+     * Ends a trial text session created by BeginTrialSession by using a valid VisitorToken from a trial link. The service first validates the token and then delegates the request to the text session termination service. The InstanceId, ScriptId, and SessionId must maintain session persistence consistent with those of the trial session. The returned Data is the SessionId of the ended session. If the text session context has expired, the termination service can still return the SessionId, but the validation will be marked as failed if the trial token itself is invalid or expired. This operation is not used to hang up web voice calls. The resource identity, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values when you invoke the operation.
+     *
+     * @param request - EndTrialSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EndTrialSessionResponse
+     *
+     * @param EndTrialSessionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EndTrialSessionResponse
+     */
+    public function endTrialSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->visitorToken) {
+            @$query['VisitorToken'] = $request->visitorToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EndTrialSession',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EndTrialSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Ends a trial session.
+     *
+     * @remarks
+     * Ends a trial text session created by BeginTrialSession by using a valid VisitorToken from a trial link. The service first validates the token and then delegates the request to the text session termination service. The InstanceId, ScriptId, and SessionId must maintain session persistence consistent with those of the trial session. The returned Data is the SessionId of the ended session. If the text session context has expired, the termination service can still return the SessionId, but the validation will be marked as failed if the trial token itself is invalid or expired. This operation is not used to hang up web voice calls. The resource identity, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values when you invoke the operation.
+     *
+     * @param request - EndTrialSessionRequest
+     *
+     * @returns EndTrialSessionResponse
+     *
+     * @param EndTrialSessionRequest $request
+     *
+     * @return EndTrialSessionResponse
+     */
+    public function endTrialSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->endTrialSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the call details.
      *
      * @remarks
      *
@@ -1521,7 +2644,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a call session.
+     * Retrieves the call details.
      *
      * @remarks
      *
@@ -1668,6 +2791,73 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCaseDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves voice conversation parameters.
+     *
+     * @remarks
+     * Retrieves temporary connection credentials for the client data channel of a specified InstanceId and DeviceId. Requests are verified based on the current POP authentication and instance permission configurations. DeviceId cannot be empty. Unlike GetTrialDataChannelCredential, this operation does not use the VisitorToken for trial links. The client must use the actual Topic, ClientId, Endpoint, UserName, and Password returned to connect to and subscribe to the data channel, and must not infer the address, topic, or authentication information. The same client must keep the DeviceId consistent when initiating BridgeWebCall or MakePilotCall. This operation only retrieves data channel credentials and does not create text sessions, initiate phone calls, or establish web voice channels. The username and password for the data channel are not the same set of credentials as the token returned for web calls. The protocol, the unit of ExpirationTime, and field mappings are subject to the actual RTC gateway deployment version and return conventions. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - GetDataChannelCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataChannelCredentialResponse
+     *
+     * @param GetDataChannelCredentialRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDataChannelCredentialResponse
+     */
+    public function getDataChannelCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataChannelCredential',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataChannelCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves voice conversation parameters.
+     *
+     * @remarks
+     * Retrieves temporary connection credentials for the client data channel of a specified InstanceId and DeviceId. Requests are verified based on the current POP authentication and instance permission configurations. DeviceId cannot be empty. Unlike GetTrialDataChannelCredential, this operation does not use the VisitorToken for trial links. The client must use the actual Topic, ClientId, Endpoint, UserName, and Password returned to connect to and subscribe to the data channel, and must not infer the address, topic, or authentication information. The same client must keep the DeviceId consistent when initiating BridgeWebCall or MakePilotCall. This operation only retrieves data channel credentials and does not create text sessions, initiate phone calls, or establish web voice channels. The username and password for the data channel are not the same set of credentials as the token returned for web calls. The protocol, the unit of ExpirationTime, and field mappings are subject to the actual RTC gateway deployment version and return conventions. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - GetDataChannelCredentialRequest
+     *
+     * @returns GetDataChannelCredentialResponse
+     *
+     * @param GetDataChannelCredentialRequest $request
+     *
+     * @return GetDataChannelCredentialResponse
+     */
+    public function getDataChannelCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataChannelCredentialWithOptions($request, $runtime);
     }
 
     /**
@@ -1907,7 +3097,202 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of outbound call campaigns.
+     * Retrieves the trial channel.
+     *
+     * @remarks
+     * Retrieves the corresponding trial access channel and the list of available trial scenarios based on the VisitorToken in a trial link. The service verifies whether the token exists, whether it can locate the channel, and whether it has expired. Upon success, it returns information such as the instance to which the channel belongs, the channel type, display configurations, validity period, and scenario configurations. This operation can be used as an initialization step for the trial page: first read the returned instance and scenarios, and then call the corresponding trial text or web voice operation. This operation does not create a text session or initiate a voice call. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - GetTrialAccessChannelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrialAccessChannelResponse
+     *
+     * @param GetTrialAccessChannelRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetTrialAccessChannelResponse
+     */
+    public function getTrialAccessChannelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->visitorToken) {
+            @$query['VisitorToken'] = $request->visitorToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTrialAccessChannel',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTrialAccessChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the trial channel.
+     *
+     * @remarks
+     * Retrieves the corresponding trial access channel and the list of available trial scenarios based on the VisitorToken in a trial link. The service verifies whether the token exists, whether it can locate the channel, and whether it has expired. Upon success, it returns information such as the instance to which the channel belongs, the channel type, display configurations, validity period, and scenario configurations. This operation can be used as an initialization step for the trial page: first read the returned instance and scenarios, and then call the corresponding trial text or web voice operation. This operation does not create a text session or initiate a voice call. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - GetTrialAccessChannelRequest
+     *
+     * @returns GetTrialAccessChannelResponse
+     *
+     * @param GetTrialAccessChannelRequest $request
+     *
+     * @return GetTrialAccessChannelResponse
+     */
+    public function getTrialAccessChannel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTrialAccessChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the parameters for a trial voice conversation.
+     *
+     * @remarks
+     * Retrieves temporary connection credentials for the client data channel for a specified InstanceId and DeviceId by using a valid VisitorToken from a trial link. The response includes information such as Topic, ClientId, Endpoint, UserName, Password, and expiration time. The client must use the actual values returned by the service to connect to and subscribe to the data channel, and must not concatenate addresses, topics, or authentication information. The DeviceId must be consistent with the BridgeTrialWebCall request from the same client. This operation only retrieves data channel credentials and does not initiate text sessions or establish web voice calls. The credential protocol and expiration time unit are subject to the conventions returned by the actual RTC gateway. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - GetTrialDataChannelCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrialDataChannelCredentialResponse
+     *
+     * @param GetTrialDataChannelCredentialRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetTrialDataChannelCredentialResponse
+     */
+    public function getTrialDataChannelCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->visitorToken) {
+            @$query['VisitorToken'] = $request->visitorToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTrialDataChannelCredential',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTrialDataChannelCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the parameters for a trial voice conversation.
+     *
+     * @remarks
+     * Retrieves temporary connection credentials for the client data channel for a specified InstanceId and DeviceId by using a valid VisitorToken from a trial link. The response includes information such as Topic, ClientId, Endpoint, UserName, Password, and expiration time. The client must use the actual values returned by the service to connect to and subscribe to the data channel, and must not concatenate addresses, topics, or authentication information. The DeviceId must be consistent with the BridgeTrialWebCall request from the same client. This operation only retrieves data channel credentials and does not initiate text sessions or establish web voice calls. The credential protocol and expiration time unit are subject to the conventions returned by the actual RTC gateway. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - GetTrialDataChannelCredentialRequest
+     *
+     * @returns GetTrialDataChannelCredentialResponse
+     *
+     * @param GetTrialDataChannelCredentialRequest $request
+     *
+     * @return GetTrialDataChannelCredentialResponse
+     */
+    public function getTrialDataChannelCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTrialDataChannelCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of ASR models.
+     *
+     * @param request - ListAsrModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAsrModelsResponse
+     *
+     * @param ListAsrModelsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListAsrModelsResponse
+     */
+    public function listAsrModelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAsrModels',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAsrModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of ASR models.
+     *
+     * @param request - ListAsrModelsRequest
+     *
+     * @returns ListAsrModelsResponse
+     *
+     * @param ListAsrModelsRequest $request
+     *
+     * @return ListAsrModelsResponse
+     */
+    public function listAsrModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAsrModelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of outbound campaigns.
      *
      * @remarks
      *
@@ -1980,7 +3365,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of outbound call campaigns.
+     * Queries a list of outbound campaigns.
      *
      * @remarks
      *
@@ -2305,6 +3690,85 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the list of tenant numbers.
+     *
+     * @remarks
+     * Queries the list of tenant numbers.
+     *
+     * @param request - ListCorpNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCorpNumbersResponse
+     *
+     * @param ListCorpNumbersRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCorpNumbersResponse
+     */
+    public function listCorpNumbersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->number) {
+            @$body['Number'] = $request->number;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sipTrunkId) {
+            @$body['SipTrunkId'] = $request->sipTrunkId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCorpNumbers',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCorpNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of tenant numbers.
+     *
+     * @remarks
+     * Queries the list of tenant numbers.
+     *
+     * @param request - ListCorpNumbersRequest
+     *
+     * @returns ListCorpNumbersResponse
+     *
+     * @param ListCorpNumbersRequest $request
+     *
+     * @return ListCorpNumbersResponse
+     */
+    public function listCorpNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCorpNumbersWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the list of flash SMS configurations.
      *
      * @param request - ListFlashSmsAccessProfilesRequest
@@ -2496,6 +3960,73 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the instances bound to a number.
+     *
+     * @remarks
+     * Queries the binding information between a number and instances.
+     *
+     * @param request - ListInstanceBindingsOfNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceBindingsOfNumberResponse
+     *
+     * @param ListInstanceBindingsOfNumberRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListInstanceBindingsOfNumberResponse
+     */
+    public function listInstanceBindingsOfNumberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->number) {
+            @$body['Number'] = $request->number;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceBindingsOfNumber',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceBindingsOfNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the instances bound to a number.
+     *
+     * @remarks
+     * Queries the binding information between a number and instances.
+     *
+     * @param request - ListInstanceBindingsOfNumberRequest
+     *
+     * @returns ListInstanceBindingsOfNumberResponse
+     *
+     * @param ListInstanceBindingsOfNumberRequest $request
+     *
+     * @return ListInstanceBindingsOfNumberResponse
+     */
+    public function listInstanceBindingsOfNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceBindingsOfNumberWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves instance details.
      *
      * @param request - ListInstancesRequest
@@ -2558,6 +4089,227 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the language model access configurations.
+     *
+     * @remarks
+     * Queries the list of language model access configurations of a specified instance by paging.
+     *
+     * @param request - ListLlmAccessProfilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLlmAccessProfilesResponse
+     *
+     * @param ListLlmAccessProfilesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListLlmAccessProfilesResponse
+     */
+    public function listLlmAccessProfilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListLlmAccessProfiles',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLlmAccessProfilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the language model access configurations.
+     *
+     * @remarks
+     * Queries the list of language model access configurations of a specified instance by paging.
+     *
+     * @param request - ListLlmAccessProfilesRequest
+     *
+     * @returns ListLlmAccessProfilesResponse
+     *
+     * @param ListLlmAccessProfilesRequest $request
+     *
+     * @return ListLlmAccessProfilesResponse
+     */
+    public function listLlmAccessProfiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLlmAccessProfilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of numbers bound to an instance.
+     *
+     * @remarks
+     * Queries the binding information between an instance and numbers.
+     *
+     * @param request - ListNumberBindingsOfInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNumberBindingsOfInstanceResponse
+     *
+     * @param ListNumberBindingsOfInstanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListNumberBindingsOfInstanceResponse
+     */
+    public function listNumberBindingsOfInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListNumberBindingsOfInstance',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNumberBindingsOfInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of numbers bound to an instance.
+     *
+     * @remarks
+     * Queries the binding information between an instance and numbers.
+     *
+     * @param request - ListNumberBindingsOfInstanceRequest
+     *
+     * @returns ListNumberBindingsOfInstanceResponse
+     *
+     * @param ListNumberBindingsOfInstanceRequest $request
+     *
+     * @return ListNumberBindingsOfInstanceResponse
+     */
+    public function listNumberBindingsOfInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNumberBindingsOfInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the phone numbers of an instance.
+     *
+     * @remarks
+     * Queries the phone numbers of a specified instance.
+     *
+     * @param request - ListNumbersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNumbersResponse
+     *
+     * @param ListNumbersRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListNumbersResponse
+     */
+    public function listNumbersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->number) {
+            @$body['Number'] = $request->number;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sipTrunkId) {
+            @$body['SipTrunkId'] = $request->sipTrunkId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListNumbers',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the phone numbers of an instance.
+     *
+     * @remarks
+     * Queries the phone numbers of a specified instance.
+     *
+     * @param request - ListNumbersRequest
+     *
+     * @returns ListNumbersResponse
+     *
+     * @param ListNumbersRequest $request
+     *
+     * @return ListNumbersResponse
+     */
+    public function listNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNumbersWithOptions($request, $runtime);
     }
 
     /**
@@ -2782,7 +4534,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of scenarios associated with a flow by flow ID.
+     * Retrieves a list of scenarios based on the flow ID.
      *
      * @param request - ListScriptsByFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2825,7 +4577,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of scenarios associated with a flow by flow ID.
+     * Retrieves a list of scenarios based on the flow ID.
      *
      * @param request - ListScriptsByFlowRequest
      *
@@ -2973,7 +4725,98 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Pauses an outbound call campaign.
+     * Initiates an outbound call.
+     *
+     * @remarks
+     * Initiates an outbound call test to the real phone number corresponding to Number by using the specified instance and scenario. Before calling this operation, you must obtain an SMS verification code for the OutboundCallTest scenario for the called number and pass it in VerificationCode. The service verifies the code and initiates the call by using the outbound caller ID configured on the platform. DeviceId is used to bind the client data stream to the current call. CallVariables passes call variables in JSON object format, and Tags passes attached data. Upon success, a SessionId with the test- prefix is returned to associate with the current call. A successful API response does not indicate that the called party has answered or that the conversation has ended. Test only authorized numbers. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use real resources and service return values for actual calls.
+     *
+     * @param request - MakePilotCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MakePilotCallResponse
+     *
+     * @param MakePilotCallRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return MakePilotCallResponse
+     */
+    public function makePilotCallWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callVariables) {
+            @$query['CallVariables'] = $request->callVariables;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->draftVersion) {
+            @$query['DraftVersion'] = $request->draftVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->verificationCode) {
+            @$query['VerificationCode'] = $request->verificationCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MakePilotCall',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MakePilotCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates an outbound call.
+     *
+     * @remarks
+     * Initiates an outbound call test to the real phone number corresponding to Number by using the specified instance and scenario. Before calling this operation, you must obtain an SMS verification code for the OutboundCallTest scenario for the called number and pass it in VerificationCode. The service verifies the code and initiates the call by using the outbound caller ID configured on the platform. DeviceId is used to bind the client data stream to the current call. CallVariables passes call variables in JSON object format, and Tags passes attached data. Upon success, a SessionId with the test- prefix is returned to associate with the current call. A successful API response does not indicate that the called party has answered or that the conversation has ended. Test only authorized numbers. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use real resources and service return values for actual calls.
+     *
+     * @param request - MakePilotCallRequest
+     *
+     * @returns MakePilotCallResponse
+     *
+     * @param MakePilotCallRequest $request
+     *
+     * @return MakePilotCallResponse
+     */
+    public function makePilotCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->makePilotCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * Pauses an outbound campaign.
      *
      * @param request - PauseCampaignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3016,7 +4859,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Pauses an outbound call campaign.
+     * Pauses an outbound campaign.
      *
      * @param request - PauseCampaignRequest
      *
@@ -3164,7 +5007,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Submits an outbound call campaign.
+     * Submits an outbound campaign.
      *
      * @remarks
      *
@@ -3209,7 +5052,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Submits an outbound call campaign.
+     * Submits an outbound campaign.
      *
      * @remarks
      *
@@ -3226,6 +5069,164 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitCampaignWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sends a user input to a trial text conversation.
+     *
+     * @remarks
+     * Sends a round of user input to a trial text conversation created by BeginTrialSession and returns the robot reply in Server-Sent Events (SSE) format. Use the same InstanceId, ScriptId, SessionId, and experience link VisitorToken as those used to start the trial conversation. The service validates the token and its expiration time on each call. Utterance is plain text input, and Extras is a JSON array string of structured events such as key presses and silence. StreamEnd=true only ends the response stream for the current turn. Call EndTrialSession when the entire experience ends. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - TrialDialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrialDialogueResponse
+     *
+     * @param TrialDialogueRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TrialDialogueResponse
+     */
+    public function trialDialogueWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extras) {
+            @$query['Extras'] = $request->extras;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
+        }
+
+        if (null !== $request->visitorToken) {
+            @$query['VisitorToken'] = $request->visitorToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TrialDialogue',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield TrialDialogueResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Sends a user input to a trial text conversation.
+     *
+     * @remarks
+     * Sends a round of user input to a trial text conversation created by BeginTrialSession and returns the robot reply in Server-Sent Events (SSE) format. Use the same InstanceId, ScriptId, SessionId, and experience link VisitorToken as those used to start the trial conversation. The service validates the token and its expiration time on each call. Utterance is plain text input, and Extras is a JSON array string of structured events such as key presses and silence. StreamEnd=true only ends the response stream for the current turn. Call EndTrialSession when the entire experience ends. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - TrialDialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TrialDialogueResponse
+     *
+     * @param TrialDialogueRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return TrialDialogueResponse
+     */
+    public function trialDialogueWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->extras) {
+            @$query['Extras'] = $request->extras;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
+        }
+
+        if (null !== $request->visitorToken) {
+            @$query['VisitorToken'] = $request->visitorToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TrialDialogue',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TrialDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sends a user input to a trial text conversation.
+     *
+     * @remarks
+     * Sends a round of user input to a trial text conversation created by BeginTrialSession and returns the robot reply in Server-Sent Events (SSE) format. Use the same InstanceId, ScriptId, SessionId, and experience link VisitorToken as those used to start the trial conversation. The service validates the token and its expiration time on each call. Utterance is plain text input, and Extras is a JSON array string of structured events such as key presses and silence. StreamEnd=true only ends the response stream for the current turn. Call EndTrialSession when the entire experience ends. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+     *
+     * @param request - TrialDialogueRequest
+     *
+     * @returns TrialDialogueResponse
+     *
+     * @param TrialDialogueRequest $request
+     *
+     * @return TrialDialogueResponse
+     */
+    public function trialDialogue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->trialDialogueWithOptions($request, $runtime);
     }
 
     /**
@@ -3435,6 +5436,237 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the instances bound to a number.
+     *
+     * @remarks
+     * Updates the binding between a number and instances.
+     *
+     * @param tmpReq - UpdateInstanceBindingsOfNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceBindingsOfNumberResponse
+     *
+     * @param UpdateInstanceBindingsOfNumberRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateInstanceBindingsOfNumberResponse
+     */
+    public function updateInstanceBindingsOfNumberWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateInstanceBindingsOfNumberShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->instanceIdsShrink) {
+            @$body['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->number) {
+            @$body['Number'] = $request->number;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstanceBindingsOfNumber',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstanceBindingsOfNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the instances bound to a number.
+     *
+     * @remarks
+     * Updates the binding between a number and instances.
+     *
+     * @param request - UpdateInstanceBindingsOfNumberRequest
+     *
+     * @returns UpdateInstanceBindingsOfNumberResponse
+     *
+     * @param UpdateInstanceBindingsOfNumberRequest $request
+     *
+     * @return UpdateInstanceBindingsOfNumberResponse
+     */
+    public function updateInstanceBindingsOfNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstanceBindingsOfNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the language model access configuration.
+     *
+     * @remarks
+     * Updates the language model access configuration for a specified instance.
+     *
+     * @param tmpReq - UpdateLlmAccessProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLlmAccessProfileResponse
+     *
+     * @param UpdateLlmAccessProfileRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateLlmAccessProfileResponse
+     */
+    public function updateLlmAccessProfileWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateLlmAccessProfileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->profile) {
+            $request->profileShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->profile, 'Profile', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accessProfileId) {
+            @$body['AccessProfileId'] = $request->accessProfileId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->profileShrink) {
+            @$body['Profile'] = $request->profileShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLlmAccessProfile',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLlmAccessProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the language model access configuration.
+     *
+     * @remarks
+     * Updates the language model access configuration for a specified instance.
+     *
+     * @param request - UpdateLlmAccessProfileRequest
+     *
+     * @returns UpdateLlmAccessProfileResponse
+     *
+     * @param UpdateLlmAccessProfileRequest $request
+     *
+     * @return UpdateLlmAccessProfileResponse
+     */
+    public function updateLlmAccessProfile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLlmAccessProfileWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the phone numbers bound to an instance.
+     *
+     * @remarks
+     * Updates the binding relationship between an instance and phone numbers.
+     *
+     * @param tmpReq - UpdateNumberBindingsOfInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNumberBindingsOfInstanceResponse
+     *
+     * @param UpdateNumberBindingsOfInstanceRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateNumberBindingsOfInstanceResponse
+     */
+    public function updateNumberBindingsOfInstanceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateNumberBindingsOfInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->numbers) {
+            $request->numbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->numbers, 'Numbers', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->numbersShrink) {
+            @$body['Numbers'] = $request->numbersShrink;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNumberBindingsOfInstance',
+            'version' => '2025-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNumberBindingsOfInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the phone numbers bound to an instance.
+     *
+     * @remarks
+     * Updates the binding relationship between an instance and phone numbers.
+     *
+     * @param request - UpdateNumberBindingsOfInstanceRequest
+     *
+     * @returns UpdateNumberBindingsOfInstanceResponse
+     *
+     * @param UpdateNumberBindingsOfInstanceRequest $request
+     *
+     * @return UpdateNumberBindingsOfInstanceResponse
+     */
+    public function updateNumberBindingsOfInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNumberBindingsOfInstanceWithOptions($request, $runtime);
     }
 
     /**
