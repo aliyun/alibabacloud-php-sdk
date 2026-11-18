@@ -172,8 +172,18 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkflowTemplateVersionReque
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkflowTemplateVersionResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkItemRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DeleteWorkItemResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DisableConversationShareRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DisableConversationShareResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DisableOutputItemShareRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\DisableOutputItemShareResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DisableTokenRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\DisableTokenResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableConversationShareRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableConversationShareResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableConversationShareShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableOutputItemShareRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableOutputItemShareResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableOutputItemShareShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableTokenRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableTokenResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ExportWorkflowTemplateRequest;
@@ -289,6 +299,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAvailableConfigsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListAvailableConfigsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListBillingRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListBillingResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListChatMessageContentsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListChatMessageContentsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListChatSessionsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListChatSessionsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListCollaborationGroupMembersRequest;
@@ -378,6 +390,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewGroupSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewGroupSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewKnowledgeBaseSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewKnowledgeBaseSourceResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewOutputFileRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewOutputFileResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewPersonalSourceHeaders;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewPersonalSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\PreviewPersonalSourceResponse;
@@ -527,6 +541,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateMemoryAutoExtractionSwitchRe
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateScheduledTaskRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateScheduledTaskResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateScheduledTaskShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateShareRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateShareResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateShareShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateSourceContentRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateSourceContentResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateTenantDirectoryRequest;
@@ -7193,6 +7210,160 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Disables session sharing.
+     *
+     * @remarks
+     * Idempotently disables session sharing owned by the current calling user. Existing share links become invalid immediately.
+     *
+     * @param Request - DisableConversationShareRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableConversationShareResponse
+     *
+     * @param DisableConversationShareRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DisableConversationShareResponse
+     */
+    public function disableConversationShareWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableConversationShare',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/disableConversationShare',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableConversationShareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables session sharing.
+     *
+     * @remarks
+     * Idempotently disables session sharing owned by the current calling user. Existing share links become invalid immediately.
+     *
+     * @param Request - DisableConversationShareRequest
+     *
+     * @returns DisableConversationShareResponse
+     *
+     * @param DisableConversationShareRequest $request
+     *
+     * @return DisableConversationShareResponse
+     */
+    public function disableConversationShare($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableConversationShareWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Disables sharing for output item details.
+     *
+     * @remarks
+     * Idempotently disables sharing for output item details owned by the current calling user, and immediately invalidates previous sharing links. You can locate the target by outputItemId, or precisely by sessionId and outputItemName.
+     *
+     * @param Request - DisableOutputItemShareRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableOutputItemShareResponse
+     *
+     * @param DisableOutputItemShareRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DisableOutputItemShareResponse
+     */
+    public function disableOutputItemShareWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->outputItemId) {
+            @$body['outputItemId'] = $request->outputItemId;
+        }
+
+        if (null !== $request->outputItemName) {
+            @$body['outputItemName'] = $request->outputItemName;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableOutputItemShare',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/disableOutputItemShare',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableOutputItemShareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables sharing for output item details.
+     *
+     * @remarks
+     * Idempotently disables sharing for output item details owned by the current calling user, and immediately invalidates previous sharing links. You can locate the target by outputItemId, or precisely by sessionId and outputItemName.
+     *
+     * @param Request - DisableOutputItemShareRequest
+     *
+     * @returns DisableOutputItemShareResponse
+     *
+     * @param DisableOutputItemShareRequest $request
+     *
+     * @return DisableOutputItemShareResponse
+     */
+    public function disableOutputItemShare($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableOutputItemShareWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Disables an API token.
      *
      * @remarks
@@ -7275,6 +7446,204 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->disableTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Enables session sharing and retrieves the sharing link.
+     *
+     * @remarks
+     * Enables sharing for a session owned by the current calling user and returns the sharing link. The first time sharing is enabled, a snapshot of the currently shareable messages is taken. Subsequent enabling retains the original link.
+     *
+     * @param tmpReq - EnableConversationShareRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableConversationShareResponse
+     *
+     * @param EnableConversationShareRequest $tmpReq
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableConversationShareResponse
+     */
+    public function enableConversationShareWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new EnableConversationShareShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->shareUserGroupIds) {
+            $request->shareUserGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shareUserGroupIds, 'shareUserGroupIds', 'json');
+        }
+
+        if (null !== $tmpReq->shareUserIds) {
+            $request->shareUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shareUserIds, 'shareUserIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->shareAccessType) {
+            @$body['shareAccessType'] = $request->shareAccessType;
+        }
+
+        if (null !== $request->shareUserGroupIdsShrink) {
+            @$body['shareUserGroupIds'] = $request->shareUserGroupIdsShrink;
+        }
+
+        if (null !== $request->shareUserIdsShrink) {
+            @$body['shareUserIds'] = $request->shareUserIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableConversationShare',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/enableConversationShare',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableConversationShareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables session sharing and retrieves the sharing link.
+     *
+     * @remarks
+     * Enables sharing for a session owned by the current calling user and returns the sharing link. The first time sharing is enabled, a snapshot of the currently shareable messages is taken. Subsequent enabling retains the original link.
+     *
+     * @param Request - EnableConversationShareRequest
+     *
+     * @returns EnableConversationShareResponse
+     *
+     * @param EnableConversationShareRequest $request
+     *
+     * @return EnableConversationShareResponse
+     */
+    public function enableConversationShare($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableConversationShareWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Enables sharing for an output item and retrieves the share link.
+     *
+     * @remarks
+     * Enables sharing for an output item owned by the current caller and returns the share link. You can locate the output item by outputItemId, or precisely locate it by sessionId and outputItemName. If both methods are provided, outputItemId takes precedence.
+     *
+     * @param tmpReq - EnableOutputItemShareRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableOutputItemShareResponse
+     *
+     * @param EnableOutputItemShareRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return EnableOutputItemShareResponse
+     */
+    public function enableOutputItemShareWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new EnableOutputItemShareShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->shareUserGroupIds) {
+            $request->shareUserGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shareUserGroupIds, 'shareUserGroupIds', 'json');
+        }
+
+        if (null !== $tmpReq->shareUserIds) {
+            $request->shareUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shareUserIds, 'shareUserIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->outputItemId) {
+            @$body['outputItemId'] = $request->outputItemId;
+        }
+
+        if (null !== $request->outputItemName) {
+            @$body['outputItemName'] = $request->outputItemName;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->shareAccessType) {
+            @$body['shareAccessType'] = $request->shareAccessType;
+        }
+
+        if (null !== $request->shareUserGroupIdsShrink) {
+            @$body['shareUserGroupIds'] = $request->shareUserGroupIdsShrink;
+        }
+
+        if (null !== $request->shareUserIdsShrink) {
+            @$body['shareUserIds'] = $request->shareUserIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableOutputItemShare',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/enableOutputItemShare',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableOutputItemShareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables sharing for an output item and retrieves the share link.
+     *
+     * @remarks
+     * Enables sharing for an output item owned by the current caller and returns the share link. You can locate the output item by outputItemId, or precisely locate it by sessionId and outputItemName. If both methods are provided, outputItemId takes precedence.
+     *
+     * @param Request - EnableOutputItemShareRequest
+     *
+     * @returns EnableOutputItemShareResponse
+     *
+     * @param EnableOutputItemShareRequest $request
+     *
+     * @return EnableOutputItemShareResponse
+     */
+    public function enableOutputItemShare($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableOutputItemShareWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -11955,6 +12324,91 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Reads group chat text and multimedia content in message order.
+     *
+     * @remarks
+     * Reads the connected DingTalk, AliDing, or WeCom group chat sources, and paginates the results in ascending order by send time and message record ID. Each message includes the original text, as well as document content, image descriptions, or audio and video transcriptions arranged in the order they appear in the message. The caller must have read permissions for the source. Reading does not trigger attachment parsing. Pagination provides a real-time view, and historical backfilling may change pagination positions. Attachment content is retrieved from the Document Agent. For unparsed items, the API returns found=false and the local processing status. Upstream failures return errors.
+     *
+     * @param Request - ListChatMessageContentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChatMessageContentsResponse
+     *
+     * @param ListChatMessageContentsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListChatMessageContentsResponse
+     */
+    public function listChatMessageContentsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->maxCharsPerAttachment) {
+            @$body['maxCharsPerAttachment'] = $request->maxCharsPerAttachment;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListChatMessageContents',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listChatMessageContents',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChatMessageContentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Reads group chat text and multimedia content in message order.
+     *
+     * @remarks
+     * Reads the connected DingTalk, AliDing, or WeCom group chat sources, and paginates the results in ascending order by send time and message record ID. Each message includes the original text, as well as document content, image descriptions, or audio and video transcriptions arranged in the order they appear in the message. The caller must have read permissions for the source. Reading does not trigger attachment parsing. Pagination provides a real-time view, and historical backfilling may change pagination positions. Attachment content is retrieved from the Document Agent. For unparsed items, the API returns found=false and the local processing status. Upstream failures return errors.
+     *
+     * @param Request - ListChatMessageContentsRequest
+     *
+     * @returns ListChatMessageContentsResponse
+     *
+     * @param ListChatMessageContentsRequest $request
+     *
+     * @return ListChatMessageContentsResponse
+     */
+    public function listChatMessageContents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listChatMessageContentsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Lists chat sessions of the current user in reverse chronological order by creation time.
      *
      * @remarks
@@ -15565,6 +16019,83 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->previewKnowledgeBaseSourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Previews an output file or a non-file output.
+     *
+     * @remarks
+     * Previews the output that the current calling user has permission to access based on the output item ID. This operation supports managed versions, archived history, unversioned history, and non-file outputs such as emails and slide decks. If a short-term preview or download URL is returned, you must call the operation again after the URL expires.
+     *
+     * @param Request - PreviewOutputFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewOutputFileResponse
+     *
+     * @param PreviewOutputFileRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PreviewOutputFileResponse
+     */
+    public function previewOutputFileWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->outputItemId) {
+            @$body['outputItemId'] = $request->outputItemId;
+        }
+
+        if (null !== $request->versionId) {
+            @$body['versionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PreviewOutputFile',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/previewOutputFile',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PreviewOutputFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Previews an output file or a non-file output.
+     *
+     * @remarks
+     * Previews the output that the current calling user has permission to access based on the output item ID. This operation supports managed versions, archived history, unversioned history, and non-file outputs such as emails and slide decks. If a short-term preview or download URL is returned, you must call the operation again after the URL expires.
+     *
+     * @param Request - PreviewOutputFileRequest
+     *
+     * @returns PreviewOutputFileResponse
+     *
+     * @param PreviewOutputFileRequest $request
+     *
+     * @return PreviewOutputFileResponse
+     */
+    public function previewOutputFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->previewOutputFileWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -21956,6 +22487,121 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->updateScheduledTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the sharing status, scope, or output link.
+     *
+     * @remarks
+     * Updates the sharing status and scope of a session or output item. Only output items support refreshing the sharing link. For session targets, use sessionId. For output targets, use outputItemId or a combination of sessionId and outputItemName.
+     *
+     * @param tmpReq - UpdateShareRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateShareResponse
+     *
+     * @param UpdateShareRequest $tmpReq
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateShareResponse
+     */
+    public function updateShareWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateShareShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->shareUserGroupIds) {
+            $request->shareUserGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shareUserGroupIds, 'shareUserGroupIds', 'json');
+        }
+
+        if (null !== $tmpReq->shareUserIds) {
+            $request->shareUserIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->shareUserIds, 'shareUserIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->outputItemId) {
+            @$body['outputItemId'] = $request->outputItemId;
+        }
+
+        if (null !== $request->outputItemName) {
+            @$body['outputItemName'] = $request->outputItemName;
+        }
+
+        if (null !== $request->refreshShareLink) {
+            @$body['refreshShareLink'] = $request->refreshShareLink;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->shareAccessType) {
+            @$body['shareAccessType'] = $request->shareAccessType;
+        }
+
+        if (null !== $request->shareEnabled) {
+            @$body['shareEnabled'] = $request->shareEnabled;
+        }
+
+        if (null !== $request->shareUserGroupIdsShrink) {
+            @$body['shareUserGroupIds'] = $request->shareUserGroupIdsShrink;
+        }
+
+        if (null !== $request->shareUserIdsShrink) {
+            @$body['shareUserIds'] = $request->shareUserIdsShrink;
+        }
+
+        if (null !== $request->targetType) {
+            @$body['targetType'] = $request->targetType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateShare',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/updateShare',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateShareResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the sharing status, scope, or output link.
+     *
+     * @remarks
+     * Updates the sharing status and scope of a session or output item. Only output items support refreshing the sharing link. For session targets, use sessionId. For output targets, use outputItemId or a combination of sessionId and outputItemName.
+     *
+     * @param Request - UpdateShareRequest
+     *
+     * @returns UpdateShareResponse
+     *
+     * @param UpdateShareRequest $request
+     *
+     * @return UpdateShareResponse
+     */
+    public function updateShare($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateShareWithOptions($request, $headers, $runtime);
     }
 
     /**
