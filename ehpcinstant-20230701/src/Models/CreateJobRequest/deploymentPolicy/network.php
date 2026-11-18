@@ -11,6 +11,11 @@ class network extends Model
     /**
      * @var bool
      */
+    public $enableENIMapping;
+
+    /**
+     * @var bool
+     */
     public $enableExternalIpAddress;
 
     /**
@@ -18,6 +23,7 @@ class network extends Model
      */
     public $vswitch;
     protected $_name = [
+        'enableENIMapping' => 'EnableENIMapping',
         'enableExternalIpAddress' => 'EnableExternalIpAddress',
         'vswitch' => 'Vswitch',
     ];
@@ -33,6 +39,10 @@ class network extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableENIMapping) {
+            $res['EnableENIMapping'] = $this->enableENIMapping;
+        }
+
         if (null !== $this->enableExternalIpAddress) {
             $res['EnableExternalIpAddress'] = $this->enableExternalIpAddress;
         }
@@ -59,6 +69,10 @@ class network extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableENIMapping'])) {
+            $model->enableENIMapping = $map['EnableENIMapping'];
+        }
+
         if (isset($map['EnableExternalIpAddress'])) {
             $model->enableExternalIpAddress = $map['EnableExternalIpAddress'];
         }

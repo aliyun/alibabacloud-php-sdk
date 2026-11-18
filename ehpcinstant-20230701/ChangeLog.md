@@ -1,3 +1,14 @@
+2026-11-18 Version: 4.1.0
+- Support API CreateJobTemplate.
+- Support API DeleteJobTemplate.
+- Support API GetJobTemplate.
+- Support API ListJobTemplates.
+- Support API UpdateJobTemplate.
+- Update API CreateJob: add request parameters DeploymentPolicy.Network.EnableENIMapping.
+- Update API CreateJob: add request parameters Tasks.$.TaskSpec.TaskExecutor.$.Container.GpuDriverVersion.
+- Update API CreateJob: add request parameters Tasks.$.TaskSpec.TaskExecutor.$.Container.Privileged.
+
+
 2026-08-20 Version: 4.0.2
 - Update API CreatePool: add request parameters Tags.
 - Update API GetPool: add response parameters Body.PoolInfo.Creator.

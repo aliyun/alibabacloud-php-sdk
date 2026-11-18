@@ -14,6 +14,9 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateActionPlanShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobTemplateRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobTemplateResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobTemplateShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolShrinkRequest;
@@ -25,6 +28,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobRecordsShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobTemplateRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobTemplateResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeletePoolRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeletePoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricDataRequest;
@@ -46,6 +51,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRecordDurationRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRecordDurationResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobTemplateRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobTemplateResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetPoolRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetPoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListActionPlanActivitiesRequest;
@@ -67,6 +74,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobExecutorsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobTemplatesRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobTemplatesResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListPoolsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListPoolsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListPoolsShrinkRequest;
@@ -85,9 +94,13 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateActionPlanRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateActionPlanResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateJobRecordDurationRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateJobRecordDurationResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateJobTemplateRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateJobTemplateResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateJobTemplateShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -98,24 +111,10 @@ class EhpcInstant extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'EhpcInstant';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
-        $this->_endpointMap = [
-            'cn-shenzhen' => 'ehpcinstant.cn-shenzhen.aliyuncs.com',
-            'cn-wulanchabu' => 'ehpcinstant.cn-wulanchabu.aliyuncs.com',
-            'cn-beijing' => 'ehpcinstant.cn-beijing.aliyuncs.com',
-            'ap-northeast-2' => 'ehpcinstant.ap-northeast-2.aliyuncs.com',
-            'ap-northeast-1' => 'ehpcinstant.ap-northeast-1.aliyuncs.com',
-            'cn-chengdu' => 'ehpcinstant.cn-chengdu.aliyuncs.com',
-            'cn-shanghai' => 'ehpcinstant.cn-shanghai.aliyuncs.com',
-            'cn-guangzhou' => 'ehpcinstant.cn-guangzhou.aliyuncs.com',
-            'cn-hongkong' => 'ehpcinstant.cn-hongkong.aliyuncs.com',
-            'cn-heyuan' => 'ehpcinstant.cn-heyuan.aliyuncs.com',
-            'ap-southeast-1' => 'ehpcinstant.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3' => 'ehpcinstant.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-5' => 'ehpcinstant.ap-southeast-5.aliyuncs.com',
-            'cn-hangzhou' => 'ehpcinstant.cn-hangzhou.aliyuncs.com',
-            'eu-central-1' => 'ehpcinstant.eu-central-1.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ehpcinstant', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -145,7 +144,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Add a custom image.
+     * Adds a custom image.
      *
      * @param tmpReq - AddImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -214,7 +213,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Add a custom image.
+     * Adds a custom image.
      *
      * @param request - AddImageRequest
      *
@@ -232,10 +231,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Creates an E-HPC execution plan.
+     * Creates an execution plan for Elastic High Performance Computing (E-HPC).
      *
      * @remarks
-     * *Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
+     * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/e-hpc/e-hpc-instant/product-overview/billing-overview) of E-HPC Instant before you call this operation.**
      *
      * @param tmpReq - CreateActionPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -324,10 +323,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Creates an E-HPC execution plan.
+     * Creates an execution plan for Elastic High Performance Computing (E-HPC).
      *
      * @remarks
-     * *Before you call this operation, ensure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/zh/e-hpc/e-hpc-instant/product-overview/billing-overview?spm=a2c4g.11186623.help-menu-57664.d_0_2_0.5fdd28422y6UvO)**&#x20;of E-HPC Instant.**
+     * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/e-hpc/e-hpc-instant/product-overview/billing-overview) of E-HPC Instant before you call this operation.**
      *
      * @param request - CreateActionPlanRequest
      *
@@ -445,6 +444,77 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a job template.
+     *
+     * @param tmpReq - CreateJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateJobTemplateResponse
+     *
+     * @param CreateJobTemplateRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateJobTemplateResponse
+     */
+    public function createJobTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateJobTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobTemplateConfig) {
+            $request->jobTemplateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobTemplateConfig, 'JobTemplateConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->jobTemplateConfigShrink) {
+            @$query['JobTemplateConfig'] = $request->jobTemplateConfigShrink;
+        }
+
+        if (null !== $request->jobTemplateDescription) {
+            @$query['JobTemplateDescription'] = $request->jobTemplateDescription;
+        }
+
+        if (null !== $request->jobTemplateName) {
+            @$query['JobTemplateName'] = $request->jobTemplateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateJobTemplate',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a job template.
+     *
+     * @param request - CreateJobTemplateRequest
+     *
+     * @returns CreateJobTemplateResponse
+     *
+     * @param CreateJobTemplateRequest $request
+     *
+     * @return CreateJobTemplateResponse
+     */
+    public function createJobTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createJobTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -659,6 +729,63 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
+     * Deletes a job template.
+     *
+     * @param request - DeleteJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteJobTemplateResponse
+     *
+     * @param DeleteJobTemplateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteJobTemplateResponse
+     */
+    public function deleteJobTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobTemplateId) {
+            @$query['JobTemplateId'] = $request->jobTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteJobTemplate',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a job template.
+     *
+     * @param request - DeleteJobTemplateRequest
+     *
+     * @returns DeleteJobTemplateResponse
+     *
+     * @param DeleteJobTemplateRequest $request
+     *
+     * @return DeleteJobTemplateResponse
+     */
+    public function deleteJobTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteJobTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes one or more jobs from a specified cluster.
      *
      * @param tmpReq - DeleteJobsRequest
@@ -791,7 +918,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
+     * Queries the monitoring time series dataset of a job by specifying the job array index and monitoring metric parameters.
      *
      * @param tmpReq - DescribeJobMetricDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -848,7 +975,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * You can query the monitoring time series dataset of a job by specifying the job array index and query metric parameters.
+     * Queries the monitoring time series dataset of a job by specifying the job array index and monitoring metric parameters.
      *
      * @param request - DescribeJobMetricDataRequest
      *
@@ -866,7 +993,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
+     * Queries all real-time monitoring metrics for a job array by specifying a list of job array indexes.
      *
      * @param tmpReq - DescribeJobMetricLastRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -919,7 +1046,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries all instant monitoring metrics in the job array list by specifying a specific job array index list.
+     * Queries all real-time monitoring metrics for a job array by specifying a list of job array indexes.
      *
      * @param request - DescribeJobMetricLastRequest
      *
@@ -1071,7 +1198,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Obtains the application version list.
+     * Retrieves a list of application versions.
      *
      * @param request - GetAppVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1126,7 +1253,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Obtains the application version list.
+     * Retrieves a list of application versions.
      *
      * @param request - GetAppVersionsRequest
      *
@@ -1144,7 +1271,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Get image details.
+     * Retrieves the details of an image.
      *
      * @param tmpReq - GetImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1201,7 +1328,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Get image details.
+     * Retrieves the details of an image.
      *
      * @param request - GetImageRequest
      *
@@ -1219,7 +1346,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a job.
+     * Retrieves the details of a job execution.
      *
      * @param request - GetJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1258,7 +1385,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a job.
+     * Retrieves the details of a job execution.
      *
      * @param request - GetJobRequest
      *
@@ -1276,7 +1403,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Retrieves the job record retention period.
+     * Retrieves the retention period of job records.
      *
      * @param request - GetJobRecordDurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1308,7 +1435,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Retrieves the job record retention period.
+     * Retrieves the retention period of job records.
      *
      * @param request - GetJobRecordDurationRequest
      *
@@ -1323,6 +1450,63 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getJobRecordDurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a job template.
+     *
+     * @param request - GetJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobTemplateResponse
+     *
+     * @param GetJobTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetJobTemplateResponse
+     */
+    public function getJobTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobTemplateId) {
+            @$query['JobTemplateId'] = $request->jobTemplateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetJobTemplate',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a job template.
+     *
+     * @param request - GetJobTemplateRequest
+     *
+     * @returns GetJobTemplateResponse
+     *
+     * @param GetJobTemplateRequest $request
+     *
+     * @return GetJobTemplateResponse
+     */
+    public function getJobTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -1519,10 +1703,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries the runtime event list of one or more Executors.
+     * Queries the runtime events of one or more executors.
      *
      * @remarks
-     * Queries the Executor information of a job.
+     * Queries the executor information of a job.
      *
      * @param tmpReq - ListExecutorEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1575,10 +1759,10 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries the runtime event list of one or more Executors.
+     * Queries the runtime events of one or more executors.
      *
      * @remarks
-     * Queries the Executor information of a job.
+     * Queries the executor information of a job.
      *
      * @param request - ListExecutorEventsRequest
      *
@@ -1596,7 +1780,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries information about global executors.
+     * Queries global executor information.
      *
      * @param tmpReq - ListExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1649,7 +1833,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Queries information about global executors.
+     * Queries global executor information.
      *
      * @param request - ListExecutorsRequest
      *
@@ -1833,7 +2017,68 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Returns a list of jobs.
+     * Queries job templates.
+     *
+     * @param request - ListJobTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobTemplatesResponse
+     *
+     * @param ListJobTemplatesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListJobTemplatesResponse
+     */
+    public function listJobTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListJobTemplates',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListJobTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries job templates.
+     *
+     * @param request - ListJobTemplatesRequest
+     *
+     * @returns ListJobTemplatesResponse
+     *
+     * @param ListJobTemplatesRequest $request
+     *
+     * @return ListJobTemplatesResponse
+     */
+    public function listJobTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listJobTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of jobs.
      *
      * @param tmpReq - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1894,7 +2139,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Returns a list of jobs.
+     * Queries a list of jobs.
      *
      * @param request - ListJobsRequest
      *
@@ -1912,7 +2157,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Lists resource pools.
+     * Queries the list of resource pools.
      *
      * @param tmpReq - ListPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1965,7 +2210,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Lists resource pools.
+     * Queries the list of resource pools.
      *
      * @param request - ListPoolsRequest
      *
@@ -2056,7 +2301,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Remove a custom image.
+     * Removes a custom image.
      *
      * @param request - RemoveImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2099,7 +2344,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Remove a custom image.
+     * Removes a custom image.
      *
      * @param request - RemoveImageRequest
      *
@@ -2117,7 +2362,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Application cross-region synchronization.
+     * Synchronizes an application across regions.
      *
      * @param tmpReq - SynchronizeAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2166,7 +2411,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Application cross-region synchronization.
+     * Synchronizes an application across regions.
      *
      * @param request - SynchronizeAppRequest
      *
@@ -2318,7 +2563,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Adjust the resource scale of the execution plan or modify the execution status.
+     * Modifies the resource scale or status of an execution plan.
      *
      * @param request - UpdateActionPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2369,7 +2614,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Adjust the resource scale of the execution plan or modify the execution status.
+     * Modifies the resource scale or status of an execution plan.
      *
      * @param request - UpdateActionPlanRequest
      *
@@ -2387,7 +2632,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Updates the job record duration.
+     * Updates the job retention period.
      *
      * @param request - UpdateJobRecordDurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2426,7 +2671,7 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * Updates the job record duration.
+     * Updates the job retention period.
      *
      * @param request - UpdateJobRecordDurationRequest
      *
@@ -2441,6 +2686,81 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateJobRecordDurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a job template.
+     *
+     * @param tmpReq - UpdateJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateJobTemplateResponse
+     *
+     * @param UpdateJobTemplateRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateJobTemplateResponse
+     */
+    public function updateJobTemplateWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateJobTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobTemplateConfig) {
+            $request->jobTemplateConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobTemplateConfig, 'JobTemplateConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->jobTemplateConfigShrink) {
+            @$query['JobTemplateConfig'] = $request->jobTemplateConfigShrink;
+        }
+
+        if (null !== $request->jobTemplateDescription) {
+            @$query['JobTemplateDescription'] = $request->jobTemplateDescription;
+        }
+
+        if (null !== $request->jobTemplateId) {
+            @$query['JobTemplateId'] = $request->jobTemplateId;
+        }
+
+        if (null !== $request->jobTemplateName) {
+            @$query['JobTemplateName'] = $request->jobTemplateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateJobTemplate',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateJobTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a job template.
+     *
+     * @param request - UpdateJobTemplateRequest
+     *
+     * @returns UpdateJobTemplateResponse
+     *
+     * @param UpdateJobTemplateRequest $request
+     *
+     * @return UpdateJobTemplateResponse
+     */
+    public function updateJobTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateJobTemplateWithOptions($request, $runtime);
     }
 
     /**

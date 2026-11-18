@@ -32,12 +32,22 @@ class container extends Model
     /**
      * @var string
      */
+    public $gpuDriverVersion;
+
+    /**
+     * @var string
+     */
     public $image;
 
     /**
      * @var string
      */
     public $imageRegistryOptions;
+
+    /**
+     * @var bool
+     */
+    public $privileged;
 
     /**
      * @var string
@@ -48,8 +58,10 @@ class container extends Model
         'arg' => 'Arg',
         'command' => 'Command',
         'environmentVars' => 'EnvironmentVars',
+        'gpuDriverVersion' => 'GpuDriverVersion',
         'image' => 'Image',
         'imageRegistryOptions' => 'ImageRegistryOptions',
+        'privileged' => 'Privileged',
         'workingDir' => 'WorkingDir',
     ];
 
@@ -107,12 +119,20 @@ class container extends Model
             }
         }
 
+        if (null !== $this->gpuDriverVersion) {
+            $res['GpuDriverVersion'] = $this->gpuDriverVersion;
+        }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
 
         if (null !== $this->imageRegistryOptions) {
             $res['ImageRegistryOptions'] = $this->imageRegistryOptions;
+        }
+
+        if (null !== $this->privileged) {
+            $res['Privileged'] = $this->privileged;
         }
 
         if (null !== $this->workingDir) {
@@ -167,12 +187,20 @@ class container extends Model
             }
         }
 
+        if (isset($map['GpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['GpuDriverVersion'];
+        }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
 
         if (isset($map['ImageRegistryOptions'])) {
             $model->imageRegistryOptions = $map['ImageRegistryOptions'];
+        }
+
+        if (isset($map['Privileged'])) {
+            $model->privileged = $map['Privileged'];
         }
 
         if (isset($map['WorkingDir'])) {
