@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ThirdswAicall\V20251127\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListRequest\structuredLabelTags;
 
 class ReadOutboundTaskCallListRequest extends Model
 {
@@ -37,6 +38,11 @@ class ReadOutboundTaskCallListRequest extends Model
      * @var int
      */
     public $current;
+
+    /**
+     * @var string
+     */
+    public $currentWorkspaceCode;
 
     /**
      * @var string
@@ -79,6 +85,11 @@ class ReadOutboundTaskCallListRequest extends Model
     public $size;
 
     /**
+     * @var structuredLabelTags[]
+     */
+    public $structuredLabelTags;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -94,6 +105,7 @@ class ReadOutboundTaskCallListRequest extends Model
         'callStartTimeEnd' => 'CallStartTimeEnd',
         'callerUacAccountId' => 'CallerUacAccountId',
         'current' => 'Current',
+        'currentWorkspaceCode' => 'CurrentWorkspaceCode',
         'currentWorkspaceId' => 'CurrentWorkspaceId',
         'customerNameOrPhone' => 'CustomerNameOrPhone',
         'displayStatusList' => 'DisplayStatusList',
@@ -102,6 +114,7 @@ class ReadOutboundTaskCallListRequest extends Model
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'size' => 'Size',
+        'structuredLabelTags' => 'StructuredLabelTags',
         'taskId' => 'TaskId',
         'userId' => 'UserId',
     ];
@@ -116,6 +129,9 @@ class ReadOutboundTaskCallListRequest extends Model
         }
         if (\is_array($this->labelTags)) {
             Model::validateArray($this->labelTags);
+        }
+        if (\is_array($this->structuredLabelTags)) {
+            Model::validateArray($this->structuredLabelTags);
         }
         parent::validate();
     }
@@ -145,6 +161,10 @@ class ReadOutboundTaskCallListRequest extends Model
 
         if (null !== $this->current) {
             $res['Current'] = $this->current;
+        }
+
+        if (null !== $this->currentWorkspaceCode) {
+            $res['CurrentWorkspaceCode'] = $this->currentWorkspaceCode;
         }
 
         if (null !== $this->currentWorkspaceId) {
@@ -200,6 +220,17 @@ class ReadOutboundTaskCallListRequest extends Model
             $res['Size'] = $this->size;
         }
 
+        if (null !== $this->structuredLabelTags) {
+            if (\is_array($this->structuredLabelTags)) {
+                $res['StructuredLabelTags'] = [];
+                $n1 = 0;
+                foreach ($this->structuredLabelTags as $item1) {
+                    $res['StructuredLabelTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -241,6 +272,10 @@ class ReadOutboundTaskCallListRequest extends Model
 
         if (isset($map['Current'])) {
             $model->current = $map['Current'];
+        }
+
+        if (isset($map['CurrentWorkspaceCode'])) {
+            $model->currentWorkspaceCode = $map['CurrentWorkspaceCode'];
         }
 
         if (isset($map['CurrentWorkspaceId'])) {
@@ -294,6 +329,17 @@ class ReadOutboundTaskCallListRequest extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['StructuredLabelTags'])) {
+            if (!empty($map['StructuredLabelTags'])) {
+                $model->structuredLabelTags = [];
+                $n1 = 0;
+                foreach ($map['StructuredLabelTags'] as $item1) {
+                    $model->structuredLabelTags[$n1] = structuredLabelTags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TaskId'])) {

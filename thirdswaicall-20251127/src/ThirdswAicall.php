@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\QueryTaskConcurrencyResponse
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListRequest;
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListResponse;
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -22,6 +23,9 @@ class ThirdswAicall extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'ThirdswAicall';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('thirdswaicall', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -78,6 +82,10 @@ class ThirdswAicall extends OpenApiClient
 
         if (null !== $request->callerUacAccountId) {
             @$body['CallerUacAccountId'] = $request->callerUacAccountId;
+        }
+
+        if (null !== $request->currentWorkspaceCode) {
+            @$body['CurrentWorkspaceCode'] = $request->currentWorkspaceCode;
         }
 
         if (null !== $request->currentWorkspaceId) {
@@ -165,6 +173,10 @@ class ThirdswAicall extends OpenApiClient
             @$body['CallerUacAccountId'] = $request->callerUacAccountId;
         }
 
+        if (null !== $request->currentWorkspaceCode) {
+            @$body['CurrentWorkspaceCode'] = $request->currentWorkspaceCode;
+        }
+
         if (null !== $request->currentWorkspaceId) {
             @$body['CurrentWorkspaceId'] = $request->currentWorkspaceId;
         }
@@ -239,6 +251,10 @@ class ThirdswAicall extends OpenApiClient
             $request->labelTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelTags, 'LabelTags', 'json');
         }
 
+        if (null !== $tmpReq->structuredLabelTags) {
+            $request->structuredLabelTagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->structuredLabelTags, 'StructuredLabelTags', 'json');
+        }
+
         $body = [];
         if (null !== $request->callEndTimeBegin) {
             @$body['CallEndTimeBegin'] = $request->callEndTimeBegin;
@@ -262,6 +278,10 @@ class ThirdswAicall extends OpenApiClient
 
         if (null !== $request->current) {
             @$body['Current'] = $request->current;
+        }
+
+        if (null !== $request->currentWorkspaceCode) {
+            @$body['CurrentWorkspaceCode'] = $request->currentWorkspaceCode;
         }
 
         if (null !== $request->currentWorkspaceId) {
@@ -294,6 +314,10 @@ class ThirdswAicall extends OpenApiClient
 
         if (null !== $request->size) {
             @$body['Size'] = $request->size;
+        }
+
+        if (null !== $request->structuredLabelTagsShrink) {
+            @$body['StructuredLabelTags'] = $request->structuredLabelTagsShrink;
         }
 
         if (null !== $request->taskId) {

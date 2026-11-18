@@ -41,6 +41,11 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
     /**
      * @var string
      */
+    public $currentWorkspaceCode;
+
+    /**
+     * @var string
+     */
     public $currentWorkspaceId;
 
     /**
@@ -81,6 +86,11 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
     /**
      * @var string
      */
+    public $structuredLabelTagsShrink;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -94,6 +104,7 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
         'callStartTimeEnd' => 'CallStartTimeEnd',
         'callerUacAccountId' => 'CallerUacAccountId',
         'current' => 'Current',
+        'currentWorkspaceCode' => 'CurrentWorkspaceCode',
         'currentWorkspaceId' => 'CurrentWorkspaceId',
         'customerNameOrPhone' => 'CustomerNameOrPhone',
         'displayStatusListShrink' => 'DisplayStatusList',
@@ -102,6 +113,7 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'size' => 'Size',
+        'structuredLabelTagsShrink' => 'StructuredLabelTags',
         'taskId' => 'TaskId',
         'userId' => 'UserId',
     ];
@@ -138,6 +150,10 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
             $res['Current'] = $this->current;
         }
 
+        if (null !== $this->currentWorkspaceCode) {
+            $res['CurrentWorkspaceCode'] = $this->currentWorkspaceCode;
+        }
+
         if (null !== $this->currentWorkspaceId) {
             $res['CurrentWorkspaceId'] = $this->currentWorkspaceId;
         }
@@ -168,6 +184,10 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
 
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->structuredLabelTagsShrink) {
+            $res['StructuredLabelTags'] = $this->structuredLabelTagsShrink;
         }
 
         if (null !== $this->taskId) {
@@ -213,6 +233,10 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
             $model->current = $map['Current'];
         }
 
+        if (isset($map['CurrentWorkspaceCode'])) {
+            $model->currentWorkspaceCode = $map['CurrentWorkspaceCode'];
+        }
+
         if (isset($map['CurrentWorkspaceId'])) {
             $model->currentWorkspaceId = $map['CurrentWorkspaceId'];
         }
@@ -243,6 +267,10 @@ class ReadOutboundTaskCallListShrinkRequest extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['StructuredLabelTags'])) {
+            $model->structuredLabelTagsShrink = $map['StructuredLabelTags'];
         }
 
         if (isset($map['TaskId'])) {

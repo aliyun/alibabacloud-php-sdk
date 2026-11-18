@@ -26,6 +26,11 @@ class CreateCallOutboundInstantRequest extends Model
     /**
      * @var string
      */
+    public $currentWorkspaceCode;
+
+    /**
+     * @var string
+     */
     public $currentWorkspaceId;
 
     /**
@@ -56,6 +61,7 @@ class CreateCallOutboundInstantRequest extends Model
         'calledNumber' => 'CalledNumber',
         'callerNumber' => 'CallerNumber',
         'callerUacAccountId' => 'CallerUacAccountId',
+        'currentWorkspaceCode' => 'CurrentWorkspaceCode',
         'currentWorkspaceId' => 'CurrentWorkspaceId',
         'customerLineCode' => 'CustomerLineCode',
         'customerName' => 'CustomerName',
@@ -82,6 +88,10 @@ class CreateCallOutboundInstantRequest extends Model
 
         if (null !== $this->callerUacAccountId) {
             $res['CallerUacAccountId'] = $this->callerUacAccountId;
+        }
+
+        if (null !== $this->currentWorkspaceCode) {
+            $res['CurrentWorkspaceCode'] = $this->currentWorkspaceCode;
         }
 
         if (null !== $this->currentWorkspaceId) {
@@ -129,6 +139,10 @@ class CreateCallOutboundInstantRequest extends Model
 
         if (isset($map['CallerUacAccountId'])) {
             $model->callerUacAccountId = $map['CallerUacAccountId'];
+        }
+
+        if (isset($map['CurrentWorkspaceCode'])) {
+            $model->currentWorkspaceCode = $map['CurrentWorkspaceCode'];
         }
 
         if (isset($map['CurrentWorkspaceId'])) {

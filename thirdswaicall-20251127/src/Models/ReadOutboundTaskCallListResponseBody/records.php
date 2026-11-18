@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallLi
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListResponseBody\records\dialogueList;
+use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListResponseBody\records\structuredLabelTags;
 
 class records extends Model
 {
@@ -85,6 +86,11 @@ class records extends Model
     public $gmtModified;
 
     /**
+     * @var string
+     */
+    public $hangupDirection;
+
+    /**
      * @var int
      */
     public $id;
@@ -130,6 +136,11 @@ class records extends Model
     public $status;
 
     /**
+     * @var structuredLabelTags[]
+     */
+    public $structuredLabelTags;
+
+    /**
      * @var string
      */
     public $taskId;
@@ -169,6 +180,7 @@ class records extends Model
         'extInfo' => 'ExtInfo',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
+        'hangupDirection' => 'HangupDirection',
         'id' => 'Id',
         'instanceId' => 'InstanceId',
         'labelTags' => 'LabelTags',
@@ -178,6 +190,7 @@ class records extends Model
         'retryCount' => 'RetryCount',
         'sceneId' => 'SceneId',
         'status' => 'Status',
+        'structuredLabelTags' => 'StructuredLabelTags',
         'taskId' => 'TaskId',
         'tenantId' => 'TenantId',
         'ttsVoiceCode' => 'TtsVoiceCode',
@@ -192,6 +205,9 @@ class records extends Model
         }
         if (\is_array($this->labelTags)) {
             Model::validateArray($this->labelTags);
+        }
+        if (\is_array($this->structuredLabelTags)) {
+            Model::validateArray($this->structuredLabelTags);
         }
         parent::validate();
     }
@@ -266,6 +282,10 @@ class records extends Model
             $res['GmtModified'] = $this->gmtModified;
         }
 
+        if (null !== $this->hangupDirection) {
+            $res['HangupDirection'] = $this->hangupDirection;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -307,6 +327,17 @@ class records extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->structuredLabelTags) {
+            if (\is_array($this->structuredLabelTags)) {
+                $res['StructuredLabelTags'] = [];
+                $n1 = 0;
+                foreach ($this->structuredLabelTags as $item1) {
+                    $res['StructuredLabelTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->taskId) {
@@ -407,6 +438,10 @@ class records extends Model
             $model->gmtModified = $map['GmtModified'];
         }
 
+        if (isset($map['HangupDirection'])) {
+            $model->hangupDirection = $map['HangupDirection'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
@@ -448,6 +483,17 @@ class records extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StructuredLabelTags'])) {
+            if (!empty($map['StructuredLabelTags'])) {
+                $model->structuredLabelTags = [];
+                $n1 = 0;
+                foreach ($map['StructuredLabelTags'] as $item1) {
+                    $model->structuredLabelTags[$n1] = structuredLabelTags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TaskId'])) {
