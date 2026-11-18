@@ -29,6 +29,7 @@ use AlibabaCloud\SDK\Agency\V20250227\Models\GetSubPartnerListResponse;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetSubPartnerOrderListRequest;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetSubPartnerOrderListResponse;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetSubPartnerOrderListShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -39,6 +40,9 @@ class Agency extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Agency';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-1' => 'agency.aliyuncs.com',
@@ -97,7 +101,6 @@ class Agency extends OpenApiClient
             'rus-west-1-pop' => 'agency.aliyuncs.com',
             'us-east-1' => 'agency.aliyuncs.com',
             'us-west-1' => 'agency.aliyuncs.com',
-            'ap-southeast-1' => 'agency.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agency', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -205,7 +208,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Edits a customer note.
+     * Updates a customer note.
      *
      * @param request - CustomerNoteEditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -260,7 +263,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Edits a customer note.
+     * Updates a customer note.
      *
      * @param request - CustomerNoteEditRequest
      *
@@ -278,7 +281,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Queries a paged query list of customer notes with paging support.
+     * Queries the customer note list by using paging.
      *
      * @param request - CustomerNoteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -325,7 +328,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Queries a paged query list of customer notes with paging support.
+     * Queries the customer note list by using paging.
      *
      * @param request - CustomerNoteListRequest
      *
@@ -400,7 +403,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Queries exported bill files.
+     * Queries the bill export file of a China partner for a specific billing cycle. The system pushes the file to the OSS bucket specified by the partner.
      *
      * @param request - GetBillDetailFileListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -463,7 +466,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Queries exported bill files.
+     * Queries the bill export file of a China partner for a specific billing cycle. The system pushes the file to the OSS bucket specified by the partner.
      *
      * @param request - GetBillDetailFileListRequest
      *
@@ -656,6 +659,10 @@ class Agency extends OpenApiClient
             @$query['RamAccountForCustomerManager'] = $request->ramAccountForCustomerManager;
         }
 
+        if (null !== $request->rebateType) {
+            @$query['RebateType'] = $request->rebateType;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -693,11 +700,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Downloads the commission details of an international partner.
+     * Downloads the commission details of international partners.
      *
      * @remarks
-     * Ensure that the current caller identity is a T1 distribution partner.
-     * <notice>Available only for international site.</notice>.
+     * Ensure that the current caller account is a T1 distribution partner.
+     * <notice>Available only on the international site.</notice>
      *
      * @param request - GetIntlCommissionDetailFileListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -760,11 +767,11 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Downloads the commission details of an international partner.
+     * Downloads the commission details of international partners.
      *
      * @remarks
-     * Ensure that the current caller identity is a T1 distribution partner.
-     * <notice>Available only for international site.</notice>.
+     * Ensure that the current caller account is a T1 distribution partner.
+     * <notice>Available only on the international site.</notice>
      *
      * @param request - GetIntlCommissionDetailFileListRequest
      *

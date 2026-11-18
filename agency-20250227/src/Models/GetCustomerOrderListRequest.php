@@ -97,6 +97,11 @@ class GetCustomerOrderListRequest extends Model
      * @var string
      */
     public $ramAccountForCustomerManager;
+
+    /**
+     * @var int
+     */
+    public $rebateType;
     protected $_name = [
         'customerAccount' => 'CustomerAccount',
         'customerUid' => 'CustomerUid',
@@ -116,6 +121,7 @@ class GetCustomerOrderListRequest extends Model
         'productName' => 'ProductName',
         'projectId' => 'ProjectId',
         'ramAccountForCustomerManager' => 'RamAccountForCustomerManager',
+        'rebateType' => 'RebateType',
     ];
 
     public function validate()
@@ -208,6 +214,10 @@ class GetCustomerOrderListRequest extends Model
             $res['RamAccountForCustomerManager'] = $this->ramAccountForCustomerManager;
         }
 
+        if (null !== $this->rebateType) {
+            $res['RebateType'] = $this->rebateType;
+        }
+
         return $res;
     }
 
@@ -296,6 +306,10 @@ class GetCustomerOrderListRequest extends Model
 
         if (isset($map['RamAccountForCustomerManager'])) {
             $model->ramAccountForCustomerManager = $map['RamAccountForCustomerManager'];
+        }
+
+        if (isset($map['RebateType'])) {
+            $model->rebateType = $map['RebateType'];
         }
 
         return $model;

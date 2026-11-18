@@ -97,6 +97,11 @@ class data extends Model
      * @var string[]
      */
     public $ramAccountForCustomerManagers;
+
+    /**
+     * @var int
+     */
+    public $rebateType;
     protected $_name = [
         'amountDiscount' => 'AmountDiscount',
         'amountDue' => 'AmountDue',
@@ -116,6 +121,7 @@ class data extends Model
         'productName' => 'ProductName',
         'projectId' => 'ProjectId',
         'ramAccountForCustomerManagers' => 'RamAccountForCustomerManagers',
+        'rebateType' => 'RebateType',
     ];
 
     public function validate()
@@ -208,6 +214,10 @@ class data extends Model
             }
         }
 
+        if (null !== $this->rebateType) {
+            $res['RebateType'] = $this->rebateType;
+        }
+
         return $res;
     }
 
@@ -296,6 +306,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['RebateType'])) {
+            $model->rebateType = $map['RebateType'];
         }
 
         return $model;
