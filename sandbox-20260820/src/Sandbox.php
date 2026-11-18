@@ -956,7 +956,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Deletes a warm pool.
+     * Deletes a warm-up pool.
      *
      * @param request - DeleteWarmPoolRequest
      * @param headers - map
@@ -994,7 +994,7 @@ class Sandbox extends OpenApiClient
     }
 
     /**
-     * Deletes a warm pool.
+     * Deletes a warm-up pool.
      *
      * @param request - DeleteWarmPoolRequest
      *
