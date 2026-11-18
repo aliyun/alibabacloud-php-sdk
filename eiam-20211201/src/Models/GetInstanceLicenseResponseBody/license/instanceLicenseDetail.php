@@ -34,6 +34,21 @@ class instanceLicenseDetail extends Model
     public $networkAccessEndpointQuota;
 
     /**
+     * @var int
+     */
+    public $pamActiveUserBaseQuota;
+
+    /**
+     * @var int
+     */
+    public $pamActiveUserPurchasedQuota;
+
+    /**
+     * @var bool
+     */
+    public $pamElasticBillingEnabled;
+
+    /**
      * @var string
      */
     public $pamLicenseStatus;
@@ -53,6 +68,9 @@ class instanceLicenseDetail extends Model
         'm2mApplicationQuota' => 'M2mApplicationQuota',
         'mimApplicationLicenseStatus' => 'MimApplicationLicenseStatus',
         'networkAccessEndpointQuota' => 'NetworkAccessEndpointQuota',
+        'pamActiveUserBaseQuota' => 'PamActiveUserBaseQuota',
+        'pamActiveUserPurchasedQuota' => 'PamActiveUserPurchasedQuota',
+        'pamElasticBillingEnabled' => 'PamElasticBillingEnabled',
         'pamLicenseStatus' => 'PamLicenseStatus',
         'prepaidActiveUserNumber' => 'PrepaidActiveUserNumber',
         'userQuota' => 'UserQuota',
@@ -84,6 +102,18 @@ class instanceLicenseDetail extends Model
 
         if (null !== $this->networkAccessEndpointQuota) {
             $res['NetworkAccessEndpointQuota'] = $this->networkAccessEndpointQuota;
+        }
+
+        if (null !== $this->pamActiveUserBaseQuota) {
+            $res['PamActiveUserBaseQuota'] = $this->pamActiveUserBaseQuota;
+        }
+
+        if (null !== $this->pamActiveUserPurchasedQuota) {
+            $res['PamActiveUserPurchasedQuota'] = $this->pamActiveUserPurchasedQuota;
+        }
+
+        if (null !== $this->pamElasticBillingEnabled) {
+            $res['PamElasticBillingEnabled'] = $this->pamElasticBillingEnabled;
         }
 
         if (null !== $this->pamLicenseStatus) {
@@ -127,6 +157,18 @@ class instanceLicenseDetail extends Model
 
         if (isset($map['NetworkAccessEndpointQuota'])) {
             $model->networkAccessEndpointQuota = $map['NetworkAccessEndpointQuota'];
+        }
+
+        if (isset($map['PamActiveUserBaseQuota'])) {
+            $model->pamActiveUserBaseQuota = $map['PamActiveUserBaseQuota'];
+        }
+
+        if (isset($map['PamActiveUserPurchasedQuota'])) {
+            $model->pamActiveUserPurchasedQuota = $map['PamActiveUserPurchasedQuota'];
+        }
+
+        if (isset($map['PamElasticBillingEnabled'])) {
+            $model->pamElasticBillingEnabled = $map['PamElasticBillingEnabled'];
         }
 
         if (isset($map['PamLicenseStatus'])) {
