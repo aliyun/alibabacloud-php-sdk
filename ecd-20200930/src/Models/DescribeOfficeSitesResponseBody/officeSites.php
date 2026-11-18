@@ -332,6 +332,16 @@ class officeSites extends Model
     public $trustPassword;
 
     /**
+     * @var string
+     */
+    public $upmDomainId;
+
+    /**
+     * @var string
+     */
+    public $upmStatus;
+
+    /**
      * @var string[]
      */
     public $vSwitchIds;
@@ -415,6 +425,8 @@ class officeSites extends Model
         'totalEdsCountForGroup' => 'TotalEdsCountForGroup',
         'totalResourceAmount' => 'TotalResourceAmount',
         'trustPassword' => 'TrustPassword',
+        'upmDomainId' => 'UpmDomainId',
+        'upmStatus' => 'UpmStatus',
         'vSwitchIds' => 'VSwitchIds',
         'vpcId' => 'VpcId',
         'vpcType' => 'VpcType',
@@ -758,6 +770,14 @@ class officeSites extends Model
             $res['TrustPassword'] = $this->trustPassword;
         }
 
+        if (null !== $this->upmDomainId) {
+            $res['UpmDomainId'] = $this->upmDomainId;
+        }
+
+        if (null !== $this->upmStatus) {
+            $res['UpmStatus'] = $this->upmStatus;
+        }
+
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
@@ -1095,6 +1115,14 @@ class officeSites extends Model
 
         if (isset($map['TrustPassword'])) {
             $model->trustPassword = $map['TrustPassword'];
+        }
+
+        if (isset($map['UpmDomainId'])) {
+            $model->upmDomainId = $map['UpmDomainId'];
+        }
+
+        if (isset($map['UpmStatus'])) {
+            $model->upmStatus = $map['UpmStatus'];
         }
 
         if (isset($map['VSwitchIds'])) {

@@ -403,6 +403,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\GetSpMetadataRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\GetSpMetadataResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\HibernateDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\HibernateDesktopsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ImportDriveRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ImportDriveResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListCdsFilesRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListCdsFilesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ListCdsFilesShrinkRequest;
@@ -5555,6 +5557,10 @@ class Ecd extends OpenApiClient
             @$query['ExternalDomainId'] = $request->externalDomainId;
         }
 
+        if (null !== $request->platforms) {
+            @$query['Platforms'] = $request->platforms;
+        }
+
         if (null !== $request->profileRoaming) {
             @$query['ProfileRoaming'] = $request->profileRoaming;
         }
@@ -8253,7 +8259,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a drive.
+     * Deletes a cloud drive.
      *
      * @param request - DeleteDriveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8269,8 +8275,20 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
+        }
+
         if (null !== $request->driveId) {
             @$query['DriveId'] = $request->driveId;
+        }
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
 
         if (null !== $request->regionId) {
@@ -8296,7 +8314,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes a drive.
+     * Deletes a cloud drive.
      *
      * @param request - DeleteDriveRequest
      *
@@ -13955,7 +13973,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries all attributes of an office network, including the ID, name, status, and creation time.
+     * Queries all properties of an office network, including the ID, name, status, and creation time.
      *
      * @param request - DescribeOfficeSitesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14026,7 +14044,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Queries all attributes of an office network, including the ID, name, status, and creation time.
+     * Queries all properties of an office network, including the ID, name, status, and creation time.
      *
      * @param request - DescribeOfficeSitesRequest
      *
@@ -18352,6 +18370,83 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Imports a UPM user VHD.
+     *
+     * @param request - ImportDriveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportDriveResponse
+     *
+     * @param ImportDriveRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ImportDriveResponse
+     */
+    public function importDriveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
+        }
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
+        if (null !== $request->forceUpdate) {
+            @$query['ForceUpdate'] = $request->forceUpdate;
+        }
+
+        if (null !== $request->mountUrl) {
+            @$query['MountUrl'] = $request->mountUrl;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ImportDrive',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportDriveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Imports a UPM user VHD.
+     *
+     * @param request - ImportDriveRequest
+     *
+     * @returns ImportDriveResponse
+     *
+     * @param ImportDriveRequest $request
+     *
+     * @return ImportDriveResponse
+     */
+    public function importDrive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importDriveWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the file list in a cloud drive and retrieves download URLs for files.
      *
      * @param tmpReq - ListCdsFilesRequest
@@ -22613,7 +22708,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the basic attributes of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to cloud computer users.
+     * Modifies the basic properties of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to users of cloud desktops.
      *
      * @param request - ModifyOfficeSiteAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22651,6 +22746,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->enableAdminAccess) {
             @$query['EnableAdminAccess'] = $request->enableAdminAccess;
+        }
+
+        if (null !== $request->enableUpm) {
+            @$query['EnableUpm'] = $request->enableUpm;
         }
 
         if (null !== $request->needVerifyLoginRisk) {
@@ -22700,7 +22799,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the basic attributes of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to cloud computer users.
+     * Modifies the basic properties of an office network (formerly workspace), such as the office network name and whether to grant local administrator permissions to users of cloud desktops.
      *
      * @param request - ModifyOfficeSiteAttributeRequest
      *

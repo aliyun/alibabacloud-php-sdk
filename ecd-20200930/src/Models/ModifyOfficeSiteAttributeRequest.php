@@ -41,6 +41,11 @@ class ModifyOfficeSiteAttributeRequest extends Model
     /**
      * @var bool
      */
+    public $enableUpm;
+
+    /**
+     * @var bool
+     */
     public $needVerifyLoginRisk;
 
     /**
@@ -79,6 +84,7 @@ class ModifyOfficeSiteAttributeRequest extends Model
         'desktopAccessType' => 'DesktopAccessType',
         'domainName' => 'DomainName',
         'enableAdminAccess' => 'EnableAdminAccess',
+        'enableUpm' => 'EnableUpm',
         'needVerifyLoginRisk' => 'NeedVerifyLoginRisk',
         'needVerifyZeroDevice' => 'NeedVerifyZeroDevice',
         'officeSiteId' => 'OfficeSiteId',
@@ -121,6 +127,10 @@ class ModifyOfficeSiteAttributeRequest extends Model
 
         if (null !== $this->enableAdminAccess) {
             $res['EnableAdminAccess'] = $this->enableAdminAccess;
+        }
+
+        if (null !== $this->enableUpm) {
+            $res['EnableUpm'] = $this->enableUpm;
         }
 
         if (null !== $this->needVerifyLoginRisk) {
@@ -191,6 +201,10 @@ class ModifyOfficeSiteAttributeRequest extends Model
 
         if (isset($map['EnableAdminAccess'])) {
             $model->enableAdminAccess = $map['EnableAdminAccess'];
+        }
+
+        if (isset($map['EnableUpm'])) {
+            $model->enableUpm = $map['EnableUpm'];
         }
 
         if (isset($map['NeedVerifyLoginRisk'])) {

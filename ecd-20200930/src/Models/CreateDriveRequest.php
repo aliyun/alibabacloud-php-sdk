@@ -34,6 +34,11 @@ class CreateDriveRequest extends Model
     public $externalDomainId;
 
     /**
+     * @var string[]
+     */
+    public $platforms;
+
+    /**
      * @var bool
      */
     public $profileRoaming;
@@ -63,6 +68,7 @@ class CreateDriveRequest extends Model
         'domainId' => 'DomainId',
         'driveName' => 'DriveName',
         'externalDomainId' => 'ExternalDomainId',
+        'platforms' => 'Platforms',
         'profileRoaming' => 'ProfileRoaming',
         'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
@@ -72,6 +78,9 @@ class CreateDriveRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->platforms)) {
+            Model::validateArray($this->platforms);
+        }
         parent::validate();
     }
 
@@ -96,6 +105,17 @@ class CreateDriveRequest extends Model
 
         if (null !== $this->externalDomainId) {
             $res['ExternalDomainId'] = $this->externalDomainId;
+        }
+
+        if (null !== $this->platforms) {
+            if (\is_array($this->platforms)) {
+                $res['Platforms'] = [];
+                $n1 = 0;
+                foreach ($this->platforms as $item1) {
+                    $res['Platforms'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->profileRoaming) {
@@ -147,6 +167,17 @@ class CreateDriveRequest extends Model
 
         if (isset($map['ExternalDomainId'])) {
             $model->externalDomainId = $map['ExternalDomainId'];
+        }
+
+        if (isset($map['Platforms'])) {
+            if (!empty($map['Platforms'])) {
+                $model->platforms = [];
+                $n1 = 0;
+                foreach ($map['Platforms'] as $item1) {
+                    $model->platforms[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ProfileRoaming'])) {
