@@ -350,6 +350,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBClustersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBClustersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBComputeClustersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBComputeClustersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBPerformanceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBPerformanceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectHistoryRetentionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectHistoryRetentionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectRequest;
@@ -16905,6 +16907,93 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the performance of an AgenticDB instance.
+     *
+     * @remarks
+     * > This operation is applicable only to PolarDB for MySQL.
+     *
+     * @param request - DescribeAgenticDBPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBPerformanceResponse
+     *
+     * @param DescribeAgenticDBPerformanceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAgenticDBPerformanceResponse
+     */
+    public function describeAgenticDBPerformanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aggregate) {
+            @$query['Aggregate'] = $request->aggregate;
+        }
+
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBPerformance',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the performance of an AgenticDB instance.
+     *
+     * @remarks
+     * > This operation is applicable only to PolarDB for MySQL.
+     *
+     * @param request - DescribeAgenticDBPerformanceRequest
+     *
+     * @returns DescribeAgenticDBPerformanceResponse
+     *
+     * @param DescribeAgenticDBPerformanceRequest $request
+     *
+     * @return DescribeAgenticDBPerformanceResponse
+     */
+    public function describeAgenticDBPerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of an AgenticDB project.
      *
      * @param request - DescribeAgenticDBProjectRequest
@@ -22481,7 +22570,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the supported character sets, collations, and other properties of a PolarDB database.
+     * Queries the attributes supported by PolarDB databases, such as character sets and collations.
      *
      * @param request - DescribeDBInitializeVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22536,7 +22625,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the supported character sets, collations, and other properties of a PolarDB database.
+     * Queries the attributes supported by PolarDB databases, such as character sets and collations.
      *
      * @param request - DescribeDBInitializeVariableRequest
      *
@@ -23114,7 +23203,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters for specified nodes in a cluster.
+     * Queries the parameters of a specified node in a cluster.
      *
      * @param request - DescribeDBNodesParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23173,7 +23262,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters for specified nodes in a cluster.
+     * Queries the parameters of a specified node in a cluster.
      *
      * @param request - DescribeDBNodesParametersRequest
      *
@@ -33379,7 +33468,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+     * Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
      *
      * @param request - FailoverDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33450,7 +33539,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a manual primary/secondary switchover for a PolarDB cluster. You can specify a read-only node as the new primary node.
+     * Performs a manual primary/secondary switchover for a PolarDB cluster, allowing you to specify a read-only node as the new primary node.
      *
      * @param request - FailoverDBClusterRequest
      *
@@ -33468,12 +33557,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a manual primary/secondary switchover for an edge cluster.
+     * Performs a primary/secondary switchover.
      *
      * @remarks
-     * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+     * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
      * ## Before you begin
-     * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+     * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
      *
      * @param request - FailoverDBClusterZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33544,12 +33633,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Performs a manual primary/secondary switchover for an edge cluster.
+     * Performs a primary/secondary switchover.
      *
      * @remarks
-     * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed through MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
+     * Switches the primary node of an edge cloud cluster. This operation applies only to edge clusters deployed by using MyBase or ENS infrastructure. You can call DescribeEdgeCloudRegion to query edge regions and call DescribeDBClustersZonal to obtain the edge cluster ID. For standard PolarDB clusters, use FailoverDBCluster.
      * ## Before you begin
-     * Complete the prerequisites, specify that this API applies only to edge clusters deployed through MyBase or ENS, indicate the path to obtain edge clusters, and specify that FailoverDBCluster should be used for standard clusters.
+     * Complete the prerequisites. Note that this API applies only to edge clusters deployed by using MyBase or ENS. Specify the method to obtain the edge cluster ID, and note that you must use FailoverDBCluster for standard clusters.
      *
      * @param request - FailoverDBClusterZonalRequest
      *
@@ -40230,7 +40319,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+     * Modifies the SCC settings of a node.
      *
      * @param request - ModifyDBNodeSccModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40293,7 +40382,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
+     * Modifies the SCC settings of a node.
      *
      * @param request - ModifyDBNodeSccModeRequest
      *
@@ -45767,7 +45856,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Temporarily changes the specifications of a cluster.
+     * Temporarily modifies the configuration.
      *
      * @param request - TempModifyDBNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -45850,7 +45939,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Temporarily changes the specifications of a cluster.
+     * Temporarily modifies the configuration.
      *
      * @param request - TempModifyDBNodeRequest
      *
