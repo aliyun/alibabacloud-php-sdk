@@ -11,6 +11,11 @@ class SubmitAIMediaAuditJobRequest extends Model
     /**
      * @var string
      */
+    public $censorProvider;
+
+    /**
+     * @var string
+     */
     public $mediaAuditConfiguration;
 
     /**
@@ -26,18 +31,37 @@ class SubmitAIMediaAuditJobRequest extends Model
     /**
      * @var string
      */
+    public $serviceParameters;
+
+    /**
+     * @var string
+     */
     public $templateId;
 
     /**
      * @var string
      */
     public $userData;
+
+    /**
+     * @var string
+     */
+    public $videoService;
+
+    /**
+     * @var string
+     */
+    public $voiceService;
     protected $_name = [
+        'censorProvider' => 'CensorProvider',
         'mediaAuditConfiguration' => 'MediaAuditConfiguration',
         'mediaId' => 'MediaId',
         'mediaType' => 'MediaType',
+        'serviceParameters' => 'ServiceParameters',
         'templateId' => 'TemplateId',
         'userData' => 'UserData',
+        'videoService' => 'VideoService',
+        'voiceService' => 'VoiceService',
     ];
 
     public function validate()
@@ -48,6 +72,10 @@ class SubmitAIMediaAuditJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->censorProvider) {
+            $res['CensorProvider'] = $this->censorProvider;
+        }
+
         if (null !== $this->mediaAuditConfiguration) {
             $res['MediaAuditConfiguration'] = $this->mediaAuditConfiguration;
         }
@@ -60,12 +88,24 @@ class SubmitAIMediaAuditJobRequest extends Model
             $res['MediaType'] = $this->mediaType;
         }
 
+        if (null !== $this->serviceParameters) {
+            $res['ServiceParameters'] = $this->serviceParameters;
+        }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
 
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+
+        if (null !== $this->videoService) {
+            $res['VideoService'] = $this->videoService;
+        }
+
+        if (null !== $this->voiceService) {
+            $res['VoiceService'] = $this->voiceService;
         }
 
         return $res;
@@ -79,6 +119,10 @@ class SubmitAIMediaAuditJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CensorProvider'])) {
+            $model->censorProvider = $map['CensorProvider'];
+        }
+
         if (isset($map['MediaAuditConfiguration'])) {
             $model->mediaAuditConfiguration = $map['MediaAuditConfiguration'];
         }
@@ -91,12 +135,24 @@ class SubmitAIMediaAuditJobRequest extends Model
             $model->mediaType = $map['MediaType'];
         }
 
+        if (isset($map['ServiceParameters'])) {
+            $model->serviceParameters = $map['ServiceParameters'];
+        }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
 
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+
+        if (isset($map['VideoService'])) {
+            $model->videoService = $map['VideoService'];
+        }
+
+        if (isset($map['VoiceService'])) {
+            $model->voiceService = $map['VoiceService'];
         }
 
         return $model;

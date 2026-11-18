@@ -11,6 +11,11 @@ class SubmitWorkflowJobRequest extends Model
     /**
      * @var string
      */
+    public $extraInputs;
+
+    /**
+     * @var string
+     */
     public $mediaId;
 
     /**
@@ -18,6 +23,7 @@ class SubmitWorkflowJobRequest extends Model
      */
     public $workflowId;
     protected $_name = [
+        'extraInputs' => 'ExtraInputs',
         'mediaId' => 'MediaId',
         'workflowId' => 'WorkflowId',
     ];
@@ -30,6 +36,10 @@ class SubmitWorkflowJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->extraInputs) {
+            $res['ExtraInputs'] = $this->extraInputs;
+        }
+
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
         }
@@ -49,6 +59,10 @@ class SubmitWorkflowJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtraInputs'])) {
+            $model->extraInputs = $map['ExtraInputs'];
+        }
+
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
         }

@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\adResult;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\greenEnhancedResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\liveResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\logoResult;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultResponseBody\mediaAuditResult\videoResult\pornResult;
@@ -17,6 +18,11 @@ class videoResult extends Model
      * @var adResult
      */
     public $adResult;
+
+    /**
+     * @var greenEnhancedResult
+     */
+    public $greenEnhancedResult;
 
     /**
      * @var string
@@ -49,6 +55,7 @@ class videoResult extends Model
     public $terrorismResult;
     protected $_name = [
         'adResult' => 'AdResult',
+        'greenEnhancedResult' => 'GreenEnhancedResult',
         'label' => 'Label',
         'liveResult' => 'LiveResult',
         'logoResult' => 'LogoResult',
@@ -61,6 +68,9 @@ class videoResult extends Model
     {
         if (null !== $this->adResult) {
             $this->adResult->validate();
+        }
+        if (null !== $this->greenEnhancedResult) {
+            $this->greenEnhancedResult->validate();
         }
         if (null !== $this->liveResult) {
             $this->liveResult->validate();
@@ -82,6 +92,10 @@ class videoResult extends Model
         $res = [];
         if (null !== $this->adResult) {
             $res['AdResult'] = null !== $this->adResult ? $this->adResult->toArray($noStream) : $this->adResult;
+        }
+
+        if (null !== $this->greenEnhancedResult) {
+            $res['GreenEnhancedResult'] = null !== $this->greenEnhancedResult ? $this->greenEnhancedResult->toArray($noStream) : $this->greenEnhancedResult;
         }
 
         if (null !== $this->label) {
@@ -121,6 +135,10 @@ class videoResult extends Model
         $model = new self();
         if (isset($map['AdResult'])) {
             $model->adResult = adResult::fromMap($map['AdResult']);
+        }
+
+        if (isset($map['GreenEnhancedResult'])) {
+            $model->greenEnhancedResult = greenEnhancedResult::fromMap($map['GreenEnhancedResult']);
         }
 
         if (isset($map['Label'])) {
