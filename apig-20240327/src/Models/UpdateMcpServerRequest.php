@@ -48,6 +48,11 @@ class UpdateMcpServerRequest extends Model
     public $grayMcpServerConfigs;
 
     /**
+     * @var string
+     */
+    public $instructions;
+
+    /**
      * @var HttpRouteMatch
      */
     public $match;
@@ -79,6 +84,7 @@ class UpdateMcpServerRequest extends Model
         'domainIds' => 'domainIds',
         'exposedUriPath' => 'exposedUriPath',
         'grayMcpServerConfigs' => 'grayMcpServerConfigs',
+        'instructions' => 'instructions',
         'match' => 'match',
         'mcpServerConfig' => 'mcpServerConfig',
         'mcpStatisticsEnable' => 'mcpStatisticsEnable',
@@ -161,6 +167,10 @@ class UpdateMcpServerRequest extends Model
             }
         }
 
+        if (null !== $this->instructions) {
+            $res['instructions'] = $this->instructions;
+        }
+
         if (null !== $this->match) {
             $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
         }
@@ -239,6 +249,10 @@ class UpdateMcpServerRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['instructions'])) {
+            $model->instructions = $map['instructions'];
         }
 
         if (isset($map['match'])) {

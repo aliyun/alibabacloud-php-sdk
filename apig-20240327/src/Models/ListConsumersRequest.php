@@ -11,7 +11,17 @@ class ListConsumersRequest extends Model
     /**
      * @var string
      */
+    public $expireStatus;
+
+    /**
+     * @var string
+     */
     public $gatewayType;
+
+    /**
+     * @var bool
+     */
+    public $includeExpirationSummary;
 
     /**
      * @var string
@@ -27,11 +37,19 @@ class ListConsumersRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
+        'expireStatus' => 'expireStatus',
         'gatewayType' => 'gatewayType',
+        'includeExpirationSummary' => 'includeExpirationSummary',
         'nameLike' => 'nameLike',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
+        'status' => 'status',
     ];
 
     public function validate()
@@ -42,8 +60,16 @@ class ListConsumersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->expireStatus) {
+            $res['expireStatus'] = $this->expireStatus;
+        }
+
         if (null !== $this->gatewayType) {
             $res['gatewayType'] = $this->gatewayType;
+        }
+
+        if (null !== $this->includeExpirationSummary) {
+            $res['includeExpirationSummary'] = $this->includeExpirationSummary;
         }
 
         if (null !== $this->nameLike) {
@@ -58,6 +84,10 @@ class ListConsumersRequest extends Model
             $res['pageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+
         return $res;
     }
 
@@ -69,8 +99,16 @@ class ListConsumersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['expireStatus'])) {
+            $model->expireStatus = $map['expireStatus'];
+        }
+
         if (isset($map['gatewayType'])) {
             $model->gatewayType = $map['gatewayType'];
+        }
+
+        if (isset($map['includeExpirationSummary'])) {
+            $model->includeExpirationSummary = $map['includeExpirationSummary'];
         }
 
         if (isset($map['nameLike'])) {
@@ -83,6 +121,10 @@ class ListConsumersRequest extends Model
 
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

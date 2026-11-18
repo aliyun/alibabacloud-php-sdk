@@ -19,6 +19,11 @@ class UpdateConsumerRequest extends Model
     public $apikeyIdentityConfig;
 
     /**
+     * @var bool
+     */
+    public $clearExpireAt;
+
+    /**
      * @var string
      */
     public $description;
@@ -29,15 +34,34 @@ class UpdateConsumerRequest extends Model
     public $enable;
 
     /**
+     * @var bool
+     */
+    public $enableAfterRenewal;
+
+    /**
+     * @var int
+     */
+    public $expireAt;
+
+    /**
      * @var JwtIdentityConfig
      */
     public $jwtIdentityConfig;
+
+    /**
+     * @var bool
+     */
+    public $renew;
     protected $_name = [
         'akSkIdentityConfigs' => 'akSkIdentityConfigs',
         'apikeyIdentityConfig' => 'apikeyIdentityConfig',
+        'clearExpireAt' => 'clearExpireAt',
         'description' => 'description',
         'enable' => 'enable',
+        'enableAfterRenewal' => 'enableAfterRenewal',
+        'expireAt' => 'expireAt',
         'jwtIdentityConfig' => 'jwtIdentityConfig',
+        'renew' => 'renew',
     ];
 
     public function validate()
@@ -72,6 +96,10 @@ class UpdateConsumerRequest extends Model
             $res['apikeyIdentityConfig'] = null !== $this->apikeyIdentityConfig ? $this->apikeyIdentityConfig->toArray($noStream) : $this->apikeyIdentityConfig;
         }
 
+        if (null !== $this->clearExpireAt) {
+            $res['clearExpireAt'] = $this->clearExpireAt;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -80,8 +108,20 @@ class UpdateConsumerRequest extends Model
             $res['enable'] = $this->enable;
         }
 
+        if (null !== $this->enableAfterRenewal) {
+            $res['enableAfterRenewal'] = $this->enableAfterRenewal;
+        }
+
+        if (null !== $this->expireAt) {
+            $res['expireAt'] = $this->expireAt;
+        }
+
         if (null !== $this->jwtIdentityConfig) {
             $res['jwtIdentityConfig'] = null !== $this->jwtIdentityConfig ? $this->jwtIdentityConfig->toArray($noStream) : $this->jwtIdentityConfig;
+        }
+
+        if (null !== $this->renew) {
+            $res['renew'] = $this->renew;
         }
 
         return $res;
@@ -110,6 +150,10 @@ class UpdateConsumerRequest extends Model
             $model->apikeyIdentityConfig = ApiKeyIdentityConfig::fromMap($map['apikeyIdentityConfig']);
         }
 
+        if (isset($map['clearExpireAt'])) {
+            $model->clearExpireAt = $map['clearExpireAt'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -118,8 +162,20 @@ class UpdateConsumerRequest extends Model
             $model->enable = $map['enable'];
         }
 
+        if (isset($map['enableAfterRenewal'])) {
+            $model->enableAfterRenewal = $map['enableAfterRenewal'];
+        }
+
+        if (isset($map['expireAt'])) {
+            $model->expireAt = $map['expireAt'];
+        }
+
         if (isset($map['jwtIdentityConfig'])) {
             $model->jwtIdentityConfig = JwtIdentityConfig::fromMap($map['jwtIdentityConfig']);
+        }
+
+        if (isset($map['renew'])) {
+            $model->renew = $map['renew'];
         }
 
         return $model;

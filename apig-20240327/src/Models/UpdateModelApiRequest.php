@@ -44,6 +44,11 @@ class UpdateModelApiRequest extends Model
     public $modelSelection;
 
     /**
+     * @var ModelSelectionDelta
+     */
+    public $modelSelectionDelta;
+
+    /**
      * @var string
      */
     public $name;
@@ -60,6 +65,7 @@ class UpdateModelApiRequest extends Model
         'enableAuth' => 'enableAuth',
         'firstByteTimeout' => 'firstByteTimeout',
         'modelSelection' => 'modelSelection',
+        'modelSelectionDelta' => 'modelSelectionDelta',
         'name' => 'name',
         'policyConfigs' => 'policyConfigs',
     ];
@@ -71,6 +77,9 @@ class UpdateModelApiRequest extends Model
         }
         if (null !== $this->modelSelection) {
             $this->modelSelection->validate();
+        }
+        if (null !== $this->modelSelectionDelta) {
+            $this->modelSelectionDelta->validate();
         }
         if (\is_array($this->policyConfigs)) {
             Model::validateArray($this->policyConfigs);
@@ -114,6 +123,10 @@ class UpdateModelApiRequest extends Model
 
         if (null !== $this->modelSelection) {
             $res['modelSelection'] = null !== $this->modelSelection ? $this->modelSelection->toArray($noStream) : $this->modelSelection;
+        }
+
+        if (null !== $this->modelSelectionDelta) {
+            $res['modelSelectionDelta'] = null !== $this->modelSelectionDelta ? $this->modelSelectionDelta->toArray($noStream) : $this->modelSelectionDelta;
         }
 
         if (null !== $this->name) {
@@ -175,6 +188,10 @@ class UpdateModelApiRequest extends Model
 
         if (isset($map['modelSelection'])) {
             $model->modelSelection = ModelSelection::fromMap($map['modelSelection']);
+        }
+
+        if (isset($map['modelSelectionDelta'])) {
+            $model->modelSelectionDelta = ModelSelectionDelta::fromMap($map['modelSelectionDelta']);
         }
 
         if (isset($map['name'])) {

@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersResponseBody\data\expirationSummary;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersResponseBody\data\items;
 
 class data extends Model
 {
+    /**
+     * @var expirationSummary
+     */
+    public $expirationSummary;
+
     /**
      * @var items[]
      */
@@ -29,6 +35,7 @@ class data extends Model
      */
     public $totalSize;
     protected $_name = [
+        'expirationSummary' => 'expirationSummary',
         'items' => 'items',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
@@ -37,6 +44,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->expirationSummary) {
+            $this->expirationSummary->validate();
+        }
         if (\is_array($this->items)) {
             Model::validateArray($this->items);
         }
@@ -46,6 +56,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->expirationSummary) {
+            $res['expirationSummary'] = null !== $this->expirationSummary ? $this->expirationSummary->toArray($noStream) : $this->expirationSummary;
+        }
+
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['items'] = [];
@@ -80,6 +94,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['expirationSummary'])) {
+            $model->expirationSummary = expirationSummary::fromMap($map['expirationSummary']);
+        }
+
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];

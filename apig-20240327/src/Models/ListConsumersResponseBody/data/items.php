@@ -34,6 +34,16 @@ class items extends Model
     public $enable;
 
     /**
+     * @var int
+     */
+    public $expireAt;
+
+    /**
+     * @var string
+     */
+    public $expireStatus;
+
+    /**
      * @var string
      */
     public $name;
@@ -48,6 +58,8 @@ class items extends Model
         'deployStatus' => 'deployStatus',
         'description' => 'description',
         'enable' => 'enable',
+        'expireAt' => 'expireAt',
+        'expireStatus' => 'expireStatus',
         'name' => 'name',
         'updateTimestamp' => 'updateTimestamp',
     ];
@@ -78,6 +90,14 @@ class items extends Model
 
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
+        }
+
+        if (null !== $this->expireAt) {
+            $res['expireAt'] = $this->expireAt;
+        }
+
+        if (null !== $this->expireStatus) {
+            $res['expireStatus'] = $this->expireStatus;
         }
 
         if (null !== $this->name) {
@@ -117,6 +137,14 @@ class items extends Model
 
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
+        }
+
+        if (isset($map['expireAt'])) {
+            $model->expireAt = $map['expireAt'];
+        }
+
+        if (isset($map['expireStatus'])) {
+            $model->expireStatus = $map['expireStatus'];
         }
 
         if (isset($map['name'])) {

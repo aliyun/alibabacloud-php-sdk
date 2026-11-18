@@ -69,6 +69,11 @@ class items extends Model
     public $gatewayId;
 
     /**
+     * @var string
+     */
+    public $instructions;
+
+    /**
      * @var HttpRouteMatch
      */
     public $match;
@@ -129,6 +134,7 @@ class items extends Model
         'environmentId' => 'environmentId',
         'exposedUriPath' => 'exposedUriPath',
         'gatewayId' => 'gatewayId',
+        'instructions' => 'instructions',
         'match' => 'match',
         'mcpServerConfig' => 'mcpServerConfig',
         'mcpServerId' => 'mcpServerId',
@@ -230,6 +236,10 @@ class items extends Model
 
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->instructions) {
+            $res['instructions'] = $this->instructions;
         }
 
         if (null !== $this->match) {
@@ -346,6 +356,10 @@ class items extends Model
 
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['instructions'])) {
+            $model->instructions = $map['instructions'];
         }
 
         if (isset($map['match'])) {

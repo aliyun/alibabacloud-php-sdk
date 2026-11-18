@@ -29,6 +29,11 @@ class CreateConsumerRequest extends Model
     public $enable;
 
     /**
+     * @var int
+     */
+    public $expireAt;
+
+    /**
      * @var string
      */
     public $gatewayType;
@@ -57,6 +62,7 @@ class CreateConsumerRequest extends Model
         'apikeyIdentityConfig' => 'apikeyIdentityConfig',
         'description' => 'description',
         'enable' => 'enable',
+        'expireAt' => 'expireAt',
         'gatewayType' => 'gatewayType',
         'jwtIdentityConfig' => 'jwtIdentityConfig',
         'name' => 'name',
@@ -102,6 +108,10 @@ class CreateConsumerRequest extends Model
 
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
+        }
+
+        if (null !== $this->expireAt) {
+            $res['expireAt'] = $this->expireAt;
         }
 
         if (null !== $this->gatewayType) {
@@ -156,6 +166,10 @@ class CreateConsumerRequest extends Model
 
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
+        }
+
+        if (isset($map['expireAt'])) {
+            $model->expireAt = $map['expireAt'];
         }
 
         if (isset($map['gatewayType'])) {

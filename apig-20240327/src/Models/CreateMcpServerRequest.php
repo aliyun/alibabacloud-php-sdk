@@ -53,6 +53,11 @@ class CreateMcpServerRequest extends Model
     public $grayMcpServerConfigs;
 
     /**
+     * @var string
+     */
+    public $instructions;
+
+    /**
      * @var HttpRouteMatch
      */
     public $match;
@@ -90,6 +95,7 @@ class CreateMcpServerRequest extends Model
         'exposedUriPath' => 'exposedUriPath',
         'gatewayId' => 'gatewayId',
         'grayMcpServerConfigs' => 'grayMcpServerConfigs',
+        'instructions' => 'instructions',
         'match' => 'match',
         'mcpServerConfig' => 'mcpServerConfig',
         'mcpStatisticsEnable' => 'mcpStatisticsEnable',
@@ -175,6 +181,10 @@ class CreateMcpServerRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->instructions) {
+            $res['instructions'] = $this->instructions;
         }
 
         if (null !== $this->match) {
@@ -263,6 +273,10 @@ class CreateMcpServerRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['instructions'])) {
+            $model->instructions = $map['instructions'];
         }
 
         if (isset($map['match'])) {

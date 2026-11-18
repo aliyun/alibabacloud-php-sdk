@@ -766,7 +766,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Grants model card entitlements to a consumer.
+     * Grants model card licenses to a consumer.
      *
      * @param request - AuthorizeConsumerModelCardGrantsRequest
      * @param headers - map
@@ -821,7 +821,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Grants model card entitlements to a consumer.
+     * Grants model card licenses to a consumer.
      *
      * @param request - AuthorizeConsumerModelCardGrantsRequest
      *
@@ -1575,7 +1575,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an independent AI model source.
+     * Creates a standalone AI model source.
      *
      * @param request - CreateAiModelSourceRequest
      * @param headers - map
@@ -1635,7 +1635,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an independent AI model source.
+     * Creates a standalone AI model source.
      *
      * @param request - CreateAiModelSourceRequest
      *
@@ -1654,7 +1654,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an AI model in a model source.
+     * Creates an in-source AI model.
      *
      * @param request - CreateAiModelSourceModelRequest
      * @param headers - map
@@ -1722,7 +1722,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an AI model in a model source.
+     * Creates an in-source AI model.
      *
      * @param request - CreateAiModelSourceModelRequest
      *
@@ -1940,6 +1940,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->enable) {
             @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->expireAt) {
+            @$body['expireAt'] = $request->expireAt;
         }
 
         if (null !== $request->gatewayType) {
@@ -3185,6 +3189,9 @@ class APIG extends OpenApiClient
     /**
      * Creates a Model Context Protocol (MCP) server.
      *
+     * @remarks
+     * Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
+     *
      * @param request - CreateMcpServerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3233,6 +3240,10 @@ class APIG extends OpenApiClient
             @$body['grayMcpServerConfigs'] = $request->grayMcpServerConfigs;
         }
 
+        if (null !== $request->instructions) {
+            @$body['instructions'] = $request->instructions;
+        }
+
         if (null !== $request->match) {
             @$body['match'] = $request->match;
         }
@@ -3278,6 +3289,9 @@ class APIG extends OpenApiClient
 
     /**
      * Creates a Model Context Protocol (MCP) server.
+     *
+     * @remarks
+     * Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
      *
      * @param request - CreateMcpServerRequest
      *
@@ -4344,8 +4358,8 @@ class APIG extends OpenApiClient
      * @remarks
      * ## Before you begin
      * Before calling this operation, you must prepare the following resources in Key Management Service (KMS):
-     * - KMS instance: Create an instance in KMS and obtain the instance ID. Pass the instance ID as kmsConfig.kmsInstanceId.
-     * - KMS key: Create a key in the instance and obtain the key ID. Pass the key ID as kmsConfig.kmsKeyId.
+     * - KMS instance: Create an instance in KMS and obtain the instance ID. Pass the instance ID as the kmsConfig.kmsInstanceId parameter.
+     * - KMS key: Create a key in the instance and obtain the key ID. Pass the key ID as the kmsConfig.kmsKeyId parameter.
      * When calling this operation, you must set secretSource to KMS and pass the preceding two identifiers in kmsConfig. After the secret is created, you can call ListSecrets to query the list of secrets under your account.
      *
      * @param request - CreateSecretRequest
@@ -4413,8 +4427,8 @@ class APIG extends OpenApiClient
      * @remarks
      * ## Before you begin
      * Before calling this operation, you must prepare the following resources in Key Management Service (KMS):
-     * - KMS instance: Create an instance in KMS and obtain the instance ID. Pass the instance ID as kmsConfig.kmsInstanceId.
-     * - KMS key: Create a key in the instance and obtain the key ID. Pass the key ID as kmsConfig.kmsKeyId.
+     * - KMS instance: Create an instance in KMS and obtain the instance ID. Pass the instance ID as the kmsConfig.kmsInstanceId parameter.
+     * - KMS key: Create a key in the instance and obtain the key ID. Pass the key ID as the kmsConfig.kmsKeyId parameter.
      * When calling this operation, you must set secretSource to KMS and pass the preceding two identifiers in kmsConfig. After the secret is created, you can call ListSecrets to query the list of secrets under your account.
      *
      * @param request - CreateSecretRequest
@@ -5536,7 +5550,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a specified logical model.
+     * Deletes the specified logical model.
      *
      * @param request - DeleteLogicalModelRequest
      * @param headers - map
@@ -5579,7 +5593,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a specified logical model.
+     * Deletes the specified logical model.
      *
      * @param request - DeleteLogicalModelRequest
      *
@@ -5710,7 +5724,7 @@ class APIG extends OpenApiClient
      * Deletes a model API.
      *
      * @remarks
-     * When you delete a published new-version model API, the system automatically stops the service and cleans up the resources owned by the API. A successful response indicates that the request has been accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are completed. You can monitor the progress by checking the deleteStatus parameter in the GetModelApi operation. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully completed. The object is retained during deletion or if the deletion fails. Shared model sources, model groups, models, services, consumers, or keys are not deleted.
+     * Automatically stops the service and cleans up the resources owned by the API when a published new-version model API is deleted. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained during deletion or upon failure. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
      *
      * @param request - DeleteModelApiRequest
      * @param headers - map
@@ -5760,7 +5774,7 @@ class APIG extends OpenApiClient
      * Deletes a model API.
      *
      * @remarks
-     * When you delete a published new-version model API, the system automatically stops the service and cleans up the resources owned by the API. A successful response indicates that the request has been accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are completed. You can monitor the progress by checking the deleteStatus parameter in the GetModelApi operation. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully completed. The object is retained during deletion or if the deletion fails. Shared model sources, model groups, models, services, consumers, or keys are not deleted.
+     * Automatically stops the service and cleans up the resources owned by the API when a published new-version model API is deleted. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained during deletion or upon failure. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
      *
      * @param request - DeleteModelApiRequest
      *
@@ -7056,7 +7070,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries AI models in a source.
+     * Queries AI models in a model source.
      *
      * @param request - GetAiModelSourceModelRequest
      * @param headers - map
@@ -7093,7 +7107,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries AI models in a source.
+     * Queries AI models in a model source.
      *
      * @param request - GetAiModelSourceModelRequest
      *
@@ -7404,7 +7418,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the access overview for a consumer.
+     * Queries the access overview of a consumer.
      *
      * @param request - GetConsumerAccessOverviewRequest
      * @param headers - map
@@ -7447,7 +7461,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the access overview for a consumer.
+     * Queries the access overview of a consumer.
      *
      * @param request - GetConsumerAccessOverviewRequest
      *
@@ -8789,7 +8803,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the delivery of logical model configurations.
+     * Queries the configuration delivery of a logical model.
      *
      * @param request - GetLogicalModelDeploymentRequest
      * @param headers - map
@@ -8826,7 +8840,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the delivery of logical model configurations.
+     * Queries the configuration delivery of a logical model.
      *
      * @param request - GetLogicalModelDeploymentRequest
      *
@@ -9020,7 +9034,7 @@ class APIG extends OpenApiClient
      * Queries the details of a model API.
      *
      * @remarks
-     * During deletion, check deleteStatus for Deleting or DeleteFailed and review deployErrorMessage. The NotFound.ModelApi error is returned only after the target model API is completely deleted. Missing dependencies, permission errors, or storage errors do not indicate that the deletion is complete.
+     * During deletion, check deleteStatus for Deleting or DeleteFailed, and review deployErrorMessage. The NotFound.ModelApi error is returned only after the target model API is completely deleted. Missing dependencies, permission issues, or storage errors do not indicate that the deletion is complete.
      *
      * @param request - GetModelApiRequest
      * @param headers - map
@@ -9060,7 +9074,7 @@ class APIG extends OpenApiClient
      * Queries the details of a model API.
      *
      * @remarks
-     * During deletion, check deleteStatus for Deleting or DeleteFailed and review deployErrorMessage. The NotFound.ModelApi error is returned only after the target model API is completely deleted. Missing dependencies, permission errors, or storage errors do not indicate that the deletion is complete.
+     * During deletion, check deleteStatus for Deleting or DeleteFailed, and review deployErrorMessage. The NotFound.ModelApi error is returned only after the target model API is completely deleted. Missing dependencies, permission issues, or storage errors do not indicate that the deletion is complete.
      *
      * @param request - GetModelApiRequest
      *
@@ -11323,7 +11337,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of consumer groups.
+     * Queries consumer groups.
      *
      * @param request - ListConsumerGroupsRequest
      * @param headers - map
@@ -11377,7 +11391,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of consumer groups.
+     * Queries consumer groups.
      *
      * @param request - ListConsumerGroupsRequest
      *
@@ -11396,7 +11410,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the model card entitlements for consumers.
+     * Queries the list of model card entitlements for consumers.
      *
      * @param request - ListConsumerModelCardGrantsRequest
      * @param headers - map
@@ -11455,7 +11469,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the model card entitlements for consumers.
+     * Queries the list of model card entitlements for consumers.
      *
      * @param request - ListConsumerModelCardGrantsRequest
      *
@@ -11572,8 +11586,16 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->expireStatus) {
+            @$query['expireStatus'] = $request->expireStatus;
+        }
+
         if (null !== $request->gatewayType) {
             @$query['gatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->includeExpirationSummary) {
+            @$query['includeExpirationSummary'] = $request->includeExpirationSummary;
         }
 
         if (null !== $request->nameLike) {
@@ -11586,6 +11608,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
 
         $req = new OpenApiRequest([
@@ -13703,7 +13729,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries model groups.
+     * Queries a list of model groups.
      *
      * @param request - ListModelGroupsRequest
      * @param headers - map
@@ -13757,7 +13783,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries model groups.
+     * Queries a list of model groups.
      *
      * @param request - ListModelGroupsRequest
      *
@@ -14568,10 +14594,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of unmanaged security groups available for a private endpoint.
+     * Queries the unmanaged security groups available for private endpoints.
      *
      * @remarks
-     * This operation supports creating multiple services.
+     * The API supports creating multiple services.
      *
      * @param request - ListPrivateLinkSecurityGroupsRequest
      * @param headers - map
@@ -14621,10 +14647,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of unmanaged security groups available for a private endpoint.
+     * Queries the unmanaged security groups available for private endpoints.
      *
      * @remarks
-     * This operation supports creating multiple services.
+     * The API supports creating multiple services.
      *
      * @param request - ListPrivateLinkSecurityGroupsRequest
      *
@@ -15817,7 +15843,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Simulates the impact of modifying a logical model.
+     * Simulates the impact of logical model modifications.
      *
      * @param request - PreviewLogicalModelUpdateRequest
      * @param headers - map
@@ -15884,7 +15910,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Simulates the impact of modifying a logical model.
+     * Simulates the impact of logical model modifications.
      *
      * @param request - PreviewLogicalModelUpdateRequest
      *
@@ -16358,7 +16384,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retries the delivery of the logical model configuration.
+     * Retries the delivery of logical model configurations.
      *
      * @param request - RetryLogicalModelDeploymentRequest
      * @param headers - map
@@ -16405,7 +16431,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retries the delivery of the logical model configuration.
+     * Retries the delivery of logical model configurations.
      *
      * @param request - RetryLogicalModelDeploymentRequest
      *
@@ -16488,7 +16514,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Revokes model card entitlements for a consumer.
+     * Revokes the model card entitlements for a consumer.
      *
      * @param request - RevokeConsumerModelCardGrantsRequest
      * @param headers - map
@@ -16543,7 +16569,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Revokes model card entitlements for a consumer.
+     * Revokes the model card entitlements for a consumer.
      *
      * @param request - RevokeConsumerModelCardGrantsRequest
      *
@@ -17389,7 +17415,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates an AI model in a model source.
+     * Updates an AI model in a source.
      *
      * @param request - UpdateAiModelSourceModelRequest
      * @param headers - map
@@ -17452,7 +17478,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates an AI model in a model source.
+     * Updates an AI model in a source.
      *
      * @param request - UpdateAiModelSourceModelRequest
      *
@@ -17716,6 +17742,10 @@ class APIG extends OpenApiClient
             @$body['apikeyIdentityConfig'] = $request->apikeyIdentityConfig;
         }
 
+        if (null !== $request->clearExpireAt) {
+            @$body['clearExpireAt'] = $request->clearExpireAt;
+        }
+
         if (null !== $request->description) {
             @$body['description'] = $request->description;
         }
@@ -17724,8 +17754,20 @@ class APIG extends OpenApiClient
             @$body['enable'] = $request->enable;
         }
 
+        if (null !== $request->enableAfterRenewal) {
+            @$body['enableAfterRenewal'] = $request->enableAfterRenewal;
+        }
+
+        if (null !== $request->expireAt) {
+            @$body['expireAt'] = $request->expireAt;
+        }
+
         if (null !== $request->jwtIdentityConfig) {
             @$body['jwtIdentityConfig'] = $request->jwtIdentityConfig;
+        }
+
+        if (null !== $request->renew) {
+            @$body['renew'] = $request->renew;
         }
 
         $req = new OpenApiRequest([
@@ -19074,7 +19116,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
+     * Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
      *
      * @param request - UpdateMcpServerRequest
      * @param headers - map
@@ -19121,6 +19163,10 @@ class APIG extends OpenApiClient
             @$body['grayMcpServerConfigs'] = $request->grayMcpServerConfigs;
         }
 
+        if (null !== $request->instructions) {
+            @$body['instructions'] = $request->instructions;
+        }
+
         if (null !== $request->match) {
             @$body['match'] = $request->match;
         }
@@ -19164,7 +19210,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type are allowed to update the Ingress listener configurations.
+     * Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
      *
      * @param request - UpdateMcpServerRequest
      *
@@ -19320,6 +19366,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->modelSelection) {
             @$body['modelSelection'] = $request->modelSelection;
+        }
+
+        if (null !== $request->modelSelectionDelta) {
+            @$body['modelSelectionDelta'] = $request->modelSelectionDelta;
         }
 
         if (null !== $request->name) {
@@ -19965,7 +20015,7 @@ class APIG extends OpenApiClient
      * Updates a secret.
      *
      * @remarks
-     * Only sources of the **container service** type are allowed to update Ingress listener configurations.
+     * Updates a secret. Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
      *
      * @param request - UpdateSecretRequest
      * @param headers - map
@@ -20011,7 +20061,7 @@ class APIG extends OpenApiClient
      * Updates a secret.
      *
      * @remarks
-     * Only sources of the **container service** type are allowed to update Ingress listener configurations.
+     * Updates a secret. Only sources of the **Container Service** type are allowed to update Ingress listener configurations.
      *
      * @param request - UpdateSecretRequest
      *
