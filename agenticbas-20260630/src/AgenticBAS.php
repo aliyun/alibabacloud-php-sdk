@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\AgenticBAS\V20260630;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\BatchVerifyPentestVulnRequest;
+use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\BatchVerifyPentestVulnResponse;
+use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\BatchVerifyPentestVulnShrinkRequest;
 use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\CreatePentestTaskRequest;
 use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\CreatePentestTaskResponse;
 use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\CreatePentestTaskShrinkRequest;
@@ -14,6 +17,9 @@ use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestReportContentShr
 use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestTaskListRequest;
 use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestTaskListResponse;
 use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestTaskListShrinkRequest;
+use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestVulnDetailRequest;
+use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestVulnDetailResponse;
+use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestVulnDetailShrinkRequest;
 use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestVulnListRequest;
 use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestVulnListResponse;
 use AlibabaCloud\SDK\AgenticBAS\V20260630\Models\DescribePentestVulnListShrinkRequest;
@@ -58,6 +64,79 @@ class AgenticBAS extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Submits asynchronous retests in bulk for specified vulnerabilities under the current account and returns the acceptance results for each item.
+     *
+     * @remarks
+     * Submits retests for existing vulnerabilities that the current account has access to. OperationInput accepts only VulnIds. The original array must contain 1 to 100 elements, and duplicate elements are counted. The original length is validated before deduplication. If the limit is exceeded, the entire request is rejected and no verification records are created. Valid vulnerability IDs are processed item by item. A single item failure does not block the remaining items or roll back accepted items. SuccessCount and Results.Success only indicate that the verification records are created and accepted, and do not mean that the vulnerabilities have been retested or passed verification. Retests are executed asynchronously and may consume credits.
+     *
+     * @param tmpReq - BatchVerifyPentestVulnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchVerifyPentestVulnResponse
+     *
+     * @param BatchVerifyPentestVulnRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BatchVerifyPentestVulnResponse
+     */
+    public function batchVerifyPentestVulnWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchVerifyPentestVulnShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operationInput) {
+            $request->operationInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationInput, 'OperationInput', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->operationInputShrink) {
+            @$query['OperationInput'] = $request->operationInputShrink;
+        }
+
+        if (null !== $request->operationType) {
+            @$query['OperationType'] = $request->operationType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchVerifyPentestVuln',
+            'version' => '2026-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchVerifyPentestVulnResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits asynchronous retests in bulk for specified vulnerabilities under the current account and returns the acceptance results for each item.
+     *
+     * @remarks
+     * Submits retests for existing vulnerabilities that the current account has access to. OperationInput accepts only VulnIds. The original array must contain 1 to 100 elements, and duplicate elements are counted. The original length is validated before deduplication. If the limit is exceeded, the entire request is rejected and no verification records are created. Valid vulnerability IDs are processed item by item. A single item failure does not block the remaining items or roll back accepted items. SuccessCount and Results.Success only indicate that the verification records are created and accepted, and do not mean that the vulnerabilities have been retested or passed verification. Retests are executed asynchronously and may consume credits.
+     *
+     * @param request - BatchVerifyPentestVulnRequest
+     *
+     * @returns BatchVerifyPentestVulnResponse
+     *
+     * @param BatchVerifyPentestVulnRequest $request
+     *
+     * @return BatchVerifyPentestVulnResponse
+     */
+    public function batchVerifyPentestVuln($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchVerifyPentestVulnWithOptions($request, $runtime);
     }
 
     /**
@@ -220,7 +299,7 @@ class AgenticBAS extends OpenApiClient
     }
 
     /**
-     * Queries the PDF report of a specified penetration test task under the current account and returns a temporary OSS download URL and its expiration time. The report content is not returned.
+     * Queries the PDF report of a specified penetration test task for the current account, and returns a temporary Object Storage Service (OSS) download URL and the expiration time without returning the report content.
      *
      * @param tmpReq - DescribePentestReportContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -269,7 +348,7 @@ class AgenticBAS extends OpenApiClient
     }
 
     /**
-     * Queries the PDF report of a specified penetration test task under the current account and returns a temporary OSS download URL and its expiration time. The report content is not returned.
+     * Queries the PDF report of a specified penetration test task for the current account, and returns a temporary Object Storage Service (OSS) download URL and the expiration time without returning the report content.
      *
      * @param request - DescribePentestReportContentRequest
      *
@@ -287,12 +366,12 @@ class AgenticBAS extends OpenApiClient
     }
 
     /**
-     * Queries the penetration testing tasks of the current account by using paging and returns the task status, execution duration, Credits usage, time, and vulnerability statistics.
+     * Queries the penetration testing nodes of the current account by paging and returns the node status, execution duration, Credits usage, time, and vulnerability statistics.
      *
      * @remarks
-     * Queries the penetration testing tasks of the current account by using paging and returns the task status, execution duration, Credits usage, time, and vulnerability statistics.
-     * Use OperationInput to specify query conditions. Paging is implemented by using CurrentPage and PageSize. By default, the first page is queried and each page contains 10 entries. You can filter tasks by task name keyword and task status.
-     * The response includes TaskList and PageInfo. Duration indicates the execution duration in seconds. CreditsUsed indicates the used Credits. Tasks that have not started may not have a start time or execution duration, and unfinished tasks may not have a completion time. UNIX timestamps uniformly use UNIX seconds. When displaying, you can convert them to the time zone of the caller.
+     * Queries the penetration testing nodes of the current account by paging and returns the node status, execution duration, Credits usage, time, and vulnerability statistics.
+     * Use OperationInput to specify query conditions. Paging is implemented by using CurrentPage and PageSize. By default, the first page is returned with 10 entries per page. You can filter nodes by node name keyword and node status.
+     * The response includes TaskList and PageInfo. Duration indicates the execution duration in seconds. CreditsUsed indicates the number of Credits used. Nodes that have not started may not have a start time or duration, and nodes that have not finished may not have a completion time. All UNIX timestamps are in UNIX seconds. You can transform them to the time zone of the invoker for display.
      *
      * @param tmpReq - DescribePentestTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -341,12 +420,12 @@ class AgenticBAS extends OpenApiClient
     }
 
     /**
-     * Queries the penetration testing tasks of the current account by using paging and returns the task status, execution duration, Credits usage, time, and vulnerability statistics.
+     * Queries the penetration testing nodes of the current account by paging and returns the node status, execution duration, Credits usage, time, and vulnerability statistics.
      *
      * @remarks
-     * Queries the penetration testing tasks of the current account by using paging and returns the task status, execution duration, Credits usage, time, and vulnerability statistics.
-     * Use OperationInput to specify query conditions. Paging is implemented by using CurrentPage and PageSize. By default, the first page is queried and each page contains 10 entries. You can filter tasks by task name keyword and task status.
-     * The response includes TaskList and PageInfo. Duration indicates the execution duration in seconds. CreditsUsed indicates the used Credits. Tasks that have not started may not have a start time or execution duration, and unfinished tasks may not have a completion time. UNIX timestamps uniformly use UNIX seconds. When displaying, you can convert them to the time zone of the caller.
+     * Queries the penetration testing nodes of the current account by paging and returns the node status, execution duration, Credits usage, time, and vulnerability statistics.
+     * Use OperationInput to specify query conditions. Paging is implemented by using CurrentPage and PageSize. By default, the first page is returned with 10 entries per page. You can filter nodes by node name keyword and node status.
+     * The response includes TaskList and PageInfo. Duration indicates the execution duration in seconds. CreditsUsed indicates the number of Credits used. Nodes that have not started may not have a start time or duration, and nodes that have not finished may not have a completion time. All UNIX timestamps are in UNIX seconds. You can transform them to the time zone of the invoker for display.
      *
      * @param request - DescribePentestTaskListRequest
      *
@@ -364,7 +443,80 @@ class AgenticBAS extends OpenApiClient
     }
 
     /**
-     * Queries penetration test vulnerabilities for the current account by task ID with paging. Returns vulnerability titles, severity levels, authentication statuses, affected URLs, and discovery times. Supports filtering by severity level.
+     * Queries the details of a single vulnerability under the current account without triggering a scan or vulnerability verification.
+     *
+     * @remarks
+     * Queries a specified single vulnerability under the current account by using OperationInput.VulnId and returns a VulnDetail object. This operation only reads existing vulnerability data, does not create scan or verification tasks, and does not support batch queries by using TaskId or VulnIds. You can call DescribePentestVulnList to obtain vulnerability IDs and then query the details of each vulnerability. The caller identity is determined by the gateway, and you cannot specify other accounts through request parameters.
+     *
+     * @param tmpReq - DescribePentestVulnDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePentestVulnDetailResponse
+     *
+     * @param DescribePentestVulnDetailRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePentestVulnDetailResponse
+     */
+    public function describePentestVulnDetailWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribePentestVulnDetailShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operationInput) {
+            $request->operationInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationInput, 'OperationInput', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->operationInputShrink) {
+            @$query['OperationInput'] = $request->operationInputShrink;
+        }
+
+        if (null !== $request->operationType) {
+            @$query['OperationType'] = $request->operationType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePentestVulnDetail',
+            'version' => '2026-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePentestVulnDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a single vulnerability under the current account without triggering a scan or vulnerability verification.
+     *
+     * @remarks
+     * Queries a specified single vulnerability under the current account by using OperationInput.VulnId and returns a VulnDetail object. This operation only reads existing vulnerability data, does not create scan or verification tasks, and does not support batch queries by using TaskId or VulnIds. You can call DescribePentestVulnList to obtain vulnerability IDs and then query the details of each vulnerability. The caller identity is determined by the gateway, and you cannot specify other accounts through request parameters.
+     *
+     * @param request - DescribePentestVulnDetailRequest
+     *
+     * @returns DescribePentestVulnDetailResponse
+     *
+     * @param DescribePentestVulnDetailRequest $request
+     *
+     * @return DescribePentestVulnDetailResponse
+     */
+    public function describePentestVulnDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePentestVulnDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the penetration testing vulnerabilities of the current account by task ID with pagination. Returns information such as the vulnerability title, severity, authentication status, affected URLs, and discovery time, and supports filtering by severity.
      *
      * @param tmpReq - DescribePentestVulnListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -413,7 +565,7 @@ class AgenticBAS extends OpenApiClient
     }
 
     /**
-     * Queries penetration test vulnerabilities for the current account by task ID with paging. Returns vulnerability titles, severity levels, authentication statuses, affected URLs, and discovery times. Supports filtering by severity level.
+     * Queries the penetration testing vulnerabilities of the current account by task ID with pagination. Returns information such as the vulnerability title, severity, authentication status, affected URLs, and discovery time, and supports filtering by severity.
      *
      * @param request - DescribePentestVulnListRequest
      *

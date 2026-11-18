@@ -1,3 +1,8 @@
+2026-11-18 Version: 1.1.0
+- Support API BatchVerifyPentestVuln.
+- Support API DescribePentestVulnDetail.
+
+
 2026-11-06 Version: 2.0.0
 - Generated php 2026-06-30 for AgenticBAS.
 
