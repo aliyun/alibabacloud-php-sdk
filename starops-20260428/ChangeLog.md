@@ -1,3 +1,6 @@
+2026-11-18 Version: 1.2.8
+- Generated php 2026-04-28 for STAROps.
+
 2026-11-16 Version: 1.2.7
 - Update API CreateDigitalEmployee: add request parameters body.toolPolicy.global.
 - Update API CreateDigitalEmployee: add request parameters body.toolPolicy.hooks.

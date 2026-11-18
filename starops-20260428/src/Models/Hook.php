@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\Hook\execution;
 class Hook extends Model
 {
     /**
+     * @var bool
+     */
+    public $debug;
+
+    /**
      * @var string
      */
     public $description;
@@ -28,6 +33,11 @@ class Hook extends Model
      * @var execution
      */
     public $execution;
+
+    /**
+     * @var bool
+     */
+    public $invisible;
 
     /**
      * @var string[]
@@ -49,10 +59,12 @@ class Hook extends Model
      */
     public $scope;
     protected $_name = [
+        'debug' => 'debug',
         'description' => 'description',
         'enable' => 'enable',
         'event' => 'event',
         'execution' => 'execution',
+        'invisible' => 'invisible',
         'match' => 'match',
         'name' => 'name',
         'schemaVersion' => 'schemaVersion',
@@ -73,6 +85,10 @@ class Hook extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->debug) {
+            $res['debug'] = $this->debug;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -87,6 +103,10 @@ class Hook extends Model
 
         if (null !== $this->execution) {
             $res['execution'] = null !== $this->execution ? $this->execution->toArray($noStream) : $this->execution;
+        }
+
+        if (null !== $this->invisible) {
+            $res['invisible'] = $this->invisible;
         }
 
         if (null !== $this->match) {
@@ -123,6 +143,10 @@ class Hook extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['debug'])) {
+            $model->debug = $map['debug'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -137,6 +161,10 @@ class Hook extends Model
 
         if (isset($map['execution'])) {
             $model->execution = execution::fromMap($map['execution']);
+        }
+
+        if (isset($map['invisible'])) {
+            $model->invisible = $map['invisible'];
         }
 
         if (isset($map['match'])) {
