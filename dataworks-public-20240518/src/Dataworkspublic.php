@@ -28425,10 +28425,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Removes multiple upstream dependencies from a node instance in a single call.
+     * Removes multiple upstream dependencies of a node instance.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a later edition to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param tmpReq - RemoveTaskInstanceDependenciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28483,10 +28483,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Removes multiple upstream dependencies from a node instance in a single call.
+     * Removes multiple upstream dependencies of a node instance.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a later edition to use this operation.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param Request - RemoveTaskInstanceDependenciesRequest
      *
@@ -29025,10 +29025,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Resumes multiple paused task instances.
+     * Resumes multiple paused node instances.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * DataWorks Basic Edition or later is required.
      *
      * @param tmpReq - ResumeTaskInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29077,10 +29077,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Resumes multiple paused task instances.
+     * Resumes multiple paused node instances.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+     * DataWorks Basic Edition or later is required.
      *
      * @param Request - ResumeTaskInstancesRequest
      *
@@ -36035,10 +36035,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Modifies the properties of multiple node instances, including the priority, scheduling resource group, and data source.
+     * Updates the properties of multiple task instances in batches, including the priority, scheduling resource group, and data source.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or higher to use this feature.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param tmpReq - UpdateTaskInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36087,10 +36087,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Modifies the properties of multiple node instances, including the priority, scheduling resource group, and data source.
+     * Updates the properties of multiple task instances in batches, including the priority, scheduling resource group, and data source.
      *
      * @remarks
-     * You must purchase DataWorks Basic Edition or higher to use this feature.
+     * You must purchase DataWorks Basic Edition or later to use this operation.
      *
      * @param Request - UpdateTaskInstancesRequest
      *
