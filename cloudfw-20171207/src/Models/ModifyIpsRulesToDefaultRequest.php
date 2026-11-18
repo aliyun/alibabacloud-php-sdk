@@ -26,6 +26,11 @@ class ModifyIpsRulesToDefaultRequest extends Model
     /**
      * @var string
      */
+    public $proxyId;
+
+    /**
+     * @var string
+     */
     public $ruleType;
 
     /**
@@ -41,6 +46,7 @@ class ModifyIpsRulesToDefaultRequest extends Model
         'attackApp' => 'AttackApp',
         'firewallType' => 'FirewallType',
         'lang' => 'Lang',
+        'proxyId' => 'ProxyId',
         'ruleType' => 'RuleType',
         'rules' => 'Rules',
         'sourceIp' => 'SourceIp',
@@ -64,6 +70,10 @@ class ModifyIpsRulesToDefaultRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->proxyId) {
+            $res['ProxyId'] = $this->proxyId;
         }
 
         if (null !== $this->ruleType) {
@@ -99,6 +109,10 @@ class ModifyIpsRulesToDefaultRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['ProxyId'])) {
+            $model->proxyId = $map['ProxyId'];
         }
 
         if (isset($map['RuleType'])) {

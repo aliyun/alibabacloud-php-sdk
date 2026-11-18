@@ -51,6 +51,11 @@ class DescribeEventLogRequest extends Model
     /**
      * @var string
      */
+    public $ruleId;
+
+    /**
+     * @var string
+     */
     public $ruleResult;
 
     /**
@@ -71,6 +76,11 @@ class DescribeEventLogRequest extends Model
     /**
      * @var string
      */
+    public $sslHandshakeRes;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'attackType' => 'AttackType',
@@ -81,10 +91,12 @@ class DescribeEventLogRequest extends Model
         'lang' => 'Lang',
         'logType' => 'LogType',
         'pageSize' => 'PageSize',
+        'ruleId' => 'RuleId',
         'ruleResult' => 'RuleResult',
         'sourceCode' => 'SourceCode',
         'sourceIp' => 'SourceIp',
         'srcIP' => 'SrcIP',
+        'sslHandshakeRes' => 'SslHandshakeRes',
         'startTime' => 'StartTime',
     ];
 
@@ -128,6 +140,10 @@ class DescribeEventLogRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
+        }
+
         if (null !== $this->ruleResult) {
             $res['RuleResult'] = $this->ruleResult;
         }
@@ -142,6 +158,10 @@ class DescribeEventLogRequest extends Model
 
         if (null !== $this->srcIP) {
             $res['SrcIP'] = $this->srcIP;
+        }
+
+        if (null !== $this->sslHandshakeRes) {
+            $res['SslHandshakeRes'] = $this->sslHandshakeRes;
         }
 
         if (null !== $this->startTime) {
@@ -191,6 +211,10 @@ class DescribeEventLogRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
+        }
+
         if (isset($map['RuleResult'])) {
             $model->ruleResult = $map['RuleResult'];
         }
@@ -205,6 +229,10 @@ class DescribeEventLogRequest extends Model
 
         if (isset($map['SrcIP'])) {
             $model->srcIP = $map['SrcIP'];
+        }
+
+        if (isset($map['SslHandshakeRes'])) {
+            $model->sslHandshakeRes = $map['SslHandshakeRes'];
         }
 
         if (isset($map['StartTime'])) {

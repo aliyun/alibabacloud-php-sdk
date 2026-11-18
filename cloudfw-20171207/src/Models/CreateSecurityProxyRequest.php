@@ -12,6 +12,11 @@ class CreateSecurityProxyRequest extends Model
     /**
      * @var string
      */
+    public $basicDefenseEnabled;
+
+    /**
+     * @var string
+     */
     public $firewallServiceMode;
 
     /**
@@ -37,7 +42,22 @@ class CreateSecurityProxyRequest extends Model
     /**
      * @var string
      */
+    public $masterVSwitchCidr;
+
+    /**
+     * @var string
+     */
+    public $masterZoneId;
+
+    /**
+     * @var string
+     */
     public $natGatewayId;
+
+    /**
+     * @var string
+     */
+    public $natMode;
 
     /**
      * @var natRouteEntryList[]
@@ -55,9 +75,39 @@ class CreateSecurityProxyRequest extends Model
     public $regionNo;
 
     /**
+     * @var string
+     */
+    public $ruleClass;
+
+    /**
+     * @var string
+     */
+    public $runMode;
+
+    /**
+     * @var string
+     */
+    public $standbyVSwitchCidr;
+
+    /**
+     * @var string
+     */
+    public $standbyZoneId;
+
+    /**
      * @var int
      */
     public $strictMode;
+
+    /**
+     * @var string
+     */
+    public $threatIntelEnabled;
+
+    /**
+     * @var string
+     */
+    public $virtualPatchEnabled;
 
     /**
      * @var string
@@ -79,16 +129,26 @@ class CreateSecurityProxyRequest extends Model
      */
     public $vswitchId;
     protected $_name = [
+        'basicDefenseEnabled' => 'BasicDefenseEnabled',
         'firewallServiceMode' => 'FirewallServiceMode',
         'firewallServiceZones' => 'FirewallServiceZones',
         'firewallSwitch' => 'FirewallSwitch',
         'fwVswitchZoneId' => 'FwVswitchZoneId',
         'lang' => 'Lang',
+        'masterVSwitchCidr' => 'MasterVSwitchCidr',
+        'masterZoneId' => 'MasterZoneId',
         'natGatewayId' => 'NatGatewayId',
+        'natMode' => 'NatMode',
         'natRouteEntryList' => 'NatRouteEntryList',
         'proxyName' => 'ProxyName',
         'regionNo' => 'RegionNo',
+        'ruleClass' => 'RuleClass',
+        'runMode' => 'RunMode',
+        'standbyVSwitchCidr' => 'StandbyVSwitchCidr',
+        'standbyZoneId' => 'StandbyZoneId',
         'strictMode' => 'StrictMode',
+        'threatIntelEnabled' => 'ThreatIntelEnabled',
+        'virtualPatchEnabled' => 'VirtualPatchEnabled',
         'vpcId' => 'VpcId',
         'vswitchAuto' => 'VswitchAuto',
         'vswitchCidr' => 'VswitchCidr',
@@ -109,6 +169,10 @@ class CreateSecurityProxyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->basicDefenseEnabled) {
+            $res['BasicDefenseEnabled'] = $this->basicDefenseEnabled;
+        }
+
         if (null !== $this->firewallServiceMode) {
             $res['FirewallServiceMode'] = $this->firewallServiceMode;
         }
@@ -136,8 +200,20 @@ class CreateSecurityProxyRequest extends Model
             $res['Lang'] = $this->lang;
         }
 
+        if (null !== $this->masterVSwitchCidr) {
+            $res['MasterVSwitchCidr'] = $this->masterVSwitchCidr;
+        }
+
+        if (null !== $this->masterZoneId) {
+            $res['MasterZoneId'] = $this->masterZoneId;
+        }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+
+        if (null !== $this->natMode) {
+            $res['NatMode'] = $this->natMode;
         }
 
         if (null !== $this->natRouteEntryList) {
@@ -159,8 +235,32 @@ class CreateSecurityProxyRequest extends Model
             $res['RegionNo'] = $this->regionNo;
         }
 
+        if (null !== $this->ruleClass) {
+            $res['RuleClass'] = $this->ruleClass;
+        }
+
+        if (null !== $this->runMode) {
+            $res['RunMode'] = $this->runMode;
+        }
+
+        if (null !== $this->standbyVSwitchCidr) {
+            $res['StandbyVSwitchCidr'] = $this->standbyVSwitchCidr;
+        }
+
+        if (null !== $this->standbyZoneId) {
+            $res['StandbyZoneId'] = $this->standbyZoneId;
+        }
+
         if (null !== $this->strictMode) {
             $res['StrictMode'] = $this->strictMode;
+        }
+
+        if (null !== $this->threatIntelEnabled) {
+            $res['ThreatIntelEnabled'] = $this->threatIntelEnabled;
+        }
+
+        if (null !== $this->virtualPatchEnabled) {
+            $res['VirtualPatchEnabled'] = $this->virtualPatchEnabled;
         }
 
         if (null !== $this->vpcId) {
@@ -190,6 +290,10 @@ class CreateSecurityProxyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BasicDefenseEnabled'])) {
+            $model->basicDefenseEnabled = $map['BasicDefenseEnabled'];
+        }
+
         if (isset($map['FirewallServiceMode'])) {
             $model->firewallServiceMode = $map['FirewallServiceMode'];
         }
@@ -217,8 +321,20 @@ class CreateSecurityProxyRequest extends Model
             $model->lang = $map['Lang'];
         }
 
+        if (isset($map['MasterVSwitchCidr'])) {
+            $model->masterVSwitchCidr = $map['MasterVSwitchCidr'];
+        }
+
+        if (isset($map['MasterZoneId'])) {
+            $model->masterZoneId = $map['MasterZoneId'];
+        }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+
+        if (isset($map['NatMode'])) {
+            $model->natMode = $map['NatMode'];
         }
 
         if (isset($map['NatRouteEntryList'])) {
@@ -240,8 +356,32 @@ class CreateSecurityProxyRequest extends Model
             $model->regionNo = $map['RegionNo'];
         }
 
+        if (isset($map['RuleClass'])) {
+            $model->ruleClass = $map['RuleClass'];
+        }
+
+        if (isset($map['RunMode'])) {
+            $model->runMode = $map['RunMode'];
+        }
+
+        if (isset($map['StandbyVSwitchCidr'])) {
+            $model->standbyVSwitchCidr = $map['StandbyVSwitchCidr'];
+        }
+
+        if (isset($map['StandbyZoneId'])) {
+            $model->standbyZoneId = $map['StandbyZoneId'];
+        }
+
         if (isset($map['StrictMode'])) {
             $model->strictMode = $map['StrictMode'];
+        }
+
+        if (isset($map['ThreatIntelEnabled'])) {
+            $model->threatIntelEnabled = $map['ThreatIntelEnabled'];
+        }
+
+        if (isset($map['VirtualPatchEnabled'])) {
+            $model->virtualPatchEnabled = $map['VirtualPatchEnabled'];
         }
 
         if (isset($map['VpcId'])) {

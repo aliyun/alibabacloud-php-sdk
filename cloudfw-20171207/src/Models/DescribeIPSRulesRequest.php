@@ -66,6 +66,11 @@ class DescribeIPSRulesRequest extends Model
     /**
      * @var string
      */
+    public $proxyId;
+
+    /**
+     * @var string
+     */
     public $queryModify;
 
     /**
@@ -124,6 +129,7 @@ class DescribeIPSRulesRequest extends Model
         'order' => 'Order',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
+        'proxyId' => 'ProxyId',
         'queryModify' => 'QueryModify',
         'ruleAction' => 'RuleAction',
         'ruleClass' => 'RuleClass',
@@ -206,6 +212,10 @@ class DescribeIPSRulesRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->proxyId) {
+            $res['ProxyId'] = $this->proxyId;
         }
 
         if (null !== $this->queryModify) {
@@ -315,6 +325,10 @@ class DescribeIPSRulesRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ProxyId'])) {
+            $model->proxyId = $map['ProxyId'];
         }
 
         if (isset($map['QueryModify'])) {

@@ -26,11 +26,17 @@ class DescribeFirewallTaskRequest extends Model
     /**
      * @var string
      */
+    public $taskName;
+
+    /**
+     * @var string
+     */
     public $taskType;
     protected $_name = [
         'childInstanceId' => 'ChildInstanceId',
         'lang' => 'Lang',
         'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
         'taskType' => 'TaskType',
     ];
 
@@ -52,6 +58,10 @@ class DescribeFirewallTaskRequest extends Model
 
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+
+        if (null !== $this->taskName) {
+            $res['TaskName'] = $this->taskName;
         }
 
         if (null !== $this->taskType) {
@@ -79,6 +89,10 @@ class DescribeFirewallTaskRequest extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['TaskName'])) {
+            $model->taskName = $map['TaskName'];
         }
 
         if (isset($map['TaskType'])) {

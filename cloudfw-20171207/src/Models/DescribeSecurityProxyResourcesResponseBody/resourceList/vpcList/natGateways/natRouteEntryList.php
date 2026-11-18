@@ -16,6 +16,11 @@ class natRouteEntryList extends Model
     /**
      * @var string
      */
+    public $divertStatus;
+
+    /**
+     * @var string
+     */
     public $nextHopId;
 
     /**
@@ -29,6 +34,7 @@ class natRouteEntryList extends Model
     public $routeTableId;
     protected $_name = [
         'destinationCidr' => 'DestinationCidr',
+        'divertStatus' => 'DivertStatus',
         'nextHopId' => 'NextHopId',
         'nextHopType' => 'NextHopType',
         'routeTableId' => 'RouteTableId',
@@ -44,6 +50,10 @@ class natRouteEntryList extends Model
         $res = [];
         if (null !== $this->destinationCidr) {
             $res['DestinationCidr'] = $this->destinationCidr;
+        }
+
+        if (null !== $this->divertStatus) {
+            $res['DivertStatus'] = $this->divertStatus;
         }
 
         if (null !== $this->nextHopId) {
@@ -71,6 +81,10 @@ class natRouteEntryList extends Model
         $model = new self();
         if (isset($map['DestinationCidr'])) {
             $model->destinationCidr = $map['DestinationCidr'];
+        }
+
+        if (isset($map['DivertStatus'])) {
+            $model->divertStatus = $map['DivertStatus'];
         }
 
         if (isset($map['NextHopId'])) {
