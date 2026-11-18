@@ -1,3 +1,6 @@
+2026-11-18 Version: 5.17.2
+- Generated php 2021-09-01 for appstream-center.
+
 2026-11-16 Version: 5.17.1
 - Update API RestartWuyingServer: add request parameters EnableRestartRetry.
 

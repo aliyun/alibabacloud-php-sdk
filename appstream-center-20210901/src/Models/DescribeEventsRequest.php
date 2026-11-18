@@ -34,6 +34,11 @@ class DescribeEventsRequest extends Model
     public $endTime;
 
     /**
+     * @var string[]
+     */
+    public $endUserIds;
+
+    /**
      * @var string
      */
     public $eventId;
@@ -93,6 +98,7 @@ class DescribeEventsRequest extends Model
         'appInstanceId' => 'AppInstanceId',
         'bizRegionId' => 'BizRegionId',
         'endTime' => 'EndTime',
+        'endUserIds' => 'EndUserIds',
         'eventId' => 'EventId',
         'eventType' => 'EventType',
         'maxResults' => 'MaxResults',
@@ -108,6 +114,9 @@ class DescribeEventsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->endUserIds)) {
+            Model::validateArray($this->endUserIds);
+        }
         parent::validate();
     }
 
@@ -132,6 +141,17 @@ class DescribeEventsRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->endUserIds) {
+            if (\is_array($this->endUserIds)) {
+                $res['EndUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->endUserIds as $item1) {
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->eventId) {
@@ -207,6 +227,17 @@ class DescribeEventsRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['EndUserIds'])) {
+            if (!empty($map['EndUserIds'])) {
+                $model->endUserIds = [];
+                $n1 = 0;
+                foreach ($map['EndUserIds'] as $item1) {
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['EventId'])) {
