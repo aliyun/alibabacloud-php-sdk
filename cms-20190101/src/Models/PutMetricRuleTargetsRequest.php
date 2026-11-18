@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\PutMetricRuleTargetsRequest\targets;
 class PutMetricRuleTargetsRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -24,6 +29,7 @@ class PutMetricRuleTargetsRequest extends Model
      */
     public $targets;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'regionId' => 'RegionId',
         'ruleId' => 'RuleId',
         'targets' => 'Targets',
@@ -40,6 +46,10 @@ class PutMetricRuleTargetsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -70,6 +80,10 @@ class PutMetricRuleTargetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

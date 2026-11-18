@@ -12,8 +12,14 @@ class DeleteContactRequest extends Model
      * @var string
      */
     public $contactName;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
         'contactName' => 'ContactName',
+        'dryRun' => 'DryRun',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DeleteContactRequest extends Model
         $res = [];
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DeleteContactRequest extends Model
         $model = new self();
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         return $model;

@@ -25,6 +25,11 @@ class PutContactRequest extends Model
     public $describe;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $lang;
@@ -32,6 +37,7 @@ class PutContactRequest extends Model
         'channels' => 'Channels',
         'contactName' => 'ContactName',
         'describe' => 'Describe',
+        'dryRun' => 'DryRun',
         'lang' => 'Lang',
     ];
 
@@ -56,6 +62,10 @@ class PutContactRequest extends Model
 
         if (null !== $this->describe) {
             $res['Describe'] = $this->describe;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->lang) {
@@ -83,6 +93,10 @@ class PutContactRequest extends Model
 
         if (isset($map['Describe'])) {
             $model->describe = $map['Describe'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['Lang'])) {

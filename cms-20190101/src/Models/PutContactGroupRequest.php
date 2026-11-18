@@ -26,11 +26,17 @@ class PutContactGroupRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $enableSubscribed;
     protected $_name = [
         'contactGroupName' => 'ContactGroupName',
         'contactNames' => 'ContactNames',
         'describe' => 'Describe',
+        'dryRun' => 'DryRun',
         'enableSubscribed' => 'EnableSubscribed',
     ];
 
@@ -62,6 +68,10 @@ class PutContactGroupRequest extends Model
 
         if (null !== $this->describe) {
             $res['Describe'] = $this->describe;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->enableSubscribed) {
@@ -96,6 +106,10 @@ class PutContactGroupRequest extends Model
 
         if (isset($map['Describe'])) {
             $model->describe = $map['Describe'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EnableSubscribed'])) {
