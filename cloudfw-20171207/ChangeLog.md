@@ -1,3 +1,6 @@
+2026-11-18 Version: 8.6.2
+- Generated php 2017-12-07 for Cloudfw.
+
 2026-11-18 Version: 8.6.1
 - Update API CreateSecurityProxy: add request parameters BasicDefenseEnabled.
 - Update API CreateSecurityProxy: add request parameters MasterVSwitchCidr.
