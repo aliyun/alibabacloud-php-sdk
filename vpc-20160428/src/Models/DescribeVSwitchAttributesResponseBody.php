@@ -43,6 +43,11 @@ class DescribeVSwitchAttributesResponseBody extends Model
     /**
      * @var bool
      */
+    public $ipv6Only;
+
+    /**
+     * @var bool
+     */
     public $isDefault;
 
     /**
@@ -111,6 +116,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
         'description' => 'Description',
         'enabledIpv6' => 'EnabledIpv6',
         'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ipv6Only' => 'Ipv6Only',
         'isDefault' => 'IsDefault',
         'networkAclId' => 'NetworkAclId',
         'ownerId' => 'OwnerId',
@@ -162,6 +168,10 @@ class DescribeVSwitchAttributesResponseBody extends Model
 
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
+        }
+
+        if (null !== $this->ipv6Only) {
+            $res['Ipv6Only'] = $this->ipv6Only;
         }
 
         if (null !== $this->isDefault) {
@@ -249,6 +259,10 @@ class DescribeVSwitchAttributesResponseBody extends Model
 
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
+        }
+
+        if (isset($map['Ipv6Only'])) {
+            $model->ipv6Only = $map['Ipv6Only'];
         }
 
         if (isset($map['IsDefault'])) {

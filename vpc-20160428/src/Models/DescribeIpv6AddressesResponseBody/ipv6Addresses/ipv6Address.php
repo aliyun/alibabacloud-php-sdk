@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6AddressesResponseBody\ipv6Addresses;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6AddressesResponseBody\ipv6Addresses\ipv6Address\commonBandwidthPackageInfo;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6AddressesResponseBody\ipv6Addresses\ipv6Address\ipv6InternetBandwidth;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeIpv6AddressesResponseBody\ipv6Addresses\ipv6Address\tags;
 
@@ -29,6 +30,11 @@ class ipv6Address extends Model
      * @var string
      */
     public $associatedInstanceType;
+
+    /**
+     * @var commonBandwidthPackageInfo
+     */
+    public $commonBandwidthPackageInfo;
 
     /**
      * @var string
@@ -109,6 +115,7 @@ class ipv6Address extends Model
         'allocationTime' => 'AllocationTime',
         'associatedInstanceId' => 'AssociatedInstanceId',
         'associatedInstanceType' => 'AssociatedInstanceType',
+        'commonBandwidthPackageInfo' => 'CommonBandwidthPackageInfo',
         'ipv6Address' => 'Ipv6Address',
         'ipv6AddressDescription' => 'Ipv6AddressDescription',
         'ipv6AddressId' => 'Ipv6AddressId',
@@ -128,6 +135,9 @@ class ipv6Address extends Model
 
     public function validate()
     {
+        if (null !== $this->commonBandwidthPackageInfo) {
+            $this->commonBandwidthPackageInfo->validate();
+        }
         if (null !== $this->ipv6InternetBandwidth) {
             $this->ipv6InternetBandwidth->validate();
         }
@@ -154,6 +164,10 @@ class ipv6Address extends Model
 
         if (null !== $this->associatedInstanceType) {
             $res['AssociatedInstanceType'] = $this->associatedInstanceType;
+        }
+
+        if (null !== $this->commonBandwidthPackageInfo) {
+            $res['CommonBandwidthPackageInfo'] = null !== $this->commonBandwidthPackageInfo ? $this->commonBandwidthPackageInfo->toArray($noStream) : $this->commonBandwidthPackageInfo;
         }
 
         if (null !== $this->ipv6Address) {
@@ -241,6 +255,10 @@ class ipv6Address extends Model
 
         if (isset($map['AssociatedInstanceType'])) {
             $model->associatedInstanceType = $map['AssociatedInstanceType'];
+        }
+
+        if (isset($map['CommonBandwidthPackageInfo'])) {
+            $model->commonBandwidthPackageInfo = commonBandwidthPackageInfo::fromMap($map['CommonBandwidthPackageInfo']);
         }
 
         if (isset($map['Ipv6Address'])) {

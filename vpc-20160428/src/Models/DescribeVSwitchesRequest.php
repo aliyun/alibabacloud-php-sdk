@@ -22,6 +22,11 @@ class DescribeVSwitchesRequest extends Model
     /**
      * @var bool
      */
+    public $ipv6Only;
+
+    /**
+     * @var bool
+     */
     public $isDefault;
 
     /**
@@ -101,6 +106,7 @@ class DescribeVSwitchesRequest extends Model
     protected $_name = [
         'dryRun' => 'DryRun',
         'enableIpv6' => 'EnableIpv6',
+        'ipv6Only' => 'Ipv6Only',
         'isDefault' => 'IsDefault',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -136,6 +142,10 @@ class DescribeVSwitchesRequest extends Model
 
         if (null !== $this->enableIpv6) {
             $res['EnableIpv6'] = $this->enableIpv6;
+        }
+
+        if (null !== $this->ipv6Only) {
+            $res['Ipv6Only'] = $this->ipv6Only;
         }
 
         if (null !== $this->isDefault) {
@@ -226,6 +236,10 @@ class DescribeVSwitchesRequest extends Model
 
         if (isset($map['EnableIpv6'])) {
             $model->enableIpv6 = $map['EnableIpv6'];
+        }
+
+        if (isset($map['Ipv6Only'])) {
+            $model->ipv6Only = $map['Ipv6Only'];
         }
 
         if (isset($map['IsDefault'])) {

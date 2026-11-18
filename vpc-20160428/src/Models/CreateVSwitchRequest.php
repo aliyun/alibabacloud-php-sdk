@@ -40,6 +40,11 @@ class CreateVSwitchRequest extends Model
     public $ipv6CidrMask;
 
     /**
+     * @var bool
+     */
+    public $ipv6Only;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -95,6 +100,7 @@ class CreateVSwitchRequest extends Model
         'description' => 'Description',
         'ipv6CidrBlock' => 'Ipv6CidrBlock',
         'ipv6CidrMask' => 'Ipv6CidrMask',
+        'ipv6Only' => 'Ipv6Only',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -140,6 +146,10 @@ class CreateVSwitchRequest extends Model
 
         if (null !== $this->ipv6CidrMask) {
             $res['Ipv6CidrMask'] = $this->ipv6CidrMask;
+        }
+
+        if (null !== $this->ipv6Only) {
+            $res['Ipv6Only'] = $this->ipv6Only;
         }
 
         if (null !== $this->ownerAccount) {
@@ -222,6 +232,10 @@ class CreateVSwitchRequest extends Model
 
         if (isset($map['Ipv6CidrMask'])) {
             $model->ipv6CidrMask = $map['Ipv6CidrMask'];
+        }
+
+        if (isset($map['Ipv6Only'])) {
+            $model->ipv6Only = $map['Ipv6Only'];
         }
 
         if (isset($map['OwnerAccount'])) {

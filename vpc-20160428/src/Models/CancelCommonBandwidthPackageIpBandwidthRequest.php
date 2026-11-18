@@ -21,6 +21,16 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
     /**
      * @var string
      */
+    public $ipInstanceId;
+
+    /**
+     * @var string
+     */
+    public $ipType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -45,6 +55,8 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
     protected $_name = [
         'bandwidthPackageId' => 'BandwidthPackageId',
         'eipId' => 'EipId',
+        'ipInstanceId' => 'IpInstanceId',
+        'ipType' => 'IpType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -66,6 +78,14 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
 
         if (null !== $this->eipId) {
             $res['EipId'] = $this->eipId;
+        }
+
+        if (null !== $this->ipInstanceId) {
+            $res['IpInstanceId'] = $this->ipInstanceId;
+        }
+
+        if (null !== $this->ipType) {
+            $res['IpType'] = $this->ipType;
         }
 
         if (null !== $this->ownerAccount) {
@@ -105,6 +125,14 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
 
         if (isset($map['EipId'])) {
             $model->eipId = $map['EipId'];
+        }
+
+        if (isset($map['IpInstanceId'])) {
+            $model->ipInstanceId = $map['IpInstanceId'];
+        }
+
+        if (isset($map['IpType'])) {
+            $model->ipType = $map['IpType'];
         }
 
         if (isset($map['OwnerAccount'])) {

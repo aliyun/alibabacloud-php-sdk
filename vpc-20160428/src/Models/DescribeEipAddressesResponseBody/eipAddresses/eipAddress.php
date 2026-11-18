@@ -57,6 +57,11 @@ class eipAddress extends Model
     public $chargeType;
 
     /**
+     * @var string
+     */
+    public $commonBandwidthPackageIpBandwidth;
+
+    /**
      * @var bool
      */
     public $deletionProtection;
@@ -230,6 +235,7 @@ class eipAddress extends Model
         'bizType' => 'BizType',
         'businessStatus' => 'BusinessStatus',
         'chargeType' => 'ChargeType',
+        'commonBandwidthPackageIpBandwidth' => 'CommonBandwidthPackageIpBandwidth',
         'deletionProtection' => 'DeletionProtection',
         'description' => 'Description',
         'eipBandwidth' => 'EipBandwidth',
@@ -316,6 +322,10 @@ class eipAddress extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->commonBandwidthPackageIpBandwidth) {
+            $res['CommonBandwidthPackageIpBandwidth'] = $this->commonBandwidthPackageIpBandwidth;
         }
 
         if (null !== $this->deletionProtection) {
@@ -495,6 +505,10 @@ class eipAddress extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['CommonBandwidthPackageIpBandwidth'])) {
+            $model->commonBandwidthPackageIpBandwidth = $map['CommonBandwidthPackageIpBandwidth'];
         }
 
         if (isset($map['DeletionProtection'])) {

@@ -21,11 +21,29 @@ class publicIpAddresse extends Model
     /**
      * @var string
      */
+    public $commonBandwidthPackageIpBandwidth;
+
+    /**
+     * @var string
+     */
     public $ipAddress;
+
+    /**
+     * @var string
+     */
+    public $ipInstanceId;
+
+    /**
+     * @var string
+     */
+    public $ipType;
     protected $_name = [
         'allocationId' => 'AllocationId',
         'bandwidthPackageIpRelationStatus' => 'BandwidthPackageIpRelationStatus',
+        'commonBandwidthPackageIpBandwidth' => 'CommonBandwidthPackageIpBandwidth',
         'ipAddress' => 'IpAddress',
+        'ipInstanceId' => 'IpInstanceId',
+        'ipType' => 'IpType',
     ];
 
     public function validate()
@@ -44,8 +62,20 @@ class publicIpAddresse extends Model
             $res['BandwidthPackageIpRelationStatus'] = $this->bandwidthPackageIpRelationStatus;
         }
 
+        if (null !== $this->commonBandwidthPackageIpBandwidth) {
+            $res['CommonBandwidthPackageIpBandwidth'] = $this->commonBandwidthPackageIpBandwidth;
+        }
+
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
+        }
+
+        if (null !== $this->ipInstanceId) {
+            $res['IpInstanceId'] = $this->ipInstanceId;
+        }
+
+        if (null !== $this->ipType) {
+            $res['IpType'] = $this->ipType;
         }
 
         return $res;
@@ -67,8 +97,20 @@ class publicIpAddresse extends Model
             $model->bandwidthPackageIpRelationStatus = $map['BandwidthPackageIpRelationStatus'];
         }
 
+        if (isset($map['CommonBandwidthPackageIpBandwidth'])) {
+            $model->commonBandwidthPackageIpBandwidth = $map['CommonBandwidthPackageIpBandwidth'];
+        }
+
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
+        }
+
+        if (isset($map['IpInstanceId'])) {
+            $model->ipInstanceId = $map['IpInstanceId'];
+        }
+
+        if (isset($map['IpType'])) {
+            $model->ipType = $map['IpType'];
         }
 
         return $model;
