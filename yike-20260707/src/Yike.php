@@ -17,8 +17,12 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateInfiniteCanvasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateInfiniteCanvasResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateOssUploadRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateOssUploadResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateUploadMediaRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateUploadMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteAssetCategoryRequest;
@@ -71,6 +75,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\ListAssetCategoriesRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListAssetCategoriesResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListInfiniteCanvasesRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListInfiniteCanvasesResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListMediaFoldersRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListMediaFoldersResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ListWorkspacesRequest;
@@ -565,6 +571,91 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
+     *
+     * @remarks
+     * ## Request description
+     * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+     * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
+     * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+     *
+     * @param request - CreateOssUploadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOssUploadResponse
+     *
+     * @param CreateOssUploadRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateOssUploadResponse
+     */
+    public function createOssUploadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizConfig) {
+            @$query['BizConfig'] = $request->bizConfig;
+        }
+
+        if (null !== $request->credentialType) {
+            @$query['CredentialType'] = $request->credentialType;
+        }
+
+        if (null !== $request->fileExt) {
+            @$query['FileExt'] = $request->fileExt;
+        }
+
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->targetBucket) {
+            @$query['TargetBucket'] = $request->targetBucket;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOssUpload',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOssUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
+     *
+     * @remarks
+     * ## Request description
+     * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+     * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
+     * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+     *
+     * @param request - CreateOssUploadRequest
+     *
+     * @returns CreateOssUploadResponse
+     *
+     * @param CreateOssUploadRequest $request
+     *
+     * @return CreateOssUploadResponse
+     */
+    public function createOssUpload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOssUploadWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a project.
      *
      * @remarks
@@ -629,6 +720,109 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates or overwrites a media asset for upload and obtains upload credentials.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+     * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
+     * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
+     * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
+     *
+     * @param request - CreateUploadMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUploadMediaResponse
+     *
+     * @param CreateUploadMediaRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateUploadMediaResponse
+     */
+    public function createUploadMediaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialType) {
+            @$query['CredentialType'] = $request->credentialType;
+        }
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->fileInfo) {
+            @$query['FileInfo'] = $request->fileInfo;
+        }
+
+        if (null !== $request->mediaId) {
+            @$query['MediaId'] = $request->mediaId;
+        }
+
+        if (null !== $request->mediaMetaData) {
+            @$query['MediaMetaData'] = $request->mediaMetaData;
+        }
+
+        if (null !== $request->overwrite) {
+            @$query['Overwrite'] = $request->overwrite;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->storageLocation) {
+            @$query['StorageLocation'] = $request->storageLocation;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUploadMedia',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUploadMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates or overwrites a media asset for upload and obtains upload credentials.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+     * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
+     * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
+     * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
+     *
+     * @param request - CreateUploadMediaRequest
+     *
+     * @returns CreateUploadMediaResponse
+     *
+     * @param CreateUploadMediaRequest $request
+     *
+     * @return CreateUploadMediaResponse
+     */
+    public function createUploadMedia($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUploadMediaWithOptions($request, $runtime);
     }
 
     /**
@@ -2358,6 +2552,81 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInfiniteCanvasesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a paginated list of media folders in a specified project.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+     * - If `ProductionId` is not provided, the default project of the current account is used.
+     *
+     * @param request - ListMediaFoldersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMediaFoldersResponse
+     *
+     * @param ListMediaFoldersRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMediaFoldersResponse
+     */
+    public function listMediaFoldersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMediaFolders',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMediaFoldersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a paginated list of media folders in a specified project.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+     * - If `ProductionId` is not provided, the default project of the current account is used.
+     *
+     * @param request - ListMediaFoldersRequest
+     *
+     * @returns ListMediaFoldersResponse
+     *
+     * @param ListMediaFoldersRequest $request
+     *
+     * @return ListMediaFoldersResponse
+     */
+    public function listMediaFolders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMediaFoldersWithOptions($request, $runtime);
     }
 
     /**
