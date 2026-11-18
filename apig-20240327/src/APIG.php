@@ -210,6 +210,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageRespon
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResourceQuotaUsageRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResourceQuotaUsageResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayWebsocketUsageRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayWebsocketUsageResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHiMarketConsumerCredentialRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHiMarketConsumerCredentialResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHiMarketConsumerRequest;
@@ -318,6 +320,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayQuotaRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysShrinkRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayWebsocketEventsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayWebsocketEventsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGlobalPoliciesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGlobalPoliciesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHiMarketConsumersRequest;
@@ -7418,7 +7422,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the access overview of a consumer.
+     * Queries the consumer access overview.
      *
      * @param request - GetConsumerAccessOverviewRequest
      * @param headers - map
@@ -7461,7 +7465,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the access overview of a consumer.
+     * Queries the consumer access overview.
      *
      * @param request - GetConsumerAccessOverviewRequest
      *
@@ -8460,6 +8464,69 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getGatewayResourceQuotaUsageWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
+     *
+     * @remarks
+     * Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+     *
+     * @param request - GetGatewayWebsocketUsageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGatewayWebsocketUsageResponse
+     *
+     * @param string                          $gatewayId
+     * @param GetGatewayWebsocketUsageRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetGatewayWebsocketUsageResponse
+     */
+    public function getGatewayWebsocketUsageWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetGatewayWebsocketUsage',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/websocket-observability/usage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGatewayWebsocketUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
+     *
+     * @remarks
+     * Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+     *
+     * @param request - GetGatewayWebsocketUsageRequest
+     *
+     * @returns GetGatewayWebsocketUsageResponse
+     *
+     * @param string                          $gatewayId
+     * @param GetGatewayWebsocketUsageRequest $request
+     *
+     * @return GetGatewayWebsocketUsageResponse
+     */
+    public function getGatewayWebsocketUsage($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGatewayWebsocketUsageWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -12433,6 +12500,107 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listGatewayQuotaRulesWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+     *
+     * @remarks
+     * Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+     *
+     * @param request - ListGatewayWebsocketEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayWebsocketEventsResponse
+     *
+     * @param string                            $gatewayId
+     * @param ListGatewayWebsocketEventsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListGatewayWebsocketEventsResponse
+     */
+    public function listGatewayWebsocketEventsWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionId) {
+            @$query['connectionId'] = $request->connectionId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->model) {
+            @$query['model'] = $request->model;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->turnId) {
+            @$query['turnId'] = $request->turnId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayWebsocketEvents',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/websocket-observability/events',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayWebsocketEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+     *
+     * @remarks
+     * Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+     *
+     * @param request - ListGatewayWebsocketEventsRequest
+     *
+     * @returns ListGatewayWebsocketEventsResponse
+     *
+     * @param string                            $gatewayId
+     * @param ListGatewayWebsocketEventsRequest $request
+     *
+     * @return ListGatewayWebsocketEventsResponse
+     */
+    public function listGatewayWebsocketEvents($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayWebsocketEventsWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
