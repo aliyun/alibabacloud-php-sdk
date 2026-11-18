@@ -16,6 +16,11 @@ class DescribeInspectionTasksRequest extends Model
     /**
      * @var string
      */
+    public $levelSummary;
+
+    /**
+     * @var string
+     */
     public $pageNum;
 
     /**
@@ -34,6 +39,7 @@ class DescribeInspectionTasksRequest extends Model
     public $type;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'levelSummary' => 'LevelSummary',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
@@ -50,6 +56,10 @@ class DescribeInspectionTasksRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->levelSummary) {
+            $res['LevelSummary'] = $this->levelSummary;
         }
 
         if (null !== $this->pageNum) {
@@ -81,6 +91,10 @@ class DescribeInspectionTasksRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['LevelSummary'])) {
+            $model->levelSummary = $map['LevelSummary'];
         }
 
         if (isset($map['PageNum'])) {

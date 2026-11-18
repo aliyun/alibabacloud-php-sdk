@@ -14,6 +14,11 @@ class DescribeInspectionScheduleReportsRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $levelSummary;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -34,6 +39,7 @@ class DescribeInspectionScheduleReportsRequest extends Model
     public $securityToken;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'levelSummary' => 'LevelSummary',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'scheduleId' => 'ScheduleId',
@@ -50,6 +56,10 @@ class DescribeInspectionScheduleReportsRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->levelSummary) {
+            $res['LevelSummary'] = $this->levelSummary;
         }
 
         if (null !== $this->pageNum) {
@@ -81,6 +91,10 @@ class DescribeInspectionScheduleReportsRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['LevelSummary'])) {
+            $model->levelSummary = $map['LevelSummary'];
         }
 
         if (isset($map['PageNum'])) {

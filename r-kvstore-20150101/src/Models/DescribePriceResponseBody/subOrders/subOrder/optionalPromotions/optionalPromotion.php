@@ -29,6 +29,11 @@ class optionalPromotion extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $effective;
+
+    /**
      * @var string
      */
     public $name;
@@ -62,6 +67,7 @@ class optionalPromotion extends Model
         'canPromFee' => 'CanPromFee',
         'couponNo' => 'CouponNo',
         'description' => 'Description',
+        'effective' => 'Effective',
         'name' => 'Name',
         'optionCode' => 'OptionCode',
         'promotionName' => 'PromotionName',
@@ -100,6 +106,10 @@ class optionalPromotion extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->effective) {
+            $res['Effective'] = $this->effective;
         }
 
         if (null !== $this->name) {
@@ -156,6 +166,10 @@ class optionalPromotion extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Effective'])) {
+            $model->effective = $map['Effective'];
         }
 
         if (isset($map['Name'])) {

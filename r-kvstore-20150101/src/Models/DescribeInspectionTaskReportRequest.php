@@ -21,6 +21,11 @@ class DescribeInspectionTaskReportRequest extends Model
     /**
      * @var string
      */
+    public $levelSummary;
+
+    /**
+     * @var string
+     */
     public $securityToken;
 
     /**
@@ -30,6 +35,7 @@ class DescribeInspectionTaskReportRequest extends Model
     protected $_name = [
         'inspectionInsId' => 'InspectionInsId',
         'instanceId' => 'InstanceId',
+        'levelSummary' => 'LevelSummary',
         'securityToken' => 'SecurityToken',
         'taskId' => 'TaskId',
     ];
@@ -48,6 +54,10 @@ class DescribeInspectionTaskReportRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->levelSummary) {
+            $res['LevelSummary'] = $this->levelSummary;
         }
 
         if (null !== $this->securityToken) {
@@ -75,6 +85,10 @@ class DescribeInspectionTaskReportRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['LevelSummary'])) {
+            $model->levelSummary = $map['LevelSummary'];
         }
 
         if (isset($map['SecurityToken'])) {

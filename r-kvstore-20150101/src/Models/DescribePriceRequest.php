@@ -54,6 +54,11 @@ class DescribePriceRequest extends Model
     public $instances;
 
     /**
+     * @var bool
+     */
+    public $needUnavailableCoupon;
+
+    /**
      * @var string
      */
     public $nodeType;
@@ -132,6 +137,7 @@ class DescribePriceRequest extends Model
         'instanceClass' => 'InstanceClass',
         'instanceId' => 'InstanceId',
         'instances' => 'Instances',
+        'needUnavailableCoupon' => 'NeedUnavailableCoupon',
         'nodeType' => 'NodeType',
         'orderParamOut' => 'OrderParamOut',
         'orderType' => 'OrderType',
@@ -190,6 +196,10 @@ class DescribePriceRequest extends Model
 
         if (null !== $this->instances) {
             $res['Instances'] = $this->instances;
+        }
+
+        if (null !== $this->needUnavailableCoupon) {
+            $res['NeedUnavailableCoupon'] = $this->needUnavailableCoupon;
         }
 
         if (null !== $this->nodeType) {
@@ -293,6 +303,10 @@ class DescribePriceRequest extends Model
 
         if (isset($map['Instances'])) {
             $model->instances = $map['Instances'];
+        }
+
+        if (isset($map['NeedUnavailableCoupon'])) {
+            $model->needUnavailableCoupon = $map['NeedUnavailableCoupon'];
         }
 
         if (isset($map['NodeType'])) {
