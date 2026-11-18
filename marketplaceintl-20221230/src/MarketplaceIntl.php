@@ -13,6 +13,7 @@ use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\NoticeInstanceUserRequest;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\NoticeInstanceUserResponse;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataRequest;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -23,6 +24,9 @@ class MarketplaceIntl extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'marketplaceIntl';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('marketplaceintl', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -263,6 +267,11 @@ class MarketplaceIntl extends OpenApiClient
     public function pushMeteringDataWithOptions($request, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->metering) {
+            @$query['Metering'] = $request->metering;
+        }
+
         $body = [];
         if (null !== $request->gmtCreate) {
             @$body['GmtCreate'] = $request->gmtCreate;
@@ -273,6 +282,7 @@ class MarketplaceIntl extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([

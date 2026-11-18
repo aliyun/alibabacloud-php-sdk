@@ -15,11 +15,17 @@ class PushMeteringDataRequest extends Model
     public $gmtCreate;
 
     /**
+     * @var string
+     */
+    public $metering;
+
+    /**
      * @var meteringData[]
      */
     public $meteringData;
     protected $_name = [
         'gmtCreate' => 'GmtCreate',
+        'metering' => 'Metering',
         'meteringData' => 'MeteringData',
     ];
 
@@ -36,6 +42,10 @@ class PushMeteringDataRequest extends Model
         $res = [];
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
+        }
+
+        if (null !== $this->metering) {
+            $res['Metering'] = $this->metering;
         }
 
         if (null !== $this->meteringData) {
@@ -62,6 +72,10 @@ class PushMeteringDataRequest extends Model
         $model = new self();
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
+        }
+
+        if (isset($map['Metering'])) {
+            $model->metering = $map['Metering'];
         }
 
         if (isset($map['MeteringData'])) {
