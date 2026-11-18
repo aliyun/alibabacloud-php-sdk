@@ -132,6 +132,8 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseProjectMembership
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseProjectMembershipResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseSecurityIPListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseSecurityIPListResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseUserAllowOrgCreationRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseUserAllowOrgCreationResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifySecurityIPListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifySecurityIPListResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ResetAccountPasswordRequest;
@@ -240,7 +242,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Associates a whitelist template with instances.
+     * Associates instances with a whitelist template.
      *
      * @param request - AttachWhitelistTemplateToInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -287,7 +289,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Associates a whitelist template with instances.
+     * Associates instances with a whitelist template.
      *
      * @param request - AttachWhitelistTemplateToInstanceRequest
      *
@@ -758,7 +760,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Allocates a public endpoint.
+     * Creates a public endpoint.
      *
      * @param request - CreateEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -813,7 +815,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Allocates a public endpoint.
+     * Creates a public endpoint.
      *
      * @param request - CreateEndpointRequest
      *
@@ -2201,7 +2203,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details of an ApsaraDB for ClickHouse cluster.
+     * Queries the details of an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2244,7 +2246,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details of an ApsaraDB for ClickHouse cluster.
+     * Queries the details of an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      *
@@ -4671,6 +4673,75 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyLangfuseSecurityIPListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the organization creation permissions for a Langfuse user.
+     *
+     * @param request - ModifyLangfuseUserAllowOrgCreationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyLangfuseUserAllowOrgCreationResponse
+     *
+     * @param ModifyLangfuseUserAllowOrgCreationRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModifyLangfuseUserAllowOrgCreationResponse
+     */
+    public function modifyLangfuseUserAllowOrgCreationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowOrgCreation) {
+            @$query['AllowOrgCreation'] = $request->allowOrgCreation;
+        }
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyLangfuseUserAllowOrgCreation',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyLangfuseUserAllowOrgCreationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the organization creation permissions for a Langfuse user.
+     *
+     * @param request - ModifyLangfuseUserAllowOrgCreationRequest
+     *
+     * @returns ModifyLangfuseUserAllowOrgCreationResponse
+     *
+     * @param ModifyLangfuseUserAllowOrgCreationRequest $request
+     *
+     * @return ModifyLangfuseUserAllowOrgCreationResponse
+     */
+    public function modifyLangfuseUserAllowOrgCreation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLangfuseUserAllowOrgCreationWithOptions($request, $runtime);
     }
 
     /**

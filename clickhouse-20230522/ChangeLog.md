@@ -1,3 +1,7 @@
+2026-11-18 Version: 3.2.0
+- Support API ModifyLangfuseUserAllowOrgCreation.
+
+
 2026-11-05 Version: 3.1.2
 - Update API CreateLangfuseUser: add request parameters AllowOrgCreation.
 - Update API CreateLangfuseUser: add response parameters Body.Data.AllowOrgCreation.
