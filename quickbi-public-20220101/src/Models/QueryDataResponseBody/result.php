@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataResponseBody\result\headers;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataResponseBody\result\valuesV2;
 
 class result extends Model
 {
@@ -23,10 +24,16 @@ class result extends Model
      * @var mixed[][]
      */
     public $values;
+
+    /**
+     * @var valuesV2[]
+     */
+    public $valuesV2;
     protected $_name = [
         'headers' => 'Headers',
         'sql' => 'Sql',
         'values' => 'Values',
+        'valuesV2' => 'ValuesV2',
     ];
 
     public function validate()
@@ -36,6 +43,9 @@ class result extends Model
         }
         if (\is_array($this->values)) {
             Model::validateArray($this->values);
+        }
+        if (\is_array($this->valuesV2)) {
+            Model::validateArray($this->valuesV2);
         }
         parent::validate();
     }
@@ -69,6 +79,17 @@ class result extends Model
                             $res['Values'][$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->valuesV2) {
+            if (\is_array($this->valuesV2)) {
+                $res['ValuesV2'] = [];
+                $n1 = 0;
+                foreach ($this->valuesV2 as $item1) {
+                    $res['ValuesV2'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -111,6 +132,17 @@ class result extends Model
                             $model->values[$n1][$key2] = $value2;
                         }
                     }
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ValuesV2'])) {
+            if (!empty($map['ValuesV2'])) {
+                $model->valuesV2 = [];
+                $n1 = 0;
+                foreach ($map['ValuesV2'] as $item1) {
+                    $model->valuesV2[$n1] = valuesV2::fromMap($item1);
                     ++$n1;
                 }
             }

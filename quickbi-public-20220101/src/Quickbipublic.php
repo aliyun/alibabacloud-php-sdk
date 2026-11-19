@@ -97,6 +97,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskStatusResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetPersonalICodeRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetPersonalICodeResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetWorksEmbedListRequest;
@@ -274,6 +276,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateEmbeddedStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateEmbeddedStatusResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdatePersonalICodeRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdatePersonalICodeResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateTicketNumRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateTicketNumResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateUserGroupRequest;
@@ -290,6 +294,7 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateWorkspaceUsersRoleRequ
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateWorkspaceUsersRoleResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\WithdrawAllUserGroupsRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\WithdrawAllUserGroupsResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -300,6 +305,9 @@ class Quickbipublic extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'quickbi-public';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('quickbi-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -330,10 +338,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds specified users and user groups to a row-level permission rule.
+     * Adds selected users and user groups to a specific row-column permission rule.
      *
      * @remarks
-     * > This API operation supports only the new row-level permission model in Quick BI. If you are using the previous row-level permission model, you must migrate to the new model before you call this operation. To migrate, go to Organization Management > Security Settings > Upgrade Row-level Permissions, and then click **One-click Upgrade**.
+     * > Note: This operation supports only the new row-column permission model of Quick BI. If you are still using the legacy row-column permissions, migrate to the new row-column permission model before you call this operation. To migrate to the new row-column permission model, go to **Organization Management** > **Security Configuration** > **Row-Column Permission Upgrade**, and click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - AddDataLevelPermissionRuleUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -372,10 +380,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds specified users and user groups to a row-level permission rule.
+     * Adds selected users and user groups to a specific row-column permission rule.
      *
      * @remarks
-     * > This API operation supports only the new row-level permission model in Quick BI. If you are using the previous row-level permission model, you must migrate to the new model before you call this operation. To migrate, go to Organization Management > Security Settings > Upgrade Row-level Permissions, and then click **One-click Upgrade**.
+     * > Note: This operation supports only the new row-column permission model of Quick BI. If you are still using the legacy row-column permissions, migrate to the new row-column permission model before you call this operation. To migrate to the new row-column permission model, go to **Organization Management** > **Security Configuration** > **Row-Column Permission Upgrade**, and click **One-Click Upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - AddDataLevelPermissionRuleUsersRequest
      *
@@ -393,10 +401,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the whitelist for row-level and column-level permissions of a specified dataset.
+     * Modifies the whitelist for row and column permissions of a specified dataset.
      *
      * @remarks
-     * > This API operation supports only the new permission model for row-level and column-level permissions in Quick BI. If you are using the old permission model, you must migrate to the new one before you call this operation. To perform a one-click migration, you can go to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions and click **One-click Upgrade**.
+     * > : This operation only supports the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, perform a one-click migration to the new row and column permission model before calling this operation. To perform a one-click migration to the new row and column permission model, go to **Organization management** > **Security configuration** > **Row and column permission upgrade**, and click **One-click upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - AddDataLevelPermissionWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -451,10 +459,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the whitelist for row-level and column-level permissions of a specified dataset.
+     * Modifies the whitelist for row and column permissions of a specified dataset.
      *
      * @remarks
-     * > This API operation supports only the new permission model for row-level and column-level permissions in Quick BI. If you are using the old permission model, you must migrate to the new one before you call this operation. To perform a one-click migration, you can go to Organization Management > Security Configuration > Upgrade to New Row-level and Column-level Permissions and click **One-click Upgrade**.
+     * > : This operation only supports the new row and column permission model of Quick BI. If you are still using the legacy row and column permissions, perform a one-click migration to the new row and column permission model before calling this operation. To perform a one-click migration to the new row and column permission model, go to **Organization management** > **Security configuration** > **Row and column permission upgrade**, and click **One-click upgrade** to upgrade to the new row-level permissions.
      *
      * @param request - AddDataLevelPermissionWhiteListRequest
      *
@@ -472,7 +480,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds a data source.
+     * Creates a data source connection.
      *
      * @param request - AddDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -511,7 +519,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds a data source.
+     * Creates a data source connection.
      *
      * @param request - AddDataSourceRequest
      *
@@ -689,7 +697,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds an organization member to a specified user group.
+     * Adds organization members to a specified user group.
      *
      * @param request - AddUserGroupMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -732,7 +740,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds an organization member to a specified user group.
+     * Adds organization members to a specified user group.
      *
      * @param request - AddUserGroupMemberRequest
      *
@@ -750,7 +758,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add users to a specified user group at a time.
+     * Adds multiple users to a specified user group.
      *
      * @param request - AddUserGroupMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -793,7 +801,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add users to a specified user group at a time.
+     * Adds multiple users to a specified user group.
      *
      * @param request - AddUserGroupMembersRequest
      *
@@ -811,7 +819,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add organization member tag metadata.
+     * Creates metadata for an organization member tag.
      *
      * @param request - AddUserTagMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -854,7 +862,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Add organization member tag metadata.
+     * Creates metadata for an organization member tag.
      *
      * @param request - AddUserTagMetaRequest
      *
@@ -937,7 +945,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds an authorization for a work.
+     * Creates a collaborative authorization record for a resource.
      *
      * @param request - AddWorksAuthorizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -996,7 +1004,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds an authorization for a work.
+     * Creates a collaborative authorization record for a resource.
      *
      * @param request - AddWorksAuthorizationRequest
      *
@@ -1079,7 +1087,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Trigger the collection acceleration of the Quick engine for datasets.
+     * Triggers the extraction acceleration of the Quick engine for a dataset.
      *
      * @param request - AllotDatasetAccelerationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1118,7 +1126,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Trigger the collection acceleration of the Quick engine for datasets.
+     * Triggers the extraction acceleration of the Quick engine for a dataset.
      *
      * @param request - AllotDatasetAccelerationTaskRequest
      *
@@ -1136,7 +1144,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch authorization of BI portal menu will be skipped automatically.
+     * Grants batch permissions for data portal menus. Already authorized menus are automatically skipped.
      *
      * @param request - AuthorizeMenuRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1191,7 +1199,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch authorization of BI portal menu will be skipped automatically.
+     * Grants batch permissions for data portal menus. Already authorized menus are automatically skipped.
      *
      * @param request - AuthorizeMenuRequest
      *
@@ -1209,7 +1217,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Adds Lark users in batches.
+     * Adds multiple Lark users.
      *
      * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
      *
@@ -1267,7 +1275,7 @@ class Quickbipublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Adds Lark users in batches.
+     * Adds multiple Lark users.
      *
      * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
      *
@@ -1287,7 +1295,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Cancel the authorization records for specified users and user groups based on the portal menu ID.
+     * Revokes authorization records for specified users and user groups based on portal menu IDs.
      *
      * @param request - CancelAuthorizationMenuRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1338,7 +1346,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Cancel the authorization records for specified users and user groups based on the portal menu ID.
+     * Revokes authorization records for specified users and user groups based on portal menu IDs.
      *
      * @param request - CancelAuthorizationMenuRequest
      *
@@ -1356,7 +1364,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Cancel the data works from the user\\"s collection.
+     * Removes a data work from a user\\"s favorites.
      *
      * @param request - CancelCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1399,7 +1407,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Cancel the data works from the user\\"s collection.
+     * Removes a data work from a user\\"s favorites.
      *
      * @param request - CancelCollectionRequest
      *
@@ -1417,7 +1425,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete a share authorization for a data work.
+     * Deletes a sharing authorization for a data work.
      *
      * @param request - CancelReportShareRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1464,7 +1472,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Delete a share authorization for a data work.
+     * Deletes a sharing authorization for a data work.
      *
      * @param request - CancelReportShareRequest
      *
@@ -1482,7 +1490,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+     * Modifies the visibility of data portal menus and specifies whether the menus are visible only to authorized users.
      *
      * @param request - ChangeVisibilityModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1529,7 +1537,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Modifies the visibility mode of the BI portal menu and whether the menu is only authorized to be visible.
+     * Modifies the visibility of data portal menus and specifies whether the menus are visible only to authorized users.
      *
      * @param request - ChangeVisibilityModelRequest
      *
@@ -1604,7 +1612,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Checks if a user is a member of an organization.
+     * Checks whether a user belongs to an organization.
      *
      * @param request - CheckOrganizationMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1643,7 +1651,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Checks if a user is a member of an organization.
+     * Checks whether a user belongs to an organization.
      *
      * @param request - CheckOrganizationMemberRequest
      *
@@ -1722,7 +1730,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Deletes the cached tag value for a single configuration.
+     * Deletes the tag value cache for a single configuration.
      *
      * @param request - ClearDynamicTagCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1761,7 +1769,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Deletes the cached tag value for a single configuration.
+     * Deletes the tag value cache for a single configuration.
      *
      * @param request - ClearDynamicTagCacheRequest
      *
@@ -2032,7 +2040,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 生成AIPro超级框嵌入ticket.
+     * Generates an AIPro Super Box embedding ticket.
      *
      * @param request - CreateTicket4AiProRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2099,7 +2107,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 生成AIPro超级框嵌入ticket.
+     * Generates an AIPro Super Box embedding ticket.
      *
      * @param request - CreateTicket4AiProRequest
      *
@@ -3401,6 +3409,63 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * Retrieves or generates a personal identification number for a user.
+     *
+     * @param request - GetPersonalICodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPersonalICodeResponse
+     *
+     * @param GetPersonalICodeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetPersonalICodeResponse
+     */
+    public function getPersonalICodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->quickBIUserId) {
+            @$query['QuickBIUserId'] = $request->quickBIUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPersonalICode',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPersonalICodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves or generates a personal identification number for a user.
+     *
+     * @param request - GetPersonalICodeRequest
+     *
+     * @returns GetPersonalICodeResponse
+     *
+     * @param GetPersonalICodeRequest $request
+     *
+     * @return GetPersonalICodeResponse
+     */
+    public function getPersonalICode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPersonalICodeWithOptions($request, $runtime);
+    }
+
+    /**
      * Searches for user group information by user group name keyword.
      *
      * @param request - GetUserGroupInfoRequest
@@ -3740,7 +3805,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the collaborative authorization records of a resource.
+     * Queries the list of collaborative authorization records for a resource.
      *
      * @param request - ListAuthConfigByResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3795,7 +3860,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the collaborative authorization records of a resource.
+     * Queries the list of collaborative authorization records for a resource.
      *
      * @param request - ListAuthConfigByResourceRequest
      *
@@ -4975,7 +5040,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 修改AI Pro嵌入配置.
+     * Creates or updates an AIPro embedding configuration.
      *
      * @param request - ModifyAiproEmbedConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5038,7 +5103,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 修改AI Pro嵌入配置.
+     * Creates or updates an AIPro embedding configuration.
      *
      * @param request - ModifyAiproEmbedConfigRequest
      *
@@ -5330,7 +5395,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 概述.
+     * Retrieves a list of AIPro embed configurations.
      *
      * @param request - QueryAiproEmbedConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5369,7 +5434,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 概述.
+     * Retrieves a list of AIPro embed configurations.
      *
      * @param request - QueryAiproEmbedConfigRequest
      *
@@ -5387,7 +5452,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get approval flow information based on the approver.
+     * Retrieves the approval flow information based on the approver.
      *
      * @param request - QueryApprovalInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5438,7 +5503,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get approval flow information based on the approver.
+     * Retrieves the approval flow information based on the approver.
      *
      * @param request - QueryApprovalInfoRequest
      *
@@ -5626,7 +5691,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the List of Configurations for Activating XiaoQ Embedding.
+     * Retrieves the list of configurations for Xiao Q embedding.
      *
      * @param request - QueryCopilotEmbedConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5665,7 +5730,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the List of Configurations for Activating XiaoQ Embedding.
+     * Retrieves the list of configurations for Xiao Q embedding.
      *
      * @param request - QueryCopilotEmbedConfigRequest
      *
@@ -5817,7 +5882,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query Dashboard\\"s Question Resource Information.
+     * Queries the NL2SQL resource information of a dashboard.
      *
      * @param request - QueryDashboardNl2sqlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5860,7 +5925,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query Dashboard\\"s Question Resource Information.
+     * Queries the NL2SQL resource information of a dashboard.
      *
      * @param request - QueryDashboardNl2sqlRequest
      *
@@ -5878,15 +5943,15 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Calls a DataService Studio API to query data.
+     * Calls an API created in Data Service.
      *
      * @remarks
-     * ### Prerequisites
-     * Create an API in [DataService Studio](https://help.aliyun.com/document_detail/144980.html) before calling this operation.
+     * ### Before you begin
+     * You must first create an API in the Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
      * ### Limits
-     * - Requires Quick BI Professional Edition.
-     * - API call timeout: 60s. QPS limit per API: 10.
-     * - Row-level permissions on the referenced dataset also apply to API calls.
+     * * The Data Service feature is available only to Professional Edition users.
+     * * For Data Service API calls, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+     * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the row-level access policy also intercepts the request when you make the API call.
      *
      * @param request - QueryDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5937,15 +6002,15 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Calls a DataService Studio API to query data.
+     * Calls an API created in Data Service.
      *
      * @remarks
-     * ### Prerequisites
-     * Create an API in [DataService Studio](https://help.aliyun.com/document_detail/144980.html) before calling this operation.
+     * ### Before you begin
+     * You must first create an API in the Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
      * ### Limits
-     * - Requires Quick BI Professional Edition.
-     * - API call timeout: 60s. QPS limit per API: 10.
-     * - Row-level permissions on the referenced dataset also apply to API calls.
+     * * The Data Service feature is available only to Professional Edition users.
+     * * For Data Service API calls, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+     * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the row-level access policy also intercepts the request when you make the API call.
      *
      * @param request - QueryDataRequest
      *
@@ -5963,7 +6028,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get Data Range Catalog List.
+     * Retrieves the list of data scope directories for the embedded configuration page.
      *
      * @param request - QueryDataRangeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6006,7 +6071,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get Data Range Catalog List.
+     * Retrieves the list of data scope directories for the embedded configuration page.
      *
      * @param request - QueryDataRangeRequest
      *
@@ -6024,15 +6089,15 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Invoke an already created API in the data service.
+     * Calls an API created in Data Service.
      *
      * @remarks
-     * #### Prerequisites
-     * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
-     * #### Usage Restrictions
-     * * The data service feature is only available to professional edition customers.
-     * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
-     * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
+     * #### Before you begin
+     * You have created an API in Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
+     * #### Limits
+     * * The Data Service feature is available only to Quick BI Professional Edition users.
+     * * When you invoke a Data Service API, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+     * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the invocation may be blocked by the row-level access policy.
      *
      * @deprecated openAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead
      *
@@ -6082,15 +6147,15 @@ class Quickbipublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Invoke an already created API in the data service.
+     * Calls an API created in Data Service.
      *
      * @remarks
-     * #### Prerequisites
-     * You create the data service API through Quick BI\\"s data service. For more details, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
-     * #### Usage Restrictions
-     * * The data service feature is only available to professional edition customers.
-     * * The timeout for data service API calls is 60s, and the QPS for a single API is 10 times/second.
-     * * If row-level permissions are enabled on the dataset referenced by the data service API, the API call may be intercepted by the row-level permission policy.
+     * #### Before you begin
+     * You have created an API in Data Service of Quick BI. For more information, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
+     * #### Limits
+     * * The Data Service feature is available only to Quick BI Professional Edition users.
+     * * When you invoke a Data Service API, the timeout period is 60 seconds, and the queries per second (QPS) limit for a single API is 10.
+     * * If row-level permissions are enabled for the dataset referenced by a Data Service API, the invocation may be blocked by the row-level access policy.
      *
      * @deprecated openAPI QueryDataService is deprecated, please use quickbi-public::2022-01-01::QueryData instead
      *
@@ -6110,7 +6175,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query Data Service API List.
+     * Queries the list of data service APIs.
      *
      * @param request - QueryDataServiceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6161,7 +6226,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Query Data Service API List.
+     * Queries the list of data service APIs.
      *
      * @param request - QueryDataServiceListRequest
      *
@@ -6179,10 +6244,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified dataset, including its data source, directory, and dataset model.
+     * Queries the details of a specified dataset, including the associated data source, folder, and dataset model.
      *
      * @remarks
-     * The response includes the data source, directory, and a dataset model containing dimensions, measures, physical fields, custom SQL text, and relationships.
+     * The details include the associated data source, folder, and dataset model, which contains information such as dimensions, measures, physical fields, custom SQL text, and associations.
      *
      * @param request - QueryDatasetDetailInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6221,10 +6286,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified dataset, including its data source, directory, and dataset model.
+     * Queries the details of a specified dataset, including the associated data source, folder, and dataset model.
      *
      * @remarks
-     * The response includes the data source, directory, and a dataset model containing dimensions, measures, physical fields, custom SQL text, and relationships.
+     * The details include the associated data source, folder, and dataset model, which contains information such as dimensions, measures, physical fields, custom SQL text, and associations.
      *
      * @param request - QueryDatasetDetailInfoRequest
      *
@@ -6242,9 +6307,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the table is a custom SQL table. Valid values:
-     * \\\\*   true: custom SQL table
-     * \\\\*   false: non-custom SQL table
+     * Queries the information of a specified dataset.
      *
      * @param request - QueryDatasetInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6283,9 +6346,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the table is a custom SQL table. Valid values:
-     * \\\\*   true: custom SQL table
-     * \\\\*   false: non-custom SQL table
+     * Queries the information of a specified dataset.
      *
      * @param request - QueryDatasetInfoRequest
      *
@@ -6437,10 +6498,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the row-level permission switch status for a specified dataset.
+     * Retrieves the status of the row-level permission switch for a specified dataset.
      *
      * @remarks
-     * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+     * > : This operation supports only the new row- and column-level permission model of Quick BI. If you are still using the legacy row- and column-level permissions, migrate to the new row- and column-level permission model before you call this operation. To migrate to the new model, go to **Organization management** > **Security settings** > **Upgrade row- and column-level permissions to new version**, and click **One-click upgrade**.
      *
      * @param request - QueryDatasetSwitchInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6479,10 +6540,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Get the row-level permission switch status for a specified dataset.
+     * Retrieves the status of the row-level permission switch for a specified dataset.
      *
      * @remarks
-     * > This interface only supports the new row and column permission model of Quick BI. If you are still using the old row and column permissions, please migrate to the new row and column permission model before calling this interface. To migrate to the new row and column permission model, follow these steps: In Organization Management -> Security Configuration -> Upgrade Row and Column Permissions, click **One-Click Upgrade** to upgrade to the new row-level permissions.
+     * > : This operation supports only the new row- and column-level permission model of Quick BI. If you are still using the legacy row- and column-level permissions, migrate to the new row- and column-level permission model before you call this operation. To migrate to the new model, go to **Organization management** > **Security settings** > **Upgrade row- and column-level permissions to new version**, and click **One-click upgrade**.
      *
      * @param request - QueryDatasetSwitchInfoRequest
      *
@@ -6657,7 +6718,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check which datasets and analysis themes the user has question authorization for.
+     * Queries the smart query authorizations for datasets and analysis themes of a user.
      *
      * @param request - QueryLlmCubeWithThemeListByUserIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6696,7 +6757,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Check which datasets and analysis themes the user has question authorization for.
+     * Queries the smart query authorizations for datasets and analysis themes of a user.
      *
      * @param request - QueryLlmCubeWithThemeListByUserIdRequest
      *
@@ -6840,7 +6901,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+     * Queries the list of works that a user has permission to view, including reports in workspaces and those shared through authorization.
      *
      * @deprecated openAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead
      *
@@ -6882,7 +6943,7 @@ class Quickbipublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Queries the list of works that a user has the permission to view, including the statements that are authorized to share in a space.
+     * Queries the list of works that a user has permission to view, including reports in workspaces and those shared through authorization.
      *
      * @deprecated openAPI QueryReadableResourcesListByUserId is deprecated, please use quickbi-public::2022-01-01::QueryReadableResourcesListByUserIdV2 instead
      *
@@ -7223,7 +7284,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specified ticket for a report that is not embedded in the report.
+     * Retrieves the details of a specified ticket for logon-free embedded reports.
      *
      * @param request - QueryTicketInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7262,7 +7323,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specified ticket for a report that is not embedded in the report.
+     * Retrieves the details of a specified ticket for logon-free embedded reports.
      *
      * @param request - QueryTicketInfoRequest
      *
@@ -7280,7 +7341,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries a UserId by the bound third-party account ID.
+     * Queries the user ID based on the bound third-party account ID.
      *
      * @param request - QueryUserByMobileAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7323,7 +7384,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries a UserId by the bound third-party account ID.
+     * Queries the user ID based on the bound third-party account ID.
      *
      * @param request - QueryUserByMobileAccountRequest
      *
@@ -7398,7 +7459,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of members under a user group.
+     * Retrieves the list of members in a user group.
      *
      * @param request - QueryUserGroupMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7441,7 +7502,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of members under a user group.
+     * Retrieves the list of members in a user group.
      *
      * @param request - QueryUserGroupMemberRequest
      *
@@ -7691,7 +7752,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the metadata list of member tags in an organization.
+     * Queries the list of member tag metadata in an organization.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7720,7 +7781,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Queries the metadata list of member tags in an organization.
+     * Queries the list of member tag metadata in an organization.
      *
      * @returns QueryUserTagMetaListResponse
      *
@@ -7844,7 +7905,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+     * Retrieves the lineage of a data work, including the datasets referenced by each component and the query field information. Currently, only dashboards, workbooks, and ad hoc queries are supported.
      *
      * @param request - QueryWorksBloodRelationshipRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7883,7 +7944,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Obtains the kinship of a data work, including the datasets referenced by each component and query field information. Currently, only supported data works include dashboards, workbooks, and self-service data retrieval.
+     * Retrieves the lineage of a data work, including the datasets referenced by each component and the query field information. Currently, only dashboards, workbooks, and ad hoc queries are supported.
      *
      * @param request - QueryWorksBloodRelationshipRequest
      *
@@ -9054,7 +9115,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 更新数据源基础属性.
+     * Updates the basic properties of a data source.
      *
      * @param request - UpdateDataSourcePropertiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9105,7 +9166,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 更新数据源基础属性.
+     * Updates the basic properties of a data source.
      *
      * @param request - UpdateDataSourcePropertiesRequest
      *
@@ -9181,6 +9242,63 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEmbeddedStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the personal identification number of a user.
+     *
+     * @param request - UpdatePersonalICodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePersonalICodeResponse
+     *
+     * @param UpdatePersonalICodeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdatePersonalICodeResponse
+     */
+    public function updatePersonalICodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->quickBIUserId) {
+            @$query['QuickBIUserId'] = $request->quickBIUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePersonalICode',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePersonalICodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the personal identification number of a user.
+     *
+     * @param request - UpdatePersonalICodeRequest
+     *
+     * @returns UpdatePersonalICodeResponse
+     *
+     * @param UpdatePersonalICodeRequest $request
+     *
+     * @return UpdatePersonalICodeResponse
+     */
+    public function updatePersonalICode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePersonalICodeWithOptions($request, $runtime);
     }
 
     /**
@@ -9395,7 +9513,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Used for updating the metadata of organization member tags.
+     * Updates the metadata of an organization member tag.
      *
      * @param request - UpdateUserTagMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9442,7 +9560,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Used for updating the metadata of organization member tags.
+     * Updates the metadata of an organization member tag.
      *
      * @param request - UpdateUserTagMetaRequest
      *
