@@ -273,6 +273,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveOrderRelationInfoToMsenceRequest
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveOrderRelationInfoToMsenceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\SyncMiniGameOnlineStatusByAppRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\SyncMiniGameOnlineStatusByAppResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateGatewayApiGroupRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateGatewayApiGroupResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateGatewayApiGroupShrinkRequest;
@@ -299,6 +301,7 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadUserAppToMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadUserAppToMsaResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\VirtualDeliveryToMsceneRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\VirtualDeliveryToMsceneResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -309,6 +312,9 @@ class MPaaS extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'mPaaS';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-hangzhou' => 'mpaas.aliyuncs.com',
@@ -8444,6 +8450,10 @@ class MPaaS extends OpenApiClient
             @$body['TargetMsgkey'] = $request->targetMsgkey;
         }
 
+        if (null !== $request->targetVendorTemplate) {
+            @$body['TargetVendorTemplate'] = $request->targetVendorTemplate;
+        }
+
         if (null !== $request->taskName) {
             @$body['TaskName'] = $request->taskName;
         }
@@ -8472,8 +8482,16 @@ class MPaaS extends OpenApiClient
             @$body['Uri'] = $request->uri;
         }
 
+        if (null !== $request->useVoip) {
+            @$body['UseVoip'] = $request->useVoip;
+        }
+
         if (null !== $request->vendorTemplate) {
             @$body['VendorTemplate'] = $request->vendorTemplate;
+        }
+
+        if (null !== $request->voipMap) {
+            @$body['VoipMap'] = $request->voipMap;
         }
 
         if (null !== $request->workspaceId) {
@@ -8625,6 +8643,10 @@ class MPaaS extends OpenApiClient
             @$body['TargetMsgkey'] = $request->targetMsgkey;
         }
 
+        if (null !== $request->targetVendorTemplate) {
+            @$body['TargetVendorTemplate'] = $request->targetVendorTemplate;
+        }
+
         if (null !== $request->taskName) {
             @$body['TaskName'] = $request->taskName;
         }
@@ -8653,8 +8675,16 @@ class MPaaS extends OpenApiClient
             @$body['TransparentMessageUrgency'] = $request->transparentMessageUrgency;
         }
 
+        if (null !== $request->useVoip) {
+            @$body['UseVoip'] = $request->useVoip;
+        }
+
         if (null !== $request->vendorTemplate) {
             @$body['VendorTemplate'] = $request->vendorTemplate;
+        }
+
+        if (null !== $request->voipMap) {
+            @$body['VoipMap'] = $request->voipMap;
         }
 
         if (null !== $request->workspaceId) {
@@ -11018,6 +11048,79 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startUserAppAsyncEnhanceInMsaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 同步小游戏实际上线状态
+     *
+     * @param request - SyncMiniGameOnlineStatusByAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SyncMiniGameOnlineStatusByAppResponse
+     *
+     * @param SyncMiniGameOnlineStatusByAppRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SyncMiniGameOnlineStatusByAppResponse
+     */
+    public function syncMiniGameOnlineStatusByAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->miniProgramCode) {
+            @$body['MiniProgramCode'] = $request->miniProgramCode;
+        }
+
+        if (null !== $request->onlineStatus) {
+            @$body['OnlineStatus'] = $request->onlineStatus;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SyncMiniGameOnlineStatusByApp',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SyncMiniGameOnlineStatusByAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 同步小游戏实际上线状态
+     *
+     * @param request - SyncMiniGameOnlineStatusByAppRequest
+     *
+     * @returns SyncMiniGameOnlineStatusByAppResponse
+     *
+     * @param SyncMiniGameOnlineStatusByAppRequest $request
+     *
+     * @return SyncMiniGameOnlineStatusByAppResponse
+     */
+    public function syncMiniGameOnlineStatusByApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncMiniGameOnlineStatusByAppWithOptions($request, $runtime);
     }
 
     /**

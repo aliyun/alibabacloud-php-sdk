@@ -136,6 +136,11 @@ class PushSimpleRequest extends Model
     /**
      * @var string
      */
+    public $targetVendorTemplate;
+
+    /**
+     * @var string
+     */
     public $taskName;
 
     /**
@@ -169,9 +174,19 @@ class PushSimpleRequest extends Model
     public $uri;
 
     /**
+     * @var bool
+     */
+    public $useVoip;
+
+    /**
      * @var string
      */
     public $vendorTemplate;
+
+    /**
+     * @var string
+     */
+    public $voipMap;
 
     /**
      * @var string
@@ -203,6 +218,7 @@ class PushSimpleRequest extends Model
         'strategyContent' => 'StrategyContent',
         'strategyType' => 'StrategyType',
         'targetMsgkey' => 'TargetMsgkey',
+        'targetVendorTemplate' => 'TargetVendorTemplate',
         'taskName' => 'TaskName',
         'tenantId' => 'TenantId',
         'thirdChannelCategory' => 'ThirdChannelCategory',
@@ -210,7 +226,9 @@ class PushSimpleRequest extends Model
         'transparentMessagePayload' => 'TransparentMessagePayload',
         'transparentMessageUrgency' => 'TransparentMessageUrgency',
         'uri' => 'Uri',
+        'useVoip' => 'UseVoip',
         'vendorTemplate' => 'VendorTemplate',
+        'voipMap' => 'VoipMap',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -333,6 +351,10 @@ class PushSimpleRequest extends Model
             $res['TargetMsgkey'] = $this->targetMsgkey;
         }
 
+        if (null !== $this->targetVendorTemplate) {
+            $res['TargetVendorTemplate'] = $this->targetVendorTemplate;
+        }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -366,8 +388,16 @@ class PushSimpleRequest extends Model
             $res['Uri'] = $this->uri;
         }
 
+        if (null !== $this->useVoip) {
+            $res['UseVoip'] = $this->useVoip;
+        }
+
         if (null !== $this->vendorTemplate) {
             $res['VendorTemplate'] = $this->vendorTemplate;
+        }
+
+        if (null !== $this->voipMap) {
+            $res['VoipMap'] = $this->voipMap;
         }
 
         if (null !== $this->workspaceId) {
@@ -490,6 +520,10 @@ class PushSimpleRequest extends Model
             $model->targetMsgkey = $map['TargetMsgkey'];
         }
 
+        if (isset($map['TargetVendorTemplate'])) {
+            $model->targetVendorTemplate = $map['TargetVendorTemplate'];
+        }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
@@ -523,8 +557,16 @@ class PushSimpleRequest extends Model
             $model->uri = $map['Uri'];
         }
 
+        if (isset($map['UseVoip'])) {
+            $model->useVoip = $map['UseVoip'];
+        }
+
         if (isset($map['VendorTemplate'])) {
             $model->vendorTemplate = $map['VendorTemplate'];
+        }
+
+        if (isset($map['VoipMap'])) {
+            $model->voipMap = $map['VoipMap'];
         }
 
         if (isset($map['WorkspaceId'])) {
