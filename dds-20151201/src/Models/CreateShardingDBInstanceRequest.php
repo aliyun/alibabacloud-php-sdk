@@ -55,6 +55,11 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $encrypted;
 
     /**
@@ -81,6 +86,16 @@ class CreateShardingDBInstanceRequest extends Model
      * @var string
      */
     public $hiddenZoneId;
+
+    /**
+     * @var string
+     */
+    public $maintainEndTime;
+
+    /**
+     * @var string
+     */
+    public $maintainStartTime;
 
     /**
      * @var mongos[]
@@ -183,6 +198,11 @@ class CreateShardingDBInstanceRequest extends Model
     public $storageType;
 
     /**
+     * @var bool
+     */
+    public $TTLEnabled;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -210,12 +230,15 @@ class CreateShardingDBInstanceRequest extends Model
         'configServer' => 'ConfigServer',
         'DBInstanceDescription' => 'DBInstanceDescription',
         'destRegion' => 'DestRegion',
+        'dryRun' => 'DryRun',
         'encrypted' => 'Encrypted',
         'encryptionKey' => 'EncryptionKey',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
         'globalSecurityGroupIds' => 'GlobalSecurityGroupIds',
         'hiddenZoneId' => 'HiddenZoneId',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
         'mongos' => 'Mongos',
         'networkType' => 'NetworkType',
         'ownerAccount' => 'OwnerAccount',
@@ -236,6 +259,7 @@ class CreateShardingDBInstanceRequest extends Model
         'srcRegion' => 'SrcRegion',
         'storageEngine' => 'StorageEngine',
         'storageType' => 'StorageType',
+        'TTLEnabled' => 'TTLEnabled',
         'tag' => 'Tag',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -301,6 +325,10 @@ class CreateShardingDBInstanceRequest extends Model
             $res['DestRegion'] = $this->destRegion;
         }
 
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
@@ -323,6 +351,14 @@ class CreateShardingDBInstanceRequest extends Model
 
         if (null !== $this->hiddenZoneId) {
             $res['HiddenZoneId'] = $this->hiddenZoneId;
+        }
+
+        if (null !== $this->maintainEndTime) {
+            $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
 
         if (null !== $this->mongos) {
@@ -419,6 +455,10 @@ class CreateShardingDBInstanceRequest extends Model
             $res['StorageType'] = $this->storageType;
         }
 
+        if (null !== $this->TTLEnabled) {
+            $res['TTLEnabled'] = $this->TTLEnabled;
+        }
+
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
@@ -492,6 +532,10 @@ class CreateShardingDBInstanceRequest extends Model
             $model->destRegion = $map['DestRegion'];
         }
 
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
@@ -514,6 +558,14 @@ class CreateShardingDBInstanceRequest extends Model
 
         if (isset($map['HiddenZoneId'])) {
             $model->hiddenZoneId = $map['HiddenZoneId'];
+        }
+
+        if (isset($map['MaintainEndTime'])) {
+            $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
 
         if (isset($map['Mongos'])) {
@@ -608,6 +660,10 @@ class CreateShardingDBInstanceRequest extends Model
 
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+
+        if (isset($map['TTLEnabled'])) {
+            $model->TTLEnabled = $map['TTLEnabled'];
         }
 
         if (isset($map['Tag'])) {

@@ -31,6 +31,11 @@ class replicaSet extends Model
     /**
      * @var string
      */
+    public $IPAddress;
+
+    /**
+     * @var string
+     */
     public $networkType;
 
     /**
@@ -47,6 +52,7 @@ class replicaSet extends Model
         'connectionPort' => 'ConnectionPort',
         'connectionType' => 'ConnectionType',
         'expiredTime' => 'ExpiredTime',
+        'IPAddress' => 'IPAddress',
         'networkType' => 'NetworkType',
         'replicaSetRole' => 'ReplicaSetRole',
         'roleId' => 'RoleId',
@@ -74,6 +80,10 @@ class replicaSet extends Model
 
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+
+        if (null !== $this->IPAddress) {
+            $res['IPAddress'] = $this->IPAddress;
         }
 
         if (null !== $this->networkType) {
@@ -113,6 +123,10 @@ class replicaSet extends Model
 
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+
+        if (isset($map['IPAddress'])) {
+            $model->IPAddress = $map['IPAddress'];
         }
 
         if (isset($map['NetworkType'])) {

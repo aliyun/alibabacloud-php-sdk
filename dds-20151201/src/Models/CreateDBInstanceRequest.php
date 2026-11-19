@@ -72,6 +72,11 @@ class CreateDBInstanceRequest extends Model
     /**
      * @var bool
      */
+    public $dryRun;
+
+    /**
+     * @var bool
+     */
     public $encrypted;
 
     /**
@@ -98,6 +103,16 @@ class CreateDBInstanceRequest extends Model
      * @var string
      */
     public $hiddenZoneId;
+
+    /**
+     * @var string
+     */
+    public $maintainEndTime;
+
+    /**
+     * @var string
+     */
+    public $maintainStartTime;
 
     /**
      * @var string
@@ -195,6 +210,11 @@ class CreateDBInstanceRequest extends Model
     public $storageType;
 
     /**
+     * @var bool
+     */
+    public $TTLEnabled;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -226,12 +246,15 @@ class CreateDBInstanceRequest extends Model
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceStorage' => 'DBInstanceStorage',
         'databaseNames' => 'DatabaseNames',
+        'dryRun' => 'DryRun',
         'encrypted' => 'Encrypted',
         'encryptionKey' => 'EncryptionKey',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
         'globalSecurityGroupIds' => 'GlobalSecurityGroupIds',
         'hiddenZoneId' => 'HiddenZoneId',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
         'networkType' => 'NetworkType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -251,6 +274,7 @@ class CreateDBInstanceRequest extends Model
         'srcRegion' => 'SrcRegion',
         'storageEngine' => 'StorageEngine',
         'storageType' => 'StorageType',
+        'TTLEnabled' => 'TTLEnabled',
         'tag' => 'Tag',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -316,6 +340,10 @@ class CreateDBInstanceRequest extends Model
             $res['DatabaseNames'] = $this->databaseNames;
         }
 
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
@@ -338,6 +366,14 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->hiddenZoneId) {
             $res['HiddenZoneId'] = $this->hiddenZoneId;
+        }
+
+        if (null !== $this->maintainEndTime) {
+            $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
 
         if (null !== $this->networkType) {
@@ -414,6 +450,10 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
+        }
+
+        if (null !== $this->TTLEnabled) {
+            $res['TTLEnabled'] = $this->TTLEnabled;
         }
 
         if (null !== $this->tag) {
@@ -498,6 +538,10 @@ class CreateDBInstanceRequest extends Model
             $model->databaseNames = $map['DatabaseNames'];
         }
 
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
@@ -520,6 +564,14 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['HiddenZoneId'])) {
             $model->hiddenZoneId = $map['HiddenZoneId'];
+        }
+
+        if (isset($map['MaintainEndTime'])) {
+            $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
 
         if (isset($map['NetworkType'])) {
@@ -596,6 +648,10 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+
+        if (isset($map['TTLEnabled'])) {
+            $model->TTLEnabled = $map['TTLEnabled'];
         }
 
         if (isset($map['Tag'])) {

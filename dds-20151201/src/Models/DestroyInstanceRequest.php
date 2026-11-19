@@ -19,6 +19,11 @@ class DestroyInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -50,6 +55,7 @@ class DestroyInstanceRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'DBInstanceId' => 'DBInstanceId',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -72,6 +78,10 @@ class DestroyInstanceRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->instanceId) {
@@ -115,6 +125,10 @@ class DestroyInstanceRequest extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['InstanceId'])) {

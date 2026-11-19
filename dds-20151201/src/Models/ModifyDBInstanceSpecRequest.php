@@ -26,6 +26,11 @@ class ModifyDBInstanceSpecRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $couponNo;
 
     /**
@@ -42,6 +47,11 @@ class ModifyDBInstanceSpecRequest extends Model
      * @var string
      */
     public $DBInstanceStorage;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var string
@@ -126,10 +136,12 @@ class ModifyDBInstanceSpecRequest extends Model
         'alignPrimaryZone' => 'AlignPrimaryZone',
         'autoPay' => 'AutoPay',
         'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
         'couponNo' => 'CouponNo',
         'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceId' => 'DBInstanceId',
         'DBInstanceStorage' => 'DBInstanceStorage',
+        'dryRun' => 'DryRun',
         'effectiveTime' => 'EffectiveTime',
         'extraParam' => 'ExtraParam',
         'orderType' => 'OrderType',
@@ -168,6 +180,10 @@ class ModifyDBInstanceSpecRequest extends Model
             $res['BusinessInfo'] = $this->businessInfo;
         }
 
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
@@ -182,6 +198,10 @@ class ModifyDBInstanceSpecRequest extends Model
 
         if (null !== $this->DBInstanceStorage) {
             $res['DBInstanceStorage'] = $this->DBInstanceStorage;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->effectiveTime) {
@@ -271,6 +291,10 @@ class ModifyDBInstanceSpecRequest extends Model
             $model->businessInfo = $map['BusinessInfo'];
         }
 
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
@@ -285,6 +309,10 @@ class ModifyDBInstanceSpecRequest extends Model
 
         if (isset($map['DBInstanceStorage'])) {
             $model->DBInstanceStorage = $map['DBInstanceStorage'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EffectiveTime'])) {

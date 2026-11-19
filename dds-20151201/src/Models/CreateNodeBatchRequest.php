@@ -44,6 +44,11 @@ class CreateNodeBatchRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $fromApp;
@@ -85,6 +90,7 @@ class CreateNodeBatchRequest extends Model
         'clientToken' => 'ClientToken',
         'couponNo' => 'CouponNo',
         'DBInstanceId' => 'DBInstanceId',
+        'dryRun' => 'DryRun',
         'fromApp' => 'FromApp',
         'nodesInfo' => 'NodesInfo',
         'ownerAccount' => 'OwnerAccount',
@@ -128,6 +134,10 @@ class CreateNodeBatchRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->fromApp) {
@@ -195,6 +205,10 @@ class CreateNodeBatchRequest extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['FromApp'])) {

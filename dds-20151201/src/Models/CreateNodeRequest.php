@@ -44,6 +44,11 @@ class CreateNodeRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $nodeClass;
@@ -110,6 +115,7 @@ class CreateNodeRequest extends Model
         'clientToken' => 'ClientToken',
         'couponNo' => 'CouponNo',
         'DBInstanceId' => 'DBInstanceId',
+        'dryRun' => 'DryRun',
         'nodeClass' => 'NodeClass',
         'nodeStorage' => 'NodeStorage',
         'nodeType' => 'NodeType',
@@ -158,6 +164,10 @@ class CreateNodeRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->nodeClass) {
@@ -245,6 +255,10 @@ class CreateNodeRequest extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['NodeClass'])) {

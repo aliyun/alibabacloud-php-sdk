@@ -26,7 +26,17 @@ class TransformToPrePaidRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $couponNo;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var string
@@ -61,7 +71,9 @@ class TransformToPrePaidRequest extends Model
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
         'couponNo' => 'CouponNo',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -90,8 +102,16 @@ class TransformToPrePaidRequest extends Model
             $res['BusinessInfo'] = $this->businessInfo;
         }
 
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->instanceId) {
@@ -141,8 +161,16 @@ class TransformToPrePaidRequest extends Model
             $model->businessInfo = $map['BusinessInfo'];
         }
 
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['InstanceId'])) {
