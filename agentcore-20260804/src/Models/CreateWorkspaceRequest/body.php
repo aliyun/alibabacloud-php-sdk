@@ -32,12 +32,18 @@ class body extends Model
     /**
      * @var string
      */
+    public $scanPolicy;
+
+    /**
+     * @var string
+     */
     public $storageType;
     protected $_name = [
         'agentSpace' => 'agentSpace',
         'cmsWorkspace' => 'cmsWorkspace',
         'name' => 'name',
         'networkConfiguration' => 'networkConfiguration',
+        'scanPolicy' => 'scanPolicy',
         'storageType' => 'storageType',
     ];
 
@@ -66,6 +72,10 @@ class body extends Model
 
         if (null !== $this->networkConfiguration) {
             $res['networkConfiguration'] = null !== $this->networkConfiguration ? $this->networkConfiguration->toArray($noStream) : $this->networkConfiguration;
+        }
+
+        if (null !== $this->scanPolicy) {
+            $res['scanPolicy'] = $this->scanPolicy;
         }
 
         if (null !== $this->storageType) {
@@ -97,6 +107,10 @@ class body extends Model
 
         if (isset($map['networkConfiguration'])) {
             $model->networkConfiguration = networkConfiguration::fromMap($map['networkConfiguration']);
+        }
+
+        if (isset($map['scanPolicy'])) {
+            $model->scanPolicy = $map['scanPolicy'];
         }
 
         if (isset($map['storageType'])) {

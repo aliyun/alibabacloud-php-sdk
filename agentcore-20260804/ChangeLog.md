@@ -1,3 +1,7 @@
+2026-11-19 Version: 2.8.1
+- Update API CreateWorkspace: add request parameters body.scanPolicy.
+
+
 2026-11-17 Version: 2.8.0
 - Support API CreateEvents.
 - Support API CreateMemoryRule.

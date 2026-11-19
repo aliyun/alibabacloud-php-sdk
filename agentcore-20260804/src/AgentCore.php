@@ -2742,7 +2742,7 @@ class AgentCore extends OpenApiClient
      * Creates a service endpoint.
      *
      * @remarks
-     * Creates a named service endpoint that routes to a specific agent version within a specified workspace. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
+     * Creates a named service endpoint in a specified workspace that routes to a specific AgentVersion. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
      *
      * @param tmpReq - CreateServiceEndpointRequest
      * @param headers - map
@@ -2800,7 +2800,7 @@ class AgentCore extends OpenApiClient
      * Creates a service endpoint.
      *
      * @remarks
-     * Creates a named service endpoint that routes to a specific agent version within a specified workspace. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
+     * Creates a named service endpoint in a specified workspace that routes to a specific AgentVersion. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
      *
      * @param request - CreateServiceEndpointRequest
      *
@@ -3057,10 +3057,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+     * Creates an AgentCore workspace as a resource scope to organize agents, models, MCP services, and collaboration configurations.
      *
      * @remarks
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+     * Creates an AgentCore workspace as a resource scope to organize agents, models, MCP services, and collaboration configurations.
      * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query the details, and then manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
      *
      * @param tmpReq - CreateWorkspaceRequest
@@ -3115,10 +3115,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+     * Creates an AgentCore workspace as a resource scope to organize agents, models, MCP services, and collaboration configurations.
      *
      * @remarks
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+     * Creates an AgentCore workspace as a resource scope to organize agents, models, MCP services, and collaboration configurations.
      * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query the details, and then manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
      *
      * @param request - CreateWorkspaceRequest
@@ -15259,7 +15259,7 @@ class AgentCore extends OpenApiClient
      * Updates a service endpoint.
      *
      * @remarks
-     * Updates the name, attached version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to reattach the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Reattaching or changing the elastic policy triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support reattaching the agentVersion to switch to the target version within the namespace of the original gateway runtime instance. If the original gateway runtime instance is inactive, ServiceEndpointTargetNotReady is returned. This type does not support elastic policy updates. If updateElasticity is set to true, InvalidParameter is returned, and the elastic policy inherits the configuration of the attached version. When a DEFAULT service endpoint is reattached from latest to another version, if the same agent still has a service endpoint attached to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit commit can trigger the initial initialization or a retry of a failed node. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status.
+     * Updates the name, bound version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to rebind the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Rebinding or modifying the elasticity triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support rebinding the agentVersion to switch to the target version within the namespace where the original gateway runtime instance resides. If the original gateway runtime instance is unavailable, ServiceEndpointTargetNotReady is returned. This type does not support elasticity updates. If updateElasticity is set to true, InvalidParameter is returned, and the elasticity inherits the configuration of the bound version. When a DEFAULT service endpoint is rebound from latest to another version, if the same agent still has a service endpoint bound to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit submission can trigger initial initialization or the retry of a failed task. A successful response does not indicate that the deployment is complete. You must verify the deployment status based on the status of the service endpoint.
      *
      * @param tmpReq - UpdateServiceEndpointRequest
      * @param headers - map
@@ -15318,7 +15318,7 @@ class AgentCore extends OpenApiClient
      * Updates a service endpoint.
      *
      * @remarks
-     * Updates the name, attached version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to reattach the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Reattaching or changing the elastic policy triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support reattaching the agentVersion to switch to the target version within the namespace of the original gateway runtime instance. If the original gateway runtime instance is inactive, ServiceEndpointTargetNotReady is returned. This type does not support elastic policy updates. If updateElasticity is set to true, InvalidParameter is returned, and the elastic policy inherits the configuration of the attached version. When a DEFAULT service endpoint is reattached from latest to another version, if the same agent still has a service endpoint attached to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit commit can trigger the initial initialization or a retry of a failed node. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status.
+     * Updates the name, bound version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to rebind the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Rebinding or modifying the elasticity triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support rebinding the agentVersion to switch to the target version within the namespace where the original gateway runtime instance resides. If the original gateway runtime instance is unavailable, ServiceEndpointTargetNotReady is returned. This type does not support elasticity updates. If updateElasticity is set to true, InvalidParameter is returned, and the elasticity inherits the configuration of the bound version. When a DEFAULT service endpoint is rebound from latest to another version, if the same agent still has a service endpoint bound to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit submission can trigger initial initialization or the retry of a failed task. A successful response does not indicate that the deployment is complete. You must verify the deployment status based on the status of the service endpoint.
      *
      * @param request - UpdateServiceEndpointRequest
      *
