@@ -12,6 +12,11 @@ class entityList extends Model
     /**
      * @var string
      */
+    public $bizId;
+
+    /**
+     * @var string
+     */
     public $entityType;
 
     /**
@@ -19,6 +24,7 @@ class entityList extends Model
      */
     public $propertyList;
     protected $_name = [
+        'bizId' => 'BizId',
         'entityType' => 'EntityType',
         'propertyList' => 'PropertyList',
     ];
@@ -34,6 +40,10 @@ class entityList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
+        }
+
         if (null !== $this->entityType) {
             $res['EntityType'] = $this->entityType;
         }
@@ -60,6 +70,10 @@ class entityList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
+        }
+
         if (isset($map['EntityType'])) {
             $model->entityType = $map['EntityType'];
         }

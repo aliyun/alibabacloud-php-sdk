@@ -17,9 +17,21 @@ class successRelationList extends Model
      * @var string
      */
     public $relationType;
+
+    /**
+     * @var string
+     */
+    public $sourceEntityId;
+
+    /**
+     * @var string
+     */
+    public $targetEntityId;
     protected $_name = [
         'relationId' => 'RelationId',
         'relationType' => 'RelationType',
+        'sourceEntityId' => 'SourceEntityId',
+        'targetEntityId' => 'TargetEntityId',
     ];
 
     public function validate()
@@ -36,6 +48,14 @@ class successRelationList extends Model
 
         if (null !== $this->relationType) {
             $res['RelationType'] = $this->relationType;
+        }
+
+        if (null !== $this->sourceEntityId) {
+            $res['SourceEntityId'] = $this->sourceEntityId;
+        }
+
+        if (null !== $this->targetEntityId) {
+            $res['TargetEntityId'] = $this->targetEntityId;
         }
 
         return $res;
@@ -55,6 +75,14 @@ class successRelationList extends Model
 
         if (isset($map['RelationType'])) {
             $model->relationType = $map['RelationType'];
+        }
+
+        if (isset($map['SourceEntityId'])) {
+            $model->sourceEntityId = $map['SourceEntityId'];
+        }
+
+        if (isset($map['TargetEntityId'])) {
+            $model->targetEntityId = $map['TargetEntityId'];
         }
 
         return $model;
