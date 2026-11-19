@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GetSubscriptionSeatDetailsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceCode;
+
+    /**
      * @var int
      */
     public $pageNo;
@@ -38,6 +43,7 @@ class GetSubscriptionSeatDetailsRequest extends Model
      */
     public $statusList;
     protected $_name = [
+        'instanceCode' => 'InstanceCode',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'queryAssigned' => 'QueryAssigned',
@@ -57,6 +63,10 @@ class GetSubscriptionSeatDetailsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->instanceCode) {
+            $res['InstanceCode'] = $this->instanceCode;
+        }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
@@ -99,6 +109,10 @@ class GetSubscriptionSeatDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceCode'])) {
+            $model->instanceCode = $map['InstanceCode'];
+        }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }

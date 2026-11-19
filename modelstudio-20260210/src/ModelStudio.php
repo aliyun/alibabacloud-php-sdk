@@ -85,6 +85,7 @@ use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationMemberReques
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationMemberResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -95,6 +96,9 @@ class ModelStudio extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'ModelStudio';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('modelstudio', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -334,7 +338,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
+     * Creates an API key as an authentication credential before you use large models or applications in Alibaba Cloud Model Studio.
      *
      * @param request - CreateApiKeyRequest
      * @param headers - map
@@ -386,7 +390,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Creates an API key as an authentication credential before using large models or applications in Alibaba Cloud Model Studio.
+     * Creates an API key as an authentication credential before you use large models or applications in Alibaba Cloud Model Studio.
      *
      * @param request - CreateApiKeyRequest
      *
@@ -1022,7 +1026,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Queries the billing trends.
+     * Queries billing trends.
      *
      * @param tmpReq - GetBillingTrendRequest
      * @param headers - map
@@ -1110,7 +1114,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Queries the billing trends.
+     * Queries billing trends.
      *
      * @param request - GetBillingTrendRequest
      *
@@ -1245,7 +1249,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on seat details.
+     * Performs a paged query on seat details with paging.
      *
      * @param request - GetSubscriptionSeatDetailsRequest
      * @param headers - map
@@ -1263,6 +1267,10 @@ class ModelStudio extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->instanceCode) {
+            @$query['InstanceCode'] = $request->instanceCode;
+        }
+
         if (null !== $request->pageNo) {
             @$query['PageNo'] = $request->pageNo;
         }
@@ -1307,7 +1315,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on seat details.
+     * Performs a paged query on seat details with paging.
      *
      * @param request - GetSubscriptionSeatDetailsRequest
      *
@@ -1647,7 +1655,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Queries model throttling for a workspace.
+     * Queries the model throttling configurations for a workspace.
      *
      * @param request - ListModelLimitsRequest
      * @param headers - map
@@ -1705,7 +1713,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Queries model throttling for a workspace.
+     * Queries the model throttling configurations for a workspace.
      *
      * @param request - ListModelLimitsRequest
      *
@@ -2217,7 +2225,7 @@ class ModelStudio extends OpenApiClient
      * Resets an API key.
      *
      * @remarks
-     * Only the API key value changes. The API key ID remains unchanged.
+     * Only the API key changes. The API key ID remains unchanged.
      *
      * @param request - ResetApiKeyRequest
      * @param headers - map
@@ -2257,7 +2265,7 @@ class ModelStudio extends OpenApiClient
      * Resets an API key.
      *
      * @remarks
-     * Only the API key value changes. The API key ID remains unchanged.
+     * Only the API key changes. The API key ID remains unchanged.
      *
      * @param request - ResetApiKeyRequest
      *
@@ -2332,7 +2340,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Resets a UAC API key.
+     * Resets the UAC API key.
      *
      * @remarks
      * Only the API key changes. The API key ID remains unchanged.
@@ -2377,7 +2385,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Resets a UAC API key.
+     * Resets the UAC API key.
      *
      * @remarks
      * Only the API key changes. The API key ID remains unchanged.
