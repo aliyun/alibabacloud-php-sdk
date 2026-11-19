@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachProjectsToReviewRu
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachProjectsToReviewRuleResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachReviewersToReviewRuleRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\AttachReviewersToReviewRuleResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CancelOperationTicketRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CancelOperationTicketResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceSecurityGroupsRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceSecurityGroupsResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceWhiteListRequest;
@@ -1891,6 +1893,71 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachReviewersToReviewRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Withdraws a submitted O&M request.
+     *
+     * @param request - CancelOperationTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelOperationTicketResponse
+     *
+     * @param CancelOperationTicketRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CancelOperationTicketResponse
+     */
+    public function cancelOperationTicketWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->operationTicketId) {
+            @$query['OperationTicketId'] = $request->operationTicketId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelOperationTicket',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Withdraws a submitted O&M request.
+     *
+     * @param request - CancelOperationTicketRequest
+     *
+     * @returns CancelOperationTicketResponse
+     *
+     * @param CancelOperationTicketRequest $request
+     *
+     * @return CancelOperationTicketResponse
+     */
+    public function cancelOperationTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelOperationTicketWithOptions($request, $runtime);
     }
 
     /**
@@ -7705,11 +7772,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of commands that require approval.
+     * Queries a list of commands pending approval.
      *
      * @remarks
-     * This operation allows administrators to retrieve the list of commands that require approval.
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     * This operation allows administrators to retrieve a list of commands pending approval.
+     * The queries per second (QPS) limit for a single user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
      *
      * @param request - ListApproveCommandsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7772,11 +7839,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of commands that require approval.
+     * Queries a list of commands pending approval.
      *
      * @remarks
-     * This operation allows administrators to retrieve the list of commands that require approval.
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
+     * This operation allows administrators to retrieve a list of commands pending approval.
+     * The queries per second (QPS) limit for a single user is 10. If this limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
      *
      * @param request - ListApproveCommandsRequest
      *
@@ -10065,11 +10132,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the list of O&M tickets pending approval.
+     * Retrieves a list of O&M tickets pending approval.
      *
      * @remarks
-     * This operation is used by administrators to query the list of O&M tickets pending approval.
-     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
+     * This API operation is used by administrators to retrieve a list of O&M tickets pending approval.
+     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - ListOperationTicketsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10136,11 +10203,11 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
-     * Queries the list of O&M tickets pending approval.
+     * Retrieves a list of O&M tickets pending approval.
      *
      * @remarks
-     * This operation is used by administrators to query the list of O&M tickets pending approval.
-     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
+     * This API operation is used by administrators to retrieve a list of O&M tickets pending approval.
+     * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
      *
      * @param request - ListOperationTicketsRequest
      *
