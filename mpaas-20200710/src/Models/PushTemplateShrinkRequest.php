@@ -96,6 +96,11 @@ class PushTemplateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $targetVendorTemplate;
+
+    /**
+     * @var string
+     */
     public $taskName;
 
     /**
@@ -129,9 +134,19 @@ class PushTemplateShrinkRequest extends Model
     public $transparentMessageUrgency;
 
     /**
+     * @var bool
+     */
+    public $useVoip;
+
+    /**
      * @var string
      */
     public $vendorTemplate;
+
+    /**
+     * @var string
+     */
+    public $voipMap;
 
     /**
      * @var string
@@ -155,6 +170,7 @@ class PushTemplateShrinkRequest extends Model
         'strategyContent' => 'StrategyContent',
         'strategyType' => 'StrategyType',
         'targetMsgkey' => 'TargetMsgkey',
+        'targetVendorTemplate' => 'TargetVendorTemplate',
         'taskName' => 'TaskName',
         'templateKeyValue' => 'TemplateKeyValue',
         'templateName' => 'TemplateName',
@@ -162,7 +178,9 @@ class PushTemplateShrinkRequest extends Model
         'thirdChannelCategoryShrink' => 'ThirdChannelCategory',
         'transparentMessagePayload' => 'TransparentMessagePayload',
         'transparentMessageUrgency' => 'TransparentMessageUrgency',
+        'useVoip' => 'UseVoip',
         'vendorTemplate' => 'VendorTemplate',
+        'voipMap' => 'VoipMap',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -242,6 +260,10 @@ class PushTemplateShrinkRequest extends Model
             $res['TargetMsgkey'] = $this->targetMsgkey;
         }
 
+        if (null !== $this->targetVendorTemplate) {
+            $res['TargetVendorTemplate'] = $this->targetVendorTemplate;
+        }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -270,8 +292,16 @@ class PushTemplateShrinkRequest extends Model
             $res['TransparentMessageUrgency'] = $this->transparentMessageUrgency;
         }
 
+        if (null !== $this->useVoip) {
+            $res['UseVoip'] = $this->useVoip;
+        }
+
         if (null !== $this->vendorTemplate) {
             $res['VendorTemplate'] = $this->vendorTemplate;
+        }
+
+        if (null !== $this->voipMap) {
+            $res['VoipMap'] = $this->voipMap;
         }
 
         if (null !== $this->workspaceId) {
@@ -357,6 +387,10 @@ class PushTemplateShrinkRequest extends Model
             $model->targetMsgkey = $map['TargetMsgkey'];
         }
 
+        if (isset($map['TargetVendorTemplate'])) {
+            $model->targetVendorTemplate = $map['TargetVendorTemplate'];
+        }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
@@ -385,8 +419,16 @@ class PushTemplateShrinkRequest extends Model
             $model->transparentMessageUrgency = $map['TransparentMessageUrgency'];
         }
 
+        if (isset($map['UseVoip'])) {
+            $model->useVoip = $map['UseVoip'];
+        }
+
         if (isset($map['VendorTemplate'])) {
             $model->vendorTemplate = $map['VendorTemplate'];
+        }
+
+        if (isset($map['VoipMap'])) {
+            $model->voipMap = $map['VoipMap'];
         }
 
         if (isset($map['WorkspaceId'])) {

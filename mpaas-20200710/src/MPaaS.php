@@ -131,6 +131,7 @@ use AlibabaCloud\SDK\MPaaS\V20200710\Models\UploadMcubeMiniPackageRequest;
 use AlibabaCloud\SDK\MPaaS\V20200710\Models\UploadMcubeMiniPackageResponse;
 use AlibabaCloud\SDK\MPaaS\V20200710\Models\UploadMcubeRsaKeyRequest;
 use AlibabaCloud\SDK\MPaaS\V20200710\Models\UploadMcubeRsaKeyResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -141,6 +142,9 @@ class MPaaS extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'mPaaS';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-hangzhou' => 'mpaas.aliyuncs.com',
@@ -4153,6 +4157,10 @@ class MPaaS extends OpenApiClient
             @$body['TargetMsgkey'] = $request->targetMsgkey;
         }
 
+        if (null !== $request->targetVendorTemplate) {
+            @$body['TargetVendorTemplate'] = $request->targetVendorTemplate;
+        }
+
         if (null !== $request->taskName) {
             @$body['TaskName'] = $request->taskName;
         }
@@ -4181,8 +4189,16 @@ class MPaaS extends OpenApiClient
             @$body['Uri'] = $request->uri;
         }
 
+        if (null !== $request->useVoip) {
+            @$body['UseVoip'] = $request->useVoip;
+        }
+
         if (null !== $request->vendorTemplate) {
             @$body['VendorTemplate'] = $request->vendorTemplate;
+        }
+
+        if (null !== $request->voipMap) {
+            @$body['VoipMap'] = $request->voipMap;
         }
 
         if (null !== $request->workspaceId) {
@@ -4316,6 +4332,10 @@ class MPaaS extends OpenApiClient
             @$body['TargetMsgkey'] = $request->targetMsgkey;
         }
 
+        if (null !== $request->targetVendorTemplate) {
+            @$body['TargetVendorTemplate'] = $request->targetVendorTemplate;
+        }
+
         if (null !== $request->taskName) {
             @$body['TaskName'] = $request->taskName;
         }
@@ -4344,8 +4364,16 @@ class MPaaS extends OpenApiClient
             @$body['TransparentMessageUrgency'] = $request->transparentMessageUrgency;
         }
 
+        if (null !== $request->useVoip) {
+            @$body['UseVoip'] = $request->useVoip;
+        }
+
         if (null !== $request->vendorTemplate) {
             @$body['VendorTemplate'] = $request->vendorTemplate;
+        }
+
+        if (null !== $request->voipMap) {
+            @$body['VoipMap'] = $request->voipMap;
         }
 
         if (null !== $request->workspaceId) {

@@ -27,11 +27,17 @@ class targetMsg extends Model
      * @var string
      */
     public $templateKeyValue;
+
+    /**
+     * @var string
+     */
+    public $vendorTemplate;
     protected $_name = [
         'extendedParams' => 'ExtendedParams',
         'msgKey' => 'MsgKey',
         'target' => 'Target',
         'templateKeyValue' => 'TemplateKeyValue',
+        'vendorTemplate' => 'VendorTemplate',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class targetMsg extends Model
 
         if (null !== $this->templateKeyValue) {
             $res['TemplateKeyValue'] = $this->templateKeyValue;
+        }
+
+        if (null !== $this->vendorTemplate) {
+            $res['VendorTemplate'] = $this->vendorTemplate;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class targetMsg extends Model
 
         if (isset($map['TemplateKeyValue'])) {
             $model->templateKeyValue = $map['TemplateKeyValue'];
+        }
+
+        if (isset($map['VendorTemplate'])) {
+            $model->vendorTemplate = $map['VendorTemplate'];
         }
 
         return $model;
