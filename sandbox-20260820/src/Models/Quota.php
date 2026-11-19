@@ -24,6 +24,11 @@ class Quota extends Model
     public $memoryGB;
 
     /**
+     * @var int
+     */
+    public $scalingCpuCoresPerMinute;
+
+    /**
      * @var string
      */
     public $tagValue;
@@ -31,6 +36,7 @@ class Quota extends Model
         'cpuCores' => 'cpuCores',
         'instanceCount' => 'instanceCount',
         'memoryGB' => 'memoryGB',
+        'scalingCpuCoresPerMinute' => 'scalingCpuCoresPerMinute',
         'tagValue' => 'tagValue',
     ];
 
@@ -52,6 +58,10 @@ class Quota extends Model
 
         if (null !== $this->memoryGB) {
             $res['memoryGB'] = $this->memoryGB;
+        }
+
+        if (null !== $this->scalingCpuCoresPerMinute) {
+            $res['scalingCpuCoresPerMinute'] = $this->scalingCpuCoresPerMinute;
         }
 
         if (null !== $this->tagValue) {
@@ -79,6 +89,10 @@ class Quota extends Model
 
         if (isset($map['memoryGB'])) {
             $model->memoryGB = $map['memoryGB'];
+        }
+
+        if (isset($map['scalingCpuCoresPerMinute'])) {
+            $model->scalingCpuCoresPerMinute = $map['scalingCpuCoresPerMinute'];
         }
 
         if (isset($map['tagValue'])) {

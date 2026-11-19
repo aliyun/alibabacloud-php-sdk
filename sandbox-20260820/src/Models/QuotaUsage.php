@@ -22,10 +22,16 @@ class QuotaUsage extends Model
      * @var float
      */
     public $memoryGB;
+
+    /**
+     * @var float
+     */
+    public $scalingCpuCoresPerMinute;
     protected $_name = [
         'cpuCores' => 'cpuCores',
         'instanceCount' => 'instanceCount',
         'memoryGB' => 'memoryGB',
+        'scalingCpuCoresPerMinute' => 'scalingCpuCoresPerMinute',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class QuotaUsage extends Model
 
         if (null !== $this->memoryGB) {
             $res['memoryGB'] = $this->memoryGB;
+        }
+
+        if (null !== $this->scalingCpuCoresPerMinute) {
+            $res['scalingCpuCoresPerMinute'] = $this->scalingCpuCoresPerMinute;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class QuotaUsage extends Model
 
         if (isset($map['memoryGB'])) {
             $model->memoryGB = $map['memoryGB'];
+        }
+
+        if (isset($map['scalingCpuCoresPerMinute'])) {
+            $model->scalingCpuCoresPerMinute = $map['scalingCpuCoresPerMinute'];
         }
 
         return $model;
