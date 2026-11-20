@@ -277,6 +277,7 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\QueryProjectResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\QueryPurchasedServiceResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\UpdateProjectResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -287,6 +288,9 @@ class AiContent extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'AiContent';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-shanghai' => 'aicontent.aliyuncs.com',
@@ -856,7 +860,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Creates an access warrant.
+     * Creates authorization credentials in the Alibaba Cloud Management Console.
      *
      * @param request - CreateAccessWarrantRequest
      * @param headers - map
@@ -918,7 +922,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Creates an access warrant.
+     * Creates authorization credentials in the Alibaba Cloud Management Console.
      *
      * @param request - CreateAccessWarrantRequest
      *
@@ -1518,7 +1522,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
+     * Conducts extended practice conversations primarily for open-ended communication scenarios. During the practice, although the questions raised by the AI do not have preset answers, the user must still answer within the relevant topic. If the user\\"s answer deviates from the topic, the AI will attempt to guide them back to the topic. If the user goes off-topic twice in a row, the AI will guide them to proceed to the next topic.
      *
      * @param request - ExecuteAITeacherExpansionDialogueRequest
      * @param headers - map
@@ -1588,7 +1592,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
+     * Conducts extended practice conversations primarily for open-ended communication scenarios. During the practice, although the questions raised by the AI do not have preset answers, the user must still answer within the relevant topic. If the user\\"s answer deviates from the topic, the AI will attempt to guide them back to the topic. If the user goes off-topic twice in a row, the AI will guide them to proceed to the next topic.
      *
      * @param request - ExecuteAITeacherExpansionDialogueRequest
      *
@@ -1607,7 +1611,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Uses context to polish the expanded text.
+     * Polishes the extension exercise based on the context.
      *
      * @param request - ExecuteAITeacherExpansionDialogueRefineRequest
      * @param headers - map
@@ -1677,7 +1681,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Uses context to polish the expanded text.
+     * Polishes the extension exercise based on the context.
      *
      * @param request - ExecuteAITeacherExpansionDialogueRefineRequest
      *
@@ -1696,7 +1700,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Further Contextual Translation Practice.
+     * Translates the context for extended practice.
      *
      * @param request - ExecuteAITeacherExpansionDialogueTranslateRequest
      * @param headers - map
@@ -1762,7 +1766,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Further Contextual Translation Practice.
+     * Translates the context for extended practice.
      *
      * @param request - ExecuteAITeacherExpansionDialogueTranslateRequest
      *
@@ -1846,7 +1850,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Practice synchronous dialogue.
+     * Conducts a synchronous practice conversation.
      *
      * @param request - ExecuteAITeacherSyncDialogueRequest
      * @param headers - map
@@ -1900,7 +1904,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Practice synchronous dialogue.
+     * Conducts a synchronous practice conversation.
      *
      * @param request - ExecuteAITeacherSyncDialogueRequest
      *
@@ -1919,7 +1923,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * You can practice contextual translation in real-time.
+     * Translates context for synchronous practice.
      *
      * @param request - ExecuteAITeacherSyncDialogueTranslateRequest
      * @param headers - map
@@ -1969,7 +1973,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * You can practice contextual translation in real-time.
+     * Translates context for synchronous practice.
      *
      * @param request - ExecuteAITeacherSyncDialogueTranslateRequest
      *
@@ -2712,7 +2716,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Supplemental Practice Assistant.
+     * Retrieves prompts for the extended practice assistant.
      *
      * @param request - GetAITeacherExpansionDialogueSuggestionRequest
      * @param headers - map
@@ -2782,7 +2786,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Supplemental Practice Assistant.
+     * Retrieves prompts for the extended practice assistant.
      *
      * @param request - GetAITeacherExpansionDialogueSuggestionRequest
      *
@@ -2801,7 +2805,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Sync Practice Assistant.
+     * Retrieves the prompts for the sync practice assistant.
      *
      * @param request - GetAITeacherSyncDialogueSuggestionRequest
      * @param headers - map
@@ -2855,7 +2859,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Sync Practice Assistant.
+     * Retrieves the prompts for the sync practice assistant.
      *
      * @param request - GetAITeacherSyncDialogueSuggestionRequest
      *
@@ -2939,7 +2943,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Batch get article details.
+     * Retrieves the details of multiple articles.
      *
      * @param request - ListTextbookAssistantArticleDetailsRequest
      * @param headers - map
@@ -2985,7 +2989,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Batch get article details.
+     * Retrieves the details of multiple articles.
      *
      * @param request - ListTextbookAssistantArticleDetailsRequest
      *
@@ -3223,7 +3227,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the available grades and volumes for the Textbook Assistant.
+     * Retrieves the list of grades that have English textbook resources.
      *
      * @param request - ListTextbookAssistantGradeVolumesRequest
      * @param headers - map
@@ -3269,7 +3273,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the available grades and volumes for the Textbook Assistant.
+     * Retrieves the list of grades that have English textbook resources.
      *
      * @param request - ListTextbookAssistantGradeVolumesRequest
      *
@@ -3288,7 +3292,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Get Article Details.
+     * Retrieves the details of an article.
      *
      * @param request - ListTextbookAssistantSceneDetailsRequest
      * @param headers - map
@@ -3334,7 +3338,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Get Article Details.
+     * Retrieves the details of an article.
      *
      * @param request - ListTextbookAssistantSceneDetailsRequest
      *
@@ -3999,7 +4003,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Enables balance-based throttling for a department.
+     * Enables department balance throttling.
      *
      * @param request - ModelRouterConfigureClientBalanceRequest
      * @param headers - map
@@ -4050,7 +4054,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Enables balance-based throttling for a department.
+     * Enables department balance throttling.
      *
      * @param request - ModelRouterConfigureClientBalanceRequest
      *
@@ -4800,7 +4804,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Performs model creation.
+     * Manages model creation.
      *
      * @param request - ModelRouterCreateModelRequest
      * @param headers - map
@@ -4886,7 +4890,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Performs model creation.
+     * Manages model creation.
      *
      * @param request - ModelRouterCreateModelRequest
      *
@@ -5762,7 +5766,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the balance overview of a department.
+     * Retrieves the department balance overview.
      *
      * @param request - ModelRouterGetDeptBalanceSummaryRequest
      * @param headers - map
@@ -5799,7 +5803,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the balance overview of a department.
+     * Retrieves the department balance overview.
      *
      * @param request - ModelRouterGetDeptBalanceSummaryRequest
      *
@@ -6681,7 +6685,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API keys.
+     * Queries a list of API keys.
      *
      * @param request - ModelRouterQueryApiKeyListRequest
      * @param headers - map
@@ -6771,7 +6775,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API keys.
+     * Queries a list of API keys.
      *
      * @param request - ModelRouterQueryApiKeyListRequest
      *
@@ -7172,7 +7176,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of clients.
+     * Queries a list of customers.
      *
      * @param request - ModelRouterQueryClientListRequest
      * @param headers - map
@@ -7254,7 +7258,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of clients.
+     * Queries a list of customers.
      *
      * @param request - ModelRouterQueryClientListRequest
      *
@@ -7591,7 +7595,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of models called for billing management.
+     * Retrieves a list of invoked models for billing management.
      *
      * @param request - ModelRouterQueryCostModelListRequest
      * @param headers - map
@@ -7637,6 +7641,10 @@ class AiContent extends OpenApiClient
             @$query['memberUserIds'] = $request->memberUserIds;
         }
 
+        if (null !== $request->modelIds) {
+            @$query['modelIds'] = $request->modelIds;
+        }
+
         if (null !== $request->modelTypes) {
             @$query['modelTypes'] = $request->modelTypes;
         }
@@ -7673,7 +7681,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of models called for billing management.
+     * Retrieves a list of invoked models for billing management.
      *
      * @param request - ModelRouterQueryCostModelListRequest
      *
@@ -7833,6 +7841,10 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->memberUserIds) {
             @$query['memberUserIds'] = $request->memberUserIds;
+        }
+
+        if (null !== $request->modelIds) {
+            @$query['modelIds'] = $request->modelIds;
         }
 
         if (null !== $request->modelTypes) {
@@ -8334,10 +8346,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries the bound groups and models by API key.
+     * Queries the groups and models bound to an API key.
      *
      * @remarks
-     * Queries the bound groups and models by API key.
+     * Queries the groups and models bound to an API key.
      *
      * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
      * @param headers - map
@@ -8374,10 +8386,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries the bound groups and models by API key.
+     * Queries the groups and models bound to an API key.
      *
      * @remarks
-     * Queries the bound groups and models by API key.
+     * Queries the groups and models bound to an API key.
      *
      * @param request - ModelRouterQueryModelGroupsByApiKeyRequest
      *
@@ -8397,7 +8409,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Model management/Get model list.
+     * Retrieves a list of models.
      *
      * @param request - ModelRouterQueryModelListRequest
      * @param headers - map
@@ -8479,7 +8491,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Model management/Get model list.
+     * Retrieves a list of models.
      *
      * @param request - ModelRouterQueryModelListRequest
      *
@@ -8498,7 +8510,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries the list of Nacos service providers through Nacos configuration.
+     * Retrieves the Nacos configuration and the list of Nacos service providers.
      *
      * @param request - ModelRouterQueryNacosProvidersRequest
      * @param headers - map
@@ -8568,7 +8580,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries the list of Nacos service providers through Nacos configuration.
+     * Retrieves the Nacos configuration and the list of Nacos service providers.
      *
      * @param request - ModelRouterQueryNacosProvidersRequest
      *
@@ -8587,7 +8599,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of tags from Nacos.
+     * Queries the list of Nacos tags.
      *
      * @param request - ModelRouterQueryNacosTagsRequest
      * @param headers - map
@@ -8661,7 +8673,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of tags from Nacos.
+     * Queries the list of Nacos tags.
      *
      * @param request - ModelRouterQueryNacosTagsRequest
      *
@@ -9319,7 +9331,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Flow control management / Save flow control configuration.
+     * Configures write rate limiting.
      *
      * @param request - ModelRouterSaveFlowConfigRequest
      * @param headers - map
@@ -9373,7 +9385,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Flow control management / Save flow control configuration.
+     * Configures write rate limiting.
      *
      * @param request - ModelRouterSaveFlowConfigRequest
      *
@@ -9591,7 +9603,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 组织管理/停止成员订阅.
+     * Stops a member subscription.
      *
      * @param request - ModelRouterStopMemberSubscriptionRequest
      * @param headers - map
@@ -9635,7 +9647,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 组织管理/停止成员订阅.
+     * Stops a member subscription.
      *
      * @param request - ModelRouterStopMemberSubscriptionRequest
      *
@@ -10507,7 +10519,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries the status of a personalized text-to-image inference job.
+     * Queries the status of a preset model inference task for personalized text-to-image generation.
      *
      * @param request - PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
      * @param headers - map
@@ -10549,7 +10561,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries the status of a personalized text-to-image inference job.
+     * Queries the status of a preset model inference task for personalized text-to-image generation.
      *
      * @param request - PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
      *
@@ -10568,7 +10580,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Creates an inference job to generate images based on a personalized text-to-image model.
+     * Creates an image inference task based on a specified model for personalized text-to-image generation.
      *
      * @param request - Personalizedtxt2imgAddInferenceJobRequest
      * @param headers - map
@@ -10622,7 +10634,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Creates an inference job to generate images based on a personalized text-to-image model.
+     * Creates an image inference task based on a specified model for personalized text-to-image generation.
      *
      * @param request - Personalizedtxt2imgAddInferenceJobRequest
      *
@@ -10787,7 +10799,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the status and results of a Personalizedtxt2img inference job.
+     * Queries the status and results of a personalized text-to-image model inference task.
      *
      * @param request - Personalizedtxt2imgQueryInferenceJobInfoRequest
      * @param headers - map
@@ -10829,7 +10841,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Retrieves the status and results of a Personalizedtxt2img inference job.
+     * Queries the status and results of a personalized text-to-image model inference task.
      *
      * @param request - Personalizedtxt2imgQueryInferenceJobInfoRequest
      *
@@ -10957,7 +10969,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries information about an application access ID (appkey).
+     * Retrieves the application access identifier (appkey) information from the Alibaba Cloud Management Console.
      *
      * @param request - QueryApplicationAccessIdRequest
      * @param headers - map
@@ -10999,7 +11011,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Queries information about an application access ID (appkey).
+     * Retrieves the application access identifier (appkey) information from the Alibaba Cloud Management Console.
      *
      * @param request - QueryApplicationAccessIdRequest
      *

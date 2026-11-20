@@ -46,6 +46,11 @@ class ModelRouterQueryCostTrendMetricsRequest extends Model
     /**
      * @var string
      */
+    public $modelIds;
+
+    /**
+     * @var string
+     */
     public $modelTypes;
 
     /**
@@ -65,6 +70,7 @@ class ModelRouterQueryCostTrendMetricsRequest extends Model
         'granularity' => 'granularity',
         'maxResults' => 'maxResults',
         'memberUserIds' => 'memberUserIds',
+        'modelIds' => 'modelIds',
         'modelTypes' => 'modelTypes',
         'nextToken' => 'nextToken',
         'startTime' => 'startTime',
@@ -104,6 +110,10 @@ class ModelRouterQueryCostTrendMetricsRequest extends Model
 
         if (null !== $this->memberUserIds) {
             $res['memberUserIds'] = $this->memberUserIds;
+        }
+
+        if (null !== $this->modelIds) {
+            $res['modelIds'] = $this->modelIds;
         }
 
         if (null !== $this->modelTypes) {
@@ -155,6 +165,10 @@ class ModelRouterQueryCostTrendMetricsRequest extends Model
 
         if (isset($map['memberUserIds'])) {
             $model->memberUserIds = $map['memberUserIds'];
+        }
+
+        if (isset($map['modelIds'])) {
+            $model->modelIds = $map['modelIds'];
         }
 
         if (isset($map['modelTypes'])) {
