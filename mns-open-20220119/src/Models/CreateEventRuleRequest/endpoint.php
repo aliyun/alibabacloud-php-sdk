@@ -11,6 +11,11 @@ class endpoint extends Model
     /**
      * @var string
      */
+    public $endpointRoleName;
+
+    /**
+     * @var string
+     */
     public $endpointType;
 
     /**
@@ -18,6 +23,7 @@ class endpoint extends Model
      */
     public $endpointValue;
     protected $_name = [
+        'endpointRoleName' => 'EndpointRoleName',
         'endpointType' => 'EndpointType',
         'endpointValue' => 'EndpointValue',
     ];
@@ -30,6 +36,10 @@ class endpoint extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endpointRoleName) {
+            $res['EndpointRoleName'] = $this->endpointRoleName;
+        }
+
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
@@ -49,6 +59,10 @@ class endpoint extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndpointRoleName'])) {
+            $model->endpointRoleName = $map['EndpointRoleName'];
+        }
+
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }
