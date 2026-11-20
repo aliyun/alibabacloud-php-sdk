@@ -8565,7 +8565,7 @@ class Polardb extends OpenApiClient
      * Creates a knowledge space.
      *
      * @remarks
-     * Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+     * Prerequisites: You must activate the PrivateLink service in your current account before calling this operation. If the service is not activated, the operation returns the PrivateLinkService.NotOpen (400) error. You can check the service activation status in the PrivateLink console. Before creating a knowledge space, you must also prepare a VpcId, VSwitchId, SecurityGroupId, and OSSBucket. You can query VPCs and vSwitches by calling the VPC DescribeVpcs and DescribeVSwitches operations, query security groups by calling the ECS DescribeSecurityGroups operation, and query buckets by calling the OSS ListBuckets operation. If the resources do not exist, create them in the corresponding services first.
      *
      * @param request - CreateKnowledgeSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8581,12 +8581,20 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoCreateMcpInstance) {
+            @$query['AutoCreateMcpInstance'] = $request->autoCreateMcpInstance;
+        }
+
         if (null !== $request->DBType) {
             @$query['DBType'] = $request->DBType;
         }
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
 
         if (null !== $request->embeddingDimension) {
@@ -8675,7 +8683,7 @@ class Polardb extends OpenApiClient
      * Creates a knowledge space.
      *
      * @remarks
-     * Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+     * Prerequisites: You must activate the PrivateLink service in your current account before calling this operation. If the service is not activated, the operation returns the PrivateLinkService.NotOpen (400) error. You can check the service activation status in the PrivateLink console. Before creating a knowledge space, you must also prepare a VpcId, VSwitchId, SecurityGroupId, and OSSBucket. You can query VPCs and vSwitches by calling the VPC DescribeVpcs and DescribeVSwitches operations, query security groups by calling the ECS DescribeSecurityGroups operation, and query buckets by calling the OSS ListBuckets operation. If the resources do not exist, create them in the corresponding services first.
      *
      * @param request - CreateKnowledgeSpaceRequest
      *
@@ -9643,6 +9651,12 @@ class Polardb extends OpenApiClient
     /**
      * Uploads a skill.
      *
+     * @remarks
+     * ## 前提条件
+     * - 已创建 PolarClaw 应用：技能将上传到该应用。可调用 DescribeApplications 并将 ApplicationTypes 设置为 polardb_polarclaw 查询应用列表，获取应用 ID。
+     * - 技能文件已存放在 OSS Bucket 中：OSSBucket 必须是真实存在、且与应用处于同一地域的 Bucket，Bucket 所在地域可通过 BucketRegionId 指定。
+     * - OSSPrefix 为技能文件在 Bucket 中的对象前缀。
+     *
      * @param request - CreatePolarClawSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9717,6 +9731,12 @@ class Polardb extends OpenApiClient
 
     /**
      * Uploads a skill.
+     *
+     * @remarks
+     * ## 前提条件
+     * - 已创建 PolarClaw 应用：技能将上传到该应用。可调用 DescribeApplications 并将 ApplicationTypes 设置为 polardb_polarclaw 查询应用列表，获取应用 ID。
+     * - 技能文件已存放在 OSS Bucket 中：OSSBucket 必须是真实存在、且与应用处于同一地域的 Bucket，Bucket 所在地域可通过 BucketRegionId 指定。
+     * - OSSPrefix 为技能文件在 Bucket 中的对象前缀。
      *
      * @param request - CreatePolarClawSkillRequest
      *
@@ -44740,6 +44760,12 @@ class Polardb extends OpenApiClient
     /**
      * Restarts a node of an edge cluster for PolarDB on ENS.
      *
+     * @remarks
+     * ## 前提条件
+     * 本接口用于重启边缘云（ENS）PolarDB 集群的节点。边缘云集群需通过 CreateDBCluster 创建，并将 CloudProvider 设置为 ENS；可通过 DescribeDBClustersZonal 查询当前账号下的边缘云集群及其节点，通过 DescribeEdgeCloudRegion 查询可用的边缘云地域、中心管控地域（CentralControlRegionId）及备用边缘云地域。
+     * ## 地域说明
+     * 本接口 spec 未声明、也不转发 RegionId 参数；但通过 SDK 或 OpenAPI 调用时仍需指定地域，请使用 DescribeEdgeCloudRegion 返回的中心管控地域 ID，以完成 endpoint 路由；未指定地域时 SDK 无法构建正确的区域化 endpoint。若研发确认该接口为非地域化接口、调用时无需地域路由，则以研发结论为准。
+     *
      * @param request - RestartDBNodeZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -44802,6 +44828,12 @@ class Polardb extends OpenApiClient
 
     /**
      * Restarts a node of an edge cluster for PolarDB on ENS.
+     *
+     * @remarks
+     * ## 前提条件
+     * 本接口用于重启边缘云（ENS）PolarDB 集群的节点。边缘云集群需通过 CreateDBCluster 创建，并将 CloudProvider 设置为 ENS；可通过 DescribeDBClustersZonal 查询当前账号下的边缘云集群及其节点，通过 DescribeEdgeCloudRegion 查询可用的边缘云地域、中心管控地域（CentralControlRegionId）及备用边缘云地域。
+     * ## 地域说明
+     * 本接口 spec 未声明、也不转发 RegionId 参数；但通过 SDK 或 OpenAPI 调用时仍需指定地域，请使用 DescribeEdgeCloudRegion 返回的中心管控地域 ID，以完成 endpoint 路由；未指定地域时 SDK 无法构建正确的区域化 endpoint。若研发确认该接口为非地域化接口、调用时无需地域路由，则以研发结论为准。
      *
      * @param request - RestartDBNodeZonalRequest
      *

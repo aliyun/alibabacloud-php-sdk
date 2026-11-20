@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateKnowledgeSpaceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoCreateMcpInstance;
+
+    /**
      * @var string
      */
     public $DBType;
@@ -17,6 +22,11 @@ class CreateKnowledgeSpaceRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
 
     /**
      * @var int
@@ -98,8 +108,10 @@ class CreateKnowledgeSpaceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'autoCreateMcpInstance' => 'AutoCreateMcpInstance',
         'DBType' => 'DBType',
         'description' => 'Description',
+        'dryRun' => 'DryRun',
         'embeddingDimension' => 'EmbeddingDimension',
         'embeddingModel' => 'EmbeddingModel',
         'enforceAcl' => 'EnforceAcl',
@@ -126,12 +138,20 @@ class CreateKnowledgeSpaceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoCreateMcpInstance) {
+            $res['AutoCreateMcpInstance'] = $this->autoCreateMcpInstance;
+        }
+
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
         }
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->embeddingDimension) {
@@ -209,12 +229,20 @@ class CreateKnowledgeSpaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoCreateMcpInstance'])) {
+            $model->autoCreateMcpInstance = $map['AutoCreateMcpInstance'];
+        }
+
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
         }
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['EmbeddingDimension'])) {
