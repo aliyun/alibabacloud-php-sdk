@@ -11,6 +11,11 @@ class GetRiskStatsRequest extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $classify;
 
     /**
@@ -33,6 +38,7 @@ class GetRiskStatsRequest extends Model
      */
     public $type;
     protected $_name = [
+        'channel' => 'Channel',
         'classify' => 'Classify',
         'endTime' => 'EndTime',
         'regionId' => 'RegionId',
@@ -48,6 +54,10 @@ class GetRiskStatsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
+        }
+
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
         }
@@ -79,6 +89,10 @@ class GetRiskStatsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
+        }
+
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
         }

@@ -269,6 +269,7 @@ use AlibabaCloud\SDK\Green\V20220926\Models\UpdateScanResultFeedbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateScanResultFeedbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateServiceConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateServiceConfigResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -279,6 +280,9 @@ class Green extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'Green';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'ap-northeast-1' => 'green.ap-southeast-1.aliyuncs.com',
@@ -334,7 +338,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Adds a proxy answer.
+     * Adds fallback answers.
      *
      * @param request - AddAnswerSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -385,7 +389,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Adds a proxy answer.
+     * Adds fallback answers.
      *
      * @param request - AddAnswerSampleRequest
      *
@@ -403,7 +407,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Adds an agent configuration to an app.
+     * Adds agent configurations to an application.
      *
      * @param request - AddAppAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -462,7 +466,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Adds an agent configuration to an app.
+     * Adds agent configurations to an application.
      *
      * @param request - AddAppAgentRequest
      *
@@ -480,7 +484,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Creates an app configuration.
+     * Creates an application configuration.
      *
      * @param request - AddAppConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -539,7 +543,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Creates an app configuration.
+     * Creates an application configuration.
      *
      * @param request - AddAppConfigRequest
      *
@@ -624,7 +628,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Adds images in batches.
+     * Adds multiple images to an image library.
+     *
+     * @remarks
+     * Adds multiple images to an image library. Before calling this operation, call GetUploadInfo to obtain the Object Storage Service (OSS) upload credentials (Host, Policy, Signature, SecurityToken, and Key). Use the credentials to upload images to the returned Host. Finally, pass the Key value returned by GetUploadInfo as the ImgUrl parameter to this operation.
      *
      * @param request - AddImages2LibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -673,7 +680,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Adds images in batches.
+     * Adds multiple images to an image library.
+     *
+     * @remarks
+     * Adds multiple images to an image library. Before calling this operation, call GetUploadInfo to obtain the Object Storage Service (OSS) upload credentials (Host, Policy, Signature, SecurityToken, and Key). Use the credentials to upload images to the returned Host. Finally, pass the Key value returned by GetUploadInfo as the ImgUrl parameter to this operation.
      *
      * @param request - AddImages2LibRequest
      *
@@ -1046,7 +1056,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Copies an App configuration.
+     * Copies the app configuration.
      *
      * @param request - CopyAppConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1097,7 +1107,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Copies an App configuration.
+     * Copies the app configuration.
      *
      * @param request - CopyAppConfigRequest
      *
@@ -1359,7 +1369,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Creates a proxy answer library.
+     * Creates a fallback answer library.
      *
      * @param request - CreateAnswerLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1416,7 +1426,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Creates a proxy answer library.
+     * Creates a fallback answer library.
      *
      * @param request - CreateAnswerLibRequest
      *
@@ -1585,10 +1595,10 @@ class Green extends OpenApiClient
      * Creates an image library.
      *
      * @remarks
-     * Before using this operation, complete the following steps:
-     * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
-     * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
-     * 3. For more information about API operations and parameters, see [API reference](https://help.aliyun.com/document_detail/467829.html).
+     * Before you call this operation, make sure that the following conditions are met:
+     * 1. You have activated [Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+     * 2. You fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+     * 3. For more information about how to use the API operation and its parameters, refer to the [API reference](https://help.aliyun.com/document_detail/467829.html).
      *
      * @param request - CreateImageLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1640,10 +1650,10 @@ class Green extends OpenApiClient
      * Creates an image library.
      *
      * @remarks
-     * Before using this operation, complete the following steps:
-     * 1. [Activate Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
-     * 2. Understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
-     * 3. For more information about API operations and parameters, see [API reference](https://help.aliyun.com/document_detail/467829.html).
+     * Before you call this operation, make sure that the following conditions are met:
+     * 1. You have activated [Content Moderation Enhanced Edition](https://common-buy.aliyun.com/?commodityCode=lvwang_cip_public_cn).
+     * 2. You fully understand the [billing methods and pricing](https://help.aliyun.com/document_detail/467826.html?#section-h06-qz6-1pt) of Image Moderation Enhanced Edition.
+     * 3. For more information about how to use the API operation and its parameters, refer to the [API reference](https://help.aliyun.com/document_detail/467829.html).
      *
      * @param request - CreateImageLibRequest
      *
@@ -1730,7 +1740,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Performs a pre-check before creating an OSS scan task.
+     * Performs pre-checks before creating an OSS scan task.
      *
      * @param request - CreatePreCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1827,7 +1837,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Performs a pre-check before creating an OSS scan task.
+     * Performs pre-checks before creating an OSS scan task.
      *
      * @param request - CreatePreCheckRequest
      *
@@ -1973,7 +1983,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Deletes an agent configuration.
+     * Deletes the agent configuration.
      *
      * @param request - DeleteAppAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2024,7 +2034,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Deletes an agent configuration.
+     * Deletes the agent configuration.
      *
      * @param request - DeleteAppAgentRequest
      *
@@ -2450,7 +2460,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the detection results of online moderation.
+     * Queries the online detection results.
      *
      * @param request - DescribeOnlineTestResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2497,7 +2507,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the detection results of online moderation.
+     * Queries the online detection results.
      *
      * @param request - DescribeOnlineTestResultRequest
      *
@@ -2515,10 +2525,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves OSS moderation results v2.
+     * Retrieves OSS results v2.
      *
      * @remarks
-     * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
+     * This API operation must be used in conjunction with the Image Moderation Enhanced Edition API. After calling the Image Moderation Enhanced Edition API, you can call this operation to obtain more detection information. This API operation is free of charge.
      *
      * @param request - DescribeOssV2ResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2581,10 +2591,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves OSS moderation results v2.
+     * Retrieves OSS results v2.
      *
      * @remarks
-     * API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
+     * This API operation must be used in conjunction with the Image Moderation Enhanced Edition API. After calling the Image Moderation Enhanced Edition API, you can call this operation to obtain more detection information. This API operation is free of charge.
      *
      * @param request - DescribeOssV2ResultRequest
      *
@@ -2665,7 +2675,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports call volume.
+     * Exports the usage data.
      *
      * @param request - ExportCipStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2746,7 +2756,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports call volume.
+     * Exports the usage data.
      *
      * @param request - ExportCipStatsRequest
      *
@@ -2906,7 +2916,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports OSS scan results.
+     * Exports the OSS scan results.
      *
      * @param tmpReq - ExportResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2981,7 +2991,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports OSS scan results.
+     * Exports the OSS scan results.
      *
      * @param request - ExportResultRequest
      *
@@ -2999,7 +3009,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports call results as an Excel file.
+     * Exports the call results to an Excel file.
      *
      * @param tmpReq - ExportScanResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3078,7 +3088,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports call results as an Excel file.
+     * Exports the call results to an Excel file.
      *
      * @param request - ExportScanResultRequest
      *
@@ -3096,7 +3106,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports call results as an Excel file.
+     * Exports call results to an Excel file.
      *
      * @param tmpReq - ExportTextScanResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3155,7 +3165,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Exports call results as an Excel file.
+     * Exports call results to an Excel file.
      *
      * @param request - ExportTextScanResultRequest
      *
@@ -3193,8 +3203,16 @@ class Green extends OpenApiClient
             @$query['AppId'] = $request->appId;
         }
 
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
 
         $req = new OpenApiRequest([
@@ -3234,7 +3252,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics for the details of an AI application.
+     * Retrieves the statistics of an AI application.
      *
      * @param request - GetAiAppDetailStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3285,7 +3303,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics for the details of an AI application.
+     * Retrieves the statistics of an AI application.
      *
      * @param request - GetAiAppDetailStatRequest
      *
@@ -3374,7 +3392,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an application node in the agent topology.
+     * Retrieves the details of an app node.
+     *
+     * @remarks
+     * AI applications must be created through the Model Studio or Dify platform. Call chain: ListAiAppByPage (to obtain the AppId) → GetAiAppDetailTopo (to obtain the NodeId, NodeName, and NodeType) → GetAiAppNodeDetail.
      *
      * @param request - GetAiAppNodeDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3437,7 +3458,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an application node in the agent topology.
+     * Retrieves the details of an app node.
+     *
+     * @remarks
+     * AI applications must be created through the Model Studio or Dify platform. Call chain: ListAiAppByPage (to obtain the AppId) → GetAiAppDetailTopo (to obtain the NodeId, NodeName, and NodeType) → GetAiAppNodeDetail.
      *
      * @param request - GetAiAppNodeDetailRequest
      *
@@ -3455,7 +3479,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the overview information of AI applications.
+     * Retrieves the overview of AI applications.
      *
      * @param request - GetAiAppOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3502,7 +3526,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the overview information of AI applications.
+     * Retrieves the overview of AI applications.
      *
      * @param request - GetAiAppOverviewRequest
      *
@@ -3520,7 +3544,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics for AI application risk reports.
+     * Retrieves statistical data for AI applications.
      *
      * @param request - GetAiAppStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3579,7 +3603,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics for AI application risk reports.
+     * Retrieves statistical data for AI applications.
      *
      * @param request - GetAiAppStatsRequest
      *
@@ -3597,7 +3621,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an app alert.
+     * Retrieves the details of an application alert.
      *
      * @param request - GetAiAppTraceDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3652,7 +3676,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an app alert.
+     * Retrieves the details of an application alert.
      *
      * @param request - GetAiAppTraceDetailRequest
      *
@@ -3670,7 +3694,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the import progress of proxy answer samples.
+     * Retrieves the import progress of fallback answer samples.
      *
      * @param request - GetAnswerImportProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3713,7 +3737,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the import progress of proxy answer samples.
+     * Retrieves the import progress of fallback answer samples.
      *
      * @param request - GetAnswerImportProgressRequest
      *
@@ -3731,7 +3755,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the details of an App configuration.
+     * Queries the details of an application configuration.
      *
      * @param request - GetAppConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3786,7 +3810,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the details of an App configuration.
+     * Queries the details of an application configuration.
      *
      * @param request - GetAppConfigRequest
      *
@@ -4040,7 +4064,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the call volume statistics.
+     * Queries the call volume.
      *
      * @param request - GetCipStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4117,7 +4141,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the call volume statistics.
+     * Queries the call volume.
      *
      * @param request - GetCipStatsRequest
      *
@@ -4267,7 +4291,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves log statistics for AI security guardrails.
+     * Retrieves the statistics of AI security guardrail logs.
      *
      * @param request - GetGuardLogStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4306,7 +4330,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves log statistics for AI security guardrails.
+     * Retrieves the statistics of AI security guardrail logs.
      *
      * @param request - GetGuardLogStatsRequest
      *
@@ -4324,7 +4348,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics information on AI application protection data.
+     * Retrieves the statistics information on AI application protection data.
      *
      * @param request - GetGuardStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4367,7 +4391,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves statistics information on AI application protection data.
+     * Retrieves the statistics information on AI application protection data.
      *
      * @param request - GetGuardStatusRequest
      *
@@ -4582,7 +4606,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the result of a keyword import task.
+     * Queries the keyword import results.
      *
      * @param request - GetKeywordImportResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4627,7 +4651,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the result of a keyword import task.
+     * Queries the keyword import results.
      *
      * @param request - GetKeywordImportResultRequest
      *
@@ -4716,7 +4740,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the results of OSS scan and freeze operations.
+     * Queries the freezing results of OSS detection.
+     *
+     * @remarks
+     * Queries the freezing disposal results of OSS detection tasks.
+     * Prerequisites: Before calling this operation, you must call CreatStockOssCheckTask to create an OSS inventory detection task and generate freezing results. Then, call GetStockOssCheckTasksList to obtain an available TaskId and pass it as a query parameter to this operation.
      *
      * @param tmpReq - GetOssCheckFreezeResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4793,7 +4821,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the results of OSS scan and freeze operations.
+     * Queries the freezing results of OSS detection.
+     *
+     * @remarks
+     * Queries the freezing disposal results of OSS detection tasks.
+     * Prerequisites: Before calling this operation, you must call CreatStockOssCheckTask to create an OSS inventory detection task and generate freezing results. Then, call GetStockOssCheckTasksList to obtain an available TaskId and pass it as a query parameter to this operation.
      *
      * @param request - GetOssCheckFreezeResultRequest
      *
@@ -4811,7 +4843,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed information of OSS check results.
+     * Retrieves the details of OSS inspection results.
      *
      * @param request - GetOssCheckResultDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4874,7 +4906,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed information of OSS check results.
+     * Retrieves the details of OSS inspection results.
      *
      * @param request - GetOssCheckResultDetailRequest
      *
@@ -4892,7 +4924,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries OSS usage statistics.
+     * Queries the usage statistics of OSS.
      *
      * @param request - GetOssCheckStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4949,7 +4981,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries OSS usage statistics.
+     * Queries the usage statistics of OSS.
      *
      * @param request - GetOssCheckStatRequest
      *
@@ -5081,7 +5113,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Tests the attribute configuration.
+     * Tests the feature configuration.
      *
      * @param request - GetPromptTestResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5136,7 +5168,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Tests the attribute configuration.
+     * Tests the feature configuration.
      *
      * @param request - GetPromptTestResultRequest
      *
@@ -5154,7 +5186,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries QPS statistics information.
+     * Queries the queries per second (QPS) statistics information.
      *
      * @param request - GetQpsStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5197,7 +5229,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries QPS statistics information.
+     * Queries the queries per second (QPS) statistics information.
      *
      * @param request - GetQpsStatsRequest
      *
@@ -5215,7 +5247,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries risk posture statistics.
+     * Retrieves risk posture statistics.
      *
      * @param request - GetRiskStatsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5231,6 +5263,10 @@ class Green extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
         if (null !== $request->classify) {
             @$query['Classify'] = $request->classify;
         }
@@ -5270,7 +5306,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries risk posture statistics.
+     * Retrieves risk posture statistics.
      *
      * @param request - GetRiskStatsRequest
      *
@@ -5288,7 +5324,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the information about files pending detection for a user.
+     * Retrieves the pending detection information of the user.
      *
      * @param request - GetScanNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5335,7 +5371,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the information about files pending detection for a user.
+     * Retrieves the pending detection information of the user.
      *
      * @param request - GetScanNumRequest
      *
@@ -5353,7 +5389,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the detection results.
+     * Queries the call results.
      *
      * @param tmpReq - GetScanResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5432,7 +5468,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the detection results.
+     * Queries the call results.
      *
      * @param request - GetScanResultRequest
      *
@@ -5756,7 +5792,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the call results.
+     * Queries the invocation results.
      *
      * @param tmpReq - GetTextScanResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5831,7 +5867,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the call results.
+     * Queries the invocation results.
      *
      * @param request - GetTextScanResultRequest
      *
@@ -5849,10 +5885,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves tuning suggestions for switch configurations.
+     * Retrieves tuning recommendations for switch configurations.
      *
      * @remarks
-     * API operation is used together with the enhanced image moderation API. After you call the enhanced image moderation API, call API operation to retrieve additional detection information. API operation is free of charge.
+     * API operation must be used in conjunction with the enhanced image moderation API. After you call the enhanced image moderation API, you can call API operation to retrieve additional detection information. API operation is free of charge.
      *
      * @param request - GetTuneProposalByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5891,10 +5927,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves tuning suggestions for switch configurations.
+     * Retrieves tuning recommendations for switch configurations.
      *
      * @remarks
-     * API operation is used together with the enhanced image moderation API. After you call the enhanced image moderation API, call API operation to retrieve additional detection information. API operation is free of charge.
+     * API operation must be used in conjunction with the enhanced image moderation API. After you call the enhanced image moderation API, you can call API operation to retrieve additional detection information. API operation is free of charge.
      *
      * @param request - GetTuneProposalByIdRequest
      *
@@ -5969,7 +6005,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the relevant information for file upload.
+     * Retrieves the information required for file upload.
      *
      * @param request - GetUploadInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6018,7 +6054,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the relevant information for file upload.
+     * Retrieves the information required for file upload.
      *
      * @param request - GetUploadInfoRequest
      *
@@ -6221,7 +6257,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of AI applications.
+     * Queries a paginated list of AI applications.
      *
      * @param request - ListAiAppByPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6272,7 +6308,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of AI applications.
+     * Queries a paginated list of AI applications.
      *
      * @param request - ListAiAppByPageRequest
      *
@@ -6290,7 +6326,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of risk events for an AI application.
+     * Retrieves a list of risk events for AI applications.
      *
      * @param request - ListAiAppRiskEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6341,7 +6377,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of risk events for an AI application.
+     * Retrieves a list of risk events for AI applications.
      *
      * @param request - ListAiAppRiskEventRequest
      *
@@ -6359,7 +6395,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of risk events for AI applications.
+     * Queries a paginated list of risk events for AI applications.
      *
      * @param request - ListAiAppRiskEventByPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6418,7 +6454,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of risk events for AI applications.
+     * Queries a paginated list of risk events for AI applications.
      *
      * @param request - ListAiAppRiskEventByPageRequest
      *
@@ -6436,7 +6472,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the alert list of an application with pagination.
+     * Retrieves a paginated list of application alerts.
      *
      * @param request - ListAiAppWarningByPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6491,7 +6527,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the alert list of an application with pagination.
+     * Retrieves a paginated list of application alerts.
      *
      * @param request - ListAiAppWarningByPageRequest
      *
@@ -6631,7 +6667,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of app configurations.
+     * Retrieves a list of application configurations.
      *
      * @param request - ListAppConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6678,7 +6714,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of app configurations.
+     * Retrieves a list of application configurations.
      *
      * @param request - ListAppConfigsRequest
      *
@@ -6753,7 +6789,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the list of image libraries.
+     * Queries a list of image libraries.
      *
      * @param request - ListImageLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6798,7 +6834,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the list of image libraries.
+     * Queries a list of image libraries.
      *
      * @param request - ListImageLibRequest
      *
@@ -7063,7 +7099,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries OSS scan results.
+     * Queries the OSS scan results.
      *
      * @param tmpReq - ListOssCheckResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7140,7 +7176,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries OSS scan results.
+     * Queries the OSS scan results.
      *
      * @param request - ListOssCheckResultRequest
      *
@@ -7158,7 +7194,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the service list.
+     * Retrieves a list of services.
      *
      * @param request - ListServiceConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7215,7 +7251,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the service list.
+     * Retrieves a list of services.
      *
      * @param request - ListServiceConfigsRequest
      *
@@ -7233,7 +7269,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Calls a large language model in streaming mode using the SSE interface.
+     * Invokes a large language model in streaming mode by using the Server-Sent Events (SSE) API.
      *
      * @param request - LlmStreamChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7301,7 +7337,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Calls a large language model in streaming mode using the SSE interface.
+     * Invokes a large language model in streaming mode by using the Server-Sent Events (SSE) API.
      *
      * @param request - LlmStreamChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7356,7 +7392,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Calls a large language model in streaming mode using the SSE interface.
+     * Invokes a large language model in streaming mode by using the Server-Sent Events (SSE) API.
      *
      * @param request - LlmStreamChatRequest
      *
@@ -7377,7 +7413,7 @@ class Green extends OpenApiClient
      * Provides feedback on OSS detection results.
      *
      * @remarks
-     * This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
+     * This API operation is free of charge. Set the query interval to 30 seconds (that is, query the results 30 seconds after submitting the asynchronous detection task). The maximum interval must not exceed 24 hours. Otherwise, the results are automatically deleted.
      *
      * @param request - MarkOssV2ResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7439,7 +7475,7 @@ class Green extends OpenApiClient
      * Provides feedback on OSS detection results.
      *
      * @remarks
-     * This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
+     * This API operation is free of charge. Set the query interval to 30 seconds (that is, query the results 30 seconds after submitting the asynchronous detection task). The maximum interval must not exceed 24 hours. Otherwise, the results are automatically deleted.
      *
      * @param request - MarkOssV2ResultRequest
      *
@@ -7457,7 +7493,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates a proxy response library.
+     * Updates a fallback library.
      *
      * @param request - ModifyAnswerLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7504,7 +7540,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates a proxy response library.
+     * Updates a fallback library.
      *
      * @param request - ModifyAnswerLibRequest
      *
@@ -7522,7 +7558,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Modifies the agent configuration.
+     * Modifies the configuration of an agent.
      *
      * @param request - ModifyAppAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7585,7 +7621,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Modifies the agent configuration.
+     * Modifies the configuration of an agent.
      *
      * @param request - ModifyAppAgentRequest
      *
@@ -7603,7 +7639,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Modifies app information.
+     * Modifies the information of an app.
      *
      * @param request - ModifyAppInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7658,7 +7694,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Modifies app information.
+     * Modifies the information of an app.
      *
      * @param request - ModifyAppInfoRequest
      *
@@ -7676,7 +7712,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Modifies a message notification.
+     * Updates message notifications.
      *
      * @param request - ModifyCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7737,7 +7773,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Modifies a message notification.
+     * Updates message notifications.
      *
      * @param request - ModifyCallbackRequest
      *
@@ -7755,7 +7791,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Saves an attribute configuration.
+     * Saves the feature configuration.
+     *
+     * @remarks
+     * Prerequisites: Before calling ModifyFeatureConfig, call GetFeatureConfig to query valid Type/Field combinations and their corresponding Config structures. Submit modifications based on the query results to avoid configuration update failures caused by invalid combinations.
      *
      * @param request - ModifyFeatureConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7820,7 +7859,10 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Saves an attribute configuration.
+     * Saves the feature configuration.
+     *
+     * @remarks
+     * Prerequisites: Before calling ModifyFeatureConfig, call GetFeatureConfig to query valid Type/Field combinations and their corresponding Config structures. Submit modifications based on the query results to avoid configuration update failures caused by invalid combinations.
      *
      * @param request - ModifyFeatureConfigRequest
      *
@@ -7838,7 +7880,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Edits a service.
+     * Modifies a service.
      *
      * @param request - ModifyServiceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7895,7 +7937,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Edits a service.
+     * Modifies a service.
      *
      * @param request - ModifyServiceInfoRequest
      *
@@ -7913,7 +7955,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of OSS detection results.
+     * Retrieves a list of OSS scan results.
      *
      * @param tmpReq - OssCheckResultListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7990,7 +8032,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Retrieves the list of OSS detection results.
+     * Retrieves a list of OSS scan results.
      *
      * @param request - OssCheckResultListRequest
      *
@@ -8008,7 +8050,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Saves and publishes app configurations.
+     * Saves and publishes the application configuration.
      *
      * @param request - PublishAppConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8071,7 +8113,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Saves and publishes app configurations.
+     * Saves and publishes the application configuration.
      *
      * @param request - PublishAppConfigRequest
      *
@@ -8089,7 +8131,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries proxy answer samples by paging.
+     * Performs a paged query for fallback answer samples with paging.
      *
      * @param tmpReq - QueryAnswerSampleByPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8154,7 +8196,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries proxy answer samples by paging.
+     * Performs a paged query for fallback answer samples with paging.
      *
      * @param request - QueryAnswerSampleByPageRequest
      *
@@ -8172,7 +8214,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries a single callback configuration.
+     * Queries a callback configuration.
      *
      * @param request - QueryCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8221,7 +8263,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries a single callback configuration.
+     * Queries a callback configuration.
      *
      * @param request - QueryCallbackRequest
      *
@@ -8239,7 +8281,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the list of message notifications by paging.
+     * Queries the message notification list with paging.
      *
      * @param request - QueryCallbackByPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8288,7 +8330,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries the list of message notifications by paging.
+     * Queries the message notification list with paging.
      *
      * @param request - QueryCallbackByPageRequest
      *
@@ -8306,7 +8348,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries label configurations.
+     * Queries the tag configuration.
      *
      * @param request - QueryLabelConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8361,7 +8403,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Queries label configurations.
+     * Queries the tag configuration.
      *
      * @param request - QueryLabelConfigRequest
      *
@@ -8379,7 +8421,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Reverts an app to a historical version.
+     * Restores an app to a historical version.
      *
      * @param request - RecoverAppConfigHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8430,7 +8472,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Reverts an app to a historical version.
+     * Restores an app to a historical version.
      *
      * @param request - RecoverAppConfigHistoryRequest
      *
@@ -8513,7 +8555,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates the scan status of AI applications.
+     * Updates the scan status of an AI application.
      *
      * @param request - UpdateAiAppScanStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8560,7 +8602,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates the scan status of AI applications.
+     * Updates the scan status of an AI application.
      *
      * @param request - UpdateAiAppScanStatusRequest
      *
@@ -8647,7 +8689,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates the status of risk events.
+     * Updates the handling status of risk events for a specified application.
      *
      * @param tmpReq - UpdateEventStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8712,7 +8754,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates the status of risk events.
+     * Updates the handling status of risk events for a specified application.
      *
      * @param request - UpdateEventStatusRequest
      *
@@ -8730,7 +8772,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Edits an image library.
+     * Modifies an image library.
      *
      * @param request - UpdateImageLibRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8787,7 +8829,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Edits an image library.
+     * Modifies an image library.
      *
      * @param request - UpdateImageLibRequest
      *
@@ -8805,7 +8847,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Edits the inspection-exempt configuration of an image library.
+     * Modifies the inspection exemption configuration for an image library.
      *
      * @param tmpReq - UpdateImageLibFreeInspectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8860,7 +8902,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Edits the inspection-exempt configuration of an image library.
+     * Modifies the inspection exemption configuration for an image library.
      *
      * @param request - UpdateImageLibFreeInspectionRequest
      *
@@ -8949,7 +8991,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates Meta log information.
+     * Updates the metadata log information.
      *
      * @param request - UpdateMetaLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9000,7 +9042,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates Meta log information.
+     * Updates the metadata log information.
      *
      * @param request - UpdateMetaLogRequest
      *
@@ -9018,7 +9060,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates OSS detection result feedback in batches.
+     * Updates feedback for OSS detection results in batches.
      *
      * @param request - UpdateOssCheckResultsBatchFeedbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9065,7 +9107,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Updates OSS detection result feedback in batches.
+     * Updates feedback for OSS detection results in batches.
      *
      * @param request - UpdateOssCheckResultsBatchFeedbackRequest
      *

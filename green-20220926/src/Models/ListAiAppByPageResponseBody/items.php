@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppByPageResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppByPageResponseBody\items\riskEvents;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListAiAppByPageResponseBody\items\riskStats;
 
 class items extends Model
 {
@@ -45,6 +46,11 @@ class items extends Model
     public $riskLevel;
 
     /**
+     * @var riskStats[]
+     */
+    public $riskStats;
+
+    /**
      * @var string
      */
     public $traceStatus;
@@ -66,6 +72,7 @@ class items extends Model
         'lastTraceTime' => 'LastTraceTime',
         'riskEvents' => 'RiskEvents',
         'riskLevel' => 'RiskLevel',
+        'riskStats' => 'RiskStats',
         'traceStatus' => 'TraceStatus',
         'uid' => 'Uid',
         'warningCount' => 'WarningCount',
@@ -75,6 +82,9 @@ class items extends Model
     {
         if (\is_array($this->riskEvents)) {
             Model::validateArray($this->riskEvents);
+        }
+        if (\is_array($this->riskStats)) {
+            Model::validateArray($this->riskStats);
         }
         parent::validate();
     }
@@ -115,6 +125,17 @@ class items extends Model
 
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+
+        if (null !== $this->riskStats) {
+            if (\is_array($this->riskStats)) {
+                $res['RiskStats'] = [];
+                $n1 = 0;
+                foreach ($this->riskStats as $item1) {
+                    $res['RiskStats'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->traceStatus) {
@@ -173,6 +194,17 @@ class items extends Model
 
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+
+        if (isset($map['RiskStats'])) {
+            if (!empty($map['RiskStats'])) {
+                $model->riskStats = [];
+                $n1 = 0;
+                foreach ($map['RiskStats'] as $item1) {
+                    $model->riskStats[$n1] = riskStats::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TraceStatus'])) {
