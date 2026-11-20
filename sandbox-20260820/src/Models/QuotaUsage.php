@@ -16,6 +16,16 @@ class QuotaUsage extends Model
     /**
      * @var int
      */
+    public $createSessionWithSnapshotConcurrency;
+
+    /**
+     * @var int
+     */
+    public $createSnapshotConcurrency;
+
+    /**
+     * @var int
+     */
     public $instanceCount;
 
     /**
@@ -24,13 +34,27 @@ class QuotaUsage extends Model
     public $memoryGB;
 
     /**
+     * @var int
+     */
+    public $pauseConcurrency;
+
+    /**
+     * @var int
+     */
+    public $resumeConcurrency;
+
+    /**
      * @var float
      */
     public $scalingCpuCoresPerMinute;
     protected $_name = [
         'cpuCores' => 'cpuCores',
+        'createSessionWithSnapshotConcurrency' => 'createSessionWithSnapshotConcurrency',
+        'createSnapshotConcurrency' => 'createSnapshotConcurrency',
         'instanceCount' => 'instanceCount',
         'memoryGB' => 'memoryGB',
+        'pauseConcurrency' => 'pauseConcurrency',
+        'resumeConcurrency' => 'resumeConcurrency',
         'scalingCpuCoresPerMinute' => 'scalingCpuCoresPerMinute',
     ];
 
@@ -46,12 +70,28 @@ class QuotaUsage extends Model
             $res['cpuCores'] = $this->cpuCores;
         }
 
+        if (null !== $this->createSessionWithSnapshotConcurrency) {
+            $res['createSessionWithSnapshotConcurrency'] = $this->createSessionWithSnapshotConcurrency;
+        }
+
+        if (null !== $this->createSnapshotConcurrency) {
+            $res['createSnapshotConcurrency'] = $this->createSnapshotConcurrency;
+        }
+
         if (null !== $this->instanceCount) {
             $res['instanceCount'] = $this->instanceCount;
         }
 
         if (null !== $this->memoryGB) {
             $res['memoryGB'] = $this->memoryGB;
+        }
+
+        if (null !== $this->pauseConcurrency) {
+            $res['pauseConcurrency'] = $this->pauseConcurrency;
+        }
+
+        if (null !== $this->resumeConcurrency) {
+            $res['resumeConcurrency'] = $this->resumeConcurrency;
         }
 
         if (null !== $this->scalingCpuCoresPerMinute) {
@@ -73,12 +113,28 @@ class QuotaUsage extends Model
             $model->cpuCores = $map['cpuCores'];
         }
 
+        if (isset($map['createSessionWithSnapshotConcurrency'])) {
+            $model->createSessionWithSnapshotConcurrency = $map['createSessionWithSnapshotConcurrency'];
+        }
+
+        if (isset($map['createSnapshotConcurrency'])) {
+            $model->createSnapshotConcurrency = $map['createSnapshotConcurrency'];
+        }
+
         if (isset($map['instanceCount'])) {
             $model->instanceCount = $map['instanceCount'];
         }
 
         if (isset($map['memoryGB'])) {
             $model->memoryGB = $map['memoryGB'];
+        }
+
+        if (isset($map['pauseConcurrency'])) {
+            $model->pauseConcurrency = $map['pauseConcurrency'];
+        }
+
+        if (isset($map['resumeConcurrency'])) {
+            $model->resumeConcurrency = $map['resumeConcurrency'];
         }
 
         if (isset($map['scalingCpuCoresPerMinute'])) {
