@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\OpenAgent\V20260801\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenAgent\V20260801\Models\SendMessageRequest\attachments;
+use AlibabaCloud\SDK\OpenAgent\V20260801\Models\SendMessageRequest\commands;
 use AlibabaCloud\SDK\OpenAgent\V20260801\Models\SendMessageRequest\resume;
 
 class SendMessageRequest extends Model
@@ -14,6 +15,11 @@ class SendMessageRequest extends Model
      * @var attachments[]
      */
     public $attachments;
+
+    /**
+     * @var commands[]
+     */
+    public $commands;
 
     /**
      * @var string
@@ -36,6 +42,7 @@ class SendMessageRequest extends Model
     public $type;
     protected $_name = [
         'attachments' => 'attachments',
+        'commands' => 'commands',
         'content' => 'content',
         'resume' => 'resume',
         'runId' => 'runId',
@@ -46,6 +53,9 @@ class SendMessageRequest extends Model
     {
         if (\is_array($this->attachments)) {
             Model::validateArray($this->attachments);
+        }
+        if (\is_array($this->commands)) {
+            Model::validateArray($this->commands);
         }
         if (\is_array($this->resume)) {
             Model::validateArray($this->resume);
@@ -62,6 +72,17 @@ class SendMessageRequest extends Model
                 $n1 = 0;
                 foreach ($this->attachments as $item1) {
                     $res['attachments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->commands) {
+            if (\is_array($this->commands)) {
+                $res['commands'] = [];
+                $n1 = 0;
+                foreach ($this->commands as $item1) {
+                    $res['commands'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -107,6 +128,17 @@ class SendMessageRequest extends Model
                 $n1 = 0;
                 foreach ($map['attachments'] as $item1) {
                     $model->attachments[$n1] = attachments::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['commands'])) {
+            if (!empty($map['commands'])) {
+                $model->commands = [];
+                $n1 = 0;
+                foreach ($map['commands'] as $item1) {
+                    $model->commands[$n1] = commands::fromMap($item1);
                     ++$n1;
                 }
             }
