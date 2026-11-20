@@ -58,6 +58,11 @@ class instance extends Model
     /**
      * @var bool
      */
+    public $enableSandbox;
+
+    /**
+     * @var bool
+     */
     public $enableServerless;
 
     /**
@@ -174,6 +179,7 @@ class instance extends Model
         'disk' => 'Disk',
         'enableHiveAccess' => 'EnableHiveAccess',
         'enableSSL' => 'EnableSSL',
+        'enableSandbox' => 'EnableSandbox',
         'enableServerless' => 'EnableServerless',
         'endpoints' => 'Endpoints',
         'expirationTime' => 'ExpirationTime',
@@ -246,6 +252,10 @@ class instance extends Model
 
         if (null !== $this->enableSSL) {
             $res['EnableSSL'] = $this->enableSSL;
+        }
+
+        if (null !== $this->enableSandbox) {
+            $res['EnableSandbox'] = $this->enableSandbox;
         }
 
         if (null !== $this->enableServerless) {
@@ -395,6 +405,10 @@ class instance extends Model
 
         if (isset($map['EnableSSL'])) {
             $model->enableSSL = $map['EnableSSL'];
+        }
+
+        if (isset($map['EnableSandbox'])) {
+            $model->enableSandbox = $map['EnableSandbox'];
         }
 
         if (isset($map['EnableServerless'])) {
