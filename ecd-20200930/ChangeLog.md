@@ -1,3 +1,8 @@
+2026-11-20 Version: 5.9.0
+- Support API DescribeDesktopIdsByVulNames.
+- Support API DescribeResourceStatisticByRegion.
+
+
 2026-11-18 Version: 5.8.0
 - Support API ImportDrive.
 - Update API CreateDrive: add request parameters Platforms.

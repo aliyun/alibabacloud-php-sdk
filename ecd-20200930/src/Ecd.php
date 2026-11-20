@@ -233,6 +233,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupSessionsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupSessionsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopIdsByVulNamesResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopInfoRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopInfoResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopMetadataRequest;
@@ -329,6 +331,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRenewalPriceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRenewalPriceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeResourceByCenterPolicyIdRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeResourceByCenterPolicyIdResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeResourceStatisticByRegionRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeResourceStatisticByRegionResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteEntryListRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteEntryListResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRouteTableListRequest;
@@ -4620,8 +4624,8 @@ class Ecd extends OpenApiClient
      * Creates a shared cloud desktop.
      *
      * @remarks
-     * - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
-     * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
+     * - For information about the features, Common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+     * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policy are created.
      *
      * @param request - CreateDesktopGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4903,8 +4907,8 @@ class Ecd extends OpenApiClient
      * Creates a shared cloud desktop.
      *
      * @remarks
-     * - For information about the features, common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
-     * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policies are created.
+     * - For information about the features, Common scenarios, limits, and scaling policy of shared cloud desktops, see [Overview of shared cloud desktops (formerly cloud desktop pools)](https://help.aliyun.com/document_detail/290959.html).
+     * - Before you invoke this operation, make sure that required prerequisite resources such as office networks, cloud desktop templates, and policy are created.
      *
      * @param request - CreateDesktopGroupRequest
      *
@@ -11049,6 +11053,79 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * Queries a list of cloud desktops with detected vulnerabilities.
+     *
+     * @param request - DescribeDesktopIdsByVulNamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDesktopIdsByVulNamesResponse
+     *
+     * @param DescribeDesktopIdsByVulNamesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDesktopIdsByVulNamesResponse
+     */
+    public function describeDesktopIdsByVulNamesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->necessity) {
+            @$query['Necessity'] = $request->necessity;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->vulName) {
+            @$query['VulName'] = $request->vulName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDesktopIdsByVulNames',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDesktopIdsByVulNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of cloud desktops with detected vulnerabilities.
+     *
+     * @param request - DescribeDesktopIdsByVulNamesRequest
+     *
+     * @returns DescribeDesktopIdsByVulNamesResponse
+     *
+     * @param DescribeDesktopIdsByVulNamesRequest $request
+     *
+     * @return DescribeDesktopIdsByVulNamesResponse
+     */
+    public function describeDesktopIdsByVulNames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDesktopIdsByVulNamesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the basic information of cloud computers.
      *
      * @param request - DescribeDesktopInfoRequest
@@ -15454,6 +15531,77 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeResourceByCenterPolicyIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询地域化的统计数据.
+     *
+     * @remarks
+     * - 该接口为中心化接口，只可通过上海或新加坡地域的服务进行调用。
+     *
+     * @param request - DescribeResourceStatisticByRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeResourceStatisticByRegionResponse
+     *
+     * @param DescribeResourceStatisticByRegionRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeResourceStatisticByRegionResponse
+     */
+    public function describeResourceStatisticByRegionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->includeGroupDesktops) {
+            @$query['IncludeGroupDesktops'] = $request->includeGroupDesktops;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->searchRegionId) {
+            @$query['SearchRegionId'] = $request->searchRegionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeResourceStatisticByRegion',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeResourceStatisticByRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询地域化的统计数据.
+     *
+     * @remarks
+     * - 该接口为中心化接口，只可通过上海或新加坡地域的服务进行调用。
+     *
+     * @param request - DescribeResourceStatisticByRegionRequest
+     *
+     * @returns DescribeResourceStatisticByRegionResponse
+     *
+     * @param DescribeResourceStatisticByRegionRequest $request
+     *
+     * @return DescribeResourceStatisticByRegionResponse
+     */
+    public function describeResourceStatisticByRegion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeResourceStatisticByRegionWithOptions($request, $runtime);
     }
 
     /**
@@ -21271,10 +21419,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies a shared cloud computer.
+     * Modifies a shared cloud desktop.
      *
      * @remarks
-     * After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
+     * After a shared cloud desktop is created, the system performs automatic creation of a corresponding number of cloud desktops within the shared cloud desktop based on the shared cloud desktop scaling policy Settings and the end-user connection status. These cloud desktops share the same cloud desktop template and security policy. You can modify the configurations of the shared cloud desktop as needed in different scenarios, such as the name, cloud desktop template, and associated policies.
      *
      * @param request - ModifyDesktopGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21417,10 +21565,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies a shared cloud computer.
+     * Modifies a shared cloud desktop.
      *
      * @remarks
-     * After you create a shared cloud computer, the system performs automatic creation of the corresponding number of cloud computers in the shared cloud computer based on the scaling policy in Settings and the connection status of end users. These cloud computers use the same cloud computer template and security policy. In different scenarios, you can modify the shared cloud computer configurations as needed, including the shared cloud computer name, cloud computer template, and associated policies.
+     * After a shared cloud desktop is created, the system performs automatic creation of a corresponding number of cloud desktops within the shared cloud desktop based on the shared cloud desktop scaling policy Settings and the end-user connection status. These cloud desktops share the same cloud desktop template and security policy. You can modify the configurations of the shared cloud desktop as needed in different scenarios, such as the name, cloud desktop template, and associated policies.
      *
      * @param request - ModifyDesktopGroupRequest
      *
@@ -27609,7 +27757,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
+     * Removes tags from cloud computers. If a removed tag is not added to any cloud computer, the tag is automatically deleted.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27664,7 +27812,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Removes tags from cloud desktops. After a tag is removed, if the tag is not added to any cloud desktop, the tag is automatically deleted.
+     * Removes tags from cloud computers. If a removed tag is not added to any cloud computer, the tag is automatically deleted.
      *
      * @param request - UntagResourcesRequest
      *
