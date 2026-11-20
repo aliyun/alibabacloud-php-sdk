@@ -1,3 +1,8 @@
+2026-11-20 Version: 5.18.0
+- Support API QueryModelUsageInfo.
+- Support API QueryModelUsageList.
+
+
 2026-11-18 Version: 5.17.2
 - Generated php 2021-09-01 for appstream-center.
 
