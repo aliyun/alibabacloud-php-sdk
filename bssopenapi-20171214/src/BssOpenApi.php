@@ -7082,7 +7082,7 @@ class BssOpenApi extends OpenApiClient
      * Releases expired and stopped subscription instances.
      *
      * @remarks
-     * Releases **upfront** instances that have **expired and stopped**. After an instance expires and stops, you can use this operation to release it in advance instead of waiting for the automatic release by the system after the retention period. **The release operation is irreversible. Before you invoke this operation, confirm that you no longer need the instance data or underlying resources.**
+     * Releases **expired and stopped** **upfront** instances. After an instance expires and stops, you can use this operation to release it in advance instead of waiting for the automatic release after the retention period. **Release operations are irrevocable. Confirm that the instance data and underlying resources are no longer needed before you invoke this operation.**
      *
      * @param request - ReleaseExpiredPrepaidInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7132,7 +7132,7 @@ class BssOpenApi extends OpenApiClient
      * Releases expired and stopped subscription instances.
      *
      * @remarks
-     * Releases **upfront** instances that have **expired and stopped**. After an instance expires and stops, you can use this operation to release it in advance instead of waiting for the automatic release by the system after the retention period. **The release operation is irreversible. Before you invoke this operation, confirm that you no longer need the instance data or underlying resources.**
+     * Releases **expired and stopped** **upfront** instances. After an instance expires and stops, you can use this operation to release it in advance instead of waiting for the automatic release after the retention period. **Release operations are irrevocable. Confirm that the instance data and underlying resources are no longer needed before you invoke this operation.**
      *
      * @param request - ReleaseExpiredPrepaidInstanceRequest
      *
