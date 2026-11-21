@@ -14,11 +14,17 @@ class UpsertUmodelDataRequest extends Model
     public $elements;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $method;
     protected $_name = [
         'elements' => 'elements',
+        'dryRun' => 'dryRun',
         'method' => 'method',
     ];
 
@@ -42,6 +48,10 @@ class UpsertUmodelDataRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
         }
 
         if (null !== $this->method) {
@@ -68,6 +78,10 @@ class UpsertUmodelDataRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         if (isset($map['method'])) {

@@ -531,7 +531,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Activates a contact channel.
+     * Activates the contact channel.
      *
      * @param request - ActiveContactChannelRequest
      * @param headers - map
@@ -577,7 +577,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Activates a contact channel.
+     * Activates the contact channel.
      *
      * @param request - ActiveContactChannelRequest
      *
@@ -669,7 +669,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and uses an asynchronous commit to commit them so that the memory is ready to search, retrieve, and run graph queries.
+     * Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and initiates an asynchronous commit for them so that the memory is ready for subsequent operations such as search, retrieve, and graph queries.
      *
      * @param request - AddMemoriesRequest
      * @param headers - map
@@ -749,7 +749,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and uses an asynchronous commit to commit them so that the memory is ready to search, retrieve, and run graph queries.
+     * Adds new facts, messages, or metadata to the memory store of a user. The Add Memory endpoint accepts raw text or conversation turns and initiates an asynchronous commit for them so that the memory is ready for subsequent operations such as search, retrieve, and graph queries.
      *
      * @param request - AddMemoriesRequest
      *
@@ -770,7 +770,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Modifies the resource group to which a resource belongs.
+     * Modifies the resource group of a resource.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -820,7 +820,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Modifies the resource group to which a resource belongs.
+     * Modifies the resource group of a resource.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -1255,7 +1255,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates an alert robot.
+     * Creates an alert chatbot.
      *
      * @param request - CreateAlertRobotRequest
      * @param headers - map
@@ -1325,7 +1325,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates an alert robot.
+     * Creates an alert chatbot.
      *
      * @param request - CreateAlertRobotRequest
      *
@@ -1347,7 +1347,7 @@ class Cms extends OpenApiClient
      * Creates a webhook.
      *
      * @remarks
-     * Creates a webhook Notification Recipient.
+     * Creates a webhook notification recipient.
      *
      * @param request - CreateAlertWebhookRequest
      * @param headers - map
@@ -1420,7 +1420,7 @@ class Cms extends OpenApiClient
      * Creates a webhook.
      *
      * @remarks
-     * Creates a webhook Notification Recipient.
+     * Creates a webhook notification recipient.
      *
      * @param request - CreateAlertWebhookRequest
      *
@@ -1439,7 +1439,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a business trace.
+     * Creates a business link.
      *
      * @param request - CreateBizTraceRequest
      * @param headers - map
@@ -1497,7 +1497,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a business trace.
+     * Creates a business link.
      *
      * @param request - CreateBizTraceRequest
      *
@@ -1726,7 +1726,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a context store.
+     * Creates a context library.
      *
      * @param request - CreateContextStoreRequest
      * @param headers - map
@@ -1785,7 +1785,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a context store.
+     * Creates a context library.
      *
      * @param request - CreateContextStoreRequest
      *
@@ -2034,7 +2034,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a data delivery node that delivers metric data from a specified data source to a destination storage service or MSMQ. This operation supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can use labels to filter the metrics to be delivered and attach custom labels to the delivered metrics.
+     * Creates a data delivery node that delivers metric data from a specified data source to a destination storage or MSMQ. Supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can filter metrics by labels to specify the delivery scope and attach custom labels to the delivered metrics.
+     *
+     * @remarks
+     * 请通过目标地域的服务访问端点或 SDK 地域配置指定请求地域。服务端从请求上下文读取地域，不通过本接口请求体中的 RegionId 指定。投递功能的地域支持范围由服务端地域配置控制。
      *
      * @param request - CreateDeliveryTaskRequest
      * @param headers - map
@@ -2108,7 +2111,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a data delivery node that delivers metric data from a specified data source to a destination storage service or MSMQ. This operation supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can use labels to filter the metrics to be delivered and attach custom labels to the delivered metrics.
+     * Creates a data delivery node that delivers metric data from a specified data source to a destination storage or MSMQ. Supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can filter metrics by labels to specify the delivery scope and attach custom labels to the delivered metrics.
+     *
+     * @remarks
+     * 请通过目标地域的服务访问端点或 SDK 地域配置指定请求地域。服务端从请求上下文读取地域，不通过本接口请求体中的 RegionId 指定。投递功能的地域支持范围由服务端地域配置控制。
      *
      * @param request - CreateDeliveryTaskRequest
      *
@@ -2127,7 +2133,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates EntityStore-related storage.
+     * Creates storage for EntityStore.
      *
      * @param request - CreateEntityStoreRequest
      * @param headers - map
@@ -2145,8 +2151,14 @@ class Cms extends OpenApiClient
     public function createEntityStoreWithOptions($workspaceName, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateEntityStore',
@@ -2164,7 +2176,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates EntityStore-related storage.
+     * Creates storage for EntityStore.
      *
      * @param request - CreateEntityStoreRequest
      *
@@ -2278,8 +2290,8 @@ class Cms extends OpenApiClient
      * Creates a silence policy.
      *
      * @remarks
-     * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally.
-     * When you create a silence policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
+     * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period rules, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally.
+     * When you create a silence policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can choose not to configure any effective period. In this case, the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
      *
      * @param request - CreateMaintainWindowRequest
      * @param headers - map
@@ -2325,8 +2337,8 @@ class Cms extends OpenApiClient
      * Creates a silence policy.
      *
      * @remarks
-     * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally.
-     * When you create a silence policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can leave the effective period unconfigured, in which case the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
+     * Creates a silence policy in a specified workspace. A silence policy filters events by using filterSetting. When the policy is enabled and the current time hits the configured effective period rules, the hit events do not trigger subscribe notifications, direct notifications, or global subscribe notifications, but the events are still stored normally.
+     * When you create a silence policy, maintainWindowName and filterSetting are required, and filterSetting must contain at least one condition. You can choose not to configure any effective period. In this case, the policy does not hit any events. If you configure effective, you must also configure at least one of startTime, endTime, or effectTimeRange. Otherwise, the validation failed. If the policy name already exists in the same workspace, InvalidParameterValue is returned. After the policy is created, the silence policy ID is returned.
      *
      * @param request - CreateMaintainWindowRequest
      *
@@ -2435,7 +2447,7 @@ class Cms extends OpenApiClient
      * Creates a notification policy.
      *
      * @remarks
-     * Creates a notification policy in a specified workspace. In the request body NotifyPolicyConfig, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate policy name exists in the same workspace, ConflictName is returned.
+     * Creates a notification policy in a specified workspace. In the NotifyPolicyConfig request body, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate Policy Name exists in the same workspace, ConflictName is returned.
      *
      * @param request - CreateNotifyPolicyRequest
      * @param headers - map
@@ -2481,7 +2493,7 @@ class Cms extends OpenApiClient
      * Creates a notification policy.
      *
      * @remarks
-     * Creates a notification policy in a specified workspace. In the request body NotifyPolicyConfig, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate policy name exists in the same workspace, ConflictName is returned.
+     * Creates a notification policy in a specified workspace. In the NotifyPolicyConfig request body, notifyStrategy is required, while subscription and responsePlan are optional. Upon successful creation, the generated policy UUID and complete policy details are returned. If a duplicate Policy Name exists in the same workspace, ConflictName is returned.
      *
      * @param request - CreateNotifyPolicyRequest
      *
@@ -3054,7 +3066,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates application observability and completes prerequisite resource preparations for integration.
+     * Creates application observability and prepares prerequisite resources for integration.
      *
      * @param request - CreateServiceObservabilityRequest
      * @param headers - map
@@ -3092,7 +3104,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates application observability and completes prerequisite resource preparations for integration.
+     * Creates application observability and prepares prerequisite resources for integration.
      *
      * @param request - CreateServiceObservabilityRequest
      *
@@ -3189,9 +3201,9 @@ class Cms extends OpenApiClient
      * Common use cases:
      * - heapdump: Triggers a JVM heap dump.
      * - LiveDebug Probe: Dynamically instruments target methods (logs, snapshots, metrics, spans, etc.).
-     * - LiveDebug Command: One-time proactive inspection (OGNL, decompilation, thread or memory information, etc.).
-     * - LiveDebug Code Replace: Hot code replacement.
-     * After the task is created, a taskId is returned. You can subsequently manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronized to ConfigServer.
+     * - LiveDebug Command: Performs one-time proactive inspections (OGNL, decompilation, thread/memory information, etc.).
+     * - LiveDebug Code Replace: Hot-swaps code.
+     * After the task is created, a taskId is returned. You can use GetServiceTask, ListServiceTask, or DeleteServiceTask to manage the task. After a LiveDebug task is created, the configuration is synchronized to ConfigServer.
      *
      * @param request - CreateServiceTaskRequest
      * @param headers - map
@@ -3250,9 +3262,9 @@ class Cms extends OpenApiClient
      * Common use cases:
      * - heapdump: Triggers a JVM heap dump.
      * - LiveDebug Probe: Dynamically instruments target methods (logs, snapshots, metrics, spans, etc.).
-     * - LiveDebug Command: One-time proactive inspection (OGNL, decompilation, thread or memory information, etc.).
-     * - LiveDebug Code Replace: Hot code replacement.
-     * After the task is created, a taskId is returned. You can subsequently manage the task by using GetServiceTask, ListServiceTask, or DeleteServiceTask. After a LiveDebug task is created, the configuration is synchronized to ConfigServer.
+     * - LiveDebug Command: Performs one-time proactive inspections (OGNL, decompilation, thread/memory information, etc.).
+     * - LiveDebug Code Replace: Hot-swaps code.
+     * After the task is created, a taskId is returned. You can use GetServiceTask, ListServiceTask, or DeleteServiceTask to manage the task. After a LiveDebug task is created, the configuration is synchronized to ConfigServer.
      *
      * @param request - CreateServiceTaskRequest
      *
@@ -3421,6 +3433,11 @@ class Cms extends OpenApiClient
     public function createUmodelWithOptions($workspace, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         $body = [];
         if (null !== $request->description) {
             @$body['description'] = $request->description;
@@ -3428,6 +3445,7 @@ class Cms extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -3470,6 +3488,9 @@ class Cms extends OpenApiClient
 
     /**
      * Deletes addon release information.
+     *
+     * @remarks
+     * 请先通过 ListIntegrationPolicies 查询已存在的接入策略，取得 `policyId`；再使用 ListAddonReleases 查询该策略下的组件接入记录，取得 `addonReleaseName`，最后调用本接口删除对应记录。尚无接入策略时，可先使用 CreateIntegrationPolicy 创建。
      *
      * @param request - DeleteAddonReleaseRequest
      * @param headers - map
@@ -3521,6 +3542,9 @@ class Cms extends OpenApiClient
 
     /**
      * Deletes addon release information.
+     *
+     * @remarks
+     * 请先通过 ListIntegrationPolicies 查询已存在的接入策略，取得 `policyId`；再使用 ListAddonReleases 查询该策略下的组件接入记录，取得 `addonReleaseName`，最后调用本接口删除对应记录。尚无接入策略时，可先使用 CreateIntegrationPolicy 创建。
      *
      * @param request - DeleteAddonReleaseRequest
      *
@@ -3871,7 +3895,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a business trace.
+     * Deletes a business link.
      *
      * @param request - DeleteBizTraceRequest
      * @param headers - map
@@ -3908,7 +3932,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a business trace.
+     * Deletes a business link.
      *
      * @param request - DeleteBizTraceRequest
      *
@@ -3928,7 +3952,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes the Cloud Resource Center.
+     * Deletes a cloud resource center.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3961,7 +3985,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes the Cloud Resource Center.
+     * Deletes a cloud resource center.
      *
      * @returns DeleteCloudResourceResponse
      *
@@ -4043,7 +4067,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes contacts.
+     * Deletes one or more contacts.
      *
      * @param tmpReq - DeleteContactsRequest
      * @param headers - map
@@ -4091,7 +4115,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes contacts.
+     * Deletes one or more contacts.
      *
      * @param request - DeleteContactsRequest
      *
@@ -4291,7 +4315,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes contexts in bulk.
+     * Deletes multiple contexts.
      *
      * @param request - DeleteContextsRequest
      * @param headers - map
@@ -4339,7 +4363,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes contexts in bulk.
+     * Deletes multiple contexts.
      *
      * @param request - DeleteContextsRequest
      *
@@ -4664,7 +4688,7 @@ class Cms extends OpenApiClient
      * Deletes a silence policy.
      *
      * @remarks
-     * Deletes a specified silence policy. After the deletion succeeds, the service refreshes the runtime cache through asynchronous messages. Therefore, events may still be processed based on the deleted policy for a short period of time. If the specified silence policy does not exist, a ResourceNotFound error is returned.
+     * Deletes a specified silence policy. After the deletion succeeds, the service refreshes the runtime cache through asynchronous messages. Therefore, events may still be processed according to the pre-deletion policy for a short period. If the specified silence policy does not exist, ResourceNotFound is returned.
      *
      * @param request - DeleteMaintainWindowRequest
      * @param headers - map
@@ -4710,7 +4734,7 @@ class Cms extends OpenApiClient
      * Deletes a silence policy.
      *
      * @remarks
-     * Deletes a specified silence policy. After the deletion succeeds, the service refreshes the runtime cache through asynchronous messages. Therefore, events may still be processed based on the deleted policy for a short period of time. If the specified silence policy does not exist, a ResourceNotFound error is returned.
+     * Deletes a specified silence policy. After the deletion succeeds, the service refreshes the runtime cache through asynchronous messages. Therefore, events may still be processed according to the pre-deletion policy for a short period. If the specified silence policy does not exist, ResourceNotFound is returned.
      *
      * @param request - DeleteMaintainWindowRequest
      *
@@ -4730,7 +4754,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes memories based on filter properties. You must set at least one filter property. If no filter properties are set, a validation error is returned.
+     * Deletes memories by filter attributes. At least one filter attribute must be specified. If no filter attributes are specified, a validation error is returned.
      *
      * @param request - DeleteMemoriesRequest
      * @param headers - map
@@ -4786,7 +4810,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes memories based on filter properties. You must set at least one filter property. If no filter properties are set, a validation error is returned.
+     * Deletes memories by filter attributes. At least one filter attribute must be specified. If no filter attributes are specified, a validation error is returned.
      *
      * @param request - DeleteMemoriesRequest
      *
@@ -4807,7 +4831,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a memory.
+     * Deletes a single memory.
      *
      * @param request - DeleteMemoryRequest
      * @param headers - map
@@ -4846,7 +4870,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a memory.
+     * Deletes a single memory.
      *
      * @param request - DeleteMemoryRequest
      *
@@ -4868,7 +4892,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a Memory Store.
+     * Deletes a memory store.
      *
      * @param request - DeleteMemoryStoreRequest
      * @param headers - map
@@ -4906,7 +4930,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a Memory Store.
+     * Deletes a memory store.
      *
      * @param request - DeleteMemoryStoreRequest
      *
@@ -4927,10 +4951,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+     * Deletes a notification policy in a specified workspace. After the policy is deleted, it no longer sends notifications for subscribed events.
      *
      * @remarks
-     * Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+     * Deletes a notification policy by specifying the workspace and UUID. Returns a success flag to indicate the deletion result and the UUID of the deleted policy.
      *
      * @param request - DeleteNotifyPolicyRequest
      * @param headers - map
@@ -4976,10 +5000,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+     * Deletes a notification policy in a specified workspace. After the policy is deleted, it no longer sends notifications for subscribed events.
      *
      * @remarks
-     * Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+     * Deletes a notification policy by specifying the workspace and UUID. Returns a success flag to indicate the deletion result and the UUID of the deleted policy.
      *
      * @param request - DeleteNotifyPolicyRequest
      *
@@ -5375,7 +5399,7 @@ class Cms extends OpenApiClient
      * Deletes a service association entry.
      *
      * @remarks
-     * Deletes a created service association entry.
+     * Deletes an existing service association entry.
      *
      * @param request - DeleteServiceRecordRequest
      * @param headers - map
@@ -5422,7 +5446,7 @@ class Cms extends OpenApiClient
      * Deletes a service association entry.
      *
      * @remarks
-     * Deletes a created service association entry.
+     * Deletes an existing service association entry.
      *
      * @param request - DeleteServiceRecordRequest
      *
@@ -5443,12 +5467,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a specified ServiceTask under a specified application.
+     * Deletes a ServiceTask under a specified application.
      *
      * @remarks
-     * Deletes a specified service task by taskId.
-     * heapdump: Simultaneously deletes the corresponding heap dump record.
-     * LiveDebug: After deleting the task record, synchronously updates the live_debug aggregation configuration on ConfigServer.
+     * Deletes a specified service task by task ID.
+     * heapdump: also deletes the corresponding heap dump record.
+     * LiveDebug: synchronously updates the live_debug aggregation configuration on ConfigServer after the task record is deleted.
      *
      * @param request - DeleteServiceTaskRequest
      * @param headers - map
@@ -5493,12 +5517,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Deletes a specified ServiceTask under a specified application.
+     * Deletes a ServiceTask under a specified application.
      *
      * @remarks
-     * Deletes a specified service task by taskId.
-     * heapdump: Simultaneously deletes the corresponding heap dump record.
-     * LiveDebug: After deleting the task record, synchronously updates the live_debug aggregation configuration on ConfigServer.
+     * Deletes a specified service task by task ID.
+     * heapdump: also deletes the corresponding heap dump record.
+     * LiveDebug: synchronously updates the live_debug aggregation configuration on ConfigServer after the task record is deleted.
      *
      * @param request - DeleteServiceTaskRequest
      *
@@ -5712,7 +5736,7 @@ class Cms extends OpenApiClient
      * Deletes Umodel elements.
      *
      * @remarks
-     * Deletes Umodel data from a specified workspace.
+     * Deletes Umodel data in a specified workspace.
      *
      * @param request - DeleteUmodelDataRequest
      * @param headers - map
@@ -5733,6 +5757,10 @@ class Cms extends OpenApiClient
         $query = [];
         if (null !== $request->domain) {
             @$query['domain'] = $request->domain;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
         }
 
         if (null !== $request->kind) {
@@ -5766,7 +5794,7 @@ class Cms extends OpenApiClient
      * Deletes Umodel elements.
      *
      * @remarks
-     * Deletes Umodel data from a specified workspace.
+     * Deletes Umodel data in a specified workspace.
      *
      * @param request - DeleteUmodelDataRequest
      *
@@ -5846,7 +5874,7 @@ class Cms extends OpenApiClient
      * Queries metadata.
      *
      * @remarks
-     * Queries the metadata details of CloudMonitor monitoring metrics.
+     * Queries the details of monitoring metrics metadata in CloudMonitor.
      *
      * @param tmpReq - DescribeMetricMetaListRequest
      * @param headers - map
@@ -5929,7 +5957,7 @@ class Cms extends OpenApiClient
      * Queries metadata.
      *
      * @remarks
-     * Queries the metadata details of CloudMonitor monitoring metrics.
+     * Queries the details of monitoring metrics metadata in CloudMonitor.
      *
      * @param request - DescribeMetricMetaListRequest
      *
@@ -5948,7 +5976,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of regions.
+     * Queries the list of regions.
      *
      * @param request - DescribeRegionsRequest
      * @param headers - map
@@ -5990,7 +6018,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of regions.
+     * Queries the list of regions.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -6012,7 +6040,7 @@ class Cms extends OpenApiClient
      * Pauses a silence policy.
      *
      * @remarks
-     * Pauses a specified silence policy. After the policy is paused, the service refreshes the runtime cache by using asynchronous messages. After the refresh is complete, the policy no longer participates in event silence evaluation. Events may still be processed based on the pre-pause state for a short period of time. If the specified silence policy does not exist, a ResourceNotFound error is returned.
+     * Pauses a specified silence policy. After the pause succeeds, the service refreshes the runtime cache through asynchronous messages. After the refresh is complete, the policy no longer participates in event silencing evaluation, but events may still be processed based on the pre-pause state for a short period. If the specified silence policy does not exist, ResourceNotFound is returned.
      *
      * @param request - DisableMaintainWindowRequest
      * @param headers - map
@@ -6058,7 +6086,7 @@ class Cms extends OpenApiClient
      * Pauses a silence policy.
      *
      * @remarks
-     * Pauses a specified silence policy. After the policy is paused, the service refreshes the runtime cache by using asynchronous messages. After the refresh is complete, the policy no longer participates in event silence evaluation. Events may still be processed based on the pre-pause state for a short period of time. If the specified silence policy does not exist, a ResourceNotFound error is returned.
+     * Pauses a specified silence policy. After the pause succeeds, the service refreshes the runtime cache through asynchronous messages. After the refresh is complete, the policy no longer participates in event silencing evaluation, but events may still be processed based on the pre-pause state for a short period. If the specified silence policy does not exist, ResourceNotFound is returned.
      *
      * @param request - DisableMaintainWindowRequest
      *
@@ -6078,10 +6106,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+     * Disables a specified notification policy. A disabled policy stops sending notifications but retains all configurations and can be re-enabled.
      *
      * @remarks
-     * Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+     * Disables a notification policy by specifying the workspace and UUID path parameters. Returns the success status and the UUID of the policy.
      *
      * @param request - DisableNotifyPolicyRequest
      * @param headers - map
@@ -6124,10 +6152,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+     * Disables a specified notification policy. A disabled policy stops sending notifications but retains all configurations and can be re-enabled.
      *
      * @remarks
-     * Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+     * Disables a notification policy by specifying the workspace and UUID path parameters. Returns the success status and the UUID of the policy.
      *
      * @param request - DisableNotifyPolicyRequest
      *
@@ -6213,7 +6241,7 @@ class Cms extends OpenApiClient
      * Enables a silence policy.
      *
      * @remarks
-     * Enables a specified silence policy. After the policy is enabled, the service refreshes the runtime cache through asynchronous messages. After the refresh is complete, events that match the filter conditions of the policy and fall within the effective period do not trigger notifications. Events may still be processed based on the pre-enablement state for a short period. If the specified silence policy does not exist, a ResourceNotFound error is returned.
+     * Enables a specified silence policy. After the policy is enabled, the service refreshes the runtime cache through asynchronous messages. After the refresh is complete, events that hit the filter conditions of the policy and fall within the effective period do not trigger notifications. However, events may still be processed based on the pre-enablement state for a short period. If the specified silence policy does not exist, ResourceNotFound is returned.
      *
      * @param request - EnableMaintainWindowRequest
      * @param headers - map
@@ -6259,7 +6287,7 @@ class Cms extends OpenApiClient
      * Enables a silence policy.
      *
      * @remarks
-     * Enables a specified silence policy. After the policy is enabled, the service refreshes the runtime cache through asynchronous messages. After the refresh is complete, events that match the filter conditions of the policy and fall within the effective period do not trigger notifications. Events may still be processed based on the pre-enablement state for a short period. If the specified silence policy does not exist, a ResourceNotFound error is returned.
+     * Enables a specified silence policy. After the policy is enabled, the service refreshes the runtime cache through asynchronous messages. After the refresh is complete, events that hit the filter conditions of the policy and fall within the effective period do not trigger notifications. However, events may still be processed based on the pre-enablement state for a short period. If the specified silence policy does not exist, ResourceNotFound is returned.
      *
      * @param request - EnableMaintainWindowRequest
      *
@@ -6282,7 +6310,7 @@ class Cms extends OpenApiClient
      * Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
      *
      * @remarks
-     * Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+     * Enables a notification policy by specifying the workspace and UUID as path parameters. Returns the success status and the UUID of the policy.
      *
      * @param request - EnableNotifyPolicyRequest
      * @param headers - map
@@ -6328,7 +6356,7 @@ class Cms extends OpenApiClient
      * Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
      *
      * @remarks
-     * Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+     * Enables a notification policy by specifying the workspace and UUID as path parameters. Returns the success status and the UUID of the policy.
      *
      * @param request - EnableNotifyPolicyRequest
      *
@@ -6414,7 +6442,7 @@ class Cms extends OpenApiClient
      * Retrieves or creates a shared Prometheus instance for a workspace.
      *
      * @remarks
-     * Retrieves or creates a shared Prometheus instance for a workspace. If the instance does not exist, it is created. If the instance already exists, it is directly returned. Currently, only shareScope=Workspace is supported. Each workspace corresponds to only one shared instance in the requested region, and the instance name is generated by the server. The caller identity is the user. If the workspace does not exist, a 404 error is returned.
+     * Retrieves or creates a shared Prometheus instance for a workspace. If the instance does not exist, it is created. If it already exists, the existing instance is returned. Currently, only shareScope=Workspace is supported. A workspace corresponds to only one shared instance in the requested region, and the instance name is generated by the server. The caller identity is the user. If the workspace does not exist, a 404 error is returned.
      *
      * @param request - EnsureSharedPrometheusInstanceRequest
      * @param headers - map
@@ -6469,7 +6497,7 @@ class Cms extends OpenApiClient
      * Retrieves or creates a shared Prometheus instance for a workspace.
      *
      * @remarks
-     * Retrieves or creates a shared Prometheus instance for a workspace. If the instance does not exist, it is created. If the instance already exists, it is directly returned. Currently, only shareScope=Workspace is supported. Each workspace corresponds to only one shared instance in the requested region, and the instance name is generated by the server. The caller identity is the user. If the workspace does not exist, a 404 error is returned.
+     * Retrieves or creates a shared Prometheus instance for a workspace. If the instance does not exist, it is created. If it already exists, the existing instance is returned. Currently, only shareScope=Workspace is supported. A workspace corresponds to only one shared instance in the requested region, and the instance name is generated by the server. The caller identity is the user. If the workspace does not exist, a 404 error is returned.
      *
      * @param request - EnsureSharedPrometheusInstanceRequest
      *
@@ -6488,7 +6516,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Executes SQL, SPL, and other queries.
+     * Executes SQL, SPL, and other query operations.
      *
      * @param request - ExecuteQueryRequest
      * @param headers - map
@@ -6536,7 +6564,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Executes SQL, SPL, and other queries.
+     * Executes SQL, SPL, and other query operations.
      *
      * @param request - ExecuteQueryRequest
      *
@@ -6633,7 +6661,7 @@ class Cms extends OpenApiClient
      * Retrieves the schema details of an add-on.
      *
      * @remarks
-     * This topic provides an example of modifying alert template `123456` of version `1`. The alert level is changed to `Critical`, the statistical method to `Average`, the threshold comparison operator to `GreaterThanOrEqualToThreshold`, the threshold to `90`, and the number of retries to `3`. The response indicates that the alert template was modified successfully.
+     * This topic provides an example of modifying the alert template `123456` of version `1`. The alert level is changed to `Critical`, the statistical method to `Average`, the threshold comparison operator to `GreaterThanOrEqualToThreshold`, the threshold to `90`, and the number of retries to `3`. The response indicates that the alert template was successfully modified.
      *
      * @param request - GetAddonCodeTemplateRequest
      * @param headers - map
@@ -6687,7 +6715,7 @@ class Cms extends OpenApiClient
      * Retrieves the schema details of an add-on.
      *
      * @remarks
-     * This topic provides an example of modifying alert template `123456` of version `1`. The alert level is changed to `Critical`, the statistical method to `Average`, the threshold comparison operator to `GreaterThanOrEqualToThreshold`, the threshold to `90`, and the number of retries to `3`. The response indicates that the alert template was modified successfully.
+     * This topic provides an example of modifying the alert template `123456` of version `1`. The alert level is changed to `Critical`, the statistical method to `Average`, the threshold comparison operator to `GreaterThanOrEqualToThreshold`, the threshold to `90`, and the number of retries to `3`. The response indicates that the alert template was successfully modified.
      *
      * @param request - GetAddonCodeTemplateRequest
      *
@@ -6766,7 +6794,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the schema details of an add-on.
+     * Retrieves the schema details of an add-on.
      *
      * @remarks
      * Retrieves the schema information of an add-on.
@@ -6824,7 +6852,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the schema details of an add-on.
+     * Retrieves the schema details of an add-on.
      *
      * @remarks
      * Retrieves the schema information of an add-on.
@@ -6963,7 +6991,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a business trace.
+     * Queries the business trace.
      *
      * @param request - GetBizTraceRequest
      * @param headers - map
@@ -7000,7 +7028,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a business trace.
+     * Queries the business trace.
      *
      * @param request - GetBizTraceRequest
      *
@@ -7068,14 +7096,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries all entity information of a specific cloud service within a specified time range.
+     * Queries all entities of a specific cloud service within a specified time range.
      *
      * @remarks
      * ## Request description
-     * - This operation queries all entities under a specific cloud service within a specified time range.
-     * - The `from` and `to` parameters specify the time range for the query, represented by timestamps in seconds.
-     * - The `spl` parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
-     * - If only specific fields are required, you can use the `project` clause in `spl` to filter them.
+     * - This operation queries all entities of a specific cloud service within a specified time range.
+     * - The from and to parameters specify the time range for the query, represented by timestamps in seconds.
+     * - The spl parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
+     * - If you need only specific fields, you can use the project clause in spl to filter them.
      * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
      *
      * @param request - GetCloudResourceDataRequest
@@ -7126,14 +7154,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries all entity information of a specific cloud service within a specified time range.
+     * Queries all entities of a specific cloud service within a specified time range.
      *
      * @remarks
      * ## Request description
-     * - This operation queries all entities under a specific cloud service within a specified time range.
-     * - The `from` and `to` parameters specify the time range for the query, represented by timestamps in seconds.
-     * - The `spl` parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
-     * - If only specific fields are required, you can use the `project` clause in `spl` to filter them.
+     * - This operation queries all entities of a specific cloud service within a specified time range.
+     * - The from and to parameters specify the time range for the query, represented by timestamps in seconds.
+     * - The spl parameter supports filtering or selecting required entities and their properties by using entityStore query statements.
+     * - If you need only specific fields, you can use the project clause in spl to filter them.
      * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
      *
      * @param request - GetCloudResourceDataRequest
@@ -7153,10 +7181,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Checks whether a Prometheus service or product is activated.
+     * Checks the activation status of the Prometheus service or product.
      *
      * @remarks
-     * The product and service request parameters cannot be specified in the same request.
+     * You cannot specify both the product and service parameters at the same time.
      *
      * @param request - GetCmsServiceRequest
      * @param headers - map
@@ -7202,10 +7230,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Checks whether a Prometheus service or product is activated.
+     * Checks the activation status of the Prometheus service or product.
      *
      * @remarks
-     * The product and service request parameters cannot be specified in the same request.
+     * You cannot specify both the product and service parameters at the same time.
      *
      * @param request - GetCmsServiceRequest
      *
@@ -7291,7 +7319,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified context store.
+     * Queries the context store.
      *
      * @param request - GetContextStoreRequest
      * @param headers - map
@@ -7329,7 +7357,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified context store.
+     * Queries the context store.
      *
      * @param request - GetContextStoreRequest
      *
@@ -7415,7 +7443,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified dataset.
+     * Queries a dataset.
+     *
+     * @remarks
+     * 调用前请先通过 ListWorkspaces 查询已有工作空间，或通过 PutWorkspace 创建工作空间。 在该工作空间中通过 ListDatasets 查询数据集，或通过 CreateDataset 创建数据集后，使用实际的 workspace 和 datasetName 查询。
+     * 调用前请先通过 ListWorkspaces 查询已有工作空间，或通过 PutWorkspace 创建工作空间。 在该工作空间中通过 ListDatasets 查询数据集，或通过 CreateDataset 创建数据集后，使用实际的 workspace 和 datasetName 查询。
      *
      * @param request - GetDatasetRequest
      * @param headers - map
@@ -7453,7 +7485,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified dataset.
+     * Queries a dataset.
+     *
+     * @remarks
+     * 调用前请先通过 ListWorkspaces 查询已有工作空间，或通过 PutWorkspace 创建工作空间。 在该工作空间中通过 ListDatasets 查询数据集，或通过 CreateDataset 创建数据集后，使用实际的 workspace 和 datasetName 查询。
+     * 调用前请先通过 ListWorkspaces 查询已有工作空间，或通过 PutWorkspace 创建工作空间。 在该工作空间中通过 ListDatasets 查询数据集，或通过 CreateDataset 创建数据集后，使用实际的 workspace 和 datasetName 查询。
      *
      * @param request - GetDatasetRequest
      *
@@ -7731,10 +7767,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the Integration Center version for a container cluster.
+     * Queries the integration center version associated with a container cluster.
      *
      * @remarks
-     * This operation is not available in the API Explorer.
+     * Retrieves the integration based on the specified ID.
      *
      * @param request - GetIntegrationVersionForCSRequest
      * @param headers - map
@@ -7780,10 +7816,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the Integration Center version for a container cluster.
+     * Queries the integration center version associated with a container cluster.
      *
      * @remarks
-     * This operation is not available in the API Explorer.
+     * Retrieves the integration based on the specified ID.
      *
      * @param request - GetIntegrationVersionForCSRequest
      *
@@ -8021,7 +8057,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieve memory history.
+     * Retrieves the memory history.
      *
      * @param request - GetMemoryHistoryRequest
      * @param headers - map
@@ -8060,7 +8096,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieve memory history.
+     * Retrieves the memory history.
      *
      * @param request - GetMemoryHistoryRequest
      *
@@ -8082,12 +8118,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a memory store.
+     * Queries memory stores.
      *
      * @remarks
-     * Typically used together with the QueryMetricMeta operation for querying metrics and the QueryMetricList/QueryMetricLast operation for querying monitoring data.
+     * Typically used in conjunction with the QueryMetricMeta operation to query metrics and the QueryMetricList or QueryMetricLast operation to query monitoring data.
      * ## Request type
-     * POST|GET.
+     * POST|GET
      *
      * @param request - GetMemoryStoreRequest
      * @param headers - map
@@ -8125,12 +8161,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a memory store.
+     * Queries memory stores.
      *
      * @remarks
-     * Typically used together with the QueryMetricMeta operation for querying metrics and the QueryMetricList/QueryMetricLast operation for querying monitoring data.
+     * Typically used in conjunction with the QueryMetricMeta operation to query metrics and the QueryMetricList or QueryMetricLast operation to query monitoring data.
      * ## Request type
-     * POST|GET.
+     * POST|GET
      *
      * @param request - GetMemoryStoreRequest
      *
@@ -8151,10 +8187,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified notification policy.
+     * Retrieves the details of a notification policy.
      *
      * @remarks
-     * Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+     * Queries a specified notification policy by using the workspace ID and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
      *
      * @param request - GetNotifyPolicyRequest
      * @param headers - map
@@ -8200,10 +8236,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified notification policy.
+     * Retrieves the details of a notification policy.
      *
      * @remarks
-     * Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+     * Queries a specified notification policy by using the workspace ID and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
      *
      * @param request - GetNotifyPolicyRequest
      *
@@ -8417,7 +8453,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the Prometheus user settings.
+     * Queries the Prometheus user configurations.
      *
      * @param request - GetPrometheusUserSettingRequest
      * @param headers - map
@@ -8459,7 +8495,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the Prometheus user settings.
+     * Queries the Prometheus user configurations.
      *
      * @param request - GetPrometheusUserSettingRequest
      *
@@ -8551,7 +8587,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries an application observability service.
+     * Queries the application observability service.
      *
      * @param request - GetServiceRequest
      * @param headers - map
@@ -8589,7 +8625,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries an application observability service.
+     * Queries the application observability service.
      *
      * @param request - GetServiceRequest
      *
@@ -8669,10 +8705,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a service-linked entry.
+     * Queries service association entries.
      *
      * @remarks
-     * Retrieves a service-linked entry.
+     * Retrieves service association entries.
      *
      * @param request - GetServiceRecordRequest
      * @param headers - map
@@ -8716,10 +8752,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a service-linked entry.
+     * Queries service association entries.
      *
      * @remarks
-     * Retrieves a service-linked entry.
+     * Retrieves service association entries.
      *
      * @param request - GetServiceRecordRequest
      *
@@ -8740,10 +8776,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single service task for a specified application.
+     * Queries the details of a single service task under a specified application.
      *
      * @remarks
-     * Queries the details of a single service task based on the task ID. The response content varies based on the task type. For heapdump, the heap dump task information is returned. For LiveDebug, the task records and fields such as taskConfig (extraInfo) are returned.
+     * Queries the details of a single service task based on the task ID. The response content varies depending on the task type. For heapdump, the response returns heap dump task information. For LiveDebug, the response returns task records and fields such as taskConfig (extraInfo).
      *
      * @param request - GetServiceTaskRequest
      * @param headers - map
@@ -8788,10 +8824,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the details of a single service task for a specified application.
+     * Queries the details of a single service task under a specified application.
      *
      * @remarks
-     * Queries the details of a single service task based on the task ID. The response content varies based on the task type. For heapdump, the heap dump task information is returned. For LiveDebug, the task records and fields such as taskConfig (extraInfo) are returned.
+     * Queries the details of a single service task based on the task ID. The response content varies depending on the task type. For heapdump, the response returns heap dump task information. For LiveDebug, the response returns task records and fields such as taskConfig (extraInfo).
      *
      * @param request - GetServiceTaskRequest
      *
@@ -9209,7 +9245,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the grouped product list of the new integration center.
+     * Queries the grouped product list in the new Integration Center.
      *
      * @remarks
      * Creates a site monitoring task.
@@ -9270,7 +9306,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the grouped product list of the new integration center.
+     * Queries the grouped product list in the new Integration Center.
      *
      * @remarks
      * Creates a site monitoring task.
@@ -9472,10 +9508,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of alert history records for the CloudMonitor 2.0 monitoring service by using paging.
+     * Performs a paged query by paging to retrieve the monitoring alert history records in CloudMonitor 2.0.
      *
      * @remarks
-     * Uses paging to retrieve the list of alert history records for the CloudMonitor 2.0 monitoring service. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+     * Performs a paged query by paging to retrieve the monitoring alert history records in CloudMonitor 2.0. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
      *
      * @param tmpReq - ListAlertHistoriesRequest
      * @param headers - map
@@ -9627,10 +9663,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of alert history records for the CloudMonitor 2.0 monitoring service by using paging.
+     * Performs a paged query by paging to retrieve the monitoring alert history records in CloudMonitor 2.0.
      *
      * @remarks
-     * Uses paging to retrieve the list of alert history records for the CloudMonitor 2.0 monitoring service. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
+     * Performs a paged query by paging to retrieve the monitoring alert history records in CloudMonitor 2.0. You can filter the records by multiple dimensions such as alert rule, alert status, alert level, alert object, workspace, time range, label, notification recipient, observed object type, and data source type. You can also use the structured filter parameter to implement more flexible combined queries.
      *
      * @param request - ListAlertHistoriesRequest
      *
@@ -9736,10 +9772,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries robots.
+     * Queries alert robots.
      *
      * @remarks
-     * Queries the alert robots under the current account. Alert robots act as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by robot ID, name, type, and workspace.
+     * This operation queries the list of alert robots under the current account. Alert robots act as webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by robot ID, name, type, and workspace.
      *
      * @param tmpReq - ListAlertRobotsRequest
      * @param headers - map
@@ -9811,10 +9847,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries robots.
+     * Queries alert robots.
      *
      * @remarks
-     * Queries the alert robots under the current account. Alert robots act as webhook endpoints for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by robot ID, name, type, and workspace.
+     * This operation queries the list of alert robots under the current account. Alert robots act as webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter the results by robot ID, name, type, and workspace.
      *
      * @param request - ListAlertRobotsRequest
      *
@@ -9916,7 +9952,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of business links.
+     * Queries a list of business links.
      *
      * @param request - ListBizTracesRequest
      * @param headers - map
@@ -9966,7 +10002,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of business links.
+     * Queries a list of business links.
      *
      * @param request - ListBizTracesRequest
      *
@@ -9988,7 +10024,7 @@ class Cms extends OpenApiClient
      * Queries contact groups.
      *
      * @remarks
-     * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+     * This topic provides an example of creating an alert contact group named `ECS_Group`.
      *
      * @param tmpReq - ListContactGroupsRequest
      * @param headers - map
@@ -10055,7 +10091,7 @@ class Cms extends OpenApiClient
      * Queries contact groups.
      *
      * @remarks
-     * This topic provides an example of how to create an alert contact group named `ECS_Group`.
+     * This topic provides an example of creating an alert contact group named `ECS_Group`.
      *
      * @param request - ListContactGroupsRequest
      *
@@ -10074,10 +10110,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert contacts.
+     * Queries the alert contacts.
      *
      * @remarks
-     * This topic provides an example of creating an alert contact group named `ECS_Group`.
+     * This topic provides an example of creating the alert contact group `ECS_Group`.
      *
      * @param tmpReq - ListContactsRequest
      * @param headers - map
@@ -10157,10 +10193,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries alert contacts.
+     * Queries the alert contacts.
      *
      * @remarks
-     * This topic provides an example of creating an alert contact group named `ECS_Group`.
+     * This topic provides an example of creating the alert contact group `ECS_Group`.
      *
      * @param request - ListContactsRequest
      *
@@ -10180,6 +10216,9 @@ class Cms extends OpenApiClient
 
     /**
      * Retrieves a list of API keys.
+     *
+     * @remarks
+     * 调用前请先通过 ListWorkspaces 查询已有工作空间，或通过 PutWorkspace 创建工作空间。 再通过 ListContextStores 查询上下文库，或通过 CreateContextStore 创建上下文库，使用实际的 workspace 和 contextStoreName 查询其 API Key。
      *
      * @param request - ListContextStoreAPIKeysRequest
      * @param headers - map
@@ -10229,6 +10268,9 @@ class Cms extends OpenApiClient
     /**
      * Retrieves a list of API keys.
      *
+     * @remarks
+     * 调用前请先通过 ListWorkspaces 查询已有工作空间，或通过 PutWorkspace 创建工作空间。 再通过 ListContextStores 查询上下文库，或通过 CreateContextStore 创建上下文库，使用实际的 workspace 和 contextStoreName 查询其 API Key。
+     *
      * @param request - ListContextStoreAPIKeysRequest
      *
      * @returns ListContextStoreAPIKeysResponse
@@ -10249,6 +10291,9 @@ class Cms extends OpenApiClient
 
     /**
      * Queries the list of context stores.
+     *
+     * @remarks
+     * 调用前请先通过 ListWorkspaces 查询已有工作空间，或通过 PutWorkspace 创建工作空间。
      *
      * @param request - ListContextStoresRequest
      * @param headers - map
@@ -10304,6 +10349,9 @@ class Cms extends OpenApiClient
 
     /**
      * Queries the list of context stores.
+     *
+     * @remarks
+     * 调用前请先通过 ListWorkspaces 查询已有工作空间，或通过 PutWorkspace 创建工作空间。
      *
      * @param request - ListContextStoresRequest
      *
@@ -10467,7 +10515,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of data delivery tasks.
+     * Retrieves a list of data delivery tasks.
      *
      * @param tmpReq - ListDeliveryTasksRequest
      * @param headers - map
@@ -10531,7 +10579,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the list of data delivery tasks.
+     * Retrieves a list of data delivery tasks.
      *
      * @param request - ListDeliveryTasksRequest
      *
@@ -10738,7 +10786,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Returns information about collectors for an Integration Center policy.
+     * Retrieves the collector information of an Access Center policy.
      *
      * @param request - ListIntegrationPolicyCollectorsRequest
      * @param headers - map
@@ -10789,7 +10837,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Returns information about collectors for an Integration Center policy.
+     * Retrieves the collector information of an Access Center policy.
      *
      * @param request - ListIntegrationPolicyCollectorsRequest
      *
@@ -11042,7 +11090,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the ServiceMonitor information of a Provisioning policy.
+     * Retrieves the ServiceMonitor information of an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyServiceMonitorsRequest
      * @param headers - map
@@ -11097,7 +11145,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the ServiceMonitor information of a Provisioning policy.
+     * Retrieves the ServiceMonitor information of an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyServiceMonitorsRequest
      *
@@ -11117,10 +11165,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the storage requirements of an Integration Center policy.
+     * Retrieves the storage requirement information of the integration center policy.
      *
      * @remarks
-     * During the effective period of the policy, no alert notifications are sent for any alerts that occur in the application group. This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group will pause alerts from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
+     * During the effective period of the policy, no notifications are sent for any alerts that occur in the application group. This topic provides an example of creating a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group will pause alerts from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
      *
      * @param request - ListIntegrationPolicyStorageRequirementsRequest
      * @param headers - map
@@ -11171,10 +11219,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the storage requirements of an Integration Center policy.
+     * Retrieves the storage requirement information of the integration center policy.
      *
      * @remarks
-     * During the effective period of the policy, no alert notifications are sent for any alerts that occur in the application group. This topic provides an example on how to create a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group will pause alerts from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
+     * During the effective period of the policy, no notifications are sent for any alerts that occur in the application group. This topic provides an example of creating a pause alert notification policy named `PauseNotify` for the application group `7301****`. The application group will pause alerts from `1622949300000` to `1623208500000` (UTC+8 `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
      *
      * @param request - ListIntegrationPolicyStorageRequirementsRequest
      *
@@ -11197,8 +11245,8 @@ class Cms extends OpenApiClient
      * Queries a list of silence policies.
      *
      * @remarks
-     * Queries a paginated list of silence policies in a specified workspace. You can filter results by policy name (fuzzy match), policy ID (exact match), or enabled status. You can also sort results by creation time, update time, or enabled status. An empty list is returned when no matching items exist. The list items do not include workspaceFilterSetting.
-     * When the number of returned items reaches maxResults, the response may contain a non-empty nextToken. A non-empty nextToken only indicates that more results may be available and does not guarantee that the next page contains data. An empty nextToken indicates the end of paging.
+     * Performs a paged query for the list of silence policies in a specified workspace. Supports fuzzy matching by policy name, exact matching by policy ID, and filtering by enabled status. Also supports sorting by creation time, update time, or enabled status. Returns an empty list normally if no matching item is found. List items do not include workspaceFilterSetting.
+     * When the number of returned items reaches maxResults, the response may contain a non-empty nextToken. A non-empty nextToken only indicates that you can continue to query, but does not guarantee that the next page contains data. An empty nextToken indicates the end of paging.
      *
      * @param request - ListMaintainWindowsRequest
      * @param headers - map
@@ -11271,8 +11319,8 @@ class Cms extends OpenApiClient
      * Queries a list of silence policies.
      *
      * @remarks
-     * Queries a paginated list of silence policies in a specified workspace. You can filter results by policy name (fuzzy match), policy ID (exact match), or enabled status. You can also sort results by creation time, update time, or enabled status. An empty list is returned when no matching items exist. The list items do not include workspaceFilterSetting.
-     * When the number of returned items reaches maxResults, the response may contain a non-empty nextToken. A non-empty nextToken only indicates that more results may be available and does not guarantee that the next page contains data. An empty nextToken indicates the end of paging.
+     * Performs a paged query for the list of silence policies in a specified workspace. Supports fuzzy matching by policy name, exact matching by policy ID, and filtering by enabled status. Also supports sorting by creation time, update time, or enabled status. Returns an empty list normally if no matching item is found. List items do not include workspaceFilterSetting.
+     * When the number of returned items reaches maxResults, the response may contain a non-empty nextToken. A non-empty nextToken only indicates that you can continue to query, but does not guarantee that the next page contains data. An empty nextToken indicates the end of paging.
      *
      * @param request - ListMaintainWindowsRequest
      *
@@ -11365,7 +11413,7 @@ class Cms extends OpenApiClient
      * Lists notification policies.
      *
      * @remarks
-     * Queries the list of notification policies in a specified workspace by using paging. Supports fuzzy filtering by name. Returns a list of NotifyPolicySummary lightweight views.
+     * Queries notification policies in a specified workspace by using paging and supports fuzzy filtering by name. The response contains a list of NotifyPolicySummary lightweight views.
      *
      * @param request - ListNotifyPoliciesRequest
      * @param headers - map
@@ -11430,7 +11478,7 @@ class Cms extends OpenApiClient
      * Lists notification policies.
      *
      * @remarks
-     * Queries the list of notification policies in a specified workspace by using paging. Supports fuzzy filtering by name. Returns a list of NotifyPolicySummary lightweight views.
+     * Queries notification policies in a specified workspace by using paging and supports fuzzy filtering by name. The response contains a list of NotifyPolicySummary lightweight views.
      *
      * @param request - ListNotifyPoliciesRequest
      *
@@ -11518,7 +11566,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the on-call schedules.
+     * Queries on-call schedules.
      *
      * @param tmpReq - ListOncallSchedulesRequest
      * @param headers - map
@@ -11582,7 +11630,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the on-call schedules.
+     * Queries on-call schedules.
      *
      * @param request - ListOncallSchedulesRequest
      *
@@ -12036,10 +12084,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists service-linked entries.
+     * Lists service association entries.
      *
      * @remarks
-     * Queries a paginated list of service-linked entries.
+     * Retrieves a paginated list of service association entries.
      *
      * @param request - ListServiceRecordsRequest
      * @param headers - map
@@ -12094,10 +12142,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists service-linked entries.
+     * Lists service association entries.
      *
      * @remarks
-     * Queries a paginated list of service-linked entries.
+     * Retrieves a paginated list of service association entries.
      *
      * @param request - ListServiceRecordsRequest
      *
@@ -12121,10 +12169,10 @@ class Cms extends OpenApiClient
      *
      * @remarks
      * Lists service tasks under an application by task type.
-     * - type=heapdump: Returns the list of heap dump tasks.
-     * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
-     * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
-     * Supports nextToken/maxResults pagination and searchCondition filtering.
+     * - type=heapdump: returns a list of heap dump tasks.
+     * - type=pprof: returns a list of pprof dumps (requires searchCondition).
+     * - type=live_debug_*: returns a list of corresponding LiveDebug tasks.
+     * Supports pagination with nextToken and maxResults, and filtering with searchCondition.
      *
      * @param request - ListServiceTaskRequest
      * @param headers - map
@@ -12184,10 +12232,10 @@ class Cms extends OpenApiClient
      *
      * @remarks
      * Lists service tasks under an application by task type.
-     * - type=heapdump: Returns the list of heap dump tasks.
-     * - type=pprof: Returns the list of pprof dumps (requires searchCondition).
-     * - type=live_debug_*: Returns the list of corresponding LiveDebug tasks.
-     * Supports nextToken/maxResults pagination and searchCondition filtering.
+     * - type=heapdump: returns a list of heap dump tasks.
+     * - type=pprof: returns a list of pprof dumps (requires searchCondition).
+     * - type=live_debug_*: returns a list of corresponding LiveDebug tasks.
+     * Supports pagination with nextToken and maxResults, and filtering with searchCondition.
      *
      * @param request - ListServiceTaskRequest
      *
@@ -12402,7 +12450,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries labels associated with resources.
+     * Queries tags.
      *
      * @param tmpReq - ListTagResourcesRequest
      * @param headers - map
@@ -12470,7 +12518,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries labels associated with resources.
+     * Queries tags.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -12489,7 +12537,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the delivery history of alert notifications in a specified workspace. You can filter the results by notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
+     * Queries the delivery history of alert notifications in a specified workspace by using paging. You can filter the results by notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
      *
      * @param request - ListUserNotifyHistoriesRequest
      * @param headers - map
@@ -12623,7 +12671,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the delivery history of alert notifications in a specified workspace. You can filter the results by notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
+     * Queries the delivery history of alert notifications in a specified workspace by using paging. You can filter the results by notification channel, alert severity, subscription, alert rule, recipient, delivery result, and time range.
      *
      * @param request - ListUserNotifyHistoriesRequest
      *
@@ -12814,7 +12862,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service (SLS).
+     * Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service.
      *
      * @param request - OpenCmsServiceRequest
      * @param headers - map
@@ -12850,7 +12898,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service (SLS).
+     * Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service.
      *
      * @param request - OpenCmsServiceRequest
      *
@@ -12970,10 +13018,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Renders template content in Go template syntax along with context data, and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview capabilities in frontend template editors.
+     * Renders the provided Go template content with the specified context data and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview in frontend template editors.
      *
      * @remarks
-     * Renders template content in Go template syntax along with context data, and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview capabilities in frontend template editors.
+     * Renders the provided Go template content with the specified context data and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview in frontend template editors.
      *
      * @param request - PreviewNotifyTemplateRequest
      * @param headers - map
@@ -13019,10 +13067,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Renders template content in Go template syntax along with context data, and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview capabilities in frontend template editors.
+     * Renders the provided Go template content with the specified context data and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview in frontend template editors.
      *
      * @remarks
-     * Renders template content in Go template syntax along with context data, and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview capabilities in frontend template editors.
+     * Renders the provided Go template content with the specified context data and returns the rendering results for each template. Supports previewing multiple templates simultaneously, such as title and content, to enable real-time preview in frontend template editors.
      *
      * @param request - PreviewNotifyTemplateRequest
      *
@@ -13059,6 +13107,11 @@ class Cms extends OpenApiClient
     public function putWorkspaceWithOptions($workspaceName, $request, $headers, $runtime)
     {
         $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         $body = [];
         if (null !== $request->description) {
             @$body['description'] = $request->description;
@@ -13082,6 +13135,7 @@ class Cms extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -13274,7 +13328,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Search context.
+     * Searches the context.
      *
      * @param request - SearchContextRequest
      * @param headers - map
@@ -13338,7 +13392,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Search context.
+     * Searches the context.
      *
      * @param request - SearchContextRequest
      *
@@ -13359,11 +13413,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Searches for memories based on query conditions and filters.
+     * Searches memories based on query conditions and filters.
      *
      * @remarks
-     * This topic provides an example of setting a threshold alert rule for the `cpu_total` metric of the `i-uf6j91r34rnwawoo****` instance in the `acs_ecs_dashboard` namespace of Elastic Compute Service. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the number of alert retries for the Critical level is `3`.
-     * > On August 15, 2024, Statistics validation was added. The statistical value can only be the Statistics corresponding to the metric. For more information about how to obtain the value of this parameter, see [cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+     * This topic provides an example on how to configure the Settings for a threshold-based alert rule for the `cpu_total` metric of the `i-uf6j91r34rnwawoo****` instance in the `acs_ecs_dashboard` namespace of Elastic Computing Service (ECS) server. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the number of alert retry attempts for the Critical level is `3`.
+     * > On August 15, 2024, Statistics validation is increased. The statistical value can only be the Statistics corresponding to the metric. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
      *
      * @param request - SearchMemoriesRequest
      * @param headers - map
@@ -13447,11 +13501,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Searches for memories based on query conditions and filters.
+     * Searches memories based on query conditions and filters.
      *
      * @remarks
-     * This topic provides an example of setting a threshold alert rule for the `cpu_total` metric of the `i-uf6j91r34rnwawoo****` instance in the `acs_ecs_dashboard` namespace of Elastic Compute Service. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the number of alert retries for the Critical level is `3`.
-     * > On August 15, 2024, Statistics validation was added. The statistical value can only be the Statistics corresponding to the metric. For more information about how to obtain the value of this parameter, see [cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+     * This topic provides an example on how to configure the Settings for a threshold-based alert rule for the `cpu_total` metric of the `i-uf6j91r34rnwawoo****` instance in the `acs_ecs_dashboard` namespace of Elastic Computing Service (ECS) server. The alert contact group for the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the number of alert retry attempts for the Critical level is `3`.
+     * > On August 15, 2024, Statistics validation is increased. The statistical value can only be the Statistics corresponding to the metric. For more information about how to obtain the value of this parameter, see [Alibaba Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
      *
      * @param request - SearchMemoriesRequest
      *
@@ -13541,7 +13595,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Unbinds labels from a resource.
+     * Unbinds tags from resources.
      *
      * @param tmpReq - UntagResourcesRequest
      * @param headers - map
@@ -13605,7 +13659,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Unbinds labels from a resource.
+     * Unbinds tags from resources.
      *
      * @param request - UntagResourcesRequest
      *
@@ -14223,7 +14277,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Modifies a business trace.
+     * Updates a business trace.
      *
      * @param request - UpdateBizTraceRequest
      * @param headers - map
@@ -14278,7 +14332,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Modifies a business trace.
+     * Updates a business trace.
      *
      * @param request - UpdateBizTraceRequest
      *
@@ -14448,7 +14502,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the context.
+     * Modifies the context.
      *
      * @param request - UpdateContextRequest
      * @param headers - map
@@ -14509,7 +14563,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the context.
+     * Modifies the context.
      *
      * @param request - UpdateContextRequest
      *
@@ -14535,7 +14589,7 @@ class Cms extends OpenApiClient
      *
      * @remarks
      * Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time detection tasks.
-     * This topic provides an example of how to create a one-time detection task. The detection task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
+     * This topic provides an example on how to create a one-time detection task. The task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
      *
      * @param request - UpdateContextStoreRequest
      * @param headers - map
@@ -14595,7 +14649,7 @@ class Cms extends OpenApiClient
      *
      * @remarks
      * Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time detection tasks.
-     * This topic provides an example of how to create a one-time detection task. The detection task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
+     * This topic provides an example on how to create a one-time detection task. The task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
      *
      * @param request - UpdateContextStoreRequest
      *
@@ -14776,7 +14830,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a data shipping task.
+     * Updates a data delivery task.
      *
      * @param request - UpdateDeliveryTaskRequest
      * @param headers - map
@@ -14851,7 +14905,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a data shipping task.
+     * Updates a data delivery task.
      *
      * @param request - UpdateDeliveryTaskRequest
      *
@@ -14949,8 +15003,8 @@ class Cms extends OpenApiClient
      * Updates a silence policy.
      *
      * @remarks
-     * Updates the configuration of a specified silence policy. If maintainWindowName is left empty, the original name is retained. The description, filterSetting, effective, effectTimeRange, startTime, and endTime fields are updated based on the values in the request body. If these fields are not provided, they are set to empty. Before submitting changes, call GetMaintainWindow to retrieve the current configuration.
-     * This operation does not modify the enabled status of the policy. To enable or pause a policy, call EnableMaintainWindow or DisableMaintainWindow. Time configuration validation is the same as that for CreateMaintainWindow. If a policy name already exists in the same workspace, the InvalidParameterValue error code is returned. If the specified silence policy does not exist, the ResourceNotFound error code is returned.
+     * Updates the configuration of a specified silence policy. If maintainWindowName is empty, the original name is retained. The description, filterSetting, effective, effectTimeRange, startTime, and endTime fields are updated based on the values in the request body. If these fields are not provided, they are set to empty. Call GetMaintainWindow to obtain the current configuration before you submit modifications.
+     * This operation does not modify the enabled status of the policy. To enable or pause the policy, call EnableMaintainWindow or DisableMaintainWindow. The time configuration validation is the same as that of CreateMaintainWindow. If the policy name is duplicated within the same workspace, InvalidParameterValue is returned. If the specified silence policy does not exist, ResourceNotFound is returned.
      *
      * @param request - UpdateMaintainWindowRequest
      * @param headers - map
@@ -14997,8 +15051,8 @@ class Cms extends OpenApiClient
      * Updates a silence policy.
      *
      * @remarks
-     * Updates the configuration of a specified silence policy. If maintainWindowName is left empty, the original name is retained. The description, filterSetting, effective, effectTimeRange, startTime, and endTime fields are updated based on the values in the request body. If these fields are not provided, they are set to empty. Before submitting changes, call GetMaintainWindow to retrieve the current configuration.
-     * This operation does not modify the enabled status of the policy. To enable or pause a policy, call EnableMaintainWindow or DisableMaintainWindow. Time configuration validation is the same as that for CreateMaintainWindow. If a policy name already exists in the same workspace, the InvalidParameterValue error code is returned. If the specified silence policy does not exist, the ResourceNotFound error code is returned.
+     * Updates the configuration of a specified silence policy. If maintainWindowName is empty, the original name is retained. The description, filterSetting, effective, effectTimeRange, startTime, and endTime fields are updated based on the values in the request body. If these fields are not provided, they are set to empty. Call GetMaintainWindow to obtain the current configuration before you submit modifications.
+     * This operation does not modify the enabled status of the policy. To enable or pause the policy, call EnableMaintainWindow or DisableMaintainWindow. The time configuration validation is the same as that of CreateMaintainWindow. If the policy name is duplicated within the same workspace, InvalidParameterValue is returned. If the specified silence policy does not exist, ResourceNotFound is returned.
      *
      * @param request - UpdateMaintainWindowRequest
      *
@@ -15018,7 +15072,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a specific Memory.
+     * Updates a memory.
      *
      * @param request - UpdateMemoryRequest
      * @param headers - map
@@ -15067,7 +15121,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a specific Memory.
+     * Updates a memory.
      *
      * @param request - UpdateMemoryRequest
      *
@@ -15169,7 +15223,7 @@ class Cms extends OpenApiClient
      * Updates a notification policy.
      *
      * @remarks
-     * Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+     * Updates a notification policy by using the workspace and the request body that includes the UUID and version. The version is an optimistic lock version number and must match the current record in the backend. Otherwise, an OptimisticLockFailed error is returned. After the update succeeds, the latest policy details are returned.
      *
      * @param request - UpdateNotifyPolicyRequest
      * @param headers - map
@@ -15215,7 +15269,7 @@ class Cms extends OpenApiClient
      * Updates a notification policy.
      *
      * @remarks
-     * Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+     * Updates a notification policy by using the workspace and the request body that includes the UUID and version. The version is an optimistic lock version number and must match the current record in the backend. Otherwise, an OptimisticLockFailed error is returned. After the update succeeds, the latest policy details are returned.
      *
      * @param request - UpdateNotifyPolicyRequest
      *
@@ -15577,7 +15631,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the user settings for Prometheus. Note: If you set `settingKey` to `financeUsageRegion`, Prometheus usage data is sent to Simple Log Service (SLS) in the specified region. Historical usage data will no longer be available in the Prometheus console.
+     * Updates the user configuration for Prometheus. Note: Modifying settingKey=financeUsageRegion switches Prometheus usage data to Log Service in the specified region, and historical usage data will no longer be available in the Prometheus console.
      *
      * @param request - UpdatePrometheusUserSettingRequest
      * @param headers - map
@@ -15620,7 +15674,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the user settings for Prometheus. Note: If you set `settingKey` to `financeUsageRegion`, Prometheus usage data is sent to Simple Log Service (SLS) in the specified region. Historical usage data will no longer be available in the Prometheus console.
+     * Updates the user configuration for Prometheus. Note: Modifying settingKey=financeUsageRegion switches Prometheus usage data to Log Service in the specified region, and historical usage data will no longer be available in the Prometheus console.
      *
      * @param request - UpdatePrometheusUserSettingRequest
      *
@@ -15810,10 +15864,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a service-linked entry.
+     * Updates a service association entry.
      *
      * @remarks
-     * Updates an existing service-linked entry.
+     * Updates an existing service association entry.
      *
      * @param request - UpdateServiceRecordRequest
      * @param headers - map
@@ -15861,10 +15915,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a service-linked entry.
+     * Updates a service association entry.
      *
      * @remarks
-     * Updates an existing service-linked entry.
+     * Updates an existing service association entry.
      *
      * @param request - UpdateServiceRecordRequest
      *
@@ -16037,6 +16091,10 @@ class Cms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->group) {
             @$query['group'] = $request->group;
         }
@@ -16085,7 +16143,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Inserts or updates Umodel elements.
+     * Writes Umodel elements.
      *
      * @param request - UpsertUmodelDataRequest
      * @param headers - map
@@ -16104,6 +16162,10 @@ class Cms extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->method) {
             @$query['method'] = $request->method;
         }
@@ -16134,7 +16196,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Inserts or updates Umodel elements.
+     * Writes Umodel elements.
      *
      * @param request - UpsertUmodelDataRequest
      *
@@ -16154,10 +16216,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the on-call calendar of a specified on-call schedule within a given date range and returns the contacts and start and end times of each on-call period grouped by shift name.
+     * Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call period grouped by shift name.
      *
      * @remarks
-     * Queries the on-call calendar and returns the on-call arrangements for a specified on-call schedule within a given date range. The shift name is used as the key, and the value is the list of on-call periods for the shift. Each period includes the on-call contact and the start and end times.
+     * Retrieves the on-call calendar. Returns the on-call arrangements for a specified on-call schedule within the queried date range. The response is grouped by shift name, where each key is a shift name and the value is a list of on-call periods for that shift. Each period includes the on-call contact and the start and end times.
      *
      * @param request - ViewOncallScheduleRequest
      * @param headers - map
@@ -16204,10 +16266,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries the on-call calendar of a specified on-call schedule within a given date range and returns the contacts and start and end times of each on-call period grouped by shift name.
+     * Queries the on-call calendar of a specified on-call schedule within a given date range, and returns the contacts and start and end times of each on-call period grouped by shift name.
      *
      * @remarks
-     * Queries the on-call calendar and returns the on-call arrangements for a specified on-call schedule within a given date range. The shift name is used as the key, and the value is the list of on-call periods for the shift. Each period includes the on-call contact and the start and end times.
+     * Retrieves the on-call calendar. Returns the on-call arrangements for a specified on-call schedule within the queried date range. The response is grouped by shift name, where each key is a shift name and the value is a list of on-call periods for that shift. Each period includes the on-call contact and the start and end times.
      *
      * @param request - ViewOncallScheduleRequest
      *

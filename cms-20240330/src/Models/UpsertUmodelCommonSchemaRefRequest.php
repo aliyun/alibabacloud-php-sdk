@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpsertUmodelCommonSchemaRefRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $group;
@@ -18,6 +23,7 @@ class UpsertUmodelCommonSchemaRefRequest extends Model
      */
     public $version;
     protected $_name = [
+        'dryRun' => 'dryRun',
         'group' => 'group',
         'version' => 'version',
     ];
@@ -30,6 +36,10 @@ class UpsertUmodelCommonSchemaRefRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->group) {
             $res['group'] = $this->group;
         }
@@ -49,6 +59,10 @@ class UpsertUmodelCommonSchemaRefRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
+        }
+
         if (isset($map['group'])) {
             $model->group = $map['group'];
         }

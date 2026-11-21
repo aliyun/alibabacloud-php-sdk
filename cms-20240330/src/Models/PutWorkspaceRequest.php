@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceRequest\tags;
 class PutWorkspaceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $description;
@@ -34,6 +39,7 @@ class PutWorkspaceRequest extends Model
      */
     public $tags;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'description' => 'description',
         'displayName' => 'displayName',
         'resourceGroupId' => 'resourceGroupId',
@@ -52,6 +58,10 @@ class PutWorkspaceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -90,6 +100,10 @@ class PutWorkspaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }

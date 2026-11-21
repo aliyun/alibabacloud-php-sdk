@@ -14,6 +14,11 @@ class DeleteUmodelDataRequest extends Model
     public $domain;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $kind;
@@ -24,6 +29,7 @@ class DeleteUmodelDataRequest extends Model
     public $name;
     protected $_name = [
         'domain' => 'domain',
+        'dryRun' => 'dryRun',
         'kind' => 'kind',
         'name' => 'name',
     ];
@@ -38,6 +44,10 @@ class DeleteUmodelDataRequest extends Model
         $res = [];
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
         }
 
         if (null !== $this->kind) {
@@ -61,6 +71,10 @@ class DeleteUmodelDataRequest extends Model
         $model = new self();
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
+        }
+
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         if (isset($map['kind'])) {

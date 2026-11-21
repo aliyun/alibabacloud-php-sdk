@@ -12,8 +12,14 @@ class CreateUmodelRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
     protected $_name = [
         'description' => 'description',
+        'dryRun' => 'dryRun',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class CreateUmodelRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['dryRun'] = $this->dryRun;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class CreateUmodelRequest extends Model
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['dryRun'])) {
+            $model->dryRun = $map['dryRun'];
         }
 
         return $model;

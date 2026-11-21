@@ -11,8 +11,14 @@ class customTemplateEntries extends Model
     /**
      * @var string
      */
+    public $targetType;
+
+    /**
+     * @var string
+     */
     public $templateUuid;
     protected $_name = [
+        'targetType' => 'targetType',
         'templateUuid' => 'templateUuid',
     ];
 
@@ -24,6 +30,10 @@ class customTemplateEntries extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->targetType) {
+            $res['targetType'] = $this->targetType;
+        }
+
         if (null !== $this->templateUuid) {
             $res['templateUuid'] = $this->templateUuid;
         }
@@ -39,6 +49,10 @@ class customTemplateEntries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['targetType'])) {
+            $model->targetType = $map['targetType'];
+        }
+
         if (isset($map['templateUuid'])) {
             $model->templateUuid = $map['templateUuid'];
         }
