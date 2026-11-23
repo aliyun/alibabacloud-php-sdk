@@ -128,6 +128,9 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelineRunsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\PausePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\PausePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\PreviewPipelineRequest;
@@ -138,8 +141,13 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\RunPipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\RunPipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\SearchContextRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\SearchContextResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\TerminatePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\TerminatePipelineResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateAgentSpaceRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateAgentSpaceResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest;
@@ -3899,7 +3907,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of evaluation tasks.
+     * Queries the list of evaluation tasks.
      *
      * @param request - ListEvaluationTasksRequest
      * @param headers - map
@@ -3969,7 +3977,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Queries a list of evaluation tasks.
+     * Queries the list of evaluation tasks.
      *
      * @param request - ListEvaluationTasksRequest
      *
@@ -4656,6 +4664,89 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
+     * Lists the resources associated with tags.
+     *
+     * @param tmpReq - ListTagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListTagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['tag'] = $request->tagShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tags',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the resources associated with tags.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Pauses a pipeline.
      *
      * @param request - PausePipelineRequest
@@ -5041,6 +5132,75 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
+     * Adds or updates tags.
+     *
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$body['tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds or updates tags.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Terminates a pipeline.
      *
      * @param request - TerminatePipelineRequest
@@ -5103,6 +5263,89 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->terminatePipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Removes tags.
+     *
+     * @param tmpReq - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UntagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'resourceId', 'json');
+        }
+
+        if (null !== $tmpReq->tagKey) {
+            $request->tagKeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'tagKey', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->all) {
+            @$query['all'] = $request->all;
+        }
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['resourceId'] = $request->resourceIdShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKeyShrink) {
+            @$query['tagKey'] = $request->tagKeyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tags',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes tags.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**

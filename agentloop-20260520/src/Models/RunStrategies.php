@@ -17,9 +17,15 @@ class RunStrategies extends Model
      * @var ContinuousStrategy
      */
     public $continuous;
+
+    /**
+     * @var SelectedDataStrategy
+     */
+    public $selectedData;
     protected $_name = [
         'backfill' => 'backfill',
         'continuous' => 'continuous',
+        'selectedData' => 'selectedData',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class RunStrategies extends Model
         }
         if (null !== $this->continuous) {
             $this->continuous->validate();
+        }
+        if (null !== $this->selectedData) {
+            $this->selectedData->validate();
         }
         parent::validate();
     }
@@ -42,6 +51,10 @@ class RunStrategies extends Model
 
         if (null !== $this->continuous) {
             $res['continuous'] = null !== $this->continuous ? $this->continuous->toArray($noStream) : $this->continuous;
+        }
+
+        if (null !== $this->selectedData) {
+            $res['selectedData'] = null !== $this->selectedData ? $this->selectedData->toArray($noStream) : $this->selectedData;
         }
 
         return $res;
@@ -61,6 +74,10 @@ class RunStrategies extends Model
 
         if (isset($map['continuous'])) {
             $model->continuous = ContinuousStrategy::fromMap($map['continuous']);
+        }
+
+        if (isset($map['selectedData'])) {
+            $model->selectedData = SelectedDataStrategy::fromMap($map['selectedData']);
         }
 
         return $model;

@@ -1,3 +1,9 @@
+2026-11-23 Version: 2.3.0
+- Support API ListTagResources.
+- Support API TagResources.
+- Support API UntagResources.
+
+
 2026-11-18 Version: 2.2.3
 - Generated php 2026-05-20 for AgentLoop.
 
