@@ -44,6 +44,11 @@ class data extends Model
     public $title;
 
     /**
+     * @var bool
+     */
+    public $uiEnabled;
+
+    /**
      * @var string
      */
     public $updatedAt;
@@ -55,6 +60,7 @@ class data extends Model
         'sessionId' => 'sessionId',
         'status' => 'status',
         'title' => 'title',
+        'uiEnabled' => 'uiEnabled',
         'updatedAt' => 'updatedAt',
     ];
 
@@ -92,6 +98,10 @@ class data extends Model
 
         if (null !== $this->title) {
             $res['title'] = $this->title;
+        }
+
+        if (null !== $this->uiEnabled) {
+            $res['uiEnabled'] = $this->uiEnabled;
         }
 
         if (null !== $this->updatedAt) {
@@ -135,6 +145,10 @@ class data extends Model
 
         if (isset($map['title'])) {
             $model->title = $map['title'];
+        }
+
+        if (isset($map['uiEnabled'])) {
+            $model->uiEnabled = $map['uiEnabled'];
         }
 
         if (isset($map['updatedAt'])) {

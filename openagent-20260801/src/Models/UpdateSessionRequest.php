@@ -17,9 +17,15 @@ class UpdateSessionRequest extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var bool
+     */
+    public $uiEnabled;
     protected $_name = [
         'pinned' => 'pinned',
         'title' => 'title',
+        'uiEnabled' => 'uiEnabled',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class UpdateSessionRequest extends Model
 
         if (null !== $this->title) {
             $res['title'] = $this->title;
+        }
+
+        if (null !== $this->uiEnabled) {
+            $res['uiEnabled'] = $this->uiEnabled;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class UpdateSessionRequest extends Model
 
         if (isset($map['title'])) {
             $model->title = $map['title'];
+        }
+
+        if (isset($map['uiEnabled'])) {
+            $model->uiEnabled = $map['uiEnabled'];
         }
 
         return $model;

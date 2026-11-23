@@ -29,6 +29,11 @@ class data extends Model
     public $status;
 
     /**
+     * @var bool
+     */
+    public $uiEnabled;
+
+    /**
      * @var string
      */
     public $updatedAt;
@@ -37,6 +42,7 @@ class data extends Model
         'pinned' => 'pinned',
         'sessionId' => 'sessionId',
         'status' => 'status',
+        'uiEnabled' => 'uiEnabled',
         'updatedAt' => 'updatedAt',
     ];
 
@@ -62,6 +68,10 @@ class data extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->uiEnabled) {
+            $res['uiEnabled'] = $this->uiEnabled;
         }
 
         if (null !== $this->updatedAt) {
@@ -93,6 +103,10 @@ class data extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['uiEnabled'])) {
+            $model->uiEnabled = $map['uiEnabled'];
         }
 
         if (isset($map['updatedAt'])) {

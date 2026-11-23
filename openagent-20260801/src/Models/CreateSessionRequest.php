@@ -12,8 +12,14 @@ class CreateSessionRequest extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var bool
+     */
+    public $uiEnabled;
     protected $_name = [
         'title' => 'title',
+        'uiEnabled' => 'uiEnabled',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class CreateSessionRequest extends Model
         $res = [];
         if (null !== $this->title) {
             $res['title'] = $this->title;
+        }
+
+        if (null !== $this->uiEnabled) {
+            $res['uiEnabled'] = $this->uiEnabled;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class CreateSessionRequest extends Model
         $model = new self();
         if (isset($map['title'])) {
             $model->title = $map['title'];
+        }
+
+        if (isset($map['uiEnabled'])) {
+            $model->uiEnabled = $map['uiEnabled'];
         }
 
         return $model;
