@@ -21,6 +21,11 @@ class body extends Model
     public $auth;
 
     /**
+     * @var string
+     */
+    public $backendMcpProtocol;
+
+    /**
      * @var string[]
      */
     public $customTags;
@@ -39,6 +44,11 @@ class body extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $originProtocolVersion;
 
     /**
      * @var string
@@ -62,10 +72,12 @@ class body extends Model
     protected $_name = [
         'addresses' => 'addresses',
         'auth' => 'auth',
+        'backendMcpProtocol' => 'backendMcpProtocol',
         'customTags' => 'customTags',
         'deploymentConfig' => 'deploymentConfig',
         'description' => 'description',
         'name' => 'name',
+        'originProtocolVersion' => 'originProtocolVersion',
         'permissionMode' => 'permissionMode',
         'protocol' => 'protocol',
         'swaggerConfig' => 'swaggerConfig',
@@ -107,6 +119,10 @@ class body extends Model
             $res['auth'] = null !== $this->auth ? $this->auth->toArray($noStream) : $this->auth;
         }
 
+        if (null !== $this->backendMcpProtocol) {
+            $res['backendMcpProtocol'] = $this->backendMcpProtocol;
+        }
+
         if (null !== $this->customTags) {
             if (\is_array($this->customTags)) {
                 $res['customTags'] = [];
@@ -128,6 +144,10 @@ class body extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->originProtocolVersion) {
+            $res['originProtocolVersion'] = $this->originProtocolVersion;
         }
 
         if (null !== $this->permissionMode) {
@@ -172,6 +192,10 @@ class body extends Model
             $model->auth = auth::fromMap($map['auth']);
         }
 
+        if (isset($map['backendMcpProtocol'])) {
+            $model->backendMcpProtocol = $map['backendMcpProtocol'];
+        }
+
         if (isset($map['customTags'])) {
             if (!empty($map['customTags'])) {
                 $model->customTags = [];
@@ -193,6 +217,10 @@ class body extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['originProtocolVersion'])) {
+            $model->originProtocolVersion = $map['originProtocolVersion'];
         }
 
         if (isset($map['permissionMode'])) {

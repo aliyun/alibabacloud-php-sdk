@@ -50,6 +50,11 @@ class items extends Model
     public $modelName;
 
     /**
+     * @var string[]
+     */
+    public $supportedThinkingLevels;
+
+    /**
      * @var string
      */
     public $updatedAt;
@@ -67,6 +72,7 @@ class items extends Model
         'maxTokens' => 'maxTokens',
         'modelId' => 'modelId',
         'modelName' => 'modelName',
+        'supportedThinkingLevels' => 'supportedThinkingLevels',
         'updatedAt' => 'updatedAt',
         'workspaceId' => 'workspaceId',
     ];
@@ -75,6 +81,9 @@ class items extends Model
     {
         if (null !== $this->capabilities) {
             $this->capabilities->validate();
+        }
+        if (\is_array($this->supportedThinkingLevels)) {
+            Model::validateArray($this->supportedThinkingLevels);
         }
         parent::validate();
     }
@@ -112,6 +121,17 @@ class items extends Model
 
         if (null !== $this->modelName) {
             $res['modelName'] = $this->modelName;
+        }
+
+        if (null !== $this->supportedThinkingLevels) {
+            if (\is_array($this->supportedThinkingLevels)) {
+                $res['supportedThinkingLevels'] = [];
+                $n1 = 0;
+                foreach ($this->supportedThinkingLevels as $item1) {
+                    $res['supportedThinkingLevels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->updatedAt) {
@@ -163,6 +183,17 @@ class items extends Model
 
         if (isset($map['modelName'])) {
             $model->modelName = $map['modelName'];
+        }
+
+        if (isset($map['supportedThinkingLevels'])) {
+            if (!empty($map['supportedThinkingLevels'])) {
+                $model->supportedThinkingLevels = [];
+                $n1 = 0;
+                foreach ($map['supportedThinkingLevels'] as $item1) {
+                    $model->supportedThinkingLevels[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['updatedAt'])) {

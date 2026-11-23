@@ -21,6 +21,11 @@ class body extends Model
     public $auth;
 
     /**
+     * @var string
+     */
+    public $backendMcpProtocol;
+
+    /**
      * @var string[]
      */
     public $customTags;
@@ -38,7 +43,17 @@ class body extends Model
     /**
      * @var string
      */
+    public $originProtocolVersion;
+
+    /**
+     * @var string
+     */
     public $permissionMode;
+
+    /**
+     * @var string
+     */
+    public $protocol;
 
     /**
      * @var string
@@ -47,10 +62,13 @@ class body extends Model
     protected $_name = [
         'addresses' => 'addresses',
         'auth' => 'auth',
+        'backendMcpProtocol' => 'backendMcpProtocol',
         'customTags' => 'customTags',
         'deploymentConfig' => 'deploymentConfig',
         'description' => 'description',
+        'originProtocolVersion' => 'originProtocolVersion',
         'permissionMode' => 'permissionMode',
+        'protocol' => 'protocol',
         'swaggerConfig' => 'swaggerConfig',
     ];
 
@@ -89,6 +107,10 @@ class body extends Model
             $res['auth'] = null !== $this->auth ? $this->auth->toArray($noStream) : $this->auth;
         }
 
+        if (null !== $this->backendMcpProtocol) {
+            $res['backendMcpProtocol'] = $this->backendMcpProtocol;
+        }
+
         if (null !== $this->customTags) {
             if (\is_array($this->customTags)) {
                 $res['customTags'] = [];
@@ -108,8 +130,16 @@ class body extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->originProtocolVersion) {
+            $res['originProtocolVersion'] = $this->originProtocolVersion;
+        }
+
         if (null !== $this->permissionMode) {
             $res['permissionMode'] = $this->permissionMode;
+        }
+
+        if (null !== $this->protocol) {
+            $res['protocol'] = $this->protocol;
         }
 
         if (null !== $this->swaggerConfig) {
@@ -142,6 +172,10 @@ class body extends Model
             $model->auth = auth::fromMap($map['auth']);
         }
 
+        if (isset($map['backendMcpProtocol'])) {
+            $model->backendMcpProtocol = $map['backendMcpProtocol'];
+        }
+
         if (isset($map['customTags'])) {
             if (!empty($map['customTags'])) {
                 $model->customTags = [];
@@ -161,8 +195,16 @@ class body extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['originProtocolVersion'])) {
+            $model->originProtocolVersion = $map['originProtocolVersion'];
+        }
+
         if (isset($map['permissionMode'])) {
             $model->permissionMode = $map['permissionMode'];
+        }
+
+        if (isset($map['protocol'])) {
+            $model->protocol = $map['protocol'];
         }
 
         if (isset($map['swaggerConfig'])) {

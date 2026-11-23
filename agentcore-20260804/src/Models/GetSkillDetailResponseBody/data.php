@@ -52,6 +52,11 @@ class data extends Model
     /**
      * @var string[]
      */
+    public $labelDescriptions;
+
+    /**
+     * @var string[]
+     */
     public $labels;
 
     /**
@@ -107,6 +112,7 @@ class data extends Model
         'editingVersion' => 'editingVersion',
         'enable' => 'enable',
         'from' => 'from',
+        'labelDescriptions' => 'labelDescriptions',
         'labels' => 'labels',
         'name' => 'name',
         'onlineCnt' => 'onlineCnt',
@@ -121,6 +127,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->labelDescriptions)) {
+            Model::validateArray($this->labelDescriptions);
+        }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
         }
@@ -163,6 +172,15 @@ class data extends Model
 
         if (null !== $this->from) {
             $res['from'] = $this->from;
+        }
+
+        if (null !== $this->labelDescriptions) {
+            if (\is_array($this->labelDescriptions)) {
+                $res['labelDescriptions'] = [];
+                foreach ($this->labelDescriptions as $key1 => $value1) {
+                    $res['labelDescriptions'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->labels) {
@@ -258,6 +276,15 @@ class data extends Model
 
         if (isset($map['from'])) {
             $model->from = $map['from'];
+        }
+
+        if (isset($map['labelDescriptions'])) {
+            if (!empty($map['labelDescriptions'])) {
+                $model->labelDescriptions = [];
+                foreach ($map['labelDescriptions'] as $key1 => $value1) {
+                    $model->labelDescriptions[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['labels'])) {

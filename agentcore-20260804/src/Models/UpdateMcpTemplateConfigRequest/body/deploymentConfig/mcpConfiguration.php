@@ -27,11 +27,17 @@ class mcpConfiguration extends Model
      * @var int
      */
     public $sessionMaxLifetimeSeconds;
+
+    /**
+     * @var string
+     */
+    public $sessionMode;
     protected $_name = [
         'endpointPath' => 'endpointPath',
         'sessionConcurrencyPerInstance' => 'sessionConcurrencyPerInstance',
         'sessionIdleTimeoutSeconds' => 'sessionIdleTimeoutSeconds',
         'sessionMaxLifetimeSeconds' => 'sessionMaxLifetimeSeconds',
+        'sessionMode' => 'sessionMode',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class mcpConfiguration extends Model
 
         if (null !== $this->sessionMaxLifetimeSeconds) {
             $res['sessionMaxLifetimeSeconds'] = $this->sessionMaxLifetimeSeconds;
+        }
+
+        if (null !== $this->sessionMode) {
+            $res['sessionMode'] = $this->sessionMode;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class mcpConfiguration extends Model
 
         if (isset($map['sessionMaxLifetimeSeconds'])) {
             $model->sessionMaxLifetimeSeconds = $map['sessionMaxLifetimeSeconds'];
+        }
+
+        if (isset($map['sessionMode'])) {
+            $model->sessionMode = $map['sessionMode'];
         }
 
         return $model;

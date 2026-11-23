@@ -11,8 +11,14 @@ class body extends Model
     /**
      * @var string
      */
+    public $labelDescriptions;
+
+    /**
+     * @var string
+     */
     public $labels;
     protected $_name = [
+        'labelDescriptions' => 'labelDescriptions',
         'labels' => 'labels',
     ];
 
@@ -24,6 +30,10 @@ class body extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->labelDescriptions) {
+            $res['labelDescriptions'] = $this->labelDescriptions;
+        }
+
         if (null !== $this->labels) {
             $res['labels'] = $this->labels;
         }
@@ -39,6 +49,10 @@ class body extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['labelDescriptions'])) {
+            $model->labelDescriptions = $map['labelDescriptions'];
+        }
+
         if (isset($map['labels'])) {
             $model->labels = $map['labels'];
         }

@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentVersionShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCredentialShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentDebugTokenRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentDebugTokenResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateCustomAgentShrinkRequest;
@@ -341,6 +343,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\PrecheckSkillUploadViaOssRespons
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\PrecheckSkillUploadViaOssShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\PrepareIdentityProviderSCIMRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\PrepareIdentityProviderSCIMResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ProbeMcpOriginRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ProbeMcpOriginResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ProbeMcpOriginShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\PublishSkillVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\PublishSkillVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\PublishSkillVersionShrinkRequest;
@@ -746,11 +751,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Converts an MCP service to free edit mode.
+     * Converts an MCP service to free-edit mode.
      *
      * @remarks
-     * Converts an MCP service installed from a marketplace template to free edit mode to allow direct modification of the service configuration.
-     * After the conversion, the original source and tag information are retained, and the template editing restrictions are removed. The service no longer appears on the usage page associated with the template.
+     * Converts an MCP service installed from a marketplace template to free-edit mode, allowing you to directly modify the service configuration. After the conversion, the original source and tag information are retained, and the editing restrictions of the template are removed. The service will no longer appear on the use case page corresponding to the template.
      *
      * @param request - ConvertMcpToFreeEditRequest
      * @param headers - map
@@ -794,11 +798,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Converts an MCP service to free edit mode.
+     * Converts an MCP service to free-edit mode.
      *
      * @remarks
-     * Converts an MCP service installed from a marketplace template to free edit mode to allow direct modification of the service configuration.
-     * After the conversion, the original source and tag information are retained, and the template editing restrictions are removed. The service no longer appears on the usage page associated with the template.
+     * Converts an MCP service installed from a marketplace template to free-edit mode, allowing you to directly modify the service configuration. After the conversion, the original source and tag information are retained, and the editing restrictions of the template are removed. The service will no longer appear on the use case page corresponding to the template.
      *
      * @param request - ConvertMcpToFreeEditRequest
      *
@@ -1446,6 +1449,71 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->createCustomAgentWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+     *
+     * @param request - CreateCustomAgentDebugTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomAgentDebugTokenResponse
+     *
+     * @param string                             $workspaceId
+     * @param string                             $agentId
+     * @param CreateCustomAgentDebugTokenRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateCustomAgentDebugTokenResponse
+     */
+    public function createCustomAgentDebugTokenWithOptions($workspaceId, $agentId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->networkType) {
+            @$query['networkType'] = $request->networkType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomAgentDebugToken',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/custom-agents/' . Url::percentEncode($agentId) . '/debug/token',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomAgentDebugTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+     *
+     * @param request - CreateCustomAgentDebugTokenRequest
+     *
+     * @returns CreateCustomAgentDebugTokenResponse
+     *
+     * @param string                             $workspaceId
+     * @param string                             $agentId
+     * @param CreateCustomAgentDebugTokenRequest $request
+     *
+     * @return CreateCustomAgentDebugTokenResponse
+     */
+    public function createCustomAgentDebugToken($workspaceId, $agentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCustomAgentDebugTokenWithOptions($workspaceId, $agentId, $request, $headers, $runtime);
     }
 
     /**
@@ -2249,13 +2317,13 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call a query operation to verify whether the service is ready.
+     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
      *
      * @remarks
      * Creates an MCP service in a workspace for agents to use the tools provided by the service.
-     * The creation process is asynchronous. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
-     * To deploy using a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the upload URL and upload the file. Then, fill the returned code package token into the deployment configuration.
-     * The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+     * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
+     * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
      *
      * @param tmpReq - CreateMcpRequest
      * @param headers - map
@@ -2310,13 +2378,13 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call a query operation to verify whether the service is ready.
+     * Creates an MCP service in a specified workspace. The creation process is asynchronous. You can check the returned status or call the query operation to confirm whether the service is ready.
      *
      * @remarks
      * Creates an MCP service in a workspace for agents to use the tools provided by the service.
-     * The creation process is asynchronous. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to check whether the service is ready.
-     * To deploy using a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the upload URL and upload the file. Then, fill the returned code package token into the deployment configuration.
-     * The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
+     * The creation process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query whether the service is ready.
+     * When deploying with a local code package, first call [GetMcpCodePackageUploadUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcpCodePackageUploadUrl) to obtain the URL and upload the file, and then fill the returned code package token into the deployment configuration.
+     * `clientToken` currently does not provide idempotency guarantees. If the request result is not confirmed, query existing services before deciding whether to recreate.
      *
      * @param request - CreateMcpRequest
      *
@@ -10570,10 +10638,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+     * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
      *
      * @remarks
-     * Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+     * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
      *
      * @param request - ListMcpsRequest
      * @param headers - map
@@ -10640,10 +10708,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+     * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
      *
      * @remarks
-     * Performs a paging query for the MCP services and their configurations and statuses in a specified workspace.
+     * Performs a paged query to retrieve the MCP services, configurations, and statuses in a specified workspace by using paging.
      *
      * @param request - ListMcpsRequest
      *
@@ -11286,10 +11354,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+     * Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
      *
      * @remarks
-     * Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+     * Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
      *
      * @param request - ListModelsRequest
      * @param headers - map
@@ -11344,10 +11412,10 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+     * Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
      *
      * @remarks
-     * Performs a paging query for models in a specified workspace and supports filtering by model connection and model name.
+     * Performs a paged query for models in a specified workspace and supports filtering by model connection and model name during paging.
      *
      * @param request - ListModelsRequest
      *
@@ -12641,6 +12709,81 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->prepareIdentityProviderSCIMWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Validates an MCP origin server.
+     *
+     * @remarks
+     * Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+     *
+     * @param tmpReq - ProbeMcpOriginRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ProbeMcpOriginResponse
+     *
+     * @param string                $workspaceId
+     * @param ProbeMcpOriginRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ProbeMcpOriginResponse
+     */
+    public function probeMcpOriginWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ProbeMcpOriginShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ProbeMcpOrigin',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/mcp-origin-probes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ProbeMcpOriginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Validates an MCP origin server.
+     *
+     * @remarks
+     * Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+     *
+     * @param request - ProbeMcpOriginRequest
+     *
+     * @returns ProbeMcpOriginResponse
+     *
+     * @param string                $workspaceId
+     * @param ProbeMcpOriginRequest $request
+     *
+     * @return ProbeMcpOriginResponse
+     */
+    public function probeMcpOrigin($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->probeMcpOriginWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -14665,7 +14808,7 @@ class AgentCore extends OpenApiClient
      *
      * @remarks
      * Updates the address, description, authentication, or Swagger configuration of an MCP service. The service type and protocol cannot be modified after creation.
-     * The update process is executed asynchronously. After submission, you can call the [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) operation to query the processing result. The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
+     * The update process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query the processing result. The clientToken parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
      *
      * @param tmpReq - UpdateMcpRequest
      * @param headers - map
@@ -14725,7 +14868,7 @@ class AgentCore extends OpenApiClient
      *
      * @remarks
      * Updates the address, description, authentication, or Swagger configuration of an MCP service. The service type and protocol cannot be modified after creation.
-     * The update process is executed asynchronously. After submission, you can call the [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) operation to query the processing result. The `clientToken` parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
+     * The update process is executed asynchronously. After submission, call [GetMcp](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMcp) to query the processing result. The clientToken parameter does not currently provide idempotency guarantees. If the request result is not confirmed, query the current configuration and status first.
      *
      * @param request - UpdateMcpRequest
      *
@@ -14746,10 +14889,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the parameters of an MCP service based on a template.
+     * Updates the MCP parameters based on a template.
      *
      * @remarks
-     * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service. This operation uses the same template version that was bound when the MCP service was created to update the parameters exposed by the schema, without upgrading the template version.
+     * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.
+     * Updates the parameters exposed by the schema using the same template version bound during MCP creation, without upgrading the template version.
      *
      * @param tmpReq - UpdateMcpTemplateConfigRequest
      * @param headers - map
@@ -14809,10 +14953,11 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Updates the parameters of an MCP service based on a template.
+     * Updates the MCP parameters based on a template.
      *
      * @remarks
-     * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service. This operation uses the same template version that was bound when the MCP service was created to update the parameters exposed by the schema, without upgrading the template version.
+     * Updates parameters based on the marketplace template bound to the MCP service to adjust the configuration of the templated service.
+     * Updates the parameters exposed by the schema using the same template version bound during MCP creation, without upgrading the template version.
      *
      * @param request - UpdateMcpTemplateConfigRequest
      *

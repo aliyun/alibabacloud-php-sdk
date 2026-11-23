@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\auth;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\deploymentConfig;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\marketSource;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\operation;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpsResponseBody\items\originProbe;
 
 class items extends Model
 {
@@ -20,6 +22,11 @@ class items extends Model
      * @var auth
      */
     public $auth;
+
+    /**
+     * @var string
+     */
+    public $backendMcpProtocol;
 
     /**
      * @var string
@@ -72,6 +79,21 @@ class items extends Model
     public $officialTag;
 
     /**
+     * @var operation
+     */
+    public $operation;
+
+    /**
+     * @var originProbe
+     */
+    public $originProbe;
+
+    /**
+     * @var string
+     */
+    public $originProtocolVersion;
+
+    /**
      * @var string
      */
     public $permissionMode;
@@ -113,6 +135,7 @@ class items extends Model
     protected $_name = [
         'addresses' => 'addresses',
         'auth' => 'auth',
+        'backendMcpProtocol' => 'backendMcpProtocol',
         'createdAt' => 'createdAt',
         'customTags' => 'customTags',
         'deploymentConfig' => 'deploymentConfig',
@@ -123,6 +146,9 @@ class items extends Model
         'mcpServerId' => 'mcpServerId',
         'name' => 'name',
         'officialTag' => 'officialTag',
+        'operation' => 'operation',
+        'originProbe' => 'originProbe',
+        'originProtocolVersion' => 'originProtocolVersion',
         'permissionMode' => 'permissionMode',
         'protocol' => 'protocol',
         'status' => 'status',
@@ -150,6 +176,12 @@ class items extends Model
         if (null !== $this->marketSource) {
             $this->marketSource->validate();
         }
+        if (null !== $this->operation) {
+            $this->operation->validate();
+        }
+        if (null !== $this->originProbe) {
+            $this->originProbe->validate();
+        }
         parent::validate();
     }
 
@@ -169,6 +201,10 @@ class items extends Model
 
         if (null !== $this->auth) {
             $res['auth'] = null !== $this->auth ? $this->auth->toArray($noStream) : $this->auth;
+        }
+
+        if (null !== $this->backendMcpProtocol) {
+            $res['backendMcpProtocol'] = $this->backendMcpProtocol;
         }
 
         if (null !== $this->createdAt) {
@@ -216,6 +252,18 @@ class items extends Model
 
         if (null !== $this->officialTag) {
             $res['officialTag'] = $this->officialTag;
+        }
+
+        if (null !== $this->operation) {
+            $res['operation'] = null !== $this->operation ? $this->operation->toArray($noStream) : $this->operation;
+        }
+
+        if (null !== $this->originProbe) {
+            $res['originProbe'] = null !== $this->originProbe ? $this->originProbe->toArray($noStream) : $this->originProbe;
+        }
+
+        if (null !== $this->originProtocolVersion) {
+            $res['originProtocolVersion'] = $this->originProtocolVersion;
         }
 
         if (null !== $this->permissionMode) {
@@ -276,6 +324,10 @@ class items extends Model
             $model->auth = auth::fromMap($map['auth']);
         }
 
+        if (isset($map['backendMcpProtocol'])) {
+            $model->backendMcpProtocol = $map['backendMcpProtocol'];
+        }
+
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
@@ -321,6 +373,18 @@ class items extends Model
 
         if (isset($map['officialTag'])) {
             $model->officialTag = $map['officialTag'];
+        }
+
+        if (isset($map['operation'])) {
+            $model->operation = operation::fromMap($map['operation']);
+        }
+
+        if (isset($map['originProbe'])) {
+            $model->originProbe = originProbe::fromMap($map['originProbe']);
+        }
+
+        if (isset($map['originProtocolVersion'])) {
+            $model->originProtocolVersion = $map['originProtocolVersion'];
         }
 
         if (isset($map['permissionMode'])) {
