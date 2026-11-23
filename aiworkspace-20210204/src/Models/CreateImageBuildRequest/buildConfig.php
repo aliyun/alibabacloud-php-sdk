@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateImageBuildRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateImageBuildRequest\buildConfig\dataSources;
 
 class buildConfig extends Model
 {
@@ -14,9 +15,19 @@ class buildConfig extends Model
     public $buildType;
 
     /**
+     * @var dataSources[]
+     */
+    public $dataSources;
+
+    /**
      * @var string
      */
     public $dockerfile;
+
+    /**
+     * @var string
+     */
+    public $dockerfilePath;
 
     /**
      * @var mixed[]
@@ -24,12 +35,17 @@ class buildConfig extends Model
     public $registryAuths;
     protected $_name = [
         'buildType' => 'BuildType',
+        'dataSources' => 'DataSources',
         'dockerfile' => 'Dockerfile',
+        'dockerfilePath' => 'DockerfilePath',
         'registryAuths' => 'RegistryAuths',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dataSources)) {
+            Model::validateArray($this->dataSources);
+        }
         if (\is_array($this->registryAuths)) {
             Model::validateArray($this->registryAuths);
         }
@@ -43,8 +59,23 @@ class buildConfig extends Model
             $res['BuildType'] = $this->buildType;
         }
 
+        if (null !== $this->dataSources) {
+            if (\is_array($this->dataSources)) {
+                $res['DataSources'] = [];
+                $n1 = 0;
+                foreach ($this->dataSources as $item1) {
+                    $res['DataSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->dockerfile) {
             $res['Dockerfile'] = $this->dockerfile;
+        }
+
+        if (null !== $this->dockerfilePath) {
+            $res['DockerfilePath'] = $this->dockerfilePath;
         }
 
         if (null !== $this->registryAuths) {
@@ -71,8 +102,23 @@ class buildConfig extends Model
             $model->buildType = $map['BuildType'];
         }
 
+        if (isset($map['DataSources'])) {
+            if (!empty($map['DataSources'])) {
+                $model->dataSources = [];
+                $n1 = 0;
+                foreach ($map['DataSources'] as $item1) {
+                    $model->dataSources[$n1] = dataSources::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Dockerfile'])) {
             $model->dockerfile = $map['Dockerfile'];
+        }
+
+        if (isset($map['DockerfilePath'])) {
+            $model->dockerfilePath = $map['DockerfilePath'];
         }
 
         if (isset($map['RegistryAuths'])) {
