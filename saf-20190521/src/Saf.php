@@ -13,6 +13,7 @@ use AlibabaCloud\SDK\Saf\V20190521\Models\ExecuteRequestSGRequest;
 use AlibabaCloud\SDK\Saf\V20190521\Models\ExecuteRequestSGResponse;
 use AlibabaCloud\SDK\Saf\V20190521\Models\RequestDecisionRequest;
 use AlibabaCloud\SDK\Saf\V20190521\Models\RequestDecisionResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -23,6 +24,9 @@ class Saf extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'saf';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-hangzhou' => 'saf.cn-shanghai.aliyuncs.com',
