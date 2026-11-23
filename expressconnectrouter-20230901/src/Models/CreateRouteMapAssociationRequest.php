@@ -1,0 +1,135 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class CreateRouteMapAssociationRequest extends Model
+{
+    /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $ecrId;
+
+    /**
+     * @var string[]
+     */
+    public $regionIdList;
+
+    /**
+     * @var string
+     */
+    public $routeMapId;
+
+    /**
+     * @var string
+     */
+    public $version;
+    protected $_name = [
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ecrId' => 'EcrId',
+        'regionIdList' => 'RegionIdList',
+        'routeMapId' => 'RouteMapId',
+        'version' => 'Version',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->regionIdList)) {
+            Model::validateArray($this->regionIdList);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->ecrId) {
+            $res['EcrId'] = $this->ecrId;
+        }
+
+        if (null !== $this->regionIdList) {
+            if (\is_array($this->regionIdList)) {
+                $res['RegionIdList'] = [];
+                $n1 = 0;
+                foreach ($this->regionIdList as $item1) {
+                    $res['RegionIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->routeMapId) {
+            $res['RouteMapId'] = $this->routeMapId;
+        }
+
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['EcrId'])) {
+            $model->ecrId = $map['EcrId'];
+        }
+
+        if (isset($map['RegionIdList'])) {
+            if (!empty($map['RegionIdList'])) {
+                $model->regionIdList = [];
+                $n1 = 0;
+                foreach ($map['RegionIdList'] as $item1) {
+                    $model->regionIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RouteMapId'])) {
+            $model->routeMapId = $map['RouteMapId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
+        }
+
+        return $model;
+    }
+}

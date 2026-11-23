@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateExpressConnectR
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateExpressConnectRouterResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateFlowLogRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateFlowLogResponse;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateRouteMapAssociationRequest;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateRouteMapAssociationResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DeactivateFlowLogRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DeactivateFlowLogResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DeleteExpressConnectRouterAssociationRequest;
@@ -25,6 +27,8 @@ use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DeleteExpressConnectR
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DeleteExpressConnectRouterResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DeleteFlowlogRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DeleteFlowlogResponse;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DeleteRouteMapAssociationRequest;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DeleteRouteMapAssociationResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeDisabledExpressConnectRouterRouteEntriesRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeDisabledExpressConnectRouterRouteEntriesResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeExpressConnectRouterAllowedPrefixHistoryRequest;
@@ -57,6 +61,8 @@ use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\GrantInstanceToExpres
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\GrantInstanceToExpressConnectRouterResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListExpressConnectRouterSupportedRegionRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListExpressConnectRouterSupportedRegionResponse;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListRouteMapAssociationsRequest;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListRouteMapAssociationsResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\ModifyExpressConnectRouterAssociationAllowedPrefixRequest;
@@ -81,6 +87,9 @@ use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\UpdateRouteMapAssociationRequest;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\UpdateRouteMapAssociationResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -91,7 +100,43 @@ class ExpressConnectRouter extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'ExpressConnectRouter';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-hongkong' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-zhangjiakou' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-zhengzhou-jva' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-beijing' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-wulanchabu' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-nanjing' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'ap-northeast-2' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'ap-northeast-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-fuzhou' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-chengdu' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-wuhan-lr' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-guangzhou' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-heyuan' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'ap-southeast-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'ap-southeast-3' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-huhehaote' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'ap-southeast-5' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'ap-southeast-6' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'ap-southeast-7' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-hangzhou' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'us-west-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'us-east-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'eu-central-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'eu-west-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'me-central-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-heyuan-acdr-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+            'cn-beijing-finance-1' => 'expressconnectrouter.cn-shanghai.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('expressconnectrouter', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -121,7 +166,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Enables log delivery for flow logs.
+     * Enables log delivery for a flow log.
      *
      * @param request - ActivateFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -178,7 +223,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Enables log delivery for flow logs.
+     * Enables log delivery for a flow log.
      *
      * @param request - ActivateFlowLogRequest
      *
@@ -196,10 +241,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Associates a virtual border router (VBR) with an Express Connect router (ECR).
+     * Attaches a child instance (VBR) to an Express Connect Router (ECR).
      *
      * @remarks
-     * Before you call the **AttachExpressConnectRouterChildInstance** operation to associate a VBR with an ECR, make sure that the ECR is in the **Active** state.
+     * Before you invoke the **AttachExpressConnectRouterChildInstance** operation to load a child instance (VBR) to an Express Connect Router (ECR), make sure that the Express Connect Router (ECR) is in the **Active** state.
      *
      * @param request - AttachExpressConnectRouterChildInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -272,10 +317,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Associates a virtual border router (VBR) with an Express Connect router (ECR).
+     * Attaches a child instance (VBR) to an Express Connect Router (ECR).
      *
      * @remarks
-     * Before you call the **AttachExpressConnectRouterChildInstance** operation to associate a VBR with an ECR, make sure that the ECR is in the **Active** state.
+     * Before you invoke the **AttachExpressConnectRouterChildInstance** operation to load a child instance (VBR) to an Express Connect Router (ECR), make sure that the Express Connect Router (ECR) is in the **Active** state.
      *
      * @param request - AttachExpressConnectRouterChildInstanceRequest
      *
@@ -293,7 +338,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Checks the Cloud Data Transfer (CDT) service required to add a region to an Express Connect router (ECR).
+     * Checks the Cloud Data Transfer (CDT) service required to add a specified region to an Express Connect Router (ECR).
      *
      * @param request - CheckAddRegionToExpressConnectRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -350,7 +395,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Checks the Cloud Data Transfer (CDT) service required to add a region to an Express Connect router (ECR).
+     * Checks the Cloud Data Transfer (CDT) service required to add a specified region to an Express Connect Router (ECR).
      *
      * @param request - CheckAddRegionToExpressConnectRouterRequest
      *
@@ -371,7 +416,7 @@ class ExpressConnectRouter extends OpenApiClient
      * Creates an Express Connect Router (ECR).
      *
      * @remarks
-     * After you create an ECR, it enters the **Active** state.
+     * After you create an Express Connect Router (ECR) instance, the instance status is **Active**.
      *
      * @param request - CreateExpressConnectRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -443,7 +488,7 @@ class ExpressConnectRouter extends OpenApiClient
      * Creates an Express Connect Router (ECR).
      *
      * @remarks
-     * After you create an ECR, it enters the **Active** state.
+     * After you create an Express Connect Router (ECR) instance, the instance status is **Active**.
      *
      * @param request - CreateExpressConnectRouterRequest
      *
@@ -461,7 +506,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Associates a virtual private cloud (VPC) or a transit router (TR) with an Express Connect router (ECR).
+     * Associates an Express Connect Router (ECR) with a virtual private cloud (VPC) or a transit router (TR).
      *
      * @param request - CreateExpressConnectRouterAssociationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -558,7 +603,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Associates a virtual private cloud (VPC) or a transit router (TR) with an Express Connect router (ECR).
+     * Associates an Express Connect Router (ECR) with a virtual private cloud (VPC) or a transit router (TR).
      *
      * @param request - CreateExpressConnectRouterAssociationRequest
      *
@@ -576,7 +621,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Creates a flow log and enables log delivery.
+     * Creates a flow log and enables log delivery by default.
      *
      * @param request - CreateFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -673,7 +718,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Creates a flow log and enables log delivery.
+     * Creates a flow log and enables log delivery by default.
      *
      * @param request - CreateFlowLogRequest
      *
@@ -691,7 +736,86 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disables log delivery.
+     * Creates an association between an Express Connect Router (ECR) and a route map.
+     *
+     * @param request - CreateRouteMapAssociationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRouteMapAssociationResponse
+     *
+     * @param CreateRouteMapAssociationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateRouteMapAssociationResponse
+     */
+    public function createRouteMapAssociationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionIdList) {
+            @$query['RegionIdList'] = $request->regionIdList;
+        }
+
+        if (null !== $request->routeMapId) {
+            @$query['RouteMapId'] = $request->routeMapId;
+        }
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ecrId) {
+            @$body['EcrId'] = $request->ecrId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRouteMapAssociation',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRouteMapAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an association between an Express Connect Router (ECR) and a route map.
+     *
+     * @param request - CreateRouteMapAssociationRequest
+     *
+     * @returns CreateRouteMapAssociationResponse
+     *
+     * @param CreateRouteMapAssociationRequest $request
+     *
+     * @return CreateRouteMapAssociationResponse
+     */
+    public function createRouteMapAssociation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRouteMapAssociationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Stops log delivery for a flow log.
      *
      * @param request - DeactivateFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -748,7 +872,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disables log delivery.
+     * Stops log delivery for a flow log.
      *
      * @param request - DeactivateFlowLogRequest
      *
@@ -766,12 +890,12 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Deletes an Express Connect router (ECR).
+     * Deletes an Express Connect Router (ECR).
      *
      * @remarks
-     * Take note of the following items:
-     * *   Before you call this operation, make sure that all resources are disassociated from the ECR.
-     * *   You can delete only ECRs that are in the **Active** state.
+     * Before you invoke the DeleteExpressConnectRouter operation to delete an Express Connect Router (ECR) instance, note the following:
+     * - Before you delete an Express Connect Router (ECR) instance, you must delete the resources associated with the Express Connect Router (ECR) instance.
+     * - You can delete only Express Connect Router (ECR) instances that are in the **Active** state.
      *
      * @param request - DeleteExpressConnectRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -824,12 +948,12 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Deletes an Express Connect router (ECR).
+     * Deletes an Express Connect Router (ECR).
      *
      * @remarks
-     * Take note of the following items:
-     * *   Before you call this operation, make sure that all resources are disassociated from the ECR.
-     * *   You can delete only ECRs that are in the **Active** state.
+     * Before you invoke the DeleteExpressConnectRouter operation to delete an Express Connect Router (ECR) instance, note the following:
+     * - Before you delete an Express Connect Router (ECR) instance, you must delete the resources associated with the Express Connect Router (ECR) instance.
+     * - You can delete only Express Connect Router (ECR) instances that are in the **Active** state.
      *
      * @param request - DeleteExpressConnectRouterRequest
      *
@@ -847,7 +971,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disassociates an Express Connect router (ECR) from a virtual private cloud (VPC) or a transit router (TR).
+     * Disassociates an Express Connect Router (ECR) from a virtual private cloud (VPC) or a transit router.
      *
      * @param request - DeleteExpressConnectRouterAssociationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -908,7 +1032,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disassociates an Express Connect router (ECR) from a virtual private cloud (VPC) or a transit router (TR).
+     * Disassociates an Express Connect Router (ECR) from a virtual private cloud (VPC) or a transit router.
      *
      * @param request - DeleteExpressConnectRouterAssociationRequest
      *
@@ -1001,7 +1125,82 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the route entries that are disabled on an Express Connect router (ECR).
+     * Deletes the association between an Express Connect Router (ECR) and a route policy.
+     *
+     * @param request - DeleteRouteMapAssociationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRouteMapAssociationResponse
+     *
+     * @param DeleteRouteMapAssociationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteRouteMapAssociationResponse
+     */
+    public function deleteRouteMapAssociationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->associationId) {
+            @$query['AssociationId'] = $request->associationId;
+        }
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ecrId) {
+            @$body['EcrId'] = $request->ecrId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRouteMapAssociation',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRouteMapAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the association between an Express Connect Router (ECR) and a route policy.
+     *
+     * @param request - DeleteRouteMapAssociationRequest
+     *
+     * @returns DeleteRouteMapAssociationResponse
+     *
+     * @param DeleteRouteMapAssociationRequest $request
+     *
+     * @return DeleteRouteMapAssociationResponse
+     */
+    public function deleteRouteMapAssociation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRouteMapAssociationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the disabled route entry of an Express Connect Router (ECR).
      *
      * @param request - DescribeDisabledExpressConnectRouterRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1062,7 +1261,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the route entries that are disabled on an Express Connect router (ECR).
+     * Queries the disabled route entry of an Express Connect Router (ECR).
      *
      * @param request - DescribeDisabledExpressConnectRouterRouteEntriesRequest
      *
@@ -1080,7 +1279,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of Express Connect routers (ECRs).
+     * Queries a list of Express Connect Router (ECR) instances.
      *
      * @param request - DescribeExpressConnectRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1153,7 +1352,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of Express Connect routers (ECRs).
+     * Queries a list of Express Connect Router (ECR) instances.
      *
      * @param request - DescribeExpressConnectRouterRequest
      *
@@ -1171,7 +1370,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the historical route prefixes of an Express Connect router (ECR).
+     * Queries the history of prefix routes for an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterAllowedPrefixHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1236,7 +1435,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the historical route prefixes of an Express Connect router (ECR).
+     * Queries the history of prefix routes for an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterAllowedPrefixHistoryRequest
      *
@@ -1254,7 +1453,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect router (ECR).
+     * Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterAssociationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1343,7 +1542,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect router (ECR).
+     * Queries the virtual private clouds (VPCs) and transit routers (TRs) associated with an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterAssociationRequest
      *
@@ -1361,7 +1560,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the virtual border routers (VBRs) that are associated with an Express Connect router (ECR).
+     * Queries the virtual border routers (VBRs) associated with an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterChildInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1438,7 +1637,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the virtual border routers (VBRs) that are associated with an Express Connect router (ECR).
+     * Queries the virtual border routers (VBRs) associated with an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterChildInstanceRequest
      *
@@ -1456,7 +1655,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the cross-region forwarding modes of an Express Connect router (ECR).
+     * Queries the cross-region forwarding mode of an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterInterRegionTransitModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1509,7 +1708,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the cross-region forwarding modes of an Express Connect router (ECR).
+     * Queries the cross-region forwarding mode of an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterInterRegionTransitModeRequest
      *
@@ -1527,7 +1726,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions in which resources related to an Express Connect router (ECR) are deployed.
+     * Queries the regions where Express Connect Router (ECR) resources are located.
      *
      * @param request - DescribeExpressConnectRouterRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1580,7 +1779,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions in which resources related to an Express Connect router (ECR) are deployed.
+     * Queries the regions where Express Connect Router (ECR) resources are located.
      *
      * @param request - DescribeExpressConnectRouterRegionRequest
      *
@@ -1598,7 +1797,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the route entries of an Express Connect router (ECR).
+     * Queries the route entries of an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1679,7 +1878,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the route entries of an Express Connect router (ECR).
+     * Queries the route entries of an Express Connect Router (ECR).
      *
      * @param request - DescribeExpressConnectRouterRouteEntriesRequest
      *
@@ -1804,7 +2003,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the network instances whose permissions are granted to an Express Connect router (ECR).
+     * Queries the network instances authorized to an Express Connect Router (ECR).
      *
      * @param request - DescribeInstanceGrantedToExpressConnectRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1893,7 +2092,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries the network instances whose permissions are granted to an Express Connect router (ECR).
+     * Queries the network instances authorized to an Express Connect Router (ECR).
      *
      * @param request - DescribeInstanceGrantedToExpressConnectRouterRequest
      *
@@ -1911,10 +2110,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disassociates a virtual border router (VBR) from an Express Connect router (ECR).
+     * Detaches a virtual border router (VBR) from an Express Connect Router (ECR).
      *
      * @remarks
-     * Before you call the **DetachExpressConnectRouterChildInstance** operation to uninstall a VBR from an ECR, make sure that the ECR is in the **Active** state.
+     * Before you call the **DetachExpressConnectRouterChildInstance** operation to detach a VBR instance from an Express Connect Router (ECR), ensure that the ECR is in the **Active** state.
      *
      * @param request - DetachExpressConnectRouterChildInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1975,10 +2174,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disassociates a virtual border router (VBR) from an Express Connect router (ECR).
+     * Detaches a virtual border router (VBR) from an Express Connect Router (ECR).
      *
      * @remarks
-     * Before you call the **DetachExpressConnectRouterChildInstance** operation to uninstall a VBR from an ECR, make sure that the ECR is in the **Active** state.
+     * Before you call the **DetachExpressConnectRouterChildInstance** operation to detach a VBR instance from an Express Connect Router (ECR), ensure that the ECR is in the **Active** state.
      *
      * @param request - DetachExpressConnectRouterChildInstanceRequest
      *
@@ -1996,7 +2195,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disables route entries of an Express Connect router (ECR).
+     * Disables a route entry of an Express Connect Router (ECR).
      *
      * @param request - DisableExpressConnectRouterRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2057,7 +2256,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Disables route entries of an Express Connect router (ECR).
+     * Disables a route entry of an Express Connect Router (ECR).
      *
      * @param request - DisableExpressConnectRouterRouteEntriesRequest
      *
@@ -2075,7 +2274,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Enables route entries of an Express Connect router (ECR).
+     * Enables route entries for an Express Connect Router (ECR).
      *
      * @param request - EnableExpressConnectRouterRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2136,7 +2335,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Enables route entries of an Express Connect router (ECR).
+     * Enables route entries for an Express Connect Router (ECR).
      *
      * @param request - EnableExpressConnectRouterRouteEntriesRequest
      *
@@ -2154,11 +2353,11 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Deletes an Express Connect router (ECR) and disassociates the virtual private cloud (VPC), transit router (TR), and virtual border router (VBR) associated with the ECR.
+     * Force deletes an Express Connect Router (ECR) and detaches its associated virtual private clouds (VPCs), Transit Routers (TRs), and virtual border routers (VBRs).
      *
      * @remarks
-     *   If you forcefully delete an ECR, all the resources associated with the ECR are disassociated at a time. Make sure that the disassociation does not affect the stability of your business.
-     * *   You can delete only ECRs that are in the **Active** state.
+     * - Force deleting an Express Connect Router (ECR) instance detaches all associated resources. Before you proceed, confirm that this operation does not disrupt your services.
+     * - You can delete only ECR instances that are in the **Active** state.
      *
      * @param request - ForceDeleteExpressConnectRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2211,11 +2410,11 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Deletes an Express Connect router (ECR) and disassociates the virtual private cloud (VPC), transit router (TR), and virtual border router (VBR) associated with the ECR.
+     * Force deletes an Express Connect Router (ECR) and detaches its associated virtual private clouds (VPCs), Transit Routers (TRs), and virtual border routers (VBRs).
      *
      * @remarks
-     *   If you forcefully delete an ECR, all the resources associated with the ECR are disassociated at a time. Make sure that the disassociation does not affect the stability of your business.
-     * *   You can delete only ECRs that are in the **Active** state.
+     * - Force deleting an Express Connect Router (ECR) instance detaches all associated resources. Before you proceed, confirm that this operation does not disrupt your services.
+     * - You can delete only ECR instances that are in the **Active** state.
      *
      * @param request - ForceDeleteExpressConnectRouterRequest
      *
@@ -2233,10 +2432,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Grants permissions on a virtual private cloud (VPC) or a virtual border router (VBR) to an Express Connect router (ECR) of another account.
+     * Grants a virtual private cloud (VPC) or virtual border router (VBR) authorization to a cross-account Express Connect Router (ECR).
      *
      * @remarks
-     * When you associate a network instance of another account with an ECR, you must grant permissions on the network instance to the ECR.
+     * To associate a cross-account network instance with an Express Connect Router (ECR) instance, you must grant the network instance authorization to the Express Connect Router (ECR) instance.
      *
      * @param request - GrantInstanceToExpressConnectRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2305,10 +2504,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Grants permissions on a virtual private cloud (VPC) or a virtual border router (VBR) to an Express Connect router (ECR) of another account.
+     * Grants a virtual private cloud (VPC) or virtual border router (VBR) authorization to a cross-account Express Connect Router (ECR).
      *
      * @remarks
-     * When you associate a network instance of another account with an ECR, you must grant permissions on the network instance to the ECR.
+     * To associate a cross-account network instance with an Express Connect Router (ECR) instance, you must grant the network instance authorization to the Express Connect Router (ECR) instance.
      *
      * @param request - GrantInstanceToExpressConnectRouterRequest
      *
@@ -2326,7 +2525,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions in which the Express Connect router (ECR) feature is activated.
+     * Queries the regions that support Express Connect Router (ECR).
      *
      * @param request - ListExpressConnectRouterSupportedRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2375,7 +2574,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions in which the Express Connect router (ECR) feature is activated.
+     * Queries the regions that support Express Connect Router (ECR).
      *
      * @param request - ListExpressConnectRouterSupportedRegionRequest
      *
@@ -2393,7 +2592,94 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of tags that are added to an Express Connect router (ECR).
+     * Queries the association between an Express Connect Router (ECR) and a route map.
+     *
+     * @param request - ListRouteMapAssociationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRouteMapAssociationsResponse
+     *
+     * @param ListRouteMapAssociationsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListRouteMapAssociationsResponse
+     */
+    public function listRouteMapAssociationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->associationId) {
+            @$query['AssociationId'] = $request->associationId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->routeMapId) {
+            @$query['RouteMapId'] = $request->routeMapId;
+        }
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ecrId) {
+            @$body['EcrId'] = $request->ecrId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListRouteMapAssociations',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRouteMapAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the association between an Express Connect Router (ECR) and a route map.
+     *
+     * @param request - ListRouteMapAssociationsRequest
+     *
+     * @returns ListRouteMapAssociationsResponse
+     *
+     * @param ListRouteMapAssociationsRequest $request
+     *
+     * @return ListRouteMapAssociationsResponse
+     */
+    public function listRouteMapAssociations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRouteMapAssociationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of tags bound to an Express Connect Router (ECR).
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2454,7 +2740,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Queries a list of tags that are added to an Express Connect router (ECR).
+     * Queries the list of tags bound to an Express Connect Router (ECR).
      *
      * @param request - ListTagResourcesRequest
      *
@@ -2472,10 +2758,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the properties such as the name of an Express Connect router (ECR).
+     * Modifies the properties of an Express Connect Router (ECR), such as its name.
      *
      * @remarks
-     * You can modify only properties of ECRs in the **Active** state.
+     * You can modify an Express Connect Router (ECR) instance only when it is in the **Active** state.
      *
      * @param request - ModifyExpressConnectRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2536,10 +2822,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the properties such as the name of an Express Connect router (ECR).
+     * Modifies the properties of an Express Connect Router (ECR), such as its name.
      *
      * @remarks
-     * You can modify only properties of ECRs in the **Active** state.
+     * You can modify an Express Connect Router (ECR) instance only when it is in the **Active** state.
      *
      * @param request - ModifyExpressConnectRouterRequest
      *
@@ -2557,7 +2843,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * 修改专线网关关联的属性.
+     * Modifies the attributes of a child instance associated with an Express Connect Router (ECR).
      *
      * @param request - ModifyExpressConnectRouterAssociationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2618,7 +2904,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * 修改专线网关关联的属性.
+     * Modifies the attributes of a child instance associated with an Express Connect Router (ECR).
      *
      * @param request - ModifyExpressConnectRouterAssociationRequest
      *
@@ -2636,7 +2922,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the route prefixes of a virtual private cloud (VPC) or a transit router (TR) that is associated with an Express Connect router (ECR).
+     * Modifies the prefixes for a virtual private cloud (VPC) or a transit router that is attached to an Express Connect Router (ECR).
      *
      * @param request - ModifyExpressConnectRouterAssociationAllowedPrefixRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2705,7 +2991,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the route prefixes of a virtual private cloud (VPC) or a transit router (TR) that is associated with an Express Connect router (ECR).
+     * Modifies the prefixes for a virtual private cloud (VPC) or a transit router that is attached to an Express Connect Router (ECR).
      *
      * @param request - ModifyExpressConnectRouterAssociationAllowedPrefixRequest
      *
@@ -2723,7 +3009,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * 修改专线网关子实例的属性.
+     * Modifies the attributes of a child instance (VBR) associated with an Express Connect Router (ECR).
      *
      * @param request - ModifyExpressConnectRouterChildInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2788,7 +3074,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * 修改专线网关子实例的属性.
+     * Modifies the attributes of a child instance (VBR) associated with an Express Connect Router (ECR).
      *
      * @param request - ModifyExpressConnectRouterChildInstanceRequest
      *
@@ -2806,7 +3092,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the cross-region forwarding mode of an Express Connect router (ECR).
+     * Modifies the inter-region forwarding mode of an Express Connect Router (ECR).
      *
      * @param request - ModifyExpressConnectRouterInterRegionTransitModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2863,7 +3149,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the cross-region forwarding mode of an Express Connect router (ECR).
+     * Modifies the inter-region forwarding mode of an Express Connect Router (ECR).
      *
      * @param request - ModifyExpressConnectRouterInterRegionTransitModeRequest
      *
@@ -2881,7 +3167,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the name, description, sampling rate, and sampling interval.
+     * Modifies the name, description, sampling rate, and sampling interval of a flow log.
      *
      * @param request - ModifyFlowLogAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2954,7 +3240,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the name, description, sampling rate, and sampling interval.
+     * Modifies the name, description, sampling rate, and sampling interval of a flow log.
      *
      * @param request - ModifyFlowLogAttributeRequest
      *
@@ -2972,7 +3258,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the resource group to which an Express Connect router (ECR) belongs.
+     * Modifies the resource group to which an Express Connect Router (ECR) belongs.
      *
      * @param request - MoveResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3033,7 +3319,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Modifies the resource group to which an Express Connect router (ECR) belongs.
+     * Modifies the resource group to which an Express Connect Router (ECR) belongs.
      *
      * @param request - MoveResourceGroupRequest
      *
@@ -3051,7 +3337,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Revokes permissions on a virtual private cloud (VPC) or a virtual border router (VBR) from an Express Connect router (ECR) owned by another account.
+     * Revokes the authorization of a virtual private cloud (VPC) or virtual border router (VBR) on a cross-account Express Connect Router (ECR).
      *
      * @param request - RevokeInstanceFromExpressConnectRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3120,7 +3406,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Revokes permissions on a virtual private cloud (VPC) or a virtual border router (VBR) from an Express Connect router (ECR) owned by another account.
+     * Revokes the authorization of a virtual private cloud (VPC) or virtual border router (VBR) on a cross-account Express Connect Router (ECR).
      *
      * @param request - RevokeInstanceFromExpressConnectRouterRequest
      *
@@ -3138,10 +3424,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Synchronizes the forwarding bandwidth limit between regions for an Express Connect router (ECR).
+     * Synchronizes the inter-region bandwidth limits for an Express Connect Router (ECR).
      *
      * @remarks
-     * Updates are allowed only when the ECR is in the **Active** state.
+     * You can update an ECR instance only when it is in the **Active** state.
      *
      * @param request - SynchronizeExpressConnectRouterInterRegionBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3194,10 +3480,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Synchronizes the forwarding bandwidth limit between regions for an Express Connect router (ECR).
+     * Synchronizes the inter-region bandwidth limits for an Express Connect Router (ECR).
      *
      * @remarks
-     * Updates are allowed only when the ECR is in the **Active** state.
+     * You can update an ECR instance only when it is in the **Active** state.
      *
      * @param request - SynchronizeExpressConnectRouterInterRegionBandwidthRequest
      *
@@ -3215,7 +3501,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Adds tags to an Express Connect router (ECR). You can add tags to only one ECR each time you call this operation. You can add multiple tags at a time.
+     * Binds tags to an Express Connect Router (ECR). Each call to this operation binds tags to a single ECR instance, but you can bind multiple tags at a time.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3276,7 +3562,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Adds tags to an Express Connect router (ECR). You can add tags to only one ECR each time you call this operation. You can add multiple tags at a time.
+     * Binds tags to an Express Connect Router (ECR). Each call to this operation binds tags to a single ECR instance, but you can bind multiple tags at a time.
      *
      * @param request - TagResourcesRequest
      *
@@ -3294,7 +3580,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Removes tags from an Express Connect router (ECR).
+     * Unbinds tags from an Express Connect Router (ECR).
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3359,7 +3645,7 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * Removes tags from an Express Connect router (ECR).
+     * Unbinds tags from an Express Connect Router (ECR).
      *
      * @param request - UntagResourcesRequest
      *
@@ -3374,5 +3660,84 @@ class ExpressConnectRouter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the association between an Express Connect Router (ECR) and a routing policy.
+     *
+     * @param request - UpdateRouteMapAssociationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRouteMapAssociationResponse
+     *
+     * @param UpdateRouteMapAssociationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateRouteMapAssociationResponse
+     */
+    public function updateRouteMapAssociationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->associationId) {
+            @$query['AssociationId'] = $request->associationId;
+        }
+
+        if (null !== $request->regionIdList) {
+            @$query['RegionIdList'] = $request->regionIdList;
+        }
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ecrId) {
+            @$body['EcrId'] = $request->ecrId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRouteMapAssociation',
+            'version' => '2023-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRouteMapAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the association between an Express Connect Router (ECR) and a routing policy.
+     *
+     * @param request - UpdateRouteMapAssociationRequest
+     *
+     * @returns UpdateRouteMapAssociationResponse
+     *
+     * @param UpdateRouteMapAssociationRequest $request
+     *
+     * @return UpdateRouteMapAssociationResponse
+     */
+    public function updateRouteMapAssociation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRouteMapAssociationWithOptions($request, $runtime);
     }
 }
