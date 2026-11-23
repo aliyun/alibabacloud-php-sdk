@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAccessOverviewRespon
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAccessOverviewResponseBody\data\gateway;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAccessOverviewResponseBody\data\impacts;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAccessOverviewResponseBody\data\modelTpmLimits;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAccessOverviewResponseBody\data\quotas;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAccessOverviewResponseBody\data\resources;
 
@@ -33,6 +34,11 @@ class data extends Model
     public $impacts;
 
     /**
+     * @var modelTpmLimits[]
+     */
+    public $modelTpmLimits;
+
+    /**
      * @var quotas[]
      */
     public $quotas;
@@ -46,6 +52,7 @@ class data extends Model
         'gateway' => 'gateway',
         'identityDescription' => 'identityDescription',
         'impacts' => 'impacts',
+        'modelTpmLimits' => 'modelTpmLimits',
         'quotas' => 'quotas',
         'resources' => 'resources',
     ];
@@ -57,6 +64,9 @@ class data extends Model
         }
         if (\is_array($this->impacts)) {
             Model::validateArray($this->impacts);
+        }
+        if (\is_array($this->modelTpmLimits)) {
+            Model::validateArray($this->modelTpmLimits);
         }
         if (\is_array($this->quotas)) {
             Model::validateArray($this->quotas);
@@ -88,6 +98,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->impacts as $item1) {
                     $res['impacts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->modelTpmLimits) {
+            if (\is_array($this->modelTpmLimits)) {
+                $res['modelTpmLimits'] = [];
+                $n1 = 0;
+                foreach ($this->modelTpmLimits as $item1) {
+                    $res['modelTpmLimits'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -144,6 +165,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['impacts'] as $item1) {
                     $model->impacts[$n1] = impacts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['modelTpmLimits'])) {
+            if (!empty($map['modelTpmLimits'])) {
+                $model->modelTpmLimits = [];
+                $n1 = 0;
+                foreach ($map['modelTpmLimits'] as $item1) {
+                    $model->modelTpmLimits[$n1] = modelTpmLimits::fromMap($item1);
                     ++$n1;
                 }
             }

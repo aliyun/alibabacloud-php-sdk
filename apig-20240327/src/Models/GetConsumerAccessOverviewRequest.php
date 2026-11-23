@@ -12,8 +12,14 @@ class GetConsumerAccessOverviewRequest extends Model
      * @var string
      */
     public $gatewayId;
+
+    /**
+     * @var bool
+     */
+    public $includeModelTpm;
     protected $_name = [
         'gatewayId' => 'gatewayId',
+        'includeModelTpm' => 'includeModelTpm',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class GetConsumerAccessOverviewRequest extends Model
         $res = [];
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->includeModelTpm) {
+            $res['includeModelTpm'] = $this->includeModelTpm;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class GetConsumerAccessOverviewRequest extends Model
         $model = new self();
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['includeModelTpm'])) {
+            $model->includeModelTpm = $map['includeModelTpm'];
         }
 
         return $model;

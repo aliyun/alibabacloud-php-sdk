@@ -233,6 +233,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetModelApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetModelApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetModelGroupRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetModelGroupResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetModelTokenRateLimitRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetModelTokenRateLimitResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginClassRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetPluginClassResponse;
@@ -498,6 +500,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateModelApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateModelApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateModelGroupRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateModelGroupResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateModelTokenRateLimitRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateModelTokenRateLimitResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateNetworkAccessRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateNetworkAccessResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePluginAttachmentRequest;
@@ -7445,6 +7449,10 @@ class APIG extends OpenApiClient
             @$query['gatewayId'] = $request->gatewayId;
         }
 
+        if (null !== $request->includeModelTpm) {
+            @$query['includeModelTpm'] = $request->includeModelTpm;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -9215,6 +9223,65 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getModelGroupWithOptions($modelGroupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the token throttling rules for a model.
+     *
+     * @param request - GetModelTokenRateLimitRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetModelTokenRateLimitResponse
+     *
+     * @param string                        $gatewayId
+     * @param string                        $modelId
+     * @param GetModelTokenRateLimitRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetModelTokenRateLimitResponse
+     */
+    public function getModelTokenRateLimitWithOptions($gatewayId, $modelId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetModelTokenRateLimit',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/model-tpm/' . Url::percentEncode($modelId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetModelTokenRateLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the token throttling rules for a model.
+     *
+     * @param request - GetModelTokenRateLimitRequest
+     *
+     * @returns GetModelTokenRateLimitResponse
+     *
+     * @param string                        $gatewayId
+     * @param string                        $modelId
+     * @param GetModelTokenRateLimitRequest $request
+     *
+     * @return GetModelTokenRateLimitResponse
+     */
+    public function getModelTokenRateLimit($gatewayId, $modelId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getModelTokenRateLimitWithOptions($gatewayId, $modelId, $request, $headers, $runtime);
     }
 
     /**
@@ -12503,10 +12570,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+     * Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
      *
      * @remarks
-     * Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+     * Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
      *
      * @param request - ListGatewayWebsocketEventsRequest
      * @param headers - map
@@ -12581,10 +12648,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+     * Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
      *
      * @remarks
-     * Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+     * Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
      *
      * @param request - ListGatewayWebsocketEventsRequest
      *
@@ -19284,7 +19351,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
+     * Only sources of the **container service** type are allowed to update the configurations of Ingress listeners.
      *
      * @param request - UpdateMcpServerRequest
      * @param headers - map
@@ -19378,7 +19445,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type are allowed to update the configurations of listening Ingresses.
+     * Only sources of the **container service** type are allowed to update the configurations of Ingress listeners.
      *
      * @param request - UpdateMcpServerRequest
      *
@@ -19660,6 +19727,79 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updateModelGroupWithOptions($modelGroupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies the token throttling rules for a model.
+     *
+     * @param request - UpdateModelTokenRateLimitRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelTokenRateLimitResponse
+     *
+     * @param string                           $gatewayId
+     * @param string                           $modelId
+     * @param UpdateModelTokenRateLimitRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateModelTokenRateLimitResponse
+     */
+    public function updateModelTokenRateLimitWithOptions($gatewayId, $modelId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->consumers) {
+            @$body['consumers'] = $request->consumers;
+        }
+
+        if (null !== $request->expectedRevision) {
+            @$body['expectedRevision'] = $request->expectedRevision;
+        }
+
+        if (null !== $request->globalTpm) {
+            @$body['globalTpm'] = $request->globalTpm;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelTokenRateLimit',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/model-tpm/' . Url::percentEncode($modelId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelTokenRateLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the token throttling rules for a model.
+     *
+     * @param request - UpdateModelTokenRateLimitRequest
+     *
+     * @returns UpdateModelTokenRateLimitResponse
+     *
+     * @param string                           $gatewayId
+     * @param string                           $modelId
+     * @param UpdateModelTokenRateLimitRequest $request
+     *
+     * @return UpdateModelTokenRateLimitResponse
+     */
+    public function updateModelTokenRateLimit($gatewayId, $modelId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateModelTokenRateLimitWithOptions($gatewayId, $modelId, $request, $headers, $runtime);
     }
 
     /**
