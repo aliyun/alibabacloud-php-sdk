@@ -1,3 +1,9 @@
+2026-11-23 Version: 2.5.0
+- Support API CreateSecretValue.
+- Support API DeleteSecretValue.
+- Support API ListSecretValue.
+
+
 2026-11-17 Version: 2.4.0
 - Support API ListRegions.
 - Update API CreateLivyCompute: add request parameters body.livyReleaseVersion.

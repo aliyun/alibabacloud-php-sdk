@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinition
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleShrinkRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateRayClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateRayClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSecretValueRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSecretValueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementRequest;
@@ -49,6 +51,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeRespon
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteRayClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteSecretValueRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteSecretValueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteWorkspaceQueueRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\DeleteWorkspaceQueueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\EditWorkspaceQueueRequest;
@@ -130,6 +134,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSecretValueRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSecretValueResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSqlStatementContentsRequest;
@@ -1352,6 +1358,77 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * Creates a ciphertext.
+     *
+     * @param request - CreateSecretValueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSecretValueResponse
+     *
+     * @param string                   $workspaceId
+     * @param CreateSecretValueRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSecretValueResponse
+     */
+    public function createSecretValueWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['comment'] = $request->comment;
+        }
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSecretValue',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/secret',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a ciphertext.
+     *
+     * @param request - CreateSecretValueRequest
+     *
+     * @returns CreateSecretValueResponse
+     *
+     * @param string                   $workspaceId
+     * @param CreateSecretValueRequest $request
+     *
+     * @return CreateSecretValueResponse
+     */
+    public function createSecretValue($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSecretValueWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a session.
      *
      * @param request - CreateSessionClusterRequest
@@ -2094,6 +2171,65 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->deleteRayClusterWithOptions($workspaceId, $clusterId, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a ciphertext.
+     *
+     * @param request - DeleteSecretValueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecretValueResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $secretId
+     * @param DeleteSecretValueRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteSecretValueResponse
+     */
+    public function deleteSecretValueWithOptions($workspaceId, $secretId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecretValue',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/secret/' . Url::percentEncode($secretId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a ciphertext.
+     *
+     * @param request - DeleteSecretValueRequest
+     *
+     * @returns DeleteSecretValueResponse
+     *
+     * @param string                   $workspaceId
+     * @param string                   $secretId
+     * @param DeleteSecretValueRequest $request
+     *
+     * @return DeleteSecretValueResponse
+     */
+    public function deleteSecretValue($workspaceId, $secretId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteSecretValueWithOptions($workspaceId, $secretId, $request, $headers, $runtime);
     }
 
     /**
@@ -4970,6 +5106,63 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listReleaseVersionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Lists secrets.
+     *
+     * @param request - ListSecretValueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSecretValueResponse
+     *
+     * @param string                 $workspaceId
+     * @param ListSecretValueRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListSecretValueResponse
+     */
+    public function listSecretValueWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListSecretValue',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/secret',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSecretValueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists secrets.
+     *
+     * @param request - ListSecretValueRequest
+     *
+     * @returns ListSecretValueResponse
+     *
+     * @param string                 $workspaceId
+     * @param ListSecretValueRequest $request
+     *
+     * @return ListSecretValueResponse
+     */
+    public function listSecretValue($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSecretValueWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
