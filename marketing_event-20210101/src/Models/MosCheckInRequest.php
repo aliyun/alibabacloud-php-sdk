@@ -16,6 +16,11 @@ class MosCheckInRequest extends Model
     /**
      * @var string
      */
+    public $checkinPoint;
+
+    /**
+     * @var string
+     */
     public $extParam;
 
     /**
@@ -24,6 +29,7 @@ class MosCheckInRequest extends Model
     public $qrCode;
     protected $_name = [
         'activityId' => 'ActivityId',
+        'checkinPoint' => 'CheckinPoint',
         'extParam' => 'ExtParam',
         'qrCode' => 'QrCode',
     ];
@@ -38,6 +44,10 @@ class MosCheckInRequest extends Model
         $res = [];
         if (null !== $this->activityId) {
             $res['ActivityId'] = $this->activityId;
+        }
+
+        if (null !== $this->checkinPoint) {
+            $res['CheckinPoint'] = $this->checkinPoint;
         }
 
         if (null !== $this->extParam) {
@@ -61,6 +71,10 @@ class MosCheckInRequest extends Model
         $model = new self();
         if (isset($map['ActivityId'])) {
             $model->activityId = $map['ActivityId'];
+        }
+
+        if (isset($map['CheckinPoint'])) {
+            $model->checkinPoint = $map['CheckinPoint'];
         }
 
         if (isset($map['ExtParam'])) {

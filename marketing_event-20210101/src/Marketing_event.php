@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Marketing_event\V20210101\Models\FindGuestTicketRecordReque
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\FindGuestTicketRecordResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\MosCheckInRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\MosCheckInResponse;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\MosQueryRegistrationInfoRequest;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\MosQueryRegistrationInfoResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryAllActivityInfoRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryAllActivityInfoResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\QueryOrderSessionListPopRequest;
@@ -45,6 +47,9 @@ use AlibabaCloud\SDK\Marketing_event\V20210101\Models\UpdateCredentialsStatusPop
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\UpdateCredentialsStatusPopResponse;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\UpdateTicketRecordByticketCodePopRequest;
 use AlibabaCloud\SDK\Marketing_event\V20210101\Models\UpdateTicketRecordByticketCodePopResponse;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\VerifyActivityAdmissionRequest;
+use AlibabaCloud\SDK\Marketing_event\V20210101\Models\VerifyActivityAdmissionResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -55,6 +60,9 @@ class Marketing_event extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'marketing_event';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('marketing_event', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -624,6 +632,10 @@ class Marketing_event extends OpenApiClient
             @$body['ActivityId'] = $request->activityId;
         }
 
+        if (null !== $request->checkinPoint) {
+            @$body['CheckinPoint'] = $request->checkinPoint;
+        }
+
         if (null !== $request->extParam) {
             @$body['ExtParam'] = $request->extParam;
         }
@@ -669,6 +681,61 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
+     * MOS活动报名查询.
+     *
+     * @param request - MosQueryRegistrationInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MosQueryRegistrationInfoResponse
+     *
+     * @param MosQueryRegistrationInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return MosQueryRegistrationInfoResponse
+     */
+    public function mosQueryRegistrationInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MosQueryRegistrationInfo',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MosQueryRegistrationInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * MOS活动报名查询.
+     *
+     * @param request - MosQueryRegistrationInfoRequest
+     *
+     * @returns MosQueryRegistrationInfoResponse
+     *
+     * @param MosQueryRegistrationInfoRequest $request
+     *
+     * @return MosQueryRegistrationInfoResponse
+     */
+    public function mosQueryRegistrationInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mosQueryRegistrationInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通过活动id查询所有审核通过的报名信息.
+     *
      * @param request - QueryAllActivityInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -702,6 +769,8 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
+     * 通过活动id查询所有审核通过的报名信息.
+     *
      * @param request - QueryAllActivityInfoRequest
      *
      * @returns QueryAllActivityInfoResponse
@@ -1068,6 +1137,8 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
+     * 通过活动id, 参会人名称等查询单个审核通过的报名信息.
+     *
      * @param request - QuerySingleActivityInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1101,6 +1172,8 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
+     * 通过活动id, 参会人名称等查询单个审核通过的报名信息.
+     *
      * @param request - QuerySingleActivityInfoRequest
      *
      * @returns QuerySingleActivityInfoResponse
@@ -1117,6 +1190,8 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
+     * 签到处理.
+     *
      * @param request - SyncSignInInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1150,6 +1225,8 @@ class Marketing_event extends OpenApiClient
     }
 
     /**
+     * 签到处理.
+     *
      * @param request - SyncSignInInfoRequest
      *
      * @returns SyncSignInInfoResponse
@@ -1382,5 +1459,66 @@ class Marketing_event extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateTicketRecordByticketCodePopWithOptions($request, $runtime);
+    }
+
+    /**
+     * 核验指定活动当天的入场权限.
+     *
+     * @param request - VerifyActivityAdmissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyActivityAdmissionResponse
+     *
+     * @param VerifyActivityAdmissionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return VerifyActivityAdmissionResponse
+     */
+    public function verifyActivityAdmissionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->activityId) {
+            @$body['ActivityId'] = $request->activityId;
+        }
+
+        if (null !== $request->idCardNo) {
+            @$body['IdCardNo'] = $request->idCardNo;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyActivityAdmission',
+            'version' => '2021-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyActivityAdmissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 核验指定活动当天的入场权限.
+     *
+     * @param request - VerifyActivityAdmissionRequest
+     *
+     * @returns VerifyActivityAdmissionResponse
+     *
+     * @param VerifyActivityAdmissionRequest $request
+     *
+     * @return VerifyActivityAdmissionResponse
+     */
+    public function verifyActivityAdmission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyActivityAdmissionWithOptions($request, $runtime);
     }
 }
