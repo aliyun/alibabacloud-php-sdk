@@ -68,6 +68,11 @@ class DescribeDBClustersRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $vpcIds;
     protected $_name = [
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterIds' => 'DBClusterIds',
@@ -81,6 +86,7 @@ class DescribeDBClustersRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'tag' => 'Tag',
+        'vpcIds' => 'VpcIds',
     ];
 
     public function validate()
@@ -149,6 +155,10 @@ class DescribeDBClustersRequest extends Model
             }
         }
 
+        if (null !== $this->vpcIds) {
+            $res['VpcIds'] = $this->vpcIds;
+        }
+
         return $res;
     }
 
@@ -213,6 +223,10 @@ class DescribeDBClustersRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['VpcIds'])) {
+            $model->vpcIds = $map['VpcIds'];
         }
 
         return $model;
