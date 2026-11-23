@@ -24,6 +24,11 @@ class UpdateGatewayRequest extends Model
     public $enableSSLRedirection;
 
     /**
+     * @var int
+     */
+    public $idleTimeout;
+
+    /**
      * @var string
      */
     public $instanceType;
@@ -44,6 +49,11 @@ class UpdateGatewayRequest extends Model
     public $replicas;
 
     /**
+     * @var int
+     */
+    public $requestTimeout;
+
+    /**
      * @var string[]
      */
     public $vSwitchIds;
@@ -52,16 +62,24 @@ class UpdateGatewayRequest extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'enableInternet' => 'EnableInternet',
         'enableIntranet' => 'EnableIntranet',
         'enableSSLRedirection' => 'EnableSSLRedirection',
+        'idleTimeout' => 'IdleTimeout',
         'instanceType' => 'InstanceType',
         'isDefault' => 'IsDefault',
         'name' => 'Name',
         'replicas' => 'Replicas',
+        'requestTimeout' => 'RequestTimeout',
         'vSwitchIds' => 'VSwitchIds',
         'vpcId' => 'VpcId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -87,6 +105,10 @@ class UpdateGatewayRequest extends Model
             $res['EnableSSLRedirection'] = $this->enableSSLRedirection;
         }
 
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
+        }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -103,6 +125,10 @@ class UpdateGatewayRequest extends Model
             $res['Replicas'] = $this->replicas;
         }
 
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
+        }
+
         if (null !== $this->vSwitchIds) {
             if (\is_array($this->vSwitchIds)) {
                 $res['VSwitchIds'] = [];
@@ -116,6 +142,10 @@ class UpdateGatewayRequest extends Model
 
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -141,6 +171,10 @@ class UpdateGatewayRequest extends Model
             $model->enableSSLRedirection = $map['EnableSSLRedirection'];
         }
 
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
+        }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
@@ -157,6 +191,10 @@ class UpdateGatewayRequest extends Model
             $model->replicas = $map['Replicas'];
         }
 
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
+        }
+
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
                 $model->vSwitchIds = [];
@@ -170,6 +208,10 @@ class UpdateGatewayRequest extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

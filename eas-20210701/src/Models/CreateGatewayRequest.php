@@ -52,6 +52,11 @@ class CreateGatewayRequest extends Model
      * @var int
      */
     public $replicas;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'resourceName' => 'ResourceName',
         'autoRenewal' => 'AutoRenewal',
@@ -62,6 +67,7 @@ class CreateGatewayRequest extends Model
         'instanceType' => 'InstanceType',
         'name' => 'Name',
         'replicas' => 'Replicas',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class CreateGatewayRequest extends Model
 
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class CreateGatewayRequest extends Model
 
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

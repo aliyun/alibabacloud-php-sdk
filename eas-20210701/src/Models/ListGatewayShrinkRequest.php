@@ -67,6 +67,11 @@ class ListGatewayShrinkRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'chargeType' => 'ChargeType',
         'gatewayId' => 'GatewayId',
@@ -80,6 +85,7 @@ class ListGatewayShrinkRequest extends Model
         'resourceName' => 'ResourceName',
         'sort' => 'Sort',
         'status' => 'Status',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -136,6 +142,10 @@ class ListGatewayShrinkRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -195,6 +205,10 @@ class ListGatewayShrinkRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

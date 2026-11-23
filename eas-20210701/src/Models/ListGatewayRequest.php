@@ -67,6 +67,11 @@ class ListGatewayRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'chargeType' => 'ChargeType',
         'gatewayId' => 'GatewayId',
@@ -80,6 +85,7 @@ class ListGatewayRequest extends Model
         'resourceName' => 'ResourceName',
         'sort' => 'Sort',
         'status' => 'Status',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -146,6 +152,10 @@ class ListGatewayRequest extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -208,6 +218,10 @@ class ListGatewayRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

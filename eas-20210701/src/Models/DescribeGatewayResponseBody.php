@@ -37,6 +37,11 @@ class DescribeGatewayResponseBody extends Model
     /**
      * @var string
      */
+    public $idleTimeout;
+
+    /**
+     * @var string
+     */
     public $instanceType;
 
     /**
@@ -85,6 +90,11 @@ class DescribeGatewayResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $requestTimeout;
+
+    /**
      * @var bool
      */
     public $SSLRedirectionEnabled;
@@ -98,12 +108,18 @@ class DescribeGatewayResponseBody extends Model
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'chargeType' => 'ChargeType',
         'createTime' => 'CreateTime',
         'externalClusterId' => 'ExternalClusterId',
         'gatewayId' => 'GatewayId',
         'gatewayName' => 'GatewayName',
+        'idleTimeout' => 'IdleTimeout',
         'instanceType' => 'InstanceType',
         'internetDomain' => 'InternetDomain',
         'internetEnabled' => 'InternetEnabled',
@@ -114,9 +130,11 @@ class DescribeGatewayResponseBody extends Model
         'labels' => 'Labels',
         'replicas' => 'Replicas',
         'requestId' => 'RequestId',
+        'requestTimeout' => 'RequestTimeout',
         'SSLRedirectionEnabled' => 'SSLRedirectionEnabled',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -148,6 +166,10 @@ class DescribeGatewayResponseBody extends Model
 
         if (null !== $this->gatewayName) {
             $res['GatewayName'] = $this->gatewayName;
+        }
+
+        if (null !== $this->idleTimeout) {
+            $res['IdleTimeout'] = $this->idleTimeout;
         }
 
         if (null !== $this->instanceType) {
@@ -197,6 +219,10 @@ class DescribeGatewayResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->requestTimeout) {
+            $res['RequestTimeout'] = $this->requestTimeout;
+        }
+
         if (null !== $this->SSLRedirectionEnabled) {
             $res['SSLRedirectionEnabled'] = $this->SSLRedirectionEnabled;
         }
@@ -207,6 +233,10 @@ class DescribeGatewayResponseBody extends Model
 
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -238,6 +268,10 @@ class DescribeGatewayResponseBody extends Model
 
         if (isset($map['GatewayName'])) {
             $model->gatewayName = $map['GatewayName'];
+        }
+
+        if (isset($map['IdleTimeout'])) {
+            $model->idleTimeout = $map['IdleTimeout'];
         }
 
         if (isset($map['InstanceType'])) {
@@ -287,6 +321,10 @@ class DescribeGatewayResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
+        if (isset($map['RequestTimeout'])) {
+            $model->requestTimeout = $map['RequestTimeout'];
+        }
+
         if (isset($map['SSLRedirectionEnabled'])) {
             $model->SSLRedirectionEnabled = $map['SSLRedirectionEnabled'];
         }
@@ -297,6 +335,10 @@ class DescribeGatewayResponseBody extends Model
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

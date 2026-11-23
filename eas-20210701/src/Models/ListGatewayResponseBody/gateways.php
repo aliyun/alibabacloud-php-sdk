@@ -83,6 +83,11 @@ class gateways extends Model
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'chargeType' => 'ChargeType',
         'createTime' => 'CreateTime',
@@ -99,6 +104,7 @@ class gateways extends Model
         'SSLRedirectionEnabled' => 'SSLRedirectionEnabled',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -179,6 +185,10 @@ class gateways extends Model
             $res['UpdateTime'] = $this->updateTime;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -255,6 +265,10 @@ class gateways extends Model
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;
