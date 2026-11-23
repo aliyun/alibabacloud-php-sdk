@@ -36,6 +36,11 @@ class instance extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $minorVersion;
+
+    /**
      * @var int
      */
     public $nodeCount;
@@ -85,6 +90,7 @@ class instance extends Model
         'createTime' => 'CreateTime',
         'DBInstanceName' => 'DBInstanceName',
         'instanceId' => 'InstanceId',
+        'minorVersion' => 'MinorVersion',
         'nodeCount' => 'NodeCount',
         'openSearchInstanceName' => 'OpenSearchInstanceName',
         'regionId' => 'RegionId',
@@ -135,6 +141,10 @@ class instance extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->minorVersion) {
+            $res['MinorVersion'] = $this->minorVersion;
         }
 
         if (null !== $this->nodeCount) {
@@ -216,6 +226,10 @@ class instance extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['MinorVersion'])) {
+            $model->minorVersion = $map['MinorVersion'];
         }
 
         if (isset($map['NodeCount'])) {
