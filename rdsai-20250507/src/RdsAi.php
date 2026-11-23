@@ -115,6 +115,10 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetAvailableLLMModelsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetAvailableLLMModelsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetChatModelRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetChatModelResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseCreditUsageSummaryByMemberRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseCreditUsageSummaryByMemberResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseCreditUsageSummaryRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseCreditUsageSummaryResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncConnectionAuthorizationRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncConnectionAuthorizationResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncConnectionRequest;
@@ -133,6 +137,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncSourceRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncSourceResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncSourceSelectionRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseSyncSourceSelectionResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseUsageRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetContextDatabaseUsageResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetConversationsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\GetCustomAgentRequest;
@@ -155,6 +161,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListApiKeysResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseApiKeysRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseApiKeysResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseCreditUsageRecordsRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseCreditUsageRecordsResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseMembersRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseMembersResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ListContextDatabaseSyncConnectionsRequest;
@@ -779,7 +787,7 @@ class RdsAi extends OpenApiClient
      * Creates a custom API key.
      *
      * @remarks
-     * ### Applicable engines
+     * ### Supported engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateApiKeyRequest
@@ -854,7 +862,7 @@ class RdsAi extends OpenApiClient
      * Creates a custom API key.
      *
      * @remarks
-     * ### Applicable engines
+     * ### Supported engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateApiKeyRequest
@@ -1522,7 +1530,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a custom agent.
+     * Creates a dedicated agent.
      *
      * @param tmpReq - CreateCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1587,7 +1595,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Creates a custom agent.
+     * Creates a dedicated agent.
      *
      * @param request - CreateCustomAgentRequest
      *
@@ -1782,7 +1790,7 @@ class RdsAi extends OpenApiClient
      * Creates a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -1865,7 +1873,7 @@ class RdsAi extends OpenApiClient
      * Creates a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -2927,7 +2935,7 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeAppInstancesRequest
@@ -2988,7 +2996,7 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Supported engines
      * RDS PostgreSQL
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeAppInstancesRequest
@@ -3166,7 +3174,7 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Supported engines
      * RDS PostgreSQL
-     * ### Related feature documentation
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceAuthInfoRequest
@@ -3219,7 +3227,7 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Supported engines
      * RDS PostgreSQL
-     * ### Related feature documentation
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceAuthInfoRequest
@@ -3315,10 +3323,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the IP whitelist of an RDS AI application instance.
+     * Queries the IP address whitelist of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -3372,10 +3380,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the IP whitelist of an RDS AI application instance.
+     * Queries the IP address whitelist of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engine
+     * ### Supported engines
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -3466,8 +3474,8 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Supported engines
      * ApsaraDB RDS for PostgreSQL
-     * ### Related documentation
-     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * ### Related feature documentation
+     * [ApsaraDB RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3519,8 +3527,8 @@ class RdsAi extends OpenApiClient
      * @remarks
      * ### Supported engines
      * ApsaraDB RDS for PostgreSQL
-     * ### Related documentation
-     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * ### Related feature documentation
+     * [ApsaraDB RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceSSLRequest
      *
@@ -4032,12 +4040,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries a list of sandbox templates for creating Supabase sandboxes.
+     * Queries a list of sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * RDS Supabase
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -4105,12 +4113,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries a list of sandbox templates for creating Supabase sandboxes.
+     * Queries a list of sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * RDS Supabase
-     * ### Related documentation
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -4478,6 +4486,180 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getChatModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the credit consumption trend and total amount for the caller account within a specified time range. If WorkspaceId is specified, the statistics apply to a single workspace. If omitted, the statistics aggregate all workspaces under the account. Results are bucketed by hour or day, billing item, and applicable context evolution sub-item. MemberId only filters records and does not split buckets by member. To obtain only the total amount for the range, you can omit Interval and read TotalCredits. To rank by member, call GetContextDatabaseCreditUsageSummaryByMember.
+     *
+     * @remarks
+     * Queries the credit consumption of the caller account within a specified UTC time range, bucketed by hour or day and by billing item. When WorkspaceId is provided, the query is at the workspace dimension (ownership is verified, and locked workspaces can still be queried). When omitted, the query aggregates all workspaces at the account (primary account UID) dimension. Buckets are sorted by BucketStart, Item, and SubItem. Unpriced records are not included in Credits. Note that member filtering does not split buckets. To view details by member, use ListContextDatabaseCreditUsageRecords or GetContextDatabaseCreditUsageSummaryByMember. Credit is represented as a decimal string (1 credit = 1 CNY, up to 6 decimal places).
+     *
+     * @param request - GetContextDatabaseCreditUsageSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseCreditUsageSummaryResponse
+     *
+     * @param GetContextDatabaseCreditUsageSummaryRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GetContextDatabaseCreditUsageSummaryResponse
+     */
+    public function getContextDatabaseCreditUsageSummaryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->item) {
+            @$query['Item'] = $request->item;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->subItem) {
+            @$query['SubItem'] = $request->subItem;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseCreditUsageSummary',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseCreditUsageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the credit consumption trend and total amount for the caller account within a specified time range. If WorkspaceId is specified, the statistics apply to a single workspace. If omitted, the statistics aggregate all workspaces under the account. Results are bucketed by hour or day, billing item, and applicable context evolution sub-item. MemberId only filters records and does not split buckets by member. To obtain only the total amount for the range, you can omit Interval and read TotalCredits. To rank by member, call GetContextDatabaseCreditUsageSummaryByMember.
+     *
+     * @remarks
+     * Queries the credit consumption of the caller account within a specified UTC time range, bucketed by hour or day and by billing item. When WorkspaceId is provided, the query is at the workspace dimension (ownership is verified, and locked workspaces can still be queried). When omitted, the query aggregates all workspaces at the account (primary account UID) dimension. Buckets are sorted by BucketStart, Item, and SubItem. Unpriced records are not included in Credits. Note that member filtering does not split buckets. To view details by member, use ListContextDatabaseCreditUsageRecords or GetContextDatabaseCreditUsageSummaryByMember. Credit is represented as a decimal string (1 credit = 1 CNY, up to 6 decimal places).
+     *
+     * @param request - GetContextDatabaseCreditUsageSummaryRequest
+     *
+     * @returns GetContextDatabaseCreditUsageSummaryResponse
+     *
+     * @param GetContextDatabaseCreditUsageSummaryRequest $request
+     *
+     * @return GetContextDatabaseCreditUsageSummaryResponse
+     */
+    public function getContextDatabaseCreditUsageSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseCreditUsageSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the ranking of member credit consumption for a single workspace within the caller\\"s account over a specified time range. Returns one aggregated record per member covering the entire range, paginated and sorted in descending order of total credits, without hourly or daily bucketing. The total count for pagination is the number of members matching the filter criteria, not the number of metering records. To view individual records, call ListContextDatabaseCreditUsageRecords.
+     *
+     * @remarks
+     * Aggregates and ranks the credit consumption of a single workspace by member within a specified UTC time range, with one row per member. This operation uses a fixed workspace dimension: WorkspaceId is required and its ownership is verified (locked workspaces can still be queried), and there are no Dimension, Interval, or sorting input parameters. Members are returned in descending order of aggregated credits. Pagination and ranking are handled by the upstream service. This layer does not re-sort, re-price, or drop rows, so Total represents the number of filtered members rather than the number of records. Credits are represented as decimal strings (1 credit = 1 CNY, up to 6 decimal places) and are null for members without priced records.
+     *
+     * @param request - GetContextDatabaseCreditUsageSummaryByMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseCreditUsageSummaryByMemberResponse
+     *
+     * @param GetContextDatabaseCreditUsageSummaryByMemberRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return GetContextDatabaseCreditUsageSummaryByMemberResponse
+     */
+    public function getContextDatabaseCreditUsageSummaryByMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->item) {
+            @$query['Item'] = $request->item;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseCreditUsageSummaryByMember',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseCreditUsageSummaryByMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the ranking of member credit consumption for a single workspace within the caller\\"s account over a specified time range. Returns one aggregated record per member covering the entire range, paginated and sorted in descending order of total credits, without hourly or daily bucketing. The total count for pagination is the number of members matching the filter criteria, not the number of metering records. To view individual records, call ListContextDatabaseCreditUsageRecords.
+     *
+     * @remarks
+     * Aggregates and ranks the credit consumption of a single workspace by member within a specified UTC time range, with one row per member. This operation uses a fixed workspace dimension: WorkspaceId is required and its ownership is verified (locked workspaces can still be queried), and there are no Dimension, Interval, or sorting input parameters. Members are returned in descending order of aggregated credits. Pagination and ranking are handled by the upstream service. This layer does not re-sort, re-price, or drop rows, so Total represents the number of filtered members rather than the number of records. Credits are represented as decimal strings (1 credit = 1 CNY, up to 6 decimal places) and are null for members without priced records.
+     *
+     * @param request - GetContextDatabaseCreditUsageSummaryByMemberRequest
+     *
+     * @returns GetContextDatabaseCreditUsageSummaryByMemberResponse
+     *
+     * @param GetContextDatabaseCreditUsageSummaryByMemberRequest $request
+     *
+     * @return GetContextDatabaseCreditUsageSummaryByMemberResponse
+     */
+    public function getContextDatabaseCreditUsageSummaryByMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseCreditUsageSummaryByMemberWithOptions($request, $runtime);
     }
 
     /**
@@ -5081,6 +5263,77 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getContextDatabaseSyncSourceSelectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the context database usage of the caller account within a specified time range. If WorkspaceId is specified, queries a single workspace. If omitted, aggregates all workspaces under the account. Returns fixed metering items with their units and quantities, filling zero for items with no data. This operation does not return a separate credit amount field. To query amounts, call ListContextDatabaseCreditUsageRecords or GetContextDatabaseCreditUsageSummary.
+     *
+     * @remarks
+     * Queries the context database usage (invocation count, token consumption, and storage usage) of the caller account within a UTC time window, excluding any amounts. If WorkspaceId is provided, the query is at the workspace level. If omitted, the query aggregates all workspaces at the account (primary account UID) level. Returns all billing catalog items and fills zero for missing quantities, so the length of Items is fixed. The account identity is obtained from POP common parameters and cannot be specified by input parameters.
+     *
+     * @param request - GetContextDatabaseUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContextDatabaseUsageResponse
+     *
+     * @param GetContextDatabaseUsageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetContextDatabaseUsageResponse
+     */
+    public function getContextDatabaseUsageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContextDatabaseUsage',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContextDatabaseUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the context database usage of the caller account within a specified time range. If WorkspaceId is specified, queries a single workspace. If omitted, aggregates all workspaces under the account. Returns fixed metering items with their units and quantities, filling zero for items with no data. This operation does not return a separate credit amount field. To query amounts, call ListContextDatabaseCreditUsageRecords or GetContextDatabaseCreditUsageSummary.
+     *
+     * @remarks
+     * Queries the context database usage (invocation count, token consumption, and storage usage) of the caller account within a UTC time window, excluding any amounts. If WorkspaceId is provided, the query is at the workspace level. If omitted, the query aggregates all workspaces at the account (primary account UID) level. Returns all billing catalog items and fills zero for missing quantities, so the length of Items is fixed. The account identity is obtained from POP common parameters and cannot be specified by input parameters.
+     *
+     * @param request - GetContextDatabaseUsageRequest
+     *
+     * @returns GetContextDatabaseUsageResponse
+     *
+     * @param GetContextDatabaseUsageRequest $request
+     *
+     * @return GetContextDatabaseUsageResponse
+     */
+    public function getContextDatabaseUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContextDatabaseUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -5705,10 +5958,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries custom API keys.
+     * Retrieves custom API keys.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ListApiKeysRequest
@@ -5756,10 +6009,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries custom API keys.
+     * Retrieves custom API keys.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ListApiKeysRequest
@@ -5853,10 +6106,109 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists context database members.
+     * Performs a paging query for the credit consumption of the caller account within a specified time range, where each result corresponds to a metering record. You can query a single workspace or all workspaces under the account, excluding storage items that do not consume credits. By default, the results are in descending order of request time, but sorting by credit amount is supported. Metering records are written asynchronously, so recent usage may not be displayed. To view time trends, invoke `GetContextDatabaseCreditUsageSummary`.
      *
      * @remarks
-     * Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
+     * Queries the credit consumption details of the caller account within a specified UTC time range in a paginated manner. Each record corresponds to a metered read or write request for a knowledge base or memory base, or a write operation for a knowledge base. The credit amount is frozen at the time of metering and does not change afterward. By default, the records are sorted in descending order of request time, and can be sorted by credit amount. Sorting only changes the order within the page and does not change the total count or the record set. If WorkspaceId is provided, paged query is at the workspace dimension, verifying ownership, and locked workspaces can still be queried. If omitted, paged query aggregates all workspaces under the account dimension, identified by the primary account UID. Storage billing items do not consume credits and do not appear in the details. The credit amount is a decimal string, where 1 credit equals 1 CNY, with up to 6 decimal places. Records that cannot be priced are returned as null and are not included in the aggregated amount.
+     *
+     * @param request - ListContextDatabaseCreditUsageRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContextDatabaseCreditUsageRecordsResponse
+     *
+     * @param ListContextDatabaseCreditUsageRecordsRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListContextDatabaseCreditUsageRecordsResponse
+     */
+    public function listContextDatabaseCreditUsageRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->item) {
+            @$query['Item'] = $request->item;
+        }
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
+        }
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->subItem) {
+            @$query['SubItem'] = $request->subItem;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContextDatabaseCreditUsageRecords',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContextDatabaseCreditUsageRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paging query for the credit consumption of the caller account within a specified time range, where each result corresponds to a metering record. You can query a single workspace or all workspaces under the account, excluding storage items that do not consume credits. By default, the results are in descending order of request time, but sorting by credit amount is supported. Metering records are written asynchronously, so recent usage may not be displayed. To view time trends, invoke `GetContextDatabaseCreditUsageSummary`.
+     *
+     * @remarks
+     * Queries the credit consumption details of the caller account within a specified UTC time range in a paginated manner. Each record corresponds to a metered read or write request for a knowledge base or memory base, or a write operation for a knowledge base. The credit amount is frozen at the time of metering and does not change afterward. By default, the records are sorted in descending order of request time, and can be sorted by credit amount. Sorting only changes the order within the page and does not change the total count or the record set. If WorkspaceId is provided, paged query is at the workspace dimension, verifying ownership, and locked workspaces can still be queried. If omitted, paged query aggregates all workspaces under the account dimension, identified by the primary account UID. Storage billing items do not consume credits and do not appear in the details. The credit amount is a decimal string, where 1 credit equals 1 CNY, with up to 6 decimal places. Records that cannot be priced are returned as null and are not included in the aggregated amount.
+     *
+     * @param request - ListContextDatabaseCreditUsageRecordsRequest
+     *
+     * @returns ListContextDatabaseCreditUsageRecordsResponse
+     *
+     * @param ListContextDatabaseCreditUsageRecordsRequest $request
+     *
+     * @return ListContextDatabaseCreditUsageRecordsResponse
+     */
+    public function listContextDatabaseCreditUsageRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContextDatabaseCreditUsageRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists ContextDB members.
+     *
+     * @remarks
+     * Lists all members in a specified workspace, along with a list of API keys for each member. Plaintext keys are not returned.
      *
      * @param request - ListContextDatabaseMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5903,10 +6255,10 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists context database members.
+     * Lists ContextDB members.
      *
      * @remarks
-     * Lists all members in a specified workspace. Each member includes a list of API keys (plaintext values are not returned).
+     * Lists all members in a specified workspace, along with a list of API keys for each member. Plaintext keys are not returned.
      *
      * @param request - ListContextDatabaseMembersRequest
      *
@@ -7172,10 +7524,10 @@ class RdsAi extends OpenApiClient
      * Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engine
      * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
-     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * [ApsaraDB RDS for Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - ModifyInstanceAuthConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7235,10 +7587,10 @@ class RdsAi extends OpenApiClient
      * Modifies the authentication configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engine
      * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
-     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * [ApsaraDB RDS for Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyInstanceAuthConfigRequest
      *
@@ -7512,7 +7864,7 @@ class RdsAi extends OpenApiClient
      * Modifies the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -7581,7 +7933,7 @@ class RdsAi extends OpenApiClient
      * Modifies the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Supported engine
      * RDS PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -7602,14 +7954,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the storage configuration of an RDS AI application instance.
+     * Modifies the storage configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
      * ### Supported engines
-     * RDS PostgreSQL
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > Currently, only Object Storage Service (OSS) is supported.
+     * > Only Object Storage Service (OSS) is supported.
      *
      * @param tmpReq - ModifyInstanceStorageConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7670,14 +8022,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the storage configuration of an RDS AI application instance.
+     * Modifies the storage configuration of an ApsaraDB RDS AI application instance.
      *
      * @remarks
      * ### Supported engines
-     * RDS PostgreSQL
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > Currently, only Object Storage Service (OSS) is supported.
+     * > Only Object Storage Service (OSS) is supported.
      *
      * @param request - ModifyInstanceStorageConfigRequest
      *
@@ -7695,11 +8047,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Batch modifies the SSL configurations of RDS AI application instances.
+     * Modifies the SSL configurations of multiple ApsaraDB RDS AI application instances in batches.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
@@ -7766,11 +8118,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Batch modifies the SSL configurations of RDS AI application instances.
+     * Modifies the SSL configurations of multiple ApsaraDB RDS AI application instances in batches.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
@@ -7862,7 +8214,7 @@ class RdsAi extends OpenApiClient
      * Modifies a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -7941,7 +8293,7 @@ class RdsAi extends OpenApiClient
      * Modifies a sandbox template.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Supported engines
      * RDS Supabase
      * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
@@ -8202,7 +8554,7 @@ class RdsAi extends OpenApiClient
      * Renames a custom API key.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - RenameApiKeyRequest
@@ -8261,7 +8613,7 @@ class RdsAi extends OpenApiClient
      * Renames a custom API key.
      *
      * @remarks
-     * ### Applicable engine
+     * ### Applicable engines
      * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - RenameApiKeyRequest
@@ -8951,12 +9303,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Pauses an RDS AI application instance that is in the Running state.
+     * Pauses an ApsaraDB RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related feature documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StopInstanceRequest
@@ -9008,12 +9360,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Pauses an RDS AI application instance that is in the Running state.
+     * Pauses an ApsaraDB RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related feature documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StopInstanceRequest

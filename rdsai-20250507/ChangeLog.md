@@ -1,3 +1,10 @@
+2026-11-23 Version: 3.11.0
+- Support API GetContextDatabaseCreditUsageSummary.
+- Support API GetContextDatabaseCreditUsageSummaryByMember.
+- Support API GetContextDatabaseUsage.
+- Support API ListContextDatabaseCreditUsageRecords.
+
+
 2026-11-12 Version: 3.10.3
 - Update API ModifyAppInstance: add request parameters MigrationMode.
 - Update API ModifyAppInstance: add response parameters Body.TargetInstanceName.

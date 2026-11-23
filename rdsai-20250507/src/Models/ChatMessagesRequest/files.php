@@ -22,10 +22,16 @@ class files extends Model
      * @var string
      */
     public $uploadFileId;
+
+    /**
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'transferMethod' => 'TransferMethod',
         'type' => 'Type',
         'uploadFileId' => 'UploadFileId',
+        'url' => 'Url',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class files extends Model
 
         if (null !== $this->uploadFileId) {
             $res['UploadFileId'] = $this->uploadFileId;
+        }
+
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class files extends Model
 
         if (isset($map['UploadFileId'])) {
             $model->uploadFileId = $map['UploadFileId'];
+        }
+
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;
