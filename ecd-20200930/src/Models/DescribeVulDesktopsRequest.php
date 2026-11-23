@@ -34,6 +34,11 @@ class DescribeVulDesktopsRequest extends Model
     public $includeFixResult;
 
     /**
+     * @var bool
+     */
+    public $includePatchTask;
+
+    /**
      * @var string
      */
     public $language;
@@ -98,6 +103,7 @@ class DescribeVulDesktopsRequest extends Model
         'desktopIdList' => 'DesktopIdList',
         'desktopStatus' => 'DesktopStatus',
         'includeFixResult' => 'IncludeFixResult',
+        'includePatchTask' => 'IncludePatchTask',
         'language' => 'Language',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -151,6 +157,10 @@ class DescribeVulDesktopsRequest extends Model
 
         if (null !== $this->includeFixResult) {
             $res['IncludeFixResult'] = $this->includeFixResult;
+        }
+
+        if (null !== $this->includePatchTask) {
+            $res['IncludePatchTask'] = $this->includePatchTask;
         }
 
         if (null !== $this->language) {
@@ -244,6 +254,10 @@ class DescribeVulDesktopsRequest extends Model
 
         if (isset($map['IncludeFixResult'])) {
             $model->includeFixResult = $map['IncludeFixResult'];
+        }
+
+        if (isset($map['IncludePatchTask'])) {
+            $model->includePatchTask = $map['IncludePatchTask'];
         }
 
         if (isset($map['Language'])) {

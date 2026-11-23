@@ -15534,10 +15534,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询地域化的统计数据.
+     * Retrieves the statistics on the number of different resources by region.
      *
      * @remarks
-     * - 该接口为中心化接口，只可通过上海或新加坡地域的服务进行调用。
+     * - This API operation is a centralized operation and can only be called by using the endpoints in the China (Shanghai) or Singapore region.
      *
      * @param request - DescribeResourceStatisticByRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15584,10 +15584,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询地域化的统计数据.
+     * Retrieves the statistics on the number of different resources by region.
      *
      * @remarks
-     * - 该接口为中心化接口，只可通过上海或新加坡地域的服务进行调用。
+     * - This API operation is a centralized operation and can only be called by using the endpoints in the China (Shanghai) or Singapore region.
      *
      * @param request - DescribeResourceStatisticByRegionRequest
      *
@@ -16800,11 +16800,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves cloud desktop information for a vulnerability.
+     * Retrieves the cloud desktop information for vulnerabilities.
      *
      * @remarks
-     * - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
-     * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
+     * - This API operation uses a centralized domain name. The endpoint is in the China (Shanghai) region. Calls from other regions are not supported.
+     * - The cloud desktop status information returned by this API operation has a delay of 1 to 3 seconds compared to the actual values.
      *
      * @param request - DescribeVulDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16838,6 +16838,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->includeFixResult) {
             @$query['IncludeFixResult'] = $request->includeFixResult;
+        }
+
+        if (null !== $request->includePatchTask) {
+            @$query['IncludePatchTask'] = $request->includePatchTask;
         }
 
         if (null !== $request->language) {
@@ -16907,11 +16911,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Retrieves cloud desktop information for a vulnerability.
+     * Retrieves the cloud desktop information for vulnerabilities.
      *
      * @remarks
-     * - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
-     * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
+     * - This API operation uses a centralized domain name. The endpoint is in the China (Shanghai) region. Calls from other regions are not supported.
+     * - The cloud desktop status information returned by this API operation has a delay of 1 to 3 seconds compared to the actual values.
      *
      * @param request - DescribeVulDesktopsRequest
      *
@@ -16932,7 +16936,7 @@ class Ecd extends OpenApiClient
      * Retrieves vulnerability information.
      *
      * @remarks
-     * After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+     * After security protection is enabled, the system automatically scans cloud desktops for system vulnerability at each epoch (once a day).
      *
      * @param request - DescribeVulnerabilityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17002,7 +17006,7 @@ class Ecd extends OpenApiClient
      * Retrieves vulnerability information.
      *
      * @remarks
-     * After security protection is enabled, the system automatically scans cloud desktops for system vulnerabilities on a periodic basis (once a day).
+     * After security protection is enabled, the system automatically scans cloud desktops for system vulnerability at each epoch (once a day).
      *
      * @param request - DescribeVulnerabilityRequest
      *
