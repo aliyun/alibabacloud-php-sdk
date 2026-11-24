@@ -1,3 +1,9 @@
+2026-11-24 Version: 1.13.0
+- Support API DeleteWarmPool.
+- Support API DescribeWarmPoolInstances.
+- Support API PutWarmPool.
+
+
 2026-11-13 Version: 1.12.0
 - Support API CancelScalingGroupZoneShift.
 - Support API StartScalingGroupZoneShift.

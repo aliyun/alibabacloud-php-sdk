@@ -68,6 +68,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteScalingRuleRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteScalingRuleResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteScheduledTaskRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteScheduledTaskResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteWarmPoolRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DeleteWarmPoolResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlertConfigurationRequest;
@@ -120,6 +122,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingRulesRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingRulesResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScheduledTasksRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScheduledTasksResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeWarmPoolInstancesRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeWarmPoolInstancesResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DetachAlbServerGroupsRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DetachAlbServerGroupsResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DetachDBInstancesRequest;
@@ -173,6 +177,8 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingRuleResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScheduledTaskRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScheduledTaskResponse;
+use AlibabaCloud\SDK\Ess\V20220222\Models\PutWarmPoolRequest;
+use AlibabaCloud\SDK\Ess\V20220222\Models\PutWarmPoolResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\QueryHistoricalMetricRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\QueryHistoricalMetricResponse;
 use AlibabaCloud\SDK\Ess\V20220222\Models\QueryPredictiveMetricRequest;
@@ -1937,11 +1943,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates one or more lifecycle hooks for a specified Auto Scaling group. These hooks intervene at critical stages of the instance lifecycle, such as before startup or termination, allowing you to execute custom operations such as sending notifications or running automated scripts. This feature enables finer-grained control and management, allowing you to authenticate, configure, or back up data before and after instances are affected by a scaling activity, thereby enhancing the flexibility and reliability of application deployments.
+     * The CreateLifecycleHook API creates one or more lifecycle hooks in a specified scaling group. These hooks intervene at critical stages of the instance lifecycle, such as before startup or termination, and allow you to perform custom operations, such as sending notifications or executing automation scripts. This feature enables finer-grained control and management. For example, you can perform validation, configuration, or data backup tasks before and after instances are affected by scaling activities, which enhances the flexibility and reliability of application deployments.
      *
      * @remarks
-     * A scaling group can have up to 10 lifecycle hooks. When a scaling activity occurs in a scaling group that has lifecycle hooks, the lifecycle hooks pause the scaling activity for a period of time. You can specify the wait time by using the HeartbeatTimeout parameter. During the wait time, you can perform operations such as initializing the configurations of ECS instances and obtaining ECS instance data.
-     * During a scale-out activity, ECS instances enter the wait state after they are added to the whitelist of the ApsaraDB RDS instance, and are added to the backend server group of the Server Load Balancer (SLB) instance after the wait state ends. During a scale-in activity, ECS instances enter the wait state after they are removed from the backend server group of the SLB instance, and are removed from the whitelist of the ApsaraDB RDS instance after the wait state ends.
+     * You can create up to 10 lifecycle hooks in a scaling group. When a scaling activity occurs in a scaling group that has lifecycle hooks, the lifecycle hooks suspend the scaling activity for a period of time. You can specify the wait time by using the HeartbeatTimeout parameter. During the wait time, you can perform operations such as initializing the configurations of ECS instances and obtaining ECS instance data.
+     * During a scale-out activity, ECS instances enter the wait state after they are added to the whitelist of an ApsaraDB RDS instance, and are added to the backend server group of a Server Load Balancer (SLB) instance after the wait state ends. During a scale-in activity, ECS instances enter the wait state after they are removed from the backend server group of the SLB instance, and are removed from the whitelist of the ApsaraDB RDS instance after the wait state ends.
      * You can configure notification methods for lifecycle hooks. Supported notification methods include Message Service (MNS) topics, MNS queues, and Operation Orchestration Service (OOS) templates. If you configure an OOS template, you must create a Resource Access Management (RAM) role for OOS. For more information, see [Grant RAM permissions to OOS](https://help.aliyun.com/document_detail/120810.html).
      * > If the scaling group contains existing ECS instances and the configured OOS template is used to add or remove instances from the whitelist of a cloud database other than ApsaraDB RDS, you must manually add the existing ECS instances to the whitelist of the cloud database.
      *
@@ -2022,11 +2028,11 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Creates one or more lifecycle hooks for a specified Auto Scaling group. These hooks intervene at critical stages of the instance lifecycle, such as before startup or termination, allowing you to execute custom operations such as sending notifications or running automated scripts. This feature enables finer-grained control and management, allowing you to authenticate, configure, or back up data before and after instances are affected by a scaling activity, thereby enhancing the flexibility and reliability of application deployments.
+     * The CreateLifecycleHook API creates one or more lifecycle hooks in a specified scaling group. These hooks intervene at critical stages of the instance lifecycle, such as before startup or termination, and allow you to perform custom operations, such as sending notifications or executing automation scripts. This feature enables finer-grained control and management. For example, you can perform validation, configuration, or data backup tasks before and after instances are affected by scaling activities, which enhances the flexibility and reliability of application deployments.
      *
      * @remarks
-     * A scaling group can have up to 10 lifecycle hooks. When a scaling activity occurs in a scaling group that has lifecycle hooks, the lifecycle hooks pause the scaling activity for a period of time. You can specify the wait time by using the HeartbeatTimeout parameter. During the wait time, you can perform operations such as initializing the configurations of ECS instances and obtaining ECS instance data.
-     * During a scale-out activity, ECS instances enter the wait state after they are added to the whitelist of the ApsaraDB RDS instance, and are added to the backend server group of the Server Load Balancer (SLB) instance after the wait state ends. During a scale-in activity, ECS instances enter the wait state after they are removed from the backend server group of the SLB instance, and are removed from the whitelist of the ApsaraDB RDS instance after the wait state ends.
+     * You can create up to 10 lifecycle hooks in a scaling group. When a scaling activity occurs in a scaling group that has lifecycle hooks, the lifecycle hooks suspend the scaling activity for a period of time. You can specify the wait time by using the HeartbeatTimeout parameter. During the wait time, you can perform operations such as initializing the configurations of ECS instances and obtaining ECS instance data.
+     * During a scale-out activity, ECS instances enter the wait state after they are added to the whitelist of an ApsaraDB RDS instance, and are added to the backend server group of a Server Load Balancer (SLB) instance after the wait state ends. During a scale-in activity, ECS instances enter the wait state after they are removed from the backend server group of the SLB instance, and are removed from the whitelist of the ApsaraDB RDS instance after the wait state ends.
      * You can configure notification methods for lifecycle hooks. Supported notification methods include Message Service (MNS) topics, MNS queues, and Operation Orchestration Service (OOS) templates. If you configure an OOS template, you must create a Resource Access Management (RAM) role for OOS. For more information, see [Grant RAM permissions to OOS](https://help.aliyun.com/document_detail/120810.html).
      * > If the scaling group contains existing ECS instances and the configured OOS template is used to add or remove instances from the whitelist of a cloud database other than ApsaraDB RDS, you must manually add the existing ECS instances to the whitelist of the cloud database.
      *
@@ -2970,16 +2976,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * A scheduled node is a preset node. You can invoke the CreateScheduledTask API to create a scheduled node that executes a specified scaling rule at a specified time. This enables automatic scaling of compute resources to meet business requirements while controlling costs.
+     * Creates a scheduled task. A scheduled task is a preset node. You can invoke the CreateScheduledTask API to create a scheduled task that executes a specified scaling rule at a specified time to automatically scale the compute resource, meeting business requirements while controlling costs.
      *
      * @remarks
-     * - If a scheduled node trigger to execute a scaling rule has failed because a scaling activity is in progress or the scaling group is disabled, the scheduled node automatically retries the trigger within the `LaunchExpirationTime` period. Otherwise, the scheduled trigger is canceled.
+     * - If a scheduled node has failed to trigger the execution of the scaling rule because a scaling activity is in progress or the scaling group is disabled, the scheduled node automatically retries within the `LaunchExpirationTime` period. Otherwise, the scheduled trigger is canceled.
      * - If multiple scheduled nodes trigger scaling rules for the same scaling group at approximately the same time, the details of the triggered scaling activities are as follows:
-     *     - **Scaling groups with Settings for the expected number of instances**: Scaling activities triggered by multiple scheduled nodes are classified as parallel scaling activity. For example, if multiple scheduled nodes are executed at approximately the same time, the scaling group can trigger multiple parallel scaling activity events simultaneously.
-     *     - **Scaling groups without Settings for the expected number of instances**: The earliest triggered scheduled node executes the scaling activity first. Because a scaling group can have only one scaling activity at a time, subsequent scheduled nodes automatically retry the scheduled trigger within the `LaunchExpirationTime` period. If a subsequent scheduled node is still retrying within the `LaunchExpirationTime` period after the previous scaling activity is completed, the scaling rule of the scheduled node is executed to trigger the corresponding scaling activity.
+     *     - **Scaling groups with Settings for the expected number of instances**: Scaling activities triggered by multiple scheduled nodes are of the parallel scaling activity type. For example, if multiple scheduled nodes are executed at approximately the same time, the scaling group can trigger multiple parallel scaling activity executions simultaneously.
+     *     - **Scaling groups without Settings for the expected number of instances**: The earliest triggered scheduled node executes the scaling activity first. Because a scaling group can run only one scaling activity at a time, subsequent scheduled nodes automatically retry within the `LaunchExpirationTime` period. If a subsequent scheduled node is still retrying within the `LaunchExpirationTime` period after the previous scaling activity is completed, the scaling rule of the scheduled node is executed and the corresponding scaling activity is triggered.
      * - Scheduled nodes support the following two scaling methods:
-     *     - Use the ScheduledAction parameter to specify the scaling rule to be executed.
-     *     - Use the ScalingGroupId parameter to specify the number of instances in the scaling group.
+     *     - Specify the scaling rule to be executed by using the ScheduledAction parameter.
+     *     - Specify the number of instances in the scaling group by using the ScalingGroupId parameter.
      *   > You cannot specify both ScheduledAction and ScalingGroupId at the same time.
      *
      * @param request - CreateScheduledTaskRequest
@@ -3087,16 +3093,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * A scheduled node is a preset node. You can invoke the CreateScheduledTask API to create a scheduled node that executes a specified scaling rule at a specified time. This enables automatic scaling of compute resources to meet business requirements while controlling costs.
+     * Creates a scheduled task. A scheduled task is a preset node. You can invoke the CreateScheduledTask API to create a scheduled task that executes a specified scaling rule at a specified time to automatically scale the compute resource, meeting business requirements while controlling costs.
      *
      * @remarks
-     * - If a scheduled node trigger to execute a scaling rule has failed because a scaling activity is in progress or the scaling group is disabled, the scheduled node automatically retries the trigger within the `LaunchExpirationTime` period. Otherwise, the scheduled trigger is canceled.
+     * - If a scheduled node has failed to trigger the execution of the scaling rule because a scaling activity is in progress or the scaling group is disabled, the scheduled node automatically retries within the `LaunchExpirationTime` period. Otherwise, the scheduled trigger is canceled.
      * - If multiple scheduled nodes trigger scaling rules for the same scaling group at approximately the same time, the details of the triggered scaling activities are as follows:
-     *     - **Scaling groups with Settings for the expected number of instances**: Scaling activities triggered by multiple scheduled nodes are classified as parallel scaling activity. For example, if multiple scheduled nodes are executed at approximately the same time, the scaling group can trigger multiple parallel scaling activity events simultaneously.
-     *     - **Scaling groups without Settings for the expected number of instances**: The earliest triggered scheduled node executes the scaling activity first. Because a scaling group can have only one scaling activity at a time, subsequent scheduled nodes automatically retry the scheduled trigger within the `LaunchExpirationTime` period. If a subsequent scheduled node is still retrying within the `LaunchExpirationTime` period after the previous scaling activity is completed, the scaling rule of the scheduled node is executed to trigger the corresponding scaling activity.
+     *     - **Scaling groups with Settings for the expected number of instances**: Scaling activities triggered by multiple scheduled nodes are of the parallel scaling activity type. For example, if multiple scheduled nodes are executed at approximately the same time, the scaling group can trigger multiple parallel scaling activity executions simultaneously.
+     *     - **Scaling groups without Settings for the expected number of instances**: The earliest triggered scheduled node executes the scaling activity first. Because a scaling group can run only one scaling activity at a time, subsequent scheduled nodes automatically retry within the `LaunchExpirationTime` period. If a subsequent scheduled node is still retrying within the `LaunchExpirationTime` period after the previous scaling activity is completed, the scaling rule of the scheduled node is executed and the corresponding scaling activity is triggered.
      * - Scheduled nodes support the following two scaling methods:
-     *     - Use the ScheduledAction parameter to specify the scaling rule to be executed.
-     *     - Use the ScalingGroupId parameter to specify the number of instances in the scaling group.
+     *     - Specify the scaling rule to be executed by using the ScheduledAction parameter.
+     *     - Specify the number of instances in the scaling group by using the ScalingGroupId parameter.
      *   > You cannot specify both ScheduledAction and ScalingGroupId at the same time.
      *
      * @param request - CreateScheduledTaskRequest
@@ -3876,6 +3882,71 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteScheduledTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the warmup pool of a scaling group and releases the instances in the warmup pool.
+     *
+     * @param request - DeleteWarmPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWarmPoolResponse
+     *
+     * @param DeleteWarmPoolRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteWarmPoolResponse
+     */
+    public function deleteWarmPoolWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scalingGroupId) {
+            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWarmPool',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWarmPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the warmup pool of a scaling group and releases the instances in the warmup pool.
+     *
+     * @param request - DeleteWarmPoolRequest
+     *
+     * @returns DeleteWarmPoolResponse
+     *
+     * @param DeleteWarmPoolRequest $request
+     *
+     * @return DeleteWarmPoolResponse
+     */
+    public function deleteWarmPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWarmPoolWithOptions($request, $runtime);
     }
 
     /**
@@ -4695,7 +4766,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of lifecycle hooks by specifying lifecycle hook IDs or scaling group IDs. The returned information includes the next action after the wait state ends, the scaling activity type associated with the lifecycle hook, the notification recipient identifier, and the suspension wait time.
+     * Queries the information of lifecycle hooks by specifying lifecycle hook IDs or scaling group IDs. The information includes the next action to perform after the wait state ends, the scaling activity type associated with the lifecycle hook, the notification recipient identifier, and the suspension wait time.
      *
      * @remarks
      * You can query lifecycle hooks in the following three ways:
@@ -4772,7 +4843,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of lifecycle hooks by specifying lifecycle hook IDs or scaling group IDs. The returned information includes the next action after the wait state ends, the scaling activity type associated with the lifecycle hook, the notification recipient identifier, and the suspension wait time.
+     * Queries the information of lifecycle hooks by specifying lifecycle hook IDs or scaling group IDs. The information includes the next action to perform after the wait state ends, the scaling activity type associated with the lifecycle hook, the notification recipient identifier, and the suspension wait time.
      *
      * @remarks
      * You can query lifecycle hooks in the following three ways:
@@ -5585,7 +5656,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of scaling groups, including basic information, instances, and scaling configurations.
+     * Queries the details of scaling groups, including basic information, instances in the scaling groups, and scaling configurations.
      *
      * @param request - DescribeScalingGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5672,7 +5743,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of scaling groups, including basic information, instances, and scaling configurations.
+     * Queries the details of scaling groups, including basic information, instances in the scaling groups, and scaling configurations.
      *
      * @param request - DescribeScalingGroupsRequest
      *
@@ -5912,7 +5983,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of scheduled tasks. A scheduled task is a preset task that executes a specified scaling rule at a specified time to implement automatic scale-out and scale-in of compute resources. After a scheduled task is created, you can call the DescribeScheduledTasks API operation to query the details of the scheduled task, such as the trigger time, the total number of scheduled tasks, and the ID of the scaling group that executes the scheduled task.
+     * Queries the details of scheduled tasks. A scheduled task is a preset task that executes a specified scaling rule at a specified time to implement automatic scale-out and scale-in of compute resources. After you create a scheduled task, you can call the DescribeScheduledTasks API to query the details of the scheduled task, such as the trigger time, the total number of scheduled tasks, and the ID of the scaling group that executes the scheduled task.
      *
      * @remarks
      * You can query scheduled tasks by scheduled task ID, scheduled task name, or the scaling rule executed by the scheduled task.
@@ -6010,7 +6081,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Queries the details of scheduled tasks. A scheduled task is a preset task that executes a specified scaling rule at a specified time to implement automatic scale-out and scale-in of compute resources. After a scheduled task is created, you can call the DescribeScheduledTasks API operation to query the details of the scheduled task, such as the trigger time, the total number of scheduled tasks, and the ID of the scaling group that executes the scheduled task.
+     * Queries the details of scheduled tasks. A scheduled task is a preset task that executes a specified scaling rule at a specified time to implement automatic scale-out and scale-in of compute resources. After you create a scheduled task, you can call the DescribeScheduledTasks API to query the details of the scheduled task, such as the trigger time, the total number of scheduled tasks, and the ID of the scaling group that executes the scheduled task.
      *
      * @remarks
      * You can query scheduled tasks by scheduled task ID, scheduled task name, or the scaling rule executed by the scheduled task.
@@ -6028,6 +6099,75 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeScheduledTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of ECS instances in the warm pool of a scaling group.
+     *
+     * @param request - DescribeWarmPoolInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWarmPoolInstancesResponse
+     *
+     * @param DescribeWarmPoolInstancesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeWarmPoolInstancesResponse
+     */
+    public function describeWarmPoolInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scalingGroupId) {
+            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeWarmPoolInstances',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeWarmPoolInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of ECS instances in the warm pool of a scaling group.
+     *
+     * @param request - DescribeWarmPoolInstancesRequest
+     *
+     * @returns DescribeWarmPoolInstancesResponse
+     *
+     * @param DescribeWarmPoolInstancesRequest $request
+     *
+     * @return DescribeWarmPoolInstancesResponse
+     */
+    public function describeWarmPoolInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWarmPoolInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -8033,7 +8173,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a lifecycle hook. You can modify the applicable scaling activity type, the wait time for scaling activities, and the subsequent action after the wait state ends by specifying the lifecycle hook ID or name and the scaling group ID.
+     * Modifies the configurations of a lifecycle hook, such as the applicable scaling activity type, the wait time for the scaling activity, and the subsequent action after the wait state ends. You can specify the lifecycle hook by its ID or name and the scaling group ID without the need to delete the lifecycle hook if it no longer meets your business requirements.
      *
      * @remarks
      * You can specify the lifecycle hook to be modified in one of the following ways:
@@ -8129,7 +8269,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies a lifecycle hook. You can modify the applicable scaling activity type, the wait time for scaling activities, and the subsequent action after the wait state ends by specifying the lifecycle hook ID or name and the scaling group ID.
+     * Modifies the configurations of a lifecycle hook, such as the applicable scaling activity type, the wait time for the scaling activity, and the subsequent action after the wait state ends. You can specify the lifecycle hook by its ID or name and the scaling group ID without the need to delete the lifecycle hook if it no longer meets your business requirements.
      *
      * @remarks
      * You can specify the lifecycle hook to be modified in one of the following ways:
@@ -8940,12 +9080,12 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration parameters of an existing scheduled task. You can specify the scheduled task ID to modify parameters such as the scaling rule to be executed, the number of instances in the scaling group, the task execution frequency, and the retry policy.
+     * Modifies the configuration parameters of an existing scheduled task, such as the scaling rule to execute, the number of instances in the scaling group, the task execution frequency, and the retry policy.
      *
      * @remarks
      * Scheduled tasks support two scaling methods:
-     * - Set the scaling rule to be executed by using the ScheduledAction parameter.
-     * - Set the number of instances in the scaling group by using the ScalingGroupId parameter.
+     * - Specify the scaling rule to execute by using the ScheduledAction parameter.
+     * - Specify the number of instances in the scaling group by using the ScalingGroupId parameter.
      * > You cannot specify both ScheduledAction and ScalingGroupId at the same time.
      *
      * @param request - ModifyScheduledTaskRequest
@@ -9061,12 +9201,12 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration parameters of an existing scheduled task. You can specify the scheduled task ID to modify parameters such as the scaling rule to be executed, the number of instances in the scaling group, the task execution frequency, and the retry policy.
+     * Modifies the configuration parameters of an existing scheduled task, such as the scaling rule to execute, the number of instances in the scaling group, the task execution frequency, and the retry policy.
      *
      * @remarks
      * Scheduled tasks support two scaling methods:
-     * - Set the scaling rule to be executed by using the ScheduledAction parameter.
-     * - Set the number of instances in the scaling group by using the ScalingGroupId parameter.
+     * - Specify the scaling rule to execute by using the ScheduledAction parameter.
+     * - Specify the number of instances in the scaling group by using the ScalingGroupId parameter.
      * > You cannot specify both ScheduledAction and ScalingGroupId at the same time.
      *
      * @param request - ModifyScheduledTaskRequest
@@ -9082,6 +9222,91 @@ class Ess extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyScheduledTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Configures a warm pool for a scaling group. If the scaling group does not have a warm pool, this operation creates one. If the scaling group already has a warm pool, this operation updates the configurations of the warm pool.
+     *
+     * @remarks
+     * - Warm pools are supported only for ECS scaling groups.
+     * - Warm pools are supported only when the reclaim mode of the scaling group is set to release or forcerelease.
+     *
+     * @param request - PutWarmPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutWarmPoolResponse
+     *
+     * @param PutWarmPoolRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PutWarmPoolResponse
+     */
+    public function putWarmPoolWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->capacityOptions) {
+            @$query['CapacityOptions'] = $request->capacityOptions;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceReusePolicy) {
+            @$query['InstanceReusePolicy'] = $request->instanceReusePolicy;
+        }
+
+        if (null !== $request->poolState) {
+            @$query['PoolState'] = $request->poolState;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->scalingGroupId) {
+            @$query['ScalingGroupId'] = $request->scalingGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PutWarmPool',
+            'version' => '2022-02-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PutWarmPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Configures a warm pool for a scaling group. If the scaling group does not have a warm pool, this operation creates one. If the scaling group already has a warm pool, this operation updates the configurations of the warm pool.
+     *
+     * @remarks
+     * - Warm pools are supported only for ECS scaling groups.
+     * - Warm pools are supported only when the reclaim mode of the scaling group is set to release or forcerelease.
+     *
+     * @param request - PutWarmPoolRequest
+     *
+     * @returns PutWarmPoolResponse
+     *
+     * @param PutWarmPoolRequest $request
+     *
+     * @return PutWarmPoolResponse
+     */
+    public function putWarmPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putWarmPoolWithOptions($request, $runtime);
     }
 
     /**
@@ -9607,17 +9832,17 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes one or more unneeded instances from a scaling group. You can invoke the RemoveInstances API operation to delete instances when the scaling group is in the enabled state and no scaling activity is in progress.
+     * Deletes one or more unnecessary instances from a scaling group. You can invoke the RemoveInstances API to delete instances if the scaling group is enabled and no scaling activity is being executed.
      *
      * @remarks
-     * - Before you invoke this operation, make sure that the following conditions are met:
-     *     - The scaling group is in the enabled (Active) state.
-     *     - No scaling activity is in progress in the scaling group.
-     * > If no scaling activity is in progress in the scaling group, the system can bypass the cooldown time (DefaultCooldown) and execute this operation directly.
-     * - If an ECS instance was created by Auto Scaling, or was manually added but managed by the scaling group, the ECS instance triggers the economical mode or is released when you remove the ECS instance from the scaling group.
-     * - If an ECS instance was manually added and is not managed by the scaling group, the ECS instance is not stopped or released when you remove the ECS instance from the scaling group.
-     * - If the current number of instances in the scaling group (TotalCapacity) minus the number of instances specified in this operation is less than the minimum number of instances (MinSize) in the scaling group, the attempt to invoke the operation fails.
-     * A successful response only indicates that the Auto Scaling service has accepted the request and the scaling activity can be executed. It does not mean that the scaling activity will be executed successfully. You must use the returned ScalingActivityId to check the execution status of the scaling activity.
+     * - Before you invoke this operation, ensure that the following conditions are met:
+     *     - The scaling group is enabled (Active).
+     *     - No scaling activity is being executed in the scaling group.
+     * > If no scaling activity is being executed in the scaling group, this operation can bypass the cooldown time (DefaultCooldown) and be executed directly.
+     * - If an ECS instance is created through automatic creation by Auto Scaling, or was manually added and managed by the scaling group, the ECS instance triggers the economical mode or is released when you delete it from the scaling group.
+     * - If an ECS instance was manually added and is not managed by the scaling group, the ECS instance is not stopped or released when you delete it from the scaling group.
+     * - If the number of instances in the scaling group (TotalCapacity) minus the number of instances specified in this operation is less than the minimum number of instances (MinSize) in the scaling group, the request to invoke this operation fails.
+     * A successful response only indicates that the Auto Scaling service has accepted the request and the scaling activity can be executed. It does not mean that the scaling activity will be executed successfully. You must check the execution status of the scaling activity by using the returned ScalingActivityId.
      *
      * @param tmpReq - RemoveInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9710,17 +9935,17 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Deletes one or more unneeded instances from a scaling group. You can invoke the RemoveInstances API operation to delete instances when the scaling group is in the enabled state and no scaling activity is in progress.
+     * Deletes one or more unnecessary instances from a scaling group. You can invoke the RemoveInstances API to delete instances if the scaling group is enabled and no scaling activity is being executed.
      *
      * @remarks
-     * - Before you invoke this operation, make sure that the following conditions are met:
-     *     - The scaling group is in the enabled (Active) state.
-     *     - No scaling activity is in progress in the scaling group.
-     * > If no scaling activity is in progress in the scaling group, the system can bypass the cooldown time (DefaultCooldown) and execute this operation directly.
-     * - If an ECS instance was created by Auto Scaling, or was manually added but managed by the scaling group, the ECS instance triggers the economical mode or is released when you remove the ECS instance from the scaling group.
-     * - If an ECS instance was manually added and is not managed by the scaling group, the ECS instance is not stopped or released when you remove the ECS instance from the scaling group.
-     * - If the current number of instances in the scaling group (TotalCapacity) minus the number of instances specified in this operation is less than the minimum number of instances (MinSize) in the scaling group, the attempt to invoke the operation fails.
-     * A successful response only indicates that the Auto Scaling service has accepted the request and the scaling activity can be executed. It does not mean that the scaling activity will be executed successfully. You must use the returned ScalingActivityId to check the execution status of the scaling activity.
+     * - Before you invoke this operation, ensure that the following conditions are met:
+     *     - The scaling group is enabled (Active).
+     *     - No scaling activity is being executed in the scaling group.
+     * > If no scaling activity is being executed in the scaling group, this operation can bypass the cooldown time (DefaultCooldown) and be executed directly.
+     * - If an ECS instance is created through automatic creation by Auto Scaling, or was manually added and managed by the scaling group, the ECS instance triggers the economical mode or is released when you delete it from the scaling group.
+     * - If an ECS instance was manually added and is not managed by the scaling group, the ECS instance is not stopped or released when you delete it from the scaling group.
+     * - If the number of instances in the scaling group (TotalCapacity) minus the number of instances specified in this operation is less than the minimum number of instances (MinSize) in the scaling group, the request to invoke this operation fails.
+     * A successful response only indicates that the Auto Scaling service has accepted the request and the scaling activity can be executed. It does not mean that the scaling activity will be executed successfully. You must check the execution status of the scaling activity by using the returned ScalingActivityId.
      *
      * @param request - RemoveInstancesRequest
      *
@@ -9890,6 +10115,10 @@ class Ess extends OpenApiClient
     /**
      * Rolls back an instance refresh task if the desired configuration does not meet your requirements during task execution. During the rollback, the system uses the active configuration of the scaling group to create new instances to replace those created based on the desired configuration.
      *
+     * @remarks
+     * ## 前提条件
+     * 被回滚的实例刷新任务必须在启动时（调用 StartInstanceRefresh）设置了 `DesiredConfiguration` 参数。未设置 `DesiredConfiguration` 的实例刷新任务不支持回滚，调用本接口会返回 `UnsupportedOperation.DesiredConfiguration` 错误；如需回滚此类任务，请先取消该任务，再以 `DesiredConfiguration` 重新启动实例刷新后执行回滚。
+     *
      * @param request - RollbackInstanceRefreshRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9945,6 +10174,10 @@ class Ess extends OpenApiClient
     /**
      * Rolls back an instance refresh task if the desired configuration does not meet your requirements during task execution. During the rollback, the system uses the active configuration of the scaling group to create new instances to replace those created based on the desired configuration.
      *
+     * @remarks
+     * ## 前提条件
+     * 被回滚的实例刷新任务必须在启动时（调用 StartInstanceRefresh）设置了 `DesiredConfiguration` 参数。未设置 `DesiredConfiguration` 的实例刷新任务不支持回滚，调用本接口会返回 `UnsupportedOperation.DesiredConfiguration` 错误；如需回滚此类任务，请先取消该任务，再以 `DesiredConfiguration` 重新启动实例刷新后执行回滚。
+     *
      * @param request - RollbackInstanceRefreshRequest
      *
      * @returns RollbackInstanceRefreshResponse
@@ -9961,16 +10194,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Unlike the ExecuteScalingRule API, you can use the ScaleWithAdjustment API to trigger elastic scaling based on a specified adjustment rule, without first creating a scaling rule.
+     * Triggers auto scaling based on a specified adjustment rule by calling the ScaleWithAdjustment API, eliminating the need to create a scaling rule in advance as required by the ExecuteScalingRule API.
      *
      * @remarks
-     * - Ensure the following conditions are met before calling this operation:
-     *   - The scaling group is in the Active state.
-     *   - No scaling activities are in progress in the scaling group.
-     * - This operation bypasses the cooldown to immediately execute a scaling activity, provided no other scaling activities are in progress.
-     * - If adding the specified ECS instances would cause the total capacity to exceed the maximum size, Auto Scaling sets the total capacity to the maximum size.
-     * - If removing the specified ECS instances would reduce the total capacity below the minimum size, Auto Scaling sets the total capacity to the minimum size.
-     * A successful response indicates that the API request was accepted, but this does not guarantee that the scaling activity will succeed. You must use the returned `ScalingActivityId` to check the status of the scaling activity.
+     * - Before you call this operation, ensure that the following conditions are met:
+     *     - The scaling group is in the Active state.
+     *     - No scaling activities are in progress in the scaling group.
+     * - If no scaling activities are in progress in the scaling group, this operation can bypass the cooldown time and directly execute a scaling activity.
+     * - If the number of ECS instances to be added specified in the scaling rule plus the current number of instances in the scaling group (Total Capacity) exceeds the maximum number of instances (MaxSize), the scaling activity is executed with Total Capacity set to MaxSize.
+     * - If the current number of instances in the scaling group (Total Capacity) minus the number of ECS instances to be removed specified in the scaling rule is less than the minimum number of instances (MinSize), the scaling activity is executed with Total Capacity set to MinSize.
+     * A successful response only indicates that Auto Scaling accepted the request and can execute the scaling activity. It does not guarantee that the scaling activity will be successfully executed. You must use the returned `ScalingActivityId` to check the execution status of the scaling activity.
      *
      * @param tmpReq - ScaleWithAdjustmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10067,16 +10300,16 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * Unlike the ExecuteScalingRule API, you can use the ScaleWithAdjustment API to trigger elastic scaling based on a specified adjustment rule, without first creating a scaling rule.
+     * Triggers auto scaling based on a specified adjustment rule by calling the ScaleWithAdjustment API, eliminating the need to create a scaling rule in advance as required by the ExecuteScalingRule API.
      *
      * @remarks
-     * - Ensure the following conditions are met before calling this operation:
-     *   - The scaling group is in the Active state.
-     *   - No scaling activities are in progress in the scaling group.
-     * - This operation bypasses the cooldown to immediately execute a scaling activity, provided no other scaling activities are in progress.
-     * - If adding the specified ECS instances would cause the total capacity to exceed the maximum size, Auto Scaling sets the total capacity to the maximum size.
-     * - If removing the specified ECS instances would reduce the total capacity below the minimum size, Auto Scaling sets the total capacity to the minimum size.
-     * A successful response indicates that the API request was accepted, but this does not guarantee that the scaling activity will succeed. You must use the returned `ScalingActivityId` to check the status of the scaling activity.
+     * - Before you call this operation, ensure that the following conditions are met:
+     *     - The scaling group is in the Active state.
+     *     - No scaling activities are in progress in the scaling group.
+     * - If no scaling activities are in progress in the scaling group, this operation can bypass the cooldown time and directly execute a scaling activity.
+     * - If the number of ECS instances to be added specified in the scaling rule plus the current number of instances in the scaling group (Total Capacity) exceeds the maximum number of instances (MaxSize), the scaling activity is executed with Total Capacity set to MaxSize.
+     * - If the current number of instances in the scaling group (Total Capacity) minus the number of ECS instances to be removed specified in the scaling rule is less than the minimum number of instances (MinSize), the scaling activity is executed with Total Capacity set to MinSize.
+     * A successful response only indicates that Auto Scaling accepted the request and can execute the scaling activity. It does not guarantee that the scaling activity will be successfully executed. You must use the returned `ScalingActivityId` to check the execution status of the scaling activity.
      *
      * @param request - ScaleWithAdjustmentRequest
      *
