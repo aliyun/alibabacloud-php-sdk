@@ -4960,7 +4960,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Restarts an ApsaraDB for ClickHouse cluster.
+     * Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - RestartDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4976,8 +4976,16 @@ class Clickhouse extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->computingGroupId) {
+            @$query['ComputingGroupId'] = $request->computingGroupId;
+        }
+
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->nodeList) {
+            @$query['NodeList'] = $request->nodeList;
         }
 
         if (null !== $request->regionId) {
@@ -5003,7 +5011,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Restarts an ApsaraDB for ClickHouse cluster.
+     * Restarts an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - RestartDBInstanceRequest
      *
