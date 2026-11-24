@@ -5337,7 +5337,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the historical conversations of a user.
+     * Queries the conversation history of a user.
      *
      * @param request - GetConversationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5353,6 +5353,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
         if (null !== $request->lastId) {
             @$query['LastId'] = $request->lastId;
         }
@@ -5392,7 +5396,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the historical conversations of a user.
+     * Queries the conversation history of a user.
      *
      * @param request - GetConversationsRequest
      *
@@ -5532,7 +5536,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the details of specific conversation messages.
+     * Retrieves the details of a specific conversation message.
      *
      * @param request - GetMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5558,6 +5562,10 @@ class RdsAi extends OpenApiClient
 
         if (null !== $request->firstId) {
             @$query['FirstId'] = $request->firstId;
+        }
+
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
         }
 
         if (null !== $request->limit) {
@@ -5587,7 +5595,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the details of specific conversation messages.
+     * Retrieves the details of a specific conversation message.
      *
      * @param request - GetMessagesRequest
      *

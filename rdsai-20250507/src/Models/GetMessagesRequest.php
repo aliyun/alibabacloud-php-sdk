@@ -24,6 +24,11 @@ class GetMessagesRequest extends Model
     public $firstId;
 
     /**
+     * @var string
+     */
+    public $flowId;
+
+    /**
      * @var int
      */
     public $limit;
@@ -36,6 +41,7 @@ class GetMessagesRequest extends Model
         'conversationId' => 'ConversationId',
         'eventMode' => 'EventMode',
         'firstId' => 'FirstId',
+        'flowId' => 'FlowId',
         'limit' => 'Limit',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -58,6 +64,10 @@ class GetMessagesRequest extends Model
 
         if (null !== $this->firstId) {
             $res['FirstId'] = $this->firstId;
+        }
+
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
         }
 
         if (null !== $this->limit) {
@@ -89,6 +99,10 @@ class GetMessagesRequest extends Model
 
         if (isset($map['FirstId'])) {
             $model->firstId = $map['FirstId'];
+        }
+
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
         }
 
         if (isset($map['Limit'])) {

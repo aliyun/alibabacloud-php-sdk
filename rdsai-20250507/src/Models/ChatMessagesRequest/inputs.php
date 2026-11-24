@@ -21,6 +21,11 @@ class inputs extends Model
     /**
      * @var string
      */
+    public $flowId;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -60,6 +65,7 @@ class inputs extends Model
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'enableThinking' => 'EnableThinking',
+        'flowId' => 'FlowId',
         'language' => 'Language',
         'modelId' => 'ModelId',
         'regionId' => 'RegionId',
@@ -84,6 +90,10 @@ class inputs extends Model
 
         if (null !== $this->enableThinking) {
             $res['EnableThinking'] = $this->enableThinking;
+        }
+
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
         }
 
         if (null !== $this->language) {
@@ -135,6 +145,10 @@ class inputs extends Model
 
         if (isset($map['EnableThinking'])) {
             $model->enableThinking = $map['EnableThinking'];
+        }
+
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
         }
 
         if (isset($map['Language'])) {

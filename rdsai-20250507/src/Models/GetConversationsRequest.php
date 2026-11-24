@@ -11,6 +11,11 @@ class GetConversationsRequest extends Model
     /**
      * @var string
      */
+    public $flowId;
+
+    /**
+     * @var string
+     */
     public $lastId;
 
     /**
@@ -33,6 +38,7 @@ class GetConversationsRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'flowId' => 'FlowId',
         'lastId' => 'LastId',
         'limit' => 'Limit',
         'pinned' => 'Pinned',
@@ -48,6 +54,10 @@ class GetConversationsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->flowId) {
+            $res['FlowId'] = $this->flowId;
+        }
+
         if (null !== $this->lastId) {
             $res['LastId'] = $this->lastId;
         }
@@ -79,6 +89,10 @@ class GetConversationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FlowId'])) {
+            $model->flowId = $map['FlowId'];
+        }
+
         if (isset($map['LastId'])) {
             $model->lastId = $map['LastId'];
         }
