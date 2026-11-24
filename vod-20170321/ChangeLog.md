@@ -1,3 +1,10 @@
+2026-11-24 Version: 3.13.0
+- Support API AddManifestEditTemplate.
+- Support API DeleteManifestEditTemplate.
+- Support API ListManifestEditTemplate.
+- Support API SubmitEditMediaManifestJob.
+
+
 2026-11-18 Version: 3.12.1
 - Update API GetAIMediaAuditJob: add response parameters Body.MediaAuditJob.Data.VideoResult.GreenEnhancedResult.
 - Update API GetMediaAuditResult: add response parameters Body.MediaAuditResult.VideoResult.GreenEnhancedResult.
