@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\BatchAddConsumerGroupConsumersRequest
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchAddConsumerGroupConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeployHttpApiRoutesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeployHttpApiRoutesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchExportHttpApisRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchExportHttpApisResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchImportHttpApisRequest;
@@ -282,6 +284,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListApiPathFieldTemplatesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListApiPathFieldTemplatesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListBatchExportTasksRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListBatchExportTasksResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListBatchImportTasksRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListBatchImportTasksResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListChatSessionsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListChatSessionsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesRequest;
@@ -970,6 +974,83 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->batchDeleteConsumerAuthorizationRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Publishes specified routes or all visible routes under the same HTTP API in batches.
+     *
+     * @remarks
+     * Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
+     *
+     * @param request - BatchDeployHttpApiRoutesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeployHttpApiRoutesResponse
+     *
+     * @param string                          $httpApiId
+     * @param BatchDeployHttpApiRoutesRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BatchDeployHttpApiRoutesResponse
+     */
+    public function batchDeployHttpApiRoutesWithOptions($httpApiId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->async) {
+            @$body['async'] = $request->async;
+        }
+
+        if (null !== $request->deployAll) {
+            @$body['deployAll'] = $request->deployAll;
+        }
+
+        if (null !== $request->routeIds) {
+            @$body['routeIds'] = $request->routeIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDeployHttpApiRoutes',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes/batch-deploy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDeployHttpApiRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Publishes specified routes or all visible routes under the same HTTP API in batches.
+     *
+     * @remarks
+     * Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
+     *
+     * @param request - BatchDeployHttpApiRoutesRequest
+     *
+     * @returns BatchDeployHttpApiRoutesResponse
+     *
+     * @param string                          $httpApiId
+     * @param BatchDeployHttpApiRoutesRequest $request
+     *
+     * @return BatchDeployHttpApiRoutesResponse
+     */
+    public function batchDeployHttpApiRoutes($httpApiId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchDeployHttpApiRoutesWithOptions($httpApiId, $request, $headers, $runtime);
     }
 
     /**
@@ -11086,6 +11167,95 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listBatchExportTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of batch import tasks.
+     *
+     * @param request - ListBatchImportTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBatchImportTasksResponse
+     *
+     * @param ListBatchImportTasksRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListBatchImportTasksResponse
+     */
+    public function listBatchImportTasksWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statuses) {
+            @$query['statuses'] = $request->statuses;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBatchImportTasks',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-api-batch-import-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBatchImportTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of batch import tasks.
+     *
+     * @param request - ListBatchImportTasksRequest
+     *
+     * @returns ListBatchImportTasksResponse
+     *
+     * @param ListBatchImportTasksRequest $request
+     *
+     * @return ListBatchImportTasksResponse
+     */
+    public function listBatchImportTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listBatchImportTasksWithOptions($request, $headers, $runtime);
     }
 
     /**
