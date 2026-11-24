@@ -11,6 +11,21 @@ class CreateModelApiResponseBody extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @var string
+     */
+    public $gmtCreated;
+
+    /**
+     * @var string
+     */
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
     public $invokeEndpoint;
 
     /**
@@ -21,16 +36,49 @@ class CreateModelApiResponseBody extends Model
     /**
      * @var string
      */
+    public $modelMappings;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $pathPrefix;
+
+    /**
+     * @var string
+     */
+    public $protocol;
+
+    /**
+     * @var string
+     */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $routeRules;
 
     /**
      * @var string
      */
     public $status;
     protected $_name = [
+        'category' => 'Category',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
         'invokeEndpoint' => 'InvokeEndpoint',
         'modelApiId' => 'ModelApiId',
+        'modelMappings' => 'ModelMappings',
+        'name' => 'Name',
+        'pathPrefix' => 'PathPrefix',
+        'protocol' => 'Protocol',
         'requestId' => 'RequestId',
+        'routeRules' => 'RouteRules',
         'status' => 'Status',
     ];
 
@@ -42,6 +90,18 @@ class CreateModelApiResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->gmtCreated) {
+            $res['GmtCreated'] = $this->gmtCreated;
+        }
+
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+
         if (null !== $this->invokeEndpoint) {
             $res['InvokeEndpoint'] = $this->invokeEndpoint;
         }
@@ -50,8 +110,28 @@ class CreateModelApiResponseBody extends Model
             $res['ModelApiId'] = $this->modelApiId;
         }
 
+        if (null !== $this->modelMappings) {
+            $res['ModelMappings'] = $this->modelMappings;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->pathPrefix) {
+            $res['PathPrefix'] = $this->pathPrefix;
+        }
+
+        if (null !== $this->protocol) {
+            $res['Protocol'] = $this->protocol;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->routeRules) {
+            $res['RouteRules'] = $this->routeRules;
         }
 
         if (null !== $this->status) {
@@ -69,6 +149,18 @@ class CreateModelApiResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+
+        if (isset($map['GmtCreated'])) {
+            $model->gmtCreated = $map['GmtCreated'];
+        }
+
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+
         if (isset($map['InvokeEndpoint'])) {
             $model->invokeEndpoint = $map['InvokeEndpoint'];
         }
@@ -77,8 +169,28 @@ class CreateModelApiResponseBody extends Model
             $model->modelApiId = $map['ModelApiId'];
         }
 
+        if (isset($map['ModelMappings'])) {
+            $model->modelMappings = $map['ModelMappings'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
+        if (isset($map['PathPrefix'])) {
+            $model->pathPrefix = $map['PathPrefix'];
+        }
+
+        if (isset($map['Protocol'])) {
+            $model->protocol = $map['Protocol'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['RouteRules'])) {
+            $model->routeRules = $map['RouteRules'];
         }
 
         if (isset($map['Status'])) {

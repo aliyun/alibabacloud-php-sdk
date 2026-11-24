@@ -21,12 +21,32 @@ class items extends Model
     /**
      * @var string
      */
+    public $custinsName;
+
+    /**
+     * @var string
+     */
     public $gmtCreated;
 
     /**
      * @var string
      */
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
     public $modelApiId;
+
+    /**
+     * @var string
+     */
+    public $modelMappings;
+
+    /**
+     * @var string
+     */
+    public $modelRouting;
 
     /**
      * @var string
@@ -65,8 +85,12 @@ class items extends Model
     protected $_name = [
         'category' => 'Category',
         'config' => 'Config',
+        'custinsName' => 'CustinsName',
         'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
         'modelApiId' => 'ModelApiId',
+        'modelMappings' => 'ModelMappings',
+        'modelRouting' => 'ModelRouting',
         'name' => 'Name',
         'pathPrefix' => 'PathPrefix',
         'protocol' => 'Protocol',
@@ -92,12 +116,28 @@ class items extends Model
             $res['Config'] = $this->config;
         }
 
+        if (null !== $this->custinsName) {
+            $res['CustinsName'] = $this->custinsName;
+        }
+
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
         }
 
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+
         if (null !== $this->modelApiId) {
             $res['ModelApiId'] = $this->modelApiId;
+        }
+
+        if (null !== $this->modelMappings) {
+            $res['ModelMappings'] = $this->modelMappings;
+        }
+
+        if (null !== $this->modelRouting) {
+            $res['ModelRouting'] = $this->modelRouting;
         }
 
         if (null !== $this->name) {
@@ -147,12 +187,28 @@ class items extends Model
             $model->config = $map['Config'];
         }
 
+        if (isset($map['CustinsName'])) {
+            $model->custinsName = $map['CustinsName'];
+        }
+
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
         }
 
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+
         if (isset($map['ModelApiId'])) {
             $model->modelApiId = $map['ModelApiId'];
+        }
+
+        if (isset($map['ModelMappings'])) {
+            $model->modelMappings = $map['ModelMappings'];
+        }
+
+        if (isset($map['ModelRouting'])) {
+            $model->modelRouting = $map['ModelRouting'];
         }
 
         if (isset($map['Name'])) {

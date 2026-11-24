@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $autoExpireTime;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -54,6 +59,11 @@ class items extends Model
     public $regionId;
 
     /**
+     * @var bool
+     */
+    public $smartRoutingEnabled;
+
+    /**
      * @var string
      */
     public $status;
@@ -68,6 +78,7 @@ class items extends Model
      */
     public $vpcId;
     protected $_name = [
+        'autoExpireTime' => 'AutoExpireTime',
         'createTime' => 'CreateTime',
         'dbType' => 'DbType',
         'expireTime' => 'ExpireTime',
@@ -77,6 +88,7 @@ class items extends Model
         'modifyTime' => 'ModifyTime',
         'payType' => 'PayType',
         'regionId' => 'RegionId',
+        'smartRoutingEnabled' => 'SmartRoutingEnabled',
         'status' => 'Status',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -90,6 +102,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoExpireTime) {
+            $res['AutoExpireTime'] = $this->autoExpireTime;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -126,6 +142,10 @@ class items extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->smartRoutingEnabled) {
+            $res['SmartRoutingEnabled'] = $this->smartRoutingEnabled;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -149,6 +169,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoExpireTime'])) {
+            $model->autoExpireTime = $map['AutoExpireTime'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -183,6 +207,10 @@ class items extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SmartRoutingEnabled'])) {
+            $model->smartRoutingEnabled = $map['SmartRoutingEnabled'];
         }
 
         if (isset($map['Status'])) {

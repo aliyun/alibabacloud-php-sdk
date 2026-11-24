@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ModifyCostRuleRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $bypassQuotaCheck;
+
+    /**
      * @var string
      */
     public $cacheCostPointsPerMillion;
@@ -73,6 +78,7 @@ class ModifyCostRuleRequest extends Model
      */
     public $videoCostPointsPerSecond;
     protected $_name = [
+        'bypassQuotaCheck' => 'BypassQuotaCheck',
         'cacheCostPointsPerMillion' => 'CacheCostPointsPerMillion',
         'cacheCreationCostPointsPerMillion' => 'CacheCreationCostPointsPerMillion',
         'costRuleId' => 'CostRuleId',
@@ -96,6 +102,10 @@ class ModifyCostRuleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bypassQuotaCheck) {
+            $res['BypassQuotaCheck'] = $this->bypassQuotaCheck;
+        }
+
         if (null !== $this->cacheCostPointsPerMillion) {
             $res['CacheCostPointsPerMillion'] = $this->cacheCostPointsPerMillion;
         }
@@ -159,6 +169,10 @@ class ModifyCostRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BypassQuotaCheck'])) {
+            $model->bypassQuotaCheck = $map['BypassQuotaCheck'];
+        }
+
         if (isset($map['CacheCostPointsPerMillion'])) {
             $model->cacheCostPointsPerMillion = $map['CacheCostPointsPerMillion'];
         }

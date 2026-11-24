@@ -31,6 +31,21 @@ class ModifyModelApiRequest extends Model
     /**
      * @var string
      */
+    public $modelMappings;
+
+    /**
+     * @var string
+     */
+    public $modelRouting;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $pathPrefix;
 
     /**
@@ -62,6 +77,9 @@ class ModifyModelApiRequest extends Model
         'gwClusterId' => 'GwClusterId',
         'modelApiId' => 'ModelApiId',
         'modelCategory' => 'ModelCategory',
+        'modelMappings' => 'ModelMappings',
+        'modelRouting' => 'ModelRouting',
+        'name' => 'Name',
         'pathPrefix' => 'PathPrefix',
         'protocol' => 'Protocol',
         'recordInput' => 'RecordInput',
@@ -92,6 +110,18 @@ class ModifyModelApiRequest extends Model
 
         if (null !== $this->modelCategory) {
             $res['ModelCategory'] = $this->modelCategory;
+        }
+
+        if (null !== $this->modelMappings) {
+            $res['ModelMappings'] = $this->modelMappings;
+        }
+
+        if (null !== $this->modelRouting) {
+            $res['ModelRouting'] = $this->modelRouting;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->pathPrefix) {
@@ -143,6 +173,18 @@ class ModifyModelApiRequest extends Model
 
         if (isset($map['ModelCategory'])) {
             $model->modelCategory = $map['ModelCategory'];
+        }
+
+        if (isset($map['ModelMappings'])) {
+            $model->modelMappings = $map['ModelMappings'];
+        }
+
+        if (isset($map['ModelRouting'])) {
+            $model->modelRouting = $map['ModelRouting'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['PathPrefix'])) {

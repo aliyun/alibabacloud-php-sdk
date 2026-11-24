@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateCostRuleRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $bypassQuotaCheck;
+
+    /**
      * @var string
      */
     public $cacheCostPointsPerMillion;
@@ -56,6 +61,11 @@ class CreateCostRuleRequest extends Model
     /**
      * @var string
      */
+    public $inputTokenTier;
+
+    /**
+     * @var string
+     */
     public $inputTokenTiers;
 
     /**
@@ -83,6 +93,7 @@ class CreateCostRuleRequest extends Model
      */
     public $videoCostPointsPerSecond;
     protected $_name = [
+        'bypassQuotaCheck' => 'BypassQuotaCheck',
         'cacheCostPointsPerMillion' => 'CacheCostPointsPerMillion',
         'cacheCreationCostPointsPerMillion' => 'CacheCreationCostPointsPerMillion',
         'effectiveStartTime' => 'EffectiveStartTime',
@@ -92,6 +103,7 @@ class CreateCostRuleRequest extends Model
         'gwClusterId' => 'GwClusterId',
         'imageCostPointsPerCount' => 'ImageCostPointsPerCount',
         'inputCostPointsPerMillion' => 'InputCostPointsPerMillion',
+        'inputTokenTier' => 'InputTokenTier',
         'inputTokenTiers' => 'InputTokenTiers',
         'modelName' => 'ModelName',
         'modelServiceId' => 'ModelServiceId',
@@ -108,6 +120,10 @@ class CreateCostRuleRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bypassQuotaCheck) {
+            $res['BypassQuotaCheck'] = $this->bypassQuotaCheck;
+        }
+
         if (null !== $this->cacheCostPointsPerMillion) {
             $res['CacheCostPointsPerMillion'] = $this->cacheCostPointsPerMillion;
         }
@@ -142,6 +158,10 @@ class CreateCostRuleRequest extends Model
 
         if (null !== $this->inputCostPointsPerMillion) {
             $res['InputCostPointsPerMillion'] = $this->inputCostPointsPerMillion;
+        }
+
+        if (null !== $this->inputTokenTier) {
+            $res['InputTokenTier'] = $this->inputTokenTier;
         }
 
         if (null !== $this->inputTokenTiers) {
@@ -179,6 +199,10 @@ class CreateCostRuleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BypassQuotaCheck'])) {
+            $model->bypassQuotaCheck = $map['BypassQuotaCheck'];
+        }
+
         if (isset($map['CacheCostPointsPerMillion'])) {
             $model->cacheCostPointsPerMillion = $map['CacheCostPointsPerMillion'];
         }
@@ -213,6 +237,10 @@ class CreateCostRuleRequest extends Model
 
         if (isset($map['InputCostPointsPerMillion'])) {
             $model->inputCostPointsPerMillion = $map['InputCostPointsPerMillion'];
+        }
+
+        if (isset($map['InputTokenTier'])) {
+            $model->inputTokenTier = $map['InputTokenTier'];
         }
 
         if (isset($map['InputTokenTiers'])) {

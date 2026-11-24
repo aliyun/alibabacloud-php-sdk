@@ -37,6 +37,11 @@ class DescribeModelApisResponseBody extends Model
     /**
      * @var int
      */
+    public $totalPages;
+
+    /**
+     * @var int
+     */
     public $totalRecordCount;
     protected $_name = [
         'items' => 'Items',
@@ -44,6 +49,7 @@ class DescribeModelApisResponseBody extends Model
         'pageRecordCount' => 'PageRecordCount',
         'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
+        'totalPages' => 'TotalPages',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
@@ -83,6 +89,10 @@ class DescribeModelApisResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->totalPages) {
+            $res['TotalPages'] = $this->totalPages;
         }
 
         if (null !== $this->totalRecordCount) {
@@ -125,6 +135,10 @@ class DescribeModelApisResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalPages'])) {
+            $model->totalPages = $map['TotalPages'];
         }
 
         if (isset($map['TotalRecordCount'])) {

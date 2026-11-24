@@ -13,6 +13,11 @@ class DescribeGatewayAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $autoExpireTime;
+
+    /**
+     * @var string
+     */
     public $classCode;
 
     /**
@@ -96,6 +101,11 @@ class DescribeGatewayAttributeResponseBody extends Model
     public $semanticCacheEnabled;
 
     /**
+     * @var bool
+     */
+    public $smartRoutingEnabled;
+
+    /**
      * @var string
      */
     public $status;
@@ -110,6 +120,7 @@ class DescribeGatewayAttributeResponseBody extends Model
      */
     public $vpcId;
     protected $_name = [
+        'autoExpireTime' => 'AutoExpireTime',
         'classCode' => 'ClassCode',
         'createTime' => 'CreateTime',
         'currentVersion' => 'CurrentVersion',
@@ -127,6 +138,7 @@ class DescribeGatewayAttributeResponseBody extends Model
         'runningVersion' => 'RunningVersion',
         'securityIPArrays' => 'SecurityIPArrays',
         'semanticCacheEnabled' => 'SemanticCacheEnabled',
+        'smartRoutingEnabled' => 'SmartRoutingEnabled',
         'status' => 'Status',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -146,6 +158,10 @@ class DescribeGatewayAttributeResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoExpireTime) {
+            $res['AutoExpireTime'] = $this->autoExpireTime;
+        }
+
         if (null !== $this->classCode) {
             $res['ClassCode'] = $this->classCode;
         }
@@ -228,6 +244,10 @@ class DescribeGatewayAttributeResponseBody extends Model
             $res['SemanticCacheEnabled'] = $this->semanticCacheEnabled;
         }
 
+        if (null !== $this->smartRoutingEnabled) {
+            $res['SmartRoutingEnabled'] = $this->smartRoutingEnabled;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -251,6 +271,10 @@ class DescribeGatewayAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoExpireTime'])) {
+            $model->autoExpireTime = $map['AutoExpireTime'];
+        }
+
         if (isset($map['ClassCode'])) {
             $model->classCode = $map['ClassCode'];
         }
@@ -331,6 +355,10 @@ class DescribeGatewayAttributeResponseBody extends Model
 
         if (isset($map['SemanticCacheEnabled'])) {
             $model->semanticCacheEnabled = $map['SemanticCacheEnabled'];
+        }
+
+        if (isset($map['SmartRoutingEnabled'])) {
+            $model->smartRoutingEnabled = $map['SmartRoutingEnabled'];
         }
 
         if (isset($map['Status'])) {

@@ -31,6 +31,16 @@ class CreateModelApiRequest extends Model
     /**
      * @var string
      */
+    public $modelMappings;
+
+    /**
+     * @var string
+     */
+    public $modelRouting;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -67,6 +77,8 @@ class CreateModelApiRequest extends Model
         'forceModel' => 'ForceModel',
         'gwClusterId' => 'GwClusterId',
         'modelCategory' => 'ModelCategory',
+        'modelMappings' => 'ModelMappings',
+        'modelRouting' => 'ModelRouting',
         'name' => 'Name',
         'pathPrefix' => 'PathPrefix',
         'protocol' => 'Protocol',
@@ -98,6 +110,14 @@ class CreateModelApiRequest extends Model
 
         if (null !== $this->modelCategory) {
             $res['ModelCategory'] = $this->modelCategory;
+        }
+
+        if (null !== $this->modelMappings) {
+            $res['ModelMappings'] = $this->modelMappings;
+        }
+
+        if (null !== $this->modelRouting) {
+            $res['ModelRouting'] = $this->modelRouting;
         }
 
         if (null !== $this->name) {
@@ -153,6 +173,14 @@ class CreateModelApiRequest extends Model
 
         if (isset($map['ModelCategory'])) {
             $model->modelCategory = $map['ModelCategory'];
+        }
+
+        if (isset($map['ModelMappings'])) {
+            $model->modelMappings = $map['ModelMappings'];
+        }
+
+        if (isset($map['ModelRouting'])) {
+            $model->modelRouting = $map['ModelRouting'];
         }
 
         if (isset($map['Name'])) {
