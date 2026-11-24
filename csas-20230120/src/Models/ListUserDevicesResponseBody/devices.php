@@ -122,6 +122,16 @@ class devices extends Model
     /**
      * @var string
      */
+    public $diskEncryptStatus;
+
+    /**
+     * @var string
+     */
+    public $diskEncryptStatusReason;
+
+    /**
+     * @var string
+     */
     public $dlpStatus;
 
     /**
@@ -276,6 +286,8 @@ class devices extends Model
         'deviceType' => 'DeviceType',
         'deviceVersion' => 'DeviceVersion',
         'disk' => 'Disk',
+        'diskEncryptStatus' => 'DiskEncryptStatus',
+        'diskEncryptStatusReason' => 'DiskEncryptStatusReason',
         'dlpStatus' => 'DlpStatus',
         'edrStatus' => 'EdrStatus',
         'fullDepartment' => 'FullDepartment',
@@ -408,6 +420,14 @@ class devices extends Model
 
         if (null !== $this->disk) {
             $res['Disk'] = $this->disk;
+        }
+
+        if (null !== $this->diskEncryptStatus) {
+            $res['DiskEncryptStatus'] = $this->diskEncryptStatus;
+        }
+
+        if (null !== $this->diskEncryptStatusReason) {
+            $res['DiskEncryptStatusReason'] = $this->diskEncryptStatusReason;
         }
 
         if (null !== $this->dlpStatus) {
@@ -636,6 +656,14 @@ class devices extends Model
 
         if (isset($map['Disk'])) {
             $model->disk = $map['Disk'];
+        }
+
+        if (isset($map['DiskEncryptStatus'])) {
+            $model->diskEncryptStatus = $map['DiskEncryptStatus'];
+        }
+
+        if (isset($map['DiskEncryptStatusReason'])) {
+            $model->diskEncryptStatusReason = $map['DiskEncryptStatusReason'];
         }
 
         if (isset($map['DlpStatus'])) {

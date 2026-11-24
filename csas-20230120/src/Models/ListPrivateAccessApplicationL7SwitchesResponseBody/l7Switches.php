@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationL7S
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationL7SwitchesResponseBody\l7Switches\portRanges;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationL7SwitchesResponseBody\l7Switches\urlAccessPaths;
 
 class l7Switches extends Model
 {
@@ -45,6 +46,11 @@ class l7Switches extends Model
     public $timeoutSec;
 
     /**
+     * @var urlAccessPaths[]
+     */
+    public $urlAccessPaths;
+
+    /**
      * @var string
      */
     public $userMarkStatus;
@@ -61,6 +67,7 @@ class l7Switches extends Model
         'srcIpMarkStatus' => 'SrcIpMarkStatus',
         'status' => 'Status',
         'timeoutSec' => 'TimeoutSec',
+        'urlAccessPaths' => 'UrlAccessPaths',
         'userMarkStatus' => 'UserMarkStatus',
         'zeroTrustStatus' => 'ZeroTrustStatus',
     ];
@@ -69,6 +76,9 @@ class l7Switches extends Model
     {
         if (\is_array($this->portRanges)) {
             Model::validateArray($this->portRanges);
+        }
+        if (\is_array($this->urlAccessPaths)) {
+            Model::validateArray($this->urlAccessPaths);
         }
         parent::validate();
     }
@@ -109,6 +119,17 @@ class l7Switches extends Model
 
         if (null !== $this->timeoutSec) {
             $res['TimeoutSec'] = $this->timeoutSec;
+        }
+
+        if (null !== $this->urlAccessPaths) {
+            if (\is_array($this->urlAccessPaths)) {
+                $res['UrlAccessPaths'] = [];
+                $n1 = 0;
+                foreach ($this->urlAccessPaths as $item1) {
+                    $res['UrlAccessPaths'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->userMarkStatus) {
@@ -163,6 +184,17 @@ class l7Switches extends Model
 
         if (isset($map['TimeoutSec'])) {
             $model->timeoutSec = $map['TimeoutSec'];
+        }
+
+        if (isset($map['UrlAccessPaths'])) {
+            if (!empty($map['UrlAccessPaths'])) {
+                $model->urlAccessPaths = [];
+                $n1 = 0;
+                foreach ($map['UrlAccessPaths'] as $item1) {
+                    $model->urlAccessPaths[$n1] = urlAccessPaths::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UserMarkStatus'])) {

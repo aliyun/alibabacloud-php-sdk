@@ -61,6 +61,11 @@ class ListUserDevicesRequest extends Model
     /**
      * @var string[]
      */
+    public $diskEncryptStatuses;
+
+    /**
+     * @var string[]
+     */
     public $dlpStatuses;
 
     /**
@@ -143,6 +148,7 @@ class ListUserDevicesRequest extends Model
         'deviceStatuses' => 'DeviceStatuses',
         'deviceTags' => 'DeviceTags',
         'deviceTypes' => 'DeviceTypes',
+        'diskEncryptStatuses' => 'DiskEncryptStatuses',
         'dlpStatuses' => 'DlpStatuses',
         'hostname' => 'Hostname',
         'iaStatuses' => 'IaStatuses',
@@ -179,6 +185,9 @@ class ListUserDevicesRequest extends Model
         }
         if (\is_array($this->deviceTypes)) {
             Model::validateArray($this->deviceTypes);
+        }
+        if (\is_array($this->diskEncryptStatuses)) {
+            Model::validateArray($this->diskEncryptStatuses);
         }
         if (\is_array($this->dlpStatuses)) {
             Model::validateArray($this->dlpStatuses);
@@ -275,6 +284,17 @@ class ListUserDevicesRequest extends Model
                 $n1 = 0;
                 foreach ($this->deviceTypes as $item1) {
                     $res['DeviceTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->diskEncryptStatuses) {
+            if (\is_array($this->diskEncryptStatuses)) {
+                $res['DiskEncryptStatuses'] = [];
+                $n1 = 0;
+                foreach ($this->diskEncryptStatuses as $item1) {
+                    $res['DiskEncryptStatuses'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -456,6 +476,17 @@ class ListUserDevicesRequest extends Model
                 $n1 = 0;
                 foreach ($map['DeviceTypes'] as $item1) {
                     $model->deviceTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['DiskEncryptStatuses'])) {
+            if (!empty($map['DiskEncryptStatuses'])) {
+                $model->diskEncryptStatuses = [];
+                $n1 = 0;
+                foreach ($map['DiskEncryptStatuses'] as $item1) {
+                    $model->diskEncryptStatuses[$n1] = $item1;
                     ++$n1;
                 }
             }

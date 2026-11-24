@@ -464,6 +464,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVulScanGlobalConfigResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVulScanGlobalConfigShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVulScanScheduledStrategyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateVulScanScheduledStrategyResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -474,6 +475,9 @@ class Csas extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'csas';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-hangzhou' => 'csas.aliyuncs.com',
@@ -508,7 +512,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Appends associated terminal devices to a static device label in batches.
+     * Adds associated terminal devices to a static device tag in batches.
      *
      * @param request - AddDeviceGroupMatchDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -554,7 +558,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Appends associated terminal devices to a static device label in batches.
+     * Adds associated terminal devices to a static device tag in batches.
      *
      * @param request - AddDeviceGroupMatchDevicesRequest
      *
@@ -572,7 +576,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+     * Adds entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. The quota is calculated independently for each combination of matching dimension and list type. For each combination, the whitelist supports up to 10,000 entries and the blacklist supports up to 1,000 entries. If the quota is exceeded after the addition, the entire batch fails.
      *
      * @param request - AddVirusScanAdditionalListsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -618,7 +622,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Appends entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. Quotas are calculated independently for each combination of matching dimension and list type. Each combination allows a maximum of 10,000 whitelist entries and 1,000 blacklist entries. If the quota is exceeded after appending, the entire batch fails.
+     * Adds entries in batches to the virus scan blacklists and whitelists for a specified operating system without overwriting existing entries. The quota is calculated independently for each combination of matching dimension and list type. For each combination, the whitelist supports up to 10,000 entries and the blacklist supports up to 1,000 entries. If the quota is exceeded after the addition, the entire batch fails.
      *
      * @param request - AddVirusScanAdditionalListsRequest
      *
@@ -771,7 +775,7 @@ class Csas extends OpenApiClient
      * Inserts domain name entries into a domain name list in batches.
      *
      * @remarks
-     * Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+     * Appends domain name entries to a specified domain name list (`ListId`) in batches. Domain names must be second-level or higher-level domain names. Wildcard domain names such as `*.example.com` are supported, but overly broad formats such as `*.com` and `*.com.cn` are prohibited.
      *
      * @param request - BatchCreateDomainItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -824,7 +828,7 @@ class Csas extends OpenApiClient
      * Inserts domain name entries into a domain name list in batches.
      *
      * @remarks
-     * Appends domain name entries in batches to a specified domain name list (`ListId`). Domain names must be second-level or higher domain names. Wildcard domain names (`*.example.com`) are supported, but overly broad patterns such as `*.com` or `*.com.cn` are prohibited.
+     * Appends domain name entries to a specified domain name list (`ListId`) in batches. Domain names must be second-level or higher-level domain names. Wildcard domain names such as `*.example.com` are supported, but overly broad formats such as `*.com` and `*.com.cn` are prohibited.
      *
      * @param request - BatchCreateDomainItemsRequest
      *
@@ -842,10 +846,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch deletes domain name entries from a domain name list.
+     * Deletes multiple domain name entries from a domain name list.
      *
      * @remarks
-     * Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+     * Deletes multiple domain name entries from a specified domain name list based on entry IDs (`ItemIds`, obtained from the `ItemId` returned by ListDomainItems).
      *
      * @param request - BatchDeleteDomainItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -895,10 +899,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Batch deletes domain name entries from a domain name list.
+     * Deletes multiple domain name entries from a domain name list.
      *
      * @remarks
-     * Batch deletes domain name entries from a specified domain name list by entry IDs (`ItemIds`, obtained from the `ItemId` field returned by ListDomainItems).
+     * Deletes multiple domain name entries from a specified domain name list based on entry IDs (`ItemIds`, obtained from the `ItemId` returned by ListDomainItems).
      *
      * @param request - BatchDeleteDomainItemsRequest
      *
@@ -916,12 +920,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Deletes internal-facing applications in batches.
+     * Deletes multiple private access applications.
      *
      * @remarks
-     * Applications that are referenced by office network recognition or policies cannot be deleted. References:
-     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
-     * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+     * Deletion is not allowed when office area identification or policy references exist. References:
+     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
+     * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists private access policies.
      *
      * @param request - BatchDeletePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -963,12 +967,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Deletes internal-facing applications in batches.
+     * Deletes multiple private access applications.
      *
      * @remarks
-     * Applications that are referenced by office network recognition or policies cannot be deleted. References:
-     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists internal-facing access applications in batches.
-     * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists internal-facing access policies in batches.
+     * Deletion is not allowed when office area identification or policy references exist. References:
+     * - [ListPrivateAccessApplications](~~ListPrivateAccessApplications~~): Lists private access applications.
+     * - [ListPrivateAccessPolices](~~ListPrivateAccessPolices~~): Lists private access policies.
      *
      * @param request - BatchDeletePrivateAccessApplicationRequest
      *
@@ -986,7 +990,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Deletes internal network access policies in batches.
+     * Deletes multiple internal network access policies.
      *
      * @param request - BatchDeletePrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1028,7 +1032,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Deletes internal network access policies in batches.
+     * Deletes multiple internal network access policies.
      *
      * @param request - BatchDeletePrivateAccessPolicyRequest
      *
@@ -1046,7 +1050,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Associates user labels.
+     * Associates user tags.
      *
      * @param request - BindSaseUserTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1092,7 +1096,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Associates user labels.
+     * Associates user tags.
      *
      * @param request - BindSaseUserTagRequest
      *
@@ -1110,7 +1114,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+     * Cancels multiple active instant virus scan tasks in batches. After cancellation, endpoints no longer pull or execute the tasks, and scans already running on the endpoints are not interrupted.
      *
      * @param request - CancelVirusScanTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1152,7 +1156,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Cancels multiple virus scan tasks that have not yet expired in a batch. After cancellation, terminals no longer pull and execute the tasks. Scans already running on terminals are not interrupted.
+     * Cancels multiple active instant virus scan tasks in batches. After cancellation, endpoints no longer pull or execute the tasks, and scans already running on the endpoints are not interrupted.
      *
      * @param request - CancelVirusScanTasksRequest
      *
@@ -1170,7 +1174,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+     * Cancels multiple active on-demand vulnerability scanning nodes.
      *
      * @param request - CancelVulScanTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1212,7 +1216,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Cancels multiple vulnerability scanning tasks that have not yet expired in a batch.
+     * Cancels multiple active on-demand vulnerability scanning nodes.
      *
      * @param request - CancelVulScanTasksRequest
      *
@@ -1308,7 +1312,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a backend filing.
+     * Creates a backend report.
      *
      * @param request - CreateBackendReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1370,7 +1374,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a backend filing.
+     * Creates a backend report.
      *
      * @param request - CreateBackendReportRequest
      *
@@ -1538,7 +1542,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a device label.
+     * Creates a device tag.
      *
      * @param tmpReq - CreateDeviceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1599,7 +1603,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a device label.
+     * Creates a device tag.
      *
      * @param request - CreateDeviceGroupRequest
      *
@@ -1620,7 +1624,7 @@ class Csas extends OpenApiClient
      * Creates a domain name list.
      *
      * @remarks
-     * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+     * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
      *
      * @param request - CreateDomainMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1666,7 +1670,7 @@ class Csas extends OpenApiClient
      * Creates a domain name list.
      *
      * @remarks
-     * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. A maximum of 100 lists can be created for each list type per tenant.
+     * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
      *
      * @param request - CreateDomainMetaRequest
      *
@@ -1939,7 +1943,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a traffic forwarding rule.
+     * Creates a forwarding rule.
      *
      * @param request - CreateForwardStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1998,7 +2002,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a traffic forwarding rule.
+     * Creates a forwarding rule.
      *
      * @param request - CreateForwardStrategyRequest
      *
@@ -2077,7 +2081,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a diagnostic task for internal network access.
+     * Creates an internal network access diagnostic task.
      *
      * @param tmpReq - CreatePADiagnosisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2158,7 +2162,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a diagnostic task for internal network access.
+     * Creates an internal network access diagnostic task.
      *
      * @param request - CreatePADiagnosisTaskRequest
      *
@@ -2525,7 +2529,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a software ban policy.
+     * Creates a prohibited software policy.
      *
      * @param request - CreateProhibitedPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2647,7 +2651,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a software ban policy.
+     * Creates a prohibited software policy.
      *
      * @param request - CreateProhibitedPolicyRequest
      *
@@ -2665,7 +2669,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a custom disabled software entry.
+     * Creates custom blocked software.
      *
      * @param request - CreateProhibitedSoftwareRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2727,7 +2731,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a custom disabled software entry.
+     * Creates custom blocked software.
      *
      * @param request - CreateProhibitedSoftwareRequest
      *
@@ -2745,7 +2749,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a custom disabled software tag.
+     * Creates a custom prohibited software tag.
      *
      * @param request - CreateProhibitedTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2788,7 +2792,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a custom disabled software tag.
+     * Creates a custom prohibited software tag.
      *
      * @param request - CreateProhibitedTagRequest
      *
@@ -2981,8 +2985,8 @@ class Csas extends OpenApiClient
      *
      * @remarks
      * - After a task is created, its initial status is disabled.
-     * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
-     * - SupportOs supports only a single operating system value.
+     * - MatchMode determines how target parameters are specified. If MatchMode is set to UserGroupNormal, you must specify only UserGroupIds. If MatchMode is set to DeviceGroupNormal, you must specify only DeviceGroupIds. If MatchMode is set to DevTagNormal, you must specify only DevTags. Requests with parameters that do not match the specified MatchMode are rejected.
+     * - SupportOs supports only a single operating system.
      *
      * @param request - CreateSoftwarelibDistributeTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3096,8 +3100,8 @@ class Csas extends OpenApiClient
      *
      * @remarks
      * - After a task is created, its initial status is disabled.
-     * - MatchMode determines how to specify the matching target parameters: when set to UserGroupNormal, you must pass only UserGroupIds. When set to DeviceGroupNormal, you must pass only DeviceGroupIds. When set to DevTagNormal, you must pass only DevTags. Requests that contain parameters not matching the MatchMode value are rejected.
-     * - SupportOs supports only a single operating system value.
+     * - MatchMode determines how target parameters are specified. If MatchMode is set to UserGroupNormal, you must specify only UserGroupIds. If MatchMode is set to DeviceGroupNormal, you must specify only DeviceGroupIds. If MatchMode is set to DevTagNormal, you must specify only DevTags. Requests with parameters that do not match the specified MatchMode are rejected.
+     * - SupportOs supports only a single operating system.
      *
      * @param request - CreateSoftwarelibDistributeTaskRequest
      *
@@ -3288,7 +3292,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+     * Creates a scheduled virus scan policy that automatically delivers scan tasks to user endpoints within the effective scope based on the configured schedule.
      *
      * @param request - CreateVirusScanScheduledStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3402,7 +3406,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a scheduled virus scan policy that automatically sends scan tasks to user terminal devices within the effective scope based on the configured cycle.
+     * Creates a scheduled virus scan policy that automatically delivers scan tasks to user endpoints within the effective scope based on the configured schedule.
      *
      * @param request - CreateVirusScanScheduledStrategyRequest
      *
@@ -3891,10 +3895,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a digital watermarking embedding task.
+     * Creates a digital watermarking embedding node.
      *
      * @remarks
-     * You can create a maximum of 500 user groups by default.
+     * By default, you can create up to 500 user groups.
      *
      * @param tmpReq - CreateWmEmbedTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4015,10 +4019,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a digital watermarking embedding task.
+     * Creates a digital watermarking embedding node.
      *
      * @remarks
-     * You can create a maximum of 500 user groups by default.
+     * By default, you can create up to 500 user groups.
      *
      * @param request - CreateWmEmbedTaskRequest
      *
@@ -4036,7 +4040,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a digital watermarking extraction task.
+     * Creates a digital watermarking fetch node.
      *
      * @param tmpReq - CreateWmExtractTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4123,7 +4127,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Creates a digital watermarking extraction task.
+     * Creates a digital watermarking fetch node.
      *
      * @param request - CreateWmExtractTaskRequest
      *
@@ -6680,7 +6684,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified device label.
+     * Queries the details of a specified device group.
      *
      * @param request - GetDeviceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6719,7 +6723,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified device label.
+     * Queries the details of a specified device group.
      *
      * @param request - GetDeviceGroupRequest
      *
@@ -6858,7 +6862,7 @@ class Csas extends OpenApiClient
      * Queries the details of a forwarding rule.
      *
      * @remarks
-     * Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+     * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
      *
      * @param request - GetForwardStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6896,7 +6900,7 @@ class Csas extends OpenApiClient
      * Queries the details of a forwarding rule.
      *
      * @remarks
-     * Creates a domain name list of a specified type (blacklist/whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
+     * Creates a domain name list of a specified type (blacklist or whitelist) under the current tenant and returns the ListId of the new list. You can create up to 100 lists of each type per tenant.
      *
      * @param request - GetForwardStrategyRequest
      *
@@ -6914,7 +6918,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
+     * Queries the details of a specified identity source configuration for the current Alibaba Cloud account.
      *
      * @param request - GetIdpConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6949,7 +6953,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Retrieve the configuration details of a specified identity provider for your Alibaba Cloud account.
+     * Queries the details of a specified identity source configuration for the current Alibaba Cloud account.
      *
      * @param request - GetIdpConfigRequest
      *
@@ -7023,7 +7027,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a private access diagnostic task.
+     * Queries the details of an internal network access diagnostic task.
      *
      * @param request - GetPADiagnosisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7058,7 +7062,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a private access diagnostic task.
+     * Queries the details of an internal network access diagnostic task.
      *
      * @param request - GetPADiagnosisTaskRequest
      *
@@ -7076,7 +7080,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a private access application under the current Alibaba Cloud account.
+     * Queries the details of a private access application within the current Alibaba Cloud account.
      *
      * @param request - GetPrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7111,7 +7115,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a private access application under the current Alibaba Cloud account.
+     * Queries the details of a private access application within the current Alibaba Cloud account.
      *
      * @param request - GetPrivateAccessApplicationRequest
      *
@@ -7182,7 +7186,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified software prohibition policy.
+     * Queries the details of a specified prohibited software policy.
      *
      * @param request - GetProhibitedPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7217,7 +7221,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified software prohibition policy.
+     * Queries the details of a specified prohibited software policy.
      *
      * @param request - GetProhibitedPolicyRequest
      *
@@ -7235,7 +7239,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified prohibited software.
+     * Queries the details of the specified prohibited software.
      *
      * @param tmpReq - GetProhibitedSoftwareRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7276,7 +7280,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified prohibited software.
+     * Queries the details of the specified prohibited software.
      *
      * @param request - GetProhibitedSoftwareRequest
      *
@@ -7404,7 +7408,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of user terminal devices under the current Alibaba Cloud account.
+     * Queries the details of user terminal devices in the current Alibaba Cloud account.
      *
      * @param request - GetUserDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7439,7 +7443,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of user terminal devices under the current Alibaba Cloud account.
+     * Queries the details of user terminal devices in the current Alibaba Cloud account.
      *
      * @param request - GetUserDeviceRequest
      *
@@ -7579,7 +7583,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+     * Queries the global antivirus configuration for the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have a custom configuration record, the system default configurations are returned.
      *
      * @param request - GetVirusScanGlobalConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7611,7 +7615,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the global anti-virus configuration of the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have its own configuration record, the default configurations are returned.
+     * Queries the global antivirus configuration for the current Alibaba Cloud account, including the virus file upload switch and upload limits. If the current Alibaba Cloud account does not have a custom configuration record, the system default configurations are returned.
      *
      * @param request - GetVirusScanGlobalConfigRequest
      *
@@ -7682,7 +7686,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+     * Queries the global vulnerability scanning configuration for the current Alibaba Cloud account.
      *
      * @param request - GetVulScanGlobalConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7714,7 +7718,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the global configuration of vulnerability scanning for the current Alibaba Cloud account.
+     * Queries the global vulnerability scanning configuration for the current Alibaba Cloud account.
      *
      * @param request - GetVulScanGlobalConfigRequest
      *
@@ -7732,7 +7736,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the complete configuration of a specified vulnerability scheduled scan policy.
+     * Queries the complete configuration of a specified scheduled vulnerability scanning policy.
      *
      * @param request - GetVulScanScheduledStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7767,7 +7771,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the complete configuration of a specified vulnerability scheduled scan policy.
+     * Queries the complete configuration of a specified scheduled vulnerability scanning policy.
      *
      * @param request - GetVulScanScheduledStrategyRequest
      *
@@ -8005,7 +8009,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Immediately invalidates an approval.
+     * Immediately invalidates a report.
      *
      * @param request - InvalidateApprovalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8044,7 +8048,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Immediately invalidates an approval.
+     * Immediately invalidates a report.
      *
      * @param request - InvalidateApprovalRequest
      *
@@ -8486,7 +8490,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries connectors in batches.
+     * Queries the details of connectors under the current Alibaba Cloud account.
+     *
+     * @remarks
+     * Filters connectors by name, connection status, instance status, and connector ID, and returns a paginated list of matched connectors along with the total count.
      *
      * @param request - ListConnectorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8521,7 +8528,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries connectors in batches.
+     * Queries the details of connectors under the current Alibaba Cloud account.
+     *
+     * @remarks
+     * Filters connectors by name, connection status, instance status, and connector ID, and returns a paginated list of matched connectors along with the total count.
      *
      * @param request - ListConnectorsRequest
      *
@@ -8539,7 +8549,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of device groups under the current Alibaba Cloud account by using paging.
+     * Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
      *
      * @param request - ListDeviceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8590,7 +8600,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the list of device groups under the current Alibaba Cloud account by using paging.
+     * Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
      *
      * @param request - ListDeviceGroupsRequest
      *
@@ -8608,7 +8618,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+     * Queries the user terminal devices affected by a specified vulnerability and their remediation statuses by using paging in a paged query.
      *
      * @param request - ListDevicesForVulnerabilityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8643,7 +8653,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries user endpoint devices affected by a specified vulnerability and their remediation status by paging.
+     * Queries the user terminal devices affected by a specified vulnerability and their remediation statuses by using paging in a paged query.
      *
      * @param request - ListDevicesForVulnerabilityRequest
      *
@@ -9328,7 +9338,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries forwarding rules in batches.
+     * Lists forwarding rules.
      *
      * @param request - ListForwardStrategiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9363,7 +9373,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries forwarding rules in batches.
+     * Lists forwarding rules.
      *
      * @param request - ListForwardStrategiesRequest
      *
@@ -9625,10 +9635,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+     * Performs a paging query on the bandwidth configurations of VPC and Connector network instances connected to the current tenant.
      *
      * @remarks
-     * Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+     * Queries the bandwidth configurations of available network instances within the current account. You can filter the results by network type (NetType) and instance IDs (InstanceIds), and paginate the results by using CurrentPage and PageSize.
      *
      * @param request - ListNetBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9679,10 +9689,10 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the VPC and Connector network instances connected to the current tenant and their bandwidth configurations by paging.
+     * Performs a paging query on the bandwidth configurations of VPC and Connector network instances connected to the current tenant.
      *
      * @remarks
-     * Queries the bandwidth configuration list of available network instances under the current account. You can filter results by network type (`NetType`) and instance ID list (`InstanceIds`), and use `CurrentPage` and `PageSize` for pagination.
+     * Queries the bandwidth configurations of available network instances within the current account. You can filter the results by network type (NetType) and instance IDs (InstanceIds), and paginate the results by using CurrentPage and PageSize.
      *
      * @param request - ListNetBandwidthRequest
      *
@@ -9704,10 +9714,10 @@ class Csas extends OpenApiClient
      *
      * @remarks
      * - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
-     * - If OperationStatus is not specified, only successful operation records are returned.
-     * - Results are sorted by operation time in descending order.
+     * - If OperationStatus is not specified, only records of successful operations are returned.
+     * - The returned results are sorted in descending order of operation time.
      * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
-     * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+     * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\). Otherwise, an InvalidParameter error is returned.
      *
      * @param request - ListOperationAuditLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9782,10 +9792,10 @@ class Csas extends OpenApiClient
      *
      * @remarks
      * - StartTime and EndTime are UNIX timestamps in seconds. StartTime must be earlier than EndTime. The interval between them cannot exceed 30 days, and StartTime cannot be more than 31 days before the current time.
-     * - If OperationStatus is not specified, only successful operation records are returned.
-     * - Results are sorted by operation time in descending order.
+     * - If OperationStatus is not specified, only records of successful operations are returned.
+     * - The returned results are sorted in descending order of operation time.
      * - The return values of OperationFunc, OperationPage, and OperationType are localized based on the request language.
-     * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\\\). Otherwise, an InvalidParameter error is returned.
+     * - The values of filter parameters cannot contain single quotation marks (\\"), double quotation marks ("), or backslashes (\\). Otherwise, an InvalidParameter error is returned.
      *
      * @param request - ListOperationAuditLogsRequest
      *
@@ -10068,7 +10078,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of all private access applications in the current Alibaba Cloud account.
+     * Queries the information about all private access applications under the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10147,7 +10157,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the details of all private access applications in the current Alibaba Cloud account.
+     * Queries the information about all private access applications under the current Alibaba Cloud account.
      *
      * @param request - ListPrivateAccessApplicationsRequest
      *
@@ -10923,12 +10933,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries software in the software library.
+     * Queries software in the software library in batches.
      *
      * @remarks
-     * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+     * - Pagination is implemented by using CurrentPage and PageSize. NextToken and MaxResults do not take effect.
      * - SoftwareName supports fuzzy match.
-     * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+     * - The Versions field (software version list) in the response is not returned. For more information about how to view and manage software versions, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
      *
      * @param request - ListSoftwarelibSoftwareRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10995,12 +11005,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries software in the software library.
+     * Queries software in the software library in batches.
      *
      * @remarks
-     * - Use CurrentPage and PageSize for pagination. NextToken and MaxResults do not take effect.
+     * - Pagination is implemented by using CurrentPage and PageSize. NextToken and MaxResults do not take effect.
      * - SoftwareName supports fuzzy match.
-     * - The Versions field (software version list) in the response is not returned. To query software versions, call [ListSoftwarelibVersion](~~ListSoftwarelibVersion~~).
+     * - The Versions field (software version list) in the response is not returned. For more information about how to view and manage software versions, see [Software management](https://www.alibabacloud.com/help/en/sase/user-guide/software-management).
      *
      * @param request - ListSoftwarelibSoftwareRequest
      *
@@ -11230,7 +11240,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries a list of user endpoint devices under the current Alibaba Cloud account.
+     * Queries the list of user terminal devices under the current Alibaba Cloud account.
      *
      * @param request - ListUserDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11284,6 +11294,10 @@ class Csas extends OpenApiClient
 
         if (null !== $request->deviceTypes) {
             @$query['DeviceTypes'] = $request->deviceTypes;
+        }
+
+        if (null !== $request->diskEncryptStatuses) {
+            @$query['DiskEncryptStatuses'] = $request->diskEncryptStatuses;
         }
 
         if (null !== $request->dlpStatuses) {
@@ -11365,7 +11379,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries a list of user endpoint devices under the current Alibaba Cloud account.
+     * Queries the list of user terminal devices under the current Alibaba Cloud account.
      *
      * @param request - ListUserDevicesRequest
      *
@@ -11701,7 +11715,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
+     * Queries the virus scan blacklists and whitelists for a specified operating system, and returns them grouped by match dimension and list type. The blacklists and whitelists are global lists at the Alibaba Cloud account and operating system dimensions, and take effect for all instant scans, scheduled scans, and real-time protection under the account.
      *
      * @param request - ListVirusScanAdditionalListsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11736,7 +11750,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Queries the virus scan blacklists and whitelists for a specified operating system, and returns the results grouped by matching dimension and list type. The blacklists and whitelists are global lists scoped to the Alibaba Cloud account and operating system dimensions, and take effect for all on-demand scans, scheduled scans, and real-time protection under the account.
+     * Queries the virus scan blacklists and whitelists for a specified operating system, and returns them grouped by match dimension and list type. The blacklists and whitelists are global lists at the Alibaba Cloud account and operating system dimensions, and take effect for all instant scans, scheduled scans, and real-time protection under the account.
      *
      * @param request - ListVirusScanAdditionalListsRequest
      *
@@ -12678,7 +12692,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Unbinds user labels.
+     * Disassociates user tags.
      *
      * @param request - UnbindSaseUserTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12724,7 +12738,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Unbinds user labels.
+     * Disassociates user tags.
      *
      * @param request - UnbindSaseUserTagRequest
      *
@@ -12836,6 +12850,9 @@ class Csas extends OpenApiClient
     /**
      * Updates an approval process under the current Alibaba Cloud account.
      *
+     * @remarks
+     * Updates the configuration of a specified approval process under the current Alibaba Cloud account. You can modify the name, description, approval nodes, associated approval templates, approval type, and integration configurations with external approval platforms such as DingTalk and Lark. The approval process ID is specified by ProcessId, and other fields are optional. Fields that are not passed retain their original values.
+     *
      * @param tmpReq - UpdateApprovalProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12921,6 +12938,9 @@ class Csas extends OpenApiClient
 
     /**
      * Updates an approval process under the current Alibaba Cloud account.
+     *
+     * @remarks
+     * Updates the configuration of a specified approval process under the current Alibaba Cloud account. You can modify the name, description, approval nodes, associated approval templates, approval type, and integration configurations with external approval platforms such as DingTalk and Lark. The approval process ID is specified by ProcessId, and other fields are optional. Fields that are not passed retain their original values.
      *
      * @param request - UpdateApprovalProcessRequest
      *
@@ -14072,7 +14092,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the Layer 7 access switch for an internal-facing application.
+     * Updates the Layer 7 access switch for an internal access application.
      *
      * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14117,6 +14137,10 @@ class Csas extends OpenApiClient
             @$body['TimeoutSec'] = $request->timeoutSec;
         }
 
+        if (null !== $request->urlAccessPaths) {
+            @$bodyFlat['UrlAccessPaths'] = $request->urlAccessPaths;
+        }
+
         if (null !== $request->userMarkStatus) {
             @$body['UserMarkStatus'] = $request->userMarkStatus;
         }
@@ -14146,7 +14170,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates the Layer 7 access switch for an internal-facing application.
+     * Updates the Layer 7 access switch for an internal access application.
      *
      * @param request - UpdatePrivateAccessApplicationL7SwitchRequest
      *
@@ -14164,7 +14188,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Update an internal network access policy for your Alibaba Cloud account.
+     * Modifies a private access policy under the current Alibaba Cloud account.
      *
      * @param request - UpdatePrivateAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14290,7 +14314,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Update an internal network access policy for your Alibaba Cloud account.
+     * Modifies a private access policy under the current Alibaba Cloud account.
      *
      * @param request - UpdatePrivateAccessPolicyRequest
      *
@@ -14452,7 +14476,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates a custom prohibited software entry.
+     * Updates custom prohibited software.
      *
      * @param request - UpdateProhibitedSoftwareRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14518,7 +14542,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Updates a custom prohibited software entry.
+     * Updates custom prohibited software.
      *
      * @param request - UpdateProhibitedSoftwareRequest
      *
@@ -15194,7 +15218,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+     * Quarantines or marks a virus file on a specified user terminal device as trusted. The DevTag, FilePath, and FileMd5 parameters are used together to locate a virus file record. If the record does not exist, the call fails. Quarantine is an asynchronous operation. The server creates a processing task, which is then pulled and executed by the user terminal device. You can process the same virus file record only once within 1 minute.
      *
      * @param request - UpdateVirusFileStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15249,7 +15273,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Quarantines or trusts a virus file on a specified user terminal device. DevTag, FilePath, and FileMd5 together identify a virus file record. The call fails if the record does not exist. Quarantine is an asynchronous operation. After the server creates a disposal task, the user terminal device pulls and executes it. The same virus file record can only be disposed of once within one minute.
+     * Quarantines or marks a virus file on a specified user terminal device as trusted. The DevTag, FilePath, and FileMd5 parameters are used together to locate a virus file record. If the record does not exist, the call fails. Quarantine is an asynchronous operation. The server creates a processing task, which is then pulled and executed by the user terminal device. You can process the same virus file record only once within 1 minute.
      *
      * @param request - UpdateVirusFileStatusRequest
      *
@@ -15339,7 +15363,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+     * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter fully overwrites the existing exception user list of the policy with the provided list.
      *
      * @param request - UpdateVirusScanScheduledStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15457,7 +15481,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter performs a full overwrite, meaning the provided list replaces the existing exception user list of the policy.
+     * Modifies the configuration of a specified scheduled virus scan policy. The Whitelist parameter fully overwrites the existing exception user list of the policy with the provided list.
      *
      * @param request - UpdateVirusScanScheduledStrategyRequest
      *
@@ -15542,7 +15566,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+     * Modifies the configuration of a specified scheduled vulnerability scan policy and returns the updated full configuration.
      *
      * @param request - UpdateVulScanScheduledStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15628,7 +15652,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified vulnerability scheduled scan policy and returns the complete updated configuration.
+     * Modifies the configuration of a specified scheduled vulnerability scan policy and returns the updated full configuration.
      *
      * @param request - UpdateVulScanScheduledStrategyRequest
      *

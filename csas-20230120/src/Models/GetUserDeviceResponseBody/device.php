@@ -137,6 +137,16 @@ class device extends Model
     public $diskAvailable;
 
     /**
+     * @var string
+     */
+    public $diskEncryptStatus;
+
+    /**
+     * @var string
+     */
+    public $diskEncryptStatusReason;
+
+    /**
      * @var int
      */
     public $diskUsed;
@@ -311,6 +321,8 @@ class device extends Model
         'deviceVersion' => 'DeviceVersion',
         'disk' => 'Disk',
         'diskAvailable' => 'DiskAvailable',
+        'diskEncryptStatus' => 'DiskEncryptStatus',
+        'diskEncryptStatusReason' => 'DiskEncryptStatusReason',
         'diskUsed' => 'DiskUsed',
         'dlpStatus' => 'DlpStatus',
         'edrStatus' => 'EdrStatus',
@@ -461,6 +473,14 @@ class device extends Model
 
         if (null !== $this->diskAvailable) {
             $res['DiskAvailable'] = $this->diskAvailable;
+        }
+
+        if (null !== $this->diskEncryptStatus) {
+            $res['DiskEncryptStatus'] = $this->diskEncryptStatus;
+        }
+
+        if (null !== $this->diskEncryptStatusReason) {
+            $res['DiskEncryptStatusReason'] = $this->diskEncryptStatusReason;
         }
 
         if (null !== $this->diskUsed) {
@@ -720,6 +740,14 @@ class device extends Model
 
         if (isset($map['DiskAvailable'])) {
             $model->diskAvailable = $map['DiskAvailable'];
+        }
+
+        if (isset($map['DiskEncryptStatus'])) {
+            $model->diskEncryptStatus = $map['DiskEncryptStatus'];
+        }
+
+        if (isset($map['DiskEncryptStatusReason'])) {
+            $model->diskEncryptStatusReason = $map['DiskEncryptStatusReason'];
         }
 
         if (isset($map['DiskUsed'])) {
