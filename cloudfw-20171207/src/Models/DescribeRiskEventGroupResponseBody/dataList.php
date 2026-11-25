@@ -58,6 +58,16 @@ class dataList extends Model
     public $firstEventTime;
 
     /**
+     * @var string
+     */
+    public $hitContent;
+
+    /**
+     * @var string
+     */
+    public $hitType;
+
+    /**
      * @var IPLocationInfo
      */
     public $IPLocationInfo;
@@ -141,6 +151,8 @@ class dataList extends Model
         'eventId' => 'EventId',
         'eventName' => 'EventName',
         'firstEventTime' => 'FirstEventTime',
+        'hitContent' => 'HitContent',
+        'hitType' => 'HitType',
         'IPLocationInfo' => 'IPLocationInfo',
         'lastEventTime' => 'LastEventTime',
         'resourcePrivateIPList' => 'ResourcePrivateIPList',
@@ -218,6 +230,14 @@ class dataList extends Model
 
         if (null !== $this->firstEventTime) {
             $res['FirstEventTime'] = $this->firstEventTime;
+        }
+
+        if (null !== $this->hitContent) {
+            $res['HitContent'] = $this->hitContent;
+        }
+
+        if (null !== $this->hitType) {
+            $res['HitType'] = $this->hitType;
         }
 
         if (null !== $this->IPLocationInfo) {
@@ -346,6 +366,14 @@ class dataList extends Model
 
         if (isset($map['FirstEventTime'])) {
             $model->firstEventTime = $map['FirstEventTime'];
+        }
+
+        if (isset($map['HitContent'])) {
+            $model->hitContent = $map['HitContent'];
+        }
+
+        if (isset($map['HitType'])) {
+            $model->hitType = $map['HitType'];
         }
 
         if (isset($map['IPLocationInfo'])) {

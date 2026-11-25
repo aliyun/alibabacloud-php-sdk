@@ -26,11 +26,17 @@ class DescribeAclCheckRequest extends Model
     /**
      * @var string
      */
+    public $processStatus;
+
+    /**
+     * @var string
+     */
     public $taskId;
     protected $_name = [
         'lang' => 'Lang',
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
+        'processStatus' => 'ProcessStatus',
         'taskId' => 'TaskId',
     ];
 
@@ -52,6 +58,10 @@ class DescribeAclCheckRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->processStatus) {
+            $res['ProcessStatus'] = $this->processStatus;
         }
 
         if (null !== $this->taskId) {
@@ -79,6 +89,10 @@ class DescribeAclCheckRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ProcessStatus'])) {
+            $model->processStatus = $map['ProcessStatus'];
         }
 
         if (isset($map['TaskId'])) {
