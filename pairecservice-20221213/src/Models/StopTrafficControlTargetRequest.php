@@ -11,8 +11,14 @@ class StopTrafficControlTargetRequest extends Model
     /**
      * @var string
      */
+    public $environment;
+
+    /**
+     * @var string
+     */
     public $instanceId;
     protected $_name = [
+        'environment' => 'Environment',
         'instanceId' => 'InstanceId',
     ];
 
@@ -24,6 +30,10 @@ class StopTrafficControlTargetRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->environment) {
+            $res['Environment'] = $this->environment;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -39,6 +49,10 @@ class StopTrafficControlTargetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Environment'])) {
+            $model->environment = $map['Environment'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

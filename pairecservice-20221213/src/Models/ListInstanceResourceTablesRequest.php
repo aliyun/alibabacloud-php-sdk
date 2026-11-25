@@ -12,8 +12,14 @@ class ListInstanceResourceTablesRequest extends Model
      * @var string
      */
     public $maxcomputeSchema;
+
+    /**
+     * @var string
+     */
+    public $tableType;
     protected $_name = [
         'maxcomputeSchema' => 'MaxcomputeSchema',
+        'tableType' => 'TableType',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class ListInstanceResourceTablesRequest extends Model
         $res = [];
         if (null !== $this->maxcomputeSchema) {
             $res['MaxcomputeSchema'] = $this->maxcomputeSchema;
+        }
+
+        if (null !== $this->tableType) {
+            $res['TableType'] = $this->tableType;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class ListInstanceResourceTablesRequest extends Model
         $model = new self();
         if (isset($map['MaxcomputeSchema'])) {
             $model->maxcomputeSchema = $map['MaxcomputeSchema'];
+        }
+
+        if (isset($map['TableType'])) {
+            $model->tableType = $map['TableType'];
         }
 
         return $model;

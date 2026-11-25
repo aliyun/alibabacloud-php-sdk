@@ -67,6 +67,16 @@ class trafficControlTasks extends Model
     /**
      * @var string
      */
+    public $flinkJobOutdated;
+
+    /**
+     * @var string
+     */
+    public $flinkJobs;
+
+    /**
+     * @var string
+     */
     public $flinkResourceId;
 
     /**
@@ -220,6 +230,8 @@ class trafficControlTasks extends Model
         'endTime' => 'EndTime',
         'everPublished' => 'EverPublished',
         'executionTime' => 'ExecutionTime',
+        'flinkJobOutdated' => 'FlinkJobOutdated',
+        'flinkJobs' => 'FlinkJobs',
         'flinkResourceId' => 'FlinkResourceId',
         'flinkResourceName' => 'FlinkResourceName',
         'gmtCreateTime' => 'GmtCreateTime',
@@ -340,6 +352,14 @@ class trafficControlTasks extends Model
 
         if (null !== $this->executionTime) {
             $res['ExecutionTime'] = $this->executionTime;
+        }
+
+        if (null !== $this->flinkJobOutdated) {
+            $res['FlinkJobOutdated'] = $this->flinkJobOutdated;
+        }
+
+        if (null !== $this->flinkJobs) {
+            $res['FlinkJobs'] = $this->flinkJobs;
         }
 
         if (null !== $this->flinkResourceId) {
@@ -553,6 +573,14 @@ class trafficControlTasks extends Model
 
         if (isset($map['ExecutionTime'])) {
             $model->executionTime = $map['ExecutionTime'];
+        }
+
+        if (isset($map['FlinkJobOutdated'])) {
+            $model->flinkJobOutdated = $map['FlinkJobOutdated'];
+        }
+
+        if (isset($map['FlinkJobs'])) {
+            $model->flinkJobs = $map['FlinkJobs'];
         }
 
         if (isset($map['FlinkResourceId'])) {

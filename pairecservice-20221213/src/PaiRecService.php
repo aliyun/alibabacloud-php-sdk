@@ -387,6 +387,7 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTrafficControlTaskTraf
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UpdateTrafficControlTaskTrafficResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UploadRecommendationDataRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\UploadRecommendationDataResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -397,6 +398,9 @@ class PaiRecService extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'PaiRecService';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('pairecservice', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -906,11 +910,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Checks whether a specified recall management service is working properly.
+     * Checks whether the specified recall management service is working properly.
      *
      * @remarks
      * ## Request description
-     * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+     * This operation allows you to check the status or performance of a specific recall management service by providing the recall management service ID and related parameters. Ensure that the `InstanceId` field is correct to point to the right instance. To test a specific version of the service, provide `RecallManagementServiceVersionId`. Additionally, you can further customize the request by using parameters such as `Recalls`, `ContextParams`, `ExposureList`, and `RetainFields` to more accurately simulate real-world scenarios.
      *
      * @param request - CheckRecallManagementServiceRequest
      * @param headers - map
@@ -977,11 +981,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Checks whether a specified recall management service is working properly.
+     * Checks whether the specified recall management service is working properly.
      *
      * @remarks
      * ## Request description
-     * This operation checks the status or performance of a specific recall management service by using the recall management service ID and related parameters. Ensure that the InstanceId field is correct to target the right instance. To test a specific version of the service, provide the RecallManagementServiceVersionId. You can also customize the request by using parameters such as Recalls, ContextParams, ExposureList, and RetainFields to accurately simulate real-world scenarios.
+     * This operation allows you to check the status or performance of a specific recall management service by providing the recall management service ID and related parameters. Ensure that the `InstanceId` field is correct to point to the right instance. To test a specific version of the service, provide `RecallManagementServiceVersionId`. Additionally, you can further customize the request by using parameters such as `Recalls`, `ContextParams`, `ExposureList`, and `RetainFields` to more accurately simulate real-world scenarios.
      *
      * @param request - CheckRecallManagementServiceRequest
      *
@@ -2493,7 +2497,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Configure a feature consistency check task.
+     * Creates a feature consistency check job configuration.
      *
      * @param request - CreateFeatureConsistencyCheckJobConfigRequest
      * @param headers - map
@@ -2719,7 +2723,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Configure a feature consistency check task.
+     * Creates a feature consistency check job configuration.
      *
      * @param request - CreateFeatureConsistencyCheckJobConfigRequest
      *
@@ -8162,11 +8166,11 @@ class PaiRecService extends OpenApiClient
      * Queries the details of a traffic control task with a specified ID.
      *
      * @remarks
-     * ## Description
+     * ## Request description
      * - This operation retrieves the details of a specific traffic control task, including but not limited to the task name, description, and status.
-     * - TrafficControlTaskId and InstanceId are required parameters that specify the task ID and instance ID to query.
-     * - Optional parameters such as Environment, Version, and ControlTargetFilter help refine the request to retrieve more specific task data or version information.
-     * - Check the returned data structure, especially the TrafficControlTargets section, which contains multiple control targets and their related properties.
+     * - `TrafficControlTaskId` and `InstanceId` are required parameters used to specify the task ID and instance ID to query, respectively.
+     * - Optional parameters such as `Environment`, `Version`, and `ControlTargetFilter` can help further refine the request to retrieve more specific task data or version information.
+     * - Check the returned data structure, especially the `TrafficControlTargets` section, which contains multiple control targets and their related attributes.
      *
      * @param request - GetTrafficControlTaskRequest
      * @param headers - map
@@ -8228,11 +8232,11 @@ class PaiRecService extends OpenApiClient
      * Queries the details of a traffic control task with a specified ID.
      *
      * @remarks
-     * ## Description
+     * ## Request description
      * - This operation retrieves the details of a specific traffic control task, including but not limited to the task name, description, and status.
-     * - TrafficControlTaskId and InstanceId are required parameters that specify the task ID and instance ID to query.
-     * - Optional parameters such as Environment, Version, and ControlTargetFilter help refine the request to retrieve more specific task data or version information.
-     * - Check the returned data structure, especially the TrafficControlTargets section, which contains multiple control targets and their related properties.
+     * - `TrafficControlTaskId` and `InstanceId` are required parameters used to specify the task ID and instance ID to query, respectively.
+     * - Optional parameters such as `Environment`, `Version`, and `ControlTargetFilter` can help further refine the request to retrieve more specific task data or version information.
+     * - Check the returned data structure, especially the `TrafficControlTargets` section, which contains multiple control targets and their related attributes.
      *
      * @param request - GetTrafficControlTaskRequest
      *
@@ -8997,7 +9001,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of engine configurations.
+     * Retrieves the engine configurations.
      *
      * @param request - ListEngineConfigsRequest
      * @param headers - map
@@ -9067,7 +9071,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of engine configurations.
+     * Retrieves the engine configurations.
      *
      * @param request - ListEngineConfigsRequest
      *
@@ -9619,11 +9623,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Queries all tables in a specified instance and data source.
+     * Queries all data tables under a specified instance and data source.
      *
      * @remarks
      * ## Request description
-     * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of all tables in the data source. You can use the optional `MaxcomputeSchema` parameter to specify a MaxCompute schema to further filter the results.
+     * By providing the instance ID (InstanceId) and the data source ID (ResourceId), you can retrieve a list of all data tables under the data source. The optional `MaxcomputeSchema` parameter allows you to specify the MaxCompute schema to further filter the results.
      *
      * @param request - ListInstanceResourceTablesRequest
      * @param headers - map
@@ -9647,6 +9651,10 @@ class PaiRecService extends OpenApiClient
             @$query['MaxcomputeSchema'] = $request->maxcomputeSchema;
         }
 
+        if (null !== $request->tableType) {
+            @$query['TableType'] = $request->tableType;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -9667,11 +9675,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Queries all tables in a specified instance and data source.
+     * Queries all data tables under a specified instance and data source.
      *
      * @remarks
      * ## Request description
-     * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of all tables in the data source. You can use the optional `MaxcomputeSchema` parameter to specify a MaxCompute schema to further filter the results.
+     * By providing the instance ID (InstanceId) and the data source ID (ResourceId), you can retrieve a list of all data tables under the data source. The optional `MaxcomputeSchema` parameter allows you to specify the MaxCompute schema to further filter the results.
      *
      * @param request - ListInstanceResourceTablesRequest
      *
@@ -11062,14 +11070,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Queries traffic control tasks that meet specified conditions.
+     * Queries the traffic control tasks that meet the specified conditions.
      *
      * @remarks
      * ## Request description
-     * - This operation retrieves a list of traffic control nodes that meet specific conditional requirements.
-     * - You can filter the returned nodes and apply sorting by specifying different query parameters.
-     * - Paged query is supported. You can also choose to return all data at once without paging.
-     * - Note: InstanceId is required, and other parameters are options. Specify other parameters as needed to obtain more precise results.
+     * - This operation retrieves a list of traffic control nodes that meet specific conditional criteria.
+     * - You can use different query parameters for filtering and sorting the returned list of nodes.
+     * - Paged query is supported. You can also retrieve all data at once without paging.
+     * - Note: `InstanceId` is required. All other parameters are options. Specify them as needed to obtain more accurate results.
      *
      * @param request - ListTrafficControlTasksRequest
      * @param headers - map
@@ -11159,14 +11167,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Queries traffic control tasks that meet specified conditions.
+     * Queries the traffic control tasks that meet the specified conditions.
      *
      * @remarks
      * ## Request description
-     * - This operation retrieves a list of traffic control nodes that meet specific conditional requirements.
-     * - You can filter the returned nodes and apply sorting by specifying different query parameters.
-     * - Paged query is supported. You can also choose to return all data at once without paging.
-     * - Note: InstanceId is required, and other parameters are options. Specify other parameters as needed to obtain more precise results.
+     * - This operation retrieves a list of traffic control nodes that meet specific conditional criteria.
+     * - You can use different query parameters for filtering and sorting the returned list of nodes.
+     * - Paged query is supported. You can also retrieve all data at once without paging.
+     * - Note: `InstanceId` is required. All other parameters are options. Specify them as needed to obtain more accurate results.
      *
      * @param request - ListTrafficControlTasksRequest
      *
@@ -12974,11 +12982,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Starts a traffic control task for a specific traffic control target.
+     * Starts a traffic shaping task with the specified ID.
      *
      * @remarks
-     * ## Request
-     * Call this operation to start a traffic control task by providing the `TrafficControlTargetId` and `InstanceId`.
+     * ## Request description
+     * You can call this operation to start a specific traffic shaping task by specifying the `TrafficControlTargetId` and `InstanceId` parameters. Ensure that you correctly specify the values of these two parameters in the request to prevent operation failures.
      *
      * @param request - StartTrafficControlTargetRequest
      * @param headers - map
@@ -12997,6 +13005,10 @@ class PaiRecService extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->environment) {
+            @$body['Environment'] = $request->environment;
+        }
+
         if (null !== $request->instanceId) {
             @$body['InstanceId'] = $request->instanceId;
         }
@@ -13021,11 +13033,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Starts a traffic control task for a specific traffic control target.
+     * Starts a traffic shaping task with the specified ID.
      *
      * @remarks
-     * ## Request
-     * Call this operation to start a traffic control task by providing the `TrafficControlTargetId` and `InstanceId`.
+     * ## Request description
+     * You can call this operation to start a specific traffic shaping task by specifying the `TrafficControlTargetId` and `InstanceId` parameters. Ensure that you correctly specify the values of these two parameters in the request to prevent operation failures.
      *
      * @param request - StartTrafficControlTargetRequest
      *
@@ -13264,11 +13276,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Stops a specific traffic control target.
+     * Stops a specified traffic control target.
      *
      * @remarks
-     * ## Request
-     * This operation stops a traffic control task using the provided `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid stopping the wrong target or instance.
+     * ## Request description
+     * Call this operation to stop an ongoing traffic control task by specifying the `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid operating on the wrong target or instance.
      *
      * @param request - StopTrafficControlTargetRequest
      * @param headers - map
@@ -13287,6 +13299,10 @@ class PaiRecService extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->environment) {
+            @$body['Environment'] = $request->environment;
+        }
+
         if (null !== $request->instanceId) {
             @$body['InstanceId'] = $request->instanceId;
         }
@@ -13311,11 +13327,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Stops a specific traffic control target.
+     * Stops a specified traffic control target.
      *
      * @remarks
-     * ## Request
-     * This operation stops a traffic control task using the provided `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid stopping the wrong target or instance.
+     * ## Request description
+     * Call this operation to stop an ongoing traffic control task by specifying the `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid operating on the wrong target or instance.
      *
      * @param request - StopTrafficControlTargetRequest
      *
@@ -13420,7 +13436,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Syncs the replay log for a feature consistency check job.
+     * Synchronizes the replay logs of a feature consistency check job.
      *
      * @param request - SyncFeatureConsistencyCheckJobReplayLogRequest
      * @param headers - map
@@ -13498,7 +13514,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * Syncs the replay log for a feature consistency check job.
+     * Synchronizes the replay logs of a feature consistency check job.
      *
      * @param request - SyncFeatureConsistencyCheckJobReplayLogRequest
      *
