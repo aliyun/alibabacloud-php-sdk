@@ -21,6 +21,11 @@ class taskResults extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $namespaceName;
 
     /**
@@ -55,6 +60,7 @@ class taskResults extends Model
     protected $_name = [
         'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
+        'message' => 'Message',
         'namespaceName' => 'NamespaceName',
         'repoName' => 'RepoName',
         'result' => 'Result',
@@ -78,6 +84,10 @@ class taskResults extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         if (null !== $this->namespaceName) {
@@ -125,6 +135,10 @@ class taskResults extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         if (isset($map['NamespaceName'])) {

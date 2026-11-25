@@ -59,6 +59,11 @@ class CreateArtifactSubscriptionRuleRequest extends Model
     public $tagCount;
 
     /**
+     * @var string[]
+     */
+    public $tagList;
+
+    /**
      * @var string
      */
     public $tagRegexp;
@@ -73,6 +78,7 @@ class CreateArtifactSubscriptionRuleRequest extends Model
         'sourceProvider' => 'SourceProvider',
         'sourceRepoName' => 'SourceRepoName',
         'tagCount' => 'TagCount',
+        'tagList' => 'TagList',
         'tagRegexp' => 'TagRegexp',
     ];
 
@@ -80,6 +86,9 @@ class CreateArtifactSubscriptionRuleRequest extends Model
     {
         if (\is_array($this->platform)) {
             Model::validateArray($this->platform);
+        }
+        if (\is_array($this->tagList)) {
+            Model::validateArray($this->tagList);
         }
         parent::validate();
     }
@@ -132,6 +141,17 @@ class CreateArtifactSubscriptionRuleRequest extends Model
 
         if (null !== $this->tagCount) {
             $res['TagCount'] = $this->tagCount;
+        }
+
+        if (null !== $this->tagList) {
+            if (\is_array($this->tagList)) {
+                $res['TagList'] = [];
+                $n1 = 0;
+                foreach ($this->tagList as $item1) {
+                    $res['TagList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->tagRegexp) {
@@ -194,6 +214,17 @@ class CreateArtifactSubscriptionRuleRequest extends Model
 
         if (isset($map['TagCount'])) {
             $model->tagCount = $map['TagCount'];
+        }
+
+        if (isset($map['TagList'])) {
+            if (!empty($map['TagList'])) {
+                $model->tagList = [];
+                $n1 = 0;
+                foreach ($map['TagList'] as $item1) {
+                    $model->tagList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TagRegexp'])) {
