@@ -54,6 +54,11 @@ class ListCloudAppInstallationsRequest extends Model
     public $renderingInstanceId;
 
     /**
+     * @var string[]
+     */
+    public $renderingInstanceIds;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -67,11 +72,15 @@ class ListCloudAppInstallationsRequest extends Model
         'patchId' => 'PatchId',
         'projectId' => 'ProjectId',
         'renderingInstanceId' => 'RenderingInstanceId',
+        'renderingInstanceIds' => 'RenderingInstanceIds',
         'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->renderingInstanceIds)) {
+            Model::validateArray($this->renderingInstanceIds);
+        }
         parent::validate();
     }
 
@@ -112,6 +121,17 @@ class ListCloudAppInstallationsRequest extends Model
 
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
+        }
+
+        if (null !== $this->renderingInstanceIds) {
+            if (\is_array($this->renderingInstanceIds)) {
+                $res['RenderingInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->renderingInstanceIds as $item1) {
+                    $res['RenderingInstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->startTime) {
@@ -163,6 +183,17 @@ class ListCloudAppInstallationsRequest extends Model
 
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
+        }
+
+        if (isset($map['RenderingInstanceIds'])) {
+            if (!empty($map['RenderingInstanceIds'])) {
+                $model->renderingInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['RenderingInstanceIds'] as $item1) {
+                    $model->renderingInstanceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['StartTime'])) {

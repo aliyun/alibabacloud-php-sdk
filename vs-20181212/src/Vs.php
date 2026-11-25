@@ -285,6 +285,7 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\InstallCloudAppResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\InstallCloudAppShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppInstallationsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppInstallationsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppInstallationsShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppPatchesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppPatchesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppsRequest;
@@ -445,6 +446,9 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateVsPullStreamInfoConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingInstanceImageRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingInstanceImageResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingInstanceImageShrinkRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingServerImageRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingServerImageResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\UpgradeRenderingServerImageShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadCloudAppShrinkRequest;
@@ -454,6 +458,7 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UploadPublicKeyRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UploadPublicKeyResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\VerifyVsDomainOwnerRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\VerifyVsDomainOwnerResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -464,6 +469,9 @@ class Vs extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'vs';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('vs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -494,14 +502,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Adds one or more instances to a specified cluster.
+     * Binds one or more workload instances to a specified cluster.
      *
      * @remarks
-     * ## Usage notes
-     * - **HiveId** is a required parameter that specifies the ID of the target cluster.
-     * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
-     * - Adding an instance that already exists in the target cluster returns an error message.
-     * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
+     * ## Request description
+     * - **HiveId** is a required parameter that specifies the ID of the target cluster to which the workloads are bound.
+     * - **InstanceIds** is a required parameter that specifies the list of workload IDs to bind to the cluster.
+     * - If you attempt to bind a workload ID that already exists in the target cluster, an error message is returned.
+     * - After the binding operation succeeds, the returned lists of successful and failed workload instances help you identify which workloads were successfully bound and which were not, along with the reasons for failure.
      *
      * @param tmpReq - AddHiveEdgeWorkersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -550,14 +558,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Adds one or more instances to a specified cluster.
+     * Binds one or more workload instances to a specified cluster.
      *
      * @remarks
-     * ## Usage notes
-     * - **HiveId** is a required parameter that specifies the ID of the target cluster.
-     * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
-     * - Adding an instance that already exists in the target cluster returns an error message.
-     * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
+     * ## Request description
+     * - **HiveId** is a required parameter that specifies the ID of the target cluster to which the workloads are bound.
+     * - **InstanceIds** is a required parameter that specifies the list of workload IDs to bind to the cluster.
+     * - If you attempt to bind a workload ID that already exists in the target cluster, an error message is returned.
+     * - After the binding operation succeeds, the returned lists of successful and failed workload instances help you identify which workloads were successfully bound and which were not, along with the reasons for failure.
      *
      * @param request - AddHiveEdgeWorkersRequest
      *
@@ -1096,9 +1104,9 @@ class Vs extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
-     * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
-     * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+     * - **Authenticate**: The request must include the AliUid parameter for identity verification.
+     * - **Instance specification**: You can use the RenderingInstanceIds parameter to specify the instances for which you want to capture screenshots.
+     * - **Screenshot quality**: The Quality parameter specifies the screenshot quality settings. The default value is 75 if not configured. Valid values: 1 to 100.
      * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
      *
      * @param tmpReq - BatchCaptureRenderingInstanceScreenshotRequest
@@ -1152,9 +1160,9 @@ class Vs extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - **Authentication**: The request must include the `AliUid` parameter to authenticate and perform identity verification.
-     * - **Instance specification**: You can specify the instances to capture screenshots of by using `RenderingInstanceIds`.
-     * - **Screenshot quality**: You can configure the Settings for the screenshot image quality by using the `Quality` parameter. The default value is 75 if not configured, and the valid values range from 1 to 100.
+     * - **Authenticate**: The request must include the AliUid parameter for identity verification.
+     * - **Instance specification**: You can use the RenderingInstanceIds parameter to specify the instances for which you want to capture screenshots.
+     * - **Screenshot quality**: The Quality parameter specifies the screenshot quality settings. The default value is 75 if not configured. Valid values: 1 to 100.
      * - **Response processing**: The response includes lists of successful and failed instances along with their related information, such as download URLs and screenshot completion times.
      *
      * @param request - BatchCaptureRenderingInstanceScreenshotRequest
@@ -2601,7 +2609,7 @@ class Vs extends OpenApiClient
      * Starts a Comfy task.
      *
      * @remarks
-     * > Enable the on-demand screenshot feature in the associated screenshot template.
+     * > Enable the on-demand screenshot feature in the associated screenshot template in advance.
      *
      * @param request - CreateComfyTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2651,7 +2659,7 @@ class Vs extends OpenApiClient
      * Starts a Comfy task.
      *
      * @remarks
-     * > Enable the on-demand screenshot feature in the associated screenshot template.
+     * > Enable the on-demand screenshot feature in the associated screenshot template in advance.
      *
      * @param request - CreateComfyTaskRequest
      *
@@ -2735,7 +2743,7 @@ class Vs extends OpenApiClient
      * Uploads a Comfy workflow.
      *
      * @remarks
-     * > You must first enable the on-demand snapshot feature in the associated snapshot template.
+     * > You must enable the on-demand screenshot feature in the associated screenshot template in advance.
      *
      * @param request - CreateComfyWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2785,7 +2793,7 @@ class Vs extends OpenApiClient
      * Uploads a Comfy workflow.
      *
      * @remarks
-     * > You must first enable the on-demand snapshot feature in the associated snapshot template.
+     * > You must enable the on-demand screenshot feature in the associated screenshot template in advance.
      *
      * @param request - CreateComfyWorkflowRequest
      *
@@ -2803,7 +2811,12 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Add a new device.
+     * Adds a new device.
+     *
+     * @remarks
+     * >
+     * > - This operation is applicable only to workspaces whose access type is **GB28181 pull streaming** or **ODCAP**.
+     * > - Workspaces whose access type is **RTMP push streaming** **do not support** adding devices.
      *
      * @param request - CreateDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2930,7 +2943,12 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Add a new device.
+     * Adds a new device.
+     *
+     * @remarks
+     * >
+     * > - This operation is applicable only to workspaces whose access type is **GB28181 pull streaming** or **ODCAP**.
+     * > - Workspaces whose access type is **RTMP push streaming** **do not support** adding devices.
      *
      * @param request - CreateDeviceRequest
      *
@@ -3210,7 +3228,7 @@ class Vs extends OpenApiClient
      * Creates a cluster.
      *
      * @remarks
-     * ## Description
+     * ## Request description
      * - This operation creates an empty cluster to manage workloads.
      *
      * @param request - CreateHiveRequest
@@ -3257,7 +3275,7 @@ class Vs extends OpenApiClient
      * Creates a cluster.
      *
      * @remarks
-     * ## Description
+     * ## Request description
      * - This operation creates an empty cluster to manage workloads.
      *
      * @param request - CreateHiveRequest
@@ -3442,7 +3460,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Applies for a cloud rendering resource instance.
+     * Creates a cloud application service instance.
      *
      * @param tmpReq - CreateRenderingInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3527,7 +3545,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Applies for a cloud rendering resource instance.
+     * Creates a cloud application service instance.
      *
      * @param request - CreateRenderingInstanceRequest
      *
@@ -5220,10 +5238,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Retrieves the download URL for user-generated results.
+     * Retrieves the download link for user-generated results.
      *
      * @remarks
-     * > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
+     * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
      *
      * @param request - DescribeComfyProductionDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5262,10 +5280,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Retrieves the download URL for user-generated results.
+     * Retrieves the download link for user-generated results.
      *
      * @remarks
-     * > Screenshot queries do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
+     * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
      *
      * @param request - DescribeComfyProductionDownloadUrlRequest
      *
@@ -5354,7 +5372,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
+     * Queries the waiting queue information for Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
      *
      * @param request - DescribeComfyTaskWaitingQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5393,7 +5411,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the waiting queue information of Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
+     * Queries the waiting queue information for Comfy tasks. The default maximum length of a single Hive waiting queue is 100.
      *
      * @param request - DescribeComfyTaskWaitingQueueRequest
      *
@@ -5414,7 +5432,7 @@ class Vs extends OpenApiClient
      * Queries the list of Comfy tasks.
      *
      * @remarks
-     * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
+     * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
      *
      * @param request - DescribeComfyTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5476,7 +5494,7 @@ class Vs extends OpenApiClient
      * Queries the list of Comfy tasks.
      *
      * @remarks
-     * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in a new request.
+     * > Screenshot queries currently do not support pagination and only support iteration. To request the next page, use the value of the extStartTime parameter in the response as the StartTime parameter in the new request.
      *
      * @param request - DescribeComfyTasksRequest
      *
@@ -9527,7 +9545,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the verification content.
+     * Queries the check content.
      *
      * @param request - DescribeVsVerifyContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9570,7 +9588,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the verification content.
+     * Queries the check content.
      *
      * @param request - DescribeVsVerifyContentRequest
      *
@@ -9655,7 +9673,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Forbids pushing a specific stream. You can schedule a time to resume the stream.
+     * Disables the push of a specific stream and allows you to schedule a time to resume the stream.
      *
      * @param request - ForbidVsStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9722,7 +9740,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Forbids pushing a specific stream. You can schedule a time to resume the stream.
+     * Disables the push of a specific stream and allows you to schedule a time to resume the stream.
      *
      * @param request - ForbidVsStreamRequest
      *
@@ -10069,21 +10087,27 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
+     * Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances, and supports paging for a paged query.
      *
-     * @param request - ListCloudAppInstallationsRequest
+     * @param tmpReq - ListCloudAppInstallationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCloudAppInstallationsResponse
      *
-     * @param ListCloudAppInstallationsRequest $request
+     * @param ListCloudAppInstallationsRequest $tmpReq
      * @param RuntimeOptions                   $runtime
      *
      * @return ListCloudAppInstallationsResponse
      */
-    public function listCloudAppInstallationsWithOptions($request, $runtime)
+    public function listCloudAppInstallationsWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListCloudAppInstallationsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->renderingInstanceIds) {
+            $request->renderingInstanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->renderingInstanceIds, 'RenderingInstanceIds', 'json');
+        }
+
         $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
@@ -10104,7 +10128,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances. Paging is supported for paged query.
+     * Queries the installation information list of cloud applications. The returned information includes the installation status of cloud application service instances, and supports paging for a paged query.
      *
      * @param request - ListCloudAppInstallationsRequest
      *
@@ -10122,10 +10146,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the patch list of a cloud application.
+     * Queries the list of patches for a cloud application.
      *
      * @remarks
-     * >Specify at least one of the template ID and the templatetype.
+     * > Specify at least one of the template ID and templatetype.
      *
      * @param request - ListCloudAppPatchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10188,10 +10212,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the patch list of a cloud application.
+     * Queries the list of patches for a cloud application.
      *
      * @remarks
-     * >Specify at least one of the template ID and the templatetype.
+     * > Specify at least one of the template ID and templatetype.
      *
      * @param request - ListCloudAppPatchesRequest
      *
@@ -10209,7 +10233,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the list of cloud applications and supports paging and paged query.
+     * Queries a list of cloud applications and supports paging in a paged query.
      *
      * @param request - ListCloudAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10244,7 +10268,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the list of cloud applications and supports paging and paged query.
+     * Queries a list of cloud applications and supports paging in a paged query.
      *
      * @param request - ListCloudAppsRequest
      *
@@ -10383,7 +10407,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
+     * Queries the push status list for a file on cloud application service instances, and supports paging and paged query.
      *
      * @param request - ListFilePushStatusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10418,7 +10442,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries the push status list of cloud application service instances for a file. Paging is supported for paged query.
+     * Queries the push status list for a file on cloud application service instances, and supports paging and paged query.
      *
      * @param request - ListFilePushStatusesRequest
      *
@@ -10436,7 +10460,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
+     * Queries a list of uploaded files. The response includes the upload status of the files and supports paging and paged query.
      *
      * @param request - ListFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10471,7 +10495,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Queries a list of uploaded files. The response includes the upload status of the files and supports paging for a paged query.
+     * Queries a list of uploaded files. The response includes the upload status of the files and supports paging and paged query.
      *
      * @param request - ListFilesRequest
      *
@@ -13231,7 +13255,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Resumes pushing for a stream.
+     * Resumes the push of a specific stream.
      *
      * @param request - ResumeVsStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13290,7 +13314,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * Resumes pushing for a stream.
+     * Resumes the push of a specific stream.
      *
      * @param request - ResumeVsStreamRequest
      *
@@ -15644,6 +15668,77 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeRenderingInstanceImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 升级云应用服务主机镜像.
+     *
+     * @param tmpReq - UpgradeRenderingServerImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeRenderingServerImageResponse
+     *
+     * @param UpgradeRenderingServerImageRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpgradeRenderingServerImageResponse
+     */
+    public function upgradeRenderingServerImageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpgradeRenderingServerImageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->renderingInstanceIds) {
+            $request->renderingInstanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->renderingInstanceIds, 'RenderingInstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->precheck) {
+            @$query['Precheck'] = $request->precheck;
+        }
+
+        if (null !== $request->renderingInstanceIdsShrink) {
+            @$query['RenderingInstanceIds'] = $request->renderingInstanceIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeRenderingServerImage',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeRenderingServerImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 升级云应用服务主机镜像.
+     *
+     * @param request - UpgradeRenderingServerImageRequest
+     *
+     * @returns UpgradeRenderingServerImageResponse
+     *
+     * @param UpgradeRenderingServerImageRequest $request
+     *
+     * @return UpgradeRenderingServerImageResponse
+     */
+    public function upgradeRenderingServerImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeRenderingServerImageWithOptions($request, $runtime);
     }
 
     /**
