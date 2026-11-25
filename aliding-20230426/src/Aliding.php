@@ -40,6 +40,10 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRobotToScenegroupHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRobotToScenegroupRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRobotToScenegroupResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRobotToScenegroupShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddScenegroupMemberResponse;
@@ -1393,6 +1397,7 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\WearOrgHonorRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\WearOrgHonorResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\WearOrgHonorShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\WearOrgHonorShrinkRequest;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -1403,6 +1408,9 @@ class Aliding extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'aliding';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aliding', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -2104,6 +2112,86 @@ class Aliding extends OpenApiClient
         $headers = new AddRecordPermissionHeaders([]);
 
         return $this->addRecordPermissionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 添加机器人到场景群.
+     *
+     * @param request - AddRobotToScenegroupRequest
+     * @param tmpHeader - AddRobotToScenegroupHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddRobotToScenegroupResponse
+     *
+     * @param AddRobotToScenegroupRequest $request
+     * @param AddRobotToScenegroupHeaders $tmpHeader
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddRobotToScenegroupResponse
+     */
+    public function addRobotToScenegroupWithOptions($request, $tmpHeader, $runtime)
+    {
+        $request->validate();
+        $headers = new AddRobotToScenegroupShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->openConversationId) {
+            @$body['OpenConversationId'] = $request->openConversationId;
+        }
+
+        if (null !== $request->robotCode) {
+            @$body['RobotCode'] = $request->robotCode;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddRobotToScenegroup',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/addRobotToScenegroup',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddRobotToScenegroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加机器人到场景群.
+     *
+     * @param request - AddRobotToScenegroupRequest
+     *
+     * @returns AddRobotToScenegroupResponse
+     *
+     * @param AddRobotToScenegroupRequest $request
+     *
+     * @return AddRobotToScenegroupResponse
+     */
+    public function addRobotToScenegroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddRobotToScenegroupHeaders([]);
+
+        return $this->addRobotToScenegroupWithOptions($request, $headers, $runtime);
     }
 
     /**
