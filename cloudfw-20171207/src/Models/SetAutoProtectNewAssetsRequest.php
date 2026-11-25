@@ -17,15 +17,9 @@ class SetAutoProtectNewAssetsRequest extends Model
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $sourceIp;
     protected $_name = [
         'autoProtect' => 'AutoProtect',
         'lang' => 'Lang',
-        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
@@ -42,10 +36,6 @@ class SetAutoProtectNewAssetsRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         return $res;
@@ -65,10 +55,6 @@ class SetAutoProtectNewAssetsRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         return $model;

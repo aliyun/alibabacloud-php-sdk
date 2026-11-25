@@ -24,6 +24,11 @@ class billList extends Model
     public $internetTraffic;
 
     /**
+     * @var bool
+     */
+    public $isAgenticBilling;
+
+    /**
      * @var int
      */
     public $isDerated;
@@ -76,6 +81,7 @@ class billList extends Model
         'endTime' => 'EndTime',
         'internetInstanceCnt' => 'InternetInstanceCnt',
         'internetTraffic' => 'InternetTraffic',
+        'isAgenticBilling' => 'IsAgenticBilling',
         'isDerated' => 'IsDerated',
         'logStorage' => 'LogStorage',
         'natInstanceCnt' => 'NatInstanceCnt',
@@ -106,6 +112,10 @@ class billList extends Model
 
         if (null !== $this->internetTraffic) {
             $res['InternetTraffic'] = $this->internetTraffic;
+        }
+
+        if (null !== $this->isAgenticBilling) {
+            $res['IsAgenticBilling'] = $this->isAgenticBilling;
         }
 
         if (null !== $this->isDerated) {
@@ -169,6 +179,10 @@ class billList extends Model
 
         if (isset($map['InternetTraffic'])) {
             $model->internetTraffic = $map['InternetTraffic'];
+        }
+
+        if (isset($map['IsAgenticBilling'])) {
+            $model->isAgenticBilling = $map['IsAgenticBilling'];
         }
 
         if (isset($map['IsDerated'])) {

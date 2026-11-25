@@ -56,11 +56,6 @@ class ModifyDnsFirewallPolicyRequest extends Model
     /**
      * @var string
      */
-    public $sourceIp;
-
-    /**
-     * @var string
-     */
     public $sourceType;
     protected $_name = [
         'aclAction' => 'AclAction',
@@ -72,7 +67,6 @@ class ModifyDnsFirewallPolicyRequest extends Model
         'priority' => 'Priority',
         'release' => 'Release',
         'source' => 'Source',
-        'sourceIp' => 'SourceIp',
         'sourceType' => 'SourceType',
     ];
 
@@ -118,10 +112,6 @@ class ModifyDnsFirewallPolicyRequest extends Model
 
         if (null !== $this->source) {
             $res['Source'] = $this->source;
-        }
-
-        if (null !== $this->sourceIp) {
-            $res['SourceIp'] = $this->sourceIp;
         }
 
         if (null !== $this->sourceType) {
@@ -173,10 +163,6 @@ class ModifyDnsFirewallPolicyRequest extends Model
 
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
-        }
-
-        if (isset($map['SourceIp'])) {
-            $model->sourceIp = $map['SourceIp'];
         }
 
         if (isset($map['SourceType'])) {

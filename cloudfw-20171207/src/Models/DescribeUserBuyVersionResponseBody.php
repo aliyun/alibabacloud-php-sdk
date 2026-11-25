@@ -16,6 +16,11 @@ class DescribeUserBuyVersionResponseBody extends Model
     /**
      * @var int
      */
+    public $agentic;
+
+    /**
+     * @var int
+     */
     public $aliUid;
 
     /**
@@ -134,6 +139,7 @@ class DescribeUserBuyVersionResponseBody extends Model
     public $vpcNumber;
     protected $_name = [
         'ackClusterConnectorQuota' => 'AckClusterConnectorQuota',
+        'agentic' => 'Agentic',
         'aliUid' => 'AliUid',
         'defaultBandwidth' => 'DefaultBandwidth',
         'expire' => 'Expire',
@@ -170,6 +176,10 @@ class DescribeUserBuyVersionResponseBody extends Model
         $res = [];
         if (null !== $this->ackClusterConnectorQuota) {
             $res['AckClusterConnectorQuota'] = $this->ackClusterConnectorQuota;
+        }
+
+        if (null !== $this->agentic) {
+            $res['Agentic'] = $this->agentic;
         }
 
         if (null !== $this->aliUid) {
@@ -281,6 +291,10 @@ class DescribeUserBuyVersionResponseBody extends Model
         $model = new self();
         if (isset($map['AckClusterConnectorQuota'])) {
             $model->ackClusterConnectorQuota = $map['AckClusterConnectorQuota'];
+        }
+
+        if (isset($map['Agentic'])) {
+            $model->agentic = $map['Agentic'];
         }
 
         if (isset($map['AliUid'])) {

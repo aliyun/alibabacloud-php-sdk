@@ -49,6 +49,11 @@ class billList extends Model
     public $internetTrafficBandwidth;
 
     /**
+     * @var bool
+     */
+    public $isAgenticBilling;
+
+    /**
      * @var float
      */
     public $monthlyRemainingFreeTraffic;
@@ -86,6 +91,7 @@ class billList extends Model
         'endTime' => 'EndTime',
         'extensionBandwidth' => 'ExtensionBandwidth',
         'internetTrafficBandwidth' => 'InternetTrafficBandwidth',
+        'isAgenticBilling' => 'IsAgenticBilling',
         'monthlyRemainingFreeTraffic' => 'MonthlyRemainingFreeTraffic',
         'natTrafficBandwidth' => 'NatTrafficBandwidth',
         'overflowTime' => 'OverflowTime',
@@ -132,6 +138,10 @@ class billList extends Model
 
         if (null !== $this->internetTrafficBandwidth) {
             $res['InternetTrafficBandwidth'] = $this->internetTrafficBandwidth;
+        }
+
+        if (null !== $this->isAgenticBilling) {
+            $res['IsAgenticBilling'] = $this->isAgenticBilling;
         }
 
         if (null !== $this->monthlyRemainingFreeTraffic) {
@@ -199,6 +209,10 @@ class billList extends Model
 
         if (isset($map['InternetTrafficBandwidth'])) {
             $model->internetTrafficBandwidth = $map['InternetTrafficBandwidth'];
+        }
+
+        if (isset($map['IsAgenticBilling'])) {
+            $model->isAgenticBilling = $map['IsAgenticBilling'];
         }
 
         if (isset($map['MonthlyRemainingFreeTraffic'])) {
