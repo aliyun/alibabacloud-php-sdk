@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\GenerateYikeLoginTokenRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GenerateYikeLoginTokenResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetAgentJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetAgentJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetAIAppJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetAssetCategoryRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetImageGenerationJobRequest;
@@ -87,6 +89,8 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitAgentJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitAgentJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitAIAppJobRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitImageGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitImageGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobRequest;
@@ -575,9 +579,9 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+     * - This API operation generates a temporary OSS upload credential so that the client can directly upload files to a specified OSS bucket.
      * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
-     * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+     * - The `FileType` parameter is optional. The default value is `Media`. This parameter affects the path segment in the returned `ObjectKey`.
      *
      * @param request - CreateOssUploadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -636,9 +640,9 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This API operation generates temporary OSS upload credentials so that clients can directly upload files to a specified OSS bucket.
+     * - This API operation generates a temporary OSS upload credential so that the client can directly upload files to a specified OSS bucket.
      * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
-     * - The `FileType` parameter is optional and defaults to `Media`. It affects the path segment in the returned `ObjectKey`.
+     * - The `FileType` parameter is optional. The default value is `Media`. This parameter affects the path segment in the returned `ObjectKey`.
      *
      * @param request - CreateOssUploadRequest
      *
@@ -727,7 +731,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+     * - This operation supports two modes: creating a new media asset and overwriting an existing one.
      * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
      * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
      * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
@@ -805,7 +809,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This operation supports two modes: creating a new media asset and overwriting an existing media asset.
+     * - This operation supports two modes: creating a new media asset and overwriting an existing one.
      * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
      * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
      * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
@@ -1243,6 +1247,67 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateYikeLoginTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves an intelligent workflow task.
+     *
+     * @param request - GetAIAppJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIAppJobResponse
+     *
+     * @param GetAIAppJobRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetAIAppJobResponse
+     */
+    public function getAIAppJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->onlyOutputs) {
+            @$query['OnlyOutputs'] = $request->onlyOutputs;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAIAppJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAIAppJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves an intelligent workflow task.
+     *
+     * @param request - GetAIAppJobRequest
+     *
+     * @returns GetAIAppJobResponse
+     *
+     * @param GetAIAppJobRequest $request
+     *
+     * @return GetAIAppJobResponse
+     */
+    public function getAIAppJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAIAppJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1929,7 +1994,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a video generation job.
+     * Queries a video generation task.
      *
      * @param request - GetVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1972,7 +2037,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a video generation job.
+     * Queries a video generation task.
      *
      * @param request - GetVideoGenerationJobRequest
      *
@@ -2559,7 +2624,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+     * - This operation retrieves all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
      * - If `ProductionId` is not provided, the default project of the current account is used.
      *
      * @param request - ListMediaFoldersRequest
@@ -2611,7 +2676,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This operation retrieves a list of all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+     * - This operation retrieves all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
      * - If `ProductionId` is not provided, the default project of the current account is used.
      *
      * @param request - ListMediaFoldersRequest
@@ -2919,6 +2984,77 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchMediaWithOptions($request, $runtime);
+    }
+
+    /**
+     * Starts an intelligent workflow.
+     *
+     * @param request - SubmitAIAppJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAIAppJobResponse
+     *
+     * @param SubmitAIAppJobRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitAIAppJobResponse
+     */
+    public function submitAIAppJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $body = [];
+        if (null !== $request->inputs) {
+            @$body['Inputs'] = $request->inputs;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAIAppJob',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAIAppJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Starts an intelligent workflow.
+     *
+     * @param request - SubmitAIAppJobRequest
+     *
+     * @returns SubmitAIAppJobResponse
+     *
+     * @param SubmitAIAppJobRequest $request
+     *
+     * @return SubmitAIAppJobResponse
+     */
+    public function submitAIAppJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAIAppJobWithOptions($request, $runtime);
     }
 
     /**
