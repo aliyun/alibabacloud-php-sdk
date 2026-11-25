@@ -16,9 +16,21 @@ class OperateApplicationRequest extends Model
     /**
      * @var string
      */
+    public $componentTypes;
+
+    /**
+     * @var string
+     */
+    public $groupNames;
+
+    /**
+     * @var string
+     */
     public $operation;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'componentTypes' => 'ComponentTypes',
+        'groupNames' => 'GroupNames',
         'operation' => 'Operation',
     ];
 
@@ -32,6 +44,14 @@ class OperateApplicationRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->componentTypes) {
+            $res['ComponentTypes'] = $this->componentTypes;
+        }
+
+        if (null !== $this->groupNames) {
+            $res['GroupNames'] = $this->groupNames;
         }
 
         if (null !== $this->operation) {
@@ -51,6 +71,14 @@ class OperateApplicationRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ComponentTypes'])) {
+            $model->componentTypes = $map['ComponentTypes'];
+        }
+
+        if (isset($map['GroupNames'])) {
+            $model->groupNames = $map['GroupNames'];
         }
 
         if (isset($map['Operation'])) {

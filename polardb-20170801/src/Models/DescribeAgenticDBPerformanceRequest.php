@@ -31,6 +31,11 @@ class DescribeAgenticDBPerformanceRequest extends Model
     /**
      * @var string
      */
+    public $endpointId;
+
+    /**
+     * @var string
+     */
     public $interval;
 
     /**
@@ -47,6 +52,7 @@ class DescribeAgenticDBPerformanceRequest extends Model
         'branchId' => 'BranchId',
         'DBClusterId' => 'DBClusterId',
         'endTime' => 'EndTime',
+        'endpointId' => 'EndpointId',
         'interval' => 'Interval',
         'key' => 'Key',
         'startTime' => 'StartTime',
@@ -74,6 +80,10 @@ class DescribeAgenticDBPerformanceRequest extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->endpointId) {
+            $res['EndpointId'] = $this->endpointId;
         }
 
         if (null !== $this->interval) {
@@ -113,6 +123,10 @@ class DescribeAgenticDBPerformanceRequest extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['EndpointId'])) {
+            $model->endpointId = $map['EndpointId'];
         }
 
         if (isset($map['Interval'])) {

@@ -16,6 +16,11 @@ class AttachApplicationPolarFSRequest extends Model
     /**
      * @var string
      */
+    public $containerMountPath;
+
+    /**
+     * @var string
+     */
     public $polarFSAccessKeyId;
 
     /**
@@ -29,6 +34,7 @@ class AttachApplicationPolarFSRequest extends Model
     public $polarFSInstanceId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'containerMountPath' => 'ContainerMountPath',
         'polarFSAccessKeyId' => 'PolarFSAccessKeyId',
         'polarFSAccessKeySecret' => 'PolarFSAccessKeySecret',
         'polarFSInstanceId' => 'PolarFSInstanceId',
@@ -44,6 +50,10 @@ class AttachApplicationPolarFSRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->containerMountPath) {
+            $res['ContainerMountPath'] = $this->containerMountPath;
         }
 
         if (null !== $this->polarFSAccessKeyId) {
@@ -71,6 +81,10 @@ class AttachApplicationPolarFSRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ContainerMountPath'])) {
+            $model->containerMountPath = $map['ContainerMountPath'];
         }
 
         if (isset($map['PolarFSAccessKeyId'])) {

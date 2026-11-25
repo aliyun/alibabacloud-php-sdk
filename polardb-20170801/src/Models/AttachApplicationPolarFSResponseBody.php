@@ -16,6 +16,11 @@ class AttachApplicationPolarFSResponseBody extends Model
     /**
      * @var string
      */
+    public $containerMountPath;
+
+    /**
+     * @var string
+     */
     public $polarFSInstanceId;
 
     /**
@@ -24,6 +29,7 @@ class AttachApplicationPolarFSResponseBody extends Model
     public $requestId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'containerMountPath' => 'ContainerMountPath',
         'polarFSInstanceId' => 'PolarFSInstanceId',
         'requestId' => 'RequestId',
     ];
@@ -38,6 +44,10 @@ class AttachApplicationPolarFSResponseBody extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->containerMountPath) {
+            $res['ContainerMountPath'] = $this->containerMountPath;
         }
 
         if (null !== $this->polarFSInstanceId) {
@@ -61,6 +71,10 @@ class AttachApplicationPolarFSResponseBody extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ContainerMountPath'])) {
+            $model->containerMountPath = $map['ContainerMountPath'];
         }
 
         if (isset($map['PolarFSInstanceId'])) {

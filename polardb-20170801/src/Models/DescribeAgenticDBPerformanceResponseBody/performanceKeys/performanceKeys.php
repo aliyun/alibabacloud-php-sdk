@@ -17,6 +17,11 @@ class performanceKeys extends Model
     /**
      * @var string
      */
+    public $endpointId;
+
+    /**
+     * @var string
+     */
     public $measurement;
 
     /**
@@ -30,6 +35,7 @@ class performanceKeys extends Model
     public $points;
     protected $_name = [
         'branchId' => 'BranchId',
+        'endpointId' => 'EndpointId',
         'measurement' => 'Measurement',
         'metricName' => 'MetricName',
         'points' => 'Points',
@@ -48,6 +54,10 @@ class performanceKeys extends Model
         $res = [];
         if (null !== $this->branchId) {
             $res['BranchId'] = $this->branchId;
+        }
+
+        if (null !== $this->endpointId) {
+            $res['EndpointId'] = $this->endpointId;
         }
 
         if (null !== $this->measurement) {
@@ -75,6 +85,10 @@ class performanceKeys extends Model
         $model = new self();
         if (isset($map['BranchId'])) {
             $model->branchId = $map['BranchId'];
+        }
+
+        if (isset($map['EndpointId'])) {
+            $model->endpointId = $map['EndpointId'];
         }
 
         if (isset($map['Measurement'])) {

@@ -2193,11 +2193,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Mounts a specified Polarlakebase instance to a PolarDB application.
+     * Mounts a specified PolarLakebase instance to a PolarDB application.
      *
      * @remarks
      * ## Before you begin
-     * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+     * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
      *
      * @param request - AttachApplicationPolarFSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2215,6 +2215,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->applicationId) {
             @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->containerMountPath) {
+            @$query['ContainerMountPath'] = $request->containerMountPath;
         }
 
         if (null !== $request->polarFSAccessKeyId) {
@@ -2248,11 +2252,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Mounts a specified Polarlakebase instance to a PolarDB application.
+     * Mounts a specified PolarLakebase instance to a PolarDB application.
      *
      * @remarks
      * ## Before you begin
-     * This section describes the prerequisites: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
+     * The Before you begin section specifies the following: (1) The application must be of the supabase type (ApplicationType=polardb_supabase). (2) PolarFS must be created by calling CreatePolarFs with CreationCategory set to cold. (3) PolarFS and the application must be in the same VPC, vSwitch, and zone. You can query this information by calling DescribeApplicationAttribute. A dependency chain example is provided: CreateApplication → DescribeApplicationAttribute → CreatePolarFs → AttachApplicationPolarFS.
      *
      * @param request - AttachApplicationPolarFSRequest
      *
@@ -16976,6 +16980,10 @@ class Polardb extends OpenApiClient
             @$query['EndTime'] = $request->endTime;
         }
 
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
+        }
+
         if (null !== $request->interval) {
             @$query['Interval'] = $request->interval;
         }
@@ -17401,10 +17409,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of the specified PolarDB instance application.
+     * Queries the details of a specified PolarDB application.
      *
      * @remarks
-     * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+     * This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17443,10 +17451,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of the specified PolarDB instance application.
+     * Queries the details of a specified PolarDB application.
      *
      * @remarks
-     * This API queries all relevant information about a specific PolarDB application, including but not limited to component details and connection endpoints.
+     * This API operation queries all relevant information about a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      *
@@ -42978,6 +42986,14 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->applicationId) {
             @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->componentTypes) {
+            @$query['ComponentTypes'] = $request->componentTypes;
+        }
+
+        if (null !== $request->groupNames) {
+            @$query['GroupNames'] = $request->groupNames;
         }
 
         if (null !== $request->operation) {

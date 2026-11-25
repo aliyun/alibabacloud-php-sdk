@@ -11,6 +11,11 @@ class storages extends Model
     /**
      * @var string
      */
+    public $containerMountPath;
+
+    /**
+     * @var string
+     */
     public $storageCapacity;
 
     /**
@@ -28,6 +33,7 @@ class storages extends Model
      */
     public $storageType;
     protected $_name = [
+        'containerMountPath' => 'ContainerMountPath',
         'storageCapacity' => 'StorageCapacity',
         'storageInstanceId' => 'StorageInstanceId',
         'storagePerformanceLevel' => 'StoragePerformanceLevel',
@@ -42,6 +48,10 @@ class storages extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->containerMountPath) {
+            $res['ContainerMountPath'] = $this->containerMountPath;
+        }
+
         if (null !== $this->storageCapacity) {
             $res['StorageCapacity'] = $this->storageCapacity;
         }
@@ -69,6 +79,10 @@ class storages extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContainerMountPath'])) {
+            $model->containerMountPath = $map['ContainerMountPath'];
+        }
+
         if (isset($map['StorageCapacity'])) {
             $model->storageCapacity = $map['StorageCapacity'];
         }

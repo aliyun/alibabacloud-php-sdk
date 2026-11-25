@@ -78,6 +78,11 @@ class DescribeApplicationAttributeResponseBody extends Model
     public $expired;
 
     /**
+     * @var string
+     */
+    public $headSchedulingMode;
+
+    /**
      * @var bool
      */
     public $isLatestVersion;
@@ -115,6 +120,16 @@ class DescribeApplicationAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $monitorCategory;
+
+    /**
+     * @var string
+     */
+    public $monitorRegionId;
+
+    /**
+     * @var string
+     */
     public $natGatewayId;
 
     /**
@@ -141,6 +156,11 @@ class DescribeApplicationAttributeResponseBody extends Model
      * @var string
      */
     public $polarFSInstanceId;
+
+    /**
+     * @var string
+     */
+    public $prometheusVirtualInstanceId;
 
     /**
      * @var string
@@ -224,6 +244,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'endpoints' => 'Endpoints',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
+        'headSchedulingMode' => 'HeadSchedulingMode',
         'isLatestVersion' => 'IsLatestVersion',
         'latestVersion' => 'LatestVersion',
         'lockMode' => 'LockMode',
@@ -231,12 +252,15 @@ class DescribeApplicationAttributeResponseBody extends Model
         'maintainStartTime' => 'MaintainStartTime',
         'memApplicationAttribute' => 'MemApplicationAttribute',
         'minorVersion' => 'MinorVersion',
+        'monitorCategory' => 'MonitorCategory',
+        'monitorRegionId' => 'MonitorRegionId',
         'natGatewayId' => 'NatGatewayId',
         'natMappingSnatIpAddress' => 'NatMappingSnatIpAddress',
         'payType' => 'PayType',
         'polarClawApplicationAttribute' => 'PolarClawApplicationAttribute',
         'polarClawSaaSApplicationAttribute' => 'PolarClawSaaSApplicationAttribute',
         'polarFSInstanceId' => 'PolarFSInstanceId',
+        'prometheusVirtualInstanceId' => 'PrometheusVirtualInstanceId',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
         'securityGroups' => 'SecurityGroups',
@@ -357,6 +381,10 @@ class DescribeApplicationAttributeResponseBody extends Model
             $res['Expired'] = $this->expired;
         }
 
+        if (null !== $this->headSchedulingMode) {
+            $res['HeadSchedulingMode'] = $this->headSchedulingMode;
+        }
+
         if (null !== $this->isLatestVersion) {
             $res['IsLatestVersion'] = $this->isLatestVersion;
         }
@@ -385,6 +413,14 @@ class DescribeApplicationAttributeResponseBody extends Model
             $res['MinorVersion'] = $this->minorVersion;
         }
 
+        if (null !== $this->monitorCategory) {
+            $res['MonitorCategory'] = $this->monitorCategory;
+        }
+
+        if (null !== $this->monitorRegionId) {
+            $res['MonitorRegionId'] = $this->monitorRegionId;
+        }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
@@ -407,6 +443,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (null !== $this->polarFSInstanceId) {
             $res['PolarFSInstanceId'] = $this->polarFSInstanceId;
+        }
+
+        if (null !== $this->prometheusVirtualInstanceId) {
+            $res['PrometheusVirtualInstanceId'] = $this->prometheusVirtualInstanceId;
         }
 
         if (null !== $this->regionId) {
@@ -566,6 +606,10 @@ class DescribeApplicationAttributeResponseBody extends Model
             $model->expired = $map['Expired'];
         }
 
+        if (isset($map['HeadSchedulingMode'])) {
+            $model->headSchedulingMode = $map['HeadSchedulingMode'];
+        }
+
         if (isset($map['IsLatestVersion'])) {
             $model->isLatestVersion = $map['IsLatestVersion'];
         }
@@ -594,6 +638,14 @@ class DescribeApplicationAttributeResponseBody extends Model
             $model->minorVersion = $map['MinorVersion'];
         }
 
+        if (isset($map['MonitorCategory'])) {
+            $model->monitorCategory = $map['MonitorCategory'];
+        }
+
+        if (isset($map['MonitorRegionId'])) {
+            $model->monitorRegionId = $map['MonitorRegionId'];
+        }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
@@ -616,6 +668,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['PolarFSInstanceId'])) {
             $model->polarFSInstanceId = $map['PolarFSInstanceId'];
+        }
+
+        if (isset($map['PrometheusVirtualInstanceId'])) {
+            $model->prometheusVirtualInstanceId = $map['PrometheusVirtualInstanceId'];
         }
 
         if (isset($map['RegionId'])) {
