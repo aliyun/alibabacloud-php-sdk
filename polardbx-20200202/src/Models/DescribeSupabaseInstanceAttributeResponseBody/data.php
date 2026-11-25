@@ -38,6 +38,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $latestMinorVersion;
+
+    /**
+     * @var string
+     */
     public $lockMode;
 
     /**
@@ -103,6 +108,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $webAppsHttpUrl;
+
+    /**
+     * @var string
+     */
+    public $webAppsUrl;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'connAddrs' => 'ConnAddrs',
@@ -110,6 +125,7 @@ class data extends Model
         'DBInstanceName' => 'DBInstanceName',
         'engineVersion' => 'EngineVersion',
         'expired' => 'Expired',
+        'latestMinorVersion' => 'LatestMinorVersion',
         'lockMode' => 'LockMode',
         'minorVersion' => 'MinorVersion',
         'nodeClass' => 'NodeClass',
@@ -123,6 +139,8 @@ class data extends Model
         'topologyType' => 'TopologyType',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
+        'webAppsHttpUrl' => 'WebAppsHttpUrl',
+        'webAppsUrl' => 'WebAppsUrl',
         'zoneId' => 'ZoneId',
     ];
 
@@ -165,6 +183,10 @@ class data extends Model
 
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
+        }
+
+        if (null !== $this->latestMinorVersion) {
+            $res['LatestMinorVersion'] = $this->latestMinorVersion;
         }
 
         if (null !== $this->lockMode) {
@@ -226,6 +248,14 @@ class data extends Model
             $res['VpcId'] = $this->vpcId;
         }
 
+        if (null !== $this->webAppsHttpUrl) {
+            $res['WebAppsHttpUrl'] = $this->webAppsHttpUrl;
+        }
+
+        if (null !== $this->webAppsUrl) {
+            $res['WebAppsUrl'] = $this->webAppsUrl;
+        }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -266,6 +296,10 @@ class data extends Model
 
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
+        }
+
+        if (isset($map['LatestMinorVersion'])) {
+            $model->latestMinorVersion = $map['LatestMinorVersion'];
         }
 
         if (isset($map['LockMode'])) {
@@ -325,6 +359,14 @@ class data extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['WebAppsHttpUrl'])) {
+            $model->webAppsHttpUrl = $map['WebAppsHttpUrl'];
+        }
+
+        if (isset($map['WebAppsUrl'])) {
+            $model->webAppsUrl = $map['WebAppsUrl'];
         }
 
         if (isset($map['ZoneId'])) {
