@@ -14,6 +14,11 @@ class AttachInstancesToNodePoolRequest extends Model
     public $formatDisk;
 
     /**
+     * @var string
+     */
+    public $formatDiskOption;
+
+    /**
      * @var string[]
      */
     public $instances;
@@ -29,6 +34,7 @@ class AttachInstancesToNodePoolRequest extends Model
     public $password;
     protected $_name = [
         'formatDisk' => 'format_disk',
+        'formatDiskOption' => 'format_disk_option',
         'instances' => 'instances',
         'keepInstanceName' => 'keep_instance_name',
         'password' => 'password',
@@ -47,6 +53,10 @@ class AttachInstancesToNodePoolRequest extends Model
         $res = [];
         if (null !== $this->formatDisk) {
             $res['format_disk'] = $this->formatDisk;
+        }
+
+        if (null !== $this->formatDiskOption) {
+            $res['format_disk_option'] = $this->formatDiskOption;
         }
 
         if (null !== $this->instances) {
@@ -81,6 +91,10 @@ class AttachInstancesToNodePoolRequest extends Model
         $model = new self();
         if (isset($map['format_disk'])) {
             $model->formatDisk = $map['format_disk'];
+        }
+
+        if (isset($map['format_disk_option'])) {
+            $model->formatDiskOption = $map['format_disk_option'];
         }
 
         if (isset($map['instances'])) {

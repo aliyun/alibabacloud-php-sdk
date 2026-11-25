@@ -1,3 +1,9 @@
+2026-11-25 Version: 7.4.1
+- Update API AttachInstances: add request parameters body.format_disk_option.
+- Update API AttachInstancesToNodePool: add request parameters body.format_disk_option.
+- Update API DescribeClusterAttachScripts: add request parameters body.format_disk_option.
+
+
 2026-11-11 Version: 7.4.0
 - Support API HibernateCluster.
 - Support API WakeUpCluster.

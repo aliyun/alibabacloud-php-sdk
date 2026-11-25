@@ -24,6 +24,11 @@ class DescribeClusterAttachScriptsRequest extends Model
     public $formatDisk;
 
     /**
+     * @var string
+     */
+    public $formatDiskOption;
+
+    /**
      * @var bool
      */
     public $keepInstanceName;
@@ -51,6 +56,7 @@ class DescribeClusterAttachScriptsRequest extends Model
         'arch' => 'arch',
         'expired' => 'expired',
         'formatDisk' => 'format_disk',
+        'formatDiskOption' => 'format_disk_option',
         'keepInstanceName' => 'keep_instance_name',
         'nodepoolId' => 'nodepool_id',
         'oneTimeToken' => 'one_time_token',
@@ -79,6 +85,10 @@ class DescribeClusterAttachScriptsRequest extends Model
 
         if (null !== $this->formatDisk) {
             $res['format_disk'] = $this->formatDisk;
+        }
+
+        if (null !== $this->formatDiskOption) {
+            $res['format_disk_option'] = $this->formatDiskOption;
         }
 
         if (null !== $this->keepInstanceName) {
@@ -129,6 +139,10 @@ class DescribeClusterAttachScriptsRequest extends Model
 
         if (isset($map['format_disk'])) {
             $model->formatDisk = $map['format_disk'];
+        }
+
+        if (isset($map['format_disk_option'])) {
+            $model->formatDiskOption = $map['format_disk_option'];
         }
 
         if (isset($map['keep_instance_name'])) {
