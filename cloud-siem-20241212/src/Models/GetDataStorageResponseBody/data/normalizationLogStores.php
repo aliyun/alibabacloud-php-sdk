@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class normalizationLogStores extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoKeyDetect;
+
+    /**
+     * @var bool
+     */
+    public $logStoreExisted;
+
+    /**
      * @var string
      */
     public $logStoreName;
@@ -23,6 +33,8 @@ class normalizationLogStores extends Model
      */
     public $usedCapacity;
     protected $_name = [
+        'autoKeyDetect' => 'AutoKeyDetect',
+        'logStoreExisted' => 'LogStoreExisted',
         'logStoreName' => 'LogStoreName',
         'logStoreTtl' => 'LogStoreTtl',
         'usedCapacity' => 'UsedCapacity',
@@ -36,6 +48,14 @@ class normalizationLogStores extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoKeyDetect) {
+            $res['AutoKeyDetect'] = $this->autoKeyDetect;
+        }
+
+        if (null !== $this->logStoreExisted) {
+            $res['LogStoreExisted'] = $this->logStoreExisted;
+        }
+
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
         }
@@ -59,6 +79,14 @@ class normalizationLogStores extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoKeyDetect'])) {
+            $model->autoKeyDetect = $map['AutoKeyDetect'];
+        }
+
+        if (isset($map['LogStoreExisted'])) {
+            $model->logStoreExisted = $map['LogStoreExisted'];
+        }
+
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
         }

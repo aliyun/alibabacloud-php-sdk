@@ -22,10 +22,16 @@ class GetDataStorageRequest extends Model
      * @var int
      */
     public $roleFor;
+
+    /**
+     * @var bool
+     */
+    public $withAutoKeyDetect;
     protected $_name = [
         'lang' => 'Lang',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
+        'withAutoKeyDetect' => 'WithAutoKeyDetect',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class GetDataStorageRequest extends Model
 
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
+        }
+
+        if (null !== $this->withAutoKeyDetect) {
+            $res['WithAutoKeyDetect'] = $this->withAutoKeyDetect;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class GetDataStorageRequest extends Model
 
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
+        }
+
+        if (isset($map['WithAutoKeyDetect'])) {
+            $model->withAutoKeyDetect = $map['WithAutoKeyDetect'];
         }
 
         return $model;

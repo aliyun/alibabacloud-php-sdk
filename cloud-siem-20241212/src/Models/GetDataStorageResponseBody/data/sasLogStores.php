@@ -15,6 +15,11 @@ class sasLogStores extends Model
     public $accountDeliveries;
 
     /**
+     * @var bool
+     */
+    public $autoKeyDetect;
+
+    /**
      * @var string
      */
     public $logCode;
@@ -70,6 +75,7 @@ class sasLogStores extends Model
     public $usedCapacity;
     protected $_name = [
         'accountDeliveries' => 'AccountDeliveries',
+        'autoKeyDetect' => 'AutoKeyDetect',
         'logCode' => 'LogCode',
         'logDeliveryGroup' => 'LogDeliveryGroup',
         'logDeliveryPermission' => 'LogDeliveryPermission',
@@ -103,6 +109,10 @@ class sasLogStores extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->autoKeyDetect) {
+            $res['AutoKeyDetect'] = $this->autoKeyDetect;
         }
 
         if (null !== $this->logCode) {
@@ -169,6 +179,10 @@ class sasLogStores extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['AutoKeyDetect'])) {
+            $model->autoKeyDetect = $map['AutoKeyDetect'];
         }
 
         if (isset($map['LogCode'])) {
