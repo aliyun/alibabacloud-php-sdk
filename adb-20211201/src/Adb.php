@@ -568,6 +568,7 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateSparkTemplateFileRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateSparkTemplateFileResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpgradeKernelVersionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpgradeKernelVersionResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -578,6 +579,9 @@ class Adb extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'adb';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-qingdao' => 'adb.aliyuncs.com',
@@ -1912,7 +1916,7 @@ class Adb extends OpenApiClient
      * Creates an APS task.
      *
      * @remarks
-     * For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateAPSJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1998,7 +2002,7 @@ class Adb extends OpenApiClient
      * Creates an APS task.
      *
      * @remarks
-     * For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateAPSJobRequest
      *
@@ -2217,7 +2221,7 @@ class Adb extends OpenApiClient
      * Creates an APS data source.
      *
      * @remarks
-     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - CreateApsDatasoureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2337,7 +2341,7 @@ class Adb extends OpenApiClient
      * Creates an APS data source.
      *
      * @remarks
-     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateApsDatasoureRequest
      *
@@ -2466,7 +2470,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates an APS Kafka lakehouse ingestion task.
+     * Creates an APS Kafka data lake ingestion task.
      *
      * @param tmpReq - CreateApsKafkaHudiJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2627,7 +2631,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates an APS Kafka lakehouse ingestion task.
+     * Creates an APS Kafka data lake ingestion task.
      *
      * @param request - CreateApsKafkaHudiJobRequest
      *
@@ -2645,7 +2649,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates an APS link from Simple Log Service (SLS) to an AnalyticDB data warehouse.
+     * Creates an APS pipeline from SLS to an ADB data warehouse.
      *
      * @param tmpReq - CreateApsSlsADBJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2822,7 +2826,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates an APS link from Simple Log Service (SLS) to an AnalyticDB data warehouse.
+     * Creates an APS pipeline from SLS to an ADB data warehouse.
      *
      * @param request - CreateApsSlsADBJobRequest
      *
@@ -2840,7 +2844,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates a webhook for a specified database cluster and task type.
+     * Creates a new webhook for a specified database cluster and job type.
      *
      * @param tmpReq - CreateApsWebhookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2897,7 +2901,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates a webhook for a specified database cluster and task type.
+     * Creates a new webhook for a specified database cluster and job type.
      *
      * @param request - CreateApsWebhookRequest
      *
@@ -3190,7 +3194,7 @@ class Adb extends OpenApiClient
      * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
      *
      * @remarks
-     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - CreateDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3346,7 +3350,7 @@ class Adb extends OpenApiClient
      * Creates a resource group for a specified Enterprise Edition, Basic Edition, or Data Lakehouse Edition cluster.
      *
      * @remarks
-     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateDBResourceGroupRequest
      *
@@ -3463,19 +3467,19 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL (ADB) instance.
+     * Creates a Formation Crawler metadata discovery task in an ADB instance.
      *
      * @remarks
-     * ## Operation description
+     * ## Request description
      * - This operation creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL instance.
-     * - The created task configuration is not executed immediately. Call `StartFormationCrawler` to start the task.
-     * - The `CrawlerInfo` field is a JSON string that contains the core configuration of the task, such as the target database name and data source type.
-     * - Some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
-     * - The database name specified in `dbName` is automatically converted to lowercase by the server.
-     * - `schemaChangePolicy` is required. You must specify both `updateRule` and `deleteRule`.
+     * - The created task configuration is not executed immediately. You must call `StartFormationCrawler` to start the task.
+     * - The `CrawlerInfo` field is a JSON string that contains the core configuration information of the task, such as the target database name and data source type.
+     * - Note that some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
+     * - The database name `dbName` is automatically converted to lowercase by the server.
+     * - `schemaChangePolicy` is required. You must provide both `updateRule` and `deleteRule`.
      * - Use the `RUN_ON_DEMAND` scheduling mode to avoid unnecessary repeated scans.
-     * - Make sure the product name is `adb` and the endpoint format is `adb.{regionId}.aliyuncs.com`.
-     * - After the task is created, manually call `StartFormationCrawler` to trigger the first metadata discovery.
+     * - Make sure that the product name is `adb` and the domain name format is `adb.{regionId}.aliyuncs.com`.
+     * - After the task is created, you must manually call `StartFormationCrawler` to trigger the first metadata discovery.
      *
      * @param request - CreateFormationCrawlerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3522,19 +3526,19 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL (ADB) instance.
+     * Creates a Formation Crawler metadata discovery task in an ADB instance.
      *
      * @remarks
-     * ## Operation description
+     * ## Request description
      * - This operation creates a Formation Crawler metadata discovery task in an AnalyticDB for MySQL instance.
-     * - The created task configuration is not executed immediately. Call `StartFormationCrawler` to start the task.
-     * - The `CrawlerInfo` field is a JSON string that contains the core configuration of the task, such as the target database name and data source type.
-     * - Some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
-     * - The database name specified in `dbName` is automatically converted to lowercase by the server.
-     * - `schemaChangePolicy` is required. You must specify both `updateRule` and `deleteRule`.
+     * - The created task configuration is not executed immediately. You must call `StartFormationCrawler` to start the task.
+     * - The `CrawlerInfo` field is a JSON string that contains the core configuration information of the task, such as the target database name and data source type.
+     * - Note that some parameters, such as `classifiers` and `frequency`, require double JSON encoding.
+     * - The database name `dbName` is automatically converted to lowercase by the server.
+     * - `schemaChangePolicy` is required. You must provide both `updateRule` and `deleteRule`.
      * - Use the `RUN_ON_DEMAND` scheduling mode to avoid unnecessary repeated scans.
-     * - Make sure the product name is `adb` and the endpoint format is `adb.{regionId}.aliyuncs.com`.
-     * - After the task is created, manually call `StartFormationCrawler` to trigger the first metadata discovery.
+     * - Make sure that the product name is `adb` and the domain name format is `adb.{regionId}.aliyuncs.com`.
+     * - After the task is created, you must manually call `StartFormationCrawler` to trigger the first metadata discovery.
      *
      * @param request - CreateFormationCrawlerRequest
      *
@@ -3918,6 +3922,13 @@ class Adb extends OpenApiClient
     /**
      * Creates a semantic view.
      *
+     * @remarks
+     * 创建语义视图。调用前请确认已满足以下条件：
+     * 1. 已创建 ADB 集群，可通过 DescribeDBClusters 获取集群 ID（DBClusterId）。
+     * 2. 集群中已存在 Super 类型的数据库账号，可通过 CreateAccount 创建。
+     * 3. 当前 RAM 用户已绑定到该数据库账号：BindAccount 仅支持绑定数据库普通账号；若目标账号为 Super 类型，建议通过 CreateAccount 的 RamUserList 参数完成绑定。
+     * 4. SchemaName 指定的数据库已存在。
+     *
      * @param request - CreateSemanticViewRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3968,6 +3979,13 @@ class Adb extends OpenApiClient
 
     /**
      * Creates a semantic view.
+     *
+     * @remarks
+     * 创建语义视图。调用前请确认已满足以下条件：
+     * 1. 已创建 ADB 集群，可通过 DescribeDBClusters 获取集群 ID（DBClusterId）。
+     * 2. 集群中已存在 Super 类型的数据库账号，可通过 CreateAccount 创建。
+     * 3. 当前 RAM 用户已绑定到该数据库账号：BindAccount 仅支持绑定数据库普通账号；若目标账号为 Super 类型，建议通过 CreateAccount 的 RamUserList 参数完成绑定。
+     * 4. SchemaName 指定的数据库已存在。
      *
      * @param request - CreateSemanticViewRequest
      *
@@ -4068,14 +4086,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates a SQL pattern comparison report.
+     * Creates an SQL pattern comparison report.
      *
      * @remarks
-     * Compares two time windows and asynchronously generates a SQL pattern comparison report.
-     * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
-     * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
-     * > - Only one report can be generated for an instance at a time.
-     * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+     * Compares two time windows and asynchronously generates an SQL pattern comparison report.
+     * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows with the same duration and similar business cycles.
+     * > - The returned `ReportId` only indicates that the request is accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+     * > - Only one report can be generated for the same instance at a time.
+     * > - The report is valid for 7 days and is isolated by instance and Alibaba Cloud account.
      *
      * @param request - CreateSqlPatternCompareReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4138,14 +4156,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Creates a SQL pattern comparison report.
+     * Creates an SQL pattern comparison report.
      *
      * @remarks
-     * Compares two time windows and asynchronously generates a SQL pattern comparison report.
-     * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
-     * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
-     * > - Only one report can be generated for an instance at a time.
-     * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+     * Compares two time windows and asynchronously generates an SQL pattern comparison report.
+     * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows with the same duration and similar business cycles.
+     * > - The returned `ReportId` only indicates that the request is accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+     * > - Only one report can be generated for the same instance at a time.
+     * > - The report is valid for 7 days and is isolated by instance and Alibaba Cloud account.
      *
      * @param request - CreateSqlPatternCompareReportRequest
      *
@@ -4877,10 +4895,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes a lake storage.
+     * Deletes lake storage.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteLakeStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4929,10 +4947,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Deletes a lake storage.
+     * Deletes lake storage.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteLakeStorageRequest
      *
@@ -5319,10 +5337,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AnalyticDB for MySQL clusters for AnalyticDB Pipeline Service (APS) federated analytics.
+     * Retrieves the list of AnalyticDB for MySQL instances for APS federated analytics.
      *
      * @remarks
-     * You can call this operation to query the performance data of a cluster over a time range based on performance metrics. The collection granularity is 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
+     * Queries the performance monitoring data of a specific cluster within a specified time range based on performance parameters. The collection granularity is 30 seconds. This operation supports querying slow SQL statements and provides monitoring content such as SQL query duration, number of scanned rows, and scanned data volume.
      *
      * @param request - DescribeAPSADBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5357,10 +5375,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AnalyticDB for MySQL clusters for AnalyticDB Pipeline Service (APS) federated analytics.
+     * Retrieves the list of AnalyticDB for MySQL instances for APS federated analytics.
      *
      * @remarks
-     * You can call this operation to query the performance data of a cluster over a time range based on performance metrics. The collection granularity is 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
+     * Queries the performance monitoring data of a specific cluster within a specified time range based on performance parameters. The collection granularity is 30 seconds. This operation supports querying slow SQL statements and provides monitoring content such as SQL query duration, number of scanned rows, and scanned data volume.
      *
      * @param request - DescribeAPSADBInstancesRequest
      *
@@ -5542,10 +5560,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the databases, tables, and columns on which a database account has permissions.
+     * Retrieves the databases, tables, and columns visible to a specified account.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountPrivilegeObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5616,10 +5634,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the databases, tables, and columns on which a database account has permissions.
+     * Retrieves the databases, tables, and columns visible to a specified account.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountPrivilegeObjectsRequest
      *
@@ -5637,10 +5655,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves the permissions of a specified database account at a specific level.
+     * Queries the permissions granted to a specified database account at a specific level.
      *
      * @remarks
-     * See [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountPrivilegesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5711,10 +5729,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves the permissions of a specified database account at a specific level.
+     * Queries the permissions granted to a specified database account at a specific level.
      *
      * @remarks
-     * See [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountPrivilegesRequest
      *
@@ -5735,7 +5753,7 @@ class Adb extends OpenApiClient
      * Queries the database accounts of a cluster.
      *
      * @remarks
-     * For the service registration endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5793,7 +5811,7 @@ class Adb extends OpenApiClient
      * Queries the database accounts of a cluster.
      *
      * @remarks
-     * For the service registration endpoint of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountsRequest
      *
@@ -5892,7 +5910,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about table indexes.
+     * Queries the index information of a table.
      *
      * @param request - DescribeAdbMySqlIndexesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5943,7 +5961,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about table indexes.
+     * Queries the index information of a table.
      *
      * @param request - DescribeAdbMySqlIndexesRequest
      *
@@ -5964,8 +5982,8 @@ class Adb extends OpenApiClient
      * Lists all databases in a specified cluster.
      *
      * @remarks
-     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6015,8 +6033,8 @@ class Adb extends OpenApiClient
      * Lists all databases in a specified cluster.
      *
      * @remarks
-     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlSchemasRequest
      *
@@ -6034,7 +6052,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about table metadata.
+     * Queries the metadata of a table.
      *
      * @param request - DescribeAdbMySqlTableMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6085,7 +6103,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about table metadata.
+     * Queries the metadata of a table.
      *
      * @param request - DescribeAdbMySqlTableMetaRequest
      *
@@ -6106,8 +6124,8 @@ class Adb extends OpenApiClient
      * Lists all tables in a specified database of a cluster.
      *
      * @remarks
-     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6161,8 +6179,8 @@ class Adb extends OpenApiClient
      * Lists all tables in a specified database of a cluster.
      *
      * @remarks
-     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlTablesRequest
      *
@@ -6183,7 +6201,7 @@ class Adb extends OpenApiClient
      * Queries whether the advisory service is enabled.
      *
      * @remarks
-     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAdviceServiceEnabledRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6229,7 +6247,7 @@ class Adb extends OpenApiClient
      * Queries whether the advisory service is enabled.
      *
      * @remarks
-     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAdviceServiceEnabledRequest
      *
@@ -6324,7 +6342,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Shows applied recommendations.
+     * Queries the accepted optimization suggestions.
      *
      * @param request - DescribeAppliedAdvicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6403,7 +6421,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Shows applied recommendations.
+     * Queries the accepted optimization suggestions.
      *
      * @param request - DescribeAppliedAdvicesRequest
      *
@@ -6421,12 +6439,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL cluster.
+     * Queries the detailed log information of real-time data ingestion tasks for a cluster.
      *
      * @remarks
-     *   General endpoint: `adb.aliyuncs.com`.
-     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The central public endpoint: `adb.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeApsActionLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6517,12 +6535,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a real-time data ingestion job for an AnalyticDB for MySQL cluster.
+     * Queries the detailed log information of real-time data ingestion tasks for a cluster.
      *
      * @remarks
-     *   General endpoint: `adb.aliyuncs.com`.
-     * *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The central public endpoint: `adb.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeApsActionLogsRequest
      *
@@ -6605,7 +6623,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries APS data sources.
+     * Queries the list of APS data sources.
      *
      * @param request - DescribeApsDatasourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6672,7 +6690,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries APS data sources.
+     * Queries the list of APS data sources.
      *
      * @param request - DescribeApsDatasourcesRequest
      *
@@ -6816,7 +6834,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of APS tasks.
+     * Queries APS tasks.
      *
      * @param request - DescribeApsJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6875,7 +6893,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of APS tasks.
+     * Queries APS tasks.
      *
      * @param request - DescribeApsJobsRequest
      *
@@ -8345,10 +8363,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * View a cluster\\"s health status.
+     * Checks the health status of a cluster.
      *
      * @remarks
-     * For the service access address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterHealthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8391,10 +8409,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * View a cluster\\"s health status.
+     * Checks the health status of a cluster.
      *
      * @remarks
-     * For the service access address, see [service endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterHealthStatusRequest
      *
@@ -8415,7 +8433,7 @@ class Adb extends OpenApiClient
      * Queries the performance data of a specified cluster.
      *
      * @remarks
-     * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8477,7 +8495,7 @@ class Adb extends OpenApiClient
      * Queries the performance data of a specified cluster.
      *
      * @remarks
-     * For the endpoint of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterPerformanceRequest
      *
@@ -8496,6 +8514,9 @@ class Adb extends OpenApiClient
 
     /**
      * Queries the SSL configurations of a cluster.
+     *
+     * @remarks
+     * >Warning: 目前该功能处于内测阶段，控制台界面展示及API调用接口尚未稳定，可能持续变化。
      *
      * @param request - DescribeDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8540,6 +8561,9 @@ class Adb extends OpenApiClient
     /**
      * Queries the SSL configurations of a cluster.
      *
+     * @remarks
+     * >Warning: 目前该功能处于内测阶段，控制台界面展示及API调用接口尚未稳定，可能持续变化。
+     *
      * @param request - DescribeDBClusterSSLRequest
      *
      * @returns DescribeDBClusterSSLResponse
@@ -8556,10 +8580,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the storage overview of an instance, including the total data volume, hot data volume, cold data volume, and data growth.
+     * Retrieves the storage overview of an instance, including the total data size, hot data size, cold data size, and data growth.
      *
      * @remarks
-     * For the service registration endpoint of the current service, see [service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterSpaceSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8618,10 +8642,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the storage overview of an instance, including the total data volume, hot data volume, cold data volume, and data growth.
+     * Retrieves the storage overview of an instance, including the total data size, hot data size, cold data size, and data growth.
      *
      * @remarks
-     * For the service registration endpoint of the current service, see [service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterSpaceSummaryRequest
      *
@@ -8804,7 +8828,7 @@ class Adb extends OpenApiClient
      * Queries the resource group information of a cluster.
      *
      * @remarks
-     * For the endpoint of this service, see [service registration endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8862,7 +8886,7 @@ class Adb extends OpenApiClient
      * Queries the resource group information of a cluster.
      *
      * @remarks
-     * For the endpoint of this service, see [service registration endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBResourceGroupRequest
      *
@@ -8880,10 +8904,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the deduplicated statistics of resource groups, databases, usernames, and source IP addresses about SQL statements that meet a query condition for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * Queries the deduplicated statistics information of SQL statements that meet the specified conditional retrieve in an AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster across dimensions such as resource groups, database names, usernames, and access source addresses.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of this service, see [Service registration endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDiagnosisDimensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8942,10 +8966,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the deduplicated statistics of resource groups, databases, usernames, and source IP addresses about SQL statements that meet a query condition for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     * Queries the deduplicated statistics information of SQL statements that meet the specified conditional retrieve in an AnalyticDB for MySQL Data Lakehouse Edition (3.0) cluster across dimensions such as resource groups, database names, usernames, and access source addresses.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of this service, see [Service registration endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDiagnosisDimensionsRequest
      *
@@ -8963,10 +8987,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the summary of SQL statements that meet specified conditions in an AnalyticDB for MySQL cluster.
+     * Queries the SQL summary information that meets specified conditions in a specified AnalyticDB for MySQL cluster.
      *
      * @remarks
-     * For information about service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDiagnosisRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9077,10 +9101,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the summary of SQL statements that meet specified conditions in an AnalyticDB for MySQL cluster.
+     * Queries the SQL summary information that meets specified conditions in a specified AnalyticDB for MySQL cluster.
      *
      * @remarks
-     * For information about service endpoints, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDiagnosisRecordsRequest
      *
@@ -9098,10 +9122,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnostics results.
+     * Retrieves the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnosis results.
      *
      * @remarks
-     * For the service registration addresses of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDiagnosisSQLInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9164,10 +9188,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnostics results.
+     * Retrieves the execution details of a specific SQL statement, including the execution plan, runtime information, resource usage, and self-diagnosis results.
      *
      * @remarks
-     * For the service registration addresses of this service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDiagnosisSQLInfoRequest
      *
@@ -9568,12 +9592,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves the supported permission levels and the list of permissions.
+     * Retrieves the supported permission levels and permissions.
      *
      * @remarks
-     * - Central public endpoint: `adb.aliyuncs.com`.
-     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+     * - The global public endpoint: `adb.aliyuncs.com`.
+     * - The public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeEnabledPrivilegesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9608,12 +9632,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves the supported permission levels and the list of permissions.
+     * Retrieves the supported permission levels and permissions.
      *
      * @remarks
-     * - Central public endpoint: `adb.aliyuncs.com`.
-     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+     * - The global public endpoint: `adb.aliyuncs.com`.
+     * - The public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeEnabledPrivilegesRequest
      *
@@ -10093,7 +10117,7 @@ class Adb extends OpenApiClient
      * Queries the disk usage of all storage nodes.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeInclinedNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10159,7 +10183,7 @@ class Adb extends OpenApiClient
      * Queries the disk usage of all storage nodes.
      *
      * @remarks
-     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeInclinedNodesRequest
      *
@@ -10258,10 +10282,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves job resource usage statistics.
+     * Retrieves the resource usage statistics of jobs.
      *
      * @remarks
-     * For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeJobResourceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10320,10 +10344,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves job resource usage statistics.
+     * Retrieves the resource usage statistics of jobs.
      *
      * @remarks
-     * For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeJobResourceUsageRequest
      *
@@ -10578,7 +10602,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the execution list of subtasks for a materialized view recommendation task.
+     * Queries the list of subtask executions for a materialized view recommendation task.
      *
      * @param request - DescribeMvRecommendSubTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10649,7 +10673,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the execution list of subtasks for a materialized view recommendation task.
+     * Queries the list of subtask executions for a materialized view recommendation task.
      *
      * @param request - DescribeMvRecommendSubTasksRequest
      *
@@ -10922,10 +10946,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * View metric details (such as query time and average memory consumption) for SQL patterns over a specified time range in a cluster.
+     * Queries the details of various metrics, such as query time and average memory consumption, for SQL patterns in a cluster within a specified time period.
      *
      * @remarks
-     * For the endpoint of this service, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribePatternPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10980,10 +11004,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * View metric details (such as query time and average memory consumption) for SQL patterns over a specified time range in a cluster.
+     * Queries the details of various metrics, such as query time and average memory consumption, for SQL patterns in a cluster within a specified time period.
      *
      * @remarks
-     * For the endpoint of this service, see [endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribePatternPerformanceRequest
      *
@@ -11159,7 +11183,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Call the DescribeProcessList operation to view the running queries of an instance.
+     * Queries the running queries of an instance.
      *
      * @param request - DescribeProcessListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11242,7 +11266,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Call the DescribeProcessList operation to view the running queries of an instance.
+     * Queries the running queries of an instance.
      *
      * @param request - DescribeProcessListRequest
      *
@@ -11263,7 +11287,7 @@ class Adb extends OpenApiClient
      * Queries the regions and zones supported by AnalyticDB for MySQL Data Lakehouse Edition.
      *
      * @remarks
-     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of this service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11325,7 +11349,7 @@ class Adb extends OpenApiClient
      * Queries the regions and zones supported by AnalyticDB for MySQL Data Lakehouse Edition.
      *
      * @remarks
-     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration endpoint of this service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeRegionsRequest
      *
@@ -11416,7 +11440,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the user-configured result set export settings.
+     * Retrieves the result set export configurations.
      *
      * @param request - DescribeResultExportConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11463,7 +11487,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the user-configured result set export settings.
+     * Retrieves the result set export configurations.
      *
      * @param request - DescribeResultExportConfigRequest
      *
@@ -11481,12 +11505,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster within a specified time range.
+     * Queries the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster within a specified date range.
      *
      * @remarks
-     * - Central public endpoint: `adb.aliyuncs.com`.
-     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for the center: `adb.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeSQLPatternsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11565,12 +11589,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster within a specified time range.
+     * Queries the list of SQL patterns for an AnalyticDB for MySQL Data Lakehouse Edition cluster within a specified date range.
      *
      * @remarks
-     * - Central public endpoint: `adb.aliyuncs.com`.
-     * - Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - Regional VPC endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for the center: `adb.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeSQLPatternsRequest
      *
@@ -11722,7 +11746,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the diagnostic information about a Spark application.
+     * Queries the diagnostic information of a Spark application.
      *
      * @param request - DescribeSparkAppDiagnosisInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11773,7 +11797,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the diagnostic information about a Spark application.
+     * Queries the diagnostic information of a Spark application.
      *
      * @param request - DescribeSparkAppDiagnosisInfoRequest
      *
@@ -11856,11 +11880,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the SQL audit logs for a Spark Interactive resource group.
+     * Queries the SQL audit logs of a Spark Interactive resource group.
      *
      * @remarks
-     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
-     * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
+     * SQL audit logs can be queried only when the SQL audit feature is enabled, and only logs generated within the last 30 days are supported. If the SQL audit feature is disabled and then re-enabled, only the logs generated after it is re-enabled can be queried.
+     * >Notice: This operation can only query SQL audit logs executed through **Spark Interactive resource groups**.
      *
      * @param request - DescribeSparkAuditLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11979,11 +12003,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the SQL audit logs for a Spark Interactive resource group.
+     * Queries the SQL audit logs of a Spark Interactive resource group.
      *
      * @remarks
-     * SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL auditing is turned off midway, when it is re-enabled, you can only query the SQL audit logs generated after it was turned back on.
-     * >  You can query only SQL audit logs that are executed by using Spark Interactive Resource Group.
+     * SQL audit logs can be queried only when the SQL audit feature is enabled, and only logs generated within the last 30 days are supported. If the SQL audit feature is disabled and then re-enabled, only the logs generated after it is re-enabled can be queried.
+     * >Notice: This operation can only query SQL audit logs executed through **Spark Interactive resource groups**.
      *
      * @param request - DescribeSparkAuditLogRecordsRequest
      *
@@ -12293,7 +12317,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the Spark SQL diagnostics list.
+     * Queries the list of Spark SQL diagnostics.
      *
      * @param request - DescribeSparkSQLDiagnosisListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12360,7 +12384,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the Spark SQL diagnostics list.
+     * Queries the list of Spark SQL diagnostics.
      *
      * @param request - DescribeSparkSQLDiagnosisListRequest
      *
@@ -12381,7 +12405,7 @@ class Adb extends OpenApiClient
      * Queries the details of SQL patterns for an AnalyticDB for MySQL cluster on a specified date.
      *
      * @remarks
-     * For the service registration address of the current service, see [service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeSqlPatternRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12451,7 +12475,7 @@ class Adb extends OpenApiClient
      * Queries the details of SQL patterns for an AnalyticDB for MySQL cluster on a specified date.
      *
      * @remarks
-     * For the service registration address of the current service, see [service registration](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeSqlPatternRequest
      *
@@ -12762,10 +12786,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the number of times a specified table or all tables in a cluster are accessed within a specified date range.
+     * Queries the access count of a specified table or all tables in a cluster within a specified date range.
      *
      * @remarks
-     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeTableAccessCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12828,10 +12852,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the number of times a specified table or all tables in a cluster are accessed within a specified date range.
+     * Queries the access count of a specified table or all tables in a cluster within a specified date range.
      *
      * @remarks
-     * For the service registration of this service, see [Endpoint](https://help.aliyun.com/document_detail/612373.html).
+     * For the endpoint of the current service, refer to [service registration](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeTableAccessCountRequest
      *
@@ -12849,7 +12873,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data distribution among shards of a table.
+     * Queries the data distribution of a table across shards.
      *
      * @param request - DescribeTableDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12900,7 +12924,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about data distribution among shards of a table.
+     * Queries the data distribution of a table across shards.
      *
      * @param request - DescribeTableDetailRequest
      *
@@ -12918,7 +12942,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about partition diagnostics.
+     * Queries partition diagnostics information.
      *
      * @param request - DescribeTablePartitionDiagnoseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12977,7 +13001,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about partition diagnostics.
+     * Queries partition diagnostics information.
      *
      * @param request - DescribeTablePartitionDiagnoseRequest
      *
@@ -13964,6 +13988,11 @@ class Adb extends OpenApiClient
     /**
      * Executes Spark SQL statements in batches.
      *
+     * @remarks
+     * - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+     * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+     * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
+     *
      * @param request - ExecuteSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14030,6 +14059,11 @@ class Adb extends OpenApiClient
 
     /**
      * Executes Spark SQL statements in batches.
+     *
+     * @remarks
+     * - 地域的公网接入地址：`adb.<region-id>.aliyuncs.com`。示例：`adb.cn-hangzhou.aliyuncs.com`。
+     * - 地域的VPC接入地址：`adb-vpc.<region-id>.aliyuncs.com`。示例：`adb-vpc.cn-hangzhou.aliyuncs.com`。
+     * > 如果华北1（青岛）、华南1（深圳）、华南3（广州）、中国香港发起请求时，遇到409错误，请联系技术支持。
      *
      * @param request - ExecuteSparkWarehouseBatchSQLRequest
      *
@@ -14125,6 +14159,9 @@ class Adb extends OpenApiClient
     /**
      * Creates a reference record for a knowledge base file.
      *
+     * @remarks
+     * 创建知识库文件引用记录。调用前需确保当前 RAM 用户已绑定到该 ADB 实例的数据库账号，可通过 CreateAccount 的 RamUserList 参数或 BindAccount 完成绑定；未绑定时接口返回错误码 119。
+     *
      * @param request - ForkKnowledgeFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14179,6 +14216,9 @@ class Adb extends OpenApiClient
 
     /**
      * Creates a reference record for a knowledge base file.
+     *
+     * @remarks
+     * 创建知识库文件引用记录。调用前需确保当前 RAM 用户已绑定到该 ADB 实例的数据库账号，可通过 CreateAccount 的 RamUserList 参数或 BindAccount 完成绑定；未绑定时接口返回错误码 119。
      *
      * @param request - ForkKnowledgeFileRequest
      *
@@ -14261,10 +14301,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves the diagnostic report on basic Spark permissions for the current user.
+     * Retrieves the Spark basic permission diagnostic report for the current user.
      *
      * @remarks
-     * The diagnostic report for this API indicates whether the current user has all the permissions required for ADB Spark features. The scope of the checked permissions may exceed the minimum business requirements. This diagnostic report is used for quick environment initialization of ADB Spark. To configure fine-grained permissions, refer to [ADB Spark fine-grained permission configuration documentation](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko).
+     * The API diagnostic report indicates whether the current user has all the permissions required for ADB Spark-related features. The scope of the checked permissions may exceed the minimum business requirements. The diagnostic report of this API is used for the quick environment initialization scenario of ADB Spark. For fine-grained permission configuration, refer to the [ADB Spark fine-grained permission configuration documentation](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko).
      *
      * @param request - GetADBSparkNecessaryRAMPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14303,10 +14343,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves the diagnostic report on basic Spark permissions for the current user.
+     * Retrieves the Spark basic permission diagnostic report for the current user.
      *
      * @remarks
-     * The diagnostic report for this API indicates whether the current user has all the permissions required for ADB Spark features. The scope of the checked permissions may exceed the minimum business requirements. This diagnostic report is used for quick environment initialization of ADB Spark. To configure fine-grained permissions, refer to [ADB Spark fine-grained permission configuration documentation](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko).
+     * The API diagnostic report indicates whether the current user has all the permissions required for ADB Spark-related features. The scope of the checked permissions may exceed the minimum business requirements. The diagnostic report of this API is used for the quick environment initialization scenario of ADB Spark. For fine-grained permission configuration, refer to the [ADB Spark fine-grained permission configuration documentation](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-mysql/user-guide/create-the-aliyunadbsparkprocessingdatarole-role-for-a-ram-user-and-grant-permissions-to-the-role?spm=a2c63.p38356.help-menu-92664.d_2_5_0.48362a487dMzm9#section-y2z-ucd-1ko).
      *
      * @param request - GetADBSparkNecessaryRAMPermissionsRequest
      *
@@ -14324,7 +14364,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the table creation statement for tables.
+     * Queries the CREATE TABLE statement of a specified table.
      *
      * @param request - GetCreateTableSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14391,7 +14431,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the table creation statement for tables.
+     * Queries the CREATE TABLE statement of a specified table.
      *
      * @param request - GetCreateTableSQLRequest
      *
@@ -14412,8 +14452,8 @@ class Adb extends OpenApiClient
      * Queries database information.
      *
      * @remarks
-     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetDatabaseObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14479,8 +14519,8 @@ class Adb extends OpenApiClient
      * Queries database information.
      *
      * @remarks
-     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetDatabaseObjectsRequest
      *
@@ -14942,12 +14982,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about an Spark application.
+     * Retrieves the information about a Spark application.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 error when making requests in China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkAppInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14992,12 +15032,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the information about an Spark application.
+     * Retrieves the information about a Spark application.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 error when making requests in China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkAppInfoRequest
      *
@@ -15018,8 +15058,8 @@ class Adb extends OpenApiClient
      * Queries the logs of a Spark application.
      *
      * @remarks
-     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkAppLogRequest
@@ -15080,8 +15120,8 @@ class Adb extends OpenApiClient
      * Queries the logs of a Spark application.
      *
      * @remarks
-     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkAppLogRequest
@@ -15178,8 +15218,8 @@ class Adb extends OpenApiClient
      * Queries the status of a Spark application.
      *
      * @remarks
-     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkAppStateRequest
@@ -15228,8 +15268,8 @@ class Adb extends OpenApiClient
      * Queries the status of a Spark application.
      *
      * @remarks
-     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkAppStateRequest
@@ -15455,7 +15495,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Spark session.
+     * Retrieves the session status.
      *
      * @param request - GetSparkReplSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15498,7 +15538,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Spark session.
+     * Retrieves the session status.
      *
      * @param request - GetSparkReplSessionRequest
      *
@@ -15516,7 +15556,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the execution result of a code block.
+     * Retrieves the execution result of a code snippet.
      *
      * @param request - GetSparkReplStatementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15563,7 +15603,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the execution result of a code block.
+     * Retrieves the execution result of a code snippet.
      *
      * @param request - GetSparkReplStatementRequest
      *
@@ -15581,12 +15621,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the state information about the Spark SQL engine.
+     * Queries the status of the Spark SQL engine.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @deprecated OpenAPI GetSparkSQLEngineState is deprecated
      *
@@ -15632,12 +15672,12 @@ class Adb extends OpenApiClient
 
     // Deprecated
     /**
-     * Queries the state information about the Spark SQL engine.
+     * Queries the status of the Spark SQL engine.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @deprecated OpenAPI GetSparkSQLEngineState is deprecated
      *
@@ -15862,12 +15902,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves the execution results of a Spark SQL statement.
+     * Retrieves the execution results of Spark SQL.
      *
      * @remarks
-     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-     * > If you encounter a 409 error when sending requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
+     * - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 fault when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15914,12 +15954,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Retrieves the execution results of a Spark SQL statement.
+     * Retrieves the execution results of Spark SQL.
      *
      * @remarks
-     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-     * > If you encounter a 409 error when sending requests from China North 1 (Qingdao), China South 1 (Shenzhen), China South 3 (Guangzhou), or Hong Kong (China), contact technical support.
+     * - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 fault when sending requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - GetSparkWarehouseBatchSQLRequest
      *
@@ -15940,8 +15980,8 @@ class Adb extends OpenApiClient
      * Retrieves table information.
      *
      * @remarks
-     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15995,8 +16035,8 @@ class Adb extends OpenApiClient
      * Retrieves table information.
      *
      * @remarks
-     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableRequest
      *
@@ -16017,8 +16057,8 @@ class Adb extends OpenApiClient
      * Queries column information.
      *
      * @remarks
-     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16084,8 +16124,8 @@ class Adb extends OpenApiClient
      * Queries column information.
      *
      * @remarks
-     * - Public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
+     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableColumnsRequest
      *
@@ -16103,11 +16143,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the statement that is used to create a table.
+     * Queries the CREATE TABLE statement.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableDDLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16158,11 +16198,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the statement that is used to create a table.
+     * Queries the CREATE TABLE statement.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableDDLRequest
      *
@@ -16281,11 +16321,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the statement that is used to create a view.
+     * Queries the creation statement of a view.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetViewDDLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16336,11 +16376,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the statement that is used to create a view.
+     * Queries the creation statement of a view.
      *
      * @remarks
-     *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetViewDDLRequest
      *
@@ -16361,8 +16401,8 @@ class Adb extends OpenApiClient
      * Queries view information.
      *
      * @remarks
-     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetViewObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16440,8 +16480,8 @@ class Adb extends OpenApiClient
      * Queries view information.
      *
      * @remarks
-     * - Public endpoint for a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * - VPC endpoint for a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetViewObjectsRequest
      *
@@ -17146,7 +17186,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the execution records of result set export jobs of a Resource Access Management (RAM) user.
+     * Queries the execution history of result set export jobs for the current Resource Access Management (RAM) user.
      *
      * @param tmpReq - ListResultExportJobHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17231,7 +17271,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries the execution records of result set export jobs of a Resource Access Management (RAM) user.
+     * Queries the execution history of result set export jobs for the current Resource Access Management (RAM) user.
      *
      * @param request - ListResultExportJobHistoryRequest
      *
@@ -17319,9 +17359,9 @@ class Adb extends OpenApiClient
      * Queries the retry information of a specified Spark application.
      *
      * @remarks
-     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-     * > If you encounter a 409 fault when initiating a request from Hong Kong (China), submit a ticket or contact technical support.
+     * - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 error when initiating a request in China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - ListSparkAppAttemptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17375,9 +17415,9 @@ class Adb extends OpenApiClient
      * Queries the retry information of a specified Spark application.
      *
      * @remarks
-     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-     * > If you encounter a 409 fault when initiating a request from Hong Kong (China), submit a ticket or contact technical support.
+     * - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 error when initiating a request in China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - ListSparkAppAttemptsRequest
      *
@@ -17398,9 +17438,9 @@ class Adb extends OpenApiClient
      * Queries the list of Spark applications.
      *
      * @remarks
-     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-     * > If you encounter a 409 fault when initiating a request from Hong Kong (China), contact technical support.
+     * - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - ListSparkAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17458,9 +17498,9 @@ class Adb extends OpenApiClient
      * Queries the list of Spark applications.
      *
      * @remarks
-     * - Public endpoint of a region: `adb.<region-id>.aliyuncs.com`. Example: `adb.ap-southeast-1.aliyuncs.com`.
-     * - VPC endpoint of a region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.ap-southeast-1.aliyuncs.com`.
-     * > If you encounter a 409 fault when initiating a request from Hong Kong (China), contact technical support.
+     * - The public endpoint for the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint for the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 fault when initiating requests from China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China), contact technical support.
      *
      * @param request - ListSparkAppsRequest
      *
@@ -17620,7 +17660,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of Spark SQL statements.
+     * Queries all executed Spark SQL statements by paging.
+     *
+     * @remarks
+     * - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 error when sending requests from the China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China) regions, contact technical support.
      *
      * @param request - ListSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17671,7 +17716,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of Spark SQL statements.
+     * Queries all executed Spark SQL statements by paging.
+     *
+     * @remarks
+     * - The public endpoint of the region: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
+     * - The VPC endpoint of the region: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
+     * > If you encounter a 409 error when sending requests from the China (Qingdao), China (Shenzhen), China (Guangzhou), or Hong Kong (China) regions, contact technical support.
      *
      * @param request - ListSparkWarehouseBatchSQLRequest
      *
@@ -18025,12 +18075,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies an AnalyticDB Pipeline Service (APS) data source.
+     * Modifies an APS data source.
      *
      * @remarks
-     * ### [](#)
-     * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     * *   You cannot modify the number of nodes for the USER_DEFAULT resource group.
+     * ### Precautions
+     * - This operation is applicable only to elastic mode Cluster Edition (new version) clusters with 32 or more cores.
+     * - You cannot modify the number of nodes in the default resource group USER_DEFAULT.
      *
      * @param tmpReq - ModifyApsDatasoureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18127,12 +18177,12 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies an AnalyticDB Pipeline Service (APS) data source.
+     * Modifies an APS data source.
      *
      * @remarks
-     * ### [](#)
-     * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
-     * *   You cannot modify the number of nodes for the USER_DEFAULT resource group.
+     * ### Precautions
+     * - This operation is applicable only to elastic mode Cluster Edition (new version) clusters with 32 or more cores.
+     * - You cannot modify the number of nodes in the default resource group USER_DEFAULT.
      *
      * @param request - ModifyApsDatasoureRequest
      *
@@ -18225,7 +18275,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
+     * Modifies a Simple Log Service (SLS) data shipping task to an AnalyticDB data warehouse.
+     *
+     * @remarks
+     * 修改 SLS 投递 ADB 数仓任务。调用前需确认：
+     * 1. 已创建并处于运行中的 ADB 集群，可通过 CreateDBCluster 创建、DescribeDBClusters 查询状态。
+     * 2. 集群已创建数据库账号，可通过 CreateAccount 创建。
+     * 3. 已通过 CreateApsSlsADBJob 创建 SLS 数据链路任务，并从响应获取 WorkloadId。
      *
      * @param tmpReq - ModifyApsSlsADBJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18318,7 +18374,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Modifies an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
+     * Modifies a Simple Log Service (SLS) data shipping task to an AnalyticDB data warehouse.
+     *
+     * @remarks
+     * 修改 SLS 投递 ADB 数仓任务。调用前需确认：
+     * 1. 已创建并处于运行中的 ADB 集群，可通过 CreateDBCluster 创建、DescribeDBClusters 查询状态。
+     * 2. 集群已创建数据库账号，可通过 CreateAccount 创建。
+     * 3. 已通过 CreateApsSlsADBJob 创建 SLS 数据链路任务，并从响应获取 WorkloadId。
      *
      * @param request - ModifyApsSlsADBJobRequest
      *
@@ -19370,7 +19432,7 @@ class Adb extends OpenApiClient
      * Modifies the resource group of a cluster.
      *
      * @remarks
-     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - ModifyDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19518,7 +19580,7 @@ class Adb extends OpenApiClient
      * Modifies the resource group of a cluster.
      *
      * @remarks
-     * For the service registration address of the current service, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     * For the service registration address of the current service, refer to [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyDBResourceGroupRequest
      *
@@ -20372,7 +20434,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of metadata discovery task instances.
+     * Queries the metadata discovery task instances.
      *
      * @param request - QueryFormationInstsByTaskIDRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20419,7 +20481,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries a list of metadata discovery task instances.
+     * Queries the metadata discovery task instances.
      *
      * @param request - QueryFormationInstsByTaskIDRequest
      *
@@ -20506,7 +20568,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries metadata discovery tasks by task type.
+     * Query metadata discovery tasks by task type.
      *
      * @param request - QueryFormationTasksByTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20553,7 +20615,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Queries metadata discovery tasks by task type.
+     * Query metadata discovery tasks by task type.
      *
      * @param request - QueryFormationTasksByTypeRequest
      *
@@ -21363,8 +21425,8 @@ class Adb extends OpenApiClient
      * Manually triggers a metadata discovery task.
      *
      * @remarks
-     * ### Operation description
-     * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require Alibaba Cloud technical support, if the helpdesk needs to perform operations on your cluster during the support procedure, authorize the service account of the AnalyticDB for MySQL cluster so that the helpdesk can provide technical support through the service account. After the authorization expires, the permissions of the service account are automatically revoked.
+     * ### Usage notes
+     * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require technical support from Alibaba Cloud, if the helpdesk needs to perform operations on your cluster during the support procedure, you must authorize the service account of the AnalyticDB for MySQL cluster. This allows the helpdesk to provide technical support through the service account. After the authorization validity period expires, the permissions of the service account are automatically revoked.
      *
      * @param request - StartFormationCrawlerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21418,8 +21480,8 @@ class Adb extends OpenApiClient
      * Manually triggers a metadata discovery task.
      *
      * @remarks
-     * ### Operation description
-     * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require Alibaba Cloud technical support, if the helpdesk needs to perform operations on your cluster during the support procedure, authorize the service account of the AnalyticDB for MySQL cluster so that the helpdesk can provide technical support through the service account. After the authorization expires, the permissions of the service account are automatically revoked.
+     * ### Usage notes
+     * When you use a cloud-native data repository AnalyticDB for MySQL cluster and require technical support from Alibaba Cloud, if the helpdesk needs to perform operations on your cluster during the support procedure, you must authorize the service account of the AnalyticDB for MySQL cluster. This allows the helpdesk to provide technical support through the service account. After the authorization validity period expires, the permissions of the service account are automatically revoked.
      *
      * @param request - StartFormationCrawlerRequest
      *
@@ -21598,10 +21660,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Stops a metadata discovery task that is currently running.
+     * Stops the currently running metadata discovery task.
      *
      * @remarks
-     * Stops only the currently running task without canceling subsequent cron-scheduled executions.
+     * Stops only the currently running task without stopping subsequent cron schedules.
      *
      * @param request - StopFormationCrawlerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21652,10 +21714,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Stops a metadata discovery task that is currently running.
+     * Stops the currently running metadata discovery task.
      *
      * @remarks
-     * Stops only the currently running task without canceling subsequent cron-scheduled executions.
+     * Stops only the currently running task without stopping subsequent cron schedules.
      *
      * @param request - StopFormationCrawlerRequest
      *
@@ -21674,6 +21736,9 @@ class Adb extends OpenApiClient
 
     /**
      * Submits an SQL query and exports a result set.
+     *
+     * @remarks
+     * 提交结果集导出任务。调用前须先调用 ConfigureResultExport 配置导出目标（SLS 或 OSS），否则接口返回 APS.NotExists 错误。
      *
      * @param request - SubmitResultExportJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21737,6 +21802,9 @@ class Adb extends OpenApiClient
 
     /**
      * Submits an SQL query and exports a result set.
+     *
+     * @remarks
+     * 提交结果集导出任务。调用前须先调用 ConfigureResultExport 配置导出目标（SLS 或 OSS），否则接口返回 APS.NotExists 错误。
      *
      * @param request - SubmitResultExportJobRequest
      *
@@ -22251,7 +22319,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Updates the information of a metadata discovery task.
+     * Updates the metadata discovery task information.
      *
      * @param request - UpdateFormationCrawlerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22302,7 +22370,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Updates the information of a metadata discovery task.
+     * Updates the metadata discovery task information.
      *
      * @param request - UpdateFormationCrawlerRequest
      *
@@ -22320,7 +22388,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Pauses or resumes the periodic scheduling of metadata discovery.
+     * Pause or resume periodic scheduling for metadata discovery.
      *
      * @param request - UpdateFormationCrawlerScheduleStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22375,7 +22443,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Pauses or resumes the periodic scheduling of metadata discovery.
+     * Pause or resume periodic scheduling for metadata discovery.
      *
      * @param request - UpdateFormationCrawlerScheduleStateRequest
      *
@@ -22393,7 +22461,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Updates a lake storage.
+     * Updates the lake storage.
+     *
+     * @remarks
+     * 更新湖存储。LakeStorageId 和 DBClusterId 为更新湖存储的必要标识，实际调用时需同时传入，未传时请求会被拒绝。
      *
      * @param tmpReq - UpdateLakeStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22454,7 +22525,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * Updates a lake storage.
+     * Updates the lake storage.
+     *
+     * @remarks
+     * 更新湖存储。LakeStorageId 和 DBClusterId 为更新湖存储的必要标识，实际调用时需同时传入，未传时请求会被拒绝。
      *
      * @param request - UpdateLakeStorageRequest
      *
