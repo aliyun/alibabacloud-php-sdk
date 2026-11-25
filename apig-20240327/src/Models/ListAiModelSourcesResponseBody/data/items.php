@@ -11,6 +11,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $callNamePrefix;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
@@ -48,6 +53,7 @@ class items extends Model
      */
     public $version;
     protected $_name = [
+        'callNamePrefix' => 'callNamePrefix',
         'displayName' => 'displayName',
         'gatewayId' => 'gatewayId',
         'modelCount' => 'modelCount',
@@ -66,6 +72,10 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->callNamePrefix) {
+            $res['callNamePrefix'] = $this->callNamePrefix;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
@@ -109,6 +119,10 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['callNamePrefix'])) {
+            $model->callNamePrefix = $map['callNamePrefix'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }

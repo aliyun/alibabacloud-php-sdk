@@ -22,10 +22,16 @@ class DataResultsValue extends Model
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var string
+     */
+    public $skipReason;
     protected $_name = [
         'routeId' => 'routeId',
         'status' => 'status',
         'errorMessage' => 'errorMessage',
+        'skipReason' => 'skipReason',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class DataResultsValue extends Model
 
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
+        }
+
+        if (null !== $this->skipReason) {
+            $res['skipReason'] = $this->skipReason;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class DataResultsValue extends Model
 
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
+        }
+
+        if (isset($map['skipReason'])) {
+            $model->skipReason = $map['skipReason'];
         }
 
         return $model;

@@ -27,6 +27,11 @@ class UpdateServiceRequest extends Model
     public $aiServiceConfig;
 
     /**
+     * @var int
+     */
+    public $apiKeyIndexToRemove;
+
+    /**
      * @var string[]
      */
     public $apiKeyReferencesToAdd;
@@ -79,6 +84,7 @@ class UpdateServiceRequest extends Model
         'addresses' => 'addresses',
         'agentServiceConfig' => 'agentServiceConfig',
         'aiServiceConfig' => 'aiServiceConfig',
+        'apiKeyIndexToRemove' => 'apiKeyIndexToRemove',
         'apiKeyReferencesToAdd' => 'apiKeyReferencesToAdd',
         'apiKeysToAdd' => 'apiKeysToAdd',
         'dnsServers' => 'dnsServers',
@@ -143,6 +149,10 @@ class UpdateServiceRequest extends Model
 
         if (null !== $this->aiServiceConfig) {
             $res['aiServiceConfig'] = null !== $this->aiServiceConfig ? $this->aiServiceConfig->toArray($noStream) : $this->aiServiceConfig;
+        }
+
+        if (null !== $this->apiKeyIndexToRemove) {
+            $res['apiKeyIndexToRemove'] = $this->apiKeyIndexToRemove;
         }
 
         if (null !== $this->apiKeyReferencesToAdd) {
@@ -241,6 +251,10 @@ class UpdateServiceRequest extends Model
 
         if (isset($map['aiServiceConfig'])) {
             $model->aiServiceConfig = AiServiceConfig::fromMap($map['aiServiceConfig']);
+        }
+
+        if (isset($map['apiKeyIndexToRemove'])) {
+            $model->apiKeyIndexToRemove = $map['apiKeyIndexToRemove'];
         }
 
         if (isset($map['apiKeyReferencesToAdd'])) {

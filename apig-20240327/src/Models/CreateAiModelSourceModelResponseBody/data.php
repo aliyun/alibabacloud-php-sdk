@@ -17,6 +17,11 @@ class data extends Model
     public $availablePaths;
 
     /**
+     * @var string
+     */
+    public $callName;
+
+    /**
      * @var credit
      */
     public $credit;
@@ -92,6 +97,7 @@ class data extends Model
     public $version;
     protected $_name = [
         'availablePaths' => 'availablePaths',
+        'callName' => 'callName',
         'credit' => 'credit',
         'features' => 'features',
         'gatewayId' => 'gatewayId',
@@ -138,6 +144,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->callName) {
+            $res['callName'] = $this->callName;
         }
 
         if (null !== $this->credit) {
@@ -225,6 +235,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['callName'])) {
+            $model->callName = $map['callName'];
         }
 
         if (isset($map['credit'])) {

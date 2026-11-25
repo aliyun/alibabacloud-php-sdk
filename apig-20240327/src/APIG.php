@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\BatchAddConsumerGroupConsumersRequest
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchAddConsumerGroupConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteHttpApiRoutesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteHttpApiRoutesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeployHttpApiRoutesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeployHttpApiRoutesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchExportHttpApisRequest;
@@ -24,6 +26,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\BatchImportHttpApisRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchImportHttpApisResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchRemoveConsumerGroupConsumersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchRemoveConsumerGroupConsumersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchUndeployHttpApiRoutesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchUndeployHttpApiRoutesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchUpdateHttpApiOperationRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchUpdateHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupRequest;
@@ -162,6 +166,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DetachAndDeletePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DetachAndDeletePolicyResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DetectHttpApiConflictsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DetectHttpApiConflictsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelCardRequest;
@@ -778,7 +784,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Grants model card licenses to a consumer.
+     * Grants model card licenses to consumers.
      *
      * @param request - AuthorizeConsumerModelCardGrantsRequest
      * @param headers - map
@@ -833,7 +839,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Grants model card licenses to a consumer.
+     * Grants model card licenses to consumers.
      *
      * @param request - AuthorizeConsumerModelCardGrantsRequest
      *
@@ -977,7 +983,74 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Publishes specified routes or all visible routes under the same HTTP API in batches.
+     * 批量删除HttpApi的路由.
+     *
+     * @param request - BatchDeleteHttpApiRoutesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteHttpApiRoutesResponse
+     *
+     * @param string                          $httpApiId
+     * @param BatchDeleteHttpApiRoutesRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return BatchDeleteHttpApiRoutesResponse
+     */
+    public function batchDeleteHttpApiRoutesWithOptions($httpApiId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->deleteAll) {
+            @$body['deleteAll'] = $request->deleteAll;
+        }
+
+        if (null !== $request->routeIds) {
+            @$body['routeIds'] = $request->routeIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDeleteHttpApiRoutes',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes/batch-delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDeleteHttpApiRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除HttpApi的路由.
+     *
+     * @param request - BatchDeleteHttpApiRoutesRequest
+     *
+     * @returns BatchDeleteHttpApiRoutesResponse
+     *
+     * @param string                          $httpApiId
+     * @param BatchDeleteHttpApiRoutesRequest $request
+     *
+     * @return BatchDeleteHttpApiRoutesResponse
+     */
+    public function batchDeleteHttpApiRoutes($httpApiId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchDeleteHttpApiRoutesWithOptions($httpApiId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Publishes specified routes or all visible routes under the same HTTP API in a batch.
      *
      * @remarks
      * Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
@@ -1031,7 +1104,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Publishes specified routes or all visible routes under the same HTTP API in batches.
+     * Publishes specified routes or all visible routes under the same HTTP API in a batch.
      *
      * @remarks
      * Batch requests are processed individually after passing route ownership validation. If some routes fail to be published, other successfully published routes remain valid.
@@ -1288,6 +1361,77 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->batchRemoveConsumerGroupConsumersWithOptions($consumerGroupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 批量下线HttpApi的路由.
+     *
+     * @param request - BatchUndeployHttpApiRoutesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchUndeployHttpApiRoutesResponse
+     *
+     * @param string                            $httpApiId
+     * @param BatchUndeployHttpApiRoutesRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return BatchUndeployHttpApiRoutesResponse
+     */
+    public function batchUndeployHttpApiRoutesWithOptions($httpApiId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->async) {
+            @$body['async'] = $request->async;
+        }
+
+        if (null !== $request->routeIds) {
+            @$body['routeIds'] = $request->routeIds;
+        }
+
+        if (null !== $request->undeployAll) {
+            @$body['undeployAll'] = $request->undeployAll;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchUndeployHttpApiRoutes',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes/batch-undeploy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchUndeployHttpApiRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量下线HttpApi的路由.
+     *
+     * @param request - BatchUndeployHttpApiRoutesRequest
+     *
+     * @returns BatchUndeployHttpApiRoutesResponse
+     *
+     * @param string                            $httpApiId
+     * @param BatchUndeployHttpApiRoutesRequest $request
+     *
+     * @return BatchUndeployHttpApiRoutesResponse
+     */
+    public function batchUndeployHttpApiRoutes($httpApiId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchUndeployHttpApiRoutesWithOptions($httpApiId, $request, $headers, $runtime);
     }
 
     /**
@@ -1687,6 +1831,10 @@ class APIG extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->callNamePrefix) {
+            @$body['callNamePrefix'] = $request->callNamePrefix;
+        }
+
         if (null !== $request->displayName) {
             @$body['displayName'] = $request->displayName;
         }
@@ -1743,7 +1891,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an in-source AI model.
+     * Creates an AI model in a model source.
      *
      * @param request - CreateAiModelSourceModelRequest
      * @param headers - map
@@ -1811,7 +1959,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an in-source AI model.
+     * Creates an AI model in a model source.
      *
      * @param request - CreateAiModelSourceModelRequest
      *
@@ -3488,7 +3636,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a model creation API.
+     * Creates an API for model creation.
      *
      * @param request - CreateModelApiRequest
      * @param headers - map
@@ -3580,7 +3728,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a model creation API.
+     * Creates an API for model creation.
      *
      * @param request - CreateModelApiRequest
      *
@@ -5813,7 +5961,7 @@ class APIG extends OpenApiClient
      * Deletes a model API.
      *
      * @remarks
-     * Automatically stops the service and cleans up the resources owned by the API when a published new-version model API is deleted. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained during deletion or upon failure. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
+     * When you delete a published new-version model API, the system automatically stops the service and cleans up the dedicated resources of the API. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but it does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained if the deletion is in progress or fails. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
      *
      * @param request - DeleteModelApiRequest
      * @param headers - map
@@ -5863,7 +6011,7 @@ class APIG extends OpenApiClient
      * Deletes a model API.
      *
      * @remarks
-     * Automatically stops the service and cleans up the resources owned by the API when a published new-version model API is deleted. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained during deletion or upon failure. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
+     * When you delete a published new-version model API, the system automatically stops the service and cleans up the dedicated resources of the API. A successful response indicates that the request is accepted or is an idempotent replay of a completed deletion, but it does not indicate that all background steps are complete. Monitor the progress by checking the deleteStatus parameter of GetModelApi. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully complete. The object is retained if the deletion is in progress or fails. Shared model sources, model groups, models, services, consumers, and keys are not deleted.
      *
      * @param request - DeleteModelApiRequest
      *
@@ -6860,6 +7008,73 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 检测HttpApi间的路由冲突
+     *
+     * @param request - DetectHttpApiConflictsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetectHttpApiConflictsResponse
+     *
+     * @param string                        $httpApiId
+     * @param DetectHttpApiConflictsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DetectHttpApiConflictsResponse
+     */
+    public function detectHttpApiConflictsWithOptions($httpApiId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->restApiConfig) {
+            @$body['restApiConfig'] = $request->restApiConfig;
+        }
+
+        if (null !== $request->routeId) {
+            @$body['routeId'] = $request->routeId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DetectHttpApiConflicts',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/detect-conflicts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DetectHttpApiConflictsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检测HttpApi间的路由冲突
+     *
+     * @param request - DetectHttpApiConflictsRequest
+     *
+     * @returns DetectHttpApiConflictsResponse
+     *
+     * @param string                        $httpApiId
+     * @param DetectHttpApiConflictsRequest $request
+     *
+     * @return DetectHttpApiConflictsResponse
+     */
+    public function detectHttpApiConflicts($httpApiId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->detectHttpApiConflictsWithOptions($httpApiId, $request, $headers, $runtime);
+    }
+
+    /**
      * Exports a specified HTTP API.
      *
      * @param request - ExportHttpApiRequest
@@ -7159,7 +7374,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries AI models in a model source.
+     * Queries AI models in a source.
      *
      * @param request - GetAiModelSourceModelRequest
      * @param headers - map
@@ -7196,7 +7411,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries AI models in a model source.
+     * Queries AI models in a source.
      *
      * @param request - GetAiModelSourceModelRequest
      *
@@ -8559,7 +8774,7 @@ class APIG extends OpenApiClient
      * Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
      *
      * @remarks
-     * Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+     * Retrieves the current half-open cycle Redis summary of the configured metering policy for the dedicated Professional AI gateway of the current user. It only supports the total number of instances and does not accept filtering by time range, model, connection, or SLS destination. A value of false for data_present indicates that no cycle data is available, and it is not padded with zero values.
      *
      * @param request - GetGatewayWebsocketUsageRequest
      * @param headers - map
@@ -8599,7 +8814,7 @@ class APIG extends OpenApiClient
      * Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
      *
      * @remarks
-     * Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+     * Retrieves the current half-open cycle Redis summary of the configured metering policy for the dedicated Professional AI gateway of the current user. It only supports the total number of instances and does not accept filtering by time range, model, connection, or SLS destination. A value of false for data_present indicates that no cycle data is available, and it is not padded with zero values.
      *
      * @param request - GetGatewayWebsocketUsageRequest
      *
@@ -8796,7 +9011,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves API operation information.
+     * Retrieves the API operation information.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8831,7 +9046,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves API operation information.
+     * Retrieves the API operation information.
      *
      * @returns GetHttpApiOperationResponse
      *
@@ -8959,7 +9174,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the configuration delivery of a logical model.
+     * Queries the logical model configuration delivery.
      *
      * @param request - GetLogicalModelDeploymentRequest
      * @param headers - map
@@ -8996,7 +9211,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the configuration delivery of a logical model.
+     * Queries the logical model configuration delivery.
      *
      * @param request - GetLogicalModelDeploymentRequest
      *
@@ -11714,7 +11929,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of model card entitlements for consumers.
+     * Queries the list of consumer model card entitlements.
      *
      * @param request - ListConsumerModelCardGrantsRequest
      * @param headers - map
@@ -11773,7 +11988,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of model card entitlements for consumers.
+     * Queries the list of consumer model card entitlements.
      *
      * @param request - ListConsumerModelCardGrantsRequest
      *
@@ -12740,7 +12955,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+     * Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. This operation supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
      *
      * @remarks
      * Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
@@ -12818,7 +13033,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+     * Queries the historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. This operation supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
      *
      * @remarks
      * Retrieves the historical events delivered by the dedicated Professional AI gateway of the current user to Simple Log Service (SLS). Standard user log delivery and the corresponding indexes must be enabled. The query time range is a left-closed and right-open interval. The time span cannot exceed 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results do not represent an online connection directory, and missing logs do not indicate that no calls occurred.
@@ -20588,6 +20803,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->aiServiceConfig) {
             @$body['aiServiceConfig'] = $request->aiServiceConfig;
+        }
+
+        if (null !== $request->apiKeyIndexToRemove) {
+            @$body['apiKeyIndexToRemove'] = $request->apiKeyIndexToRemove;
         }
 
         if (null !== $request->apiKeyReferencesToAdd) {
