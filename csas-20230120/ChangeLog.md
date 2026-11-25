@@ -1,3 +1,9 @@
+2026-11-25 Version: 1.30.0
+- Support API AddDeviceBelongIdentifiers.
+- Support API ListDeviceBelongIdentifiers.
+- Support API RemoveDeviceBelongIdentifiers.
+
+
 2026-11-25 Version: 1.29.1
 - Update API GetUserDevice: add response parameters Body.Device.DiskEncryptStatus.
 - Update API GetUserDevice: add response parameters Body.Device.DiskEncryptStatusReason.

@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Csas\V20230120;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Csas\V20230120\Models\AddDeviceBelongIdentifiersRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\AddDeviceBelongIdentifiersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AddDeviceGroupMatchDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AddDeviceGroupMatchDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AddVirusScanAdditionalListsRequest;
@@ -251,6 +253,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceBelongIdentifiersRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceBelongIdentifiersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDeviceGroupsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDevicesForVulnerabilityRequest;
@@ -378,6 +382,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyBindingItemsRequ
 use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyBindingItemsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ModifyForwardStrategyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveDeviceBelongIdentifiersRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveDeviceBelongIdentifiersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveDeviceGroupMatchDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveDeviceGroupMatchDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RemoveVirusScanAdditionalListsRequest;
@@ -509,6 +515,66 @@ class Csas extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 批量添加设备归属标识.
+     *
+     * @param request - AddDeviceBelongIdentifiersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddDeviceBelongIdentifiersResponse
+     *
+     * @param AddDeviceBelongIdentifiersRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AddDeviceBelongIdentifiersResponse
+     */
+    public function addDeviceBelongIdentifiersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->identifiers) {
+            @$bodyFlat['Identifiers'] = $request->identifiers;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddDeviceBelongIdentifiers',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddDeviceBelongIdentifiersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量添加设备归属标识.
+     *
+     * @param request - AddDeviceBelongIdentifiersRequest
+     *
+     * @returns AddDeviceBelongIdentifiersResponse
+     *
+     * @param AddDeviceBelongIdentifiersRequest $request
+     *
+     * @return AddDeviceBelongIdentifiersResponse
+     */
+    public function addDeviceBelongIdentifiers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDeviceBelongIdentifiersWithOptions($request, $runtime);
     }
 
     /**
@@ -8549,6 +8615,86 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * 查询设备归属标识.
+     *
+     * @param request - ListDeviceBelongIdentifiersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDeviceBelongIdentifiersResponse
+     *
+     * @param ListDeviceBelongIdentifiersRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListDeviceBelongIdentifiersResponse
+     */
+    public function listDeviceBelongIdentifiersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->identifierIds) {
+            @$bodyFlat['IdentifierIds'] = $request->identifierIds;
+        }
+
+        if (null !== $request->identifierType) {
+            @$body['IdentifierType'] = $request->identifierType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDeviceBelongIdentifiers',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDeviceBelongIdentifiersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询设备归属标识.
+     *
+     * @param request - ListDeviceBelongIdentifiersRequest
+     *
+     * @returns ListDeviceBelongIdentifiersResponse
+     *
+     * @param ListDeviceBelongIdentifiersRequest $request
+     *
+     * @return ListDeviceBelongIdentifiersResponse
+     */
+    public function listDeviceBelongIdentifiers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDeviceBelongIdentifiersWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of device groups under the current Alibaba Cloud account by using paging in a paged query.
      *
      * @param request - ListDeviceGroupsRequest
@@ -12438,6 +12584,66 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyForwardStrategyBindingItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量移除设备归属标识.
+     *
+     * @param request - RemoveDeviceBelongIdentifiersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveDeviceBelongIdentifiersResponse
+     *
+     * @param RemoveDeviceBelongIdentifiersRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RemoveDeviceBelongIdentifiersResponse
+     */
+    public function removeDeviceBelongIdentifiersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->identifierIds) {
+            @$bodyFlat['IdentifierIds'] = $request->identifierIds;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveDeviceBelongIdentifiers',
+            'version' => '2023-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveDeviceBelongIdentifiersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量移除设备归属标识.
+     *
+     * @param request - RemoveDeviceBelongIdentifiersRequest
+     *
+     * @returns RemoveDeviceBelongIdentifiersResponse
+     *
+     * @param RemoveDeviceBelongIdentifiersRequest $request
+     *
+     * @return RemoveDeviceBelongIdentifiersResponse
+     */
+    public function removeDeviceBelongIdentifiers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeDeviceBelongIdentifiersWithOptions($request, $runtime);
     }
 
     /**
