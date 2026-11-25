@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorRequest\skills;
 
 class CreateEvaluatorRequest extends Model
 {
@@ -44,6 +45,16 @@ class CreateEvaluatorRequest extends Model
     public $properties;
 
     /**
+     * @var skills[]
+     */
+    public $skills;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var string
      */
     public $type;
@@ -70,6 +81,8 @@ class CreateEvaluatorRequest extends Model
         'metricName' => 'metricName',
         'name' => 'name',
         'properties' => 'properties',
+        'skills' => 'skills',
+        'status' => 'status',
         'type' => 'type',
         'version' => 'version',
         'versionDescription' => 'versionDescription',
@@ -86,6 +99,9 @@ class CreateEvaluatorRequest extends Model
         }
         if (\is_array($this->properties)) {
             Model::validateArray($this->properties);
+        }
+        if (\is_array($this->skills)) {
+            Model::validateArray($this->skills);
         }
         parent::validate();
     }
@@ -136,6 +152,21 @@ class CreateEvaluatorRequest extends Model
                     $res['properties'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->skills) {
+            if (\is_array($this->skills)) {
+                $res['skills'] = [];
+                $n1 = 0;
+                foreach ($this->skills as $item1) {
+                    $res['skills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->type) {
@@ -208,6 +239,21 @@ class CreateEvaluatorRequest extends Model
                     $model->properties[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['skills'])) {
+            if (!empty($map['skills'])) {
+                $model->skills = [];
+                $n1 = 0;
+                foreach ($map['skills'] as $item1) {
+                    $model->skills[$n1] = skills::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['type'])) {

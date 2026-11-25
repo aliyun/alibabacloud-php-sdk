@@ -16,9 +16,15 @@ class GetEvaluatorSkillRequest extends Model
     /**
      * @var string
      */
+    public $evaluatorVersion;
+
+    /**
+     * @var string
+     */
     public $version;
     protected $_name = [
         'agentSpace' => 'agentSpace',
+        'evaluatorVersion' => 'evaluatorVersion',
         'version' => 'version',
     ];
 
@@ -32,6 +38,10 @@ class GetEvaluatorSkillRequest extends Model
         $res = [];
         if (null !== $this->agentSpace) {
             $res['agentSpace'] = $this->agentSpace;
+        }
+
+        if (null !== $this->evaluatorVersion) {
+            $res['evaluatorVersion'] = $this->evaluatorVersion;
         }
 
         if (null !== $this->version) {
@@ -51,6 +61,10 @@ class GetEvaluatorSkillRequest extends Model
         $model = new self();
         if (isset($map['agentSpace'])) {
             $model->agentSpace = $map['agentSpace'];
+        }
+
+        if (isset($map['evaluatorVersion'])) {
+            $model->evaluatorVersion = $map['evaluatorVersion'];
         }
 
         if (isset($map['version'])) {

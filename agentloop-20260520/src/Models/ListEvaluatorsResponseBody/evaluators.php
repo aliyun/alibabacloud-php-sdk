@@ -49,6 +49,16 @@ class evaluators extends Model
     public $properties;
 
     /**
+     * @var bool
+     */
+    public $selectable;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var string
      */
     public $type;
@@ -66,6 +76,8 @@ class evaluators extends Model
         'metricName' => 'metricName',
         'name' => 'name',
         'properties' => 'properties',
+        'selectable' => 'selectable',
+        'status' => 'status',
         'type' => 'type',
         'updatedAt' => 'updatedAt',
     ];
@@ -126,6 +138,14 @@ class evaluators extends Model
                     $res['properties'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->selectable) {
+            $res['selectable'] = $this->selectable;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->type) {
@@ -189,6 +209,14 @@ class evaluators extends Model
                     $model->properties[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['selectable'])) {
+            $model->selectable = $map['selectable'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['type'])) {

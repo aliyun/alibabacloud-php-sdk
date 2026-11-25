@@ -12,8 +12,14 @@ class DeleteEvaluatorSkillRequest extends Model
      * @var string
      */
     public $agentSpace;
+
+    /**
+     * @var string
+     */
+    public $evaluatorVersion;
     protected $_name = [
         'agentSpace' => 'agentSpace',
+        'evaluatorVersion' => 'evaluatorVersion',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class DeleteEvaluatorSkillRequest extends Model
         $res = [];
         if (null !== $this->agentSpace) {
             $res['agentSpace'] = $this->agentSpace;
+        }
+
+        if (null !== $this->evaluatorVersion) {
+            $res['evaluatorVersion'] = $this->evaluatorVersion;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class DeleteEvaluatorSkillRequest extends Model
         $model = new self();
         if (isset($map['agentSpace'])) {
             $model->agentSpace = $map['agentSpace'];
+        }
+
+        if (isset($map['evaluatorVersion'])) {
+            $model->evaluatorVersion = $map['evaluatorVersion'];
         }
 
         return $model;

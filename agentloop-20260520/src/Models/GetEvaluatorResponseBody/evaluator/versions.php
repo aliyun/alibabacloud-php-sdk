@@ -14,6 +14,21 @@ class versions extends Model
     public $createdAt;
 
     /**
+     * @var bool
+     */
+    public $selectable;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var int
+     */
+    public $updatedAt;
+
+    /**
      * @var string
      */
     public $version;
@@ -24,6 +39,9 @@ class versions extends Model
     public $versionDescription;
     protected $_name = [
         'createdAt' => 'createdAt',
+        'selectable' => 'selectable',
+        'status' => 'status',
+        'updatedAt' => 'updatedAt',
         'version' => 'version',
         'versionDescription' => 'versionDescription',
     ];
@@ -38,6 +56,18 @@ class versions extends Model
         $res = [];
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->selectable) {
+            $res['selectable'] = $this->selectable;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
+        }
+
+        if (null !== $this->updatedAt) {
+            $res['updatedAt'] = $this->updatedAt;
         }
 
         if (null !== $this->version) {
@@ -61,6 +91,18 @@ class versions extends Model
         $model = new self();
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
+        }
+
+        if (isset($map['selectable'])) {
+            $model->selectable = $map['selectable'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
+        }
+
+        if (isset($map['updatedAt'])) {
+            $model->updatedAt = $map['updatedAt'];
         }
 
         if (isset($map['version'])) {

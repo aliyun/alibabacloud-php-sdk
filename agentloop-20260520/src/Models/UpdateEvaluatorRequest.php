@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorRequest\skills;
 
 class UpdateEvaluatorRequest extends Model
 {
@@ -17,6 +18,11 @@ class UpdateEvaluatorRequest extends Model
      * @var mixed[]
      */
     public $config;
+
+    /**
+     * @var bool
+     */
+    public $createVersion;
 
     /**
      * @var string
@@ -32,6 +38,16 @@ class UpdateEvaluatorRequest extends Model
      * @var mixed[]
      */
     public $properties;
+
+    /**
+     * @var skills[]
+     */
+    public $skills;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @var string
@@ -50,9 +66,12 @@ class UpdateEvaluatorRequest extends Model
     protected $_name = [
         'annotations' => 'annotations',
         'config' => 'config',
+        'createVersion' => 'createVersion',
         'description' => 'description',
         'displayName' => 'displayName',
         'properties' => 'properties',
+        'skills' => 'skills',
+        'status' => 'status',
         'version' => 'version',
         'versionDescription' => 'versionDescription',
         'clientToken' => 'clientToken',
@@ -68,6 +87,9 @@ class UpdateEvaluatorRequest extends Model
         }
         if (\is_array($this->properties)) {
             Model::validateArray($this->properties);
+        }
+        if (\is_array($this->skills)) {
+            Model::validateArray($this->skills);
         }
         parent::validate();
     }
@@ -95,6 +117,10 @@ class UpdateEvaluatorRequest extends Model
             }
         }
 
+        if (null !== $this->createVersion) {
+            $res['createVersion'] = $this->createVersion;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -110,6 +136,21 @@ class UpdateEvaluatorRequest extends Model
                     $res['properties'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->skills) {
+            if (\is_array($this->skills)) {
+                $res['skills'] = [];
+                $n1 = 0;
+                foreach ($this->skills as $item1) {
+                    $res['skills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->version) {
@@ -155,6 +196,10 @@ class UpdateEvaluatorRequest extends Model
             }
         }
 
+        if (isset($map['createVersion'])) {
+            $model->createVersion = $map['createVersion'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -170,6 +215,21 @@ class UpdateEvaluatorRequest extends Model
                     $model->properties[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['skills'])) {
+            if (!empty($map['skills'])) {
+                $model->skills = [];
+                $n1 = 0;
+                foreach ($map['skills'] as $item1) {
+                    $model->skills[$n1] = skills::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['version'])) {

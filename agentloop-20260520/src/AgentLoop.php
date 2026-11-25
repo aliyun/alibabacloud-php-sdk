@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentPlanRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentPlanResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentRunRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateMultiModalTaskRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateMultiModalTaskResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateOptimizeRunRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateOptimizeRunResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateOptimizeTaskRequest;
@@ -162,6 +164,8 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorSkillRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorSkillResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorVersionStatusRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorVersionStatusResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentPlanRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentPlanResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentRunRequest;
@@ -904,6 +908,14 @@ class AgentLoop extends OpenApiClient
             @$body['properties'] = $request->properties;
         }
 
+        if (null !== $request->skills) {
+            @$body['skills'] = $request->skills;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
         if (null !== $request->type) {
             @$body['type'] = $request->type;
         }
@@ -995,6 +1007,10 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->enable) {
             @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->evaluatorVersion) {
+            @$body['evaluatorVersion'] = $request->evaluatorVersion;
         }
 
         if (null !== $request->files) {
@@ -1255,6 +1271,91 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->createExperimentRunWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a synchronous multimodal evaluation on a single image or audio/video file and directly returns the score.
+     *
+     * @param request - CreateMultiModalTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMultiModalTaskResponse
+     *
+     * @param CreateMultiModalTaskRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateMultiModalTaskResponse
+     */
+    public function createMultiModalTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentSpace) {
+            @$body['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->args) {
+            @$body['args'] = $request->args;
+        }
+
+        if (null !== $request->arn) {
+            @$body['arn'] = $request->arn;
+        }
+
+        if (null !== $request->evaluatorRef) {
+            @$body['evaluatorRef'] = $request->evaluatorRef;
+        }
+
+        if (null !== $request->ossRegion) {
+            @$body['ossRegion'] = $request->ossRegion;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->taskName) {
+            @$body['taskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMultiModalTask',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/media-processings',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMultiModalTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a synchronous multimodal evaluation on a single image or audio/video file and directly returns the score.
+     *
+     * @param request - CreateMultiModalTaskRequest
+     *
+     * @returns CreateMultiModalTaskResponse
+     *
+     * @param CreateMultiModalTaskRequest $request
+     *
+     * @return CreateMultiModalTaskResponse
+     */
+    public function createMultiModalTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMultiModalTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2027,6 +2128,10 @@ class AgentLoop extends OpenApiClient
         $query = [];
         if (null !== $request->agentSpace) {
             @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->evaluatorVersion) {
+            @$query['evaluatorVersion'] = $request->evaluatorVersion;
         }
 
         $req = new OpenApiRequest([
@@ -2947,6 +3052,10 @@ class AgentLoop extends OpenApiClient
         $query = [];
         if (null !== $request->agentSpace) {
             @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->evaluatorVersion) {
+            @$query['evaluatorVersion'] = $request->evaluatorVersion;
         }
 
         if (null !== $request->version) {
@@ -4017,6 +4126,10 @@ class AgentLoop extends OpenApiClient
         $query = [];
         if (null !== $request->agentSpace) {
             @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->evaluatorVersion) {
+            @$query['evaluatorVersion'] = $request->evaluatorVersion;
         }
 
         if (null !== $request->maxResults) {
@@ -5266,7 +5379,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Removes tags.
+     * Disassociates tags.
      *
      * @param tmpReq - UntagResourcesRequest
      * @param headers - map
@@ -5330,7 +5443,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * Removes tags.
+     * Disassociates tags.
      *
      * @param request - UntagResourcesRequest
      *
@@ -5791,6 +5904,10 @@ class AgentLoop extends OpenApiClient
             @$body['config'] = $request->config;
         }
 
+        if (null !== $request->createVersion) {
+            @$body['createVersion'] = $request->createVersion;
+        }
+
         if (null !== $request->description) {
             @$body['description'] = $request->description;
         }
@@ -5801,6 +5918,14 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->properties) {
             @$body['properties'] = $request->properties;
+        }
+
+        if (null !== $request->skills) {
+            @$body['skills'] = $request->skills;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
 
         if (null !== $request->version) {
@@ -5894,6 +6019,10 @@ class AgentLoop extends OpenApiClient
             @$body['enable'] = $request->enable;
         }
 
+        if (null !== $request->evaluatorVersion) {
+            @$body['evaluatorVersion'] = $request->evaluatorVersion;
+        }
+
         if (null !== $request->files) {
             @$body['files'] = $request->files;
         }
@@ -5937,6 +6066,89 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->updateEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the status of an evaluator version.
+     *
+     * @remarks
+     * Publishes a saved evaluator draft, takes a published version offline, or brings an offline version back online.
+     *
+     * @param request - UpdateEvaluatorVersionStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEvaluatorVersionStatusResponse
+     *
+     * @param string                              $agentSpace
+     * @param string                              $name
+     * @param UpdateEvaluatorVersionStatusRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateEvaluatorVersionStatusResponse
+     */
+    public function updateEvaluatorVersionStatusWithOptions($agentSpace, $name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->expectedStatus) {
+            @$body['expectedStatus'] = $request->expectedStatus;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        if (null !== $request->versionDescription) {
+            @$body['versionDescription'] = $request->versionDescription;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEvaluatorVersionStatus',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluators/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($name) . '/version-status',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEvaluatorVersionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the status of an evaluator version.
+     *
+     * @remarks
+     * Publishes a saved evaluator draft, takes a published version offline, or brings an offline version back online.
+     *
+     * @param request - UpdateEvaluatorVersionStatusRequest
+     *
+     * @returns UpdateEvaluatorVersionStatusResponse
+     *
+     * @param string                              $agentSpace
+     * @param string                              $name
+     * @param UpdateEvaluatorVersionStatusRequest $request
+     *
+     * @return UpdateEvaluatorVersionStatusResponse
+     */
+    public function updateEvaluatorVersionStatus($agentSpace, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateEvaluatorVersionStatusWithOptions($agentSpace, $name, $request, $headers, $runtime);
     }
 
     /**

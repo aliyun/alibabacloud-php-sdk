@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorResponseBody\evaluator\skills;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorResponseBody\evaluator\versions;
 
 class evaluator extends Model
@@ -65,6 +66,21 @@ class evaluator extends Model
     public $properties;
 
     /**
+     * @var bool
+     */
+    public $selectable;
+
+    /**
+     * @var skills[]
+     */
+    public $skills;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var string
      */
     public $type;
@@ -90,6 +106,9 @@ class evaluator extends Model
         'metricName' => 'metricName',
         'name' => 'name',
         'properties' => 'properties',
+        'selectable' => 'selectable',
+        'skills' => 'skills',
+        'status' => 'status',
         'type' => 'type',
         'updatedAt' => 'updatedAt',
         'versions' => 'versions',
@@ -105,6 +124,9 @@ class evaluator extends Model
         }
         if (\is_array($this->properties)) {
             Model::validateArray($this->properties);
+        }
+        if (\is_array($this->skills)) {
+            Model::validateArray($this->skills);
         }
         if (\is_array($this->versions)) {
             Model::validateArray($this->versions);
@@ -174,6 +196,25 @@ class evaluator extends Model
                     $res['properties'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->selectable) {
+            $res['selectable'] = $this->selectable;
+        }
+
+        if (null !== $this->skills) {
+            if (\is_array($this->skills)) {
+                $res['skills'] = [];
+                $n1 = 0;
+                foreach ($this->skills as $item1) {
+                    $res['skills'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->type) {
@@ -265,6 +306,25 @@ class evaluator extends Model
                     $model->properties[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['selectable'])) {
+            $model->selectable = $map['selectable'];
+        }
+
+        if (isset($map['skills'])) {
+            if (!empty($map['skills'])) {
+                $model->skills = [];
+                $n1 = 0;
+                foreach ($map['skills'] as $item1) {
+                    $model->skills[$n1] = skills::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['type'])) {

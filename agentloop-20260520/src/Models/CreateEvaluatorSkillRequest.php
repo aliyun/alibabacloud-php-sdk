@@ -30,6 +30,11 @@ class CreateEvaluatorSkillRequest extends Model
     public $enable;
 
     /**
+     * @var string
+     */
+    public $evaluatorVersion;
+
+    /**
      * @var files[]
      */
     public $files;
@@ -48,6 +53,7 @@ class CreateEvaluatorSkillRequest extends Model
         'description' => 'description',
         'displayName' => 'displayName',
         'enable' => 'enable',
+        'evaluatorVersion' => 'evaluatorVersion',
         'files' => 'files',
         'skillName' => 'skillName',
         'clientToken' => 'clientToken',
@@ -78,6 +84,10 @@ class CreateEvaluatorSkillRequest extends Model
 
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
+        }
+
+        if (null !== $this->evaluatorVersion) {
+            $res['evaluatorVersion'] = $this->evaluatorVersion;
         }
 
         if (null !== $this->files) {
@@ -124,6 +134,10 @@ class CreateEvaluatorSkillRequest extends Model
 
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
+        }
+
+        if (isset($map['evaluatorVersion'])) {
+            $model->evaluatorVersion = $map['evaluatorVersion'];
         }
 
         if (isset($map['files'])) {
