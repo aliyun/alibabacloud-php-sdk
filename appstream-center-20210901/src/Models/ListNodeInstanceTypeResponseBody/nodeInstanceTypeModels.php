@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodeInstanceTypeResponseBody\nodeInstanceTypeModels\wuyingServerModelMetaInfo;
 
 class nodeInstanceTypeModels extends Model
 {
@@ -12,6 +13,11 @@ class nodeInstanceTypeModels extends Model
      * @var string
      */
     public $cpu;
+
+    /**
+     * @var int
+     */
+    public $ecsGpuMemory;
 
     /**
      * @var string
@@ -22,6 +28,11 @@ class nodeInstanceTypeModels extends Model
      * @var int
      */
     public $gpuMemory;
+
+    /**
+     * @var string
+     */
+    public $gpuSpec;
 
     /**
      * @var int
@@ -47,19 +58,36 @@ class nodeInstanceTypeModels extends Model
      * @var string
      */
     public $nodeTypeName;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var wuyingServerModelMetaInfo
+     */
+    public $wuyingServerModelMetaInfo;
     protected $_name = [
         'cpu' => 'Cpu',
+        'ecsGpuMemory' => 'EcsGpuMemory',
         'gpu' => 'Gpu',
         'gpuMemory' => 'GpuMemory',
+        'gpuSpec' => 'GpuSpec',
         'maxCapacity' => 'MaxCapacity',
         'memory' => 'Memory',
         'nodeInstanceType' => 'NodeInstanceType',
         'nodeInstanceTypeFamily' => 'NodeInstanceTypeFamily',
         'nodeTypeName' => 'NodeTypeName',
+        'requestId' => 'RequestId',
+        'wuyingServerModelMetaInfo' => 'WuyingServerModelMetaInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->wuyingServerModelMetaInfo) {
+            $this->wuyingServerModelMetaInfo->validate();
+        }
         parent::validate();
     }
 
@@ -70,12 +98,20 @@ class nodeInstanceTypeModels extends Model
             $res['Cpu'] = $this->cpu;
         }
 
+        if (null !== $this->ecsGpuMemory) {
+            $res['EcsGpuMemory'] = $this->ecsGpuMemory;
+        }
+
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
         }
 
         if (null !== $this->gpuMemory) {
             $res['GpuMemory'] = $this->gpuMemory;
+        }
+
+        if (null !== $this->gpuSpec) {
+            $res['GpuSpec'] = $this->gpuSpec;
         }
 
         if (null !== $this->maxCapacity) {
@@ -98,6 +134,14 @@ class nodeInstanceTypeModels extends Model
             $res['NodeTypeName'] = $this->nodeTypeName;
         }
 
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->wuyingServerModelMetaInfo) {
+            $res['WuyingServerModelMetaInfo'] = null !== $this->wuyingServerModelMetaInfo ? $this->wuyingServerModelMetaInfo->toArray($noStream) : $this->wuyingServerModelMetaInfo;
+        }
+
         return $res;
     }
 
@@ -113,12 +157,20 @@ class nodeInstanceTypeModels extends Model
             $model->cpu = $map['Cpu'];
         }
 
+        if (isset($map['EcsGpuMemory'])) {
+            $model->ecsGpuMemory = $map['EcsGpuMemory'];
+        }
+
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
         }
 
         if (isset($map['GpuMemory'])) {
             $model->gpuMemory = $map['GpuMemory'];
+        }
+
+        if (isset($map['GpuSpec'])) {
+            $model->gpuSpec = $map['GpuSpec'];
         }
 
         if (isset($map['MaxCapacity'])) {
@@ -139,6 +191,14 @@ class nodeInstanceTypeModels extends Model
 
         if (isset($map['NodeTypeName'])) {
             $model->nodeTypeName = $map['NodeTypeName'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['WuyingServerModelMetaInfo'])) {
+            $model->wuyingServerModelMetaInfo = wuyingServerModelMetaInfo::fromMap($map['WuyingServerModelMetaInfo']);
         }
 
         return $model;

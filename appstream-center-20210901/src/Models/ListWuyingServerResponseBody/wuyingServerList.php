@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBo
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\instanceInfoList;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\privateIpSets;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\serverInstanceTypeInfo;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\serverModelInfo;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\sessions;
 
 class wuyingServerList extends Model
@@ -139,6 +140,11 @@ class wuyingServerList extends Model
     public $serverInstanceTypeInfo;
 
     /**
+     * @var serverModelInfo
+     */
+    public $serverModelInfo;
+
+    /**
      * @var sessions[]
      */
     public $sessions;
@@ -248,6 +254,7 @@ class wuyingServerList extends Model
         'resourceSessionStatus' => 'ResourceSessionStatus',
         'securityGroupIds' => 'SecurityGroupIds',
         'serverInstanceTypeInfo' => 'ServerInstanceTypeInfo',
+        'serverModelInfo' => 'ServerModelInfo',
         'sessions' => 'Sessions',
         'status' => 'Status',
         'subPayType' => 'SubPayType',
@@ -286,6 +293,9 @@ class wuyingServerList extends Model
         }
         if (null !== $this->serverInstanceTypeInfo) {
             $this->serverInstanceTypeInfo->validate();
+        }
+        if (null !== $this->serverModelInfo) {
+            $this->serverModelInfo->validate();
         }
         if (\is_array($this->sessions)) {
             Model::validateArray($this->sessions);
@@ -432,6 +442,10 @@ class wuyingServerList extends Model
 
         if (null !== $this->serverInstanceTypeInfo) {
             $res['ServerInstanceTypeInfo'] = null !== $this->serverInstanceTypeInfo ? $this->serverInstanceTypeInfo->toArray($noStream) : $this->serverInstanceTypeInfo;
+        }
+
+        if (null !== $this->serverModelInfo) {
+            $res['ServerModelInfo'] = null !== $this->serverModelInfo ? $this->serverModelInfo->toArray($noStream) : $this->serverModelInfo;
         }
 
         if (null !== $this->sessions) {
@@ -660,6 +674,10 @@ class wuyingServerList extends Model
 
         if (isset($map['ServerInstanceTypeInfo'])) {
             $model->serverInstanceTypeInfo = serverInstanceTypeInfo::fromMap($map['ServerInstanceTypeInfo']);
+        }
+
+        if (isset($map['ServerModelInfo'])) {
+            $model->serverModelInfo = serverModelInfo::fromMap($map['ServerModelInfo']);
         }
 
         if (isset($map['Sessions'])) {

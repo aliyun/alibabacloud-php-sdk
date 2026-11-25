@@ -56,6 +56,11 @@ class ListWuyingServerRequest extends Model
     /**
      * @var string
      */
+    public $modelName;
+
+    /**
+     * @var string
+     */
     public $networkInterfaceIp;
 
     /**
@@ -122,6 +127,7 @@ class ListWuyingServerRequest extends Model
         'expiredTimeEnd' => 'ExpiredTimeEnd',
         'expiredTimeStart' => 'ExpiredTimeStart',
         'imageId' => 'ImageId',
+        'modelName' => 'ModelName',
         'networkInterfaceIp' => 'NetworkInterfaceIp',
         'officeSiteId' => 'OfficeSiteId',
         'pageNumber' => 'PageNumber',
@@ -194,6 +200,10 @@ class ListWuyingServerRequest extends Model
 
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->networkInterfaceIp) {
@@ -310,6 +320,10 @@ class ListWuyingServerRequest extends Model
 
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['NetworkInterfaceIp'])) {

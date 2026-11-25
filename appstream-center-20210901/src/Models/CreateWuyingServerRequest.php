@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerRequest\dataDisk;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateWuyingServerRequest\modelConfig;
 
 class CreateWuyingServerRequest extends Model
 {
@@ -75,6 +76,11 @@ class CreateWuyingServerRequest extends Model
     public $maxPrice;
 
     /**
+     * @var modelConfig
+     */
+    public $modelConfig;
+
+    /**
      * @var string
      */
     public $networkStrategyType;
@@ -98,6 +104,11 @@ class CreateWuyingServerRequest extends Model
      * @var string
      */
     public $periodUnit;
+
+    /**
+     * @var string
+     */
+    public $productType;
 
     /**
      * @var string
@@ -167,11 +178,13 @@ class CreateWuyingServerRequest extends Model
         'idempotenceToken' => 'IdempotenceToken',
         'imageId' => 'ImageId',
         'maxPrice' => 'MaxPrice',
+        'modelConfig' => 'ModelConfig',
         'networkStrategyType' => 'NetworkStrategyType',
         'officeSiteId' => 'OfficeSiteId',
         'password' => 'Password',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
+        'productType' => 'ProductType',
         'promotionId' => 'PromotionId',
         'savingPlanId' => 'SavingPlanId',
         'serverInstanceType' => 'ServerInstanceType',
@@ -189,6 +202,9 @@ class CreateWuyingServerRequest extends Model
     {
         if (\is_array($this->dataDisk)) {
             Model::validateArray($this->dataDisk);
+        }
+        if (null !== $this->modelConfig) {
+            $this->modelConfig->validate();
         }
         if (\is_array($this->vSwitchIds)) {
             Model::validateArray($this->vSwitchIds);
@@ -258,6 +274,10 @@ class CreateWuyingServerRequest extends Model
             $res['MaxPrice'] = $this->maxPrice;
         }
 
+        if (null !== $this->modelConfig) {
+            $res['ModelConfig'] = null !== $this->modelConfig ? $this->modelConfig->toArray($noStream) : $this->modelConfig;
+        }
+
         if (null !== $this->networkStrategyType) {
             $res['NetworkStrategyType'] = $this->networkStrategyType;
         }
@@ -276,6 +296,10 @@ class CreateWuyingServerRequest extends Model
 
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
 
         if (null !== $this->promotionId) {
@@ -399,6 +423,10 @@ class CreateWuyingServerRequest extends Model
             $model->maxPrice = $map['MaxPrice'];
         }
 
+        if (isset($map['ModelConfig'])) {
+            $model->modelConfig = modelConfig::fromMap($map['ModelConfig']);
+        }
+
         if (isset($map['NetworkStrategyType'])) {
             $model->networkStrategyType = $map['NetworkStrategyType'];
         }
@@ -417,6 +445,10 @@ class CreateWuyingServerRequest extends Model
 
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
 
         if (isset($map['PromotionId'])) {

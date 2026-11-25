@@ -14,6 +14,11 @@ class ListNodeInstanceTypeRequest extends Model
     public $bizRegionId;
 
     /**
+     * @var int
+     */
+    public $bizType;
+
+    /**
      * @var string
      */
     public $chargeType;
@@ -36,6 +41,11 @@ class ListNodeInstanceTypeRequest extends Model
     /**
      * @var string
      */
+    public $gpuSpec;
+
+    /**
+     * @var string
+     */
     public $instanceTypeForModify;
 
     /**
@@ -47,6 +57,11 @@ class ListNodeInstanceTypeRequest extends Model
      * @var int
      */
     public $memory;
+
+    /**
+     * @var string
+     */
+    public $modelId;
 
     /**
      * @var string
@@ -94,13 +109,16 @@ class ListNodeInstanceTypeRequest extends Model
     public $sortType;
     protected $_name = [
         'bizRegionId' => 'BizRegionId',
+        'bizType' => 'BizType',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'gpu' => 'Gpu',
         'gpuMemory' => 'GpuMemory',
+        'gpuSpec' => 'GpuSpec',
         'instanceTypeForModify' => 'InstanceTypeForModify',
         'language' => 'Language',
         'memory' => 'Memory',
+        'modelId' => 'ModelId',
         'nodeInstanceType' => 'NodeInstanceType',
         'nodeInstanceTypeFamily' => 'NodeInstanceTypeFamily',
         'orderBy' => 'OrderBy',
@@ -124,6 +142,10 @@ class ListNodeInstanceTypeRequest extends Model
             $res['BizRegionId'] = $this->bizRegionId;
         }
 
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -140,6 +162,10 @@ class ListNodeInstanceTypeRequest extends Model
             $res['GpuMemory'] = $this->gpuMemory;
         }
 
+        if (null !== $this->gpuSpec) {
+            $res['GpuSpec'] = $this->gpuSpec;
+        }
+
         if (null !== $this->instanceTypeForModify) {
             $res['InstanceTypeForModify'] = $this->instanceTypeForModify;
         }
@@ -150,6 +176,10 @@ class ListNodeInstanceTypeRequest extends Model
 
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
+        }
+
+        if (null !== $this->modelId) {
+            $res['ModelId'] = $this->modelId;
         }
 
         if (null !== $this->nodeInstanceType) {
@@ -203,6 +233,10 @@ class ListNodeInstanceTypeRequest extends Model
             $model->bizRegionId = $map['BizRegionId'];
         }
 
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
@@ -219,6 +253,10 @@ class ListNodeInstanceTypeRequest extends Model
             $model->gpuMemory = $map['GpuMemory'];
         }
 
+        if (isset($map['GpuSpec'])) {
+            $model->gpuSpec = $map['GpuSpec'];
+        }
+
         if (isset($map['InstanceTypeForModify'])) {
             $model->instanceTypeForModify = $map['InstanceTypeForModify'];
         }
@@ -229,6 +267,10 @@ class ListNodeInstanceTypeRequest extends Model
 
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
+        }
+
+        if (isset($map['ModelId'])) {
+            $model->modelId = $map['ModelId'];
         }
 
         if (isset($map['NodeInstanceType'])) {
