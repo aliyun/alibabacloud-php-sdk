@@ -16,7 +16,7 @@ class QuotaUsage extends Model
     /**
      * @var int
      */
-    public $createSessionWithSnapshotConcurrency;
+    public $createSandboxWithSnapshotConcurrency;
 
     /**
      * @var int
@@ -49,7 +49,7 @@ class QuotaUsage extends Model
     public $scalingCpuCoresPerMinute;
     protected $_name = [
         'cpuCores' => 'cpuCores',
-        'createSessionWithSnapshotConcurrency' => 'createSessionWithSnapshotConcurrency',
+        'createSandboxWithSnapshotConcurrency' => 'createSandboxWithSnapshotConcurrency',
         'createSnapshotConcurrency' => 'createSnapshotConcurrency',
         'instanceCount' => 'instanceCount',
         'memoryGB' => 'memoryGB',
@@ -70,8 +70,8 @@ class QuotaUsage extends Model
             $res['cpuCores'] = $this->cpuCores;
         }
 
-        if (null !== $this->createSessionWithSnapshotConcurrency) {
-            $res['createSessionWithSnapshotConcurrency'] = $this->createSessionWithSnapshotConcurrency;
+        if (null !== $this->createSandboxWithSnapshotConcurrency) {
+            $res['createSandboxWithSnapshotConcurrency'] = $this->createSandboxWithSnapshotConcurrency;
         }
 
         if (null !== $this->createSnapshotConcurrency) {
@@ -113,8 +113,8 @@ class QuotaUsage extends Model
             $model->cpuCores = $map['cpuCores'];
         }
 
-        if (isset($map['createSessionWithSnapshotConcurrency'])) {
-            $model->createSessionWithSnapshotConcurrency = $map['createSessionWithSnapshotConcurrency'];
+        if (isset($map['createSandboxWithSnapshotConcurrency'])) {
+            $model->createSandboxWithSnapshotConcurrency = $map['createSandboxWithSnapshotConcurrency'];
         }
 
         if (isset($map['createSnapshotConcurrency'])) {
