@@ -1,3 +1,11 @@
+2026-11-25 Version: 7.12.0
+- Support API DescribeDiskAttachments.
+- Update API CloneDisks: add request parameters DestinationZoneId.
+- Update API CloneDisks: add request parameters ReadWriteMode.
+- Update API CreateDisk: add request parameters ReadWriteMode.
+- Update API DescribeDisks: add response parameters Body.Disks.$.ReadWriteMode.
+
+
 2026-11-06 Version: 7.11.7
 - Update API CloneDisks: add request parameters DestinationZoneId.
 

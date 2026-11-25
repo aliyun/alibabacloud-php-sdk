@@ -192,6 +192,11 @@ class disk extends Model
     /**
      * @var string
      */
+    public $readWriteMode;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -304,6 +309,7 @@ class disk extends Model
         'portable' => 'Portable',
         'productCode' => 'ProductCode',
         'provisionedIops' => 'ProvisionedIops',
+        'readWriteMode' => 'ReadWriteMode',
         'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'serialNumber' => 'SerialNumber',
@@ -486,6 +492,10 @@ class disk extends Model
 
         if (null !== $this->provisionedIops) {
             $res['ProvisionedIops'] = $this->provisionedIops;
+        }
+
+        if (null !== $this->readWriteMode) {
+            $res['ReadWriteMode'] = $this->readWriteMode;
         }
 
         if (null !== $this->regionId) {
@@ -701,6 +711,10 @@ class disk extends Model
 
         if (isset($map['ProvisionedIops'])) {
             $model->provisionedIops = $map['ProvisionedIops'];
+        }
+
+        if (isset($map['ReadWriteMode'])) {
+            $model->readWriteMode = $map['ReadWriteMode'];
         }
 
         if (isset($map['RegionId'])) {
