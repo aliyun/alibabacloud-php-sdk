@@ -50,6 +50,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $invoiceTitleRelation;
+
+    /**
+     * @var string
+     */
     public $materialType;
 
     /**
@@ -104,6 +109,7 @@ class result extends Model
         'id' => 'Id',
         'invoiceId' => 'InvoiceId',
         'invoiceList' => 'InvoiceList',
+        'invoiceTitleRelation' => 'InvoiceTitleRelation',
         'materialType' => 'MaterialType',
         'modifiedTime' => 'ModifiedTime',
         'modifiedTimeStr' => 'ModifiedTimeStr',
@@ -176,6 +182,10 @@ class result extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->invoiceTitleRelation) {
+            $res['InvoiceTitleRelation'] = $this->invoiceTitleRelation;
         }
 
         if (null !== $this->materialType) {
@@ -269,6 +279,10 @@ class result extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['InvoiceTitleRelation'])) {
+            $model->invoiceTitleRelation = $map['InvoiceTitleRelation'];
         }
 
         if (isset($map['MaterialType'])) {
