@@ -455,6 +455,7 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceGroupReque
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceXffRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceXffResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceXffShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseRuleCacheRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseRuleCacheResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseRuleRequest;
@@ -1689,9 +1690,9 @@ class Wafopenapi extends OpenApiClient
      * Adds a website config to a WAF instance for protection.
      *
      * @remarks
-     * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
-     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
-     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
+     * Before you call this operation, the domain name (**Domain**) must meet the following requirements.
+     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
      *
      * @param tmpReq - CreateDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1771,9 +1772,9 @@ class Wafopenapi extends OpenApiClient
      * Adds a website config to a WAF instance for protection.
      *
      * @remarks
-     * Before you call this operation, the domain name (**Domain**) must meet the following requirements:
-     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
-     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) and public cloud disaster recovery is enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
+     * Before you call this operation, the domain name (**Domain**) must meet the following requirements.
+     * - **Domain ownership authentication**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, you must authenticate the ownership of the domain name first. Invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) operation to obtain the domain name authentication information, configure a DNS TXT record or upload an HTTP authentication file based on the returned content, and then invoke the [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operation to authenticate the domain name ownership. When you invoke the [DescribeVerifyContent](https://help.aliyun.com/document_detail/2985193.html) and [VerifyDomainOwner](https://help.aliyun.com/document_detail/2985192.html) operations, you must use the **DomainName** parameter to specify the domain name. For the **DescribeVerifyContent** operation, you must also use the **AccessOrigin** parameter to specify the access source. For more information about the valid values, see the metric description of the DescribeVerifyContent operation.
+     * - **ICP filing**: If **AccessType** is set to **share** (CNAME access) or **hybrid_cloud_cname** (hybrid cloud CNAME access) with public cloud disaster recovery enabled, and the website config is added to a region in the Chinese mainland, the domain name must have an ICP filing.
      *
      * @param request - CreateDomainRequest
      *
@@ -3168,7 +3169,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Unblocks an IP address that is blocked by the scan protection module.
+     * Unblocks IP addresses blocked by scan protection.
      *
      * @param request - DeleteDefenseRuleBlockIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3223,7 +3224,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Unblocks an IP address that is blocked by the scan protection module.
+     * Unblocks IP addresses blocked by scan protection.
      *
      * @param request - DeleteDefenseRuleBlockIpRequest
      *
@@ -3390,7 +3391,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes cluster rule information.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, ensure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DeleteHybridCloudClusterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3444,7 +3445,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes cluster rule information.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, ensure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DeleteHybridCloudClusterRuleRequest
      *
@@ -3462,7 +3463,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes a group.
+     * Deletes group information.
      *
      * @param request - DeleteHybridCloudGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3517,7 +3518,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes a group.
+     * Deletes group information.
      *
      * @param request - DeleteHybridCloudGroupRequest
      *
@@ -3535,10 +3536,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes a hybrid cloud log forwarding delivery configuration.
+     * Deletes the outbound log delivery configuration for Hybrid Cloud.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance has purchased hybrid cloud extension nodes. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and purchase hybrid cloud extension nodes by upgrading the instance.
+     * Before calling this operation, ensure that you have purchased hybrid cloud extension nodes for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes are purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
      *
      * @param request - DeleteLogDeliveryConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3589,10 +3590,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Deletes a hybrid cloud log forwarding delivery configuration.
+     * Deletes the outbound log delivery configuration for Hybrid Cloud.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance has purchased hybrid cloud extension nodes. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and purchase hybrid cloud extension nodes by upgrading the instance.
+     * Before calling this operation, ensure that you have purchased hybrid cloud extension nodes for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes are purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
      *
      * @param request - DeleteLogDeliveryConfigRequest
      *
@@ -3772,7 +3773,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries abnormal cloud native mode resources.
+     * Queries abnormal resources in cloud native mode.
      *
      * @param request - DescribeAbnormalCloudResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3819,7 +3820,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries abnormal cloud native mode resources.
+     * Queries abnormal resources in cloud native mode.
      *
      * @param request - DescribeAbnormalCloudResourcesRequest
      *
@@ -3837,7 +3838,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the user access configuration.
+     * Queries the access configuration.
      *
      * @param request - DescribeAccessConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3888,7 +3889,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the user access configuration.
+     * Queries the access configuration.
      *
      * @param request - DescribeAccessConfigRequest
      *
@@ -3971,7 +3972,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries addresses in an address book by paging.
+     * Queries the addresses in an address book by paging.
      *
      * @param request - DescribeAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4034,7 +4035,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries addresses in an address book by paging.
+     * Queries the addresses in an address book by paging.
      *
      * @param request - DescribeAddressesRequest
      *
@@ -4055,7 +4056,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the details of an AI Engine event.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If the edition is not supported, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If it is not supported, upgrade the instance to the Agentic WAF edition.
      *
      * @param request - DescribeAiEngineEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4113,7 +4114,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the details of an AI Engine event.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If the edition is not supported, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If it is not supported, upgrade the instance to the Agentic WAF edition.
      *
      * @param request - DescribeAiEngineEventRequest
      *
@@ -4309,10 +4310,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the event trends of AI Engine.
+     * Queries the AI Engine event trends.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the edition is not supported, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
      *
      * @param request - DescribeAiEngineEventTrendsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4367,10 +4368,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the event trends of AI Engine.
+     * Queries the AI Engine event trends.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the edition is not supported, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
      *
      * @param request - DescribeAiEngineEventTrendsRequest
      *
@@ -4388,10 +4389,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of AI Engine events.
+     * Queries the list of AI Engine events.
      *
      * @remarks
-     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, upgrade the instance to the Agentic WAF edition.
      *
      * @param tmpReq - DescribeAiEngineEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4484,10 +4485,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of AI Engine events.
+     * Queries the list of AI Engine events.
      *
      * @remarks
-     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, upgrade the instance to the Agentic WAF edition.
      *
      * @param request - DescribeAiEngineEventsRequest
      *
@@ -4508,7 +4509,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the details of an AI Engine evidence request.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticWaf response parameter is set to true, the instance is of the Agentic WAF edition. If the instance is not of this edition, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance is not of this edition, upgrade the instance to the Agentic WAF edition.
      *
      * @param request - DescribeAiEngineEvidenceRequestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4570,7 +4571,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the details of an AI Engine evidence request.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticWaf response parameter is set to true, the instance is of the Agentic WAF edition. If the instance is not of this edition, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance is not of this edition, upgrade the instance to the Agentic WAF edition.
      *
      * @param request - DescribeAiEngineEvidenceRequestRequest
      *
@@ -4704,7 +4705,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the AI Engine overview data.
      *
      * @remarks
-     * Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. Otherwise, you can upgrade the instance to the Agentic WAF edition.
      *
      * @param request - DescribeAiEngineOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4762,7 +4763,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the AI Engine overview data.
      *
      * @remarks
-     * Before you call this operation, make sure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.AgenticWaf parameter is set to true, the instance is of the Agentic WAF edition. If the instance does not support this edition, you can upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. Otherwise, you can upgrade the instance to the Agentic WAF edition.
      *
      * @param request - DescribeAiEngineOverviewRequest
      *
@@ -4780,7 +4781,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the alert banner information of a Web Application Firewall (WAF) instance.
+     * Queries alert banner information.
      *
      * @param request - DescribeAlarmBannerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4827,7 +4828,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the alert banner information of a Web Application Firewall (WAF) instance.
+     * Queries alert banner information.
      *
      * @param request - DescribeAlarmBannerRequest
      *
@@ -4845,7 +4846,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of alerts.
+     * Queries the alert list.
      *
      * @param request - DescribeAlarmListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4892,7 +4893,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a list of alerts.
+     * Queries the alert list.
      *
      * @param request - DescribeAlarmListRequest
      *
@@ -5205,7 +5206,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of API security assets.
+     * Queries API security assets.
      *
      * @param request - DescribeApisecApiResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5336,7 +5337,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of API security assets.
+     * Queries API security assets.
      *
      * @param request - DescribeApisecApiResourcesRequest
      *
@@ -5601,7 +5602,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of API security events.
+     * Queries API security events.
      *
      * @param request - DescribeApisecEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5724,7 +5725,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of API security events.
+     * Queries API security events.
      *
      * @param request - DescribeApisecEventsRequest
      *
@@ -6568,7 +6569,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries protection suggestions for API assets.
+     * Queries the protection suggestions for API assets.
      *
      * @param request - DescribeApisecSuggestionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6623,7 +6624,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries protection suggestions for API assets.
+     * Queries the protection suggestions for API assets.
      *
      * @param request - DescribeApisecSuggestionsRequest
      *
@@ -6718,7 +6719,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the change records of rule group rules by paging.
+     * Queries the change records of rules in a rule library by using paging.
      *
      * @param request - DescribeBaseRuleChangeLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6777,7 +6778,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the change records of rule group rules by paging.
+     * Queries the change records of rules in a rule library by using paging.
      *
      * @param request - DescribeBaseRuleChangeLogRequest
      *
@@ -6795,7 +6796,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the system rules of Web core protection.
+     * Queries the system rules for web core protection.
      *
      * @param request - DescribeBaseSystemRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6886,7 +6887,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the system rules of Web core protection.
+     * Queries the system rules for web core protection.
      *
      * @param request - DescribeBaseSystemRulesRequest
      *
@@ -6973,7 +6974,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the bot management rule label information.
+     * Queries the information about bot management rule labels.
      *
      * @param request - DescribeBotRuleLabelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7036,7 +7037,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the bot management rule label information.
+     * Queries the information about bot management rule labels.
      *
      * @param request - DescribeBotRuleLabelsRequest
      *
@@ -7204,7 +7205,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the pricing module information of WAF.
+     * Queries the billing module information of WAF.
      *
      * @param request - DescribeChargeModuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7255,7 +7256,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the pricing module information of WAF.
+     * Queries the billing module information of WAF.
      *
      * @param request - DescribeChargeModuleRequest
      *
@@ -7273,7 +7274,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the billing results of WAF billing modules.
+     * Queries the pricing results of WAF billing modules.
      *
      * @param request - DescribeChargeResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7332,7 +7333,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the billing results of WAF billing modules.
+     * Queries the pricing results of WAF billing modules.
      *
      * @param request - DescribeChargeResultRequest
      *
@@ -7439,7 +7440,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the ports of cloud service instances that are added to WAF. Only ECS and CLB are supported.
+     * Queries the ports of cloud service instances that are added to WAF. Only ECS and CLB instances are supported.
      *
      * @param request - DescribeCloudResourceAccessedPortsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7490,7 +7491,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the ports of cloud service instances that are added to WAF. Only ECS and CLB are supported.
+     * Queries the ports of cloud service instances that are added to WAF. Only ECS and CLB instances are supported.
      *
      * @param request - DescribeCloudResourceAccessedPortsRequest
      *
@@ -7508,7 +7509,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of resources connected to WAF in cloud native mode.
+     * Queries the list of resources onboarded to WAF in cloud native mode.
      *
      * @param request - DescribeCloudResourceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7587,7 +7588,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of resources connected to WAF in cloud native mode.
+     * Queries the list of resources onboarded to WAF in cloud native mode.
      *
      * @param request - DescribeCloudResourceListRequest
      *
@@ -8057,7 +8058,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a paginated list of protected objects that can be associated with a defense group.
+     * Queries the protection objects to associate with a protection group by using a paged query with paging.
      *
      * @param request - DescribeDefenseGroupValidResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8120,7 +8121,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a paginated list of protected objects that can be associated with a defense group.
+     * Queries the protection objects to associate with a protection group by using a paged query with paging.
      *
      * @param request - DescribeDefenseGroupValidResourcesRequest
      *
@@ -8138,7 +8139,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Query a single protected object.
+     * Queries a single protected object.
      *
      * @param request - DescribeDefenseResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8189,7 +8190,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Query a single protected object.
+     * Queries a single protected object.
      *
      * @param request - DescribeDefenseResourceRequest
      *
@@ -8675,7 +8676,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries protected objects by paging.
+     * Performs a paged query of protected objects by using paging.
      *
      * @param request - DescribeDefenseResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8738,7 +8739,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries protected objects by paging.
+     * Performs a paged query of protected objects by using paging.
      *
      * @param request - DescribeDefenseResourcesRequest
      *
@@ -8837,10 +8838,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries statistics of rules under a specified WAF protection module.
+     * Queries the statistics of rules in a specified Web Application Firewall (WAF) protection module.
      *
      * @remarks
-     * This operation supports querying rule statistics for protection templates under the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
+     * This operation queries the statistics of rules in protection templates for the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
      *
      * @param request - DescribeDefenseRuleStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8907,10 +8908,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries statistics of rules under a specified WAF protection module.
+     * Queries the statistics of rules in a specified Web Application Firewall (WAF) protection module.
      *
      * @remarks
-     * This operation supports querying rule statistics for protection templates under the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
+     * This operation queries the statistics of rules in protection templates for the new Bot Management (bot_manager) and new Web Core Protection (waf_base) scenarios.
      *
      * @param request - DescribeDefenseRuleStatisticsRequest
      *
@@ -9240,7 +9241,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a paginated list of protected objects that are valid for a specified protection template.
+     * Queries the list of protected objects pending to take effect for a protection template by using paging in a paged query.
      *
      * @param request - DescribeDefenseTemplateValidResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9307,7 +9308,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a paginated list of protected objects that are valid for a specified protection template.
+     * Queries the list of protected objects pending to take effect for a protection template by using paging in a paged query.
      *
      * @param request - DescribeDefenseTemplateValidResourcesRequest
      *
@@ -9499,7 +9500,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the details of the website config.
+     * Queries the details of a website configuration.
      *
      * @param request - DescribeDomainDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9550,7 +9551,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the details of the website config.
+     * Queries the details of a website configuration.
      *
      * @param request - DescribeDomainDetailRequest
      *
@@ -9568,7 +9569,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries all ports used by domain names of the current user. Only domain names with CNAME access and hybrid cloud CNAME domain names with public network disaster recovery enabled are included.
+     * Queries the ports used by all domain names of a user, including only CNAME-accessed domain names and hybrid cloud CNAME domain names with public network disaster recovery enabled.
      *
      * @param request - DescribeDomainUsedPortsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9611,7 +9612,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries all ports used by domain names of the current user. Only domain names with CNAME access and hybrid cloud CNAME domain names with public network disaster recovery enabled are included.
+     * Queries the ports used by all domain names of a user, including only CNAME-accessed domain names and hybrid cloud CNAME domain names with public network disaster recovery enabled.
      *
      * @param request - DescribeDomainUsedPortsRequest
      *
@@ -9718,7 +9719,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the daily bills of a pay-as-you-go WAF instance for the last 7 days.
+     * Queries the daily bills of a pay-as-you-go Web Application Firewall (WAF) instance over the last seven days.
      *
      * @param request - DescribeElasticBillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9773,7 +9774,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the daily bills of a pay-as-you-go WAF instance for the last 7 days.
+     * Queries the daily bills of a pay-as-you-go Web Application Firewall (WAF) instance over the last seven days.
      *
      * @param request - DescribeElasticBillsRequest
      *
@@ -10022,7 +10023,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the asset statistics information for basic API security detection.
+     * Queries the asset statistics information for API security basic detection.
      *
      * @param request - DescribeFreeUserAssetCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10069,7 +10070,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the asset statistics information for basic API security detection.
+     * Queries the asset statistics information for API security basic detection.
      *
      * @param request - DescribeFreeUserAssetCountRequest
      *
@@ -10087,7 +10088,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the security event statistics of API security basic detection.
+     * Queries the statistics of security events for basic API security detection.
      *
      * @param request - DescribeFreeUserEventCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10134,7 +10135,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the security event statistics of API security basic detection.
+     * Queries the statistics of security events for basic API security detection.
      *
      * @param request - DescribeFreeUserEventCountRequest
      *
@@ -10152,7 +10153,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the security event types for basic API security detection.
+     * Queries the security event types for API security basic detection.
      *
      * @param request - DescribeFreeUserEventTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10199,7 +10200,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the security event types for basic API security detection.
+     * Queries the security event types for API security basic detection.
      *
      * @param request - DescribeFreeUserEventTypesRequest
      *
@@ -10217,7 +10218,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of security events detected by API security basic detection.
+     * Queries the list of security events for API security basic detection.
      *
      * @param request - DescribeFreeUserEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10264,7 +10265,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of security events detected by API security basic detection.
+     * Queries the list of security events for API security basic detection.
      *
      * @param request - DescribeFreeUserEventsRequest
      *
@@ -10282,10 +10283,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the system status of hybrid cloud cluster nodes.
+     * Queries the system status of nodes in a hybrid cloud cluster.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud parameter in the response is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudBasicMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10336,10 +10337,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the system status of hybrid cloud cluster nodes.
+     * Queries the system status of nodes in a hybrid cloud cluster.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for your WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud parameter in the response is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudBasicMonitorRequest
      *
@@ -10357,10 +10358,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the rule information of a hybrid cloud cluster.
+     * Retrieves the hybrid cloud cluster rule information.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudClusterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10395,10 +10396,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the rule information of a hybrid cloud cluster.
+     * Retrieves the hybrid cloud cluster rule information.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudClusterRuleRequest
      *
@@ -11189,10 +11190,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the dictionary of region information supported by hybrid cloud, including ISPs, continents, and cities.
+     * Queries the region information dictionary for ISPs, continents, and cities supported by Hybrid Cloud.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, ensure that the Hybrid Cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the Hybrid Cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the Hybrid Cloud feature.
      *
      * @param request - DescribeHybridCloudServerRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11247,10 +11248,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the dictionary of region information supported by hybrid cloud, including ISPs, continents, and cities.
+     * Queries the region information dictionary for ISPs, continents, and cities supported by Hybrid Cloud.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If it is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, ensure that the Hybrid Cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.HybridCloud parameter is true, the Hybrid Cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the Hybrid Cloud feature.
      *
      * @param request - DescribeHybridCloudServerRegionsRequest
      *
@@ -11271,7 +11272,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the access regions.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudSupportRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11321,7 +11322,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the access regions.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloud is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.HybridCloud response parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudSupportRegionsRequest
      *
@@ -11342,7 +11343,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of unassigned servers in a hybrid cloud cluster.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudUnassignedMachinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11412,7 +11413,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of unassigned servers in a hybrid cloud cluster.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - DescribeHybridCloudUnassignedMachinesRequest
      *
@@ -11430,7 +11431,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of unsupported ports for a hybrid cloud.
+     * Queries the list of unavailable ports for hybrid cloud.
      *
      * @param request - DescribeHybridCloudUnsupportPortsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11477,7 +11478,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the list of unsupported ports for a hybrid cloud.
+     * Queries the list of unavailable ports for hybrid cloud.
      *
      * @param request - DescribeHybridCloudUnsupportPortsRequest
      *
@@ -11627,7 +11628,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the countries and areas outside China supported by the Location Blacklist.
+     * Queries the countries and areas outside China supported by IP Location Blacklist.
      *
      * @param request - DescribeIpAbroadCountryInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11694,7 +11695,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the countries and areas outside China supported by the Location Blacklist.
+     * Queries the countries and areas outside China supported by IP Location Blacklist.
      *
      * @param request - DescribeIpAbroadCountryInfosRequest
      *
@@ -11712,7 +11713,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a single log delivery configuration for a hybrid cloud.
+     * Queries a single hybrid cloud log delivery configuration.
      *
      * @param request - DescribeLogDeliveryConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11763,7 +11764,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a single log delivery configuration for a hybrid cloud.
+     * Queries a single hybrid cloud log delivery configuration.
      *
      * @param request - DescribeLogDeliveryConfigRequest
      *
@@ -11781,7 +11782,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries all log delivery configurations of a Web Application Firewall (WAF) instance for hybrid cloud.
+     * Queries all hybrid cloud log delivery configurations.
      *
      * @param request - DescribeLogDeliveryConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11844,7 +11845,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries all log delivery configurations of a Web Application Firewall (WAF) instance for hybrid cloud.
+     * Queries all hybrid cloud log delivery configurations.
      *
      * @param request - DescribeLogDeliveryConfigsRequest
      *
@@ -12036,7 +12037,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the time series statistics of all traffic, including malicious requests and normal service requests.
+     * Queries the time-series statistics of all traffic, including malicious requests and normal service requests.
      *
      * @param tmpReq - DescribeNetworkFlowTimeSeriesMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12097,7 +12098,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the time series statistics of all traffic, including malicious requests and normal service requests.
+     * Queries the time-series statistics of all traffic, including malicious requests and normal service requests.
      *
      * @param request - DescribeNetworkFlowTimeSeriesMetricRequest
      *
@@ -12115,7 +12116,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the top N statistics for all traffic that passes through Web Application Firewall (WAF), including malicious and normal service requests. The results are aggregated by different dimensions and sorted in descending order.
+     * Queries the top statistics of all traffic aggregated and sorted by various dimensions, including malicious requests and normal service traffic.
      *
      * @param tmpReq - DescribeNetworkFlowTopNMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12180,7 +12181,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the top N statistics for all traffic that passes through Web Application Firewall (WAF), including malicious and normal service requests. The results are aggregated by different dimensions and sorted in descending order.
+     * Queries the top statistics of all traffic aggregated and sorted by various dimensions, including malicious requests and normal service traffic.
      *
      * @param request - DescribeNetworkFlowTopNMetricRequest
      *
@@ -12344,7 +12345,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the enabled proof of concept (POC) feature trials.
+     * Queries the details of enabled POC feature trials.
      *
      * @param request - DescribePocFunctionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12391,7 +12392,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the enabled proof of concept (POC) feature trials.
+     * Queries the details of enabled POC feature trials.
      *
      * @param request - DescribePocFunctionsRequest
      *
@@ -12918,7 +12919,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the log delivery status of protected objects.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
+     * Before calling this operation, ensure that you have purchased hybrid cloud extension nodes for your Web Application Firewall (WAF) instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned value of the Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes have been purchased. Otherwise, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
      *
      * @param request - DescribeResourceLogDeliveryStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12972,7 +12973,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the log delivery status of protected objects.
      *
      * @remarks
-     * Before calling this operation, make sure that the WAF instance has hybrid cloud extension nodes purchased. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned parameter Details.HybridCloudNodeExtend is greater than 0, hybrid cloud extension nodes have been purchased. If not, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
+     * Before calling this operation, ensure that you have purchased hybrid cloud extension nodes for your Web Application Firewall (WAF) instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned value of the Details.HybridCloudNodeExtend parameter is greater than 0, hybrid cloud extension nodes have been purchased. Otherwise, log on to the WAF console and upgrade the instance to purchase hybrid cloud extension nodes.
      *
      * @param request - DescribeResourceLogDeliveryStatusRequest
      *
@@ -12990,7 +12991,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the log field configuration for a protected object.
+     * Queries the log field configuration of a protected object.
      *
      * @param request - DescribeResourceLogFieldConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13045,7 +13046,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the log field configuration for a protected object.
+     * Queries the log field configuration of a protected object.
      *
      * @param request - DescribeResourceLogFieldConfigRequest
      *
@@ -14040,13 +14041,13 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the detailed logs of attack traffic. Each log entry contains the details of a request that matched a protection rule.
+     * Queries the detailed logs of attack traffic. Each log entry contains detailed information about a matched request.
      *
      * @remarks
-     * Attack traffic refers to requests that hit a rule and are identified as threats. The following three types of requests are not included:
-     * - Requests that hit a whitelist rule.
-     * - Requests that hit a bot rule whose action is set to Mark for Origin Fetch.
-     * - Requests that hit a rule whose action is set to Dynamic Token, Slider, Strict Slider, or JS Challenge, but are allowed because the user passed the verification.
+     * Attack traffic refers to requests with rule hits that are identified as risky. The following three types of data are not included:
+     * - Requests with rule hits on whitelist rules.
+     * - Requests that match bot rules but the rule action is set to back-to-origin mark.
+     * - Requests with rule hits where the rule action is set to dynamic token, slider, strict slider, or JavaScript authenticate, but users authenticate successfully and are allowed.
      *
      * @param tmpReq - DescribeSecurityEventLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14111,13 +14112,13 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the detailed logs of attack traffic. Each log entry contains the details of a request that matched a protection rule.
+     * Queries the detailed logs of attack traffic. Each log entry contains detailed information about a matched request.
      *
      * @remarks
-     * Attack traffic refers to requests that hit a rule and are identified as threats. The following three types of requests are not included:
-     * - Requests that hit a whitelist rule.
-     * - Requests that hit a bot rule whose action is set to Mark for Origin Fetch.
-     * - Requests that hit a rule whose action is set to Dynamic Token, Slider, Strict Slider, or JS Challenge, but are allowed because the user passed the verification.
+     * Attack traffic refers to requests with rule hits that are identified as risky. The following three types of data are not included:
+     * - Requests with rule hits on whitelist rules.
+     * - Requests that match bot rules but the rule action is set to back-to-origin mark.
+     * - Requests with rule hits where the rule action is set to dynamic token, slider, strict slider, or JavaScript authenticate, but users authenticate successfully and are allowed.
      *
      * @param request - DescribeSecurityEventLogsRequest
      *
@@ -14491,7 +14492,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the distribution of cross-border traffic that contains personal information.
+     * Queries the distribution of outbound traffic containing personal information.
      *
      * @param request - DescribeSensitiveOutboundDistributionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14550,7 +14551,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the distribution of cross-border traffic that contains personal information.
+     * Queries the distribution of outbound traffic containing personal information.
      *
      * @param request - DescribeSensitiveOutboundDistributionRequest
      *
@@ -14568,7 +14569,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries statistics about outbound transfers of personal information.
+     * Queries the statistics on the types of outbound personal information.
      *
      * @param request - DescribeSensitiveOutboundStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14659,7 +14660,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries statistics about outbound transfers of personal information.
+     * Queries the statistics on the types of outbound personal information.
      *
      * @param request - DescribeSensitiveOutboundStatisticRequest
      *
@@ -14677,7 +14678,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the trend of cross-border transfer of personal information data.
+     * Queries the trend of outbound personal information.
      *
      * @param request - DescribeSensitiveOutboundTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14736,7 +14737,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the trend of cross-border transfer of personal information data.
+     * Queries the trend of outbound personal information.
      *
      * @param request - DescribeSensitiveOutboundTrendRequest
      *
@@ -14863,7 +14864,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the results of sensitive data tracing.
+     * Queries sensitive data tracing results.
      *
      * @param request - DescribeSensitiveRequestsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14938,7 +14939,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the results of sensitive data tracing.
+     * Queries sensitive data tracing results.
      *
      * @param request - DescribeSensitiveRequestsRequest
      *
@@ -14956,7 +14957,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the sensitive data statistics of tracing watermark audits.
+     * Queries the sensitive data statistics for tracing audit.
      *
      * @param request - DescribeSensitiveStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15027,7 +15028,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the sensitive data statistics of tracing watermark audits.
+     * Queries the sensitive data statistics for tracing audit.
      *
      * @param request - DescribeSensitiveStatisticRequest
      *
@@ -15398,7 +15399,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a paginated list of notable security events.
+     * Queries the list of noteworthy security events by paging in a paged query.
      *
      * @param request - DescribeThreatEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15465,7 +15466,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries a paginated list of notable security events.
+     * Queries the list of noteworthy security events by paging in a paged query.
      *
      * @param request - DescribeThreatEventRequest
      *
@@ -15483,7 +15484,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a security event that requires attention.
+     * Retrieves the details of noteworthy security events.
      *
      * @param request - DescribeThreatEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15534,7 +15535,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a security event that requires attention.
+     * Retrieves the details of noteworthy security events.
      *
      * @param request - DescribeThreatEventDetailRequest
      *
@@ -15552,7 +15553,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the top 5 statistics of security events aggregated by different statistical objects and sorted in descending order.
+     * Queries the top 5 statistics for security events, aggregated and sorted in descending order based on different metrics.
      *
      * @param request - DescribeThreatEventTopMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15607,7 +15608,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the top 5 statistics of security events aggregated by different statistical objects and sorted in descending order.
+     * Queries the top 5 statistics for security events, aggregated and sorted in descending order based on different metrics.
      *
      * @param request - DescribeThreatEventTopMetricRequest
      *
@@ -15937,7 +15938,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the attack trend of API security.
+     * Queries the trend of API security attacks.
      *
      * @param request - DescribeUserEventTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15992,7 +15993,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the attack trend of API security.
+     * Queries the trend of API security attacks.
      *
      * @param request - DescribeUserEventTrendRequest
      *
@@ -16381,7 +16382,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the domain ownership verification content of a Web Application Firewall (WAF) instance.
+     * Queries the ownership verification content.
      *
      * @param request - DescribeVerifyContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16428,7 +16429,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the domain ownership verification content of a Web Application Firewall (WAF) instance.
+     * Queries the ownership verification content.
      *
      * @param request - DescribeVerifyContentRequest
      *
@@ -16665,7 +16666,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Initializes a service-linked role for WAF.
+     * Creates a service-linked role for WAF.
      *
      * @param request - InitializeWafOperationRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16712,7 +16713,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Initializes a service-linked role for WAF.
+     * Creates a service-linked role for WAF.
      *
      * @param request - InitializeWafOperationRoleRequest
      *
@@ -16799,7 +16800,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are attached to a resource.
+     * Queries the tags bound to resources.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16854,7 +16855,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are attached to a resource.
+     * Queries the tags bound to resources.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -16949,7 +16950,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the user access configuration.
+     * Modifies the user provisioning configuration.
      *
      * @param request - ModifyAccessConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17004,7 +17005,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the user access configuration.
+     * Modifies the user provisioning configuration.
      *
      * @param request - ModifyAccessConfigRequest
      *
@@ -17025,7 +17026,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the status of an AI Engine event.
      *
      * @remarks
-     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. Otherwise, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
      *
      * @param request - ModifyAiEngineEventStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17087,7 +17088,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the status of an AI Engine event.
      *
      * @remarks
-     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. Otherwise, upgrade the instance to the Agentic WAF edition.
+     * Before calling this operation, ensure that the WAF instance is of the Agentic WAF edition. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the returned Details.AgenticWaf parameter is true, the instance is of the Agentic WAF edition. If not, upgrade the instance to the Agentic WAF edition.
      *
      * @param request - ModifyAiEngineEventStatusRequest
      *
@@ -17267,7 +17268,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the statuses of multiple API security events in a batch.
+     * Updates the status of multiple API security events.
      *
      * @param request - ModifyApisecEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17334,7 +17335,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the statuses of multiple API security events in a batch.
+     * Updates the status of multiple API security events.
      *
      * @param request - ModifyApisecEventsRequest
      *
@@ -17450,11 +17451,11 @@ class Wafopenapi extends OpenApiClient
      * Modifies the subscription status of API security logs.
      *
      * @remarks
-     * Before you invoke this operation, make sure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
-     * 1. Confirm that the API security feature is enabled. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticApisec or Details.Apisec parameter in the response is true, the API security feature is enabled.
-     * 2. Confirm that WAF is authorized to access cloud resources. Invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the authorization.
-     * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active SLS projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
-     * After you complete the preceding steps, invoke this operation to enable or disable the delivery status of API security logs.
+     * Before invoking this operation, ensure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
+     * 1. Confirm that the API security feature is enabled. You can invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details and check the relevant status. If the Details.AgenticApisec or Details.Apisec response parameter is set to true, the API security feature is enabled.
+     * 2. Confirm that WAF is authorized to access cloud resources. You can invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the required permissions.
+     * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active Simple Log Service projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
+     * After completing these steps, invoke this operation to enable or disable the API security log delivery status.
      *
      * @param request - ModifyApisecLogDeliveryStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17512,11 +17513,11 @@ class Wafopenapi extends OpenApiClient
      * Modifies the subscription status of API security logs.
      *
      * @remarks
-     * Before you invoke this operation, make sure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
-     * 1. Confirm that the API security feature is enabled. Invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the Details.AgenticApisec or Details.Apisec parameter in the response is true, the API security feature is enabled.
-     * 2. Confirm that WAF is authorized to access cloud resources. Invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the authorization.
-     * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active SLS projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
-     * After you complete the preceding steps, invoke this operation to enable or disable the delivery status of API security logs.
+     * Before invoking this operation, ensure that you have created an API security log delivery configuration by invoking the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation. If you have not created a delivery configuration, complete the following prerequisites:
+     * 1. Confirm that the API security feature is enabled. You can invoke the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details and check the relevant status. If the Details.AgenticApisec or Details.Apisec response parameter is set to true, the API security feature is enabled.
+     * 2. Confirm that WAF is authorized to access cloud resources. You can invoke the [DescribeRoleAuthStatus](https://help.aliyun.com/document_detail/2990717.html) operation to query the authorization status. If WAF is not authorized, invoke the [InitializeWafOperationRole](https://help.aliyun.com/document_detail/2990727.html) operation to grant the required permissions.
+     * 3. Invoke the [DescribeApisecSlsProjects](https://help.aliyun.com/document_detail/2932936.html) and [DescribeApisecSlsLogStores](https://help.aliyun.com/document_detail/2932935.html) operations to query active Simple Log Service projects and Logstores, and then invoke the [ModifyApisecLogDelivery](https://help.aliyun.com/document_detail/2932937.html) operation to create a delivery configuration.
+     * After completing these steps, invoke this operation to enable or disable the API security log delivery status.
      *
      * @param request - ModifyApisecLogDeliveryStatusRequest
      *
@@ -17537,7 +17538,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the status of protected objects or protected object groups for the API security protection module.
      *
      * @remarks
-     * Before calling this operation, make sure that protected objects or protected object groups already exist. For protected objects that have been added to WAF, call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For created protected object groups, call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group has been created, call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one first.
+     * Before calling this operation, ensure that protected objects or protected object groups exist. For protected objects added to WAF, you can call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For existing protected object groups, you can call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group exists, you must first call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one.
      *
      * @param request - ModifyApisecModuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17603,7 +17604,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the status of protected objects or protected object groups for the API security protection module.
      *
      * @remarks
-     * Before calling this operation, make sure that protected objects or protected object groups already exist. For protected objects that have been added to WAF, call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For created protected object groups, call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group has been created, call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one first.
+     * Before calling this operation, ensure that protected objects or protected object groups exist. For protected objects added to WAF, you can call the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query their names. For existing protected object groups, you can call the [DescribeDefenseResourceGroups](https://help.aliyun.com/document_detail/2773860.html) operation to query them. If no protected object group exists, you must first call the [CreateDefenseResourceGroup](https://help.aliyun.com/document_detail/461739.html) operation to create one.
      *
      * @param request - ModifyApisecModuleStatusRequest
      *
@@ -17621,7 +17622,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the status of protected objects or protected object groups for API security.
+     * Modifies the status of API security protected objects or protected object groups.
      *
      * @param request - ModifyApisecStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17680,7 +17681,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the status of protected objects or protected object groups for API security.
+     * Modifies the status of API security protected objects or protected object groups.
      *
      * @param request - ModifyApisecStatusRequest
      *
@@ -18105,24 +18106,30 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the client IP and cookie settings of a protected object.
+     * Modifies the client IP address and cookie settings of a protected object.
      *
      * @remarks
-     * Before you invoke this operation, make sure that a protected object has been added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME-based resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects that have been added to WAF.
+     * Before invoking this operation, make sure that a protected object is added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME access resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects added to WAF.
      *
-     * @param request - ModifyDefenseResourceXffRequest
+     * @param tmpReq - ModifyDefenseResourceXffRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyDefenseResourceXffResponse
      *
-     * @param ModifyDefenseResourceXffRequest $request
+     * @param ModifyDefenseResourceXffRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
      * @return ModifyDefenseResourceXffResponse
      */
-    public function modifyDefenseResourceXffWithOptions($request, $runtime)
+    public function modifyDefenseResourceXffWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ModifyDefenseResourceXffShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cookieConfig) {
+            $request->cookieConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cookieConfig, 'CookieConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->acwCookieStatus) {
             @$query['AcwCookieStatus'] = $request->acwCookieStatus;
@@ -18134,6 +18141,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->acwV3SecureStatus) {
             @$query['AcwV3SecureStatus'] = $request->acwV3SecureStatus;
+        }
+
+        if (null !== $request->cookieConfigShrink) {
+            @$query['CookieConfig'] = $request->cookieConfigShrink;
         }
 
         if (null !== $request->customHeaders) {
@@ -18183,10 +18194,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the client IP and cookie settings of a protected object.
+     * Modifies the client IP address and cookie settings of a protected object.
      *
      * @remarks
-     * Before you invoke this operation, make sure that a protected object has been added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME-based resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects that have been added to WAF.
+     * Before invoking this operation, make sure that a protected object is added to WAF. You can invoke the [CreateDomain](https://help.aliyun.com/document_detail/461413.html) operation to create a CNAME access resource, invoke the [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) operation to create a cloud native mode resource, or invoke the [CreateDefenseResource](https://help.aliyun.com/document_detail/2930080.html) operation to create a custom protected object. You can invoke the [DescribeDefenseResources](https://help.aliyun.com/document_detail/461612.html) operation to query the protected objects added to WAF.
      *
      * @param request - ModifyDefenseResourceXffRequest
      *
@@ -18710,7 +18721,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies a domain name added in CNAME mode.
+     * Modifies a domain name that is added to WAF in CNAME access mode.
      *
      * @param tmpReq - ModifyDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18783,7 +18794,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies a domain name added in CNAME mode.
+     * Modifies a domain name that is added to WAF in CNAME access mode.
      *
      * @param request - ModifyDomainRequest
      *
@@ -18964,7 +18975,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies cluster information.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, ensure that the Hybrid Cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the Hybrid Cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable it.
      *
      * @param request - ModifyHybridCloudClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19070,7 +19081,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies cluster information.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the Web Application Firewall (WAF) instance. Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before calling this operation, ensure that the Hybrid Cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud response parameter is true, the Hybrid Cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable it.
      *
      * @param request - ModifyHybridCloudClusterRequest
      *
@@ -19167,10 +19178,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the rule information of a hybrid cloud cluster.
+     * Modifies the information about a hybrid cloud cluster rule.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - ModifyHybridCloudClusterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19237,10 +19248,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Modifies the rule information of a hybrid cloud cluster.
+     * Modifies the information about a hybrid cloud cluster rule.
      *
      * @remarks
-     * Before calling this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance details. If the Details.HybridCloud parameter in the response is true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
+     * Before you call this operation, make sure that the hybrid cloud feature is enabled for the WAF instance. You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the instance details. If the returned Details.HybridCloud parameter is set to true, the hybrid cloud feature is enabled. If the feature is not enabled, log on to the WAF console and upgrade the instance to enable the hybrid cloud feature.
      *
      * @param request - ModifyHybridCloudClusterRuleRequest
      *
@@ -19345,7 +19356,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds a node to a node group in a hybrid cloud cluster of a Web Application Firewall (WAF) instance.
+     * Adds nodes to a cluster group.
      *
      * @param request - ModifyHybridCloudGroupExpansionServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19404,7 +19415,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Adds a node to a node group in a hybrid cloud cluster of a Web Application Firewall (WAF) instance.
+     * Adds nodes to a cluster group.
      *
      * @param request - ModifyHybridCloudGroupExpansionServerRequest
      *
@@ -20515,7 +20526,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
+     * Reconnects a cloud service to WAF. This operation is applicable only when the protection status of the cloud service in cloud native mode is abnormal.
      *
      * @param request - ReCreateCloudResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20578,7 +20589,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
+     * Reconnects a cloud service to WAF. This operation is applicable only when the protection status of the cloud service in cloud native mode is abnormal.
      *
      * @param request - ReCreateCloudResourceRequest
      *
@@ -20596,7 +20607,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Releases a Web Application Firewall (WAF) 3.0 instance.
+     * Releases a WAF 3.0 instance.
      *
      * @param request - ReleaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20643,7 +20654,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Releases a Web Application Firewall (WAF) 3.0 instance.
+     * Releases a WAF 3.0 instance.
      *
      * @param request - ReleaseInstanceRequest
      *
@@ -20874,7 +20885,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Verifies that you own the specified domain name. Domain ownership must be verified before you can add a domain name to Web Application Firewall (WAF) by using CNAME access.
+     * Verifies the ownership of a domain name.
      *
      * @param request - VerifyDomainOwnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20925,7 +20936,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Verifies that you own the specified domain name. Domain ownership must be verified before you can add a domain name to Web Application Firewall (WAF) by using CNAME access.
+     * Verifies the ownership of a domain name.
      *
      * @param request - VerifyDomainOwnerRequest
      *

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceXffRequest\cookieConfig;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseResourceXffRequest\responseHeaders;
 
 class ModifyDefenseResourceXffRequest extends Model
@@ -23,6 +24,11 @@ class ModifyDefenseResourceXffRequest extends Model
      * @var int
      */
     public $acwV3SecureStatus;
+
+    /**
+     * @var cookieConfig
+     */
+    public $cookieConfig;
 
     /**
      * @var string[]
@@ -62,6 +68,7 @@ class ModifyDefenseResourceXffRequest extends Model
         'acwCookieStatus' => 'AcwCookieStatus',
         'acwSecureStatus' => 'AcwSecureStatus',
         'acwV3SecureStatus' => 'AcwV3SecureStatus',
+        'cookieConfig' => 'CookieConfig',
         'customHeaders' => 'CustomHeaders',
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
@@ -73,6 +80,9 @@ class ModifyDefenseResourceXffRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->cookieConfig) {
+            $this->cookieConfig->validate();
+        }
         if (\is_array($this->customHeaders)) {
             Model::validateArray($this->customHeaders);
         }
@@ -95,6 +105,10 @@ class ModifyDefenseResourceXffRequest extends Model
 
         if (null !== $this->acwV3SecureStatus) {
             $res['AcwV3SecureStatus'] = $this->acwV3SecureStatus;
+        }
+
+        if (null !== $this->cookieConfig) {
+            $res['CookieConfig'] = null !== $this->cookieConfig ? $this->cookieConfig->toArray($noStream) : $this->cookieConfig;
         }
 
         if (null !== $this->customHeaders) {
@@ -160,6 +174,10 @@ class ModifyDefenseResourceXffRequest extends Model
 
         if (isset($map['AcwV3SecureStatus'])) {
             $model->acwV3SecureStatus = $map['AcwV3SecureStatus'];
+        }
+
+        if (isset($map['CookieConfig'])) {
+            $model->cookieConfig = cookieConfig::fromMap($map['CookieConfig']);
         }
 
         if (isset($map['CustomHeaders'])) {

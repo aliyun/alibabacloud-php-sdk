@@ -1,3 +1,12 @@
+2026-11-25 Version: 7.9.1
+- Update API CreateDomain: add request parameters Redirect.BackendConfig.
+- Update API DescribeDefenseResource: add response parameters Body.Resource.CookieConfig.
+- Update API DescribeDefenseResources: add response parameters Body.Resources.$.CookieConfig.
+- Update API DescribeDomainDetail: add response parameters Body.Redirect.BackendConfig.
+- Update API ModifyDefenseResourceXff: add request parameters CookieConfig.
+- Update API ModifyDomain: add request parameters Redirect.BackendConfig.
+
+
 2026-11-16 Version: 7.9.0
 - Support API DescribeAccessConfig.
 - Support API DescribeAiEngineEvent.

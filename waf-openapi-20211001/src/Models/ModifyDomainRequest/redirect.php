@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest\redirect\backendConfig;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest\redirect\backendPorts;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest\redirect\requestHeaders;
 
 class redirect extends Model
 {
+    /**
+     * @var backendConfig[]
+     */
+    public $backendConfig;
+
     /**
      * @var backendPorts[]
      */
@@ -140,6 +146,7 @@ class redirect extends Model
      */
     public $xffProto;
     protected $_name = [
+        'backendConfig' => 'BackendConfig',
         'backendPorts' => 'BackendPorts',
         'backends' => 'Backends',
         'backupBackends' => 'BackupBackends',
@@ -170,6 +177,9 @@ class redirect extends Model
 
     public function validate()
     {
+        if (\is_array($this->backendConfig)) {
+            Model::validateArray($this->backendConfig);
+        }
         if (\is_array($this->backendPorts)) {
             Model::validateArray($this->backendPorts);
         }
@@ -188,6 +198,17 @@ class redirect extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backendConfig) {
+            if (\is_array($this->backendConfig)) {
+                $res['BackendConfig'] = [];
+                $n1 = 0;
+                foreach ($this->backendConfig as $item1) {
+                    $res['BackendConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->backendPorts) {
             if (\is_array($this->backendPorts)) {
                 $res['BackendPorts'] = [];
@@ -331,6 +352,17 @@ class redirect extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendConfig'])) {
+            if (!empty($map['BackendConfig'])) {
+                $model->backendConfig = [];
+                $n1 = 0;
+                foreach ($map['BackendConfig'] as $item1) {
+                    $model->backendConfig[$n1] = backendConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['BackendPorts'])) {
             if (!empty($map['BackendPorts'])) {
                 $model->backendPorts = [];

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\backendConfig;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\backendPorts;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\backends;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\backupBackends;
@@ -16,6 +17,11 @@ class redirect extends Model
      * @var string[]
      */
     public $backUpBackendList;
+
+    /**
+     * @var backendConfig[]
+     */
+    public $backendConfig;
 
     /**
      * @var string[]
@@ -143,6 +149,7 @@ class redirect extends Model
     public $xffProto;
     protected $_name = [
         'backUpBackendList' => 'BackUpBackendList',
+        'backendConfig' => 'BackendConfig',
         'backendList' => 'BackendList',
         'backendPorts' => 'BackendPorts',
         'backends' => 'Backends',
@@ -175,6 +182,9 @@ class redirect extends Model
         if (\is_array($this->backUpBackendList)) {
             Model::validateArray($this->backUpBackendList);
         }
+        if (\is_array($this->backendConfig)) {
+            Model::validateArray($this->backendConfig);
+        }
         if (\is_array($this->backendList)) {
             Model::validateArray($this->backendList);
         }
@@ -202,6 +212,17 @@ class redirect extends Model
                 $n1 = 0;
                 foreach ($this->backUpBackendList as $item1) {
                     $res['BackUpBackendList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->backendConfig) {
+            if (\is_array($this->backendConfig)) {
+                $res['BackendConfig'] = [];
+                $n1 = 0;
+                foreach ($this->backendConfig as $item1) {
+                    $res['BackendConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -359,6 +380,17 @@ class redirect extends Model
                 $n1 = 0;
                 foreach ($map['BackUpBackendList'] as $item1) {
                     $model->backUpBackendList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['BackendConfig'])) {
+            if (!empty($map['BackendConfig'])) {
+                $model->backendConfig = [];
+                $n1 = 0;
+                foreach ($map['BackendConfig'] as $item1) {
+                    $model->backendConfig[$n1] = backendConfig::fromMap($item1);
                     ++$n1;
                 }
             }

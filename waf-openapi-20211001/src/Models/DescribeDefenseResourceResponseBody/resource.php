@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceResponseBody\resource\cookieConfig;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceResponseBody\resource\responseHeaders;
 
 class resource extends Model
@@ -23,6 +24,11 @@ class resource extends Model
      * @var int
      */
     public $acwV3SecureStatus;
+
+    /**
+     * @var cookieConfig
+     */
+    public $cookieConfig;
 
     /**
      * @var string[]
@@ -107,6 +113,7 @@ class resource extends Model
         'acwCookieStatus' => 'AcwCookieStatus',
         'acwSecureStatus' => 'AcwSecureStatus',
         'acwV3SecureStatus' => 'AcwV3SecureStatus',
+        'cookieConfig' => 'CookieConfig',
         'customHeaders' => 'CustomHeaders',
         'description' => 'Description',
         'detail' => 'Detail',
@@ -127,6 +134,9 @@ class resource extends Model
 
     public function validate()
     {
+        if (null !== $this->cookieConfig) {
+            $this->cookieConfig->validate();
+        }
         if (\is_array($this->customHeaders)) {
             Model::validateArray($this->customHeaders);
         }
@@ -152,6 +162,10 @@ class resource extends Model
 
         if (null !== $this->acwV3SecureStatus) {
             $res['AcwV3SecureStatus'] = $this->acwV3SecureStatus;
+        }
+
+        if (null !== $this->cookieConfig) {
+            $res['CookieConfig'] = null !== $this->cookieConfig ? $this->cookieConfig->toArray($noStream) : $this->cookieConfig;
         }
 
         if (null !== $this->customHeaders) {
@@ -258,6 +272,10 @@ class resource extends Model
 
         if (isset($map['AcwV3SecureStatus'])) {
             $model->acwV3SecureStatus = $map['AcwV3SecureStatus'];
+        }
+
+        if (isset($map['CookieConfig'])) {
+            $model->cookieConfig = cookieConfig::fromMap($map['CookieConfig']);
         }
 
         if (isset($map['CustomHeaders'])) {
