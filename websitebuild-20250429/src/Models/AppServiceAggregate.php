@@ -97,6 +97,11 @@ class AppServiceAggregate extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var bool
+     */
+    public $visible;
     protected $_name = [
         'bizId' => 'BizId',
         'deleted' => 'Deleted',
@@ -116,6 +121,7 @@ class AppServiceAggregate extends Model
         'startTime' => 'StartTime',
         'status' => 'Status',
         'userId' => 'UserId',
+        'visible' => 'Visible',
     ];
 
     public function validate()
@@ -217,6 +223,10 @@ class AppServiceAggregate extends Model
             $res['UserId'] = $this->userId;
         }
 
+        if (null !== $this->visible) {
+            $res['Visible'] = $this->visible;
+        }
+
         return $res;
     }
 
@@ -305,6 +315,10 @@ class AppServiceAggregate extends Model
 
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+
+        if (isset($map['Visible'])) {
+            $model->visible = $map['Visible'];
         }
 
         return $model;

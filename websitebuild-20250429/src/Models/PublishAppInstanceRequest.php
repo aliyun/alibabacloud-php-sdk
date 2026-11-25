@@ -11,7 +11,17 @@ class PublishAppInstanceRequest extends Model
     /**
      * @var string
      */
+    public $artifactDigest;
+
+    /**
+     * @var string
+     */
     public $bizId;
+
+    /**
+     * @var string
+     */
+    public $candidateId;
 
     /**
      * @var string
@@ -24,6 +34,16 @@ class PublishAppInstanceRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $ext;
+
+    /**
+     * @var string
+     */
+    public $idempotencyKey;
+
+    /**
      * @var int
      */
     public $logicalNumber;
@@ -31,18 +51,58 @@ class PublishAppInstanceRequest extends Model
     /**
      * @var string
      */
+    public $platformAppid;
+
+    /**
+     * @var string
+     */
+    public $pluginDeclarationHash;
+
+    /**
+     * @var string
+     */
+    public $privacyDraftId;
+
+    /**
+     * @var string
+     */
+    public $privacyRevision;
+
+    /**
+     * @var string
+     */
     public $publishNumber;
+
+    /**
+     * @var int
+     */
+    public $publishOrderId;
+
+    /**
+     * @var int
+     */
+    public $uploadSequence;
 
     /**
      * @var string
      */
     public $weappAction;
     protected $_name = [
+        'artifactDigest' => 'ArtifactDigest',
         'bizId' => 'BizId',
+        'candidateId' => 'CandidateId',
         'deployChannel' => 'DeployChannel',
         'description' => 'Description',
+        'ext' => 'Ext',
+        'idempotencyKey' => 'IdempotencyKey',
         'logicalNumber' => 'LogicalNumber',
+        'platformAppid' => 'PlatformAppid',
+        'pluginDeclarationHash' => 'PluginDeclarationHash',
+        'privacyDraftId' => 'PrivacyDraftId',
+        'privacyRevision' => 'PrivacyRevision',
         'publishNumber' => 'PublishNumber',
+        'publishOrderId' => 'PublishOrderId',
+        'uploadSequence' => 'UploadSequence',
         'weappAction' => 'WeappAction',
     ];
 
@@ -54,8 +114,16 @@ class PublishAppInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->artifactDigest) {
+            $res['ArtifactDigest'] = $this->artifactDigest;
+        }
+
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->candidateId) {
+            $res['CandidateId'] = $this->candidateId;
         }
 
         if (null !== $this->deployChannel) {
@@ -66,12 +134,44 @@ class PublishAppInstanceRequest extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->ext) {
+            $res['Ext'] = $this->ext;
+        }
+
+        if (null !== $this->idempotencyKey) {
+            $res['IdempotencyKey'] = $this->idempotencyKey;
+        }
+
         if (null !== $this->logicalNumber) {
             $res['LogicalNumber'] = $this->logicalNumber;
         }
 
+        if (null !== $this->platformAppid) {
+            $res['PlatformAppid'] = $this->platformAppid;
+        }
+
+        if (null !== $this->pluginDeclarationHash) {
+            $res['PluginDeclarationHash'] = $this->pluginDeclarationHash;
+        }
+
+        if (null !== $this->privacyDraftId) {
+            $res['PrivacyDraftId'] = $this->privacyDraftId;
+        }
+
+        if (null !== $this->privacyRevision) {
+            $res['PrivacyRevision'] = $this->privacyRevision;
+        }
+
         if (null !== $this->publishNumber) {
             $res['PublishNumber'] = $this->publishNumber;
+        }
+
+        if (null !== $this->publishOrderId) {
+            $res['PublishOrderId'] = $this->publishOrderId;
+        }
+
+        if (null !== $this->uploadSequence) {
+            $res['UploadSequence'] = $this->uploadSequence;
         }
 
         if (null !== $this->weappAction) {
@@ -89,8 +189,16 @@ class PublishAppInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArtifactDigest'])) {
+            $model->artifactDigest = $map['ArtifactDigest'];
+        }
+
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['CandidateId'])) {
+            $model->candidateId = $map['CandidateId'];
         }
 
         if (isset($map['DeployChannel'])) {
@@ -101,12 +209,44 @@ class PublishAppInstanceRequest extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['Ext'])) {
+            $model->ext = $map['Ext'];
+        }
+
+        if (isset($map['IdempotencyKey'])) {
+            $model->idempotencyKey = $map['IdempotencyKey'];
+        }
+
         if (isset($map['LogicalNumber'])) {
             $model->logicalNumber = $map['LogicalNumber'];
         }
 
+        if (isset($map['PlatformAppid'])) {
+            $model->platformAppid = $map['PlatformAppid'];
+        }
+
+        if (isset($map['PluginDeclarationHash'])) {
+            $model->pluginDeclarationHash = $map['PluginDeclarationHash'];
+        }
+
+        if (isset($map['PrivacyDraftId'])) {
+            $model->privacyDraftId = $map['PrivacyDraftId'];
+        }
+
+        if (isset($map['PrivacyRevision'])) {
+            $model->privacyRevision = $map['PrivacyRevision'];
+        }
+
         if (isset($map['PublishNumber'])) {
             $model->publishNumber = $map['PublishNumber'];
+        }
+
+        if (isset($map['PublishOrderId'])) {
+            $model->publishOrderId = $map['PublishOrderId'];
+        }
+
+        if (isset($map['UploadSequence'])) {
+            $model->uploadSequence = $map['UploadSequence'];
         }
 
         if (isset($map['WeappAction'])) {

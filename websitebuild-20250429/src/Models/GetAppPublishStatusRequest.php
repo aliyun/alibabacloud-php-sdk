@@ -19,12 +19,18 @@ class GetAppPublishStatusRequest extends Model
     public $deployOrderId;
 
     /**
+     * @var int
+     */
+    public $publishOrderId;
+
+    /**
      * @var string
      */
     public $websiteDomain;
     protected $_name = [
         'bizId' => 'BizId',
         'deployOrderId' => 'DeployOrderId',
+        'publishOrderId' => 'PublishOrderId',
         'websiteDomain' => 'WebsiteDomain',
     ];
 
@@ -42,6 +48,10 @@ class GetAppPublishStatusRequest extends Model
 
         if (null !== $this->deployOrderId) {
             $res['DeployOrderId'] = $this->deployOrderId;
+        }
+
+        if (null !== $this->publishOrderId) {
+            $res['PublishOrderId'] = $this->publishOrderId;
         }
 
         if (null !== $this->websiteDomain) {
@@ -65,6 +75,10 @@ class GetAppPublishStatusRequest extends Model
 
         if (isset($map['DeployOrderId'])) {
             $model->deployOrderId = $map['DeployOrderId'];
+        }
+
+        if (isset($map['PublishOrderId'])) {
+            $model->publishOrderId = $map['PublishOrderId'];
         }
 
         if (isset($map['WebsiteDomain'])) {
