@@ -14,9 +14,19 @@ class ListSubTasksRequest extends Model
     public $currentPage;
 
     /**
+     * @var bool
+     */
+    public $onlyRunning;
+
+    /**
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
 
     /**
      * @var string
@@ -29,7 +39,9 @@ class ListSubTasksRequest extends Model
     public $taskType;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'onlyRunning' => 'OnlyRunning',
         'pageSize' => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'rootTaskId' => 'RootTaskId',
         'taskType' => 'TaskType',
     ];
@@ -46,8 +58,16 @@ class ListSubTasksRequest extends Model
             $res['CurrentPage'] = $this->currentPage;
         }
 
+        if (null !== $this->onlyRunning) {
+            $res['OnlyRunning'] = $this->onlyRunning;
+        }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->rootTaskId) {
@@ -73,8 +93,16 @@ class ListSubTasksRequest extends Model
             $model->currentPage = $map['CurrentPage'];
         }
 
+        if (isset($map['OnlyRunning'])) {
+            $model->onlyRunning = $map['OnlyRunning'];
+        }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['RootTaskId'])) {

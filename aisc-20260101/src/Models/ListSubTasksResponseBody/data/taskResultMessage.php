@@ -5,20 +5,30 @@
 namespace AlibabaCloud\SDK\AISC\V20260101\Models\ListSubTasksResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AISC\V20260101\Models\ListSubTasksResponseBody\data\taskResultMessage\fullCheckResult;
 use AlibabaCloud\SDK\AISC\V20260101\Models\ListSubTasksResponseBody\data\taskResultMessage\skillCheckResult;
 
 class taskResultMessage extends Model
 {
     /**
+     * @var fullCheckResult
+     */
+    public $fullCheckResult;
+
+    /**
      * @var skillCheckResult
      */
     public $skillCheckResult;
     protected $_name = [
+        'fullCheckResult' => 'FullCheckResult',
         'skillCheckResult' => 'SkillCheckResult',
     ];
 
     public function validate()
     {
+        if (null !== $this->fullCheckResult) {
+            $this->fullCheckResult->validate();
+        }
         if (null !== $this->skillCheckResult) {
             $this->skillCheckResult->validate();
         }
@@ -28,6 +38,10 @@ class taskResultMessage extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->fullCheckResult) {
+            $res['FullCheckResult'] = null !== $this->fullCheckResult ? $this->fullCheckResult->toArray($noStream) : $this->fullCheckResult;
+        }
+
         if (null !== $this->skillCheckResult) {
             $res['SkillCheckResult'] = null !== $this->skillCheckResult ? $this->skillCheckResult->toArray($noStream) : $this->skillCheckResult;
         }
@@ -43,6 +57,10 @@ class taskResultMessage extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FullCheckResult'])) {
+            $model->fullCheckResult = fullCheckResult::fromMap($map['FullCheckResult']);
+        }
+
         if (isset($map['SkillCheckResult'])) {
             $model->skillCheckResult = skillCheckResult::fromMap($map['SkillCheckResult']);
         }

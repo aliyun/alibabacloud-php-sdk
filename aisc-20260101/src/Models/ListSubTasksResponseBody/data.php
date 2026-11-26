@@ -12,7 +12,22 @@ class data extends Model
     /**
      * @var string
      */
+    public $agentName;
+
+    /**
+     * @var string
+     */
     public $fileHash;
+
+    /**
+     * @var int
+     */
+    public $gmtTaskFinished;
+
+    /**
+     * @var int
+     */
+    public $gmtTaskStart;
 
     /**
      * @var int
@@ -34,7 +49,10 @@ class data extends Model
      */
     public $taskStatus;
     protected $_name = [
+        'agentName' => 'AgentName',
         'fileHash' => 'FileHash',
+        'gmtTaskFinished' => 'GmtTaskFinished',
+        'gmtTaskStart' => 'GmtTaskStart',
         'id' => 'Id',
         'target' => 'Target',
         'taskResultMessage' => 'TaskResultMessage',
@@ -52,8 +70,20 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentName) {
+            $res['AgentName'] = $this->agentName;
+        }
+
         if (null !== $this->fileHash) {
             $res['FileHash'] = $this->fileHash;
+        }
+
+        if (null !== $this->gmtTaskFinished) {
+            $res['GmtTaskFinished'] = $this->gmtTaskFinished;
+        }
+
+        if (null !== $this->gmtTaskStart) {
+            $res['GmtTaskStart'] = $this->gmtTaskStart;
         }
 
         if (null !== $this->id) {
@@ -83,8 +113,20 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentName'])) {
+            $model->agentName = $map['AgentName'];
+        }
+
         if (isset($map['FileHash'])) {
             $model->fileHash = $map['FileHash'];
+        }
+
+        if (isset($map['GmtTaskFinished'])) {
+            $model->gmtTaskFinished = $map['GmtTaskFinished'];
+        }
+
+        if (isset($map['GmtTaskStart'])) {
+            $model->gmtTaskStart = $map['GmtTaskStart'];
         }
 
         if (isset($map['Id'])) {

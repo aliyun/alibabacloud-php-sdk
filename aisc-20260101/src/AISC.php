@@ -1160,8 +1160,16 @@ class AISC extends OpenApiClient
             @$query['CurrentPage'] = $request->currentPage;
         }
 
+        if (null !== $request->onlyRunning) {
+            @$query['OnlyRunning'] = $request->onlyRunning;
+        }
+
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceDirectoryAccountId) {
+            @$query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
 
         if (null !== $request->rootTaskId) {

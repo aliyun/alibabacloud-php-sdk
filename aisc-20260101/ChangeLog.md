@@ -1,3 +1,12 @@
+2026-11-26 Version: 1.3.2
+- Update API ListSubTasks: add request parameters OnlyRunning.
+- Update API ListSubTasks: add request parameters ResourceDirectoryAccountId.
+- Update API ListSubTasks: add response parameters Body.Data.$.AgentName.
+- Update API ListSubTasks: add response parameters Body.Data.$.GmtTaskFinished.
+- Update API ListSubTasks: add response parameters Body.Data.$.GmtTaskStart.
+- Update API ListSubTasks: add response parameters Body.Data.$.TaskResultMessage.FullCheckResult.
+
+
 2026-11-16 Version: 1.3.1
 - Update API ListScanTasksByTarget: add response parameters Body.Data.$.ReportLanguage.
 - Update API ListScanTasksByTarget: add response parameters Body.Data.$.SampleLanguage.
