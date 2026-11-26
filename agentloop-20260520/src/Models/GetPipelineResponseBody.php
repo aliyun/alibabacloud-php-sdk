@@ -33,6 +33,16 @@ class GetPipelineResponseBody extends Model
     public $executePolicy;
 
     /**
+     * @var string
+     */
+    public $lastRunId;
+
+    /**
+     * @var string
+     */
+    public $lastRunStatus;
+
+    /**
      * @var int
      */
     public $nextTriggerTime;
@@ -41,6 +51,11 @@ class GetPipelineResponseBody extends Model
      * @var pipeline
      */
     public $pipeline;
+
+    /**
+     * @var string
+     */
+    public $pipelineKind;
 
     /**
      * @var string
@@ -83,6 +98,11 @@ class GetPipelineResponseBody extends Model
     public $updateTime;
 
     /**
+     * @var int
+     */
+    public $version;
+
+    /**
      * @var string
      */
     public $workspace;
@@ -91,8 +111,11 @@ class GetPipelineResponseBody extends Model
         'createTime' => 'createTime',
         'description' => 'description',
         'executePolicy' => 'executePolicy',
+        'lastRunId' => 'lastRunId',
+        'lastRunStatus' => 'lastRunStatus',
         'nextTriggerTime' => 'nextTriggerTime',
         'pipeline' => 'pipeline',
+        'pipelineKind' => 'pipelineKind',
         'pipelineName' => 'pipelineName',
         'regionId' => 'regionId',
         'requestId' => 'requestId',
@@ -101,6 +124,7 @@ class GetPipelineResponseBody extends Model
         'sink' => 'sink',
         'source' => 'source',
         'updateTime' => 'updateTime',
+        'version' => 'version',
         'workspace' => 'workspace',
     ];
 
@@ -140,12 +164,24 @@ class GetPipelineResponseBody extends Model
             $res['executePolicy'] = null !== $this->executePolicy ? $this->executePolicy->toArray($noStream) : $this->executePolicy;
         }
 
+        if (null !== $this->lastRunId) {
+            $res['lastRunId'] = $this->lastRunId;
+        }
+
+        if (null !== $this->lastRunStatus) {
+            $res['lastRunStatus'] = $this->lastRunStatus;
+        }
+
         if (null !== $this->nextTriggerTime) {
             $res['nextTriggerTime'] = $this->nextTriggerTime;
         }
 
         if (null !== $this->pipeline) {
             $res['pipeline'] = null !== $this->pipeline ? $this->pipeline->toArray($noStream) : $this->pipeline;
+        }
+
+        if (null !== $this->pipelineKind) {
+            $res['pipelineKind'] = $this->pipelineKind;
         }
 
         if (null !== $this->pipelineName) {
@@ -180,6 +216,10 @@ class GetPipelineResponseBody extends Model
             $res['updateTime'] = $this->updateTime;
         }
 
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
+        }
+
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
         }
@@ -211,12 +251,24 @@ class GetPipelineResponseBody extends Model
             $model->executePolicy = executePolicy::fromMap($map['executePolicy']);
         }
 
+        if (isset($map['lastRunId'])) {
+            $model->lastRunId = $map['lastRunId'];
+        }
+
+        if (isset($map['lastRunStatus'])) {
+            $model->lastRunStatus = $map['lastRunStatus'];
+        }
+
         if (isset($map['nextTriggerTime'])) {
             $model->nextTriggerTime = $map['nextTriggerTime'];
         }
 
         if (isset($map['pipeline'])) {
             $model->pipeline = pipeline::fromMap($map['pipeline']);
+        }
+
+        if (isset($map['pipelineKind'])) {
+            $model->pipelineKind = $map['pipelineKind'];
         }
 
         if (isset($map['pipelineName'])) {
@@ -249,6 +301,10 @@ class GetPipelineResponseBody extends Model
 
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         if (isset($map['workspace'])) {

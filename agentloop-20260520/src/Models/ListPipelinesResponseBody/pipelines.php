@@ -6,11 +6,17 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\executePolicy;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\pipeline;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\sink;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponseBody\pipelines\source;
 
 class pipelines extends Model
 {
+    /**
+     * @var int
+     */
+    public $committedWatermark;
+
     /**
      * @var string
      */
@@ -25,6 +31,36 @@ class pipelines extends Model
      * @var executePolicy
      */
     public $executePolicy;
+
+    /**
+     * @var string
+     */
+    public $lastRunId;
+
+    /**
+     * @var string
+     */
+    public $lastRunStatus;
+
+    /**
+     * @var int
+     */
+    public $nextTriggerTime;
+
+    /**
+     * @var string
+     */
+    public $pausedReason;
+
+    /**
+     * @var pipeline
+     */
+    public $pipeline;
+
+    /**
+     * @var string
+     */
+    public $pipelineKind;
 
     /**
      * @var string
@@ -62,13 +98,25 @@ class pipelines extends Model
     public $updateTime;
 
     /**
+     * @var int
+     */
+    public $version;
+
+    /**
      * @var string
      */
     public $workspace;
     protected $_name = [
+        'committedWatermark' => 'committedWatermark',
         'createTime' => 'createTime',
         'description' => 'description',
         'executePolicy' => 'executePolicy',
+        'lastRunId' => 'lastRunId',
+        'lastRunStatus' => 'lastRunStatus',
+        'nextTriggerTime' => 'nextTriggerTime',
+        'pausedReason' => 'pausedReason',
+        'pipeline' => 'pipeline',
+        'pipelineKind' => 'pipelineKind',
         'pipelineName' => 'pipelineName',
         'regionId' => 'regionId',
         'scheduleStatus' => 'scheduleStatus',
@@ -76,6 +124,7 @@ class pipelines extends Model
         'sink' => 'sink',
         'source' => 'source',
         'updateTime' => 'updateTime',
+        'version' => 'version',
         'workspace' => 'workspace',
     ];
 
@@ -83,6 +132,9 @@ class pipelines extends Model
     {
         if (null !== $this->executePolicy) {
             $this->executePolicy->validate();
+        }
+        if (null !== $this->pipeline) {
+            $this->pipeline->validate();
         }
         if (null !== $this->sink) {
             $this->sink->validate();
@@ -96,6 +148,10 @@ class pipelines extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->committedWatermark) {
+            $res['committedWatermark'] = $this->committedWatermark;
+        }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
@@ -106,6 +162,30 @@ class pipelines extends Model
 
         if (null !== $this->executePolicy) {
             $res['executePolicy'] = null !== $this->executePolicy ? $this->executePolicy->toArray($noStream) : $this->executePolicy;
+        }
+
+        if (null !== $this->lastRunId) {
+            $res['lastRunId'] = $this->lastRunId;
+        }
+
+        if (null !== $this->lastRunStatus) {
+            $res['lastRunStatus'] = $this->lastRunStatus;
+        }
+
+        if (null !== $this->nextTriggerTime) {
+            $res['nextTriggerTime'] = $this->nextTriggerTime;
+        }
+
+        if (null !== $this->pausedReason) {
+            $res['pausedReason'] = $this->pausedReason;
+        }
+
+        if (null !== $this->pipeline) {
+            $res['pipeline'] = null !== $this->pipeline ? $this->pipeline->toArray($noStream) : $this->pipeline;
+        }
+
+        if (null !== $this->pipelineKind) {
+            $res['pipelineKind'] = $this->pipelineKind;
         }
 
         if (null !== $this->pipelineName) {
@@ -136,6 +216,10 @@ class pipelines extends Model
             $res['updateTime'] = $this->updateTime;
         }
 
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
+        }
+
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
         }
@@ -151,6 +235,10 @@ class pipelines extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['committedWatermark'])) {
+            $model->committedWatermark = $map['committedWatermark'];
+        }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
@@ -161,6 +249,30 @@ class pipelines extends Model
 
         if (isset($map['executePolicy'])) {
             $model->executePolicy = executePolicy::fromMap($map['executePolicy']);
+        }
+
+        if (isset($map['lastRunId'])) {
+            $model->lastRunId = $map['lastRunId'];
+        }
+
+        if (isset($map['lastRunStatus'])) {
+            $model->lastRunStatus = $map['lastRunStatus'];
+        }
+
+        if (isset($map['nextTriggerTime'])) {
+            $model->nextTriggerTime = $map['nextTriggerTime'];
+        }
+
+        if (isset($map['pausedReason'])) {
+            $model->pausedReason = $map['pausedReason'];
+        }
+
+        if (isset($map['pipeline'])) {
+            $model->pipeline = pipeline::fromMap($map['pipeline']);
+        }
+
+        if (isset($map['pipelineKind'])) {
+            $model->pipelineKind = $map['pipelineKind'];
         }
 
         if (isset($map['pipelineName'])) {
@@ -189,6 +301,10 @@ class pipelines extends Model
 
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         if (isset($map['workspace'])) {

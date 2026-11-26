@@ -76,7 +76,17 @@ class runs extends Model
     /**
      * @var int
      */
+    public $taskVersion;
+
+    /**
+     * @var int
+     */
     public $toTime;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
 
     /**
      * @var string
@@ -101,7 +111,9 @@ class runs extends Model
         'startTime' => 'startTime',
         'stats' => 'stats',
         'status' => 'status',
+        'taskVersion' => 'taskVersion',
         'toTime' => 'toTime',
+        'totalCount' => 'totalCount',
         'triggerTime' => 'triggerTime',
         'triggerType' => 'triggerType',
     ];
@@ -174,8 +186,16 @@ class runs extends Model
             $res['status'] = $this->status;
         }
 
+        if (null !== $this->taskVersion) {
+            $res['taskVersion'] = $this->taskVersion;
+        }
+
         if (null !== $this->toTime) {
             $res['toTime'] = $this->toTime;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
 
         if (null !== $this->triggerTime) {
@@ -254,8 +274,16 @@ class runs extends Model
             $model->status = $map['status'];
         }
 
+        if (isset($map['taskVersion'])) {
+            $model->taskVersion = $map['taskVersion'];
+        }
+
         if (isset($map['toTime'])) {
             $model->toTime = $map['toTime'];
+        }
+
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         if (isset($map['triggerTime'])) {

@@ -30,6 +30,11 @@ class CreatePipelineRequest extends Model
     /**
      * @var string
      */
+    public $pipelineKind;
+
+    /**
+     * @var string
+     */
     public $pipelineName;
 
     /**
@@ -50,6 +55,7 @@ class CreatePipelineRequest extends Model
         'description' => 'description',
         'executePolicy' => 'executePolicy',
         'pipeline' => 'pipeline',
+        'pipelineKind' => 'pipelineKind',
         'pipelineName' => 'pipelineName',
         'sink' => 'sink',
         'source' => 'source',
@@ -86,6 +92,10 @@ class CreatePipelineRequest extends Model
 
         if (null !== $this->pipeline) {
             $res['pipeline'] = null !== $this->pipeline ? $this->pipeline->toArray($noStream) : $this->pipeline;
+        }
+
+        if (null !== $this->pipelineKind) {
+            $res['pipelineKind'] = $this->pipelineKind;
         }
 
         if (null !== $this->pipelineName) {
@@ -125,6 +135,10 @@ class CreatePipelineRequest extends Model
 
         if (isset($map['pipeline'])) {
             $model->pipeline = pipeline::fromMap($map['pipeline']);
+        }
+
+        if (isset($map['pipelineKind'])) {
+            $model->pipelineKind = $map['pipelineKind'];
         }
 
         if (isset($map['pipelineName'])) {

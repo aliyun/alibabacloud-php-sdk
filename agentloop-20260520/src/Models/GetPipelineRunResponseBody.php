@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRunResponseBody\asyncNodes;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRunResponseBody\nodeExecutions;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRunResponseBody\pipelineSnapshot;
 
 class GetPipelineRunResponseBody extends Model
 {
@@ -12,6 +15,11 @@ class GetPipelineRunResponseBody extends Model
      * @var string
      */
     public $agentSpaceName;
+
+    /**
+     * @var asyncNodes[]
+     */
+    public $asyncNodes;
 
     /**
      * @var int
@@ -49,9 +57,19 @@ class GetPipelineRunResponseBody extends Model
     public $nextRetryTime;
 
     /**
+     * @var nodeExecutions[]
+     */
+    public $nodeExecutions;
+
+    /**
      * @var string
      */
     public $pipelineName;
+
+    /**
+     * @var pipelineSnapshot
+     */
+    public $pipelineSnapshot;
 
     /**
      * @var string
@@ -86,7 +104,17 @@ class GetPipelineRunResponseBody extends Model
     /**
      * @var int
      */
+    public $taskVersion;
+
+    /**
+     * @var int
+     */
     public $toTime;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
 
     /**
      * @var string
@@ -99,6 +127,7 @@ class GetPipelineRunResponseBody extends Model
     public $triggerType;
     protected $_name = [
         'agentSpaceName' => 'agentSpaceName',
+        'asyncNodes' => 'asyncNodes',
         'attempt' => 'attempt',
         'errorCode' => 'errorCode',
         'errorMessage' => 'errorMessage',
@@ -106,20 +135,33 @@ class GetPipelineRunResponseBody extends Model
         'fromTime' => 'fromTime',
         'maxAttempts' => 'maxAttempts',
         'nextRetryTime' => 'nextRetryTime',
+        'nodeExecutions' => 'nodeExecutions',
         'pipelineName' => 'pipelineName',
+        'pipelineSnapshot' => 'pipelineSnapshot',
         'requestId' => 'requestId',
         'results' => 'results',
         'runId' => 'runId',
         'startTime' => 'startTime',
         'stats' => 'stats',
         'status' => 'status',
+        'taskVersion' => 'taskVersion',
         'toTime' => 'toTime',
+        'totalCount' => 'totalCount',
         'triggerTime' => 'triggerTime',
         'triggerType' => 'triggerType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->asyncNodes)) {
+            Model::validateArray($this->asyncNodes);
+        }
+        if (\is_array($this->nodeExecutions)) {
+            Model::validateArray($this->nodeExecutions);
+        }
+        if (null !== $this->pipelineSnapshot) {
+            $this->pipelineSnapshot->validate();
+        }
         if (\is_array($this->results)) {
             Model::validateArray($this->results);
         }
@@ -134,6 +176,17 @@ class GetPipelineRunResponseBody extends Model
         $res = [];
         if (null !== $this->agentSpaceName) {
             $res['agentSpaceName'] = $this->agentSpaceName;
+        }
+
+        if (null !== $this->asyncNodes) {
+            if (\is_array($this->asyncNodes)) {
+                $res['asyncNodes'] = [];
+                $n1 = 0;
+                foreach ($this->asyncNodes as $item1) {
+                    $res['asyncNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->attempt) {
@@ -164,8 +217,23 @@ class GetPipelineRunResponseBody extends Model
             $res['nextRetryTime'] = $this->nextRetryTime;
         }
 
+        if (null !== $this->nodeExecutions) {
+            if (\is_array($this->nodeExecutions)) {
+                $res['nodeExecutions'] = [];
+                $n1 = 0;
+                foreach ($this->nodeExecutions as $item1) {
+                    $res['nodeExecutions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->pipelineName) {
             $res['pipelineName'] = $this->pipelineName;
+        }
+
+        if (null !== $this->pipelineSnapshot) {
+            $res['pipelineSnapshot'] = null !== $this->pipelineSnapshot ? $this->pipelineSnapshot->toArray($noStream) : $this->pipelineSnapshot;
         }
 
         if (null !== $this->requestId) {
@@ -202,8 +270,16 @@ class GetPipelineRunResponseBody extends Model
             $res['status'] = $this->status;
         }
 
+        if (null !== $this->taskVersion) {
+            $res['taskVersion'] = $this->taskVersion;
+        }
+
         if (null !== $this->toTime) {
             $res['toTime'] = $this->toTime;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
         }
 
         if (null !== $this->triggerTime) {
@@ -227,6 +303,17 @@ class GetPipelineRunResponseBody extends Model
         $model = new self();
         if (isset($map['agentSpaceName'])) {
             $model->agentSpaceName = $map['agentSpaceName'];
+        }
+
+        if (isset($map['asyncNodes'])) {
+            if (!empty($map['asyncNodes'])) {
+                $model->asyncNodes = [];
+                $n1 = 0;
+                foreach ($map['asyncNodes'] as $item1) {
+                    $model->asyncNodes[$n1] = asyncNodes::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['attempt'])) {
@@ -257,8 +344,23 @@ class GetPipelineRunResponseBody extends Model
             $model->nextRetryTime = $map['nextRetryTime'];
         }
 
+        if (isset($map['nodeExecutions'])) {
+            if (!empty($map['nodeExecutions'])) {
+                $model->nodeExecutions = [];
+                $n1 = 0;
+                foreach ($map['nodeExecutions'] as $item1) {
+                    $model->nodeExecutions[$n1] = nodeExecutions::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['pipelineName'])) {
             $model->pipelineName = $map['pipelineName'];
+        }
+
+        if (isset($map['pipelineSnapshot'])) {
+            $model->pipelineSnapshot = pipelineSnapshot::fromMap($map['pipelineSnapshot']);
         }
 
         if (isset($map['requestId'])) {
@@ -295,8 +397,16 @@ class GetPipelineRunResponseBody extends Model
             $model->status = $map['status'];
         }
 
+        if (isset($map['taskVersion'])) {
+            $model->taskVersion = $map['taskVersion'];
+        }
+
         if (isset($map['toTime'])) {
             $model->toTime = $map['toTime'];
+        }
+
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         if (isset($map['triggerTime'])) {

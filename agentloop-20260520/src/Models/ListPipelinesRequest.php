@@ -21,6 +21,11 @@ class ListPipelinesRequest extends Model
     /**
      * @var string
      */
+    public $pipelineKind;
+
+    /**
+     * @var string
+     */
     public $pipelineName;
 
     /**
@@ -40,6 +45,7 @@ class ListPipelinesRequest extends Model
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'pipelineKind' => 'pipelineKind',
         'pipelineName' => 'pipelineName',
         'scheduleStatus' => 'scheduleStatus',
         'scheduleType' => 'scheduleType',
@@ -60,6 +66,10 @@ class ListPipelinesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->pipelineKind) {
+            $res['pipelineKind'] = $this->pipelineKind;
         }
 
         if (null !== $this->pipelineName) {
@@ -95,6 +105,10 @@ class ListPipelinesRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['pipelineKind'])) {
+            $model->pipelineKind = $map['pipelineKind'];
         }
 
         if (isset($map['pipelineName'])) {

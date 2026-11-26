@@ -1,3 +1,27 @@
+2026-11-26 Version: 2.4.1
+- Update API CreatePipeline: add request parameters body.pipelineKind.
+- Update API GetPipeline: add response parameters Body.lastRunId.
+- Update API GetPipeline: add response parameters Body.lastRunStatus.
+- Update API GetPipeline: add response parameters Body.pipelineKind.
+- Update API GetPipeline: add response parameters Body.version.
+- Update API GetPipelineRun: add response parameters Body.asyncNodes.
+- Update API GetPipelineRun: add response parameters Body.nodeExecutions.
+- Update API GetPipelineRun: add response parameters Body.pipelineSnapshot.
+- Update API GetPipelineRun: add response parameters Body.taskVersion.
+- Update API GetPipelineRun: add response parameters Body.totalCount.
+- Update API ListPipelineRuns: add response parameters Body.runs.$.taskVersion.
+- Update API ListPipelineRuns: add response parameters Body.runs.$.totalCount.
+- Update API ListPipelines: add request parameters pipelineKind.
+- Update API ListPipelines: add response parameters Body.pipelines.$.committedWatermark.
+- Update API ListPipelines: add response parameters Body.pipelines.$.lastRunId.
+- Update API ListPipelines: add response parameters Body.pipelines.$.lastRunStatus.
+- Update API ListPipelines: add response parameters Body.pipelines.$.nextTriggerTime.
+- Update API ListPipelines: add response parameters Body.pipelines.$.pausedReason.
+- Update API ListPipelines: add response parameters Body.pipelines.$.pipeline.
+- Update API ListPipelines: add response parameters Body.pipelines.$.pipelineKind.
+- Update API ListPipelines: add response parameters Body.pipelines.$.version.
+
+
 2026-11-25 Version: 2.4.0
 - Support API CreateMultiModalTask.
 - Support API UpdateEvaluatorVersionStatus.
