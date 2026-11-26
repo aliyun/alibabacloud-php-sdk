@@ -1,3 +1,10 @@
+2026-11-26 Version: 3.14.3
+- Update API InitFaceVerify: add request parameters RetryCount.
+- Update API InitFaceVerify: add request parameters RetryMode.
+- Update API InitFaceVerify: add request parameters StrictAnswerMatch.
+- Update API InitFaceVerify: add request parameters VoluntaryCustomizedAnswers.
+
+
 2026-11-04 Version: 3.14.2
 - Generated php 2019-03-07 for Cloudauth.
 

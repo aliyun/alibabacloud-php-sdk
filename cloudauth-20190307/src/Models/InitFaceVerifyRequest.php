@@ -181,12 +181,27 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $retryCount;
+
+    /**
+     * @var string
+     */
+    public $retryMode;
+
+    /**
+     * @var string
+     */
     public $returnUrl;
 
     /**
      * @var int
      */
     public $sceneId;
+
+    /**
+     * @var string
+     */
+    public $strictAnswerMatch;
 
     /**
      * @var string
@@ -212,6 +227,11 @@ class InitFaceVerifyRequest extends Model
      * @var string
      */
     public $videoEvidence;
+
+    /**
+     * @var string
+     */
+    public $voluntaryCustomizedAnswers;
 
     /**
      * @var string
@@ -252,13 +272,17 @@ class InitFaceVerifyRequest extends Model
         'productCode' => 'ProductCode',
         'rarelyCharacters' => 'RarelyCharacters',
         'readImg' => 'ReadImg',
+        'retryCount' => 'RetryCount',
+        'retryMode' => 'RetryMode',
         'returnUrl' => 'ReturnUrl',
         'sceneId' => 'SceneId',
+        'strictAnswerMatch' => 'StrictAnswerMatch',
         'suitableType' => 'SuitableType',
         'uiCustomUrl' => 'UiCustomUrl',
         'userId' => 'UserId',
         'validityDate' => 'ValidityDate',
         'videoEvidence' => 'VideoEvidence',
+        'voluntaryCustomizedAnswers' => 'VoluntaryCustomizedAnswers',
         'voluntaryCustomizedContent' => 'VoluntaryCustomizedContent',
     ];
 
@@ -406,12 +430,24 @@ class InitFaceVerifyRequest extends Model
             $res['ReadImg'] = $this->readImg;
         }
 
+        if (null !== $this->retryCount) {
+            $res['RetryCount'] = $this->retryCount;
+        }
+
+        if (null !== $this->retryMode) {
+            $res['RetryMode'] = $this->retryMode;
+        }
+
         if (null !== $this->returnUrl) {
             $res['ReturnUrl'] = $this->returnUrl;
         }
 
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
+        }
+
+        if (null !== $this->strictAnswerMatch) {
+            $res['StrictAnswerMatch'] = $this->strictAnswerMatch;
         }
 
         if (null !== $this->suitableType) {
@@ -432,6 +468,10 @@ class InitFaceVerifyRequest extends Model
 
         if (null !== $this->videoEvidence) {
             $res['VideoEvidence'] = $this->videoEvidence;
+        }
+
+        if (null !== $this->voluntaryCustomizedAnswers) {
+            $res['VoluntaryCustomizedAnswers'] = $this->voluntaryCustomizedAnswers;
         }
 
         if (null !== $this->voluntaryCustomizedContent) {
@@ -585,12 +625,24 @@ class InitFaceVerifyRequest extends Model
             $model->readImg = $map['ReadImg'];
         }
 
+        if (isset($map['RetryCount'])) {
+            $model->retryCount = $map['RetryCount'];
+        }
+
+        if (isset($map['RetryMode'])) {
+            $model->retryMode = $map['RetryMode'];
+        }
+
         if (isset($map['ReturnUrl'])) {
             $model->returnUrl = $map['ReturnUrl'];
         }
 
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
+        }
+
+        if (isset($map['StrictAnswerMatch'])) {
+            $model->strictAnswerMatch = $map['StrictAnswerMatch'];
         }
 
         if (isset($map['SuitableType'])) {
@@ -611,6 +663,10 @@ class InitFaceVerifyRequest extends Model
 
         if (isset($map['VideoEvidence'])) {
             $model->videoEvidence = $map['VideoEvidence'];
+        }
+
+        if (isset($map['VoluntaryCustomizedAnswers'])) {
+            $model->voluntaryCustomizedAnswers = $map['VoluntaryCustomizedAnswers'];
         }
 
         if (isset($map['VoluntaryCustomizedContent'])) {
