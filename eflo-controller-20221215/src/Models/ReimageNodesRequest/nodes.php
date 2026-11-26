@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ReimageNodesRequest\nodes\systemDisk;
 
 class nodes extends Model
 {
@@ -27,15 +28,24 @@ class nodes extends Model
      * @var string
      */
     public $nodeId;
+
+    /**
+     * @var systemDisk
+     */
+    public $systemDisk;
     protected $_name = [
         'hostname' => 'Hostname',
         'imageId' => 'ImageId',
         'loginPassword' => 'LoginPassword',
         'nodeId' => 'NodeId',
+        'systemDisk' => 'SystemDisk',
     ];
 
     public function validate()
     {
+        if (null !== $this->systemDisk) {
+            $this->systemDisk->validate();
+        }
         parent::validate();
     }
 
@@ -56,6 +66,10 @@ class nodes extends Model
 
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toArray($noStream) : $this->systemDisk;
         }
 
         return $res;
@@ -83,6 +97,10 @@ class nodes extends Model
 
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
         }
 
         return $model;

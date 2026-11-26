@@ -1,3 +1,9 @@
+2026-11-26 Version: 3.2.2
+- Update API ReimageNodes: add request parameters Nodes.$.SystemDisk.
+- Update API UpdateNodeGroup: add request parameters SystemDisk.Category.
+- Update API UpdateNodeGroup: add request parameters SystemDisk.Size.
+
+
 2026-11-13 Version: 3.2.1
 - Update API CreateCluster: add request parameters NodeGroups.$.HyperNodes.$.DataDisk.$.Device.
 - Update API CreateCluster: add request parameters NodeGroups.$.HyperNodes.$.DataDisk.$.Encrypted.

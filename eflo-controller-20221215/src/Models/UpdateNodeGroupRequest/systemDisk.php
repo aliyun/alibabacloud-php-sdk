@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class systemDisk extends Model
 {
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @var bool
      */
     public $encrypted;
@@ -22,10 +27,17 @@ class systemDisk extends Model
      * @var string
      */
     public $performanceLevel;
+
+    /**
+     * @var int
+     */
+    public $size;
     protected $_name = [
+        'category' => 'Category',
         'encrypted' => 'Encrypted',
         'KMSKeyId' => 'KMSKeyId',
         'performanceLevel' => 'PerformanceLevel',
+        'size' => 'Size',
     ];
 
     public function validate()
@@ -36,6 +48,10 @@ class systemDisk extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
+
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
@@ -46,6 +62,10 @@ class systemDisk extends Model
 
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+
+        if (null !== $this->size) {
+            $res['Size'] = $this->size;
         }
 
         return $res;
@@ -59,6 +79,10 @@ class systemDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
+
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
@@ -69,6 +93,10 @@ class systemDisk extends Model
 
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+
+        if (isset($map['Size'])) {
+            $model->size = $map['Size'];
         }
 
         return $model;

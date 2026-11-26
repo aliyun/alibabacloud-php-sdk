@@ -202,7 +202,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Approves an O\\\\\\&M operation.
+     * Approves an O&M operation.
      *
      * @param request - ApproveOperationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -245,7 +245,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Approves an O\\\\\\&M operation.
+     * Approves an O&M operation.
      *
      * @param request - ApproveOperationRequest
      *
@@ -263,10 +263,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Modifies the node group of nodes.
+     * Modifies the node group of a node.
      *
      * @remarks
-     * Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param tmpReq - ChangeNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -321,10 +321,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Modifies the node group of nodes.
+     * Modifies the node group of a node.
      *
      * @remarks
-     * Creates a session, returns the frontend endpoint, and starts an epoch task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param request - ChangeNodeGroupRequest
      *
@@ -934,7 +934,7 @@ class Eflocontroller extends OpenApiClient
      * Creates a Web Terminal session.
      *
      * @remarks
-     * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param request - CreateSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -984,7 +984,7 @@ class Eflocontroller extends OpenApiClient
      * Creates a Web Terminal session.
      *
      * @remarks
-     * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param request - CreateSessionRequest
      *
@@ -1439,7 +1439,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the results of a diagnostic task.
+     * Queries diagnostic task results.
      *
      * @param request - DescribeDiagnosticResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1478,7 +1478,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the results of a diagnostic task.
+     * Queries diagnostic task results.
      *
      * @param request - DescribeDiagnosticResultRequest
      *
@@ -2018,7 +2018,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions.
+     * Queries the list of region information.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2057,7 +2057,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of regions.
+     * Queries the list of region information.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -2250,7 +2250,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of zones.
+     * Queries the list of zones.
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2289,7 +2289,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of zones.
+     * Queries the list of zones.
      *
      * @param request - DescribeZonesRequest
      *
@@ -2310,7 +2310,7 @@ class Eflocontroller extends OpenApiClient
      * Scales out a cluster.
      *
      * @remarks
-     * The API operation to close a remote session.
+     * Closes a remote session.
      *
      * @param tmpReq - ExtendClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2386,7 +2386,7 @@ class Eflocontroller extends OpenApiClient
      * Scales out a cluster.
      *
      * @remarks
-     * The API operation to close a remote session.
+     * Closes a remote session.
      *
      * @param request - ExtendClusterRequest
      *
@@ -2404,7 +2404,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the host group list under a cluster and the host list under each group.
+     * Queries the node groups in a cluster and the hypernodes in each group.
      *
      * @param request - ListClusterHyperNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2465,7 +2465,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the host group list under a cluster and the host list under each group.
+     * Queries the node groups in a cluster and the hypernodes in each group.
      *
      * @param request - ListClusterHyperNodesRequest
      *
@@ -2637,7 +2637,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of diagnostic tasks.
+     * Lists diagnostic tasks.
      *
      * @param request - ListDiagnosticResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2688,7 +2688,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of diagnostic tasks.
+     * Lists diagnostic tasks.
      *
      * @param request - ListDiagnosticResultsRequest
      *
@@ -2951,10 +2951,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of machines.
+     * Queries a list of hypernodes.
      *
      * @remarks
-     * Queries the details of hyper nodes.
+     * Queries the details of hypernodes.
      *
      * @param tmpReq - ListHyperNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3053,10 +3053,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of machines.
+     * Queries a list of hypernodes.
      *
      * @remarks
-     * Queries the details of hyper nodes.
+     * Queries the details of hypernodes.
      *
      * @param request - ListHyperNodesRequest
      *
@@ -3494,7 +3494,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries node group information in a cluster.
+     * Queries the node group information in a cluster.
      *
      * @param request - ListNodeGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3545,7 +3545,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries node group information in a cluster.
+     * Queries the node group information in a cluster.
      *
      * @param request - ListNodeGroupsRequest
      *
@@ -4003,7 +4003,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reinstalls nodes.
+     * Reinstalls the operating system on a machine.
      *
      * @param tmpReq - ReimageNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4060,7 +4060,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reinstalls nodes.
+     * Reinstalls the operating system on a machine.
      *
      * @param request - ReimageNodesRequest
      *
@@ -4149,10 +4149,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reports issues with abnormal nodes.
+     * Reports node exceptions.
      *
      * @remarks
-     * Creates a session, returns a frontend endpoint, and starts a periodic task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param tmpReq - ReportNodesStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4217,10 +4217,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reports issues with abnormal nodes.
+     * Reports node exceptions.
      *
      * @remarks
-     * Creates a session, returns a frontend endpoint, and starts a periodic task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param request - ReportNodesStatusRequest
      *
@@ -4365,7 +4365,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Sends a file to one or more Lingjun nodes.
+     * Delivers a remote file to one or more Lingjun nodes.
      *
      * @param tmpReq - SendFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4450,7 +4450,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Sends a file to one or more Lingjun nodes.
+     * Delivers a remote file to one or more Lingjun nodes.
      *
      * @param request - SendFileRequest
      *
@@ -4468,7 +4468,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Scales in a CC cluster.
+     * Scales in a Lingjun cluster.
      *
      * @param tmpReq - ShrinkClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4521,7 +4521,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Scales in a CC cluster.
+     * Scales in a Lingjun cluster.
      *
      * @param request - ShrinkClusterRequest
      *
