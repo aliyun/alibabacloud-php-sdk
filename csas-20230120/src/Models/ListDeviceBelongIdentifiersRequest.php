@@ -24,6 +24,11 @@ class ListDeviceBelongIdentifiersRequest extends Model
     public $identifierType;
 
     /**
+     * @var string[]
+     */
+    public $identifierValues;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -41,6 +46,7 @@ class ListDeviceBelongIdentifiersRequest extends Model
         'currentPage' => 'CurrentPage',
         'identifierIds' => 'IdentifierIds',
         'identifierType' => 'IdentifierType',
+        'identifierValues' => 'IdentifierValues',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
@@ -50,6 +56,9 @@ class ListDeviceBelongIdentifiersRequest extends Model
     {
         if (\is_array($this->identifierIds)) {
             Model::validateArray($this->identifierIds);
+        }
+        if (\is_array($this->identifierValues)) {
+            Model::validateArray($this->identifierValues);
         }
         parent::validate();
     }
@@ -74,6 +83,17 @@ class ListDeviceBelongIdentifiersRequest extends Model
 
         if (null !== $this->identifierType) {
             $res['IdentifierType'] = $this->identifierType;
+        }
+
+        if (null !== $this->identifierValues) {
+            if (\is_array($this->identifierValues)) {
+                $res['IdentifierValues'] = [];
+                $n1 = 0;
+                foreach ($this->identifierValues as $item1) {
+                    $res['IdentifierValues'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->maxResults) {
@@ -116,6 +136,17 @@ class ListDeviceBelongIdentifiersRequest extends Model
 
         if (isset($map['IdentifierType'])) {
             $model->identifierType = $map['IdentifierType'];
+        }
+
+        if (isset($map['IdentifierValues'])) {
+            if (!empty($map['IdentifierValues'])) {
+                $model->identifierValues = [];
+                $n1 = 0;
+                foreach ($map['IdentifierValues'] as $item1) {
+                    $model->identifierValues[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['MaxResults'])) {
