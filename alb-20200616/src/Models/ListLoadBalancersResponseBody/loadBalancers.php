@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\ListLoadBalancersResponseBody\loadBala
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListLoadBalancersResponseBody\loadBalancers\loadBalancerOperationLocks;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListLoadBalancersResponseBody\loadBalancers\modificationProtectionConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListLoadBalancersResponseBody\loadBalancers\tags;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListLoadBalancersResponseBody\loadBalancers\zoneMappings;
 
 class loadBalancers extends Model
 {
@@ -118,6 +119,11 @@ class loadBalancers extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var zoneMappings[]
+     */
+    public $zoneMappings;
     protected $_name = [
         'accessLogConfig' => 'AccessLogConfig',
         'addressAllocatedMode' => 'AddressAllocatedMode',
@@ -140,6 +146,7 @@ class loadBalancers extends Model
         'securityGroupIds' => 'SecurityGroupIds',
         'tags' => 'Tags',
         'vpcId' => 'VpcId',
+        'zoneMappings' => 'ZoneMappings',
     ];
 
     public function validate()
@@ -164,6 +171,9 @@ class loadBalancers extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (\is_array($this->zoneMappings)) {
+            Model::validateArray($this->zoneMappings);
         }
         parent::validate();
     }
@@ -274,6 +284,17 @@ class loadBalancers extends Model
 
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->zoneMappings) {
+            if (\is_array($this->zoneMappings)) {
+                $res['ZoneMappings'] = [];
+                $n1 = 0;
+                foreach ($this->zoneMappings as $item1) {
+                    $res['ZoneMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -390,6 +411,17 @@ class loadBalancers extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['ZoneMappings'])) {
+            if (!empty($map['ZoneMappings'])) {
+                $model->zoneMappings = [];
+                $n1 = 0;
+                foreach ($map['ZoneMappings'] as $item1) {
+                    $model->zoneMappings[$n1] = zoneMappings::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

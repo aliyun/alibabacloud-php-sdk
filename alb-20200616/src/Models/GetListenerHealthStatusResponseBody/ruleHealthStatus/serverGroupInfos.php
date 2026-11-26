@@ -25,6 +25,11 @@ class serverGroupInfos extends Model
     public $nonNormalServers;
 
     /**
+     * @var int
+     */
+    public $serverCount;
+
+    /**
      * @var string
      */
     public $serverGroupId;
@@ -32,6 +37,7 @@ class serverGroupInfos extends Model
         'actionType' => 'ActionType',
         'healthCheckEnabled' => 'HealthCheckEnabled',
         'nonNormalServers' => 'NonNormalServers',
+        'serverCount' => 'ServerCount',
         'serverGroupId' => 'ServerGroupId',
     ];
 
@@ -63,6 +69,10 @@ class serverGroupInfos extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->serverCount) {
+            $res['ServerCount'] = $this->serverCount;
         }
 
         if (null !== $this->serverGroupId) {
@@ -97,6 +107,10 @@ class serverGroupInfos extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ServerCount'])) {
+            $model->serverCount = $map['ServerCount'];
         }
 
         if (isset($map['ServerGroupId'])) {

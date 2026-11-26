@@ -1,3 +1,9 @@
+2026-11-26 Version: 1.3.3
+- Update API GetListenerHealthStatus: add response parameters Body.ListenerHealthStatus.$.ServerGroupInfos.$.ServerCount.
+- Update API GetListenerHealthStatus: add response parameters Body.RuleHealthStatus.$.ServerGroupInfos.$.ServerCount.
+- Update API ListLoadBalancers: add response parameters Body.LoadBalancers.$.ZoneMappings.
+
+
 2026-05-29 Version: 1.3.2
 - Update API CreateLoadBalancer: add request parameters SecurityGroupIds.
 - Update API CreateServerGroup: add request parameters IpVersionAffinityMode.
