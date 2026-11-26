@@ -11,6 +11,11 @@ class ListOutputFilesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
@@ -32,6 +37,16 @@ class ListOutputFilesShrinkRequest extends Model
      * @var string
      */
     public $operatingObjectName;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -68,11 +83,14 @@ class ListOutputFilesShrinkRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'bizId' => 'bizId',
         'collaborationGroupId' => 'collaborationGroupId',
         'itemType' => 'itemType',
         'keyword' => 'keyword',
         'operatingObjectName' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'page' => 'page',
         'pageSize' => 'pageSize',
         'sessionId' => 'sessionId',
@@ -90,6 +108,10 @@ class ListOutputFilesShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->bizId) {
             $res['bizId'] = $this->bizId;
         }
@@ -108,6 +130,14 @@ class ListOutputFilesShrinkRequest extends Model
 
         if (null !== $this->operatingObjectName) {
             $res['operatingObjectName'] = $this->operatingObjectName;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->page) {
@@ -149,6 +179,10 @@ class ListOutputFilesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['bizId'])) {
             $model->bizId = $map['bizId'];
         }
@@ -167,6 +201,14 @@ class ListOutputFilesShrinkRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['page'])) {

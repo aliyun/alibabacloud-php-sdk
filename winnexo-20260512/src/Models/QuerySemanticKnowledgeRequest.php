@@ -16,7 +16,22 @@ class QuerySemanticKnowledgeRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $graphName;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -29,7 +44,10 @@ class QuerySemanticKnowledgeRequest extends Model
     public $tenantId;
     protected $_name = [
         'agentName' => 'agentName',
+        'appToken' => 'appToken',
         'graphName' => 'graphName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'query' => 'query',
         'tenantId' => 'tenantId',
     ];
@@ -46,8 +64,20 @@ class QuerySemanticKnowledgeRequest extends Model
             $res['agentName'] = $this->agentName;
         }
 
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->graphName) {
             $res['graphName'] = $this->graphName;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->query) {
@@ -73,8 +103,20 @@ class QuerySemanticKnowledgeRequest extends Model
             $model->agentName = $map['agentName'];
         }
 
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['graphName'])) {
             $model->graphName = $map['graphName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['query'])) {

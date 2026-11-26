@@ -94,6 +94,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBasePublicUrlReques
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBasePublicUrlResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseTextRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseTextResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseVoiceMeetingRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateKnowledgeBaseVoiceMeetingResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalAliDingChatRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalAliDingChatResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreatePersonalAliDingChatShrinkRequest;
@@ -135,6 +137,7 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateScheduledTaskResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateScheduledTaskShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTenantDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTenantDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTenantDirectoryShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTodoRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTodoResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTodoShrinkRequest;
@@ -186,6 +189,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableOutputItemShareResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableOutputItemShareShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableTokenRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\EnableTokenResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ExecuteScheduledTaskRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ExecuteScheduledTaskResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ExportWorkflowTemplateRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ExportWorkflowTemplateResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GenerateWorkflowTemplateDraftRequest;
@@ -209,6 +214,10 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGroupSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetGroupSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetInstanceExpireTimeRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetInstanceExpireTimeResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetKnowledgeBaseConfigurationRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetKnowledgeBaseConfigurationResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetKnowledgeBaseSmartIndexConfigurationRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetKnowledgeBaseSmartIndexConfigurationResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetKnowledgeBaseSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetKnowledgeBaseSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\GetMemoryAutoExtractionSwitchRequest;
@@ -323,6 +332,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListInstanceNodesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListInstanceNodesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListKnowledgeBaseDirectoriesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListKnowledgeBaseDirectoriesResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListKnowledgeBaseSourcesByObjectRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListKnowledgeBaseSourcesByObjectResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOperatingObjectFavoritesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOperatingObjectFavoritesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOutputFilesRequest;
@@ -331,6 +342,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListOutputFilesShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListPersonalDirectoryContentsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListPersonalDirectoryContentsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListPersonalDirectoryContentsShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListPersonalSourcesByObjectRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListPersonalSourcesByObjectResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListRolesRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListRolesResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ListScheduledTasksRequest;
@@ -430,13 +443,22 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReparseSourceRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReparseSourceResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceGroupSourceFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceGroupSourceFileResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseAdminsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseAdminsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseAdminsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseSourceFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseSourceFileResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseSourceObjectBindingsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseSourceObjectBindingsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceKnowledgeBaseSourceObjectBindingsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceManualMemoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceManualMemoryResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceObjectBindingsRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceObjectBindingsResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceObjectBindingsShrinkRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplacePersonalSourceObjectBindingsRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplacePersonalSourceObjectBindingsResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplacePersonalSourceObjectBindingsShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceSourceFileRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\ReplaceSourceFileResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\RerunNodeAIRequest;
@@ -493,6 +515,9 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendChatMessageShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendWorkItemMessageRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SendWorkItemMessageResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetKnowledgeBaseVisibilityRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetKnowledgeBaseVisibilityResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetKnowledgeBaseVisibilityShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkflowTemplateEffectiveVersionRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkflowTemplateEffectiveVersionResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\SetWorkItemPinnedRequest;
@@ -532,6 +557,8 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateGroupSourceContentRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateGroupSourceContentResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSmartIndexConfigurationRequest;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSmartIndexConfigurationResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSourceContentRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSourceContentResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateKnowledgeBaseSourceTagsRequest;
@@ -548,6 +575,7 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateSourceContentRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateSourceContentResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateTenantDirectoryRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateTenantDirectoryResponse;
+use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateTenantDirectoryShrinkRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserGroupRequest;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserGroupResponse;
 use AlibabaCloud\SDK\WinNexo\V20260512\Models\UpdateUserInfoRequest;
@@ -744,6 +772,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -804,10 +844,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Cancels multiple to-do items.
+     * Invalidates to-do items in batches.
      *
      * @remarks
-     * Cancels multiple to-do items based on a list of IDs. This operation is idempotent and does not return errors for completed or non-existent items.
+     * Invalidates to-do items in batches by a collection of IDs. No error is returned for completed or non-existent items, ensuring idempotence.
      *
      * @param tmpReq - BatchCancelTodosRequest
      * @param headers - map
@@ -831,6 +871,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -861,10 +913,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Cancels multiple to-do items.
+     * Invalidates to-do items in batches.
      *
      * @remarks
-     * Cancels multiple to-do items based on a list of IDs. This operation is idempotent and does not return errors for completed or non-existent items.
+     * Invalidates to-do items in batches by a collection of IDs. No error is returned for completed or non-existent items, ensuring idempotence.
      *
      * @param Request - BatchCancelTodosRequest
      *
@@ -910,6 +962,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -974,10 +1038,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Batch cancels digital employee precise object type subscriptions.
+     * Cancels exact object type favorites for digital workers in batches.
      *
      * @remarks
-     * Idempotently cancels subscriptions along three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. After server-side validation, items are deduplicated while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. The delete operation, per-item status tracking, and remaining valid count are completed within a single transaction. To safely cancel all subscriptions, you must also invoke ClearOperatingObjectFavorites to clean up historical, MISSING, or permission-hidden records that are invisible in the list, and then read back to confirm that total is 0.
+     * Idempotently cancels favorites across three independent dimensions: graphName, operatingObjectName, and objectType. The original array accepts 1 to 200 items per request, and each item must be a non-empty string with a maximum length of 128 characters. After server-side validation, the order is preserved and duplicates are removed. Non-string values, oversized values, or arrays exceeding the limit are rejected. Deletion, item-by-item status updates, and the calculation of the remaining valid count are completed within the same transaction. To safely cancel all favorites, you must also call ClearOperatingObjectFavorites to clear historical, MISSING, or permission-hidden records that are invisible in the list, and finally read back the data to confirm that the total is 0.
      *
      * @param tmpReq - BatchRemoveOperatingObjectFavoritesRequest
      * @param headers - map
@@ -1001,6 +1065,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1043,10 +1119,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Batch cancels digital employee precise object type subscriptions.
+     * Cancels exact object type favorites for digital workers in batches.
      *
      * @remarks
-     * Idempotently cancels subscriptions along three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. After server-side validation, items are deduplicated while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. The delete operation, per-item status tracking, and remaining valid count are completed within a single transaction. To safely cancel all subscriptions, you must also invoke ClearOperatingObjectFavorites to clean up historical, MISSING, or permission-hidden records that are invisible in the list, and then read back to confirm that total is 0.
+     * Idempotently cancels favorites across three independent dimensions: graphName, operatingObjectName, and objectType. The original array accepts 1 to 200 items per request, and each item must be a non-empty string with a maximum length of 128 characters. After server-side validation, the order is preserved and duplicates are removed. Non-string values, oversized values, or arrays exceeding the limit are rejected. Deletion, item-by-item status updates, and the calculation of the remaining valid count are completed within the same transaction. To safely cancel all favorites, you must also call ClearOperatingObjectFavorites to clear historical, MISSING, or permission-hidden records that are invisible in the list, and finally read back the data to confirm that the total is 0.
      *
      * @param Request - BatchRemoveOperatingObjectFavoritesRequest
      *
@@ -1086,6 +1162,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1163,6 +1251,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1235,10 +1335,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Checks the permissions of resources within applications in batches.
+     * Checks the resource permissions within applications in batches.
      *
      * @remarks
-     * Authenticates applications in batches and reuses constant-time service queries.
+     * Authenticates applications in a batch and reuses constant-time service queries.
      *
      * @param tmpReq - CheckAppResourcePermissionsBatchRequest
      * @param headers - map
@@ -1262,6 +1362,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1304,10 +1416,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Checks the permissions of resources within applications in batches.
+     * Checks the resource permissions within applications in batches.
      *
      * @remarks
-     * Authenticates applications in batches and reuses constant-time service queries.
+     * Authenticates applications in a batch and reuses constant-time service queries.
      *
      * @param Request - CheckAppResourcePermissionsBatchRequest
      *
@@ -1344,6 +1456,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1408,6 +1532,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1489,6 +1625,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1570,6 +1718,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1647,6 +1807,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1699,10 +1871,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves the to-do badge statistics.
+     * Retrieves the to-do badge counts.
      *
      * @remarks
-     * Retrieves the to-do badge statistics for the current user, including the number of pending and unread items.
+     * Retrieves the to-do badge counts for the current user, including the pending count and unread count.
      *
      * @param Request - CountTodosRequest
      * @param headers - map
@@ -1720,6 +1892,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1750,10 +1934,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves the to-do badge statistics.
+     * Retrieves the to-do badge counts.
      *
      * @remarks
-     * Retrieves the to-do badge statistics for the current user, including the number of pending and unread items.
+     * Retrieves the to-do badge counts for the current user, including the pending count and unread count.
      *
      * @param Request - CountTodosRequest
      *
@@ -1808,6 +1992,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -1933,6 +2129,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2016,6 +2224,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2108,6 +2328,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2207,6 +2439,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2313,6 +2557,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2427,6 +2683,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2499,15 +2767,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates knowledge from a standard DingTalk group chat for a group.
+     * Creates common DingTalk group chat knowledge for a group.
      *
      * @remarks
      * ## Request description
-     * - Connects a specified standard DingTalk group chat to the group knowledge base that the caller has joined.
+     * - Connects a specified common DingTalk group chat to the group knowledge base that the caller has joined.
      * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
      * - groupId, chatId, and historyStartTime are required.
-     * - updateFrequency can be configured through preset or a five-segment cron expression for subsequent synchronization frequency.
-     * - The server verifies the caller\\"s group member identity and target group directory permissions. The same group chat can be created as different Sources.
+     * - You can configure the subsequent synchronization frequency for updateFrequency by using a preset or a five-part cron expression.
+     * - The server verifies the caller\\"s group member identity and the target group directory permissions. The same group chat can be created as different sources.
      *
      * @param tmpReq - CreateGroupDingtalkChatRequest
      * @param headers - map
@@ -2531,6 +2799,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2597,15 +2877,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates knowledge from a standard DingTalk group chat for a group.
+     * Creates common DingTalk group chat knowledge for a group.
      *
      * @remarks
      * ## Request description
-     * - Connects a specified standard DingTalk group chat to the group knowledge base that the caller has joined.
+     * - Connects a specified common DingTalk group chat to the group knowledge base that the caller has joined.
      * - The resource type is fixed to DINGTALK, the scope is fixed to GROUP, and the owning user is parsed from the gateway authentication identity.
      * - groupId, chatId, and historyStartTime are required.
-     * - updateFrequency can be configured through preset or a five-segment cron expression for subsequent synchronization frequency.
-     * - The server verifies the caller\\"s group member identity and target group directory permissions. The same group chat can be created as different Sources.
+     * - You can configure the subsequent synchronization frequency for updateFrequency by using a preset or a five-part cron expression.
+     * - The server verifies the caller\\"s group member identity and the target group directory permissions. The same group chat can be created as different sources.
      *
      * @param Request - CreateGroupDingtalkChatRequest
      *
@@ -2624,10 +2904,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a folder in the collaborative share resource directory.
+     * Creates a material directory for a collaboration workspace.
      *
      * @remarks
-     * Active space members can create physical subdirectories. If the parent folder is omitted or set to root, the internal root is used and lazily created on first access. The parent folder must belong to the current space.
+     * Valid workspace members can create physical subdirectories. If the parent directory is omitted or set to root, the internal root is used and created lazily on the first attempt. The parent directory must belong to the current workspace.
      *
      * @param Request - CreateGroupDirectoryRequest
      * @param headers - map
@@ -2645,6 +2925,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2687,10 +2979,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a folder in the collaborative share resource directory.
+     * Creates a material directory for a collaboration workspace.
      *
      * @remarks
-     * Active space members can create physical subdirectories. If the parent folder is omitted or set to root, the internal root is used and lazily created on first access. The parent folder must belong to the current space.
+     * Valid workspace members can create physical subdirectories. If the parent directory is omitted or set to root, the internal root is used and created lazily on the first attempt. The parent directory must belong to the current workspace.
      *
      * @param Request - CreateGroupDirectoryRequest
      *
@@ -2736,6 +3028,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2820,10 +3124,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+     * Creates a group knowledge resource from a single Lark online document by using the current user\\"s Lark authorization.
      *
      * @remarks
-     * ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
+     * ## Request description\\n\\nFixed to `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
      *
      * @param tmpReq - CreateGroupFeishuDocRequest
      * @param headers - map
@@ -2851,6 +3155,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -2917,10 +3233,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
+     * Creates a group knowledge resource from a single Lark online document by using the current user\\"s Lark authorization.
      *
      * @remarks
-     * ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
+     * ## Request description\\n\\nFixed to `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
      *
      * @param Request - CreateGroupFeishuDocRequest
      *
@@ -2960,6 +3276,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3032,10 +3360,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Collects public web pages to a collaborative share.
+     * Collects a public web page into a collaborative workspace.
      *
      * @remarks
-     * An active member collects web pages to a physical directory in the collaborative share. The type is fixed to PUBLIC_URL/GROUP. Use getGroupSource to query the background status.
+     * Allows valid members to collect web pages into a physical directory of the workspace. The resource type is fixed to PUBLIC_URL or GROUP. Use the getGroupSource operation to query the backend status.
      *
      * @param Request - CreateGroupPublicUrlRequest
      * @param headers - map
@@ -3053,6 +3381,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3111,10 +3451,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Collects public web pages to a collaborative share.
+     * Collects a public web page into a collaborative workspace.
      *
      * @remarks
-     * An active member collects web pages to a physical directory in the collaborative share. The type is fixed to PUBLIC_URL/GROUP. Use getGroupSource to query the background status.
+     * Allows valid members to collect web pages into a physical directory of the workspace. The resource type is fixed to PUBLIC_URL or GROUP. Use the getGroupSource operation to query the backend status.
      *
      * @param Request - CreateGroupPublicUrlRequest
      *
@@ -3136,7 +3476,7 @@ class WinNexo extends OpenApiClient
      * Uploads plain text to a collaboration workspace.
      *
      * @remarks
-     * Allows a valid workspace member to upload plain text to a physical folder. The type is fixed to TEXT/GROUP. If directoryId is omitted or set to root, the workspace root is resolved. The body and final name follow the Provider processing rules. The response returns the actual status and real folder, which does not indicate that parsing is complete.
+     * Uploads plain text to a physical directory as a valid workspace member. The type is fixed to TEXT or GROUP. If directoryId or root is omitted, the workspace root is resolved. The content and final name follow the provider processing rules. The actual status and actual directory are returned, which does not indicate that the resolution is complete.
      *
      * @param Request - CreateGroupTextRequest
      * @param headers - map
@@ -3154,6 +3494,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3207,7 +3559,7 @@ class WinNexo extends OpenApiClient
      * Uploads plain text to a collaboration workspace.
      *
      * @remarks
-     * Allows a valid workspace member to upload plain text to a physical folder. The type is fixed to TEXT/GROUP. If directoryId is omitted or set to root, the workspace root is resolved. The body and final name follow the Provider processing rules. The response returns the actual status and real folder, which does not indicate that parsing is complete.
+     * Uploads plain text to a physical directory as a valid workspace member. The type is fixed to TEXT or GROUP. If directoryId or root is omitted, the workspace root is resolved. The content and final name follow the provider processing rules. The actual status and actual directory are returned, which does not indicate that the resolution is complete.
      *
      * @param Request - CreateGroupTextRequest
      *
@@ -3226,15 +3578,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Uploads an AliDing online document to the enterprise knowledge base. Management permissions are required.
+     * Uploads an AliDing online document to an enterprise knowledge base. Management permissions are required.
      *
      * @remarks
-     * ## Request description
-     * - This operation adds an AliDing online document to a specified enterprise knowledge base.
-     * - The caller must have the `DEVELOPMENT_KB_MANAGE` permission.
-     * - `source_type` is fixed to `ONLINE_DOC`, `platform` is fixed to `ALI_DING`, and `scope` is fixed to `TENANT`.
+     * ## Operation description
+     * - Adds an AliDing online document to a specified enterprise knowledge base.
+     * - The caller must have the `DEVELOPMENT_KB_MANAGE` feature permission.
+     * - The `source_type` parameter is fixed to `ONLINE_DOC`, `platform` is fixed to `ALI_DING`, and `scope` is fixed to `TENANT`.
      * - If `directoryId` is not provided, the document is bound to the root directory of the current digital employee by default. If provided, it must be a valid directory ID under the current tenant.
-     * - The `filePublicUrl` parameter is required and specifies the publicly accessible URL of the AliDing online document to upload.
+     * - The `filePublicUrl` parameter is required and specifies the public access URL of the AliDing online document to be uploaded.
      * - Optional parameters include `operatingObjectName` (digital employee name), `description` (resource description), `knowledgeId` (knowledge base ID), and `sourceTags` (resource tags).
      * - A successful response returns information about the newly created resource, such as `sourceId`, `name`, `status`, `directoryId`, and creation time.
      *
@@ -3254,6 +3606,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3308,15 +3672,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Uploads an AliDing online document to the enterprise knowledge base. Management permissions are required.
+     * Uploads an AliDing online document to an enterprise knowledge base. Management permissions are required.
      *
      * @remarks
-     * ## Request description
-     * - This operation adds an AliDing online document to a specified enterprise knowledge base.
-     * - The caller must have the `DEVELOPMENT_KB_MANAGE` permission.
-     * - `source_type` is fixed to `ONLINE_DOC`, `platform` is fixed to `ALI_DING`, and `scope` is fixed to `TENANT`.
+     * ## Operation description
+     * - Adds an AliDing online document to a specified enterprise knowledge base.
+     * - The caller must have the `DEVELOPMENT_KB_MANAGE` feature permission.
+     * - The `source_type` parameter is fixed to `ONLINE_DOC`, `platform` is fixed to `ALI_DING`, and `scope` is fixed to `TENANT`.
      * - If `directoryId` is not provided, the document is bound to the root directory of the current digital employee by default. If provided, it must be a valid directory ID under the current tenant.
-     * - The `filePublicUrl` parameter is required and specifies the publicly accessible URL of the AliDing online document to upload.
+     * - The `filePublicUrl` parameter is required and specifies the public access URL of the AliDing online document to be uploaded.
      * - Optional parameters include `operatingObjectName` (digital employee name), `description` (resource description), `knowledgeId` (knowledge base ID), and `sourceTags` (resource tags).
      * - A successful response returns information about the newly created resource, such as `sourceId`, `name`, `status`, `directoryId`, and creation time.
      *
@@ -3337,15 +3701,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a category directory in the enterprise knowledge base.
+     * Creates a new category directory in the enterprise knowledge base.
      *
      * @remarks
      * ## Request description
-     * - This operation allows users with the `DEVELOPMENT_KB_MANAGE` permission to create a category for the enterprise knowledge base.
-     * - You can specify a parent category ID when creating a category. If no parent category ID is specified, the new category is mounted directly under the root directory of the enterprise knowledge base.
-     * - The system automatically checks for name conflicts and directory depth limits.
-     * - `tenant_id` and `user_id` are obtained only through authentication. These parameters are ignored even if they are provided in the request body.
-     * - Ensure that the specified `parentDirectoryId` (if any) belongs to the current tenant.
+     * - This operation allows users with the `DEVELOPMENT_KB_MANAGE` permission to create a new category for the enterprise knowledge base.
+     * - You can specify a parent category ID during creation. If not specified, the new category is mounted directly under the root directory of the enterprise knowledge base.
+     * - The system automatically checks for issues such as name conflicts and directory depth limits.
+     * - The `tenant_id` and `user_id` are obtained only through the authenticated identity. Even if provided in the request body, they are ignored.
+     * - Ensure that the provided `parentDirectoryId`, if any, belongs to the current tenant.
      *
      * @param Request - CreateKnowledgeBaseDirectoryRequest
      * @param headers - map
@@ -3363,6 +3727,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3401,15 +3777,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a category directory in the enterprise knowledge base.
+     * Creates a new category directory in the enterprise knowledge base.
      *
      * @remarks
      * ## Request description
-     * - This operation allows users with the `DEVELOPMENT_KB_MANAGE` permission to create a category for the enterprise knowledge base.
-     * - You can specify a parent category ID when creating a category. If no parent category ID is specified, the new category is mounted directly under the root directory of the enterprise knowledge base.
-     * - The system automatically checks for name conflicts and directory depth limits.
-     * - `tenant_id` and `user_id` are obtained only through authentication. These parameters are ignored even if they are provided in the request body.
-     * - Ensure that the specified `parentDirectoryId` (if any) belongs to the current tenant.
+     * - This operation allows users with the `DEVELOPMENT_KB_MANAGE` permission to create a new category for the enterprise knowledge base.
+     * - You can specify a parent category ID during creation. If not specified, the new category is mounted directly under the root directory of the enterprise knowledge base.
+     * - The system automatically checks for issues such as name conflicts and directory depth limits.
+     * - The `tenant_id` and `user_id` are obtained only through the authenticated identity. Even if provided in the request body, they are ignored.
+     * - Ensure that the provided `parentDirectoryId`, if any, belongs to the current tenant.
      *
      * @param Request - CreateKnowledgeBaseDirectoryRequest
      *
@@ -3459,6 +3835,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3571,6 +3959,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3673,7 +4073,7 @@ class WinNexo extends OpenApiClient
      * Collects a single public web page into the enterprise knowledge base of the current user.
      *
      * @remarks
-     * ## Operation description\\n\\nFixed to `PUBLIC_URL + TENANT`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Invoke getKnowledgeBaseSource to query the background collection status. `directoryId` is required. The caller must have knowledge base management permissions on the destination knowledge base.
+     * ## Request description\\n\\nThe PUBLIC_URL + TENANT combination is fixed, and the user is determined by the trusted OpenAPI identity. A successful creation only indicates that the request is accepted. Invoke getKnowledgeBaseSource to query the background collection status. directoryId is required, and the caller must have knowledge base management permissions on the target knowledge base.
      *
      * @param Request - CreateKnowledgeBasePublicUrlRequest
      * @param headers - map
@@ -3691,6 +4091,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3748,7 +4160,7 @@ class WinNexo extends OpenApiClient
      * Collects a single public web page into the enterprise knowledge base of the current user.
      *
      * @remarks
-     * ## Operation description\\n\\nFixed to `PUBLIC_URL + TENANT`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Invoke getKnowledgeBaseSource to query the background collection status. `directoryId` is required. The caller must have knowledge base management permissions on the destination knowledge base.
+     * ## Request description\\n\\nThe PUBLIC_URL + TENANT combination is fixed, and the user is determined by the trusted OpenAPI identity. A successful creation only indicates that the request is accepted. Invoke getKnowledgeBaseSource to query the background collection status. directoryId is required, and the caller must have knowledge base management permissions on the target knowledge base.
      *
      * @param Request - CreateKnowledgeBasePublicUrlRequest
      *
@@ -3794,6 +4206,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3876,14 +4300,119 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a personal AliDing group chat knowledge resource.
+     * Creates an offline recording in an enterprise knowledge base.
+     *
+     * @remarks
+     * Creates an uploaded recording as an offline meeting resource in an enterprise knowledge base. The sourceType is fixed to VOICE_MEETING, the scope is fixed to TENANT, and the meeting mode is fixed to OFFLINE. You must specify the target enterprise knowledge base directory directoryId and have administrative permissions for the knowledge base. Personal directories, collaborative workspace directories, and directories of other tenants cannot be used as targets. Call GetSourceUploadSignature with scope=knowledge and PUT the file first, and then pass the returned fileUrl. OSS object keys supported by existing recording services are also compatible. The API itself does not transmit audio binaries. This API reuses the internal offline recording storage, metering and billing, and background transcription pipelines. The resource status returned upon creation does not indicate that transcription is complete. During the creation phase, a transcription task is submitted and the media duration is synchronously detected. The gateway timeout is 300,000 milliseconds. This API does not provide an idempotency key. If a request times out or the connection is disconnected, query the target knowledge base first to confirm whether the resource has been created to avoid duplicate resources or duplicate billing caused by direct retries. The identity is obtained from the unified authentication chain. Specifying the tenant, user, scope, sourceType, or settings in the request body is not accepted.
+     *
+     * @param Request - CreateKnowledgeBaseVoiceMeetingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBaseVoiceMeetingResponse
+     *
+     * @param CreateKnowledgeBaseVoiceMeetingRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateKnowledgeBaseVoiceMeetingResponse
+     */
+    public function createKnowledgeBaseVoiceMeetingWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$body['fileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->operatingObjectName) {
+            @$body['operatingObjectName'] = $request->operatingObjectName;
+        }
+
+        if (null !== $request->sourceTags) {
+            @$body['sourceTags'] = $request->sourceTags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBaseVoiceMeeting',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/createKnowledgeBaseVoiceMeeting',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBaseVoiceMeetingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an offline recording in an enterprise knowledge base.
+     *
+     * @remarks
+     * Creates an uploaded recording as an offline meeting resource in an enterprise knowledge base. The sourceType is fixed to VOICE_MEETING, the scope is fixed to TENANT, and the meeting mode is fixed to OFFLINE. You must specify the target enterprise knowledge base directory directoryId and have administrative permissions for the knowledge base. Personal directories, collaborative workspace directories, and directories of other tenants cannot be used as targets. Call GetSourceUploadSignature with scope=knowledge and PUT the file first, and then pass the returned fileUrl. OSS object keys supported by existing recording services are also compatible. The API itself does not transmit audio binaries. This API reuses the internal offline recording storage, metering and billing, and background transcription pipelines. The resource status returned upon creation does not indicate that transcription is complete. During the creation phase, a transcription task is submitted and the media duration is synchronously detected. The gateway timeout is 300,000 milliseconds. This API does not provide an idempotency key. If a request times out or the connection is disconnected, query the target knowledge base first to confirm whether the resource has been created to avoid duplicate resources or duplicate billing caused by direct retries. The identity is obtained from the unified authentication chain. Specifying the tenant, user, scope, sourceType, or settings in the request body is not accepted.
+     *
+     * @param Request - CreateKnowledgeBaseVoiceMeetingRequest
+     *
+     * @returns CreateKnowledgeBaseVoiceMeetingResponse
+     *
+     * @param CreateKnowledgeBaseVoiceMeetingRequest $request
+     *
+     * @return CreateKnowledgeBaseVoiceMeetingResponse
+     */
+    public function createKnowledgeBaseVoiceMeeting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createKnowledgeBaseVoiceMeetingWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates personal knowledge from a DingTalk group chat.
      *
      * @remarks
      * ## Request description
-     * - Connects the specified AliDing group chat to the current user\\"s personal knowledge base.
+     * - Integrates a specified DingTalk group chat into the personal knowledge base of the current user.
      * - The resource type is fixed to ALI_DING, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
-     * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
-     * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
+     * - historyStartTime is required and supports the YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+     * - updateFrequency can be configured with a preset or a five-part cron expression for subsequent synchronization frequency.
      * - chatId must be unique within the target personal scope.
      *
      * @param tmpReq - CreatePersonalAliDingChatRequest
@@ -3908,6 +4437,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -3970,14 +4511,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a personal AliDing group chat knowledge resource.
+     * Creates personal knowledge from a DingTalk group chat.
      *
      * @remarks
      * ## Request description
-     * - Connects the specified AliDing group chat to the current user\\"s personal knowledge base.
+     * - Integrates a specified DingTalk group chat into the personal knowledge base of the current user.
      * - The resource type is fixed to ALI_DING, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
-     * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
-     * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
+     * - historyStartTime is required and supports the YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+     * - updateFrequency can be configured with a preset or a five-part cron expression for subsequent synchronization frequency.
      * - chatId must be unique within the target personal scope.
      *
      * @param Request - CreatePersonalAliDingChatRequest
@@ -4024,6 +4565,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -4134,6 +4687,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -4252,6 +4817,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -4336,15 +4913,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a personal DingTalk group chat knowledge source.
+     * Creates personal knowledge for a regular DingTalk group chat.
      *
      * @remarks
-     * ## Operation description
-     * - Connects a specified DingTalk group chat to the personal knowledge base of the current user.
+     * ## Request description
+     * - Integrates a specified regular DingTalk group chat into the personal knowledge base of the current user.
      * - The resource type is fixed to DINGTALK, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
-     * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
-     * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
-     * - The same group chat can be created as different sources. Each source is isolated by sourceId.
+     * - historyStartTime is required and supports the YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+     * - updateFrequency can be configured with a preset or a five-part cron expression for the subsequent synchronization frequency.
+     * - The same group chat can be created as different sources, and each source is isolated by sourceId.
      *
      * @param tmpReq - CreatePersonalDingtalkChatRequest
      * @param headers - map
@@ -4368,6 +4945,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -4430,15 +5019,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a personal DingTalk group chat knowledge source.
+     * Creates personal knowledge for a regular DingTalk group chat.
      *
      * @remarks
-     * ## Operation description
-     * - Connects a specified DingTalk group chat to the personal knowledge base of the current user.
+     * ## Request description
+     * - Integrates a specified regular DingTalk group chat into the personal knowledge base of the current user.
      * - The resource type is fixed to DINGTALK, the scope is fixed to PERSONAL, and the owning user is parsed from the gateway authentication identity.
-     * - historyStartTime is required and supports YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
-     * - updateFrequency can be configured with a preset or a five-field cron expression for subsequent synchronization frequency.
-     * - The same group chat can be created as different sources. Each source is isolated by sourceId.
+     * - historyStartTime is required and supports the YYYY-MM-DD or YYYY-MM-DD HH:MM:SS format.
+     * - updateFrequency can be configured with a preset or a five-part cron expression for the subsequent synchronization frequency.
+     * - The same group chat can be created as different sources, and each source is isolated by sourceId.
      *
      * @param Request - CreatePersonalDingtalkChatRequest
      *
@@ -4485,6 +5074,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -4596,6 +5197,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -4703,6 +5316,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -4805,6 +5430,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -4923,6 +5560,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -5038,6 +5687,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -5128,11 +5789,11 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
+     * - This API uploads a file to the "My Resources" section of a specified digital employee.
      * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-     * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-     * - If the target folder ID (`directoryId`) is not specified, the file is automatically bound to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
-     * - Security authentication is supported through multiple methods (AK, BearerToken, and APP).
+     * - An OSS persistence address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
+     * - If the destination directory ID (`directoryId`) is not specified, the file is automatically attached to the default root directory of the current digital employee. If it is specified, ensure that the directory belongs to the personal directory of the invoker.
+     * - Multiple authentication methods such as AK, BearerToken, and APP are supported to authenticate securely.
      * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
      *
      * @param Request - CreatePersonalFileRequest
@@ -5151,6 +5812,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -5221,11 +5894,11 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
+     * - This API uploads a file to the "My Resources" section of a specified digital employee.
      * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-     * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-     * - If the target folder ID (`directoryId`) is not specified, the file is automatically bound to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
-     * - Security authentication is supported through multiple methods (AK, BearerToken, and APP).
+     * - An OSS persistence address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
+     * - If the destination directory ID (`directoryId`) is not specified, the file is automatically attached to the default root directory of the current digital employee. If it is specified, ensure that the directory belongs to the personal directory of the invoker.
+     * - Multiple authentication methods such as AK, BearerToken, and APP are supported to authenticate securely.
      * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
      *
      * @param Request - CreatePersonalFileRequest
@@ -5266,6 +5939,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -5370,6 +6055,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -5452,13 +6149,13 @@ class WinNexo extends OpenApiClient
      * Uploads an offline meeting audio file to the personal resources of the current digital employee.
      *
      * @remarks
-     * ## Operation description
-     * - This API operation uploads an offline meeting audio file to the My Resources section of a specified digital employee.
-     * - `source_type` is fixed to `VOICE_MEETING`, `scope` is fixed to `PERSONAL`, and `voice_meeting_type` is fixed to `OFFLINE`.
+     * ## Request description
+     * - This API operation uploads an audio file of an offline meeting to My Resources of a specified digital employee.
+     * - The `source_type` parameter is fixed to `VOICE_MEETING`, the `scope` parameter is fixed to `PERSONAL`, and the `voice_meeting_type` parameter is fixed to `OFFLINE`.
      * - If `directoryId` is not provided in the request body, the resource is automatically bound to the default root directory. If `directoryId` is provided, it must be an existing personal directory of the current user under the current digital employee.
-     * - Calling this operation starts a background process to transcribe the audio file and returns information about the newly created resource.
+     * - Calling this API operation starts a background process to transcribe the audio file and returns the information about the newly created resource.
      * - For security purposes, `tenant_id` and `user_id` are obtained only from the authenticated identity. These fields are ignored even if they are included in the request body.
-     * - Any validation or execution failure throws a `RobjectException`, which is converted to a POP error code through the global middleware.
+     * - Any validation or execution failure throws an `RobjectException`, which is converted into a POP error code by the global middleware.
      *
      * @param Request - CreatePersonalVoiceMeetingRequest
      * @param headers - CreatePersonalVoiceMeetingHeaders
@@ -5476,6 +6173,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -5538,13 +6247,13 @@ class WinNexo extends OpenApiClient
      * Uploads an offline meeting audio file to the personal resources of the current digital employee.
      *
      * @remarks
-     * ## Operation description
-     * - This API operation uploads an offline meeting audio file to the My Resources section of a specified digital employee.
-     * - `source_type` is fixed to `VOICE_MEETING`, `scope` is fixed to `PERSONAL`, and `voice_meeting_type` is fixed to `OFFLINE`.
+     * ## Request description
+     * - This API operation uploads an audio file of an offline meeting to My Resources of a specified digital employee.
+     * - The `source_type` parameter is fixed to `VOICE_MEETING`, the `scope` parameter is fixed to `PERSONAL`, and the `voice_meeting_type` parameter is fixed to `OFFLINE`.
      * - If `directoryId` is not provided in the request body, the resource is automatically bound to the default root directory. If `directoryId` is provided, it must be an existing personal directory of the current user under the current digital employee.
-     * - Calling this operation starts a background process to transcribe the audio file and returns information about the newly created resource.
+     * - Calling this API operation starts a background process to transcribe the audio file and returns the information about the newly created resource.
      * - For security purposes, `tenant_id` and `user_id` are obtained only from the authenticated identity. These fields are ignored even if they are included in the request body.
-     * - Any validation or execution failure throws a `RobjectException`, which is converted to a POP error code through the global middleware.
+     * - Any validation or execution failure throws an `RobjectException`, which is converted into a POP error code by the global middleware.
      *
      * @param Request - CreatePersonalVoiceMeetingRequest
      *
@@ -5617,11 +6326,27 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
 
         $body = [];
+        if (null !== $request->autoPreference) {
+            @$body['autoPreference'] = $request->autoPreference;
+        }
+
         if (null !== $request->collaborationGroupId) {
             @$body['collaborationGroupId'] = $request->collaborationGroupId;
         }
@@ -5720,43 +6445,68 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Adds a knowledge base and knowledge base categories.
+     * Creates an enterprise knowledge base root directory or subdirectory in the current tenant, and configures digital employee associations and AI version summaries for standard enterprise root directories.
      *
      * @remarks
-     * ## Request description
-     * - This API is used to create a new enterprise knowledge base folder under a specified tenant.
-     * - You can set the `parentId` parameter to specify the parent folder of the new folder. If this parameter is not specified, the folder is created as a root folder by default.
-     * - The `path` parameter is optional. If this parameter is not specified, the system automatically calculates the path based on the parent folder.
-     * - Calling this operation requires the corresponding permissions. Multiple authentication methods are supported, including AK, BearerToken, and APP authentication.
-     * - After the folder is created, the related information about the new folder is returned, such as the folder ID and name.
+     * Creating an enterprise knowledge base root directory requires the knowledge base management feature permission. Creating a subdirectory requires the management permission of the associated knowledge base. The newly added digital employee association and version summary fields are supported only for standard enterprise knowledge base root directories and cannot be submitted together with a non-null parentId. The directory creation and these configurations are atomically saved in the same operation. After the directory is created, you can use the returned directoryId to call GetKnowledgeBaseConfiguration or the intelligent index configuration API. This API does not have an idempotency key. If a timeout occurs, verify the creation result first to avoid duplicate creations.
      *
-     * @param Request - CreateTenantDirectoryRequest
+     * @param tmpReq - CreateTenantDirectoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateTenantDirectoryResponse
      *
-     * @param CreateTenantDirectoryRequest $request
+     * @param CreateTenantDirectoryRequest $tmpReq
      * @param string[]                     $headers
      * @param RuntimeOptions               $runtime
      *
      * @return CreateTenantDirectoryResponse
      */
-    public function createTenantDirectoryWithOptions($request, $headers, $runtime)
+    public function createTenantDirectoryWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateTenantDirectoryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operatingObjectNames) {
+            $request->operatingObjectNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operatingObjectNames, 'operatingObjectNames', 'json');
+        }
+
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
 
         $body = [];
+        if (null !== $request->changeRecordEnabled) {
+            @$body['changeRecordEnabled'] = $request->changeRecordEnabled;
+        }
+
         if (null !== $request->description) {
             @$body['description'] = $request->description;
         }
 
         if (null !== $request->name) {
             @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->ooVisibilityMode) {
+            @$body['ooVisibilityMode'] = $request->ooVisibilityMode;
+        }
+
+        if (null !== $request->operatingObjectNamesShrink) {
+            @$body['operatingObjectNames'] = $request->operatingObjectNamesShrink;
         }
 
         if (null !== $request->parentId) {
@@ -5788,15 +6538,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Adds a knowledge base and knowledge base categories.
+     * Creates an enterprise knowledge base root directory or subdirectory in the current tenant, and configures digital employee associations and AI version summaries for standard enterprise root directories.
      *
      * @remarks
-     * ## Request description
-     * - This API is used to create a new enterprise knowledge base folder under a specified tenant.
-     * - You can set the `parentId` parameter to specify the parent folder of the new folder. If this parameter is not specified, the folder is created as a root folder by default.
-     * - The `path` parameter is optional. If this parameter is not specified, the system automatically calculates the path based on the parent folder.
-     * - Calling this operation requires the corresponding permissions. Multiple authentication methods are supported, including AK, BearerToken, and APP authentication.
-     * - After the folder is created, the related information about the new folder is returned, such as the folder ID and name.
+     * Creating an enterprise knowledge base root directory requires the knowledge base management feature permission. Creating a subdirectory requires the management permission of the associated knowledge base. The newly added digital employee association and version summary fields are supported only for standard enterprise knowledge base root directories and cannot be submitted together with a non-null parentId. The directory creation and these configurations are atomically saved in the same operation. After the directory is created, you can use the returned directoryId to call GetKnowledgeBaseConfiguration or the intelligent index configuration API. This API does not have an idempotency key. If a timeout occurs, verify the creation result first to avoid duplicate creations.
      *
      * @param Request - CreateTenantDirectoryRequest
      *
@@ -5850,6 +6595,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -5962,6 +6719,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6064,6 +6833,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6167,6 +6948,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6243,10 +7036,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
+     * Creates a Workflow work item and copies the template execution snapshot. Only the WORKFLOW type is accepted.
      *
      * @remarks
-     * Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
+     * Creates a Workflow work item and copies the template execution snapshot. Only the WORKFLOW type is accepted.
      *
      * @param tmpReq - CreateWorkItemRequest
      * @param headers - map
@@ -6278,6 +7071,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6348,10 +7153,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
+     * Creates a Workflow work item and copies the template execution snapshot. Only the WORKFLOW type is accepted.
      *
      * @remarks
-     * Creates a workflow work item for a valid member and copies the template execution snapshot. Only the WORKFLOW type is supported.
+     * Creates a Workflow work item and copies the template execution snapshot. Only the WORKFLOW type is accepted.
      *
      * @param Request - CreateWorkItemRequest
      *
@@ -6397,6 +7202,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6504,6 +7321,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6585,6 +7414,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6672,6 +7513,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6755,6 +7608,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->sessionId) {
             @$query['sessionId'] = $request->sessionId;
         }
@@ -6835,6 +7700,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6915,6 +7792,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -6996,6 +7885,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -7073,6 +7974,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -7150,6 +8063,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -7231,6 +8156,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -7304,6 +8241,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -7480,6 +8429,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -7575,6 +8536,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -7736,6 +8709,85 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 立即执行定时任务
+     *
+     * @param Request - ExecuteScheduledTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteScheduledTaskResponse
+     *
+     * @param ExecuteScheduledTaskRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ExecuteScheduledTaskResponse
+     */
+    public function executeScheduledTaskWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteScheduledTask',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/executeScheduledTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 立即执行定时任务
+     *
+     * @param Request - ExecuteScheduledTaskRequest
+     *
+     * @returns ExecuteScheduledTaskResponse
+     *
+     * @param ExecuteScheduledTaskRequest $request
+     *
+     * @return ExecuteScheduledTaskResponse
+     */
+    public function executeScheduledTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeScheduledTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Exports a simplified template definition that can be re-imported by valid members.
      *
      * @remarks
@@ -7757,6 +8809,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -7844,6 +8908,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -7925,6 +9001,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8013,6 +9101,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8095,8 +9195,20 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->limit) {
             @$query['limit'] = $request->limit;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->sessionId) {
@@ -8176,6 +9288,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8261,6 +9385,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8342,6 +9478,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8418,6 +9566,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8494,6 +9654,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8576,6 +9748,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8627,6 +9811,176 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 读取企业知识库配置.
+     *
+     * @remarks
+     * 需要当前租户的平台用户身份及目标知识库管理权限；仅有内容阅读权限不足以读取本接口。仅支持普通企业自建知识库根目录，不支持个人空间、群知识库、子目录或特殊知识库。读取不创建配置。历史未显式设置 ALL 的关联模式返回 SPECIFIED，空名单的含义必须结合模式判断；版本摘要历史缺省为 false。修改这些配置使用 UpdateTenantDirectory，读取 LLM Wiki 配置使用 GetKnowledgeBaseSmartIndexConfiguration。
+     *
+     * @param Request - GetKnowledgeBaseConfigurationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeBaseConfigurationResponse
+     *
+     * @param GetKnowledgeBaseConfigurationRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetKnowledgeBaseConfigurationResponse
+     */
+    public function getKnowledgeBaseConfigurationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeBaseConfiguration',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getKnowledgeBaseConfiguration',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeBaseConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 读取企业知识库配置.
+     *
+     * @remarks
+     * 需要当前租户的平台用户身份及目标知识库管理权限；仅有内容阅读权限不足以读取本接口。仅支持普通企业自建知识库根目录，不支持个人空间、群知识库、子目录或特殊知识库。读取不创建配置。历史未显式设置 ALL 的关联模式返回 SPECIFIED，空名单的含义必须结合模式判断；版本摘要历史缺省为 false。修改这些配置使用 UpdateTenantDirectory，读取 LLM Wiki 配置使用 GetKnowledgeBaseSmartIndexConfiguration。
+     *
+     * @param Request - GetKnowledgeBaseConfigurationRequest
+     *
+     * @returns GetKnowledgeBaseConfigurationResponse
+     *
+     * @param GetKnowledgeBaseConfigurationRequest $request
+     *
+     * @return GetKnowledgeBaseConfigurationResponse
+     */
+    public function getKnowledgeBaseConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getKnowledgeBaseConfigurationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 读取企业知识库智能索引配置.
+     *
+     * @remarks
+     * 需要当前租户的活跃成员身份；目标知识库管理者或对知识库内容具有可见权限的用户可读取。仅支持普通企业知识库根目录。未配置时返回 enabled=false、revision=0、lifecycle=DISABLED，不创建配置、任务或账单。更新前读取 revision，作为 UpdateKnowledgeBaseSmartIndexConfiguration 的 expectedRevision；更新后可通过本接口查询异步构建和清理状态。
+     *
+     * @param Request - GetKnowledgeBaseSmartIndexConfigurationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeBaseSmartIndexConfigurationResponse
+     *
+     * @param GetKnowledgeBaseSmartIndexConfigurationRequest $request
+     * @param string[]                                       $headers
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return GetKnowledgeBaseSmartIndexConfigurationResponse
+     */
+    public function getKnowledgeBaseSmartIndexConfigurationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeBaseSmartIndexConfiguration',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/getKnowledgeBaseSmartIndexConfiguration',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeBaseSmartIndexConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 读取企业知识库智能索引配置.
+     *
+     * @remarks
+     * 需要当前租户的活跃成员身份；目标知识库管理者或对知识库内容具有可见权限的用户可读取。仅支持普通企业知识库根目录。未配置时返回 enabled=false、revision=0、lifecycle=DISABLED，不创建配置、任务或账单。更新前读取 revision，作为 UpdateKnowledgeBaseSmartIndexConfiguration 的 expectedRevision；更新后可通过本接口查询异步构建和清理状态。
+     *
+     * @param Request - GetKnowledgeBaseSmartIndexConfigurationRequest
+     *
+     * @returns GetKnowledgeBaseSmartIndexConfigurationResponse
+     *
+     * @param GetKnowledgeBaseSmartIndexConfigurationRequest $request
+     *
+     * @return GetKnowledgeBaseSmartIndexConfigurationResponse
+     */
+    public function getKnowledgeBaseSmartIndexConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getKnowledgeBaseSmartIndexConfigurationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the details of a specified knowledge item in the enterprise knowledge base.
      *
      * @remarks
@@ -8655,6 +10009,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8735,6 +10101,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8812,6 +10190,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8889,6 +10279,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -8977,8 +10379,20 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->initiatorUserId) {
             @$query['initiatorUserId'] = $request->initiatorUserId;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->page) {
@@ -9078,8 +10492,20 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->executionId) {
             @$query['executionId'] = $request->executionId;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->tenantId) {
@@ -9140,12 +10566,12 @@ class WinNexo extends OpenApiClient
      * @remarks
      * ## Request description
      * - This operation uploads files to the enterprise knowledge base.
-     * - You must have the DEVELOPMENT_KB_MANAGE feature permission to call this API operation.
-     * - You must provide the OSS persistence address (filePath) of the file when uploading the file.
-     * - Optional parameters include the public access URL and original file name to improve the completeness of the file information.
-     * - If you specify directoryId, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
-     * - You can use sourceTags to add tags to resources for subsequent management and retrieval.
-     * - This operation generates a bill (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this API.
+     * - When uploading a file, you must provide the OSS persistence address of the file (`filePath`).
+     * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of the file information.
+     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+     * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+     * - This operation triggers a bill for UNSTRUCTURED_PARSE. Make sure that your account balance is sufficient.
      *
      * @param Request - GetScheduledTaskExecutionRecordsRequest
      * @param headers - map
@@ -9163,12 +10589,24 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->collaborationGroupId) {
             @$query['collaborationGroupId'] = $request->collaborationGroupId;
         }
 
         if (null !== $request->initiatorUserId) {
             @$query['initiatorUserId'] = $request->initiatorUserId;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->page) {
@@ -9216,12 +10654,12 @@ class WinNexo extends OpenApiClient
      * @remarks
      * ## Request description
      * - This operation uploads files to the enterprise knowledge base.
-     * - You must have the DEVELOPMENT_KB_MANAGE feature permission to call this API operation.
-     * - You must provide the OSS persistence address (filePath) of the file when uploading the file.
-     * - Optional parameters include the public access URL and original file name to improve the completeness of the file information.
-     * - If you specify directoryId, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
-     * - You can use sourceTags to add tags to resources for subsequent management and retrieval.
-     * - This operation generates a bill (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this API.
+     * - When uploading a file, you must provide the OSS persistence address of the file (`filePath`).
+     * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of the file information.
+     * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+     * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+     * - This operation triggers a bill for UNSTRUCTURED_PARSE. Make sure that your account balance is sufficient.
      *
      * @param Request - GetScheduledTaskExecutionRecordsRequest
      *
@@ -9261,6 +10699,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -9357,12 +10807,24 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->collaborationGroupId) {
             @$query['collaborationGroupId'] = $request->collaborationGroupId;
         }
 
         if (null !== $request->digitalEmployeeNameShrink) {
             @$query['digitalEmployeeName'] = $request->digitalEmployeeNameShrink;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->segmentsShrink) {
@@ -9456,6 +10918,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -9552,6 +11026,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -9637,6 +11123,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -9722,6 +11220,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -9820,6 +11330,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -9880,10 +11402,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the processing details of a to-do item.
+     * Queries the details of a to-do item.
      *
      * @remarks
-     * Queries the details of a to-do item. If the current caller is a PENDING assignee, the readAt field is automatically populated to mark the item as read.
+     * Queries the details of a to-do item. If the current caller is a pending assignee, the readAt field is automatically populated to mark the item as read.
      *
      * @param Request - GetTodoDetailRequest
      * @param headers - map
@@ -9901,6 +11423,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -9931,10 +11465,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the processing details of a to-do item.
+     * Queries the details of a to-do item.
      *
      * @remarks
-     * Queries the details of a to-do item. If the current caller is a PENDING assignee, the readAt field is automatically populated to mark the item as read.
+     * Queries the details of a to-do item. If the current caller is a pending assignee, the readAt field is automatically populated to mark the item as read.
      *
      * @param Request - GetTodoDetailRequest
      *
@@ -10157,6 +11691,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -10245,6 +11791,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -10322,6 +11880,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -10405,6 +11975,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -10476,6 +12058,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -10553,12 +12147,24 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->artifactId) {
             @$query['artifactId'] = $request->artifactId;
         }
 
         if (null !== $request->collaborationGroupId) {
             @$query['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->tenantId) {
@@ -10632,12 +12238,24 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->attachmentId) {
             @$query['attachmentId'] = $request->attachmentId;
         }
 
         if (null !== $request->collaborationGroupId) {
             @$query['collaborationGroupId'] = $request->collaborationGroupId;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->tenantId) {
@@ -10708,6 +12326,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -10782,6 +12412,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -10863,6 +12505,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -10933,6 +12587,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11011,6 +12677,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11112,6 +12790,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11186,10 +12876,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Imports a portable template in JSON format and creates a new template, regardless of whether a template with the same name exists.
+     * Imports a portable template in JSON format and creates a new template, regardless of whether a template with the same name already exists.
      *
      * @remarks
-     * Imports a portable template in JSON format and creates a new template, regardless of whether a template with the same name exists.
+     * Imports a portable template in JSON format and creates a new template, regardless of whether a template with the same name already exists.
      *
      * @param tmpReq - ImportWorkflowTemplateRequest
      * @param headers - map
@@ -11213,6 +12903,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11247,10 +12949,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Imports a portable template in JSON format and creates a new template, regardless of whether a template with the same name exists.
+     * Imports a portable template in JSON format and creates a new template, regardless of whether a template with the same name already exists.
      *
      * @remarks
-     * Imports a portable template in JSON format and creates a new template, regardless of whether a template with the same name exists.
+     * Imports a portable template in JSON format and creates a new template, regardless of whether a template with the same name already exists.
      *
      * @param Request - ImportWorkflowTemplateRequest
      *
@@ -11291,6 +12993,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11348,16 +13062,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries or drills down into the enterprise knowledge base list of a tenant.
+     * Queries the enterprise knowledge base list for a tenant or drills down to view its contents.
      *
      * @remarks
-     * ## Operation description
-     * - This API supports two modes: when `directoryId` is empty or set to \\"root\\", the top-level knowledge base list is returned. When `directoryId` has a specific value, a drill-down operation is performed to return subdirectories and resources under the specified directory.
-     * - `tenantId` is a common parameter. If not provided, the tenant ID of the caller is used by default.
-     * - In drill-down mode (when `directoryId` is not empty), use the `sourceTypes` parameter to filter resources of specific types.
-     * - The sort field (`sortField`) and sort order (`sortOrder`) can be customized. Invalid values are reset to default settings.
-     * - The search feature is effective only when retrieving the top-level list and supports only fuzzy matching on names or descriptions.
-     * - For security purposes, `tenant_id` is strictly obtained from the authenticated identity and cannot be passed through the request body.
+     * ## Request description
+     * - This operation supports two modes. If directoryId is empty or set to \\"root\\", it returns the top-level list of the knowledge base. If directoryId has a specific value, it performs a drill-down operation and returns the subdirectories and resources under the specified directory.
+     * - tenantId is a common parameter. If you do not specify this parameter, the tenant ID of the caller is used by default.
+     * - In drill-down mode (when directoryId is not empty), you can use the sourceTypes parameter to filter resources of specific types.
+     * - You can customize the sort field (sortField) and sort order (sortOrder). Invalid values are reset to the default settings.
+     * - The search feature applies only when retrieving the top-level list and supports only fuzzy matching for names or descriptions.
+     * - For security purposes, tenant_id is strictly obtained from the authentication identity and cannot be passed in the request body.
      *
      * @param tmpReq - ListAdminKnowledgeBasesRequest
      * @param headers - map
@@ -11381,6 +13095,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11435,16 +13161,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries or drills down into the enterprise knowledge base list of a tenant.
+     * Queries the enterprise knowledge base list for a tenant or drills down to view its contents.
      *
      * @remarks
-     * ## Operation description
-     * - This API supports two modes: when `directoryId` is empty or set to \\"root\\", the top-level knowledge base list is returned. When `directoryId` has a specific value, a drill-down operation is performed to return subdirectories and resources under the specified directory.
-     * - `tenantId` is a common parameter. If not provided, the tenant ID of the caller is used by default.
-     * - In drill-down mode (when `directoryId` is not empty), use the `sourceTypes` parameter to filter resources of specific types.
-     * - The sort field (`sortField`) and sort order (`sortOrder`) can be customized. Invalid values are reset to default settings.
-     * - The search feature is effective only when retrieving the top-level list and supports only fuzzy matching on names or descriptions.
-     * - For security purposes, `tenant_id` is strictly obtained from the authenticated identity and cannot be passed through the request body.
+     * ## Request description
+     * - This operation supports two modes. If directoryId is empty or set to \\"root\\", it returns the top-level list of the knowledge base. If directoryId has a specific value, it performs a drill-down operation and returns the subdirectories and resources under the specified directory.
+     * - tenantId is a common parameter. If you do not specify this parameter, the tenant ID of the caller is used by default.
+     * - In drill-down mode (when directoryId is not empty), you can use the sourceTypes parameter to filter resources of specific types.
+     * - You can customize the sort field (sortField) and sort order (sortOrder). Invalid values are reset to the default settings.
+     * - The search feature applies only when retrieving the top-level list and supports only fuzzy matching for names or descriptions.
+     * - For security purposes, tenant_id is strictly obtained from the authentication identity and cannot be passed in the request body.
      *
      * @param Request - ListAdminKnowledgeBasesRequest
      *
@@ -11490,6 +13216,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11566,6 +13304,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11657,6 +13407,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11751,6 +13513,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11862,6 +13636,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -11969,6 +13755,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12057,6 +13855,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12126,16 +13936,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Enumerates available organization synchronization configurations.
+     * Enumerates the available organization synchronization configurations.
      *
      * @remarks
      * Enumerates all available organization synchronization configurations under the current tenant.
-     *     Returns a unified configs list covering four platform types:
+     *     Returns a list of configs in a unified format, covering four platform types:
      *     - **wecom**: Retrieves active WeCom SSO configurations from SsoProviderRegistry.
-     *     - **saml**: Retrieves active SAML SSO configurations from SsoProviderRegistry. The corpId is set to idpEntityId.
-     *     - **oauth2**: Retrieves active OAuth2 SSO configurations from SsoProviderRegistry. The corpId is set to clientId.
-     *     - **custom**: Queries the database for pure custom organizations registered under the tenant.
-     *     The client distinguishes processing logic based on the returned platformType. The corpId is a required parameter for subsequent synchronization operations.
+     *     - **saml**: Retrieves active SAML SSO configurations from SsoProviderRegistry, using idpEntityId as the corpId.
+     *     - **oauth2**: Retrieves active OAuth2 SSO configurations from SsoProviderRegistry, using clientId as the corpId.
+     *     - **custom**: Queries the database for purely custom organizations registered under the tenant.
+     *     The client distinguishes processing logic based on the returned platformType. The corpId is a required parameter for subsequent synchronization API operations.
      *
      * @param Request - ListAvailableConfigsRequest
      * @param headers - map
@@ -12153,6 +13963,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12177,16 +13999,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Enumerates available organization synchronization configurations.
+     * Enumerates the available organization synchronization configurations.
      *
      * @remarks
      * Enumerates all available organization synchronization configurations under the current tenant.
-     *     Returns a unified configs list covering four platform types:
+     *     Returns a list of configs in a unified format, covering four platform types:
      *     - **wecom**: Retrieves active WeCom SSO configurations from SsoProviderRegistry.
-     *     - **saml**: Retrieves active SAML SSO configurations from SsoProviderRegistry. The corpId is set to idpEntityId.
-     *     - **oauth2**: Retrieves active OAuth2 SSO configurations from SsoProviderRegistry. The corpId is set to clientId.
-     *     - **custom**: Queries the database for pure custom organizations registered under the tenant.
-     *     The client distinguishes processing logic based on the returned platformType. The corpId is a required parameter for subsequent synchronization operations.
+     *     - **saml**: Retrieves active SAML SSO configurations from SsoProviderRegistry, using idpEntityId as the corpId.
+     *     - **oauth2**: Retrieves active OAuth2 SSO configurations from SsoProviderRegistry, using clientId as the corpId.
+     *     - **custom**: Queries the database for purely custom organizations registered under the tenant.
+     *     The client distinguishes processing logic based on the returned platformType. The corpId is a required parameter for subsequent synchronization API operations.
      *
      * @param Request - ListAvailableConfigsRequest
      *
@@ -12205,15 +14027,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries and filters a bill list by using OpenAPI. Multiple filter conditions are supported.
+     * Queries and filters a list of bills by using OpenAPI with multiple filter conditions.
      *
      * @remarks
-     * ## Request description
-     * - This operation queries the bill list based on specified conditions.
-     * - Filtering is supported by tenant, user, operation type, status, time range, business source, and other conditions.
-     * - Bill data is returned in pages. By default, 20 records are displayed per page.
-     * - You can choose whether to filter out bills with zero credit consumption. By default, such bills are filtered out.
-     * - Provide the required authentication information (such as AccessKey pair, BearerToken, or APP authentication) when you send a request.
+     * ## Operation description
+     * - This operation queries a list of bills based on specified conditions.
+     * - You can filter bills by tenant, user, operation type, status, time range, business source, and other conditions.
+     * - Returns paginated bill data. The default number of entries per page is 20.
+     * - You can specify whether to filter out bills with zero credit consumption. By default, these bills are filtered out.
+     * - You must provide necessary authentication information, such as an AccessKey pair, bearer token, or application authentication, when you make a request.
      *
      * @param Request - ListBillingRequest
      * @param headers - map
@@ -12231,6 +14053,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12297,15 +14131,15 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries and filters a bill list by using OpenAPI. Multiple filter conditions are supported.
+     * Queries and filters a list of bills by using OpenAPI with multiple filter conditions.
      *
      * @remarks
-     * ## Request description
-     * - This operation queries the bill list based on specified conditions.
-     * - Filtering is supported by tenant, user, operation type, status, time range, business source, and other conditions.
-     * - Bill data is returned in pages. By default, 20 records are displayed per page.
-     * - You can choose whether to filter out bills with zero credit consumption. By default, such bills are filtered out.
-     * - Provide the required authentication information (such as AccessKey pair, BearerToken, or APP authentication) when you send a request.
+     * ## Operation description
+     * - This operation queries a list of bills based on specified conditions.
+     * - You can filter bills by tenant, user, operation type, status, time range, business source, and other conditions.
+     * - Returns paginated bill data. The default number of entries per page is 20.
+     * - You can specify whether to filter out bills with zero credit consumption. By default, these bills are filtered out.
+     * - You must provide necessary authentication information, such as an AccessKey pair, bearer token, or application authentication, when you make a request.
      *
      * @param Request - ListBillingRequest
      *
@@ -12345,6 +14179,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12433,12 +14279,24 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->digitalEmployeeName) {
             @$query['digitalEmployeeName'] = $request->digitalEmployeeName;
         }
 
         if (null !== $request->keyword) {
             @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->page) {
@@ -12498,10 +14356,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paged query with paging support on the list of members in a collaboration workspace.
+     * Queries the member list of a collaboration workspace by using paging.
      *
      * @remarks
-     * Performs a paged query with paging support on the active members of a specified workspace, and supports searching by member display name. To invoke this API, you must be an active member of the workspace in the current tenant. The isActive field indicates the enabling status of the tenant account, not the employment status.
+     * Queries active members of a specified workspace by using paging and supports searching by member display name. The caller must be an active member of the workspace in the current tenant. The isActive field indicates the enabling status of the tenant account and does not represent the employment status.
      *
      * @param Request - ListCollaborationGroupMembersRequest
      * @param headers - map
@@ -12519,6 +14377,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12561,10 +14431,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paged query with paging support on the list of members in a collaboration workspace.
+     * Queries the member list of a collaboration workspace by using paging.
      *
      * @remarks
-     * Performs a paged query with paging support on the active members of a specified workspace, and supports searching by member display name. To invoke this API, you must be an active member of the workspace in the current tenant. The isActive field indicates the enabling status of the tenant account, not the employment status.
+     * Queries active members of a specified workspace by using paging and supports searching by member display name. The caller must be an active member of the workspace in the current tenant. The isActive field indicates the enabling status of the tenant account and does not represent the employment status.
      *
      * @param Request - ListCollaborationGroupMembersRequest
      *
@@ -12586,7 +14456,7 @@ class WinNexo extends OpenApiClient
      * Performs a paging query for the list of collaboration spaces visible to the current user.
      *
      * @remarks
-     * Performs a paging query for the collaboration spaces that the invoking user has validly joined in the current tenant. You can search for spaces by name. Only ACTIVE spaces are returned. The identity used to invoke the operation must be associated with a platform user, and deployment credentials without a user identity are not supported.
+     * Performs a paging query for the collaboration spaces that the user who invokes the operation has validly joined in the current tenant. Supports searching by space name. Only ACTIVE spaces are returned. An identity used to invoke the operation that is associated with a platform user is required, and deployment credentials without a user identity are not supported.
      *
      * @param Request - ListCollaborationGroupsRequest
      * @param headers - map
@@ -12604,6 +14474,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12645,7 +14527,7 @@ class WinNexo extends OpenApiClient
      * Performs a paging query for the list of collaboration spaces visible to the current user.
      *
      * @remarks
-     * Performs a paging query for the collaboration spaces that the invoking user has validly joined in the current tenant. You can search for spaces by name. Only ACTIVE spaces are returned. The identity used to invoke the operation must be associated with a platform user, and deployment credentials without a user identity are not supported.
+     * Performs a paging query for the collaboration spaces that the user who invokes the operation has validly joined in the current tenant. Supports searching by space name. Only ACTIVE spaces are returned. An identity used to invoke the operation that is associated with a platform user is required, and deployment credentials without a user identity are not supported.
      *
      * @param Request - ListCollaborationGroupsRequest
      *
@@ -12694,6 +14576,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12785,6 +14679,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12844,13 +14750,13 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the list of knowledge graphs available for semantic queries under a tenant.
+     * Queries the graphs available for semantic queries for a tenant.
      *
      * @remarks
-     * Lists published knowledge graphs under an identity tenant.
-     *     CLI mapping: ``winnexo graph list``. ``tenantId`` is a required common parameter and is not included in the request body.
-     *     The returned ``graphName`` can be used directly in ``querySemanticKnowledge``. This query is consistent with the existing frontend knowledge graph list and does not apply digital worker permission filtering. Specific semantic queries still verify agent USE permissions.
-     *     Database exceptions go directly into unified 5xx error handling and are not disguised as a successful empty list.
+     * Lists the published graphs under an identity tenant.
+     *     The CLI mapping is ``winnexo graph list``. ``tenantId`` is a required common parameter and is not included in the request body.
+     *     The returned ``graphName`` can be directly used in ``querySemanticKnowledge``. This query is consistent with the existing frontend graph list and does not filter by digital employee permissions. Specific semantic queries still verify the agent USE permission.
+     *     Database exceptions are directly routed to unified 5xx error handling and are not disguised as a successful empty list.
      *
      * @param Request - ListGraphsRequest
      * @param headers - map
@@ -12868,6 +14774,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -12892,13 +14810,13 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the list of knowledge graphs available for semantic queries under a tenant.
+     * Queries the graphs available for semantic queries for a tenant.
      *
      * @remarks
-     * Lists published knowledge graphs under an identity tenant.
-     *     CLI mapping: ``winnexo graph list``. ``tenantId`` is a required common parameter and is not included in the request body.
-     *     The returned ``graphName`` can be used directly in ``querySemanticKnowledge``. This query is consistent with the existing frontend knowledge graph list and does not apply digital worker permission filtering. Specific semantic queries still verify agent USE permissions.
-     *     Database exceptions go directly into unified 5xx error handling and are not disguised as a successful empty list.
+     * Lists the published graphs under an identity tenant.
+     *     The CLI mapping is ``winnexo graph list``. ``tenantId`` is a required common parameter and is not included in the request body.
+     *     The returned ``graphName`` can be directly used in ``querySemanticKnowledge``. This query is consistent with the existing frontend graph list and does not filter by digital employee permissions. Specific semantic queries still verify the agent USE permission.
+     *     Database exceptions are directly routed to unified 5xx error handling and are not disguised as a successful empty list.
      *
      * @param Request - ListGraphsRequest
      *
@@ -12938,6 +14856,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -13029,6 +14959,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -13130,6 +15072,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -13186,14 +15140,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
+     * Queries the category directory tree of an enterprise knowledge base and supports sorting by specified fields.
      *
      * @remarks
-     * ## Operation description
-     * - This API operation retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
-     * - If the `directoryId` parameter is not specified, all category trees under the root directory of the enterprise knowledge base are returned. If `directoryId` is specified, the subdirectory tree rooted at the specified directory is returned.
-     * - You can use the `sortField` and `sortOrder` parameters to sort the results. By default, results are sorted by creation time in descending order.
-     * - Security constraint: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
+     * ## Request description
+     * - This API retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
+     * - If the directoryId parameter is not provided, all category trees under the root directory of the enterprise knowledge base are returned. If directoryId is provided, the subdirectory tree with this directory as the root is returned.
+     * - You can use the sortField and sortOrder parameters to sort the results. By default, the results are sorted in descending order of creation time.
+     * - Security constraints: The tenant_id and user_id parameters are obtained only from the authenticated identity, and the caller must have the DEVELOPMENT_KB_VIEW feature permission.
      *
      * @param Request - ListKnowledgeBaseDirectoriesRequest
      * @param headers - map
@@ -13211,6 +15165,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -13249,14 +15215,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
+     * Queries the category directory tree of an enterprise knowledge base and supports sorting by specified fields.
      *
      * @remarks
-     * ## Operation description
-     * - This API operation retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
-     * - If the `directoryId` parameter is not specified, all category trees under the root directory of the enterprise knowledge base are returned. If `directoryId` is specified, the subdirectory tree rooted at the specified directory is returned.
-     * - You can use the `sortField` and `sortOrder` parameters to sort the results. By default, results are sorted by creation time in descending order.
-     * - Security constraint: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
+     * ## Request description
+     * - This API retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
+     * - If the directoryId parameter is not provided, all category trees under the root directory of the enterprise knowledge base are returned. If directoryId is provided, the subdirectory tree with this directory as the root is returned.
+     * - You can use the sortField and sortOrder parameters to sort the results. By default, the results are sorted in descending order of creation time.
+     * - Security constraints: The tenant_id and user_id parameters are obtained only from the authenticated identity, and the caller must have the DEVELOPMENT_KB_VIEW feature permission.
      *
      * @param Request - ListKnowledgeBaseDirectoriesRequest
      *
@@ -13275,10 +15241,117 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the precise object type follows of a digital employee by page.
+     * Queries enterprise knowledge base resources by bound object.
      *
      * @remarks
-     * Queries follows by three independent dimensions: graphName, operatingObjectName, and objectType. Supports primary objects and explicit first-level associated objects. Uses opaque cursor pagination and is not limited by the 1000-item display window of the follow panel.
+     * Queries bound sources precisely by the graphName, objectType, and objectId triplet. The target object must exist and be readable by the current user. The identity is derived from the unified authentication chain. Specifying a user, tenant, or scope in the request body is not accepted.
+     * Queries only TENANT resources visible to the current user within the current tenant. The knowledge base root, directory ancestors, and source content ACLs must all pass validation. Uses content visibility semantics. It does not require knowledge base management permissions and does not bypass content ACLs due to management permissions. For multi-directory bindings, only legally readable directories are displayed.
+     * Does not return group, orphaned, or internally hidden knowledge assets. Binding filtering, resource permissions, hidden filtering, and deduplication all occur before total count calculation and pagination. The totalCount does not include invisible resources. Multiple bindings of the same source are counted only once, regardless of the processing status.
+     * Returns sources, totalCount, page, and pageSize upon success. Returns an empty list and 0 if no matches are found. Returns an empty list and the actual authorized total count for out-of-bounds pages. Returns only basic resource fields. It does not return settings, signed URLs, or other object bindings. Pagination is based on real-time queries and does not provide cross-request snapshots.
+     *
+     * @param Request - ListKnowledgeBaseSourcesByObjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBaseSourcesByObjectResponse
+     *
+     * @param ListKnowledgeBaseSourcesByObjectRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListKnowledgeBaseSourcesByObjectResponse
+     */
+    public function listKnowledgeBaseSourcesByObjectWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->graphName) {
+            @$body['graphName'] = $request->graphName;
+        }
+
+        if (null !== $request->objectId) {
+            @$body['objectId'] = $request->objectId;
+        }
+
+        if (null !== $request->objectType) {
+            @$body['objectType'] = $request->objectType;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBaseSourcesByObject',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listKnowledgeBaseSourcesByObject',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBaseSourcesByObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries enterprise knowledge base resources by bound object.
+     *
+     * @remarks
+     * Queries bound sources precisely by the graphName, objectType, and objectId triplet. The target object must exist and be readable by the current user. The identity is derived from the unified authentication chain. Specifying a user, tenant, or scope in the request body is not accepted.
+     * Queries only TENANT resources visible to the current user within the current tenant. The knowledge base root, directory ancestors, and source content ACLs must all pass validation. Uses content visibility semantics. It does not require knowledge base management permissions and does not bypass content ACLs due to management permissions. For multi-directory bindings, only legally readable directories are displayed.
+     * Does not return group, orphaned, or internally hidden knowledge assets. Binding filtering, resource permissions, hidden filtering, and deduplication all occur before total count calculation and pagination. The totalCount does not include invisible resources. Multiple bindings of the same source are counted only once, regardless of the processing status.
+     * Returns sources, totalCount, page, and pageSize upon success. Returns an empty list and 0 if no matches are found. Returns an empty list and the actual authorized total count for out-of-bounds pages. Returns only basic resource fields. It does not return settings, signed URLs, or other object bindings. Pagination is based on real-time queries and does not provide cross-request snapshots.
+     *
+     * @param Request - ListKnowledgeBaseSourcesByObjectRequest
+     *
+     * @returns ListKnowledgeBaseSourcesByObjectResponse
+     *
+     * @param ListKnowledgeBaseSourcesByObjectRequest $request
+     *
+     * @return ListKnowledgeBaseSourcesByObjectResponse
+     */
+    public function listKnowledgeBaseSourcesByObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listKnowledgeBaseSourcesByObjectWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paging query for the exact object type subscriptions of a digital worker.
+     *
+     * @remarks
+     * Queries subscriptions based on three independent dimensions: graphName, operatingObjectName, and objectType. Supports primary objects and explicit first-level associated objects. Uses opaque cursor pagination and is not limited by the 1,000-item display window of the subscription panel.
      *
      * @param Request - ListOperatingObjectFavoritesRequest
      * @param headers - map
@@ -13296,6 +15369,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -13342,10 +15427,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the precise object type follows of a digital employee by page.
+     * Performs a paging query for the exact object type subscriptions of a digital worker.
      *
      * @remarks
-     * Queries follows by three independent dimensions: graphName, operatingObjectName, and objectType. Supports primary objects and explicit first-level associated objects. Uses opaque cursor pagination and is not limited by the 1000-item display window of the follow panel.
+     * Queries subscriptions based on three independent dimensions: graphName, operatingObjectName, and objectType. Supports primary objects and explicit first-level associated objects. Uses opaque cursor pagination and is not limited by the 1,000-item display window of the subscription panel.
      *
      * @param Request - ListOperatingObjectFavoritesRequest
      *
@@ -13364,14 +15449,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. Paging and the total count are calculated based on the primary output records.
+     * Performs a paged query of the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. The paging and total count are calculated based on the primary output records.
      *
      * @remarks
      * If collaborationGroupId is not provided, queries the personal outputs of the current caller. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The caller identity and tenant permissions are determined by the authentication context.
-     * The sessionId parameter requires an exact match for a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter requires an exact match for the business ID of a file registration or an associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
-     * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 entries per page, up to a maximum of 100 entries, sorted in descending order by update time. The response structure remains compatible with the original API operation.
+     * The sessionId parameter requires an exact match for a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
+     * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API operation.
      * For versioned files, the latest published version is returned by default without expanding historical versions. This API operation does not currently support querying specific versions. Pagination and the total count are still based on the primary output records, deduplicated by outputId, and are not counted by the number of files or historical versions.
-     * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not trigger an automatic switchover to other versions published later. Invoke this API operation again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
+     * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not perform an automatic switchover to other versions published later. Invoke this API operation again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
      *
      * @param tmpReq - ListOutputFilesRequest
      * @param headers - map
@@ -13395,6 +15480,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -13465,14 +15562,14 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. Paging and the total count are calculated based on the primary output records.
+     * Performs a paged query of the visible outputs and the latest published file versions for the current user or a specified collaboration workspace. Supports filtering by session, label, and business ID. The paging and total count are calculated based on the primary output records.
      *
      * @remarks
      * If collaborationGroupId is not provided, queries the personal outputs of the current caller. If provided, queries the outputs of the specified collaboration workspace and verifies the real-time access permissions of the current workspace members and source resources. The caller identity and tenant permissions are determined by the authentication context.
-     * The sessionId parameter requires an exact match for a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter requires an exact match for the business ID of a file registration or an associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
-     * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 entries per page, up to a maximum of 100 entries, sorted in descending order by update time. The response structure remains compatible with the original API operation.
+     * The sessionId parameter requires an exact match for a regular session, skill session, or node execution session. The tags parameter requires all specified labels to match simultaneously. The bizId parameter requires an exact match for the business ID of the file registration or associated workflow instance. The new conditions are combined with the existing operatingObjectName, itemType, keyword, and sharedOnly conditions using the AND operator, and are executed before counting and paging.
+     * Tags and business IDs are derived from file registrations or workflow instance associations. Unregistered tags or business IDs are not inferred from titles. Pagination defaults to page 1 with 20 items per page, up to a maximum of 100 items, sorted in descending order by update time. The response structure remains compatible with the original API operation.
      * For versioned files, the latest published version is returned by default without expanding historical versions. This API operation does not currently support querying specific versions. Pagination and the total count are still based on the primary output records, deduplicated by outputId, and are not counted by the number of files or historical versions.
-     * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not trigger an automatic switchover to other versions published later. Invoke this API operation again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
+     * For versioned files, fileInfo.path is a time-sensitive download link attached to the published version and content revisions selected during the query. Downloads do not perform an automatic switchover to other versions published later. Invoke this API operation again to obtain a new link after the current one expires. Historical files that have not yet formed a published version may not return download information.
      *
      * @param Request - ListOutputFilesRequest
      *
@@ -13524,6 +15621,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -13606,6 +15715,113 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 按绑定对象查询个人资源.
+     *
+     * @remarks
+     * 按 graphName、objectType、objectId 三元组精确查询绑定的 Source。目标对象必须存在且对当前用户可读；身份来自统一鉴权链，不接受请求体指定用户、租户或 scope。
+     * 仅查询当前租户内由当前用户创建、位于其有效个人目录树下的 PERSONAL 资源；目录根不依赖名称。所有目录祖先须同租户、同所有者且为个人类型。
+     * 不返回群组、孤儿或内部隐藏知识资产。绑定过滤、资源权限、隐藏过滤和去重均发生在总数计算和分页之前；totalCount 不包含不可见资源。同一 Source 多绑定只计一次，不限制处理状态。
+     * 成功返回 sources、totalCount、page、pageSize；无匹配返回空列表和 0，越界页返回空列表及真实授权总数。只返回资源基础字段，不返回 settings、签名 URL 或其他对象绑定。分页为实时查询，不提供跨请求快照。
+     *
+     * @param Request - ListPersonalSourcesByObjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPersonalSourcesByObjectResponse
+     *
+     * @param ListPersonalSourcesByObjectRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListPersonalSourcesByObjectResponse
+     */
+    public function listPersonalSourcesByObjectWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->graphName) {
+            @$body['graphName'] = $request->graphName;
+        }
+
+        if (null !== $request->objectId) {
+            @$body['objectId'] = $request->objectId;
+        }
+
+        if (null !== $request->objectType) {
+            @$body['objectType'] = $request->objectType;
+        }
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPersonalSourcesByObject',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/listPersonalSourcesByObject',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPersonalSourcesByObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按绑定对象查询个人资源.
+     *
+     * @remarks
+     * 按 graphName、objectType、objectId 三元组精确查询绑定的 Source。目标对象必须存在且对当前用户可读；身份来自统一鉴权链，不接受请求体指定用户、租户或 scope。
+     * 仅查询当前租户内由当前用户创建、位于其有效个人目录树下的 PERSONAL 资源；目录根不依赖名称。所有目录祖先须同租户、同所有者且为个人类型。
+     * 不返回群组、孤儿或内部隐藏知识资产。绑定过滤、资源权限、隐藏过滤和去重均发生在总数计算和分页之前；totalCount 不包含不可见资源。同一 Source 多绑定只计一次，不限制处理状态。
+     * 成功返回 sources、totalCount、page、pageSize；无匹配返回空列表和 0，越界页返回空列表及真实授权总数。只返回资源基础字段，不返回 settings、签名 URL 或其他对象绑定。分页为实时查询，不提供跨请求快照。
+     *
+     * @param Request - ListPersonalSourcesByObjectRequest
+     *
+     * @returns ListPersonalSourcesByObjectResponse
+     *
+     * @param ListPersonalSourcesByObjectRequest $request
+     *
+     * @return ListPersonalSourcesByObjectResponse
+     */
+    public function listPersonalSourcesByObject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPersonalSourcesByObjectWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the list of system built-in roles.
      *
      * @remarks
@@ -13633,6 +15849,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -13719,6 +15947,10 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->collaborationGroupId) {
             @$query['collaborationGroupId'] = $request->collaborationGroupId;
         }
@@ -13737,6 +15969,14 @@ class WinNexo extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->page) {
@@ -13808,18 +16048,18 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, keywords, and other conditions, and supports pagination.
+     * Retrieves a list of all skills visible to the current tenant. Supports filtering by digital employee bindings, skill sources, tags, and keywords, and supports pagination.
      * ### Request parameters
-     * - **TenantId**: Optional. A common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
-     * - **FilterType**: Optional. The skill filtering dimension. Valid values: `ALL` (all published), `BUILTIN` (built-in published), `CUSTOM` (custom published), `DRAFT` (drafts, including published skills with unpublished modifications). Default value: `ALL`.
-     * - **Tags**: Optional. Filters by tags. A match is returned if any tag in the array is hit.
-     * - **Keyword**: Optional. Performs a fuzzy match on the skill name or description.
+     * - **TenantId**: Optional. Common parameter. Passed through to the backend header by the gateway. If not specified, the default tenant of the current caller is used.
+     * - **FilterType**: Optional. The skill filtering dimension. Valid values: `ALL` (all published skills), `BUILTIN` (published built-in skills), `CUSTOM` (published custom skills), and `DRAFT` (drafts, including published skills with unpublished modifications). Default value: `ALL`.
+     * - **Tags**: Optional. Filters by tags. A match occurs if any tag in the array is hit.
+     * - **Keyword**: Optional. Performs a fuzzy match by skill name or description.
      * - **Page**: Optional. The page number. Minimum value: 1. Default value: 1.
      * - **PageSize**: Optional. The number of entries per page. Valid values: 1 to 100. Default value: 20.
-     * - **OperatingObjectName**: Optional. The name of the digital employee. If specified, results are filtered by binding relationship. Must be used together with `BindStatus`.
-     * - **BindStatus**: Optional. The binding status. Valid values: `BOUND` (bound), `UNBOUND` (unbound global skills).
+     * - **OperatingObjectName**: Optional. The name of the digital employee. If specified, filters by binding relationship. Must be used together with `BindStatus`.
+     * - **BindStatus**: Optional. The binding status. Valid values: `BOUND` (bound) and `UNBOUND` (unbound global skills).
      * ### Response parameters
-     * The response contains the skill list `items`, the total count `total`, the current page `page`, and the number of entries per page `pageSize`.
+     * The response includes the skill list `items`, the total count `total`, the current page number `page`, and the number of entries per page `pageSize`.
      *
      * @param tmpReq - ListSkillsRequest
      * @param headers - map
@@ -13843,6 +16083,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -13901,18 +16153,18 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, keywords, and other conditions, and supports pagination.
+     * Retrieves a list of all skills visible to the current tenant. Supports filtering by digital employee bindings, skill sources, tags, and keywords, and supports pagination.
      * ### Request parameters
-     * - **TenantId**: Optional. A common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
-     * - **FilterType**: Optional. The skill filtering dimension. Valid values: `ALL` (all published), `BUILTIN` (built-in published), `CUSTOM` (custom published), `DRAFT` (drafts, including published skills with unpublished modifications). Default value: `ALL`.
-     * - **Tags**: Optional. Filters by tags. A match is returned if any tag in the array is hit.
-     * - **Keyword**: Optional. Performs a fuzzy match on the skill name or description.
+     * - **TenantId**: Optional. Common parameter. Passed through to the backend header by the gateway. If not specified, the default tenant of the current caller is used.
+     * - **FilterType**: Optional. The skill filtering dimension. Valid values: `ALL` (all published skills), `BUILTIN` (published built-in skills), `CUSTOM` (published custom skills), and `DRAFT` (drafts, including published skills with unpublished modifications). Default value: `ALL`.
+     * - **Tags**: Optional. Filters by tags. A match occurs if any tag in the array is hit.
+     * - **Keyword**: Optional. Performs a fuzzy match by skill name or description.
      * - **Page**: Optional. The page number. Minimum value: 1. Default value: 1.
      * - **PageSize**: Optional. The number of entries per page. Valid values: 1 to 100. Default value: 20.
-     * - **OperatingObjectName**: Optional. The name of the digital employee. If specified, results are filtered by binding relationship. Must be used together with `BindStatus`.
-     * - **BindStatus**: Optional. The binding status. Valid values: `BOUND` (bound), `UNBOUND` (unbound global skills).
+     * - **OperatingObjectName**: Optional. The name of the digital employee. If specified, filters by binding relationship. Must be used together with `BindStatus`.
+     * - **BindStatus**: Optional. The binding status. Valid values: `BOUND` (bound) and `UNBOUND` (unbound global skills).
      * ### Response parameters
-     * The response contains the skill list `items`, the total count `total`, the current page `page`, and the number of entries per page `pageSize`.
+     * The response includes the skill list `items`, the total count `total`, the current page number `page`, and the number of entries per page `pageSize`.
      *
      * @param Request - ListSkillsRequest
      *
@@ -13931,10 +16183,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves source retrieve and usage statistics through paged query and paging.
+     * Retrieves sources and usage statistics through paged query and paging.
      *
      * @remarks
-     * Retrieves source retrieve and usage statistics through paged query and paging. Returns only the data for the current query purpose, without other report sections. For enterprises, only the knowledge base super administrator is allowed. For a single workspace, the storage management administrator or the SUPER_ADMIN of the current tenant platform is allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time refers to the reporting and ingestion time, which is left-closed and right-open, with a maximum span of 366 days. Knowledge bases are filtered based on the current attach settings. The three APIs do not guarantee the same snapshot across requests.
+     * Performs a paged query with paging to retrieve sources and usage statistics. Returns only the data for the current query purpose without other report sections. For enterprises, only knowledge base super administrators are allowed. For a single workspace, storage management administrators or the SUPER_ADMIN of the current tenant platform are allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time refers to the reporting and ingestion time, which is left-closed and right-open, with a maximum span of 366 days. Knowledge bases are filtered based on the current attach. The three API operations do not guarantee the same snapshot across requests.
      *
      * @param tmpReq - ListSourceUsageStatisticsRequest
      * @param headers - map
@@ -13962,6 +16214,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14036,10 +16300,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Retrieves source retrieve and usage statistics through paged query and paging.
+     * Retrieves sources and usage statistics through paged query and paging.
      *
      * @remarks
-     * Retrieves source retrieve and usage statistics through paged query and paging. Returns only the data for the current query purpose, without other report sections. For enterprises, only the knowledge base super administrator is allowed. For a single workspace, the storage management administrator or the SUPER_ADMIN of the current tenant platform is allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time refers to the reporting and ingestion time, which is left-closed and right-open, with a maximum span of 366 days. Knowledge bases are filtered based on the current attach settings. The three APIs do not guarantee the same snapshot across requests.
+     * Performs a paged query with paging to retrieve sources and usage statistics. Returns only the data for the current query purpose without other report sections. For enterprises, only knowledge base super administrators are allowed. For a single workspace, storage management administrators or the SUPER_ADMIN of the current tenant platform are allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time refers to the reporting and ingestion time, which is left-closed and right-open, with a maximum span of 366 days. Knowledge bases are filtered based on the current attach. The three API operations do not guarantee the same snapshot across requests.
      *
      * @param Request - ListSourceUsageStatisticsRequest
      *
@@ -14084,6 +16348,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14161,10 +16437,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the to-do list.
+     * Performs a paging query for the to-do list.
      *
      * @remarks
-     * Performs a paging query on the to-do list for the current user. For paging, filters within a group use a union, and filters across groups use an intersection. If no filters are specified, all items are returned.
+     * Performs a paging query for the to-do list of the current user. Filters within a group use union, and filters across groups use intersection. If no filters are specified, all items are returned.
      *
      * @param tmpReq - ListTodosRequest
      * @param headers - map
@@ -14200,6 +16476,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14270,10 +16558,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paging query on the to-do list.
+     * Performs a paging query for the to-do list.
      *
      * @remarks
-     * Performs a paging query on the to-do list for the current user. For paging, filters within a group use a union, and filters across groups use an intersection. If no filters are specified, all items are returned.
+     * Performs a paging query for the to-do list of the current user. Filters within a group use union, and filters across groups use intersection. If no filters are specified, all items are returned.
      *
      * @param Request - ListTodosRequest
      *
@@ -14317,6 +16605,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14391,6 +16691,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14473,10 +16785,10 @@ class WinNexo extends OpenApiClient
      * Queries the list of enterprise knowledge bases visible to the current OpenAPI user.
      *
      * @remarks
-     * ## Operation description
-     * - This operation queries the enterprise knowledge bases visible to the platform user mapped from the OpenAPI authentication identity.
-     * - Both the tenant and user identities are determined by the authentication context. Callers cannot expand the visible scope through business parameters.
-     * - `tenantId` is an optional common parameter. `keyword` can filter by knowledge base name or description.
+     * ## Request description
+     * - This operation queries the visible enterprise knowledge bases for the platform user mapped by the OpenAPI authentication identity.
+     * - Both the tenant and user identities are determined by the authentication context. Callers cannot expand the visibility scope through business parameters.
+     * - `tenantId` is an optional common parameter. `keyword` can be used to filter by knowledge base name or description.
      *
      * @param Request - ListUserVisibleKnowledgeBasesRequest
      * @param headers - map
@@ -14494,6 +16806,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14527,10 +16851,10 @@ class WinNexo extends OpenApiClient
      * Queries the list of enterprise knowledge bases visible to the current OpenAPI user.
      *
      * @remarks
-     * ## Operation description
-     * - This operation queries the enterprise knowledge bases visible to the platform user mapped from the OpenAPI authentication identity.
-     * - Both the tenant and user identities are determined by the authentication context. Callers cannot expand the visible scope through business parameters.
-     * - `tenantId` is an optional common parameter. `keyword` can filter by knowledge base name or description.
+     * ## Request description
+     * - This operation queries the visible enterprise knowledge bases for the platform user mapped by the OpenAPI authentication identity.
+     * - Both the tenant and user identities are determined by the authentication context. Callers cannot expand the visibility scope through business parameters.
+     * - `tenantId` is an optional common parameter. `keyword` can be used to filter by knowledge base name or description.
      *
      * @param Request - ListUserVisibleKnowledgeBasesRequest
      *
@@ -14549,16 +16873,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for the tenant member list.
+     * Performs a paged query for the tenant member list.
      *
      * @remarks
-     * Performs a paging query for the tenant member list by using OpenAPI.
-     *     Workflow:
-     *     1. Parse filter conditions (roleCodes to role_ids).
-     *     2. Invoke UserTenantMappingRepository.query_paged_tenant_members to perform a paging query.
+     * Performs a paged query for the tenant member list by using OpenAPI.
+     *     Business orchestration:
+     *     1. Parse the filter conditions (roleCodes to role_ids).
+     *     2. Invoke UserTenantMappingRepository.query_paged_tenant_members to perform a paged query.
      *     3. Convert role_id in the result to roleCode and assemble the response.
      *     Error codes:
-     *     - Throws an error when the roleCode parameter is invalid.
+     *     - A fault is thrown when an invalid roleCode parameter is provided.
      *
      * @param tmpReq - ListUsersRequest
      * @param headers - map
@@ -14586,6 +16910,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14636,16 +16972,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Performs a paging query for the tenant member list.
+     * Performs a paged query for the tenant member list.
      *
      * @remarks
-     * Performs a paging query for the tenant member list by using OpenAPI.
-     *     Workflow:
-     *     1. Parse filter conditions (roleCodes to role_ids).
-     *     2. Invoke UserTenantMappingRepository.query_paged_tenant_members to perform a paging query.
+     * Performs a paged query for the tenant member list by using OpenAPI.
+     *     Business orchestration:
+     *     1. Parse the filter conditions (roleCodes to role_ids).
+     *     2. Invoke UserTenantMappingRepository.query_paged_tenant_members to perform a paged query.
      *     3. Convert role_id in the result to roleCode and assemble the response.
      *     Error codes:
-     *     - Throws an error when the roleCode parameter is invalid.
+     *     - A fault is thrown when an invalid roleCode parameter is provided.
      *
      * @param Request - ListUsersRequest
      *
@@ -14697,6 +17033,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14801,6 +17149,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14884,6 +17244,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -14940,10 +17312,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
+     * Queries work items visible to valid members in the current workspace with pagination. Both page/pageSize and nextToken/maxResults are supported, but tokens take precedence.
      *
      * @remarks
-     * Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
+     * Queries work items visible to valid members in the current workspace with pagination. Both page/pageSize and nextToken/maxResults are supported, but tokens take precedence.
      *
      * @param tmpReq - ListWorkItemsRequest
      * @param headers - map
@@ -14975,6 +17347,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15041,10 +17425,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
+     * Queries work items visible to valid members in the current workspace with pagination. Both page/pageSize and nextToken/maxResults are supported, but tokens take precedence.
      *
      * @remarks
-     * Lists visible work items in the current workspace for valid members with pagination. The nextToken and maxResults parameters take precedence over the page and pageSize parameters.
+     * Queries work items visible to valid members in the current workspace with pagination. Both page/pageSize and nextToken/maxResults are supported, but tokens take precedence.
      *
      * @param Request - ListWorkItemsRequest
      *
@@ -15084,6 +17468,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15189,6 +17585,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15245,10 +17653,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the valid templates in the current collaboration space by using pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
+     * Lists valid templates in the current collaboration space with pagination. Both page/pageSize and nextToken/maxResults are supported, and tokens take precedence.
      *
      * @remarks
-     * Searches for valid templates in the current collaboration space by using pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
+     * Searches for valid templates in the current collaboration workspace with pagination for valid members. Both page/pageSize and nextToken/maxResults are supported, but the token takes precedence.
      *
      * @param Request - ListWorkflowTemplatesRequest
      * @param headers - map
@@ -15266,6 +17674,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15316,10 +17736,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the valid templates in the current collaboration space by using pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
+     * Lists valid templates in the current collaboration space with pagination. Both page/pageSize and nextToken/maxResults are supported, and tokens take precedence.
      *
      * @remarks
-     * Searches for valid templates in the current collaboration space by using pagination. If both page/pageSize and nextToken/maxResults are specified, the token takes precedence.
+     * Searches for valid templates in the current collaboration workspace with pagination for valid members. Both page/pageSize and nextToken/maxResults are supported, but the token takes precedence.
      *
      * @param Request - ListWorkflowTemplatesRequest
      *
@@ -15341,7 +17761,7 @@ class WinNexo extends OpenApiClient
      * Marks to-do items as read.
      *
      * @remarks
-     * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over todoIds. No error is reported if both are empty.
+     * Marks to-do items as read for the current user. The markAllRead parameter takes precedence over todoIds. If both are empty, no error is returned.
      *
      * @param tmpReq - MarkTodosReadRequest
      * @param headers - map
@@ -15365,6 +17785,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15402,7 +17834,7 @@ class WinNexo extends OpenApiClient
      * Marks to-do items as read.
      *
      * @remarks
-     * Marks the to-do items of the current user as read. The markAllRead parameter takes precedence over todoIds. No error is reported if both are empty.
+     * Marks to-do items as read for the current user. The markAllRead parameter takes precedence over todoIds. If both are empty, no error is returned.
      *
      * @param Request - MarkTodosReadRequest
      *
@@ -15442,6 +17874,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15540,6 +17984,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15643,6 +18099,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15731,6 +18199,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15806,6 +18286,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15883,6 +18375,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -15965,6 +18469,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16043,6 +18559,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16124,6 +18652,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16215,6 +18755,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16314,6 +18866,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16382,7 +18946,7 @@ class WinNexo extends OpenApiClient
      * Queries the overview of source retrieval and usage.
      *
      * @remarks
-     * Queries the overview of source retrieve and usage. Returns only the data for the current query purpose, without other report sections. For enterprises, only the knowledge base super administrator is allowed. For a single workspace, the storage management administrator or the SUPER_ADMIN of the current tenant platform is allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time refers to the reporting and ingestion time, which is left-closed and right-open, with a maximum span of 366 days. Knowledge bases are filtered based on the attach configuration. The three APIs do not guarantee the same snapshot across requests.
+     * Queries the overview of source retrieve and usage. Returns only the data for the current query purpose without other report sections. For enterprises, only knowledge base super administrators are allowed. For a single workspace, workspace administrators responsible for storage management or the SUPER_ADMIN of the current tenant platform are allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time range is based on the ingestion time, inclusive of the start time and exclusive of the end time, with a maximum span of 366 days. Knowledge bases are filtered based on the current attach. The three API operations do not guarantee the same snapshot across requests.
      *
      * @param tmpReq - QuerySourceUsageSummaryRequest
      * @param headers - map
@@ -16410,6 +18974,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16471,7 +19047,7 @@ class WinNexo extends OpenApiClient
      * Queries the overview of source retrieval and usage.
      *
      * @remarks
-     * Queries the overview of source retrieve and usage. Returns only the data for the current query purpose, without other report sections. For enterprises, only the knowledge base super administrator is allowed. For a single workspace, the storage management administrator or the SUPER_ADMIN of the current tenant platform is allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time refers to the reporting and ingestion time, which is left-closed and right-open, with a maximum span of 366 days. Knowledge bases are filtered based on the attach configuration. The three APIs do not guarantee the same snapshot across requests.
+     * Queries the overview of source retrieve and usage. Returns only the data for the current query purpose without other report sections. For enterprises, only knowledge base super administrators are allowed. For a single workspace, workspace administrators responsible for storage management or the SUPER_ADMIN of the current tenant platform are allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time range is based on the ingestion time, inclusive of the start time and exclusive of the end time, with a maximum span of 366 days. Knowledge bases are filtered based on the current attach. The three API operations do not guarantee the same snapshot across requests.
      *
      * @param Request - QuerySourceUsageSummaryRequest
      *
@@ -16490,10 +19066,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the retrieval and usage time trends of sources.
+     * Queries the retrieval and usage trends of sources over time.
      *
      * @remarks
-     * Queries the trends of source retrieval and usage over time. Returns only the data relevant to the current query and does not include other report sections. For enterprises, only knowledge base super administrators are authorized. For a single workspace, workspace administrators or the SUPER_ADMIN of the current tenant are authorized. For all workspaces, only the platform SUPER_ADMIN is authorized. This feature is unavailable for individual users, and group credentials cannot be used across workspaces. The time parameter refers to the time when data is reported and ingested. The time range is inclusive of the start time and exclusive of the end time, and can span up to 366 days. Knowledge bases are filtered based on current bindings. The three APIs do not guarantee data snapshot consistency across requests.
+     * Queries the retrieve and usage trends of sources over time. Returns only the data for the current query purpose without attaching other report sections. For enterprises, only the knowledge base super administrator is allowed. For a single workspace, the storage management administrator or the SUPER_ADMIN of the current tenant platform is allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time refers to the reporting and ingestion time, using a left-closed and right-open interval, with a maximum span of 366 days. Knowledge bases are filtered based on current bindings. The three API operations do not guarantee the same snapshot across requests.
      *
      * @param tmpReq - QuerySourceUsageTrendRequest
      * @param headers - map
@@ -16521,6 +19097,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16587,10 +19175,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Queries the retrieval and usage time trends of sources.
+     * Queries the retrieval and usage trends of sources over time.
      *
      * @remarks
-     * Queries the trends of source retrieval and usage over time. Returns only the data relevant to the current query and does not include other report sections. For enterprises, only knowledge base super administrators are authorized. For a single workspace, workspace administrators or the SUPER_ADMIN of the current tenant are authorized. For all workspaces, only the platform SUPER_ADMIN is authorized. This feature is unavailable for individual users, and group credentials cannot be used across workspaces. The time parameter refers to the time when data is reported and ingested. The time range is inclusive of the start time and exclusive of the end time, and can span up to 366 days. Knowledge bases are filtered based on current bindings. The three APIs do not guarantee data snapshot consistency across requests.
+     * Queries the retrieve and usage trends of sources over time. Returns only the data for the current query purpose without attaching other report sections. For enterprises, only the knowledge base super administrator is allowed. For a single workspace, the storage management administrator or the SUPER_ADMIN of the current tenant platform is allowed. For all workspaces, only the platform SUPER_ADMIN is allowed. This feature is not available for individual users, and group credentials cannot be used across workspaces. The time refers to the reporting and ingestion time, using a left-closed and right-open interval, with a maximum span of 366 days. Knowledge bases are filtered based on current bindings. The three API operations do not guarantee the same snapshot across requests.
      *
      * @param Request - QuerySourceUsageTrendRequest
      *
@@ -16632,6 +19220,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16721,6 +19321,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16836,6 +19448,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -16933,6 +19557,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17019,6 +19655,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17110,6 +19758,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17199,6 +19859,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17288,6 +19960,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17370,6 +20054,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17454,6 +20150,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17534,6 +20242,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17610,6 +20330,109 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * 设置企业知识库单库管理员.
+     *
+     * @remarks
+     * 全量替换知识库的可变用户和用户组管理员。省略或传空数组会清空对应可变主体；普通企业知识库创建者保留。仅支持知识库根目录；帮助库配置只允许平台超级管理员或知识库超级管理员。
+     *
+     * @param tmpReq - ReplaceKnowledgeBaseAdminsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplaceKnowledgeBaseAdminsResponse
+     *
+     * @param ReplaceKnowledgeBaseAdminsRequest $tmpReq
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ReplaceKnowledgeBaseAdminsResponse
+     */
+    public function replaceKnowledgeBaseAdminsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ReplaceKnowledgeBaseAdminsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userGroupIds) {
+            $request->userGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userGroupIds, 'userGroupIds', 'json');
+        }
+
+        if (null !== $tmpReq->userIds) {
+            $request->userIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'userIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->userGroupIdsShrink) {
+            @$body['userGroupIds'] = $request->userGroupIdsShrink;
+        }
+
+        if (null !== $request->userIdsShrink) {
+            @$body['userIds'] = $request->userIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReplaceKnowledgeBaseAdmins',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/replaceKnowledgeBaseAdmins',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReplaceKnowledgeBaseAdminsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置企业知识库单库管理员.
+     *
+     * @remarks
+     * 全量替换知识库的可变用户和用户组管理员。省略或传空数组会清空对应可变主体；普通企业知识库创建者保留。仅支持知识库根目录；帮助库配置只允许平台超级管理员或知识库超级管理员。
+     *
+     * @param Request - ReplaceKnowledgeBaseAdminsRequest
+     *
+     * @returns ReplaceKnowledgeBaseAdminsResponse
+     *
+     * @param ReplaceKnowledgeBaseAdminsRequest $request
+     *
+     * @return ReplaceKnowledgeBaseAdminsResponse
+     */
+    public function replaceKnowledgeBaseAdmins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->replaceKnowledgeBaseAdminsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Replaces a FILE resource in a specified enterprise knowledge base and triggers re-parsing.
      *
      * @remarks
@@ -17635,6 +20458,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17711,6 +20546,107 @@ class WinNexo extends OpenApiClient
     }
 
     /**
+     * Replaces all object bindings for enterprise knowledge base resources.
+     *
+     * @remarks
+     * Only TENANT resources can be modified: the current user must have administrative ACLs for all enterprise knowledge bases that are actually bound to the resource. Write permissions cannot be obtained by verifying only a single knowledge base.
+     * The identity is obtained from the unified authentication chain. Users, tenants, or scopes in the request body are not accepted. The resource must be within the current tenant. This operation does not support GROUP, mixed personal and enterprise directory bindings, broken-link directories, or internal assets of system or external knowledge bases.
+     * The objectBindings parameter performs a full replacement and supports up to 20 items. An empty array clears all bindings, and the clear operation also checks the write permissions of the resource. A non-empty list verifies the object type, object existence, and the current user\\"s object row read permissions grouped by graphName. Multiple graphs are supported, and normalized object bindings are returned.
+     * The local binding replacement is completed in the same transaction, and then DocumentAgent is synchronously notified to update semantics.object_bindings. The gateway timeout is 300,000 milliseconds. If the synchronization fails, an error is returned, and the local bindings may have already been committed. You can retry with the same binding list. This operation does not provide cross-service transactions.
+     *
+     * @param tmpReq - ReplaceKnowledgeBaseSourceObjectBindingsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplaceKnowledgeBaseSourceObjectBindingsResponse
+     *
+     * @param ReplaceKnowledgeBaseSourceObjectBindingsRequest $tmpReq
+     * @param string[]                                        $headers
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return ReplaceKnowledgeBaseSourceObjectBindingsResponse
+     */
+    public function replaceKnowledgeBaseSourceObjectBindingsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ReplaceKnowledgeBaseSourceObjectBindingsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectBindings) {
+            $request->objectBindingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectBindings, 'objectBindings', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->objectBindingsShrink) {
+            @$body['objectBindings'] = $request->objectBindingsShrink;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReplaceKnowledgeBaseSourceObjectBindings',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/replaceKnowledgeBaseSourceObjectBindings',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReplaceKnowledgeBaseSourceObjectBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Replaces all object bindings for enterprise knowledge base resources.
+     *
+     * @remarks
+     * Only TENANT resources can be modified: the current user must have administrative ACLs for all enterprise knowledge bases that are actually bound to the resource. Write permissions cannot be obtained by verifying only a single knowledge base.
+     * The identity is obtained from the unified authentication chain. Users, tenants, or scopes in the request body are not accepted. The resource must be within the current tenant. This operation does not support GROUP, mixed personal and enterprise directory bindings, broken-link directories, or internal assets of system or external knowledge bases.
+     * The objectBindings parameter performs a full replacement and supports up to 20 items. An empty array clears all bindings, and the clear operation also checks the write permissions of the resource. A non-empty list verifies the object type, object existence, and the current user\\"s object row read permissions grouped by graphName. Multiple graphs are supported, and normalized object bindings are returned.
+     * The local binding replacement is completed in the same transaction, and then DocumentAgent is synchronously notified to update semantics.object_bindings. The gateway timeout is 300,000 milliseconds. If the synchronization fails, an error is returned, and the local bindings may have already been committed. You can retry with the same binding list. This operation does not provide cross-service transactions.
+     *
+     * @param Request - ReplaceKnowledgeBaseSourceObjectBindingsRequest
+     *
+     * @returns ReplaceKnowledgeBaseSourceObjectBindingsResponse
+     *
+     * @param ReplaceKnowledgeBaseSourceObjectBindingsRequest $request
+     *
+     * @return ReplaceKnowledgeBaseSourceObjectBindingsResponse
+     */
+    public function replaceKnowledgeBaseSourceObjectBindings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->replaceKnowledgeBaseSourceObjectBindingsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Overwrites or clears manual memory.
      *
      * @remarks
@@ -17732,6 +20668,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17792,14 +20740,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Replaces all object binding information under a specified data source.
+     * Replaces all object bindings for a specified data source.
      *
      * @remarks
-     * ## Operation description
-     * This API performs a full replacement of object bindings for a specified data source (deletes existing bindings first, then inserts new bindings). If an empty list is passed, all bindings are cleared.
-     * - **Security constraints**: `tenant_id` and `user_id` must come from the authenticated identity.
+     * ## Request description
+     * This API operation replaces all object bindings for a specific data source by deleting existing bindings and inserting new ones. If an empty list is passed, all bindings are cleared.
+     * - **Security constraints**: The `tenant_id` and `user_id` must be derived from the authenticated identity.
      * - **Error handling**: If the specified data source does not exist, an `ERR.Robject.InvalidParameter` error is thrown and converted to a POP error code by the global middleware.
-     * - **Synchronous notification**: After a successful replacement, the system makes a best-effort synchronous notification to DocumentAgent to update `semantics.object_bindings`. However, failures are only logged and do not block the main process.
+     * - **Synchronous notification**: After a successful replacement, a best-effort synchronous notification is sent to DocumentAgent to update `semantics.object_bindings`. However, failures are only logged and do not block the main process.
+     *
+     * @deprecated OpenAPI ReplaceObjectBindings is deprecated
      *
      * @param tmpReq - ReplaceObjectBindingsRequest
      * @param headers - map
@@ -17823,6 +20773,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -17856,15 +20818,18 @@ class WinNexo extends OpenApiClient
         return ReplaceObjectBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * Replaces all object binding information under a specified data source.
+     * Replaces all object bindings for a specified data source.
      *
      * @remarks
-     * ## Operation description
-     * This API performs a full replacement of object bindings for a specified data source (deletes existing bindings first, then inserts new bindings). If an empty list is passed, all bindings are cleared.
-     * - **Security constraints**: `tenant_id` and `user_id` must come from the authenticated identity.
+     * ## Request description
+     * This API operation replaces all object bindings for a specific data source by deleting existing bindings and inserting new ones. If an empty list is passed, all bindings are cleared.
+     * - **Security constraints**: The `tenant_id` and `user_id` must be derived from the authenticated identity.
      * - **Error handling**: If the specified data source does not exist, an `ERR.Robject.InvalidParameter` error is thrown and converted to a POP error code by the global middleware.
-     * - **Synchronous notification**: After a successful replacement, the system makes a best-effort synchronous notification to DocumentAgent to update `semantics.object_bindings`. However, failures are only logged and do not block the main process.
+     * - **Synchronous notification**: After a successful replacement, a best-effort synchronous notification is sent to DocumentAgent to update `semantics.object_bindings`. However, failures are only logged and do not block the main process.
+     *
+     * @deprecated OpenAPI ReplaceObjectBindings is deprecated
      *
      * @param Request - ReplaceObjectBindingsRequest
      *
@@ -17880,6 +20845,101 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->replaceObjectBindingsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Replaces all object bindings for a personal resource.
+     *
+     * @remarks
+     * Only PERSONAL resources can be modified. The current user must be both the creator of the resource and the owner of all actual bound directories, and the directory ownership must match the resource scope. Identity is obtained from the unified authentication chain. Users, tenants, or scopes in the request body are not accepted. The resource must be within the current tenant. This operation does not support GROUP, mixed personal and enterprise directory bindings, broken-link directories, or internal assets of system or external knowledge bases. The objectBindings parameter performs a full replacement and supports up to 20 items. An empty array clears all bindings, and the clear operation also checks the write permissions of the resource. A non-empty list validates the object type, object existence, and the current user\\"s object row read permissions grouped by graphName. Multiple graphs are supported, and normalized object bindings are returned. Local binding replacement is completed in the same transaction, followed by a synchronous notification to DocumentAgent to update semantics.object_bindings. The gateway timeout is 300,000 milliseconds. If the synchronization fails, an error is returned, and the local bindings may have already been committed. You can retry with the same binding list. This operation does not provide cross-service transactions.
+     *
+     * @param tmpReq - ReplacePersonalSourceObjectBindingsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReplacePersonalSourceObjectBindingsResponse
+     *
+     * @param ReplacePersonalSourceObjectBindingsRequest $tmpReq
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ReplacePersonalSourceObjectBindingsResponse
+     */
+    public function replacePersonalSourceObjectBindingsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ReplacePersonalSourceObjectBindingsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectBindings) {
+            $request->objectBindingsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectBindings, 'objectBindings', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->objectBindingsShrink) {
+            @$body['objectBindings'] = $request->objectBindingsShrink;
+        }
+
+        if (null !== $request->sourceId) {
+            @$body['sourceId'] = $request->sourceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ReplacePersonalSourceObjectBindings',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/replacePersonalSourceObjectBindings',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReplacePersonalSourceObjectBindingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Replaces all object bindings for a personal resource.
+     *
+     * @remarks
+     * Only PERSONAL resources can be modified. The current user must be both the creator of the resource and the owner of all actual bound directories, and the directory ownership must match the resource scope. Identity is obtained from the unified authentication chain. Users, tenants, or scopes in the request body are not accepted. The resource must be within the current tenant. This operation does not support GROUP, mixed personal and enterprise directory bindings, broken-link directories, or internal assets of system or external knowledge bases. The objectBindings parameter performs a full replacement and supports up to 20 items. An empty array clears all bindings, and the clear operation also checks the write permissions of the resource. A non-empty list validates the object type, object existence, and the current user\\"s object row read permissions grouped by graphName. Multiple graphs are supported, and normalized object bindings are returned. Local binding replacement is completed in the same transaction, followed by a synchronous notification to DocumentAgent to update semantics.object_bindings. The gateway timeout is 300,000 milliseconds. If the synchronization fails, an error is returned, and the local bindings may have already been committed. You can retry with the same binding list. This operation does not provide cross-service transactions.
+     *
+     * @param Request - ReplacePersonalSourceObjectBindingsRequest
+     *
+     * @returns ReplacePersonalSourceObjectBindingsResponse
+     *
+     * @param ReplacePersonalSourceObjectBindingsRequest $request
+     *
+     * @return ReplacePersonalSourceObjectBindingsResponse
+     */
+    public function replacePersonalSourceObjectBindings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->replacePersonalSourceObjectBindingsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -17908,6 +20968,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18005,6 +21077,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18086,6 +21170,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18146,18 +21242,18 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Resets the password of a user.
+     * Resets a user password.
      *
      * @remarks
-     * Resets the password of a user through OpenAPI.
+     * Resets a user password through OpenAPI.
      *     Business orchestration:
-     *     1. Call UserManagementService.reset_member_password with password_encrypted (required).
-     *        The service internally performs RSA decryption, complexity validation, bcrypt hashing, and writes the result.
-     *     2. Returns the reset result.
+     *     1. Call UserManagementService.reset_member_password and pass in password_encrypted (required).
+     *        -> The service internally performs RSA decryption, complexity check, bcrypt hashing, and data writing.
+     *     2. Return the reset result.
      *     Error codes:
      *     - ERR.User.NotFound: The user does not exist.
-     *     - ERR.User.NotInTenant: The user does not belong to the current tenant.
-     *     - ERR.User.WinnexoPasswordRequired: The user does not have password credentials (non-WINNEXO type).
+     *     - ERR.User.NotInTenant: The user is not in the current tenant.
+     *     - ERR.User.WinnexoPasswordRequired: The user has no password credentials (not of the WINNEXO type).
      *
      * @param Request - ResetPasswordRequest
      * @param headers - map
@@ -18175,6 +21271,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18209,18 +21317,18 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Resets the password of a user.
+     * Resets a user password.
      *
      * @remarks
-     * Resets the password of a user through OpenAPI.
+     * Resets a user password through OpenAPI.
      *     Business orchestration:
-     *     1. Call UserManagementService.reset_member_password with password_encrypted (required).
-     *        The service internally performs RSA decryption, complexity validation, bcrypt hashing, and writes the result.
-     *     2. Returns the reset result.
+     *     1. Call UserManagementService.reset_member_password and pass in password_encrypted (required).
+     *        -> The service internally performs RSA decryption, complexity check, bcrypt hashing, and data writing.
+     *     2. Return the reset result.
      *     Error codes:
      *     - ERR.User.NotFound: The user does not exist.
-     *     - ERR.User.NotInTenant: The user does not belong to the current tenant.
-     *     - ERR.User.WinnexoPasswordRequired: The user does not have password credentials (non-WINNEXO type).
+     *     - ERR.User.NotInTenant: The user is not in the current tenant.
+     *     - ERR.User.WinnexoPasswordRequired: The user has no password credentials (not of the WINNEXO type).
      *
      * @param Request - ResetPasswordRequest
      *
@@ -18349,6 +21457,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18434,6 +21554,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18515,6 +21647,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18596,6 +21740,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18682,6 +21838,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18771,6 +21939,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18859,6 +22039,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -18960,6 +22152,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -19059,6 +22263,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -19177,6 +22393,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -19285,6 +22513,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -19396,6 +22636,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -19499,6 +22751,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -19603,6 +22867,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -19691,6 +22967,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -19775,6 +23063,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -19885,11 +23185,27 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
 
         $body = [];
+        if (null !== $request->autoPreference) {
+            @$body['autoPreference'] = $request->autoPreference;
+        }
+
         if (null !== $request->content) {
             @$body['content'] = $request->content;
         }
@@ -19948,6 +23264,14 @@ class WinNexo extends OpenApiClient
 
         if (null !== $request->taskExecutionShrink) {
             @$body['taskExecution'] = $request->taskExecutionShrink;
+        }
+
+        if (null !== $request->thinkingEnabled) {
+            @$body['thinkingEnabled'] = $request->thinkingEnabled;
+        }
+
+        if (null !== $request->thinkingLevel) {
+            @$body['thinkingLevel'] = $request->thinkingLevel;
         }
 
         if (null !== $request->workMode) {
@@ -20002,10 +23326,10 @@ class WinNexo extends OpenApiClient
      * @remarks
      * ## Request description
      * - This API operation uploads a file to the My Resources section of a specified digital employee.
-     * - The source_type parameter is fixed to FILE, the scope parameter is fixed to PERSONAL, and the platform parameter is fixed to LOCAL.
-     * - You must provide an OSS persistence address (filePath) for the file. Other information, such as the public access URL and the original file name, is optional.
-     * - If you do not specify a target folder ID (directoryId), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure that the folder belongs to the personal folder of the user who invokes the API.
-     * - You can authenticate through multiple methods (such as AK, BearerToken, and APP) for security authentication.
+     * - source_type is fixed to FILE, scope is fixed to PERSONAL, and platform is fixed to LOCAL.
+     * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+     * - If the destination folder ID (directoryId) is not specified, the system will automatically attach the file to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the user who will invoke the API.
+     * - Multiple authentication methods, such as AK, BearerToken, and APP, are supported to authenticate and perform security authentication.
      * - The operation type is write, and operation logs are recorded for subsequent auditing.
      *
      * @param tmpReq - SendChatMessageRequest
@@ -20046,11 +23370,27 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
 
         $body = [];
+        if (null !== $request->autoPreference) {
+            @$body['autoPreference'] = $request->autoPreference;
+        }
+
         if (null !== $request->content) {
             @$body['content'] = $request->content;
         }
@@ -20109,6 +23449,14 @@ class WinNexo extends OpenApiClient
 
         if (null !== $request->taskExecutionShrink) {
             @$body['taskExecution'] = $request->taskExecutionShrink;
+        }
+
+        if (null !== $request->thinkingEnabled) {
+            @$body['thinkingEnabled'] = $request->thinkingEnabled;
+        }
+
+        if (null !== $request->thinkingLevel) {
+            @$body['thinkingLevel'] = $request->thinkingLevel;
         }
 
         if (null !== $request->workMode) {
@@ -20154,10 +23502,10 @@ class WinNexo extends OpenApiClient
      * @remarks
      * ## Request description
      * - This API operation uploads a file to the My Resources section of a specified digital employee.
-     * - The source_type parameter is fixed to FILE, the scope parameter is fixed to PERSONAL, and the platform parameter is fixed to LOCAL.
-     * - You must provide an OSS persistence address (filePath) for the file. Other information, such as the public access URL and the original file name, is optional.
-     * - If you do not specify a target folder ID (directoryId), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure that the folder belongs to the personal folder of the user who invokes the API.
-     * - You can authenticate through multiple methods (such as AK, BearerToken, and APP) for security authentication.
+     * - source_type is fixed to FILE, scope is fixed to PERSONAL, and platform is fixed to LOCAL.
+     * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+     * - If the destination folder ID (directoryId) is not specified, the system will automatically attach the file to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the user who will invoke the API.
+     * - Multiple authentication methods, such as AK, BearerToken, and APP, are supported to authenticate and perform security authentication.
      * - The operation type is write, and operation logs are recorded for subsequent auditing.
      *
      * @param tmpReq - SendChatMessageRequest
@@ -20198,11 +23546,27 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
 
         $body = [];
+        if (null !== $request->autoPreference) {
+            @$body['autoPreference'] = $request->autoPreference;
+        }
+
         if (null !== $request->content) {
             @$body['content'] = $request->content;
         }
@@ -20263,6 +23627,14 @@ class WinNexo extends OpenApiClient
             @$body['taskExecution'] = $request->taskExecutionShrink;
         }
 
+        if (null !== $request->thinkingEnabled) {
+            @$body['thinkingEnabled'] = $request->thinkingEnabled;
+        }
+
+        if (null !== $request->thinkingLevel) {
+            @$body['thinkingLevel'] = $request->thinkingLevel;
+        }
+
         if (null !== $request->workMode) {
             @$body['workMode'] = $request->workMode;
         }
@@ -20293,10 +23665,10 @@ class WinNexo extends OpenApiClient
      * @remarks
      * ## Request description
      * - This API operation uploads a file to the My Resources section of a specified digital employee.
-     * - The source_type parameter is fixed to FILE, the scope parameter is fixed to PERSONAL, and the platform parameter is fixed to LOCAL.
-     * - You must provide an OSS persistence address (filePath) for the file. Other information, such as the public access URL and the original file name, is optional.
-     * - If you do not specify a target folder ID (directoryId), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure that the folder belongs to the personal folder of the user who invokes the API.
-     * - You can authenticate through multiple methods (such as AK, BearerToken, and APP) for security authentication.
+     * - source_type is fixed to FILE, scope is fixed to PERSONAL, and platform is fixed to LOCAL.
+     * - The file must be provided with an OSS persistence address (filePath). Other information, such as the public access URL and original file name, is optional.
+     * - If the destination folder ID (directoryId) is not specified, the system will automatically attach the file to the default root folder of the current digital employee. If it is specified, ensure that the folder belongs to the personal folder of the user who will invoke the API.
+     * - Multiple authentication methods, such as AK, BearerToken, and APP, are supported to authenticate and perform security authentication.
      * - The operation type is write, and operation logs are recorded for subsequent auditing.
      *
      * @param Request - SendChatMessageRequest
@@ -20337,6 +23709,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -20401,10 +23785,125 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Sets the personal pin status of a work item for a valid member.
+     * Sets the visibility scope of an enterprise knowledge base.
      *
      * @remarks
-     * Sets the personal pin status of a work item for a valid member.
+     * Configures the Settings for the read access scope of a knowledge base, folder, or resource. To invoke this operation, you must have knowledge base management permissions on the target knowledge base, because knowledge base management permissions do not automatically grant read access to the content.
+     *
+     * @param tmpReq - SetKnowledgeBaseVisibilityRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetKnowledgeBaseVisibilityResponse
+     *
+     * @param SetKnowledgeBaseVisibilityRequest $tmpReq
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SetKnowledgeBaseVisibilityResponse
+     */
+    public function setKnowledgeBaseVisibilityWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SetKnowledgeBaseVisibilityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->userGroupIds) {
+            $request->userGroupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userGroupIds, 'userGroupIds', 'json');
+        }
+
+        if (null !== $tmpReq->userIds) {
+            $request->userIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'userIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->cascadeMode) {
+            @$body['cascadeMode'] = $request->cascadeMode;
+        }
+
+        if (null !== $request->targetId) {
+            @$body['targetId'] = $request->targetId;
+        }
+
+        if (null !== $request->targetType) {
+            @$body['targetType'] = $request->targetType;
+        }
+
+        if (null !== $request->userGroupIdsShrink) {
+            @$body['userGroupIds'] = $request->userGroupIdsShrink;
+        }
+
+        if (null !== $request->userIdsShrink) {
+            @$body['userIds'] = $request->userIdsShrink;
+        }
+
+        if (null !== $request->visibilityMode) {
+            @$body['visibilityMode'] = $request->visibilityMode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetKnowledgeBaseVisibility',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/setKnowledgeBaseVisibility',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetKnowledgeBaseVisibilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets the visibility scope of an enterprise knowledge base.
+     *
+     * @remarks
+     * Configures the Settings for the read access scope of a knowledge base, folder, or resource. To invoke this operation, you must have knowledge base management permissions on the target knowledge base, because knowledge base management permissions do not automatically grant read access to the content.
+     *
+     * @param Request - SetKnowledgeBaseVisibilityRequest
+     *
+     * @returns SetKnowledgeBaseVisibilityResponse
+     *
+     * @param SetKnowledgeBaseVisibilityRequest $request
+     *
+     * @return SetKnowledgeBaseVisibilityResponse
+     */
+    public function setKnowledgeBaseVisibility($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->setKnowledgeBaseVisibilityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Sets the personal pin status of a work item for a member.
+     *
+     * @remarks
+     * Sets the personal pin status of a work item for a member.
      *
      * @param Request - SetWorkItemPinnedRequest
      * @param headers - map
@@ -20422,6 +23921,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -20460,10 +23971,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Sets the personal pin status of a work item for a valid member.
+     * Sets the personal pin status of a work item for a member.
      *
      * @remarks
-     * Sets the personal pin status of a work item for a valid member.
+     * Sets the personal pin status of a work item for a member.
      *
      * @param Request - SetWorkItemPinnedRequest
      *
@@ -20503,6 +24014,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -20581,6 +24104,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->sessionId) {
             @$query['sessionId'] = $request->sessionId;
         }
@@ -20650,8 +24185,20 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->lastEventId) {
             @$query['lastEventId'] = $request->lastEventId;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->tenantId) {
@@ -20713,8 +24260,20 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
         if (null !== $request->lastEventId) {
             @$query['lastEventId'] = $request->lastEventId;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
         }
 
         if (null !== $request->tenantId) {
@@ -20791,6 +24350,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -20886,6 +24457,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -20987,6 +24570,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21083,6 +24678,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21190,6 +24797,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21387,6 +25006,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21447,16 +25078,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Updates the authorization mode for digital employee usage permissions.
+     * Updates the authorization mode of usage permissions for a digital employee.
      *
      * @remarks
-     * Switches the authorization mode for digital employee usage permissions.
-     *     Business logic:
-     *     1. Constructs an AuthContext from the identity.
-     *     2. Delegates to AgentAuthorizationAuthorizedService.update_auth_mode for execution.
-     *     3. Pre-validation: MANAGE permission + agent existence check (performed by the AuthorizedService layer, which authenticates before exposing existence).
-     *     4. SPECIFIED_USERS: Explicit authorization is required before usage.
-     *     5. ALL_USERS: All users can use the digital employee without authorization (management permissions are not affected).
+     * Switches the authorization mode of usage permissions for a digital employee.
+     * Business logic:
+     * 1. Constructs an AuthContext from the identity.
+     * 2. Delegates the execution to AgentAuthorizationAuthorizedService.update_auth_mode.
+     * 3. Pre-checks: MANAGE permission and agent existence. This is executed by the AuthorizedService layer, which performs authentication before exposing the existence of the agent.
+     * 4. SPECIFIED_USERS: Explicit authorization is required for usage.
+     * 5. ALL_USERS: All users can use the digital employee without authorization. Management permissions remain unaffected.
      *
      * @param Request - UpdateAgentAuthModeRequest
      * @param headers - map
@@ -21474,6 +25105,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21508,16 +25151,16 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Updates the authorization mode for digital employee usage permissions.
+     * Updates the authorization mode of usage permissions for a digital employee.
      *
      * @remarks
-     * Switches the authorization mode for digital employee usage permissions.
-     *     Business logic:
-     *     1. Constructs an AuthContext from the identity.
-     *     2. Delegates to AgentAuthorizationAuthorizedService.update_auth_mode for execution.
-     *     3. Pre-validation: MANAGE permission + agent existence check (performed by the AuthorizedService layer, which authenticates before exposing existence).
-     *     4. SPECIFIED_USERS: Explicit authorization is required before usage.
-     *     5. ALL_USERS: All users can use the digital employee without authorization (management permissions are not affected).
+     * Switches the authorization mode of usage permissions for a digital employee.
+     * Business logic:
+     * 1. Constructs an AuthContext from the identity.
+     * 2. Delegates the execution to AgentAuthorizationAuthorizedService.update_auth_mode.
+     * 3. Pre-checks: MANAGE permission and agent existence. This is executed by the AuthorizedService layer, which performs authentication before exposing the existence of the agent.
+     * 4. SPECIFIED_USERS: Explicit authorization is required for usage.
+     * 5. ALL_USERS: All users can use the digital employee without authorization. Management permissions remain unaffected.
      *
      * @param Request - UpdateAgentAuthModeRequest
      *
@@ -21557,6 +25200,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21647,6 +25302,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21724,11 +25391,11 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Updates the basic information of a knowledge graph.
+     * Updates the basic information of a semantic graph.
      *
      * @remarks
-     * Updates the metadata of a knowledge graph (displayName / businessProfile) through OpenAPI and synchronously updates the active record.
-     *     At least one of displayName and businessProfile must be specified. Otherwise, ERR.GraphSchema.QuickUpdateNoFieldsToUpdate is returned.
+     * Quickly updates the metadata (displayName or businessProfile) of a graph and synchronously updates the active record.
+     *     You must specify at least one of displayName and businessProfile. Otherwise, the ERR.GraphSchema.QuickUpdateNoFieldsToUpdate error is returned.
      *     Error codes:
      *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: No updatable fields are specified.
      *     - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
@@ -21751,6 +25418,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21789,11 +25468,11 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Updates the basic information of a knowledge graph.
+     * Updates the basic information of a semantic graph.
      *
      * @remarks
-     * Updates the metadata of a knowledge graph (displayName / businessProfile) through OpenAPI and synchronously updates the active record.
-     *     At least one of displayName and businessProfile must be specified. Otherwise, ERR.GraphSchema.QuickUpdateNoFieldsToUpdate is returned.
+     * Quickly updates the metadata (displayName or businessProfile) of a graph and synchronously updates the active record.
+     *     You must specify at least one of displayName and businessProfile. Otherwise, the ERR.GraphSchema.QuickUpdateNoFieldsToUpdate error is returned.
      *     Error codes:
      *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: No updatable fields are specified.
      *     - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
@@ -21817,10 +25496,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Modifies a folder in the materials section of a collaborative share.
+     * Modifies a material directory in a collaboration workspace.
      *
      * @remarks
-     * The folder creator or a storage management administrator who is an active member can modify the folder. Modifying the internal root folder or reference folders is prohibited. If description is set to an empty character string, the description is cleared. If description is set to null or omitted, the description remains unchanged. At least one of name or description must be non-null.
+     * Only the folder creator or a workspace administrator with storage management permissions who is an active member can modify the folder. Internal root folders and referenced folders cannot be modified. An empty character string clears the description, while null or an omitted value leaves it unchanged. At least one of the name or description parameters must be non-null.
      *
      * @param Request - UpdateGroupDirectoryRequest
      * @param headers - map
@@ -21838,6 +25517,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21880,10 +25571,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Modifies a folder in the materials section of a collaborative share.
+     * Modifies a material directory in a collaboration workspace.
      *
      * @remarks
-     * The folder creator or a storage management administrator who is an active member can modify the folder. Modifying the internal root folder or reference folders is prohibited. If description is set to an empty character string, the description is cleared. If description is set to null or omitted, the description remains unchanged. At least one of name or description must be non-null.
+     * Only the folder creator or a workspace administrator with storage management permissions who is an active member can modify the folder. Internal root folders and referenced folders cannot be modified. An empty character string clears the description, while null or an omitted value leaves it unchanged. At least one of the name or description parameters must be non-null.
      *
      * @param Request - UpdateGroupDirectoryRequest
      *
@@ -21902,10 +25593,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Modifies the body content of a collaborative share resource.
+     * Modifies the body of a collaboration workspace material.
      *
      * @remarks
-     * Valid members who are the creator or storage management administrator can edit physical resources. References are read-only. TEXT and local txt/md files are typically supported. Leading and trailing whitespace is trimmed for TEXT. Existing resources with skip_parse retain the no-parse and local file name extension rules.
+     * Valid members who are the creator or workspace administrators with storage management permissions can edit physical materials. References are read-only. TEXT and local txt/md formats are generally supported. Leading and trailing whitespaces are removed from TEXT. Existing materials with skip_parse continue to follow the parsing exemption and local file name extension rules.
      *
      * @param Request - UpdateGroupSourceContentRequest
      * @param headers - map
@@ -21923,6 +25614,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -21965,10 +25668,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Modifies the body content of a collaborative share resource.
+     * Modifies the body of a collaboration workspace material.
      *
      * @remarks
-     * Valid members who are the creator or storage management administrator can edit physical resources. References are read-only. TEXT and local txt/md files are typically supported. Leading and trailing whitespace is trimmed for TEXT. Existing resources with skip_parse retain the no-parse and local file name extension rules.
+     * Valid members who are the creator or workspace administrators with storage management permissions can edit physical materials. References are read-only. TEXT and local txt/md formats are generally supported. Leading and trailing whitespaces are removed from TEXT. Existing materials with skip_parse continue to follow the parsing exemption and local file name extension rules.
      *
      * @param Request - UpdateGroupSourceContentRequest
      *
@@ -21992,11 +25695,11 @@ class WinNexo extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This operation modifies a directory in the enterprise knowledge base.
-     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this API operation.
-     * - The `tenantId` parameter is optional. If not provided, the tenant ID of the caller is used by default.
-     * - You must specify the `directoryId` of the directory to modify. The `name`, `description`, and `parentDirectoryId` parameters are optional. If not provided, the corresponding fields remain unchanged.
-     * - When a new `parentDirectoryId` is specified, the system checks whether the new parent directory belongs to the current tenant and does not cause a circular dependency.
-     * - This API operation supports multiple authentication methods (AK, BearerToken, APP) and has RAM permission control and operation auditing enabled.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
+     * - The tenantId parameter is optional. If you do not specify this parameter, the tenant ID of the caller is used by default.
+     * - You must specify the directoryId of the directory to be modified. The name, description, and parentDirectoryId parameters are optional. If you do not specify these parameters, the corresponding fields remain unchanged.
+     * - If you specify a new parentDirectoryId, the system checks whether the new parent directory belongs to the current tenant and whether the change causes circular references.
+     * - For security, this operation supports multiple authentication methods, such as AK, BearerToken, and APP. It also supports Resource Access Management (RAM) permission control and operation auditing.
      *
      * @param Request - UpdateKnowledgeBaseDirectoryRequest
      * @param headers - map
@@ -22014,6 +25717,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -22061,11 +25776,11 @@ class WinNexo extends OpenApiClient
      * @remarks
      * ## Operation description
      * - This operation modifies a directory in the enterprise knowledge base.
-     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this API operation.
-     * - The `tenantId` parameter is optional. If not provided, the tenant ID of the caller is used by default.
-     * - You must specify the `directoryId` of the directory to modify. The `name`, `description`, and `parentDirectoryId` parameters are optional. If not provided, the corresponding fields remain unchanged.
-     * - When a new `parentDirectoryId` is specified, the system checks whether the new parent directory belongs to the current tenant and does not cause a circular dependency.
-     * - This API operation supports multiple authentication methods (AK, BearerToken, APP) and has RAM permission control and operation auditing enabled.
+     * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
+     * - The tenantId parameter is optional. If you do not specify this parameter, the tenant ID of the caller is used by default.
+     * - You must specify the directoryId of the directory to be modified. The name, description, and parentDirectoryId parameters are optional. If you do not specify these parameters, the corresponding fields remain unchanged.
+     * - If you specify a new parentDirectoryId, the system checks whether the new parent directory belongs to the current tenant and whether the change causes circular references.
+     * - For security, this operation supports multiple authentication methods, such as AK, BearerToken, and APP. It also supports Resource Access Management (RAM) permission control and operation auditing.
      *
      * @param Request - UpdateKnowledgeBaseDirectoryRequest
      *
@@ -22081,6 +25796,107 @@ class WinNexo extends OpenApiClient
         $headers = [];
 
         return $this->updateKnowledgeBaseDirectoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Saves the LLM Wiki (OKF) switch and automatic execution schedule for a standard enterprise knowledge base, and returns the saved configuration and task status.
+     *
+     * @remarks
+     * Requires an active member identity in the current tenant and knowledge base management permissions for the target knowledge base. Invoke GetKnowledgeBaseSmartIndexConfiguration first to obtain the revision, and use expectedRevision to prevent concurrent overwrites. This operation performs a full save. Omitting cronExpression changes the schedule to manual. To retain the original schedule, you must commit both cronExpression and timezone. Switching from disabled to enabled creates a new artifact directory, an asynchronous full build task, and a bill. If the quota pre-check fails, the system will deny the enabling request. Keeping it enabled only updates the schedule and does not proactively trigger new builds. You cannot toggle the switch when you execute the task. If artifacts exist when disabled, asynchronous cleanup is initiated, and you cannot re-enable it until cleanup is complete. A successful save does not indicate that the build or billing is complete. The revision increments by 1 after each successful save. In case of a timeout, read the actual result first and do not blindly replay requests with old versions.
+     *
+     * @param Request - UpdateKnowledgeBaseSmartIndexConfigurationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseSmartIndexConfigurationResponse
+     *
+     * @param UpdateKnowledgeBaseSmartIndexConfigurationRequest $request
+     * @param string[]                                          $headers
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return UpdateKnowledgeBaseSmartIndexConfigurationResponse
+     */
+    public function updateKnowledgeBaseSmartIndexConfigurationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['tenantId'] = $request->tenantId;
+        }
+
+        $body = [];
+        if (null !== $request->cronExpression) {
+            @$body['cronExpression'] = $request->cronExpression;
+        }
+
+        if (null !== $request->directoryId) {
+            @$body['directoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->expectedRevision) {
+            @$body['expectedRevision'] = $request->expectedRevision;
+        }
+
+        if (null !== $request->timezone) {
+            @$body['timezone'] = $request->timezone;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBaseSmartIndexConfiguration',
+            'version' => '2026-05-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/updateKnowledgeBaseSmartIndexConfiguration',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseSmartIndexConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Saves the LLM Wiki (OKF) switch and automatic execution schedule for a standard enterprise knowledge base, and returns the saved configuration and task status.
+     *
+     * @remarks
+     * Requires an active member identity in the current tenant and knowledge base management permissions for the target knowledge base. Invoke GetKnowledgeBaseSmartIndexConfiguration first to obtain the revision, and use expectedRevision to prevent concurrent overwrites. This operation performs a full save. Omitting cronExpression changes the schedule to manual. To retain the original schedule, you must commit both cronExpression and timezone. Switching from disabled to enabled creates a new artifact directory, an asynchronous full build task, and a bill. If the quota pre-check fails, the system will deny the enabling request. Keeping it enabled only updates the schedule and does not proactively trigger new builds. You cannot toggle the switch when you execute the task. If artifacts exist when disabled, asynchronous cleanup is initiated, and you cannot re-enable it until cleanup is complete. A successful save does not indicate that the build or billing is complete. The revision increments by 1 after each successful save. In case of a timeout, read the actual result first and do not blindly replay requests with old versions.
+     *
+     * @param Request - UpdateKnowledgeBaseSmartIndexConfigurationRequest
+     *
+     * @returns UpdateKnowledgeBaseSmartIndexConfigurationResponse
+     *
+     * @param UpdateKnowledgeBaseSmartIndexConfigurationRequest $request
+     *
+     * @return UpdateKnowledgeBaseSmartIndexConfigurationResponse
+     */
+    public function updateKnowledgeBaseSmartIndexConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateKnowledgeBaseSmartIndexConfigurationWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -22108,6 +25924,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -22199,6 +26027,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -22283,6 +26123,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -22394,11 +26246,27 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
 
         $body = [];
+        if (null !== $request->autoPreference) {
+            @$body['autoPreference'] = $request->autoPreference;
+        }
+
         if (null !== $request->descriptionShrink) {
             @$body['description'] = $request->descriptionShrink;
         }
@@ -22521,6 +26389,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -22631,6 +26511,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -22696,32 +26588,54 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Modifies knowledge base folder information.
+     * Updates the directory information of an enterprise knowledge base and modifies the digital employee association and AI version summary configuration for a standard enterprise root.
      *
      * @remarks
-     * Modifies knowledge base folder information.
+     * Requires management permissions for the target knowledge base. For a standard enterprise root, directory information, digital employee associations, and version summaries can be saved simultaneously. If validation or writing fails, the entire operation is rolled back. When modifying the configuration, you cannot pass a non-null parentId to move it to a subdirectory at the same time. Omitted or null configuration fields retain their original values, while false and empty arrays are explicit configuration values. Smart indexes are saved separately through UpdateKnowledgeBaseSmartIndexConfiguration, and the two calls do not constitute a cross-API transaction.
      *
-     * @param Request - UpdateTenantDirectoryRequest
+     * @param tmpReq - UpdateTenantDirectoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateTenantDirectoryResponse
      *
-     * @param UpdateTenantDirectoryRequest $request
+     * @param UpdateTenantDirectoryRequest $tmpReq
      * @param string[]                     $headers
      * @param RuntimeOptions               $runtime
      *
      * @return UpdateTenantDirectoryResponse
      */
-    public function updateTenantDirectoryWithOptions($request, $headers, $runtime)
+    public function updateTenantDirectoryWithOptions($tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateTenantDirectoryShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operatingObjectNames) {
+            $request->operatingObjectNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operatingObjectNames, 'operatingObjectNames', 'json');
+        }
+
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
 
         $body = [];
+        if (null !== $request->changeRecordEnabled) {
+            @$body['changeRecordEnabled'] = $request->changeRecordEnabled;
+        }
+
         if (null !== $request->description) {
             @$body['description'] = $request->description;
         }
@@ -22732,6 +26646,14 @@ class WinNexo extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->ooVisibilityMode) {
+            @$body['ooVisibilityMode'] = $request->ooVisibilityMode;
+        }
+
+        if (null !== $request->operatingObjectNamesShrink) {
+            @$body['operatingObjectNames'] = $request->operatingObjectNamesShrink;
         }
 
         if (null !== $request->parentId) {
@@ -22763,10 +26685,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Modifies knowledge base folder information.
+     * Updates the directory information of an enterprise knowledge base and modifies the digital employee association and AI version summary configuration for a standard enterprise root.
      *
      * @remarks
-     * Modifies knowledge base folder information.
+     * Requires management permissions for the target knowledge base. For a standard enterprise root, directory information, digital employee associations, and version summaries can be saved simultaneously. If validation or writing fails, the entire operation is rolled back. When modifying the configuration, you cannot pass a non-null parentId to move it to a subdirectory at the same time. Omitted or null configuration fields retain their original values, while false and empty arrays are explicit configuration values. Smart indexes are saved separately through UpdateKnowledgeBaseSmartIndexConfiguration, and the two calls do not constitute a cross-API transaction.
      *
      * @param Request - UpdateTenantDirectoryRequest
      *
@@ -22788,16 +26710,16 @@ class WinNexo extends OpenApiClient
      * Modifies user information, including enabling or disabling the user.
      *
      * @remarks
-     * Modifies user information through OpenAPI.
-     *     Business orchestration:
-     *     1. Parse roleCodes → role_ids
-     *     2. If isActive has changed, perform the status switch first (including last super admin protection)
-     *     3. Call update_tenant_member to modify other fields (displayName / roleCodes / userGroupIds)
-     *     4. Return HTTP 200 if all steps succeed
-     *     Execution order notes:
-     *     - The isActive status change is performed before other field writes. The two steps are not in the same transaction.
-     *     - If validation fails (such as last super admin protection) → an exception is thrown and subsequent steps are not executed.
-     *     - If the isActive change has been persisted but a subsequent step fails, the isActive change is not rolled back.
+     * Modifies user information.
+     *     Workflow:
+     *     1. Parse roleCodes into role_ids.
+     *     2. If isActive changes, switch the status first, including protection for the last super administrator.
+     *     3. Call update_tenant_member to modify other fields such as displayName, roleCodes, and userGroupIds.
+     *     4. Return HTTP 200 if all steps succeed.
+     *     Execution sequence:
+     *     - The isActive status change is written before other fields. The two steps are not in the same transaction.
+     *     - If validation fails, such as protection for the last super administrator, an exception is thrown and subsequent steps are not executed.
+     *     - If the isActive change is persisted to the database but a subsequent step throws an exception, the isActive change is not rolled back.
      *
      * @param tmpReq - UpdateUserRequest
      * @param headers - map
@@ -22825,6 +26747,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -22874,16 +26808,16 @@ class WinNexo extends OpenApiClient
      * Modifies user information, including enabling or disabling the user.
      *
      * @remarks
-     * Modifies user information through OpenAPI.
-     *     Business orchestration:
-     *     1. Parse roleCodes → role_ids
-     *     2. If isActive has changed, perform the status switch first (including last super admin protection)
-     *     3. Call update_tenant_member to modify other fields (displayName / roleCodes / userGroupIds)
-     *     4. Return HTTP 200 if all steps succeed
-     *     Execution order notes:
-     *     - The isActive status change is performed before other field writes. The two steps are not in the same transaction.
-     *     - If validation fails (such as last super admin protection) → an exception is thrown and subsequent steps are not executed.
-     *     - If the isActive change has been persisted but a subsequent step fails, the isActive change is not rolled back.
+     * Modifies user information.
+     *     Workflow:
+     *     1. Parse roleCodes into role_ids.
+     *     2. If isActive changes, switch the status first, including protection for the last super administrator.
+     *     3. Call update_tenant_member to modify other fields such as displayName, roleCodes, and userGroupIds.
+     *     4. Return HTTP 200 if all steps succeed.
+     *     Execution sequence:
+     *     - The isActive status change is written before other fields. The two steps are not in the same transaction.
+     *     - If validation fails, such as protection for the last super administrator, an exception is thrown and subsequent steps are not executed.
+     *     - If the isActive change is persisted to the database but a subsequent step throws an exception, the isActive change is not rolled back.
      *
      * @param Request - UpdateUserRequest
      *
@@ -22906,7 +26840,7 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This operation supports atomic updates to user group information, including but not limited to the user group name, description, and its position in the organizational structure (by setting a new parent user group ID or moving to the root node). Note that when attempting to move a user group to the root node, you must not provide a non-null `parentId` value at the same time. Additionally, if you do not want to modify certain fields such as `userGroupName` or `description`, you can omit these parameters.
+     * This operation atomically updates the information of a user group, including but not limited to the user group name, description, and its position in the organizational structure (by setting a new parent user group ID or moving it to the root node). Note that when attempting to move a user group to the root node, you must not provide a non-null `parentId` value at the same time. Additionally, if you do not want to modify certain fields such as `userGroupName` or `description`, you can omit these parameters.
      *
      * @param Request - UpdateUserGroupRequest
      * @param headers - map
@@ -22924,6 +26858,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -22974,7 +26920,7 @@ class WinNexo extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This operation supports atomic updates to user group information, including but not limited to the user group name, description, and its position in the organizational structure (by setting a new parent user group ID or moving to the root node). Note that when attempting to move a user group to the root node, you must not provide a non-null `parentId` value at the same time. Additionally, if you do not want to modify certain fields such as `userGroupName` or `description`, you can omit these parameters.
+     * This operation atomically updates the information of a user group, including but not limited to the user group name, description, and its position in the organizational structure (by setting a new parent user group ID or moving it to the root node). Note that when attempting to move a user group to the root node, you must not provide a non-null `parentId` value at the same time. Additionally, if you do not want to modify certain fields such as `userGroupName` or `description`, you can omit these parameters.
      *
      * @param Request - UpdateUserGroupRequest
      *
@@ -23020,6 +26966,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -23133,6 +27091,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -23257,6 +27227,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -23330,10 +27312,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Overwrites and updates a workflow template with valid members. The last save takes effect.
+     * Overwrites and updates a workflow template for active members. The last save takes effect.
      *
      * @remarks
-     * Overwrites and updates a workflow template with valid members. The last save takes effect.
+     * Overwrites and updates a workflow template for active members. The last save takes effect.
      *
      * @param tmpReq - UpdateWorkflowTemplateRequest
      * @param headers - map
@@ -23357,6 +27339,18 @@ class WinNexo extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -23411,10 +27405,10 @@ class WinNexo extends OpenApiClient
     }
 
     /**
-     * Overwrites and updates a workflow template with valid members. The last save takes effect.
+     * Overwrites and updates a workflow template for active members. The last save takes effect.
      *
      * @remarks
-     * Overwrites and updates a workflow template with valid members. The last save takes effect.
+     * Overwrites and updates a workflow template for active members. The last save takes effect.
      *
      * @param Request - UpdateWorkflowTemplateRequest
      *
@@ -23467,6 +27461,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }
@@ -23659,6 +27665,18 @@ class WinNexo extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appToken) {
+            @$query['appToken'] = $request->appToken;
+        }
+
+        if (null !== $request->opsUserCode) {
+            @$query['opsUserCode'] = $request->opsUserCode;
+        }
+
+        if (null !== $request->opsUserId) {
+            @$query['opsUserId'] = $request->opsUserId;
+        }
+
         if (null !== $request->tenantId) {
             @$query['tenantId'] = $request->tenantId;
         }

@@ -11,12 +11,27 @@ class ListAliDingGroupMessagesRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $chatId;
 
     /**
      * @var string
      */
     public $direction;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -33,8 +48,11 @@ class ListAliDingGroupMessagesRequest extends Model
      */
     public $time;
     protected $_name = [
+        'appToken' => 'appToken',
         'chatId' => 'chatId',
         'direction' => 'direction',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'pageSize' => 'pageSize',
         'tenantId' => 'tenantId',
         'time' => 'time',
@@ -48,12 +66,24 @@ class ListAliDingGroupMessagesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->chatId) {
             $res['chatId'] = $this->chatId;
         }
 
         if (null !== $this->direction) {
             $res['direction'] = $this->direction;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->pageSize) {
@@ -79,12 +109,24 @@ class ListAliDingGroupMessagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['chatId'])) {
             $model->chatId = $map['chatId'];
         }
 
         if (isset($map['direction'])) {
             $model->direction = $map['direction'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['pageSize'])) {

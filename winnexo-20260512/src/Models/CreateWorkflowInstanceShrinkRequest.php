@@ -16,6 +16,11 @@ class CreateWorkflowInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $businessId;
 
     /**
@@ -27,6 +32,16 @@ class CreateWorkflowInstanceShrinkRequest extends Model
      * @var string
      */
     public $initiator;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -54,9 +69,12 @@ class CreateWorkflowInstanceShrinkRequest extends Model
     public $variablesShrink;
     protected $_name = [
         'acceptanceCriteria' => 'acceptanceCriteria',
+        'appToken' => 'appToken',
         'businessId' => 'businessId',
         'collaborationGroupId' => 'collaborationGroupId',
         'initiator' => 'initiator',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'priority' => 'priority',
         'templateId' => 'templateId',
         'tenantId' => 'tenantId',
@@ -76,6 +94,10 @@ class CreateWorkflowInstanceShrinkRequest extends Model
             $res['acceptanceCriteria'] = $this->acceptanceCriteria;
         }
 
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->businessId) {
             $res['businessId'] = $this->businessId;
         }
@@ -86,6 +108,14 @@ class CreateWorkflowInstanceShrinkRequest extends Model
 
         if (null !== $this->initiator) {
             $res['initiator'] = $this->initiator;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->priority) {
@@ -123,6 +153,10 @@ class CreateWorkflowInstanceShrinkRequest extends Model
             $model->acceptanceCriteria = $map['acceptanceCriteria'];
         }
 
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['businessId'])) {
             $model->businessId = $map['businessId'];
         }
@@ -133,6 +167,14 @@ class CreateWorkflowInstanceShrinkRequest extends Model
 
         if (isset($map['initiator'])) {
             $model->initiator = $map['initiator'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['priority'])) {

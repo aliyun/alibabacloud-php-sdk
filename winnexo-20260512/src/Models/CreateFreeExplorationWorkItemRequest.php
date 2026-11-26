@@ -16,12 +16,27 @@ class CreateFreeExplorationWorkItemRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
      * @var int[]
      */
     public $memberUserIds;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -39,8 +54,11 @@ class CreateFreeExplorationWorkItemRequest extends Model
     public $visibility;
     protected $_name = [
         'agentNames' => 'agentNames',
+        'appToken' => 'appToken',
         'collaborationGroupId' => 'collaborationGroupId',
         'memberUserIds' => 'memberUserIds',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
         'title' => 'title',
         'visibility' => 'visibility',
@@ -71,6 +89,10 @@ class CreateFreeExplorationWorkItemRequest extends Model
             }
         }
 
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
@@ -84,6 +106,14 @@ class CreateFreeExplorationWorkItemRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -120,6 +150,10 @@ class CreateFreeExplorationWorkItemRequest extends Model
             }
         }
 
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
@@ -133,6 +167,14 @@ class CreateFreeExplorationWorkItemRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

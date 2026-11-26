@@ -9,9 +9,24 @@ use AlibabaCloud\Dara\Model;
 class GetSkillRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var bool
      */
     public $includeSkillFiles;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -33,7 +48,10 @@ class GetSkillRequest extends Model
      */
     public $viewMode;
     protected $_name = [
+        'appToken' => 'appToken',
         'includeSkillFiles' => 'includeSkillFiles',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'skillCode' => 'skillCode',
         'skillName' => 'skillName',
         'tenantId' => 'tenantId',
@@ -48,8 +66,20 @@ class GetSkillRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->includeSkillFiles) {
             $res['includeSkillFiles'] = $this->includeSkillFiles;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->skillCode) {
@@ -79,8 +109,20 @@ class GetSkillRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['includeSkillFiles'])) {
             $model->includeSkillFiles = $map['includeSkillFiles'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['skillCode'])) {

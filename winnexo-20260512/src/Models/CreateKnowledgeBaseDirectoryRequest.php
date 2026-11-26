@@ -11,12 +11,27 @@ class CreateKnowledgeBaseDirectoryRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -28,8 +43,11 @@ class CreateKnowledgeBaseDirectoryRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'description' => 'description',
         'name' => 'name',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'parentDirectoryId' => 'parentDirectoryId',
         'tenantId' => 'tenantId',
     ];
@@ -42,12 +60,24 @@ class CreateKnowledgeBaseDirectoryRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->parentDirectoryId) {
@@ -69,12 +99,24 @@ class CreateKnowledgeBaseDirectoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['parentDirectoryId'])) {

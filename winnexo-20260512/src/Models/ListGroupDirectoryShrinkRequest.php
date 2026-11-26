@@ -11,12 +11,27 @@ class ListGroupDirectoryShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $directoryId;
 
     /**
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -53,8 +68,11 @@ class ListGroupDirectoryShrinkRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'directoryId' => 'directoryId',
         'groupId' => 'groupId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'page' => 'page',
         'pageSize' => 'pageSize',
         'sortField' => 'sortField',
@@ -72,12 +90,24 @@ class ListGroupDirectoryShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->directoryId) {
             $res['directoryId'] = $this->directoryId;
         }
 
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->page) {
@@ -119,12 +149,24 @@ class ListGroupDirectoryShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['directoryId'])) {
             $model->directoryId = $map['directoryId'];
         }
 
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['page'])) {

@@ -11,6 +11,16 @@ class UpdateTenantDirectoryRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var bool
+     */
+    public $changeRecordEnabled;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -22,6 +32,26 @@ class UpdateTenantDirectoryRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $ooVisibilityMode;
+
+    /**
+     * @var string[]
+     */
+    public $operatingObjectNames;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -38,9 +68,15 @@ class UpdateTenantDirectoryRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
+        'changeRecordEnabled' => 'changeRecordEnabled',
         'description' => 'description',
         'directoryId' => 'directoryId',
         'name' => 'name',
+        'ooVisibilityMode' => 'ooVisibilityMode',
+        'operatingObjectNames' => 'operatingObjectNames',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'parentId' => 'parentId',
         'path' => 'path',
         'tenantId' => 'tenantId',
@@ -48,12 +84,23 @@ class UpdateTenantDirectoryRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->operatingObjectNames)) {
+            Model::validateArray($this->operatingObjectNames);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
+        if (null !== $this->changeRecordEnabled) {
+            $res['changeRecordEnabled'] = $this->changeRecordEnabled;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -64,6 +111,29 @@ class UpdateTenantDirectoryRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->ooVisibilityMode) {
+            $res['ooVisibilityMode'] = $this->ooVisibilityMode;
+        }
+
+        if (null !== $this->operatingObjectNames) {
+            if (\is_array($this->operatingObjectNames)) {
+                $res['operatingObjectNames'] = [];
+                $n1 = 0;
+                foreach ($this->operatingObjectNames as $item1) {
+                    $res['operatingObjectNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->parentId) {
@@ -89,6 +159,14 @@ class UpdateTenantDirectoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
+        if (isset($map['changeRecordEnabled'])) {
+            $model->changeRecordEnabled = $map['changeRecordEnabled'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -99,6 +177,29 @@ class UpdateTenantDirectoryRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['ooVisibilityMode'])) {
+            $model->ooVisibilityMode = $map['ooVisibilityMode'];
+        }
+
+        if (isset($map['operatingObjectNames'])) {
+            if (!empty($map['operatingObjectNames'])) {
+                $model->operatingObjectNames = [];
+                $n1 = 0;
+                foreach ($map['operatingObjectNames'] as $item1) {
+                    $model->operatingObjectNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['parentId'])) {

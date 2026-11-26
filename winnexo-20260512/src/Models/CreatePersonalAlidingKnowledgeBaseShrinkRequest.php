@@ -11,6 +11,11 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $directoryId;
 
     /**
@@ -36,6 +41,16 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $sourceTags;
 
     /**
@@ -48,11 +63,14 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'directoryId' => 'directoryId',
         'kbName' => 'kbName',
         'kbUrl' => 'kbUrl',
         'objectBindingsShrink' => 'objectBindings',
         'operatingObjectName' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceTags' => 'sourceTags',
         'syncConfigShrink' => 'syncConfig',
         'tenantId' => 'tenantId',
@@ -66,6 +84,10 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->directoryId) {
             $res['directoryId'] = $this->directoryId;
         }
@@ -84,6 +106,14 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
 
         if (null !== $this->operatingObjectName) {
             $res['operatingObjectName'] = $this->operatingObjectName;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->sourceTags) {
@@ -109,6 +139,10 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['directoryId'])) {
             $model->directoryId = $map['directoryId'];
         }
@@ -127,6 +161,14 @@ class CreatePersonalAlidingKnowledgeBaseShrinkRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceTags'])) {

@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class RevertGraphDraftResourceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var int
      */
     public $draftChangeId;
@@ -21,10 +26,23 @@ class RevertGraphDraftResourceRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'draftChangeId' => 'draftChangeId',
         'graphName' => 'graphName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
     ];
 
@@ -36,12 +54,24 @@ class RevertGraphDraftResourceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->draftChangeId) {
             $res['draftChangeId'] = $this->draftChangeId;
         }
 
         if (null !== $this->graphName) {
             $res['graphName'] = $this->graphName;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -59,12 +89,24 @@ class RevertGraphDraftResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['draftChangeId'])) {
             $model->draftChangeId = $map['draftChangeId'];
         }
 
         if (isset($map['graphName'])) {
             $model->graphName = $map['graphName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

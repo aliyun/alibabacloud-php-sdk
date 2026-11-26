@@ -11,6 +11,11 @@ class CreateConversationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $metadata;
 
     /**
@@ -26,11 +31,24 @@ class CreateConversationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'metadata' => 'metadata',
         'objectId' => 'objectId',
         'operatingObjectNameShrink' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
     ];
 
@@ -42,6 +60,10 @@ class CreateConversationShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->metadata) {
             $res['metadata'] = $this->metadata;
         }
@@ -52,6 +74,14 @@ class CreateConversationShrinkRequest extends Model
 
         if (null !== $this->operatingObjectNameShrink) {
             $res['operatingObjectName'] = $this->operatingObjectNameShrink;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -69,6 +99,10 @@ class CreateConversationShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['metadata'])) {
             $model->metadata = $map['metadata'];
         }
@@ -79,6 +113,14 @@ class CreateConversationShrinkRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectNameShrink = $map['operatingObjectName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

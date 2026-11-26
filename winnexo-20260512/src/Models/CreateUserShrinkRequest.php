@@ -11,7 +11,22 @@ class CreateUserShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $displayName;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -38,7 +53,10 @@ class CreateUserShrinkRequest extends Model
      */
     public $wnAccountId;
     protected $_name = [
+        'appToken' => 'appToken',
         'displayName' => 'displayName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'passwordEncrypted' => 'passwordEncrypted',
         'roleCodesShrink' => 'roleCodes',
         'ssoProvider' => 'ssoProvider',
@@ -54,8 +72,20 @@ class CreateUserShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->passwordEncrypted) {
@@ -89,8 +119,20 @@ class CreateUserShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['passwordEncrypted'])) {

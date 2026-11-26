@@ -11,7 +11,22 @@ class ReplaceObjectBindingsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $objectBindingsShrink;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -23,7 +38,10 @@ class ReplaceObjectBindingsShrinkRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'objectBindingsShrink' => 'objectBindings',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceId' => 'sourceId',
         'tenantId' => 'tenantId',
     ];
@@ -36,8 +54,20 @@ class ReplaceObjectBindingsShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->objectBindingsShrink) {
             $res['objectBindings'] = $this->objectBindingsShrink;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->sourceId) {
@@ -59,8 +89,20 @@ class ReplaceObjectBindingsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['objectBindings'])) {
             $model->objectBindingsShrink = $map['objectBindings'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceId'])) {

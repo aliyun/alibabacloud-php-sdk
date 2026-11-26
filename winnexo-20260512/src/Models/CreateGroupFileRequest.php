@@ -11,6 +11,11 @@ class CreateGroupFileRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -36,6 +41,16 @@ class CreateGroupFileRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $sourceTags;
 
     /**
@@ -43,11 +58,14 @@ class CreateGroupFileRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'description' => 'description',
         'directoryId' => 'directoryId',
         'fileRecordId' => 'fileRecordId',
         'groupId' => 'groupId',
         'name' => 'name',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceTags' => 'sourceTags',
         'tenantId' => 'tenantId',
     ];
@@ -60,6 +78,10 @@ class CreateGroupFileRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -78,6 +100,14 @@ class CreateGroupFileRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->sourceTags) {
@@ -99,6 +129,10 @@ class CreateGroupFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -117,6 +151,14 @@ class CreateGroupFileRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceTags'])) {

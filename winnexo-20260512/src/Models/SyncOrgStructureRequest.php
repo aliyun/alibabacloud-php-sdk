@@ -13,6 +13,11 @@ class SyncOrgStructureRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $corpId;
 
     /**
@@ -24,6 +29,16 @@ class SyncOrgStructureRequest extends Model
      * @var members[]
      */
     public $members;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -45,9 +60,12 @@ class SyncOrgStructureRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'corpId' => 'corpId',
         'departments' => 'departments',
         'members' => 'members',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'platformType' => 'platformType',
         'ssoSettingsId' => 'ssoSettingsId',
         'syncMembers' => 'syncMembers',
@@ -68,6 +86,10 @@ class SyncOrgStructureRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->corpId) {
             $res['corpId'] = $this->corpId;
         }
@@ -92,6 +114,14 @@ class SyncOrgStructureRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->platformType) {
@@ -121,6 +151,10 @@ class SyncOrgStructureRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['corpId'])) {
             $model->corpId = $map['corpId'];
         }
@@ -145,6 +179,14 @@ class SyncOrgStructureRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['platformType'])) {

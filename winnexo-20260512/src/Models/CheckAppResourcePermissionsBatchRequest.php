@@ -10,9 +10,24 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CheckAppResourcePermissionsBatchRe
 class CheckAppResourcePermissionsBatchRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var checks[]
      */
     public $checks;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -34,7 +49,10 @@ class CheckAppResourcePermissionsBatchRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'checks' => 'checks',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'resourceTenantId' => 'resourceTenantId',
         'targetUserId' => 'targetUserId',
         'targetUserTenantId' => 'targetUserTenantId',
@@ -52,6 +70,10 @@ class CheckAppResourcePermissionsBatchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->checks) {
             if (\is_array($this->checks)) {
                 $res['checks'] = [];
@@ -61,6 +83,14 @@ class CheckAppResourcePermissionsBatchRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->resourceTenantId) {
@@ -90,6 +120,10 @@ class CheckAppResourcePermissionsBatchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['checks'])) {
             if (!empty($map['checks'])) {
                 $model->checks = [];
@@ -99,6 +133,14 @@ class CheckAppResourcePermissionsBatchRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['resourceTenantId'])) {

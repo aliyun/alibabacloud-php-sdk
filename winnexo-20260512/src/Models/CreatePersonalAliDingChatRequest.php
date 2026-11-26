@@ -12,6 +12,11 @@ class CreatePersonalAliDingChatRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $chatId;
 
     /**
@@ -47,6 +52,16 @@ class CreatePersonalAliDingChatRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $sourceTags;
 
     /**
@@ -59,6 +74,7 @@ class CreatePersonalAliDingChatRequest extends Model
      */
     public $updateFrequency;
     protected $_name = [
+        'appToken' => 'appToken',
         'chatId' => 'chatId',
         'chatName' => 'chatName',
         'description' => 'description',
@@ -66,6 +82,8 @@ class CreatePersonalAliDingChatRequest extends Model
         'historyStartTime' => 'historyStartTime',
         'notes' => 'notes',
         'operatingObjectName' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceTags' => 'sourceTags',
         'tenantId' => 'tenantId',
         'updateFrequency' => 'updateFrequency',
@@ -82,6 +100,10 @@ class CreatePersonalAliDingChatRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->chatId) {
             $res['chatId'] = $this->chatId;
         }
@@ -110,6 +132,14 @@ class CreatePersonalAliDingChatRequest extends Model
             $res['operatingObjectName'] = $this->operatingObjectName;
         }
 
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->sourceTags) {
             $res['sourceTags'] = $this->sourceTags;
         }
@@ -133,6 +163,10 @@ class CreatePersonalAliDingChatRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['chatId'])) {
             $model->chatId = $map['chatId'];
         }
@@ -159,6 +193,14 @@ class CreatePersonalAliDingChatRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceTags'])) {

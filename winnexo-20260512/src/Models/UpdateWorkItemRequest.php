@@ -15,6 +15,11 @@ class UpdateWorkItemRequest extends Model
     public $acceptanceCriteria;
 
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var attachments[]
      */
     public $attachments;
@@ -43,6 +48,16 @@ class UpdateWorkItemRequest extends Model
      * @var int
      */
     public $expectedVersion;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -75,12 +90,15 @@ class UpdateWorkItemRequest extends Model
     public $workflowTemplateIds;
     protected $_name = [
         'acceptanceCriteria' => 'acceptanceCriteria',
+        'appToken' => 'appToken',
         'attachments' => 'attachments',
         'collaborationGroupId' => 'collaborationGroupId',
         'collaboratorUserIds' => 'collaboratorUserIds',
         'conversationId' => 'conversationId',
         'description' => 'description',
         'expectedVersion' => 'expectedVersion',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'ownerUserId' => 'ownerUserId',
         'priority' => 'priority',
         'tenantId' => 'tenantId',
@@ -108,6 +126,10 @@ class UpdateWorkItemRequest extends Model
         $res = [];
         if (null !== $this->acceptanceCriteria) {
             $res['acceptanceCriteria'] = $this->acceptanceCriteria;
+        }
+
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
         }
 
         if (null !== $this->attachments) {
@@ -146,6 +168,14 @@ class UpdateWorkItemRequest extends Model
 
         if (null !== $this->expectedVersion) {
             $res['expectedVersion'] = $this->expectedVersion;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->ownerUserId) {
@@ -194,6 +224,10 @@ class UpdateWorkItemRequest extends Model
             $model->acceptanceCriteria = $map['acceptanceCriteria'];
         }
 
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['attachments'])) {
             if (!empty($map['attachments'])) {
                 $model->attachments = [];
@@ -230,6 +264,14 @@ class UpdateWorkItemRequest extends Model
 
         if (isset($map['expectedVersion'])) {
             $model->expectedVersion = $map['expectedVersion'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['ownerUserId'])) {

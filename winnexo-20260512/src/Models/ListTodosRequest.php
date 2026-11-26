@@ -11,6 +11,11 @@ class ListTodosRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
@@ -27,6 +32,16 @@ class ListTodosRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -68,10 +83,13 @@ class ListTodosRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'collaborationGroupId' => 'collaborationGroupId',
         'keyword' => 'keyword',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'page' => 'page',
         'pageSize' => 'pageSize',
         'priorities' => 'priorities',
@@ -102,6 +120,10 @@ class ListTodosRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
@@ -116,6 +138,14 @@ class ListTodosRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->page) {
@@ -189,6 +219,10 @@ class ListTodosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
@@ -203,6 +237,14 @@ class ListTodosRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['page'])) {

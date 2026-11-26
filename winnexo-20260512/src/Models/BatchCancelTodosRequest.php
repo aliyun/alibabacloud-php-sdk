@@ -11,6 +11,21 @@ class BatchCancelTodosRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
@@ -18,6 +33,9 @@ class BatchCancelTodosRequest extends Model
      */
     public $todoIds;
     protected $_name = [
+        'appToken' => 'appToken',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
         'todoIds' => 'todoIds',
     ];
@@ -33,6 +51,18 @@ class BatchCancelTodosRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
@@ -59,6 +89,18 @@ class BatchCancelTodosRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
+        }
+
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
         }

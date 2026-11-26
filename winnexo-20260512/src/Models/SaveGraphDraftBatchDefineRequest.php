@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class SaveGraphDraftBatchDefineRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var int[]
      */
     public $draftChangeIds;
@@ -17,6 +22,16 @@ class SaveGraphDraftBatchDefineRequest extends Model
      * @var string
      */
     public $graphName;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -33,8 +48,11 @@ class SaveGraphDraftBatchDefineRequest extends Model
      */
     public $yamlEdit;
     protected $_name = [
+        'appToken' => 'appToken',
         'draftChangeIds' => 'draftChangeIds',
         'graphName' => 'graphName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'saveMode' => 'saveMode',
         'tenantId' => 'tenantId',
         'yamlEdit' => 'yamlEdit',
@@ -51,6 +69,10 @@ class SaveGraphDraftBatchDefineRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->draftChangeIds) {
             if (\is_array($this->draftChangeIds)) {
                 $res['draftChangeIds'] = [];
@@ -64,6 +86,14 @@ class SaveGraphDraftBatchDefineRequest extends Model
 
         if (null !== $this->graphName) {
             $res['graphName'] = $this->graphName;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->saveMode) {
@@ -89,6 +119,10 @@ class SaveGraphDraftBatchDefineRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['draftChangeIds'])) {
             if (!empty($map['draftChangeIds'])) {
                 $model->draftChangeIds = [];
@@ -102,6 +136,14 @@ class SaveGraphDraftBatchDefineRequest extends Model
 
         if (isset($map['graphName'])) {
             $model->graphName = $map['graphName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['saveMode'])) {

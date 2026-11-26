@@ -11,6 +11,11 @@ class CreateKnowledgeBaseFeishuDocShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -46,6 +51,16 @@ class CreateKnowledgeBaseFeishuDocShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $sourceTags;
 
     /**
@@ -58,6 +73,7 @@ class CreateKnowledgeBaseFeishuDocShrinkRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'description' => 'description',
         'directoryId' => 'directoryId',
         'docUrl' => 'docUrl',
@@ -65,6 +81,8 @@ class CreateKnowledgeBaseFeishuDocShrinkRequest extends Model
         'notes' => 'notes',
         'objectBindingsShrink' => 'objectBindings',
         'operatingObjectName' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceTags' => 'sourceTags',
         'syncConfigShrink' => 'syncConfig',
         'tenantId' => 'tenantId',
@@ -78,6 +96,10 @@ class CreateKnowledgeBaseFeishuDocShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -106,6 +128,14 @@ class CreateKnowledgeBaseFeishuDocShrinkRequest extends Model
             $res['operatingObjectName'] = $this->operatingObjectName;
         }
 
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->sourceTags) {
             $res['sourceTags'] = $this->sourceTags;
         }
@@ -129,6 +159,10 @@ class CreateKnowledgeBaseFeishuDocShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -155,6 +189,14 @@ class CreateKnowledgeBaseFeishuDocShrinkRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceTags'])) {

@@ -11,6 +11,11 @@ class CreateAnnouncementShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
@@ -32,6 +37,16 @@ class CreateAnnouncementShrinkRequest extends Model
      * @var string
      */
     public $effectiveStart;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -73,11 +88,14 @@ class CreateAnnouncementShrinkRequest extends Model
      */
     public $title;
     protected $_name = [
+        'appToken' => 'appToken',
         'content' => 'content',
         'displayPage' => 'displayPage',
         'displayType' => 'displayType',
         'effectiveEnd' => 'effectiveEnd',
         'effectiveStart' => 'effectiveStart',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'priority' => 'priority',
         'publishNow' => 'publishNow',
         'targetRoleCodesShrink' => 'targetRoleCodes',
@@ -96,6 +114,10 @@ class CreateAnnouncementShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -114,6 +136,14 @@ class CreateAnnouncementShrinkRequest extends Model
 
         if (null !== $this->effectiveStart) {
             $res['effectiveStart'] = $this->effectiveStart;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->priority) {
@@ -159,6 +189,10 @@ class CreateAnnouncementShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
@@ -177,6 +211,14 @@ class CreateAnnouncementShrinkRequest extends Model
 
         if (isset($map['effectiveStart'])) {
             $model->effectiveStart = $map['effectiveStart'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['priority'])) {

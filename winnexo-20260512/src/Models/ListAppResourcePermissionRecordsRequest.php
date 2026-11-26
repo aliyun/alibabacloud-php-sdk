@@ -11,6 +11,11 @@ class ListAppResourcePermissionRecordsRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $granteeId;
 
     /**
@@ -22,6 +27,16 @@ class ListAppResourcePermissionRecordsRequest extends Model
      * @var string
      */
     public $granteeType;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -58,9 +73,12 @@ class ListAppResourcePermissionRecordsRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'granteeId' => 'granteeId',
         'granteeTenantId' => 'granteeTenantId',
         'granteeType' => 'granteeType',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'page' => 'page',
         'pageSize' => 'pageSize',
         'permissions' => 'permissions',
@@ -81,6 +99,10 @@ class ListAppResourcePermissionRecordsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->granteeId) {
             $res['granteeId'] = $this->granteeId;
         }
@@ -91,6 +113,14 @@ class ListAppResourcePermissionRecordsRequest extends Model
 
         if (null !== $this->granteeType) {
             $res['granteeType'] = $this->granteeType;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->page) {
@@ -139,6 +169,10 @@ class ListAppResourcePermissionRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['granteeId'])) {
             $model->granteeId = $map['granteeId'];
         }
@@ -149,6 +183,14 @@ class ListAppResourcePermissionRecordsRequest extends Model
 
         if (isset($map['granteeType'])) {
             $model->granteeType = $map['granteeType'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['page'])) {

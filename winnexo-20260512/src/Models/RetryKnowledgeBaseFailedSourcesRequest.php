@@ -11,14 +11,32 @@ class RetryKnowledgeBaseFailedSourcesRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $directoryId;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'directoryId' => 'directoryId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
     ];
 
@@ -30,8 +48,20 @@ class RetryKnowledgeBaseFailedSourcesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->directoryId) {
             $res['directoryId'] = $this->directoryId;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -49,8 +79,20 @@ class RetryKnowledgeBaseFailedSourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['directoryId'])) {
             $model->directoryId = $map['directoryId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

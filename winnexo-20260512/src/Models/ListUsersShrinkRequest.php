@@ -14,6 +14,11 @@ class ListUsersShrinkRequest extends Model
     public $accountIdsShrink;
 
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var bool
      */
     public $isActive;
@@ -22,6 +27,16 @@ class ListUsersShrinkRequest extends Model
      * @var string
      */
     public $keyword;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -44,8 +59,11 @@ class ListUsersShrinkRequest extends Model
     public $tenantId;
     protected $_name = [
         'accountIdsShrink' => 'accountIds',
+        'appToken' => 'appToken',
         'isActive' => 'isActive',
         'keyword' => 'keyword',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'page' => 'page',
         'pageSize' => 'pageSize',
         'roleCodesShrink' => 'roleCodes',
@@ -64,12 +82,24 @@ class ListUsersShrinkRequest extends Model
             $res['accountIds'] = $this->accountIdsShrink;
         }
 
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->isActive) {
             $res['isActive'] = $this->isActive;
         }
 
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->page) {
@@ -103,12 +133,24 @@ class ListUsersShrinkRequest extends Model
             $model->accountIdsShrink = $map['accountIds'];
         }
 
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['isActive'])) {
             $model->isActive = $map['isActive'];
         }
 
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['page'])) {

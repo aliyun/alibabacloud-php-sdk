@@ -11,7 +11,22 @@ class RecommendNextActionsRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $customPrompt;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -33,7 +48,10 @@ class RecommendNextActionsRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'customPrompt' => 'customPrompt',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'outputType' => 'outputType',
         'recentMessageCount' => 'recentMessageCount',
         'sessionId' => 'sessionId',
@@ -48,8 +66,20 @@ class RecommendNextActionsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->customPrompt) {
             $res['customPrompt'] = $this->customPrompt;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->outputType) {
@@ -79,8 +109,20 @@ class RecommendNextActionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['customPrompt'])) {
             $model->customPrompt = $map['customPrompt'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['outputType'])) {

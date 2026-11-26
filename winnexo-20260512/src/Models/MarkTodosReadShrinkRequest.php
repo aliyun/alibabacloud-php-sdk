@@ -9,9 +9,24 @@ use AlibabaCloud\Dara\Model;
 class MarkTodosReadShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var bool
      */
     public $markAllRead;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -23,7 +38,10 @@ class MarkTodosReadShrinkRequest extends Model
      */
     public $todoIdsShrink;
     protected $_name = [
+        'appToken' => 'appToken',
         'markAllRead' => 'markAllRead',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
         'todoIdsShrink' => 'todoIds',
     ];
@@ -36,8 +54,20 @@ class MarkTodosReadShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->markAllRead) {
             $res['markAllRead'] = $this->markAllRead;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -59,8 +89,20 @@ class MarkTodosReadShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['markAllRead'])) {
             $model->markAllRead = $map['markAllRead'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

@@ -15,6 +15,16 @@ class SendChatMessageRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
+    public $autoPreference;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
@@ -63,6 +73,16 @@ class SendChatMessageRequest extends Model
     public $model;
 
     /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
      * @var bool
      */
     public $reuseLastSession;
@@ -93,10 +113,22 @@ class SendChatMessageRequest extends Model
     public $tenantId;
 
     /**
+     * @var bool
+     */
+    public $thinkingEnabled;
+
+    /**
+     * @var string
+     */
+    public $thinkingLevel;
+
+    /**
      * @var string
      */
     public $workMode;
     protected $_name = [
+        'appToken' => 'appToken',
+        'autoPreference' => 'autoPreference',
         'content' => 'content',
         'contentType' => 'contentType',
         'contextItems' => 'contextItems',
@@ -107,12 +139,16 @@ class SendChatMessageRequest extends Model
         'files' => 'files',
         'locale' => 'locale',
         'model' => 'model',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'reuseLastSession' => 'reuseLastSession',
         'segments' => 'segments',
         'sessionId' => 'sessionId',
         'stream' => 'stream',
         'taskExecution' => 'taskExecution',
         'tenantId' => 'tenantId',
+        'thinkingEnabled' => 'thinkingEnabled',
+        'thinkingLevel' => 'thinkingLevel',
         'workMode' => 'workMode',
     ];
 
@@ -139,6 +175,14 @@ class SendChatMessageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
+        if (null !== $this->autoPreference) {
+            $res['autoPreference'] = $this->autoPreference;
+        }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -200,6 +244,14 @@ class SendChatMessageRequest extends Model
             $res['model'] = $this->model;
         }
 
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->reuseLastSession) {
             $res['reuseLastSession'] = $this->reuseLastSession;
         }
@@ -231,6 +283,14 @@ class SendChatMessageRequest extends Model
             $res['tenantId'] = $this->tenantId;
         }
 
+        if (null !== $this->thinkingEnabled) {
+            $res['thinkingEnabled'] = $this->thinkingEnabled;
+        }
+
+        if (null !== $this->thinkingLevel) {
+            $res['thinkingLevel'] = $this->thinkingLevel;
+        }
+
         if (null !== $this->workMode) {
             $res['workMode'] = $this->workMode;
         }
@@ -246,6 +306,14 @@ class SendChatMessageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
+        if (isset($map['autoPreference'])) {
+            $model->autoPreference = $map['autoPreference'];
+        }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
@@ -307,6 +375,14 @@ class SendChatMessageRequest extends Model
             $model->model = $map['model'];
         }
 
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
+        }
+
         if (isset($map['reuseLastSession'])) {
             $model->reuseLastSession = $map['reuseLastSession'];
         }
@@ -336,6 +412,14 @@ class SendChatMessageRequest extends Model
 
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
+        }
+
+        if (isset($map['thinkingEnabled'])) {
+            $model->thinkingEnabled = $map['thinkingEnabled'];
+        }
+
+        if (isset($map['thinkingLevel'])) {
+            $model->thinkingLevel = $map['thinkingLevel'];
         }
 
         if (isset($map['workMode'])) {

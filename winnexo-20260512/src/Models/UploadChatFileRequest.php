@@ -11,6 +11,11 @@ class UploadChatFileRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $contentType;
 
     /**
@@ -31,12 +36,25 @@ class UploadChatFileRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'contentType' => 'contentType',
         'fileName' => 'fileName',
         'fileUrl' => 'fileUrl',
         'operatingObjectName' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
     ];
 
@@ -48,6 +66,10 @@ class UploadChatFileRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->contentType) {
             $res['contentType'] = $this->contentType;
         }
@@ -62,6 +84,14 @@ class UploadChatFileRequest extends Model
 
         if (null !== $this->operatingObjectName) {
             $res['operatingObjectName'] = $this->operatingObjectName;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -79,6 +109,10 @@ class UploadChatFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['contentType'])) {
             $model->contentType = $map['contentType'];
         }
@@ -93,6 +127,14 @@ class UploadChatFileRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

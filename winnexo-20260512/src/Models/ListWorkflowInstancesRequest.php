@@ -11,6 +11,11 @@ class ListWorkflowInstancesRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $businessId;
 
     /**
@@ -27,6 +32,16 @@ class ListWorkflowInstancesRequest extends Model
      * @var string
      */
     public $keyword;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -58,10 +73,13 @@ class ListWorkflowInstancesRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'businessId' => 'businessId',
         'collaborationGroupId' => 'collaborationGroupId',
         'initiator' => 'initiator',
         'keyword' => 'keyword',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'page' => 'page',
         'pageSize' => 'pageSize',
         'sortBy' => 'sortBy',
@@ -78,6 +96,10 @@ class ListWorkflowInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->businessId) {
             $res['businessId'] = $this->businessId;
         }
@@ -92,6 +114,14 @@ class ListWorkflowInstancesRequest extends Model
 
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->page) {
@@ -129,6 +159,10 @@ class ListWorkflowInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['businessId'])) {
             $model->businessId = $map['businessId'];
         }
@@ -143,6 +177,14 @@ class ListWorkflowInstancesRequest extends Model
 
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['page'])) {

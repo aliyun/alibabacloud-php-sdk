@@ -11,6 +11,11 @@ class CreatePersonalFeishuMinuteRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $credentialId;
 
     /**
@@ -41,6 +46,16 @@ class CreatePersonalFeishuMinuteRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $sourceTags;
 
     /**
@@ -48,12 +63,15 @@ class CreatePersonalFeishuMinuteRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'credentialId' => 'credentialId',
         'description' => 'description',
         'directoryId' => 'directoryId',
         'minuteToken' => 'minuteToken',
         'name' => 'name',
         'operatingObjectName' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceTags' => 'sourceTags',
         'tenantId' => 'tenantId',
     ];
@@ -66,6 +84,10 @@ class CreatePersonalFeishuMinuteRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->credentialId) {
             $res['credentialId'] = $this->credentialId;
         }
@@ -90,6 +112,14 @@ class CreatePersonalFeishuMinuteRequest extends Model
             $res['operatingObjectName'] = $this->operatingObjectName;
         }
 
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->sourceTags) {
             $res['sourceTags'] = $this->sourceTags;
         }
@@ -109,6 +139,10 @@ class CreatePersonalFeishuMinuteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['credentialId'])) {
             $model->credentialId = $map['credentialId'];
         }
@@ -131,6 +165,14 @@ class CreatePersonalFeishuMinuteRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceTags'])) {

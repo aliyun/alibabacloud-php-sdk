@@ -11,6 +11,11 @@ class UpdateDirectoryRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -22,6 +27,16 @@ class UpdateDirectoryRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -38,9 +53,12 @@ class UpdateDirectoryRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'description' => 'description',
         'directoryId' => 'directoryId',
         'name' => 'name',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'parentId' => 'parentId',
         'path' => 'path',
         'tenantId' => 'tenantId',
@@ -54,6 +72,10 @@ class UpdateDirectoryRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -64,6 +86,14 @@ class UpdateDirectoryRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->parentId) {
@@ -89,6 +119,10 @@ class UpdateDirectoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -99,6 +133,14 @@ class UpdateDirectoryRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['parentId'])) {

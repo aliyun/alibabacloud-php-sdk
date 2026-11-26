@@ -12,6 +12,11 @@ class TranscribeChatVoiceAdvanceRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $contentType;
 
     /**
@@ -32,12 +37,25 @@ class TranscribeChatVoiceAdvanceRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'contentType' => 'contentType',
         'fileContentBase64' => 'fileContentBase64',
         'fileName' => 'fileName',
         'fileUrlObject' => 'fileUrl',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
     ];
 
@@ -49,6 +67,10 @@ class TranscribeChatVoiceAdvanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->contentType) {
             $res['contentType'] = $this->contentType;
         }
@@ -63,6 +85,14 @@ class TranscribeChatVoiceAdvanceRequest extends Model
 
         if (null !== $this->fileUrlObject) {
             $res['fileUrl'] = $this->fileUrlObject;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -80,6 +110,10 @@ class TranscribeChatVoiceAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['contentType'])) {
             $model->contentType = $map['contentType'];
         }
@@ -94,6 +128,14 @@ class TranscribeChatVoiceAdvanceRequest extends Model
 
         if (isset($map['fileUrl'])) {
             $model->fileUrlObject = $map['fileUrl'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

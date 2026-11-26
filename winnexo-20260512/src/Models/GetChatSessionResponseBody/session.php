@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class session extends Model
 {
     /**
+     * @var string
+     */
+    public $conversationArchiveStatus;
+
+    /**
+     * @var int
+     */
+    public $conversationArchivedTime;
+
+    /**
      * @var int
      */
     public $createdAt;
@@ -58,6 +68,8 @@ class session extends Model
      */
     public $updatedAt;
     protected $_name = [
+        'conversationArchiveStatus' => 'conversationArchiveStatus',
+        'conversationArchivedTime' => 'conversationArchivedTime',
         'createdAt' => 'createdAt',
         'id' => 'id',
         'isExpired' => 'isExpired',
@@ -84,6 +96,14 @@ class session extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->conversationArchiveStatus) {
+            $res['conversationArchiveStatus'] = $this->conversationArchiveStatus;
+        }
+
+        if (null !== $this->conversationArchivedTime) {
+            $res['conversationArchivedTime'] = $this->conversationArchivedTime;
+        }
+
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
@@ -147,6 +167,14 @@ class session extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['conversationArchiveStatus'])) {
+            $model->conversationArchiveStatus = $map['conversationArchiveStatus'];
+        }
+
+        if (isset($map['conversationArchivedTime'])) {
+            $model->conversationArchivedTime = $map['conversationArchivedTime'];
+        }
+
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }

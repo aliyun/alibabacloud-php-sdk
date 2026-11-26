@@ -16,6 +16,11 @@ class TogglePrimaryObjectFavoriteShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $objectIdsShrink;
 
     /**
@@ -31,12 +36,25 @@ class TogglePrimaryObjectFavoriteShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
         'action' => 'action',
+        'appToken' => 'appToken',
         'objectIdsShrink' => 'objectIds',
         'objectType' => 'objectType',
         'operatingObjectName' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
     ];
 
@@ -52,6 +70,10 @@ class TogglePrimaryObjectFavoriteShrinkRequest extends Model
             $res['action'] = $this->action;
         }
 
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->objectIdsShrink) {
             $res['objectIds'] = $this->objectIdsShrink;
         }
@@ -62,6 +84,14 @@ class TogglePrimaryObjectFavoriteShrinkRequest extends Model
 
         if (null !== $this->operatingObjectName) {
             $res['operatingObjectName'] = $this->operatingObjectName;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -83,6 +113,10 @@ class TogglePrimaryObjectFavoriteShrinkRequest extends Model
             $model->action = $map['action'];
         }
 
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['objectIds'])) {
             $model->objectIdsShrink = $map['objectIds'];
         }
@@ -93,6 +127,14 @@ class TogglePrimaryObjectFavoriteShrinkRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

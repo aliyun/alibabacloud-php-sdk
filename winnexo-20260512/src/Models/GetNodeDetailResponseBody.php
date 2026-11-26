@@ -34,6 +34,16 @@ class GetNodeDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $conversationArchiveStatus;
+
+    /**
+     * @var int
+     */
+    public $conversationArchivedTime;
+
+    /**
+     * @var string
+     */
     public $conversationId;
 
     /**
@@ -115,6 +125,8 @@ class GetNodeDetailResponseBody extends Model
         'artifacts' => 'artifacts',
         'attemptSeq' => 'attemptSeq',
         'code' => 'code',
+        'conversationArchiveStatus' => 'conversationArchiveStatus',
+        'conversationArchivedTime' => 'conversationArchivedTime',
         'conversationId' => 'conversationId',
         'conversationWritable' => 'conversationWritable',
         'handler' => 'handler',
@@ -177,6 +189,14 @@ class GetNodeDetailResponseBody extends Model
 
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->conversationArchiveStatus) {
+            $res['conversationArchiveStatus'] = $this->conversationArchiveStatus;
+        }
+
+        if (null !== $this->conversationArchivedTime) {
+            $res['conversationArchivedTime'] = $this->conversationArchivedTime;
         }
 
         if (null !== $this->conversationId) {
@@ -294,6 +314,14 @@ class GetNodeDetailResponseBody extends Model
 
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['conversationArchiveStatus'])) {
+            $model->conversationArchiveStatus = $map['conversationArchiveStatus'];
+        }
+
+        if (isset($map['conversationArchivedTime'])) {
+            $model->conversationArchivedTime = $map['conversationArchivedTime'];
         }
 
         if (isset($map['conversationId'])) {

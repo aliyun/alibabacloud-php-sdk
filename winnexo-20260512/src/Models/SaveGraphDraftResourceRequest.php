@@ -11,12 +11,27 @@ class SaveGraphDraftResourceRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $elementType;
 
     /**
      * @var string
      */
     public $graphName;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -38,8 +53,11 @@ class SaveGraphDraftResourceRequest extends Model
      */
     public $yamlEdit;
     protected $_name = [
+        'appToken' => 'appToken',
         'elementType' => 'elementType',
         'graphName' => 'graphName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'resourceName' => 'resourceName',
         'resourceType' => 'resourceType',
         'tenantId' => 'tenantId',
@@ -54,12 +72,24 @@ class SaveGraphDraftResourceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->elementType) {
             $res['elementType'] = $this->elementType;
         }
 
         if (null !== $this->graphName) {
             $res['graphName'] = $this->graphName;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->resourceName) {
@@ -89,12 +119,24 @@ class SaveGraphDraftResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['elementType'])) {
             $model->elementType = $map['elementType'];
         }
 
         if (isset($map['graphName'])) {
             $model->graphName = $map['graphName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['resourceName'])) {

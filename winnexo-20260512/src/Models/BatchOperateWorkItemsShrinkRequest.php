@@ -16,12 +16,27 @@ class BatchOperateWorkItemsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
      * @var string
      */
     public $idempotencyKey;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -34,8 +49,11 @@ class BatchOperateWorkItemsShrinkRequest extends Model
     public $workItemIdsShrink;
     protected $_name = [
         'action' => 'action',
+        'appToken' => 'appToken',
         'collaborationGroupId' => 'collaborationGroupId',
         'idempotencyKey' => 'idempotencyKey',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
         'workItemIdsShrink' => 'workItemIds',
     ];
@@ -52,12 +70,24 @@ class BatchOperateWorkItemsShrinkRequest extends Model
             $res['action'] = $this->action;
         }
 
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
 
         if (null !== $this->idempotencyKey) {
             $res['idempotencyKey'] = $this->idempotencyKey;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -83,12 +113,24 @@ class BatchOperateWorkItemsShrinkRequest extends Model
             $model->action = $map['action'];
         }
 
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
 
         if (isset($map['idempotencyKey'])) {
             $model->idempotencyKey = $map['idempotencyKey'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

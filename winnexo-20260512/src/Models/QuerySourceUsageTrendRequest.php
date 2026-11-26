@@ -11,6 +11,11 @@ class QuerySourceUsageTrendRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
@@ -32,6 +37,16 @@ class QuerySourceUsageTrendRequest extends Model
      * @var string[]
      */
     public $knowledgeBaseIds;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -63,11 +78,14 @@ class QuerySourceUsageTrendRequest extends Model
      */
     public $timeZone;
     protected $_name = [
+        'appToken' => 'appToken',
         'collaborationGroupId' => 'collaborationGroupId',
         'endTime' => 'endTime',
         'eventType' => 'eventType',
         'granularity' => 'granularity',
         'knowledgeBaseIds' => 'knowledgeBaseIds',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'scopeType' => 'scopeType',
         'sourceIds' => 'sourceIds',
         'sourceName' => 'sourceName',
@@ -90,6 +108,10 @@ class QuerySourceUsageTrendRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
@@ -115,6 +137,14 @@ class QuerySourceUsageTrendRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->scopeType) {
@@ -159,6 +189,10 @@ class QuerySourceUsageTrendRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
@@ -184,6 +218,14 @@ class QuerySourceUsageTrendRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['scopeType'])) {

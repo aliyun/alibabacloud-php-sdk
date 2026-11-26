@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\CreateTodoRequest\questions;
 class CreateTodoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var string[]
      */
     public $assigneeUserIds;
@@ -18,6 +23,16 @@ class CreateTodoRequest extends Model
      * @var string
      */
     public $collaborationGroupId;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -49,8 +64,11 @@ class CreateTodoRequest extends Model
      */
     public $title;
     protected $_name = [
+        'appToken' => 'appToken',
         'assigneeUserIds' => 'assigneeUserIds',
         'collaborationGroupId' => 'collaborationGroupId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'priority' => 'priority',
         'questions' => 'questions',
         'sourceContext' => 'sourceContext',
@@ -76,6 +94,10 @@ class CreateTodoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->assigneeUserIds) {
             if (\is_array($this->assigneeUserIds)) {
                 $res['assigneeUserIds'] = [];
@@ -89,6 +111,14 @@ class CreateTodoRequest extends Model
 
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->priority) {
@@ -138,6 +168,10 @@ class CreateTodoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['assigneeUserIds'])) {
             if (!empty($map['assigneeUserIds'])) {
                 $model->assigneeUserIds = [];
@@ -151,6 +185,14 @@ class CreateTodoRequest extends Model
 
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['priority'])) {

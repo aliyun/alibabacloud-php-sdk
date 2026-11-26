@@ -11,6 +11,11 @@ class ListBillingRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $bizId;
 
     /**
@@ -32,6 +37,16 @@ class ListBillingRequest extends Model
      * @var string
      */
     public $operation;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -63,11 +78,14 @@ class ListBillingRequest extends Model
      */
     public $wnUserId;
     protected $_name = [
+        'appToken' => 'appToken',
         'bizId' => 'bizId',
         'bizType' => 'bizType',
         'endTime' => 'endTime',
         'ignoreZero' => 'ignoreZero',
         'operation' => 'operation',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'page' => 'page',
         'pageSize' => 'pageSize',
         'startTime' => 'startTime',
@@ -84,6 +102,10 @@ class ListBillingRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->bizId) {
             $res['bizId'] = $this->bizId;
         }
@@ -102,6 +124,14 @@ class ListBillingRequest extends Model
 
         if (null !== $this->operation) {
             $res['operation'] = $this->operation;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->page) {
@@ -139,6 +169,10 @@ class ListBillingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['bizId'])) {
             $model->bizId = $map['bizId'];
         }
@@ -157,6 +191,14 @@ class ListBillingRequest extends Model
 
         if (isset($map['operation'])) {
             $model->operation = $map['operation'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['page'])) {

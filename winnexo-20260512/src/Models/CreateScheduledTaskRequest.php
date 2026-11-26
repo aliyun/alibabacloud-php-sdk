@@ -15,6 +15,16 @@ class CreateScheduledTaskRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
+    public $autoPreference;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
@@ -41,6 +51,16 @@ class CreateScheduledTaskRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -77,12 +97,16 @@ class CreateScheduledTaskRequest extends Model
      */
     public $visibleMemberUserIds;
     protected $_name = [
+        'appToken' => 'appToken',
+        'autoPreference' => 'autoPreference',
         'collaborationGroupId' => 'collaborationGroupId',
         'description' => 'description',
         'digitalEmployeeName' => 'digitalEmployeeName',
         'isOpen' => 'isOpen',
         'model' => 'model',
         'name' => 'name',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'outputMode' => 'outputMode',
         'segments' => 'segments',
         'taskDetail' => 'taskDetail',
@@ -118,6 +142,14 @@ class CreateScheduledTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
+        if (null !== $this->autoPreference) {
+            $res['autoPreference'] = $this->autoPreference;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
@@ -154,6 +186,14 @@ class CreateScheduledTaskRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->outputMode) {
@@ -209,6 +249,14 @@ class CreateScheduledTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
+        if (isset($map['autoPreference'])) {
+            $model->autoPreference = $map['autoPreference'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
@@ -245,6 +293,14 @@ class CreateScheduledTaskRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['outputMode'])) {

@@ -11,6 +11,11 @@ class CreateConversationRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $metadata;
 
     /**
@@ -26,11 +31,24 @@ class CreateConversationRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'metadata' => 'metadata',
         'objectId' => 'objectId',
         'operatingObjectName' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
     ];
 
@@ -45,6 +63,10 @@ class CreateConversationRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->metadata) {
             $res['metadata'] = $this->metadata;
         }
@@ -64,6 +86,14 @@ class CreateConversationRequest extends Model
             }
         }
 
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
@@ -79,6 +109,10 @@ class CreateConversationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['metadata'])) {
             $model->metadata = $map['metadata'];
         }
@@ -96,6 +130,14 @@ class CreateConversationRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

@@ -11,6 +11,11 @@ class UpdateWorkflowNodeConfigurationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
@@ -41,6 +46,16 @@ class UpdateWorkflowNodeConfigurationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $responsibleUserIdsShrink;
 
     /**
@@ -48,12 +63,15 @@ class UpdateWorkflowNodeConfigurationShrinkRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'collaborationGroupId' => 'collaborationGroupId',
         'executorShrink' => 'executor',
         'expectedVersion' => 'expectedVersion',
         'instanceId' => 'instanceId',
         'model' => 'model',
         'nodeId' => 'nodeId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'responsibleUserIdsShrink' => 'responsibleUserIds',
         'tenantId' => 'tenantId',
     ];
@@ -66,6 +84,10 @@ class UpdateWorkflowNodeConfigurationShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
@@ -90,6 +112,14 @@ class UpdateWorkflowNodeConfigurationShrinkRequest extends Model
             $res['nodeId'] = $this->nodeId;
         }
 
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->responsibleUserIdsShrink) {
             $res['responsibleUserIds'] = $this->responsibleUserIdsShrink;
         }
@@ -109,6 +139,10 @@ class UpdateWorkflowNodeConfigurationShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
@@ -131,6 +165,14 @@ class UpdateWorkflowNodeConfigurationShrinkRequest extends Model
 
         if (isset($map['nodeId'])) {
             $model->nodeId = $map['nodeId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['responsibleUserIds'])) {

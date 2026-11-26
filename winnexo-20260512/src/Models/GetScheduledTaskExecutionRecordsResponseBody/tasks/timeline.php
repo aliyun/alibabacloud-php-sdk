@@ -16,6 +16,16 @@ class timeline extends Model
     /**
      * @var string
      */
+    public $conversationArchiveStatus;
+
+    /**
+     * @var int
+     */
+    public $conversationArchivedTime;
+
+    /**
+     * @var string
+     */
     public $conversationId;
 
     /**
@@ -59,6 +69,8 @@ class timeline extends Model
     public $status;
     protected $_name = [
         'actualTime' => 'actualTime',
+        'conversationArchiveStatus' => 'conversationArchiveStatus',
+        'conversationArchivedTime' => 'conversationArchivedTime',
         'conversationId' => 'conversationId',
         'displayName' => 'displayName',
         'errorMessage' => 'errorMessage',
@@ -80,6 +92,14 @@ class timeline extends Model
         $res = [];
         if (null !== $this->actualTime) {
             $res['actualTime'] = $this->actualTime;
+        }
+
+        if (null !== $this->conversationArchiveStatus) {
+            $res['conversationArchiveStatus'] = $this->conversationArchiveStatus;
+        }
+
+        if (null !== $this->conversationArchivedTime) {
+            $res['conversationArchivedTime'] = $this->conversationArchivedTime;
         }
 
         if (null !== $this->conversationId) {
@@ -131,6 +151,14 @@ class timeline extends Model
         $model = new self();
         if (isset($map['actualTime'])) {
             $model->actualTime = $map['actualTime'];
+        }
+
+        if (isset($map['conversationArchiveStatus'])) {
+            $model->conversationArchiveStatus = $map['conversationArchiveStatus'];
+        }
+
+        if (isset($map['conversationArchivedTime'])) {
+            $model->conversationArchivedTime = $map['conversationArchivedTime'];
         }
 
         if (isset($map['conversationId'])) {

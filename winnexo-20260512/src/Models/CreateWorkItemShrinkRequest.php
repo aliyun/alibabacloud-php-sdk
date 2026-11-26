@@ -16,6 +16,11 @@ class CreateWorkItemShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $attachmentsShrink;
 
     /**
@@ -44,6 +49,16 @@ class CreateWorkItemShrinkRequest extends Model
     public $itemType;
 
     /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
      * @var int
      */
     public $ownerUserId;
@@ -69,12 +84,15 @@ class CreateWorkItemShrinkRequest extends Model
     public $workflowTemplateIdsShrink;
     protected $_name = [
         'acceptanceCriteria' => 'acceptanceCriteria',
+        'appToken' => 'appToken',
         'attachmentsShrink' => 'attachments',
         'collaborationGroupId' => 'collaborationGroupId',
         'collaboratorUserIdsShrink' => 'collaboratorUserIds',
         'conversationId' => 'conversationId',
         'description' => 'description',
         'itemType' => 'itemType',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'ownerUserId' => 'ownerUserId',
         'priority' => 'priority',
         'tenantId' => 'tenantId',
@@ -92,6 +110,10 @@ class CreateWorkItemShrinkRequest extends Model
         $res = [];
         if (null !== $this->acceptanceCriteria) {
             $res['acceptanceCriteria'] = $this->acceptanceCriteria;
+        }
+
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
         }
 
         if (null !== $this->attachmentsShrink) {
@@ -116,6 +138,14 @@ class CreateWorkItemShrinkRequest extends Model
 
         if (null !== $this->itemType) {
             $res['itemType'] = $this->itemType;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->ownerUserId) {
@@ -153,6 +183,10 @@ class CreateWorkItemShrinkRequest extends Model
             $model->acceptanceCriteria = $map['acceptanceCriteria'];
         }
 
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['attachments'])) {
             $model->attachmentsShrink = $map['attachments'];
         }
@@ -175,6 +209,14 @@ class CreateWorkItemShrinkRequest extends Model
 
         if (isset($map['itemType'])) {
             $model->itemType = $map['itemType'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['ownerUserId'])) {

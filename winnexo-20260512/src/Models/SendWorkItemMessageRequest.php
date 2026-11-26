@@ -11,6 +11,11 @@ class SendWorkItemMessageRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
@@ -26,6 +31,16 @@ class SendWorkItemMessageRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
 
     /**
@@ -33,9 +48,12 @@ class SendWorkItemMessageRequest extends Model
      */
     public $workItemId;
     protected $_name = [
+        'appToken' => 'appToken',
         'collaborationGroupId' => 'collaborationGroupId',
         'content' => 'content',
         'conversationId' => 'conversationId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
         'workItemId' => 'workItemId',
     ];
@@ -48,6 +66,10 @@ class SendWorkItemMessageRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
@@ -58,6 +80,14 @@ class SendWorkItemMessageRequest extends Model
 
         if (null !== $this->conversationId) {
             $res['conversationId'] = $this->conversationId;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->tenantId) {
@@ -79,6 +109,10 @@ class SendWorkItemMessageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
@@ -89,6 +123,14 @@ class SendWorkItemMessageRequest extends Model
 
         if (isset($map['conversationId'])) {
             $model->conversationId = $map['conversationId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

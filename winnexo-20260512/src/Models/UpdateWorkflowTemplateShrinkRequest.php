@@ -16,12 +16,27 @@ class UpdateWorkflowTemplateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
      * @var string
      */
     public $definitionShrink;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -49,8 +64,11 @@ class UpdateWorkflowTemplateShrinkRequest extends Model
     public $versionDescription;
     protected $_name = [
         'action' => 'action',
+        'appToken' => 'appToken',
         'collaborationGroupId' => 'collaborationGroupId',
         'definitionShrink' => 'definition',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceVersion' => 'sourceVersion',
         'templateId' => 'templateId',
         'tenantId' => 'tenantId',
@@ -70,12 +88,24 @@ class UpdateWorkflowTemplateShrinkRequest extends Model
             $res['action'] = $this->action;
         }
 
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
 
         if (null !== $this->definitionShrink) {
             $res['definition'] = $this->definitionShrink;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->sourceVersion) {
@@ -113,12 +143,24 @@ class UpdateWorkflowTemplateShrinkRequest extends Model
             $model->action = $map['action'];
         }
 
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
 
         if (isset($map['definition'])) {
             $model->definitionShrink = $map['definition'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceVersion'])) {

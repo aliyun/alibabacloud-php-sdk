@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class QueryWorkItemFeedRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var string[]
      */
     public $businessStatuses;
@@ -32,6 +37,16 @@ class QueryWorkItemFeedRequest extends Model
      * @var string
      */
     public $keyword;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var int
@@ -63,11 +78,14 @@ class QueryWorkItemFeedRequest extends Model
      */
     public $view;
     protected $_name = [
+        'appToken' => 'appToken',
         'businessStatuses' => 'businessStatuses',
         'collaborationGroupId' => 'collaborationGroupId',
         'cursor' => 'cursor',
         'itemTypes' => 'itemTypes',
         'keyword' => 'keyword',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'pageSize' => 'pageSize',
         'priorities' => 'priorities',
         'scope' => 'scope',
@@ -93,6 +111,10 @@ class QueryWorkItemFeedRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->businessStatuses) {
             if (\is_array($this->businessStatuses)) {
                 $res['businessStatuses'] = [];
@@ -125,6 +147,14 @@ class QueryWorkItemFeedRequest extends Model
 
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->pageSize) {
@@ -169,6 +199,10 @@ class QueryWorkItemFeedRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['businessStatuses'])) {
             if (!empty($map['businessStatuses'])) {
                 $model->businessStatuses = [];
@@ -201,6 +235,14 @@ class QueryWorkItemFeedRequest extends Model
 
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['pageSize'])) {

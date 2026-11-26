@@ -11,6 +11,11 @@ class SearchAliDingGroupChatsRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $cursor;
 
     /**
@@ -24,6 +29,16 @@ class SearchAliDingGroupChatsRequest extends Model
     public $keyword;
 
     /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -33,9 +48,12 @@ class SearchAliDingGroupChatsRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'cursor' => 'cursor',
         'excludeMuted' => 'excludeMuted',
         'keyword' => 'keyword',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'pageSize' => 'pageSize',
         'tenantId' => 'tenantId',
     ];
@@ -48,6 +66,10 @@ class SearchAliDingGroupChatsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->cursor) {
             $res['cursor'] = $this->cursor;
         }
@@ -58,6 +80,14 @@ class SearchAliDingGroupChatsRequest extends Model
 
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->pageSize) {
@@ -79,6 +109,10 @@ class SearchAliDingGroupChatsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['cursor'])) {
             $model->cursor = $map['cursor'];
         }
@@ -89,6 +123,14 @@ class SearchAliDingGroupChatsRequest extends Model
 
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['pageSize'])) {

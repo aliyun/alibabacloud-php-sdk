@@ -10,9 +10,24 @@ use AlibabaCloud\SDK\WinNexo\V20260512\Models\RegisterAppResourcePermissionsRequ
 class RegisterAppResourcePermissionsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var items[]
      */
     public $items;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -24,7 +39,10 @@ class RegisterAppResourcePermissionsRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'items' => 'items',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'resourceTenantId' => 'resourceTenantId',
         'tenantId' => 'tenantId',
     ];
@@ -40,6 +58,10 @@ class RegisterAppResourcePermissionsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['items'] = [];
@@ -49,6 +71,14 @@ class RegisterAppResourcePermissionsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->resourceTenantId) {
@@ -70,6 +100,10 @@ class RegisterAppResourcePermissionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
@@ -79,6 +113,14 @@ class RegisterAppResourcePermissionsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['resourceTenantId'])) {

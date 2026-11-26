@@ -13,6 +13,11 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $directoryId;
 
     /**
@@ -38,6 +43,16 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $sourceTags;
 
     /**
@@ -50,11 +65,14 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'directoryId' => 'directoryId',
         'kbName' => 'kbName',
         'kbUrl' => 'kbUrl',
         'objectBindings' => 'objectBindings',
         'operatingObjectName' => 'operatingObjectName',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceTags' => 'sourceTags',
         'syncConfig' => 'syncConfig',
         'tenantId' => 'tenantId',
@@ -74,6 +92,10 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->directoryId) {
             $res['directoryId'] = $this->directoryId;
         }
@@ -101,6 +123,14 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
             $res['operatingObjectName'] = $this->operatingObjectName;
         }
 
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->sourceTags) {
             $res['sourceTags'] = $this->sourceTags;
         }
@@ -124,6 +154,10 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['directoryId'])) {
             $model->directoryId = $map['directoryId'];
         }
@@ -149,6 +183,14 @@ class CreatePersonalAlidingKnowledgeBaseRequest extends Model
 
         if (isset($map['operatingObjectName'])) {
             $model->operatingObjectName = $map['operatingObjectName'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceTags'])) {

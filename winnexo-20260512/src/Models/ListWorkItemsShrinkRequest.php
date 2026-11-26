@@ -11,6 +11,11 @@ class ListWorkItemsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $businessStatusesShrink;
 
     /**
@@ -39,6 +44,16 @@ class ListWorkItemsShrinkRequest extends Model
     public $nextToken;
 
     /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
      * @var int
      */
     public $page;
@@ -63,12 +78,15 @@ class ListWorkItemsShrinkRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'businessStatusesShrink' => 'businessStatuses',
         'collaborationGroupId' => 'collaborationGroupId',
         'itemTypesShrink' => 'itemTypes',
         'keyword' => 'keyword',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'page' => 'page',
         'pageSize' => 'pageSize',
         'prioritiesShrink' => 'priorities',
@@ -84,6 +102,10 @@ class ListWorkItemsShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->businessStatusesShrink) {
             $res['businessStatuses'] = $this->businessStatusesShrink;
         }
@@ -106,6 +128,14 @@ class ListWorkItemsShrinkRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->page) {
@@ -139,6 +169,10 @@ class ListWorkItemsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['businessStatuses'])) {
             $model->businessStatusesShrink = $map['businessStatuses'];
         }
@@ -161,6 +195,14 @@ class ListWorkItemsShrinkRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['page'])) {

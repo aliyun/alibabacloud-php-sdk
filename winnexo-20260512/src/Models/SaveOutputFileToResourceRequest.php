@@ -11,6 +11,11 @@ class SaveOutputFileToResourceRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $directoryId;
 
     /**
@@ -26,11 +31,24 @@ class SaveOutputFileToResourceRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'directoryId' => 'directoryId',
         'itemIds' => 'itemIds',
         'mode' => 'mode',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'tenantId' => 'tenantId',
     ];
 
@@ -45,6 +63,10 @@ class SaveOutputFileToResourceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->directoryId) {
             $res['directoryId'] = $this->directoryId;
         }
@@ -64,6 +86,14 @@ class SaveOutputFileToResourceRequest extends Model
             $res['mode'] = $this->mode;
         }
 
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
@@ -79,6 +109,10 @@ class SaveOutputFileToResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['directoryId'])) {
             $model->directoryId = $map['directoryId'];
         }
@@ -96,6 +130,14 @@ class SaveOutputFileToResourceRequest extends Model
 
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['tenantId'])) {

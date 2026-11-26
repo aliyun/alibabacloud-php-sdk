@@ -11,6 +11,11 @@ class UpdateUserInfoRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $avatar;
 
     /**
@@ -31,6 +36,16 @@ class UpdateUserInfoRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $profileRoleInfo;
 
     /**
@@ -43,10 +58,13 @@ class UpdateUserInfoRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'avatar' => 'avatar',
         'languagePreference' => 'languagePreference',
         'name' => 'name',
         'offering' => 'offering',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'profileRoleInfo' => 'profileRoleInfo',
         'selfIntroduction' => 'selfIntroduction',
         'tenantId' => 'tenantId',
@@ -60,6 +78,10 @@ class UpdateUserInfoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->avatar) {
             $res['avatar'] = $this->avatar;
         }
@@ -74,6 +96,14 @@ class UpdateUserInfoRequest extends Model
 
         if (null !== $this->offering) {
             $res['offering'] = $this->offering;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->profileRoleInfo) {
@@ -99,6 +129,10 @@ class UpdateUserInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['avatar'])) {
             $model->avatar = $map['avatar'];
         }
@@ -113,6 +147,14 @@ class UpdateUserInfoRequest extends Model
 
         if (isset($map['offering'])) {
             $model->offering = $map['offering'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['profileRoleInfo'])) {

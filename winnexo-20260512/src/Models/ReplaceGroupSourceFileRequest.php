@@ -11,6 +11,11 @@ class ReplaceGroupSourceFileRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $fileName;
 
     /**
@@ -41,6 +46,16 @@ class ReplaceGroupSourceFileRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $sourceId;
 
     /**
@@ -48,12 +63,15 @@ class ReplaceGroupSourceFileRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'fileName' => 'fileName',
         'filePath' => 'filePath',
         'filePublicUrl' => 'filePublicUrl',
         'fileRecordId' => 'fileRecordId',
         'forceSync' => 'forceSync',
         'groupId' => 'groupId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceId' => 'sourceId',
         'tenantId' => 'tenantId',
     ];
@@ -66,6 +84,10 @@ class ReplaceGroupSourceFileRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
         }
@@ -90,6 +112,14 @@ class ReplaceGroupSourceFileRequest extends Model
             $res['groupId'] = $this->groupId;
         }
 
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->sourceId) {
             $res['sourceId'] = $this->sourceId;
         }
@@ -109,6 +139,10 @@ class ReplaceGroupSourceFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
         }
@@ -131,6 +165,14 @@ class ReplaceGroupSourceFileRequest extends Model
 
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceId'])) {

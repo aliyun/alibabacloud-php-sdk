@@ -11,6 +11,11 @@ class UpdateGroupSourceContentRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
@@ -26,6 +31,16 @@ class UpdateGroupSourceContentRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $sourceId;
 
     /**
@@ -33,9 +48,12 @@ class UpdateGroupSourceContentRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'content' => 'content',
         'forceSync' => 'forceSync',
         'groupId' => 'groupId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceId' => 'sourceId',
         'tenantId' => 'tenantId',
     ];
@@ -48,6 +66,10 @@ class UpdateGroupSourceContentRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
@@ -58,6 +80,14 @@ class UpdateGroupSourceContentRequest extends Model
 
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->sourceId) {
@@ -79,6 +109,10 @@ class UpdateGroupSourceContentRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
@@ -89,6 +123,14 @@ class UpdateGroupSourceContentRequest extends Model
 
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceId'])) {

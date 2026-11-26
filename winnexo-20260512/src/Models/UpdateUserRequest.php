@@ -11,12 +11,27 @@ class UpdateUserRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $displayName;
 
     /**
      * @var bool
      */
     public $isActive;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string[]
@@ -38,8 +53,11 @@ class UpdateUserRequest extends Model
      */
     public $wnUserId;
     protected $_name = [
+        'appToken' => 'appToken',
         'displayName' => 'displayName',
         'isActive' => 'isActive',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'roleCodes' => 'roleCodes',
         'tenantId' => 'tenantId',
         'userGroupIds' => 'userGroupIds',
@@ -60,12 +78,24 @@ class UpdateUserRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
 
         if (null !== $this->isActive) {
             $res['isActive'] = $this->isActive;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->roleCodes) {
@@ -109,12 +139,24 @@ class UpdateUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }
 
         if (isset($map['isActive'])) {
             $model->isActive = $map['isActive'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['roleCodes'])) {

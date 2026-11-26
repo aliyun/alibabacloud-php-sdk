@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class UpdateMemoryAutoExtractionSwitchRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appToken;
+
+    /**
      * @var bool
      */
     public $clearExisting;
@@ -26,6 +31,16 @@ class UpdateMemoryAutoExtractionSwitchRequest extends Model
     /**
      * @var string
      */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $ownerType;
 
     /**
@@ -33,9 +48,12 @@ class UpdateMemoryAutoExtractionSwitchRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'clearExisting' => 'clearExisting',
         'enabled' => 'enabled',
         'groupId' => 'groupId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'ownerType' => 'ownerType',
         'tenantId' => 'tenantId',
     ];
@@ -48,6 +66,10 @@ class UpdateMemoryAutoExtractionSwitchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->clearExisting) {
             $res['clearExisting'] = $this->clearExisting;
         }
@@ -58,6 +80,14 @@ class UpdateMemoryAutoExtractionSwitchRequest extends Model
 
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->ownerType) {
@@ -79,6 +109,10 @@ class UpdateMemoryAutoExtractionSwitchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['clearExisting'])) {
             $model->clearExisting = $map['clearExisting'];
         }
@@ -89,6 +123,14 @@ class UpdateMemoryAutoExtractionSwitchRequest extends Model
 
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['ownerType'])) {

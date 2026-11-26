@@ -14,6 +14,11 @@ class items extends Model
     public $abnormalReason;
 
     /**
+     * @var string
+     */
+    public $autoPreference;
+
+    /**
      * @var bool
      */
     public $canDelete;
@@ -124,6 +129,7 @@ class items extends Model
     public $visibleMemberUserIds;
     protected $_name = [
         'abnormalReason' => 'abnormalReason',
+        'autoPreference' => 'autoPreference',
         'canDelete' => 'canDelete',
         'canEdit' => 'canEdit',
         'canExecute' => 'canExecute',
@@ -164,6 +170,10 @@ class items extends Model
         $res = [];
         if (null !== $this->abnormalReason) {
             $res['abnormalReason'] = $this->abnormalReason;
+        }
+
+        if (null !== $this->autoPreference) {
+            $res['autoPreference'] = $this->autoPreference;
         }
 
         if (null !== $this->canDelete) {
@@ -281,6 +291,10 @@ class items extends Model
         $model = new self();
         if (isset($map['abnormalReason'])) {
             $model->abnormalReason = $map['abnormalReason'];
+        }
+
+        if (isset($map['autoPreference'])) {
+            $model->autoPreference = $map['autoPreference'];
         }
 
         if (isset($map['canDelete'])) {

@@ -11,6 +11,21 @@ class DisableConversationShareRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -18,6 +33,9 @@ class DisableConversationShareRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sessionId' => 'sessionId',
         'tenantId' => 'tenantId',
     ];
@@ -30,6 +48,18 @@ class DisableConversationShareRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
+        }
+
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
@@ -49,6 +79,18 @@ class DisableConversationShareRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
+        }
+
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }

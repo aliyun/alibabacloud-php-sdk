@@ -11,6 +11,11 @@ class QuerySourceUsageTrendShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $collaborationGroupId;
 
     /**
@@ -32,6 +37,16 @@ class QuerySourceUsageTrendShrinkRequest extends Model
      * @var string
      */
     public $knowledgeBaseIdsShrink;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -63,11 +78,14 @@ class QuerySourceUsageTrendShrinkRequest extends Model
      */
     public $timeZone;
     protected $_name = [
+        'appToken' => 'appToken',
         'collaborationGroupId' => 'collaborationGroupId',
         'endTime' => 'endTime',
         'eventType' => 'eventType',
         'granularity' => 'granularity',
         'knowledgeBaseIdsShrink' => 'knowledgeBaseIds',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'scopeType' => 'scopeType',
         'sourceIdsShrink' => 'sourceIds',
         'sourceName' => 'sourceName',
@@ -84,6 +102,10 @@ class QuerySourceUsageTrendShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->collaborationGroupId) {
             $res['collaborationGroupId'] = $this->collaborationGroupId;
         }
@@ -102,6 +124,14 @@ class QuerySourceUsageTrendShrinkRequest extends Model
 
         if (null !== $this->knowledgeBaseIdsShrink) {
             $res['knowledgeBaseIds'] = $this->knowledgeBaseIdsShrink;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->scopeType) {
@@ -139,6 +169,10 @@ class QuerySourceUsageTrendShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['collaborationGroupId'])) {
             $model->collaborationGroupId = $map['collaborationGroupId'];
         }
@@ -157,6 +191,14 @@ class QuerySourceUsageTrendShrinkRequest extends Model
 
         if (isset($map['knowledgeBaseIds'])) {
             $model->knowledgeBaseIdsShrink = $map['knowledgeBaseIds'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['scopeType'])) {

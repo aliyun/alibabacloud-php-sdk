@@ -11,7 +11,22 @@ class MoveKnowledgeBaseResourceRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $knowledgeId;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -33,7 +48,10 @@ class MoveKnowledgeBaseResourceRequest extends Model
      */
     public $tenantId;
     protected $_name = [
+        'appToken' => 'appToken',
         'knowledgeId' => 'knowledgeId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'sourceDirectoryId' => 'sourceDirectoryId',
         'sourceId' => 'sourceId',
         'targetDirectoryId' => 'targetDirectoryId',
@@ -48,8 +66,20 @@ class MoveKnowledgeBaseResourceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->knowledgeId) {
             $res['knowledgeId'] = $this->knowledgeId;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->sourceDirectoryId) {
@@ -79,8 +109,20 @@ class MoveKnowledgeBaseResourceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['knowledgeId'])) {
             $model->knowledgeId = $map['knowledgeId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['sourceDirectoryId'])) {

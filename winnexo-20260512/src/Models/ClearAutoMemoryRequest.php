@@ -11,7 +11,22 @@ class ClearAutoMemoryRequest extends Model
     /**
      * @var string
      */
+    public $appToken;
+
+    /**
+     * @var string
+     */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $opsUserCode;
+
+    /**
+     * @var string
+     */
+    public $opsUserId;
 
     /**
      * @var string
@@ -28,7 +43,10 @@ class ClearAutoMemoryRequest extends Model
      */
     public $type;
     protected $_name = [
+        'appToken' => 'appToken',
         'groupId' => 'groupId',
+        'opsUserCode' => 'opsUserCode',
+        'opsUserId' => 'opsUserId',
         'ownerType' => 'ownerType',
         'tenantId' => 'tenantId',
         'type' => 'type',
@@ -42,8 +60,20 @@ class ClearAutoMemoryRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appToken) {
+            $res['appToken'] = $this->appToken;
+        }
+
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
+        }
+
+        if (null !== $this->opsUserCode) {
+            $res['opsUserCode'] = $this->opsUserCode;
+        }
+
+        if (null !== $this->opsUserId) {
+            $res['opsUserId'] = $this->opsUserId;
         }
 
         if (null !== $this->ownerType) {
@@ -69,8 +99,20 @@ class ClearAutoMemoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appToken'])) {
+            $model->appToken = $map['appToken'];
+        }
+
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
+        }
+
+        if (isset($map['opsUserCode'])) {
+            $model->opsUserCode = $map['opsUserCode'];
+        }
+
+        if (isset($map['opsUserId'])) {
+            $model->opsUserId = $map['opsUserId'];
         }
 
         if (isset($map['ownerType'])) {
