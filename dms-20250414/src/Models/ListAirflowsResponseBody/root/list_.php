@@ -49,9 +49,24 @@ class list_ extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableLineage;
+
+    /**
      * @var string
      */
     public $gmtCreated;
+
+    /**
+     * @var int
+     */
+    public $lineageReplicas;
+
+    /**
+     * @var string
+     */
+    public $lineageSpec;
 
     /**
      * @var string
@@ -121,7 +136,10 @@ class list_ extends Model
         'dagsDir' => 'DagsDir',
         'deployErrorMsg' => 'DeployErrorMsg',
         'description' => 'Description',
+        'enableLineage' => 'EnableLineage',
         'gmtCreated' => 'GmtCreated',
+        'lineageReplicas' => 'LineageReplicas',
+        'lineageSpec' => 'LineageSpec',
         'ossBucketName' => 'OssBucketName',
         'ossPath' => 'OssPath',
         'pluginsDir' => 'PluginsDir',
@@ -186,8 +204,20 @@ class list_ extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->enableLineage) {
+            $res['EnableLineage'] = $this->enableLineage;
+        }
+
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
+        }
+
+        if (null !== $this->lineageReplicas) {
+            $res['LineageReplicas'] = $this->lineageReplicas;
+        }
+
+        if (null !== $this->lineageSpec) {
+            $res['LineageSpec'] = $this->lineageSpec;
         }
 
         if (null !== $this->ossBucketName) {
@@ -288,8 +318,20 @@ class list_ extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['EnableLineage'])) {
+            $model->enableLineage = $map['EnableLineage'];
+        }
+
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
+        }
+
+        if (isset($map['LineageReplicas'])) {
+            $model->lineageReplicas = $map['LineageReplicas'];
+        }
+
+        if (isset($map['LineageSpec'])) {
+            $model->lineageSpec = $map['LineageSpec'];
         }
 
         if (isset($map['OssBucketName'])) {

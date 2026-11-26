@@ -46,12 +46,27 @@ class CreateAirflowShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $enableLineage;
+
+    /**
+     * @var bool
+     */
     public $enableServerless;
 
     /**
      * @var int
      */
     public $gracefulShutdownTimeout;
+
+    /**
+     * @var int
+     */
+    public $lineageReplicas;
+
+    /**
+     * @var string
+     */
+    public $lineageSpec;
 
     /**
      * @var string
@@ -115,8 +130,11 @@ class CreateAirflowShrinkRequest extends Model
         'dagsDir' => 'DagsDir',
         'dataMountInfoListShrink' => 'DataMountInfoList',
         'description' => 'Description',
+        'enableLineage' => 'EnableLineage',
         'enableServerless' => 'EnableServerless',
         'gracefulShutdownTimeout' => 'GracefulShutdownTimeout',
+        'lineageReplicas' => 'LineageReplicas',
+        'lineageSpec' => 'LineageSpec',
         'ossBucketName' => 'OssBucketName',
         'ossPath' => 'OssPath',
         'pluginsDir' => 'PluginsDir',
@@ -166,12 +184,24 @@ class CreateAirflowShrinkRequest extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->enableLineage) {
+            $res['EnableLineage'] = $this->enableLineage;
+        }
+
         if (null !== $this->enableServerless) {
             $res['EnableServerless'] = $this->enableServerless;
         }
 
         if (null !== $this->gracefulShutdownTimeout) {
             $res['GracefulShutdownTimeout'] = $this->gracefulShutdownTimeout;
+        }
+
+        if (null !== $this->lineageReplicas) {
+            $res['LineageReplicas'] = $this->lineageReplicas;
+        }
+
+        if (null !== $this->lineageSpec) {
+            $res['LineageSpec'] = $this->lineageSpec;
         }
 
         if (null !== $this->ossBucketName) {
@@ -257,12 +287,24 @@ class CreateAirflowShrinkRequest extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['EnableLineage'])) {
+            $model->enableLineage = $map['EnableLineage'];
+        }
+
         if (isset($map['EnableServerless'])) {
             $model->enableServerless = $map['EnableServerless'];
         }
 
         if (isset($map['GracefulShutdownTimeout'])) {
             $model->gracefulShutdownTimeout = $map['GracefulShutdownTimeout'];
+        }
+
+        if (isset($map['LineageReplicas'])) {
+            $model->lineageReplicas = $map['LineageReplicas'];
+        }
+
+        if (isset($map['LineageSpec'])) {
+            $model->lineageSpec = $map['LineageSpec'];
         }
 
         if (isset($map['OssBucketName'])) {

@@ -11,9 +11,6 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\AddDataAgentMemoryRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddDataAgentMemoryResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddUserToDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\AddUserToDataAgentWorkspaceResponse;
-use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsRequest;
-use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsResponse;
-use AlibabaCloud\SDK\Dms\V20250414\Models\BatchCreateDataLakePartitionsShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CheckDataAgentMemoryConfigRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CheckDataAgentMemoryConfigResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowRequest;
@@ -643,99 +640,6 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates multiple partitions for a data lakehouse table.
-     *
-     * @param tmpReq - BatchCreateDataLakePartitionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BatchCreateDataLakePartitionsResponse
-     *
-     * @param BatchCreateDataLakePartitionsRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return BatchCreateDataLakePartitionsResponse
-     */
-    public function batchCreateDataLakePartitionsWithOptions($tmpReq, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new BatchCreateDataLakePartitionsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->partitionInputs) {
-            $request->partitionInputsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->partitionInputs, 'PartitionInputs', 'json');
-        }
-
-        $query = [];
-        if (null !== $request->catalogName) {
-            @$query['CatalogName'] = $request->catalogName;
-        }
-
-        if (null !== $request->dbName) {
-            @$query['DbName'] = $request->dbName;
-        }
-
-        if (null !== $request->ifNotExists) {
-            @$query['IfNotExists'] = $request->ifNotExists;
-        }
-
-        if (null !== $request->needResult) {
-            @$query['NeedResult'] = $request->needResult;
-        }
-
-        if (null !== $request->tableName) {
-            @$query['TableName'] = $request->tableName;
-        }
-
-        if (null !== $request->tid) {
-            @$query['Tid'] = $request->tid;
-        }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
-        }
-
-        $body = [];
-        if (null !== $request->partitionInputsShrink) {
-            @$body['PartitionInputs'] = $request->partitionInputsShrink;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'BatchCreateDataLakePartitions',
-            'version' => '2025-04-14',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return BatchCreateDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Creates multiple partitions for a data lakehouse table.
-     *
-     * @param request - BatchCreateDataLakePartitionsRequest
-     *
-     * @returns BatchCreateDataLakePartitionsResponse
-     *
-     * @param BatchCreateDataLakePartitionsRequest $request
-     *
-     * @return BatchCreateDataLakePartitionsResponse
-     */
-    public function batchCreateDataLakePartitions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchCreateDataLakePartitionsWithOptions($request, $runtime);
-    }
-
-    /**
      * CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
      *
      * @param request - CheckDataAgentMemoryConfigRequest
@@ -1138,12 +1042,24 @@ class Dms extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->enableLineage) {
+            @$query['EnableLineage'] = $request->enableLineage;
+        }
+
         if (null !== $request->enableServerless) {
             @$query['EnableServerless'] = $request->enableServerless;
         }
 
         if (null !== $request->gracefulShutdownTimeout) {
             @$query['GracefulShutdownTimeout'] = $request->gracefulShutdownTimeout;
+        }
+
+        if (null !== $request->lineageReplicas) {
+            @$query['LineageReplicas'] = $request->lineageReplicas;
+        }
+
+        if (null !== $request->lineageSpec) {
+            @$query['LineageSpec'] = $request->lineageSpec;
         }
 
         if (null !== $request->ossBucketName) {
@@ -2174,7 +2090,7 @@ class Dms extends OpenApiClient
      * Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
      *
      * @remarks
-     * After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+     * After deletion, no new connections can be established for this data source, and it cannot be recovered by calling the enable operation.
      *
      * @param request - DeleteAgenticVpcEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2216,7 +2132,7 @@ class Dms extends OpenApiClient
      * Submits an asynchronous deletion request for a VPC endpoint and returns the acceptance result.
      *
      * @remarks
-     * After the reverse endpoint is deleted, the data source can no longer establish connections and cannot be restored by calling the enable API.
+     * After deletion, no new connections can be established for this data source, and it cannot be recovered by calling the enable operation.
      *
      * @param request - DeleteAgenticVpcEndpointRequest
      *
@@ -3193,7 +3109,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed description of a custom agent based on the custom agent ID.
+     * Queries the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3236,7 +3152,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed description of a custom agent based on the custom agent ID.
+     * Queries the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      *
@@ -4323,7 +4239,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the configuration and status of an Airflow instance.
+     * Queries the details of an Airflow instance.
      *
      * @param request - GetAirflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4366,7 +4282,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the configuration and status of an Airflow instance.
+     * Queries the details of an Airflow instance.
      *
      * @param request - GetAirflowRequest
      *
@@ -4657,7 +4573,7 @@ class Dms extends OpenApiClient
      * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
      *
      * @remarks
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+     * Queries the model usage summary data of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
      *
      * @param tmpReq - GetDataAgentTaskModelUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4725,7 +4641,7 @@ class Dms extends OpenApiClient
      * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of calls, total tokens consumed, and peak TPM.
      *
      * @remarks
-     * Queries the model usage summary of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
+     * Queries the model usage summary data of DataAgent analysis tasks within a specified time range, including the number of models used, total number of model calls, total tokens consumed, and peak TPM. This data is used to analyze and monitor the model resource consumption of DataAgent analysis tasks.
      *
      * @param request - GetDataAgentTaskModelUsageRequest
      *
@@ -4743,10 +4659,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
+     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the token consumption at each time point at a minute-level granularity.
      *
      * @remarks
-     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
+     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the number of tokens consumed in each statistical interval at a minute-level granularity to analyze the trend of model usage over time.
      *
      * @param tmpReq - GetDataAgentTaskModelUsageMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4811,10 +4727,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range, returning token consumption at each time point at a minute-level granularity.
+     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the token consumption at each time point at a minute-level granularity.
      *
      * @remarks
-     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analysis task model usage within a specified time range. It returns the number of tokens consumed in each statistical interval at a minute-level granularity to help you analyze the trend of model usage over time.
+     * Queries the time-series metrics of tokens per minute (TPM) for DataAgent analytical task model usage within a specified time range, and returns the number of tokens consumed in each statistical interval at a minute-level granularity to analyze the trend of model usage over time.
      *
      * @param request - GetDataAgentTaskModelUsageMetricsRequest
      *
@@ -9544,10 +9460,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Sets the quota for a workspace.
+     * Sets the workspace quota.
      *
      * @remarks
-     * Sets the quota for a specific workspace.
+     * Sets the workspace quota.
      *
      * @param request - SetWorkspaceQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9602,10 +9518,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Sets the quota for a workspace.
+     * Sets the workspace quota.
      *
      * @remarks
-     * Sets the quota for a specific workspace.
+     * Sets the workspace quota.
      *
      * @param request - SetWorkspaceQuotaRequest
      *
@@ -10197,12 +10113,24 @@ class Dms extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->enableLineage) {
+            @$query['EnableLineage'] = $request->enableLineage;
+        }
+
         if (null !== $request->enableServerless) {
             @$query['EnableServerless'] = $request->enableServerless;
         }
 
         if (null !== $request->gracefulShutdownTimeout) {
             @$query['GracefulShutdownTimeout'] = $request->gracefulShutdownTimeout;
+        }
+
+        if (null !== $request->lineageReplicas) {
+            @$query['LineageReplicas'] = $request->lineageReplicas;
+        }
+
+        if (null !== $request->lineageSpec) {
+            @$query['LineageSpec'] = $request->lineageSpec;
         }
 
         if (null !== $request->pluginsDir) {
@@ -10268,7 +10196,7 @@ class Dms extends OpenApiClient
      * Updates the content of an accuracy test item.
      *
      * @remarks
-     * Updates the accuracy test item.
+     * Updates an accuracy test item.
      *
      * @param request - UpdateDataAgentAccuracyTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10362,7 +10290,7 @@ class Dms extends OpenApiClient
      * Updates the content of an accuracy test item.
      *
      * @remarks
-     * Updates the accuracy test item.
+     * Updates an accuracy test item.
      *
      * @param request - UpdateDataAgentAccuracyTestRequest
      *

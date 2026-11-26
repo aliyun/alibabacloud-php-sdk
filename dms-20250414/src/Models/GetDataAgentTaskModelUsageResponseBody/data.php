@@ -14,9 +14,19 @@ class data extends Model
     public $accelerationRatio;
 
     /**
+     * @var float
+     */
+    public $peakConcurrency;
+
+    /**
      * @var int
      */
     public $rateLimitedSessionCount;
+
+    /**
+     * @var float
+     */
+    public $totalLlmQueueDuration;
 
     /**
      * @var float
@@ -49,7 +59,9 @@ class data extends Model
     public $usedModels;
     protected $_name = [
         'accelerationRatio' => 'AccelerationRatio',
+        'peakConcurrency' => 'PeakConcurrency',
         'rateLimitedSessionCount' => 'RateLimitedSessionCount',
+        'totalLlmQueueDuration' => 'TotalLlmQueueDuration',
         'totalLlmWaitDuration' => 'TotalLlmWaitDuration',
         'totalSessionCount' => 'TotalSessionCount',
         'peakTpm' => 'peakTpm',
@@ -70,8 +82,16 @@ class data extends Model
             $res['AccelerationRatio'] = $this->accelerationRatio;
         }
 
+        if (null !== $this->peakConcurrency) {
+            $res['PeakConcurrency'] = $this->peakConcurrency;
+        }
+
         if (null !== $this->rateLimitedSessionCount) {
             $res['RateLimitedSessionCount'] = $this->rateLimitedSessionCount;
+        }
+
+        if (null !== $this->totalLlmQueueDuration) {
+            $res['TotalLlmQueueDuration'] = $this->totalLlmQueueDuration;
         }
 
         if (null !== $this->totalLlmWaitDuration) {
@@ -113,8 +133,16 @@ class data extends Model
             $model->accelerationRatio = $map['AccelerationRatio'];
         }
 
+        if (isset($map['PeakConcurrency'])) {
+            $model->peakConcurrency = $map['PeakConcurrency'];
+        }
+
         if (isset($map['RateLimitedSessionCount'])) {
             $model->rateLimitedSessionCount = $map['RateLimitedSessionCount'];
+        }
+
+        if (isset($map['TotalLlmQueueDuration'])) {
+            $model->totalLlmQueueDuration = $map['TotalLlmQueueDuration'];
         }
 
         if (isset($map['TotalLlmWaitDuration'])) {

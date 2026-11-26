@@ -14,6 +14,11 @@ class data extends Model
     public $beginTime;
 
     /**
+     * @var float
+     */
+    public $concurrency;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -24,6 +29,7 @@ class data extends Model
     public $tpm;
     protected $_name = [
         'beginTime' => 'BeginTime',
+        'concurrency' => 'Concurrency',
         'endTime' => 'EndTime',
         'tpm' => 'Tpm',
     ];
@@ -38,6 +44,10 @@ class data extends Model
         $res = [];
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
+        }
+
+        if (null !== $this->concurrency) {
+            $res['Concurrency'] = $this->concurrency;
         }
 
         if (null !== $this->endTime) {
@@ -61,6 +71,10 @@ class data extends Model
         $model = new self();
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
+        }
+
+        if (isset($map['Concurrency'])) {
+            $model->concurrency = $map['Concurrency'];
         }
 
         if (isset($map['EndTime'])) {

@@ -57,6 +57,11 @@ class root extends Model
     /**
      * @var bool
      */
+    public $enableLineage;
+
+    /**
+     * @var bool
+     */
     public $enableServerless;
 
     /**
@@ -73,6 +78,16 @@ class root extends Model
      * @var int
      */
     public $gracefulShutdownTimeout;
+
+    /**
+     * @var int
+     */
+    public $lineageReplicas;
+
+    /**
+     * @var string
+     */
+    public $lineageSpec;
 
     /**
      * @var string
@@ -153,10 +168,13 @@ class root extends Model
         'dataMountInfoList' => 'DataMountInfoList',
         'deployErrorMsg' => 'DeployErrorMsg',
         'description' => 'Description',
+        'enableLineage' => 'EnableLineage',
         'enableServerless' => 'EnableServerless',
         'environments' => 'Environments',
         'gmtCreated' => 'GmtCreated',
         'gracefulShutdownTimeout' => 'GracefulShutdownTimeout',
+        'lineageReplicas' => 'LineageReplicas',
+        'lineageSpec' => 'LineageSpec',
         'ossBucketName' => 'OssBucketName',
         'ossPath' => 'OssPath',
         'pluginsDir' => 'PluginsDir',
@@ -237,6 +255,10 @@ class root extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->enableLineage) {
+            $res['EnableLineage'] = $this->enableLineage;
+        }
+
         if (null !== $this->enableServerless) {
             $res['EnableServerless'] = $this->enableServerless;
         }
@@ -251,6 +273,14 @@ class root extends Model
 
         if (null !== $this->gracefulShutdownTimeout) {
             $res['GracefulShutdownTimeout'] = $this->gracefulShutdownTimeout;
+        }
+
+        if (null !== $this->lineageReplicas) {
+            $res['LineageReplicas'] = $this->lineageReplicas;
+        }
+
+        if (null !== $this->lineageSpec) {
+            $res['LineageSpec'] = $this->lineageSpec;
         }
 
         if (null !== $this->ossBucketName) {
@@ -370,6 +400,10 @@ class root extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['EnableLineage'])) {
+            $model->enableLineage = $map['EnableLineage'];
+        }
+
         if (isset($map['EnableServerless'])) {
             $model->enableServerless = $map['EnableServerless'];
         }
@@ -384,6 +418,14 @@ class root extends Model
 
         if (isset($map['GracefulShutdownTimeout'])) {
             $model->gracefulShutdownTimeout = $map['GracefulShutdownTimeout'];
+        }
+
+        if (isset($map['LineageReplicas'])) {
+            $model->lineageReplicas = $map['LineageReplicas'];
+        }
+
+        if (isset($map['LineageSpec'])) {
+            $model->lineageSpec = $map['LineageSpec'];
         }
 
         if (isset($map['OssBucketName'])) {
