@@ -168,6 +168,7 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleR
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\UpdateAgentRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\UpdateAgentResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -178,6 +179,9 @@ class IntelligentCreation extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'IntelligentCreation';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('intelligentcreation', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
