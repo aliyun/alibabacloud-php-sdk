@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\IntelligentCreation\V20240313;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddScriptHotWordRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddScriptHotWordResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchAddDocumentRequest;
@@ -71,6 +73,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationPro
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationProjectResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationTextResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteScriptHotWordRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteScriptHotWordResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DescribeDocumentResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionResponse;
@@ -135,6 +139,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryImageToVideoTaskR
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryImageToVideoTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryIndividuationTextTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryIndividuationTextTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryScriptHotWordListRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryScriptHotWordListResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoShrinkRequest;
@@ -168,6 +174,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleR
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\UpdateAgentRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\UpdateAgentResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\UpdateScriptHotWordRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\UpdateScriptHotWordResponse;
 use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -209,6 +217,75 @@ class IntelligentCreation extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 新增剧本热词.
+     *
+     * @param request - AddScriptHotWordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddScriptHotWordResponse
+     *
+     * @param AddScriptHotWordRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddScriptHotWordResponse
+     */
+    public function addScriptHotWordWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->hotWord) {
+            @$body['hotWord'] = $request->hotWord;
+        }
+
+        if (null !== $request->scriptRecordId) {
+            @$body['scriptRecordId'] = $request->scriptRecordId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddScriptHotWord',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/addScriptHotWord',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AddScriptHotWordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增剧本热词.
+     *
+     * @param request - AddScriptHotWordRequest
+     *
+     * @returns AddScriptHotWordResponse
+     *
+     * @param AddScriptHotWordRequest $request
+     *
+     * @return AddScriptHotWordResponse
+     */
+    public function addScriptHotWord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addScriptHotWordWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2351,6 +2428,67 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->deleteIndividuationTextWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除剧本热词.
+     *
+     * @param request - DeleteScriptHotWordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteScriptHotWordResponse
+     *
+     * @param DeleteScriptHotWordRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteScriptHotWordResponse
+     */
+    public function deleteScriptHotWordWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hotWordId) {
+            @$query['hotWordId'] = $request->hotWordId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteScriptHotWord',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/deleteScriptHotWord',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteScriptHotWordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除剧本热词.
+     *
+     * @param request - DeleteScriptHotWordRequest
+     *
+     * @returns DeleteScriptHotWordResponse
+     *
+     * @param DeleteScriptHotWordRequest $request
+     *
+     * @return DeleteScriptHotWordResponse
+     */
+    public function deleteScriptHotWord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteScriptHotWordWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4685,6 +4823,79 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * 检索剧本热词列表.
+     *
+     * @param request - QueryScriptHotWordListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryScriptHotWordListResponse
+     *
+     * @param QueryScriptHotWordListRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryScriptHotWordListResponse
+     */
+    public function queryScriptHotWordListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hotWord) {
+            @$query['hotWord'] = $request->hotWord;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scriptRecordId) {
+            @$query['scriptRecordId'] = $request->scriptRecordId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryScriptHotWordList',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/listScriptHotWord',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryScriptHotWordListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检索剧本热词列表.
+     *
+     * @param request - QueryScriptHotWordListRequest
+     *
+     * @returns QueryScriptHotWordListResponse
+     *
+     * @param QueryScriptHotWordListRequest $request
+     *
+     * @return QueryScriptHotWordListResponse
+     */
+    public function queryScriptHotWordList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryScriptHotWordListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 查询会话信息.
      *
      * @param tmpReq - QuerySessionInfoRequest
@@ -6031,5 +6242,74 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->updateAgentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新剧本热词.
+     *
+     * @param request - UpdateScriptHotWordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateScriptHotWordResponse
+     *
+     * @param UpdateScriptHotWordRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateScriptHotWordResponse
+     */
+    public function updateScriptHotWordWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->hotWord) {
+            @$body['hotWord'] = $request->hotWord;
+        }
+
+        if (null !== $request->hotWordId) {
+            @$body['hotWordId'] = $request->hotWordId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateScriptHotWord',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/updateScriptHotWord',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateScriptHotWordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新剧本热词.
+     *
+     * @param request - UpdateScriptHotWordRequest
+     *
+     * @returns UpdateScriptHotWordResponse
+     *
+     * @param UpdateScriptHotWordRequest $request
+     *
+     * @return UpdateScriptHotWordResponse
+     */
+    public function updateScriptHotWord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateScriptHotWordWithOptions($request, $headers, $runtime);
     }
 }
