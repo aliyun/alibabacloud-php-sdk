@@ -1,3 +1,12 @@
+2026-11-26 Version: 1.12.0
+- Support API GetRLFlowAnalysis.
+- Support API GetRLLogContext.
+- Support API GetRLSample.
+- Support API GetRLTrainingProgress.
+- Support API ListRLSamples.
+- Support API ListRLTrajectories.
+
+
 2026-11-06 Version: 1.11.8
 - Update API GetWebTerminal: add request parameters ContainerName.
 

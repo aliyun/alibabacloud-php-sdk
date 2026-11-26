@@ -34,6 +34,11 @@ class JobSettings extends Model
     public $caller;
 
     /**
+     * @var UserVpc[]
+     */
+    public $crossAccountVpcs;
+
+    /**
      * @var DataJuicerConfig
      */
     public $dataJuicerConfig;
@@ -148,6 +153,7 @@ class JobSettings extends Model
         'allowUnschedulableNodes' => 'AllowUnschedulableNodes',
         'businessUserId' => 'BusinessUserId',
         'caller' => 'Caller',
+        'crossAccountVpcs' => 'CrossAccountVpcs',
         'dataJuicerConfig' => 'DataJuicerConfig',
         'disableEcsStockCheck' => 'DisableEcsStockCheck',
         'driver' => 'Driver',
@@ -176,6 +182,9 @@ class JobSettings extends Model
     {
         if (\is_array($this->advancedSettings)) {
             Model::validateArray($this->advancedSettings);
+        }
+        if (\is_array($this->crossAccountVpcs)) {
+            Model::validateArray($this->crossAccountVpcs);
         }
         if (null !== $this->dataJuicerConfig) {
             $this->dataJuicerConfig->validate();
@@ -215,6 +224,17 @@ class JobSettings extends Model
 
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
+        }
+
+        if (null !== $this->crossAccountVpcs) {
+            if (\is_array($this->crossAccountVpcs)) {
+                $res['CrossAccountVpcs'] = [];
+                $n1 = 0;
+                foreach ($this->crossAccountVpcs as $item1) {
+                    $res['CrossAccountVpcs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->dataJuicerConfig) {
@@ -344,6 +364,17 @@ class JobSettings extends Model
 
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
+        }
+
+        if (isset($map['CrossAccountVpcs'])) {
+            if (!empty($map['CrossAccountVpcs'])) {
+                $model->crossAccountVpcs = [];
+                $n1 = 0;
+                foreach ($map['CrossAccountVpcs'] as $item1) {
+                    $model->crossAccountVpcs[$n1] = UserVpc::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['DataJuicerConfig'])) {
