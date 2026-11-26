@@ -15,6 +15,12 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchDeleteModelsShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchUploadSkillsViaOssRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchUploadSkillsViaOssResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\BatchUploadSkillsViaOssShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\BeginAssetUploadRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\BeginAssetUploadResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\BeginAssetUploadShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CompleteAssetUploadRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CompleteAssetUploadResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CompleteAssetUploadShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ConvertMcpToFreeEditRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ConvertMcpToFreeEditResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateAgentIMChannelRequest;
@@ -55,6 +61,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateIdentityProviderSyncJobRes
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateImageCacheRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateImageCacheResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateImageCacheShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateKnowledgeBaseShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\CreateManagedAgentShrinkRequest;
@@ -104,6 +113,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentSpecVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentSpecVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAgentVersionResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAssetRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteAssetResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteCustomAgentRequest;
@@ -119,6 +130,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteIdentityProviderSCIMCreden
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteIdentityProviderSCIMCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteImageCacheRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteImageCacheResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteKnowledgeBaseRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteManagedAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteManagedAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\DeleteMcpRequest;
@@ -182,6 +195,12 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentSpecVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentSpecVersionResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentVersionRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAgentVersionResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAssetDownloadUrlRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAssetDownloadUrlResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAssetRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetAssetResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetChunkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetChunkResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCredentialRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCredentialResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetCustomAgentImagePreparationRequest;
@@ -204,6 +223,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderSyncScopeRequ
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetIdentityProviderSyncScopeResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetImageCacheRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetImageCacheResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetKnowledgeBaseRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetManagedAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetManagedAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\GetMcpCodePackageUploadUrlRequest;
@@ -266,6 +287,10 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentTeamsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentTeamsShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentVersionsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAgentVersionsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAssetsRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListAssetsResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListChunksRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListChunksResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorModelsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorModelsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListConnectorsRequest;
@@ -286,6 +311,8 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListIdentityProvidersResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListImageCachesRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListImageCachesResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListKnowledgeBasesRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListKnowledgeBasesResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListManagedAgentsRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListManagedAgentsResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\ListMcpMarketItemsRequest;
@@ -364,6 +391,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\RetryMemoryTaskRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\RetryMemoryTaskResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\RevokeMemoryRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\RevokeMemoryResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchKnowledgeBaseRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchKnowledgeBaseResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchKnowledgeBaseShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchMemoriesRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchMemoriesResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\SearchMemoriesShrinkRequest;
@@ -385,6 +415,15 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAgentIMChannelShrinkReques
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAgentSpecRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAgentSpecResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAgentSpecShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAssetRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAssetResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateAssetShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateChunkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateChunkResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateChunkShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateChunksRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateChunksResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateChunksShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateConnectorRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateConnectorResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateConnectorShrinkRequest;
@@ -403,6 +442,9 @@ use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderSCIMReques
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderSCIMResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderSCIMShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateIdentityProviderShrinkRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateKnowledgeBaseShrinkRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentRequest;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentResponse;
 use AlibabaCloud\SDK\AgentCore\V20260804\Models\UpdateManagedAgentShrinkRequest;
@@ -748,6 +790,168 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->batchUploadSkillsViaOssWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 申请知识库资产上传地址
+     *
+     * @remarks
+     * 登记资产上传会话，返回 assetId、uploadId 和实际状态；仅有效的 UPLOADING 会话返回限定其 original 对象的限时 PUT 地址。使用 PUT 上传文件二进制，不使用 JSON 或 multipart 包装，本期文件大小为 1 字节至 50 MiB。clientToken 可选；提供时，省略 assetId 将依据租户、工作空间、知识库和 clientToken 稳定派生资产 ID，便于首次响应丢失后的定位。同时省略 assetId 和 clientToken 时，每次请求创建新资产。未提供 clientToken 时按新的上传意图处理，不保证跨请求重试幂等。覆盖已有资产必须设置 overwrite=true；该参数仅授权覆盖，不强制重新导入。提供 clientToken 时，仅对该资产最近一次 Begin 保存的 token 幂等；后续 Begin（包括省略 clientToken 的请求）会替换最近请求标识。命中且规范化请求相同则复用上传会话，参数不同返回 409，包括 sourceETag 不同；token 不命中则按新的上传意图校验和受理，即使该 token 曾用于更早的上传。来源版本去重独立于 clientToken：指定稳定 assetId、overwrite=true 且提供 sourceETag 时，若来源身份及版本、导入参数和有效处理配置均未变化，即使未提供 clientToken，也可复用当前 uploadId 和加工代次；显式提供且命中最近 token 时仍要求完整规范化请求相同。复用有效 UPLOADING 会话时刷新同一对象路径的签名；复用 PENDING、PROCESSING 或 COMPLETED 会话时返回实际状态且不返回上传地址，PENDING 按相同 taskKey 补交调度，来源版本相同不表示处理完成。客户端 token 幂等命中后的失败状态只返回当前状态；新的上传意图遇到 FAILED、上传意图过期或来源、导入参数、有效处理配置变化时创建新的 uploadId、内部对象路径及加工代次。未提供 sourceETag 时不启用来源版本去重，可使用不同 clientToken 或不提供 clientToken，按新的上传意图重新导入；覆盖已有资产仍须 overwrite=true。新结果发布前仍使用旧发布版本。每个会话的原件对象仍必须禁止覆盖，签名头通过 headers 返回。完成 PUT 上传后，使用返回的 assetId 和 uploadId 调用 CompleteAssetUpload。携带 sourceETag 的 Begin 命中当前上传目标时，PENDING 会按相同 taskKey 补交调度，返回 PENDING、PROCESSING 或 COMPLETED 后无需再次上传或确认；显式提供相同 clientToken 且未传 sourceETag 的 PENDING 重放仍须重试 CompleteAssetUpload，以恢复受理结果未知的调度。
+     *
+     * @param tmpReq - BeginAssetUploadRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BeginAssetUploadResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $knowledgeBaseId
+     * @param BeginAssetUploadRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BeginAssetUploadResponse
+     */
+    public function beginAssetUploadWithOptions($workspaceId, $knowledgeBaseId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BeginAssetUploadShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BeginAssetUpload',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets/begin-upload',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BeginAssetUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 申请知识库资产上传地址
+     *
+     * @remarks
+     * 登记资产上传会话，返回 assetId、uploadId 和实际状态；仅有效的 UPLOADING 会话返回限定其 original 对象的限时 PUT 地址。使用 PUT 上传文件二进制，不使用 JSON 或 multipart 包装，本期文件大小为 1 字节至 50 MiB。clientToken 可选；提供时，省略 assetId 将依据租户、工作空间、知识库和 clientToken 稳定派生资产 ID，便于首次响应丢失后的定位。同时省略 assetId 和 clientToken 时，每次请求创建新资产。未提供 clientToken 时按新的上传意图处理，不保证跨请求重试幂等。覆盖已有资产必须设置 overwrite=true；该参数仅授权覆盖，不强制重新导入。提供 clientToken 时，仅对该资产最近一次 Begin 保存的 token 幂等；后续 Begin（包括省略 clientToken 的请求）会替换最近请求标识。命中且规范化请求相同则复用上传会话，参数不同返回 409，包括 sourceETag 不同；token 不命中则按新的上传意图校验和受理，即使该 token 曾用于更早的上传。来源版本去重独立于 clientToken：指定稳定 assetId、overwrite=true 且提供 sourceETag 时，若来源身份及版本、导入参数和有效处理配置均未变化，即使未提供 clientToken，也可复用当前 uploadId 和加工代次；显式提供且命中最近 token 时仍要求完整规范化请求相同。复用有效 UPLOADING 会话时刷新同一对象路径的签名；复用 PENDING、PROCESSING 或 COMPLETED 会话时返回实际状态且不返回上传地址，PENDING 按相同 taskKey 补交调度，来源版本相同不表示处理完成。客户端 token 幂等命中后的失败状态只返回当前状态；新的上传意图遇到 FAILED、上传意图过期或来源、导入参数、有效处理配置变化时创建新的 uploadId、内部对象路径及加工代次。未提供 sourceETag 时不启用来源版本去重，可使用不同 clientToken 或不提供 clientToken，按新的上传意图重新导入；覆盖已有资产仍须 overwrite=true。新结果发布前仍使用旧发布版本。每个会话的原件对象仍必须禁止覆盖，签名头通过 headers 返回。完成 PUT 上传后，使用返回的 assetId 和 uploadId 调用 CompleteAssetUpload。携带 sourceETag 的 Begin 命中当前上传目标时，PENDING 会按相同 taskKey 补交调度，返回 PENDING、PROCESSING 或 COMPLETED 后无需再次上传或确认；显式提供相同 clientToken 且未传 sourceETag 的 PENDING 重放仍须重试 CompleteAssetUpload，以恢复受理结果未知的调度。
+     *
+     * @param request - BeginAssetUploadRequest
+     *
+     * @returns BeginAssetUploadResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $knowledgeBaseId
+     * @param BeginAssetUploadRequest $request
+     *
+     * @return BeginAssetUploadResponse
+     */
+    public function beginAssetUpload($workspaceId, $knowledgeBaseId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->beginAssetUploadWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     *
+     * @remarks
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     *
+     * @param tmpReq - CompleteAssetUploadRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CompleteAssetUploadResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param string                     $assetId
+     * @param CompleteAssetUploadRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CompleteAssetUploadResponse
+     */
+    public function completeAssetUploadWithOptions($workspaceId, $knowledgeBaseId, $assetId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CompleteAssetUploadShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CompleteAssetUpload',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets/' . Url::percentEncode($assetId) . '/complete-upload',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CompleteAssetUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     *
+     * @remarks
+     * Confirms a specified upload session by using the workspaceId, knowledgeBaseId, and assetId in the path and the uploadId in the request body. The server verifies tenant and resource ownership, requires the uploadId to match the current upload session and the upload_epoch to equal the current next_epoch, and then performs a HEAD operation on the bound original object to verify its existence, actual size of 1 byte to 50 MiB, and content type. Using the metadata and chunking configuration saved during acceptance, the server enters the pending state through a CAS operation that includes the upload identity, target generation, UPLOADING status, and deletion marker. Repeatedly confirming the same accepted upload that is still the current target returns the existing status without incrementing the generation or creating a new task. If the scheduling acceptance result is unknown, the server resubmits the task by using the same taskKey. When a subsequent overwrite upload, edit, or rebuild replaces the target, a delayed Complete request returns a status conflict and does not overwrite the new task or resurrect deleted assets. Non-retryable processing failures remain in the FAILED state and are not requeued by the Complete request.
+     *
+     * @param request - CompleteAssetUploadRequest
+     *
+     * @returns CompleteAssetUploadResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param string                     $assetId
+     * @param CompleteAssetUploadRequest $request
+     *
+     * @return CompleteAssetUploadResponse
+     */
+    public function completeAssetUpload($workspaceId, $knowledgeBaseId, $assetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->completeAssetUploadWithOptions($workspaceId, $knowledgeBaseId, $assetId, $request, $headers, $runtime);
     }
 
     /**
@@ -1452,7 +1656,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+     * Issues a local debugging token for a running high-code agent in a specified workspace. The latest configuration of the agent must be in effect. The workspace must have inbound access enabled for the selected network and debug routing configured. The token is valid for 1 hour from the time of issuance. After the token expires, you can call this operation again to obtain a new one.
      *
      * @param request - CreateCustomAgentDebugTokenRequest
      * @param headers - map
@@ -1496,7 +1700,7 @@ class AgentCore extends OpenApiClient
     }
 
     /**
-     * Issues a local debug token for a running high-code agent in a specified workspace. The latest configuration of the agent must take effect. The workspace must enable inbound access for the selected network and complete debug routing preparations. The token is valid for 1 hour from the time of issuance. You can call this operation again to obtain a new token after the token expires.
+     * Issues a local debugging token for a running high-code agent in a specified workspace. The latest configuration of the agent must be in effect. The workspace must have inbound access enabled for the selected network and debug routing configured. The token is valid for 1 hour from the time of issuance. After the token expires, you can call this operation again to obtain a new one.
      *
      * @param request - CreateCustomAgentDebugTokenRequest
      *
@@ -2173,6 +2377,87 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->createImageCacheWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a knowledge base in a specified workspace of the current tenant, and persistently binds the trusted tenantId and workspaceId. The creation process is asynchronous, and the response returns the resource status. You can query the status and lastError by calling GetKnowledgeBase or ListKnowledgeBases.
+     *
+     * @remarks
+     * Creates a knowledge base in a specified workspace of the current tenant, and persistently binds the trusted tenantId and workspaceId. The creation process is asynchronous, and the response returns the resource status. You can query the status and lastError by calling GetKnowledgeBase or ListKnowledgeBases.
+     *
+     * @param tmpReq - CreateKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param string                     $workspaceId
+     * @param CreateKnowledgeBaseRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBaseWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateKnowledgeBaseShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKnowledgeBase',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a knowledge base in a specified workspace of the current tenant, and persistently binds the trusted tenantId and workspaceId. The creation process is asynchronous, and the response returns the resource status. You can query the status and lastError by calling GetKnowledgeBase or ListKnowledgeBases.
+     *
+     * @remarks
+     * Creates a knowledge base in a specified workspace of the current tenant, and persistently binds the trusted tenantId and workspaceId. The creation process is asynchronous, and the response returns the resource status. You can query the status and lastError by calling GetKnowledgeBase or ListKnowledgeBases.
+     *
+     * @param request - CreateKnowledgeBaseRequest
+     *
+     * @returns CreateKnowledgeBaseResponse
+     *
+     * @param string                     $workspaceId
+     * @param CreateKnowledgeBaseRequest $request
+     *
+     * @return CreateKnowledgeBaseResponse
+     */
+    public function createKnowledgeBase($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createKnowledgeBaseWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3626,6 +3911,73 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     *
+     * @remarks
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     *
+     * @param request - DeleteAssetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAssetResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $knowledgeBaseId
+     * @param string             $assetId
+     * @param DeleteAssetRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteAssetResponse
+     */
+    public function deleteAssetWithOptions($workspaceId, $knowledgeBaseId, $assetId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAsset',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets/' . Url::percentEncode($assetId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     *
+     * @remarks
+     * Writes a deletion tombstone for an asset and initiates asynchronous cleanup. The server authenticates the request, verifies tenant and resource ownership, and checks for existing DELETING or DELETED tombstones. Duplicate requests for assets already in the deletion process return the current status without retriggering the deletion. For undeleted assets that are eligible for deletion, the control plane conditionally writes a tombstone. The operation returns the registered processing status, which does not indicate that the physical data cleanup is complete.
+     *
+     * @param request - DeleteAssetRequest
+     *
+     * @returns DeleteAssetResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $knowledgeBaseId
+     * @param string             $assetId
+     * @param DeleteAssetRequest $request
+     *
+     * @return DeleteAssetResponse
+     */
+    public function deleteAsset($workspaceId, $knowledgeBaseId, $assetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAssetWithOptions($workspaceId, $knowledgeBaseId, $assetId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a specified credential in a workspace and the ciphertext hosted in the credential service. After the deletion, agents bound to the credential can no longer obtain the credential content.
      *
      * @remarks
@@ -4172,6 +4524,71 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->deleteImageCacheWithOptions($imageId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the Deleting or Deleted state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     *
+     * @remarks
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the DELETING or DELETED state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     *
+     * @param request - DeleteKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param DeleteKnowledgeBaseRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBaseWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKnowledgeBase',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the Deleting or Deleted state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     *
+     * @remarks
+     * Asynchronously deletes a knowledge base. Verifies the trusted tenant identity, workspace ownership, and access permissions for the knowledge base. If the resource is already in the DELETING or DELETED state, repeated deletion requests return the current state without re-initiating cleanup. After the deletion is accepted, GetKnowledgeBase indicates that the resource does not exist, and ListKnowledgeBases no longer displays the resource. The system continues to clean up physical data in the background.
+     *
+     * @param request - DeleteKnowledgeBaseRequest
+     *
+     * @returns DeleteKnowledgeBaseResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param DeleteKnowledgeBaseRequest $request
+     *
+     * @return DeleteKnowledgeBaseResponse
+     */
+    public function deleteKnowledgeBase($workspaceId, $knowledgeBaseId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteKnowledgeBaseWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime);
     }
 
     /**
@@ -6333,6 +6750,209 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     *
+     * @remarks
+     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     *
+     * @param request - GetAssetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAssetResponse
+     *
+     * @param string          $workspaceId
+     * @param string          $knowledgeBaseId
+     * @param string          $assetId
+     * @param GetAssetRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetAssetResponse
+     */
+    public function getAssetWithOptions($workspaceId, $knowledgeBaseId, $assetId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetAsset',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets/' . Url::percentEncode($assetId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     *
+     * @remarks
+     * Queries the asset management properties and current processing status. For upload, rebuild, and chunk content editing operations, poll the status of this API until it returns COMPLETED or FAILED. For failure causes, refer to lastError. The publishedResultAvailable field indicates whether the published result is still available. This API does not accept clientToken and does not return receipts for chunkUpdate or historical modifications. If a deletion request is accepted, the API returns a resource not found error.
+     *
+     * @param request - GetAssetRequest
+     *
+     * @returns GetAssetResponse
+     *
+     * @param string          $workspaceId
+     * @param string          $knowledgeBaseId
+     * @param string          $assetId
+     * @param GetAssetRequest $request
+     *
+     * @return GetAssetResponse
+     */
+    public function getAsset($workspaceId, $knowledgeBaseId, $assetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAssetWithOptions($workspaceId, $knowledgeBaseId, $assetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     *
+     * @remarks
+     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     *
+     * @param request - GetAssetDownloadUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAssetDownloadUrlResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param string                     $assetId
+     * @param GetAssetDownloadUrlRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAssetDownloadUrlResponse
+     */
+    public function getAssetDownloadUrlWithOptions($workspaceId, $knowledgeBaseId, $assetId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetAssetDownloadUrl',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets/' . Url::percentEncode($assetId) . '/download-url',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAssetDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     *
+     * @remarks
+     * Returns a time-limited download URL for the published original file of an asset, using a unified OSS public endpoint. Returns a status conflict if the asset is not published during initial processing. The published original file remains downloadable during re-chunking or editing, subject to validation of current permissions, enabled status, and deletion status.
+     *
+     * @param request - GetAssetDownloadUrlRequest
+     *
+     * @returns GetAssetDownloadUrlResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param string                     $assetId
+     * @param GetAssetDownloadUrlRequest $request
+     *
+     * @return GetAssetDownloadUrlResponse
+     */
+    public function getAssetDownloadUrl($workspaceId, $knowledgeBaseId, $assetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAssetDownloadUrlWithOptions($workspaceId, $knowledgeBaseId, $assetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a chunk in the currently published generation based on its 1-based logical sequence number within the asset, and verifies the ownership relationship between the chunk and the asset.
+     *
+     * @remarks
+     * Queries a chunk in the currently published generation based on its 1-based logical sequence number within the asset, and verifies the ownership relationship between the chunk and the asset.
+     *
+     * @param request - GetChunkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChunkResponse
+     *
+     * @param string          $workspaceId
+     * @param string          $knowledgeBaseId
+     * @param string          $assetId
+     * @param string          $chunkSeq
+     * @param GetChunkRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetChunkResponse
+     */
+    public function getChunkWithOptions($workspaceId, $knowledgeBaseId, $assetId, $chunkSeq, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetChunk',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets/' . Url::percentEncode($assetId) . '/chunks/' . Url::percentEncode($chunkSeq) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetChunkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a chunk in the currently published generation based on its 1-based logical sequence number within the asset, and verifies the ownership relationship between the chunk and the asset.
+     *
+     * @remarks
+     * Queries a chunk in the currently published generation based on its 1-based logical sequence number within the asset, and verifies the ownership relationship between the chunk and the asset.
+     *
+     * @param request - GetChunkRequest
+     *
+     * @returns GetChunkResponse
+     *
+     * @param string          $workspaceId
+     * @param string          $knowledgeBaseId
+     * @param string          $assetId
+     * @param string          $chunkSeq
+     * @param GetChunkRequest $request
+     *
+     * @return GetChunkResponse
+     */
+    public function getChunk($workspaceId, $knowledgeBaseId, $assetId, $chunkSeq, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getChunkWithOptions($workspaceId, $knowledgeBaseId, $assetId, $chunkSeq, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the details of a specified credential and returns a list of agents bound to the credential. The credential content is returned in a masked format.
      *
      * @remarks
@@ -7307,6 +7927,71 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->getImageCacheWithOptions($imageId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     *
+     * @remarks
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     *
+     * @param request - GetKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKnowledgeBaseResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $knowledgeBaseId
+     * @param GetKnowledgeBaseRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetKnowledgeBaseResponse
+     */
+    public function getKnowledgeBaseWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetKnowledgeBase',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     *
+     * @remarks
+     * Queries the public information, configuration, and current lifecycle status of a knowledge base in a specified workspace of the current tenant. The status and lastError fields indicate the creation and deletion progress and failure causes.
+     *
+     * @param request - GetKnowledgeBaseRequest
+     *
+     * @returns GetKnowledgeBaseResponse
+     *
+     * @param string                  $workspaceId
+     * @param string                  $knowledgeBaseId
+     * @param GetKnowledgeBaseRequest $request
+     *
+     * @return GetKnowledgeBaseResponse
+     */
+    public function getKnowledgeBase($workspaceId, $knowledgeBaseId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getKnowledgeBaseWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime);
     }
 
     /**
@@ -9463,6 +10148,176 @@ class AgentCore extends OpenApiClient
     }
 
     /**
+     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     *
+     * @remarks
+     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     *
+     * @param request - ListAssetsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAssetsResponse
+     *
+     * @param string            $workspaceId
+     * @param string            $knowledgeBaseId
+     * @param ListAssetsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAssetsResponse
+     */
+    public function listAssetsWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileNamePrefix) {
+            @$query['fileNamePrefix'] = $request->fileNamePrefix;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAssets',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     *
+     * @remarks
+     * Performs a paged query for undeleted assets in a knowledge base based on the file name prefix and processing status. The results are sorted in descending order by the most recent upload time, and then by assetId in descending order for identical upload times. The upload time refers to the acceptance time of the most recent BeginAssetUpload request. It is updated upon overwrite uploads but remains unchanged for replays with the same token or when you deduplicate the source. It does not represent the processing time. The list index is updated asynchronously and may experience brief delays. The totalCount is cached for 60 seconds based on the resource scope and filter conditions, which may result in brief staleness. Stop paging only when nextToken is empty. If the legacy table lacks the upload time column or sorting index, a ServiceUnavailable error is returned. In this case, use a newly created knowledge base.
+     *
+     * @param request - ListAssetsRequest
+     *
+     * @returns ListAssetsResponse
+     *
+     * @param string            $workspaceId
+     * @param string            $knowledgeBaseId
+     * @param ListAssetsRequest $request
+     *
+     * @return ListAssetsResponse
+     */
+    public function listAssets($workspaceId, $knowledgeBaseId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAssetsWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Performs a paged query for currently published chunks in a knowledge base. Results can be filtered by asset, keyword, and enabled status. If an assetId is specified, results are sorted by chunkSeq, and the nextToken is attached to the current publish result of the asset. A VersionConflict (409) error is returned if the publish result changes. If no assetId is specified, results are sorted by assetId and chunkSeq, and a full-base snapshot is not guaranteed. The token is always attached to the tenant, workspace, knowledge base, filter conditions, and sorting.
+     *
+     * @remarks
+     * Performs a paged query for currently published chunks in a knowledge base. Results can be filtered by asset, keyword, and enabled status. If an assetId is specified, results are sorted by chunkSeq, and the nextToken is attached to the current publish result of the asset. A VersionConflict (409) error is returned if the publish result changes. If no assetId is specified, results are sorted by assetId and chunkSeq, and a full-base snapshot is not guaranteed. The token is always attached to the tenant, workspace, knowledge base, filter conditions, and sorting.
+     *
+     * @param request - ListChunksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChunksResponse
+     *
+     * @param string            $workspaceId
+     * @param string            $knowledgeBaseId
+     * @param ListChunksRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListChunksResponse
+     */
+    public function listChunksWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetId) {
+            @$query['assetId'] = $request->assetId;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListChunks',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/chunks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query for currently published chunks in a knowledge base. Results can be filtered by asset, keyword, and enabled status. If an assetId is specified, results are sorted by chunkSeq, and the nextToken is attached to the current publish result of the asset. A VersionConflict (409) error is returned if the publish result changes. If no assetId is specified, results are sorted by assetId and chunkSeq, and a full-base snapshot is not guaranteed. The token is always attached to the tenant, workspace, knowledge base, filter conditions, and sorting.
+     *
+     * @remarks
+     * Performs a paged query for currently published chunks in a knowledge base. Results can be filtered by asset, keyword, and enabled status. If an assetId is specified, results are sorted by chunkSeq, and the nextToken is attached to the current publish result of the asset. A VersionConflict (409) error is returned if the publish result changes. If no assetId is specified, results are sorted by assetId and chunkSeq, and a full-base snapshot is not guaranteed. The token is always attached to the tenant, workspace, knowledge base, filter conditions, and sorting.
+     *
+     * @param request - ListChunksRequest
+     *
+     * @returns ListChunksResponse
+     *
+     * @param string            $workspaceId
+     * @param string            $knowledgeBaseId
+     * @param ListChunksRequest $request
+     *
+     * @return ListChunksResponse
+     */
+    public function listChunks($workspaceId, $knowledgeBaseId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listChunksWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the official and enterprise models available for the enabled QoderCLI connector. The service retrieves models in real time by using the saved API key and organization ID, and deduplicates them by model ID.
      *
      * @remarks
@@ -10394,6 +11249,79 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->listImageCachesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     *
+     * @remarks
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBasesResponse
+     *
+     * @param string                    $workspaceId
+     * @param ListKnowledgeBasesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListKnowledgeBasesResponse
+     */
+    public function listKnowledgeBasesWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBases',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     *
+     * @remarks
+     * Queries knowledge bases in a specified workspace of the current tenant by using paging. Each returned item includes the status and lastError fields, which can be used to query the creation and deletion progress of knowledge bases and the causes of failures.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     *
+     * @returns ListKnowledgeBasesResponse
+     *
+     * @param string                    $workspaceId
+     * @param ListKnowledgeBasesRequest $request
+     *
+     * @return ListKnowledgeBasesResponse
+     */
+    public function listKnowledgeBases($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listKnowledgeBasesWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -12715,7 +13643,7 @@ class AgentCore extends OpenApiClient
      * Validates an MCP origin server.
      *
      * @remarks
-     * Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+     * Validates a single direct-connect MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not provided. The server discovers them automatically, prioritizing the modern protocol and falling back to the legacy protocol only if the modern one is unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the protocol conversion compatibility of the gateway. If the direct connection protocol check passes but no capabilities are declared, the status is still SUCCESS. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration. It also sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business APIs defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation API, does not accept validation-specific headers, and does not execute tools/call. A success response from the API only indicates that the validation request has been processed. The actual origin server result is indicated by data.status.
      *
      * @param tmpReq - ProbeMcpOriginRequest
      * @param headers - map
@@ -12767,7 +13695,7 @@ class AgentCore extends OpenApiClient
      * Validates an MCP origin server.
      *
      * @remarks
-     * Validates a single direct MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not passed. The server discovers them automatically, prioritizing the validation of the modern protocol and falling back to the legacy protocol only if the modern one is confirmed to be unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the external protocol conversion compatibility of the gateway. A direct connection protocol check is still considered SUCCESS even if no capabilities are declared. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration, and sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business interfaces defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation interface, does not accept detection-specific headers, and does not execute tools/call. A success response from the interface only indicates that the validation request has been processed. The origin server result is indicated by data.status.
+     * Validates a single direct-connect MCP or HTTP origin server before creating an MCP. This operation does not require an MCP resource ID, create resources, or persist probe results. For direct connections, the protocol, transport method, and version are not provided. The server discovers them automatically, prioritizing the modern protocol and falling back to the legacy protocol only if the modern one is unsupported. The returned backend protocol and transport method can be used for creation configurations and do not limit the protocol conversion compatibility of the gateway. If the direct connection protocol check passes but no capabilities are declared, the status is still SUCCESS. For HTTP, the operation validates the complete OpenAPI definition and origin server authentication configuration. It also sends a HEAD request without business parameters or origin server credentials to the configured address to check connectivity. It does not select or execute business APIs defined in the specification, nor does it verify whether the credentials are accepted by the origin server. It only accepts origin server configurations supported by the creation API, does not accept validation-specific headers, and does not execute tools/call. A success response from the API only indicates that the validation request has been processed. The actual origin server result is indicated by data.status.
      *
      * @param request - ProbeMcpOriginRequest
      *
@@ -13323,6 +14251,83 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->revokeMemoryWithOptions($workspaceId, $memoryStoreName, $memoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     *
+     * @remarks
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     *
+     * @param tmpReq - SearchKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchKnowledgeBaseResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param SearchKnowledgeBaseRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchKnowledgeBaseResponse
+     */
+    public function searchKnowledgeBaseWithOptions($workspaceId, $knowledgeBaseId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SearchKnowledgeBaseShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchKnowledgeBase',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     *
+     * @remarks
+     * Executes keyword, vector, or hybrid search on published and authorized results in a specified knowledge base. Search parameters take effect in the order of the current request, knowledge base search configuration, and system default values. Metadata filtering uses a JSON expression tree and does not accept OTS DSL or tenant fields. The actual number of results after filtering and permission verification may be less than topK. The search feature provides eventual consistency, and newly published results become searchable after index synchronization. Reading candidates still verifies the current publish pointer and permissions.
+     *
+     * @param request - SearchKnowledgeBaseRequest
+     *
+     * @returns SearchKnowledgeBaseResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param SearchKnowledgeBaseRequest $request
+     *
+     * @return SearchKnowledgeBaseResponse
+     */
+    public function searchKnowledgeBase($workspaceId, $knowledgeBaseId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchKnowledgeBaseWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime);
     }
 
     /**
@@ -13886,6 +14891,251 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->updateAgentSpecWithOptions($workspaceId, $agentSpecName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the asset name, enabled status, metadata patch, or asset-level chunking configuration. At least one of these items must be provided in the request. Metadata is incrementally merged, and chunkConfiguration triggers asynchronous rechunking. Changes that affect retrieval projections cause the backend to create a new generation and conditionally publish it. Before publication, previously published results remain readable as long as the asset is not disabled, deleted, or unauthorized, and published results are not modified in place. Processing failures in the current phase are not retried. For assets in the FAILED state, only the name or enabled status can be modified. Submitting metadata or chunkConfiguration returns InvalidAssetState.
+     *
+     * @remarks
+     * Updates the asset name, enabled status, metadata patch, or asset-level chunking configuration. At least one of these items must be provided in the request. Metadata is incrementally merged, and chunkConfiguration triggers asynchronous rechunking. Changes that affect retrieval projections cause the backend to create a new generation and conditionally publish it. Before publication, previously published results remain readable as long as the asset is not disabled, deleted, or unauthorized, and published results are not modified in place. Processing failures in the current phase are not retried. For assets in the FAILED state, only the name or enabled status can be modified. Submitting metadata or chunkConfiguration returns InvalidAssetState.
+     *
+     * @param tmpReq - UpdateAssetRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAssetResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $knowledgeBaseId
+     * @param string             $assetId
+     * @param UpdateAssetRequest $tmpReq
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAssetResponse
+     */
+    public function updateAssetWithOptions($workspaceId, $knowledgeBaseId, $assetId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAssetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAsset',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets/' . Url::percentEncode($assetId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the asset name, enabled status, metadata patch, or asset-level chunking configuration. At least one of these items must be provided in the request. Metadata is incrementally merged, and chunkConfiguration triggers asynchronous rechunking. Changes that affect retrieval projections cause the backend to create a new generation and conditionally publish it. Before publication, previously published results remain readable as long as the asset is not disabled, deleted, or unauthorized, and published results are not modified in place. Processing failures in the current phase are not retried. For assets in the FAILED state, only the name or enabled status can be modified. Submitting metadata or chunkConfiguration returns InvalidAssetState.
+     *
+     * @remarks
+     * Updates the asset name, enabled status, metadata patch, or asset-level chunking configuration. At least one of these items must be provided in the request. Metadata is incrementally merged, and chunkConfiguration triggers asynchronous rechunking. Changes that affect retrieval projections cause the backend to create a new generation and conditionally publish it. Before publication, previously published results remain readable as long as the asset is not disabled, deleted, or unauthorized, and published results are not modified in place. Processing failures in the current phase are not retried. For assets in the FAILED state, only the name or enabled status can be modified. Submitting metadata or chunkConfiguration returns InvalidAssetState.
+     *
+     * @param request - UpdateAssetRequest
+     *
+     * @returns UpdateAssetResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $knowledgeBaseId
+     * @param string             $assetId
+     * @param UpdateAssetRequest $request
+     *
+     * @return UpdateAssetResponse
+     */
+    public function updateAsset($workspaceId, $knowledgeBaseId, $assetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAssetWithOptions($workspaceId, $knowledgeBaseId, $assetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     *
+     * @remarks
+     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     *
+     * @param tmpReq - UpdateChunkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateChunkResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $knowledgeBaseId
+     * @param string             $assetId
+     * @param string             $chunkSeq
+     * @param UpdateChunkRequest $tmpReq
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateChunkResponse
+     */
+    public function updateChunkWithOptions($workspaceId, $knowledgeBaseId, $assetId, $chunkSeq, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateChunkShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateChunk',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets/' . Url::percentEncode($assetId) . '/chunks/' . Url::percentEncode($chunkSeq) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateChunkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     *
+     * @remarks
+     * Updates the content or enabled status of a chunk by its logical sequence number. You must pass back the opaque chunkToken returned by the query operation. When only the enabled status is modified, the system synchronously writes to OTS after reading the currently published result, validating the token, and fixing the target at the beginning of the request. Enabling or disabling is allowed when a published result exists and is not deleted, including the PENDING, PROCESSING, and FAILED states, without waiting for FC. New results published during this process are not followed, rolled back, or appended with post-write version conflicts. New results are not guaranteed to inherit concurrent enable or disable operations. Indexes are synchronized asynchronously, which may cause a brief delay in retrieval. Modifying the content is only allowed when the status is COMPLETED. The system asynchronously computes the target vectors and publishes the complete result. You can call GetAsset to query the current status, lastError, and publishedResultAvailable of the document. Content edits with the same clientToken are idempotently replayed with the original result. An expired token at the beginning of the request returns Chunk.VersionConflict. Execution generations are managed only on the backend.
+     *
+     * @param request - UpdateChunkRequest
+     *
+     * @returns UpdateChunkResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $knowledgeBaseId
+     * @param string             $assetId
+     * @param string             $chunkSeq
+     * @param UpdateChunkRequest $request
+     *
+     * @return UpdateChunkResponse
+     */
+    public function updateChunk($workspaceId, $knowledgeBaseId, $assetId, $chunkSeq, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateChunkWithOptions($workspaceId, $knowledgeBaseId, $assetId, $chunkSeq, $request, $headers, $runtime);
+    }
+
+    /**
+     * 批量启停 Chunk.
+     *
+     * @remarks
+     * 同步启停同一资产中 1 至 100 个 Chunk。每项必填 chunkSeq、chunkToken、enabled，序号不得重复，不支持正文。请求开始读取当前已发布结果，校验全部令牌后固定目标；已过期令牌整次返回 Chunk.VersionConflict。已有发布结果且未删除即可启停，包括 PENDING、PROCESSING、FAILED，不等待 FC。期间新结果发布不追随、不回滚，也不追加写后版本冲突；新结果不保证继承并发启停。写入允许部分成功，检查 results 和 failedCount。索引异步同步，检索可能短暂延迟。不调用 FC，不需要 clientToken 或轮询。
+     *
+     * @param tmpReq - UpdateChunksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateChunksResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $knowledgeBaseId
+     * @param string              $assetId
+     * @param UpdateChunksRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateChunksResponse
+     */
+    public function updateChunksWithOptions($workspaceId, $knowledgeBaseId, $assetId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateChunksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateChunks',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '/assets/' . Url::percentEncode($assetId) . '/chunks',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量启停 Chunk.
+     *
+     * @remarks
+     * 同步启停同一资产中 1 至 100 个 Chunk。每项必填 chunkSeq、chunkToken、enabled，序号不得重复，不支持正文。请求开始读取当前已发布结果，校验全部令牌后固定目标；已过期令牌整次返回 Chunk.VersionConflict。已有发布结果且未删除即可启停，包括 PENDING、PROCESSING、FAILED，不等待 FC。期间新结果发布不追随、不回滚，也不追加写后版本冲突；新结果不保证继承并发启停。写入允许部分成功，检查 results 和 failedCount。索引异步同步，检索可能短暂延迟。不调用 FC，不需要 clientToken 或轮询。
+     *
+     * @param request - UpdateChunksRequest
+     *
+     * @returns UpdateChunksResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $knowledgeBaseId
+     * @param string              $assetId
+     * @param UpdateChunksRequest $request
+     *
+     * @return UpdateChunksResponse
+     */
+    public function updateChunks($workspaceId, $knowledgeBaseId, $assetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateChunksWithOptions($workspaceId, $knowledgeBaseId, $assetId, $request, $headers, $runtime);
     }
 
     /**
@@ -14648,6 +15898,89 @@ class AgentCore extends OpenApiClient
         $headers = [];
 
         return $this->updateIdentityProviderSCIMWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the name, description, chunking, or search configuration of a knowledge base. The metadataSchema, embeddingModel, and embeddingDimension cannot be modified after creation. The chunking configuration applies only to subsequently uploaded assets and does not implicitly rebuild existing assets.
+     *
+     * @remarks
+     * Updates the name, description, chunking, or search configuration of a knowledge base. The metadataSchema, embeddingModel, and embeddingDimension cannot be modified after creation. The chunking configuration applies only to subsequently uploaded assets and does not implicitly rebuild existing assets.
+     *
+     * @param tmpReq - UpdateKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param UpdateKnowledgeBaseRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBaseWithOptions($workspaceId, $knowledgeBaseId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateKnowledgeBaseShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->bodyShrink) {
+            @$body['body'] = $request->bodyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBase',
+            'version' => '2026-08-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspaces/' . Url::percentEncode($workspaceId) . '/knowledge-bases/' . Url::percentEncode($knowledgeBaseId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the name, description, chunking, or search configuration of a knowledge base. The metadataSchema, embeddingModel, and embeddingDimension cannot be modified after creation. The chunking configuration applies only to subsequently uploaded assets and does not implicitly rebuild existing assets.
+     *
+     * @remarks
+     * Updates the name, description, chunking, or search configuration of a knowledge base. The metadataSchema, embeddingModel, and embeddingDimension cannot be modified after creation. The chunking configuration applies only to subsequently uploaded assets and does not implicitly rebuild existing assets.
+     *
+     * @param request - UpdateKnowledgeBaseRequest
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param string                     $workspaceId
+     * @param string                     $knowledgeBaseId
+     * @param UpdateKnowledgeBaseRequest $request
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBase($workspaceId, $knowledgeBaseId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateKnowledgeBaseWithOptions($workspaceId, $knowledgeBaseId, $request, $headers, $runtime);
     }
 
     /**
