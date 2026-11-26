@@ -1,3 +1,6 @@
+2026-11-26 Version: 1.1.4
+- Generated php 2024-06-12 for InternetBankOpen.
+
 2026-11-18 Version: 1.1.3
 - Generated php 2024-06-12 for InternetBankOpen.
 
