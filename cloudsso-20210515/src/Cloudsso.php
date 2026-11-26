@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteMFADeviceForUserRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteMFADeviceForUserResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteSCIMServerCredentialRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteSCIMServerCredentialResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteSecurityInfoRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteSecurityInfoResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserProvisioningEventRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserProvisioningEventResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\DeleteUserProvisioningRequest;
@@ -79,6 +81,10 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetPasswordPolicyRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetPasswordPolicyResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetSCIMSynchronizationStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetSCIMSynchronizationStatusResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetSecurityInfoPreferenceRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetSecurityInfoPreferenceResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetSecurityInfoRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetSecurityInfoResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetServiceStatusResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetTaskResponse;
@@ -144,6 +150,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ResetUserPasswordRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\ResetUserPasswordResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\RetryUserProvisioningEventRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\RetryUserProvisioningEventResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SendVerificationMessageRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SendVerificationMessageResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetExternalSAMLIdentityProviderRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetExternalSAMLIdentityProviderResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetLoginPreferenceRequest;
@@ -154,6 +162,10 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetPasswordPolicyRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetPasswordPolicyResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSCIMSynchronizationStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSCIMSynchronizationStatusResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSecurityInfoPreferenceRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSecurityInfoPreferenceResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSecurityInfoRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\SetSecurityInfoResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UntagResourcesRequest;
@@ -183,6 +195,7 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserStatusRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\UpdateUserStatusResponse;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -193,6 +206,9 @@ class Cloudsso extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId = 'cloudsso';
+        $gatewayClient = new Client();
+        $this->_spi = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudsso', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -295,7 +311,7 @@ class Cloudsso extends OpenApiClient
      * Adds an access policy to an access configuration.
      *
      * @remarks
-     * This topic provides an example of adding a system policy named `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+     * This topic provides an example of adding the system policy AliyunECSFullAccess to the access configuration ac-00jhtfl8thteu6uj****.
      *
      * @param request - AddPermissionPolicyToAccessConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -353,7 +369,7 @@ class Cloudsso extends OpenApiClient
      * Adds an access policy to an access configuration.
      *
      * @remarks
-     * This topic provides an example of adding a system policy named `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+     * This topic provides an example of adding the system policy AliyunECSFullAccess to the access configuration ac-00jhtfl8thteu6uj****.
      *
      * @param request - AddPermissionPolicyToAccessConfigurationRequest
      *
@@ -371,11 +387,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Adds a user to a group.
+     * Adds a user to a user group.
      *
      * @remarks
-     * After SCIM synchronization is enabled, you cannot add users to SCIM-synchronized groups.
-     * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+     * When SCIM synchronization is enabled, you cannot add users to SCIM-synchronized user groups.
+     * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the user group `g-00jqzghi2n3o5hkh****`.
      *
      * @param request - AddUserToGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -422,11 +438,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Adds a user to a group.
+     * Adds a user to a user group.
      *
      * @remarks
-     * After SCIM synchronization is enabled, you cannot add users to SCIM-synchronized groups.
-     * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+     * When SCIM synchronization is enabled, you cannot add users to SCIM-synchronized user groups.
+     * This topic provides an example of adding the user `u-00q8wbq42wiltcrk****` to the user group `g-00jqzghi2n3o5hkh****`.
      *
      * @param request - AddUserToGroupRequest
      *
@@ -448,7 +464,7 @@ class Cloudsso extends OpenApiClient
      *
      * @remarks
      * You can clear the SAML IdP information only when SSO logon is disabled. Otherwise, you cannot perform this operation.
-     * This topic provides an example of clearing the configuration of the SAML IdP for the `d-00fc2p61****` directory.
+     * This topic provides an example to clear the configuration of the SAML IdP in the `d-00fc2p61****` directory.
      *
      * @param request - ClearExternalSAMLIdentityProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -491,7 +507,7 @@ class Cloudsso extends OpenApiClient
      *
      * @remarks
      * You can clear the SAML IdP information only when SSO logon is disabled. Otherwise, you cannot perform this operation.
-     * This topic provides an example of clearing the configuration of the SAML IdP for the `d-00fc2p61****` directory.
+     * This topic provides an example to clear the configuration of the SAML IdP in the `d-00fc2p61****` directory.
      *
      * @param request - ClearExternalSAMLIdentityProviderRequest
      *
@@ -509,12 +525,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Configures the settings for the users or groups allowed to access an account in a resource directory, and the corresponding access permissions (access configurations).
+     * Configures the Settings for the users or user groups allowed to access an account in a resource directory, along with their corresponding access permissions (access configurations).
      *
      * @remarks
-     * This API operation is asynchronous. You can use the TaskId returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+     * This API operation is asynchronous. You can use the TaskId in the response parameter to invoke [GetTask](https://help.aliyun.com/document_detail/340670.html) and execute a query for the node status.
      * For more information about granting access to an account in a resource directory, see [Multi-account authorization overview](https://help.aliyun.com/document_detail/266726.html).
-     * This topic provides an example on how to assign the access configuration `ac-00jhtfl8thteu6uj****` to the CloudSSO user `u-00q8wbq42wiltcrk****` for the account `114240524784****` in a resource directory. This allows the CloudSSO user to access authorized resources in the account.
+     * This topic provides an example on how to configure permissions for the CloudSSO user `u-00q8wbq42wiltcrk****` on the account in a resource directory `114240524784****` by using the access configuration `ac-00jhtfl8thteu6uj****`, so that the CloudSSO user can access the authorized resources in the account in a resource directory.
      *
      * @param request - CreateAccessAssignmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -577,12 +593,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Configures the settings for the users or groups allowed to access an account in a resource directory, and the corresponding access permissions (access configurations).
+     * Configures the Settings for the users or user groups allowed to access an account in a resource directory, along with their corresponding access permissions (access configurations).
      *
      * @remarks
-     * This API operation is asynchronous. You can use the TaskId returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
+     * This API operation is asynchronous. You can use the TaskId in the response parameter to invoke [GetTask](https://help.aliyun.com/document_detail/340670.html) and execute a query for the node status.
      * For more information about granting access to an account in a resource directory, see [Multi-account authorization overview](https://help.aliyun.com/document_detail/266726.html).
-     * This topic provides an example on how to assign the access configuration `ac-00jhtfl8thteu6uj****` to the CloudSSO user `u-00q8wbq42wiltcrk****` for the account `114240524784****` in a resource directory. This allows the CloudSSO user to access authorized resources in the account.
+     * This topic provides an example on how to configure permissions for the CloudSSO user `u-00q8wbq42wiltcrk****` on the account in a resource directory `114240524784****` by using the access configuration `ac-00jhtfl8thteu6uj****`, so that the CloudSSO user can access the authorized resources in the account in a resource directory.
      *
      * @param request - CreateAccessAssignmentRequest
      *
@@ -604,7 +620,7 @@ class Cloudsso extends OpenApiClient
      *
      * @remarks
      * For more information about access configurations, see [Access configuration overview](https://help.aliyun.com/document_detail/266737.html).
-     * This topic provides an example on how to create an access configuration named `ECS-Admin`.
+     * This topic provides an example of creating an access configuration named `ECS-Admin`.
      *
      * @param request - CreateAccessConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -667,7 +683,7 @@ class Cloudsso extends OpenApiClient
      *
      * @remarks
      * For more information about access configurations, see [Access configuration overview](https://help.aliyun.com/document_detail/266737.html).
-     * This topic provides an example on how to create an access configuration named `ECS-Admin`.
+     * This topic provides an example of creating an access configuration named `ECS-Admin`.
      *
      * @param request - CreateAccessConfigurationRequest
      *
@@ -690,10 +706,10 @@ class Cloudsso extends OpenApiClient
      * @remarks
      * ### Usage notes
      * A directory is an instance in CloudSSO. You must create a directory before you use CloudSSO. All CloudSSO resources must be maintained in the directory.
-     * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
+     * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, we recommend that you select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
      * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
      * ### Limits
-     * - A management account can create only one directory.
+     * - You can create only one directory for each management account.
      * - To change the region of the directory, you must delete the existing directory and create a new one in another region.
      *
      * @param request - CreateDirectoryRequest
@@ -738,10 +754,10 @@ class Cloudsso extends OpenApiClient
      * @remarks
      * ### Usage notes
      * A directory is an instance in CloudSSO. You must create a directory before you use CloudSSO. All CloudSSO resources must be maintained in the directory.
-     * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
+     * You must select a region for the CloudSSO directory. Alibaba Cloud ensures that all CloudSSO-related data is stored only in this region. This is independent of where you deploy cloud resources such as ECS and ApsaraDB RDS. You can log on to and access cloud resources in any region from anywhere in the world. You can select a region based on your security and compliance requirements and the geographic location of your target users. If you do not have special security and compliance requirements, we recommend that you select the region closest to your target users to improve access speed. Currently, you can create directories in the following four regions: China (Shanghai), China (Hong Kong), US (Silicon Valley), and Germany (Frankfurt).
      * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
      * ### Limits
-     * - A management account can create only one directory.
+     * - You can create only one directory for each management account.
      * - To change the region of the directory, you must delete the existing directory and create a new one in another region.
      *
      * @param request - CreateDirectoryRequest
@@ -763,7 +779,7 @@ class Cloudsso extends OpenApiClient
      * Creates a user group.
      *
      * @remarks
-     * This topic provides an example of creating a user group named `TestGroup`.
+     * This topic provides an example of creating a group named `TestGroup`.
      *
      * @param request - CreateGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -813,7 +829,7 @@ class Cloudsso extends OpenApiClient
      * Creates a user group.
      *
      * @remarks
-     * This topic provides an example of creating a user group named `TestGroup`.
+     * This topic provides an example of creating a group named `TestGroup`.
      *
      * @param request - CreateGroupRequest
      *
@@ -831,11 +847,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a SCIM credential.
+     * Creates a SCIM server credential.
      *
      * @remarks
-     * A SCIM credential is required for SCIM synchronization. You can create up to two SCIM credentials.
-     * This topic provides an example on how to create a SCIM credential in the directory `d-00fc2p61****`.
+     * SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
+     * This topic provides an example of creating a SCIM server credential in the `d-00fc2p61****` directory.
      *
      * @param request - CreateSCIMServerCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -874,11 +890,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a SCIM credential.
+     * Creates a SCIM server credential.
      *
      * @remarks
-     * A SCIM credential is required for SCIM synchronization. You can create up to two SCIM credentials.
-     * This topic provides an example on how to create a SCIM credential in the directory `d-00fc2p61****`.
+     * SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
+     * This topic provides an example of creating a SCIM server credential in the `d-00fc2p61****` directory.
      *
      * @param request - CreateSCIMServerCredentialRequest
      *
@@ -896,7 +912,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a user by calling CreateUser.
+     * Creates a user.
      *
      * @param request - CreateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -967,7 +983,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Creates a user by calling CreateUser.
+     * Creates a user.
      *
      * @param request - CreateUserRequest
      *
@@ -988,7 +1004,7 @@ class Cloudsso extends OpenApiClient
      * Invokes CreateUserProvisioning to create a Resource Access Management (RAM) user synchronization.
      *
      * @remarks
-     * You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in a destination account in a resource directory. You can then use the Resource Access Management (RAM) user to access resources in the account.
+     * You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in the destination account in a resource directory, and then use the Resource Access Management (RAM) user to access resources in the account.
      *
      * @param request - CreateUserProvisioningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1058,7 +1074,7 @@ class Cloudsso extends OpenApiClient
      * Invokes CreateUserProvisioning to create a Resource Access Management (RAM) user synchronization.
      *
      * @remarks
-     * You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in a destination account in a resource directory. You can then use the Resource Access Management (RAM) user to access resources in the account.
+     * You can create a Resource Access Management (RAM) user synchronization to synchronously create a Resource Access Management (RAM) user that has the same name as a CloudSSO user in the destination account in a resource directory, and then use the Resource Access Management (RAM) user to access resources in the account.
      *
      * @param request - CreateUserProvisioningRequest
      *
@@ -1079,8 +1095,8 @@ class Cloudsso extends OpenApiClient
      * Removes the authorization from an account in a resource directory.
      *
      * @remarks
-     * This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
-     * This topic provides an example of removing the authorization for the CloudSSO user `u-00q8wbq42wiltcrk****` to use the access configuration `ac-00jhtfl8thteu6uj****` on the account in a resource directory `114240524784****`.
+     * This API operation is asynchronous. You can use the `TaskId` parameter in the response to invoke [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the node execute status.
+     * This topic provides an example on how to remove the authorization that allows the CloudSSO user u-00q8wbq42wiltcrk**** to use the access configuration ac-00jhtfl8thteu6uj**** on the account in a resource directory 114240524784****.
      *
      * @param request - DeleteAccessAssignmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1150,8 +1166,8 @@ class Cloudsso extends OpenApiClient
      * Removes the authorization from an account in a resource directory.
      *
      * @remarks
-     * This API operation is asynchronous. You can use the `TaskId` returned in the response to call [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the task execution status.
-     * This topic provides an example of removing the authorization for the CloudSSO user `u-00q8wbq42wiltcrk****` to use the access configuration `ac-00jhtfl8thteu6uj****` on the account in a resource directory `114240524784****`.
+     * This API operation is asynchronous. You can use the `TaskId` parameter in the response to invoke [GetTask](https://help.aliyun.com/document_detail/340670.html) to query the node execute status.
+     * This topic provides an example on how to remove the authorization that allows the CloudSSO user u-00q8wbq42wiltcrk**** to use the access configuration ac-00jhtfl8thteu6uj**** on the account in a resource directory 114240524784****.
      *
      * @param request - DeleteAccessAssignmentRequest
      *
@@ -1331,9 +1347,9 @@ class Cloudsso extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Before you delete a user group, make sure that the user group is not associated with the following resources. Otherwise, the deletion failed.
+     * Before you delete a user group, ensure that the user group is not associated with the following resources. Otherwise, the deletion will be failed.
      * - Users: You must remove users from the user group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-     * - Authorization: You must remove the authorization of the user group on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * - Authorization: You must remove the authorization of the user group on an account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
      * ### Usage notes
      * If SCIM synchronization is enabled, you cannot delete user groups that are synchronized by using SCIM.
      * This topic provides an example on how to delete the user group `g-00jqzghi2n3o5hkh****`.
@@ -1383,9 +1399,9 @@ class Cloudsso extends OpenApiClient
      *
      * @remarks
      * ### Before you begin
-     * Before you delete a user group, make sure that the user group is not associated with the following resources. Otherwise, the deletion failed.
+     * Before you delete a user group, ensure that the user group is not associated with the following resources. Otherwise, the deletion will be failed.
      * - Users: You must remove users from the user group. For more information, see [RemoveUserFromGroup](https://help.aliyun.com/document_detail/335116.html).
-     * - Authorization: You must remove the authorization of the user group on the account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
+     * - Authorization: You must remove the authorization of the user group on an account in a resource directory. For more information, see [DeleteAccessAssignment](https://help.aliyun.com/document_detail/338350.html).
      * ### Usage notes
      * If SCIM synchronization is enabled, you cannot delete user groups that are synchronized by using SCIM.
      * This topic provides an example on how to delete the user group `g-00jqzghi2n3o5hkh****`.
@@ -1547,6 +1563,83 @@ class Cloudsso extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSCIMServerCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the security information of a CloudSSO user.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to delete the security information bound to a specified CloudSSO user. Currently, only security email addresses are supported.
+     * > - After the deletion, the user is no longer associated with the original security email address, and any previously unconsumed verification links and password reset links also become invalid.
+     * > - If the user is not currently bound to a security email address, calling this operation directly returns a success response.
+     * This topic provides an example of deleting the security email address of the user `u-00q8wbq42wiltcrk****` in the directory `d-00fc2p61****`.
+     *
+     * @param request - DeleteSecurityInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecurityInfoResponse
+     *
+     * @param DeleteSecurityInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteSecurityInfoResponse
+     */
+    public function deleteSecurityInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->verifyType) {
+            @$query['VerifyType'] = $request->verifyType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecurityInfo',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecurityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the security information of a CloudSSO user.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to delete the security information bound to a specified CloudSSO user. Currently, only security email addresses are supported.
+     * > - After the deletion, the user is no longer associated with the original security email address, and any previously unconsumed verification links and password reset links also become invalid.
+     * > - If the user is not currently bound to a security email address, calling this operation directly returns a success response.
+     * This topic provides an example of deleting the security email address of the user `u-00q8wbq42wiltcrk****` in the directory `d-00fc2p61****`.
+     *
+     * @param request - DeleteSecurityInfoRequest
+     *
+     * @returns DeleteSecurityInfoResponse
+     *
+     * @param DeleteSecurityInfoRequest $request
+     *
+     * @return DeleteSecurityInfoResponse
+     */
+    public function deleteSecurityInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -1844,6 +1937,12 @@ class Cloudsso extends OpenApiClient
     /**
      * Disables the delegated administrator account of CloudSSO.
      *
+     * @remarks
+     * 禁用云SSO委派管理员账号。禁用后，该账号不能再管理云SSO；您可以随时重新启用。
+     * ## 前提条件
+     * - 目标账号必须是资源目录的成员账号，管理账号本身不能作为委派管理员账号。
+     * - 该成员账号已由资源目录管理账号注册为云SSO委派管理员（可信服务标识为`cloudsso.aliyuncs.com`），并已通过EnableDelegateAccount启用。
+     *
      * @param request - DisableDelegateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1882,6 +1981,12 @@ class Cloudsso extends OpenApiClient
 
     /**
      * Disables the delegated administrator account of CloudSSO.
+     *
+     * @remarks
+     * 禁用云SSO委派管理员账号。禁用后，该账号不能再管理云SSO；您可以随时重新启用。
+     * ## 前提条件
+     * - 目标账号必须是资源目录的成员账号，管理账号本身不能作为委派管理员账号。
+     * - 该成员账号已由资源目录管理账号注册为云SSO委派管理员（可信服务标识为`cloudsso.aliyuncs.com`），并已通过EnableDelegateAccount启用。
      *
      * @param request - DisableDelegateAccountRequest
      *
@@ -2882,6 +2987,140 @@ class Cloudsso extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSCIMSynchronizationStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the security information of a specified CloudSSO user.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to query the security information (currently only security email addresses are supported) bound to a specified CloudSSO user and its verification status.
+     * > If the user has not configured a security email address, the response does not include the `SecurityEmail` field.
+     * This topic provides an example to query the security information of the user `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+     *
+     * @param request - GetSecurityInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityInfoResponse
+     *
+     * @param GetSecurityInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetSecurityInfoResponse
+     */
+    public function getSecurityInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSecurityInfo',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecurityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the security information of a specified CloudSSO user.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to query the security information (currently only security email addresses are supported) bound to a specified CloudSSO user and its verification status.
+     * > If the user has not configured a security email address, the response does not include the `SecurityEmail` field.
+     * This topic provides an example to query the security information of the user `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+     *
+     * @param request - GetSecurityInfoRequest
+     *
+     * @returns GetSecurityInfoResponse
+     *
+     * @param GetSecurityInfoRequest $request
+     *
+     * @return GetSecurityInfoResponse
+     */
+    public function getSecurityInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecurityInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the security information management preferences of a CloudSSO directory.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to query the security information management preferences of a specified CloudSSO directory and check whether CloudSSO users in the directory are allowed to manage their security email addresses in the CloudSSO user portal. This topic provides an example to query the security information management preferences of the `d-00fc2p61****` directory.
+     *
+     * @param request - GetSecurityInfoPreferenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityInfoPreferenceResponse
+     *
+     * @param GetSecurityInfoPreferenceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetSecurityInfoPreferenceResponse
+     */
+    public function getSecurityInfoPreferenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSecurityInfoPreference',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecurityInfoPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the security information management preferences of a CloudSSO directory.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to query the security information management preferences of a specified CloudSSO directory and check whether CloudSSO users in the directory are allowed to manage their security email addresses in the CloudSSO user portal. This topic provides an example to query the security information management preferences of the `d-00fc2p61****` directory.
+     *
+     * @param request - GetSecurityInfoPreferenceRequest
+     *
+     * @returns GetSecurityInfoPreferenceResponse
+     *
+     * @param GetSecurityInfoPreferenceRequest $request
+     *
+     * @return GetSecurityInfoPreferenceResponse
+     */
+    public function getSecurityInfoPreference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecurityInfoPreferenceWithOptions($request, $runtime);
     }
 
     /**
@@ -5079,9 +5318,9 @@ class Cloudsso extends OpenApiClient
      * Resets the password of a user.
      *
      * @remarks
-     * A CloudSSO administrator can reset the password of a user when the user forgets the password, the password expires, or the password poses a security risk.
+     * When a user forgets their password, the password expires, or the password poses a security risk, a CloudSSO administrator can reset the password for the user.
      * > You cannot reset user passwords after single sign-on (SSO) is enabled.
-     * This topic provides an example of resetting the password of the user u-00q8wbq42wiltcrk**** by using a system-generated password.
+     * This topic provides an example of resetting the password of the user `u-00q8wbq42wiltcrk****` by using a system-generated password.
      *
      * @param request - ResetUserPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5143,9 +5382,9 @@ class Cloudsso extends OpenApiClient
      * Resets the password of a user.
      *
      * @remarks
-     * A CloudSSO administrator can reset the password of a user when the user forgets the password, the password expires, or the password poses a security risk.
+     * When a user forgets their password, the password expires, or the password poses a security risk, a CloudSSO administrator can reset the password for the user.
      * > You cannot reset user passwords after single sign-on (SSO) is enabled.
-     * This topic provides an example of resetting the password of the user u-00q8wbq42wiltcrk**** by using a system-generated password.
+     * This topic provides an example of resetting the password of the user `u-00q8wbq42wiltcrk****` by using a system-generated password.
      *
      * @param request - ResetUserPasswordRequest
      *
@@ -5225,6 +5464,85 @@ class Cloudsso extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->retryUserProvisioningEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sends a verification message to the unverified security information of a CloudSSO user.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to send a verification email to the currently unverified security information of a specified CloudSSO user. Currently, only security email addresses are supported. After the user completes verification by using the verification link in the email, the status of the security email address changes to verified (`active`).
+     * > - Before you call this operation, you must call `SetSecurityInfo` to set a security email address for the user, and the security email address must be in the pending verification state (`pending`). If the user does not have a security email address configured or the security email address is already verified, calling this operation returns an error.
+     * > - The verification link is valid for 72 hours. Resending the verification email generates a new verification link, and the previous link automatically becomes invalid.
+     * > - This operation is subject to rate limits. By default, you can send a maximum of one verification email per minute and five verification emails per hour for a single user.
+     * This topic provides an example on how to send a verification email to the unverified security email address of the user `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+     *
+     * @param request - SendVerificationMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendVerificationMessageResponse
+     *
+     * @param SendVerificationMessageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SendVerificationMessageResponse
+     */
+    public function sendVerificationMessageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->verifyType) {
+            @$query['VerifyType'] = $request->verifyType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SendVerificationMessage',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SendVerificationMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sends a verification message to the unverified security information of a CloudSSO user.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to send a verification email to the currently unverified security information of a specified CloudSSO user. Currently, only security email addresses are supported. After the user completes verification by using the verification link in the email, the status of the security email address changes to verified (`active`).
+     * > - Before you call this operation, you must call `SetSecurityInfo` to set a security email address for the user, and the security email address must be in the pending verification state (`pending`). If the user does not have a security email address configured or the security email address is already verified, calling this operation returns an error.
+     * > - The verification link is valid for 72 hours. Resending the verification email generates a new verification link, and the previous link automatically becomes invalid.
+     * > - This operation is subject to rate limits. By default, you can send a maximum of one verification email per minute and five verification emails per hour for a single user.
+     * This topic provides an example on how to send a verification email to the unverified security email address of the user `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+     *
+     * @param request - SendVerificationMessageRequest
+     *
+     * @returns SendVerificationMessageResponse
+     *
+     * @param SendVerificationMessageRequest $request
+     *
+     * @return SendVerificationMessageResponse
+     */
+    public function sendVerificationMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendVerificationMessageWithOptions($request, $runtime);
     }
 
     /**
@@ -5623,7 +5941,159 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * Sets the security information for a CloudSSO user.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to set or modify the security information for a specified CloudSSO user. Currently, only security email addresses are supported.
+     * > - Each user can be bound to only one security email address. If the user is already bound to another security email address, calling this operation replaces it with the new email address, resets the verification status to pending (`pending`), and invalidates any previously unconsumed verification and password reset links. If the provided email address is the same as the currently bound one (case-insensitive), the operation rejects the duplicate binding.
+     * > - Calling this operation does not automatically send a verification email. After the security email address is set, it remains in the pending verification state (`pending`). You must call `SendVerificationMessage` to send a verification email, and the email address takes effect (`active`) only after the user completes the verification.
+     * This topic provides an example on how to set the security email address `Alice@example.com` for the user `u-00q8wbq42wiltcrk****` in the directory `d-00fc2p61****`.
+     *
+     * @param request - SetSecurityInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetSecurityInfoResponse
+     *
+     * @param SetSecurityInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetSecurityInfoResponse
+     */
+    public function setSecurityInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        if (null !== $request->securityEmail) {
+            @$query['SecurityEmail'] = $request->securityEmail;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        if (null !== $request->verifyType) {
+            @$query['VerifyType'] = $request->verifyType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetSecurityInfo',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetSecurityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets the security information for a CloudSSO user.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to set or modify the security information for a specified CloudSSO user. Currently, only security email addresses are supported.
+     * > - Each user can be bound to only one security email address. If the user is already bound to another security email address, calling this operation replaces it with the new email address, resets the verification status to pending (`pending`), and invalidates any previously unconsumed verification and password reset links. If the provided email address is the same as the currently bound one (case-insensitive), the operation rejects the duplicate binding.
+     * > - Calling this operation does not automatically send a verification email. After the security email address is set, it remains in the pending verification state (`pending`). You must call `SendVerificationMessage` to send a verification email, and the email address takes effect (`active`) only after the user completes the verification.
+     * This topic provides an example on how to set the security email address `Alice@example.com` for the user `u-00q8wbq42wiltcrk****` in the directory `d-00fc2p61****`.
+     *
+     * @param request - SetSecurityInfoRequest
+     *
+     * @returns SetSecurityInfoResponse
+     *
+     * @param SetSecurityInfoRequest $request
+     *
+     * @return SetSecurityInfoResponse
+     */
+    public function setSecurityInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSecurityInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sets the security information management preferences for a directory.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to set the security information management preferences for a specified directory. This controls whether CloudSSO users in the directory are allowed to manage their security email addresses in the CloudSSO user portal.
+     * > This configuration only controls the self-service management permissions of users in the CloudSSO user portal. It does not affect the ability of CloudSSO administrators to manage user security email addresses by using API operations.
+     * This topic provides an example to show how to disable the permission for users to manage their security email addresses in the `d-00fc2p61****` directory.
+     *
+     * @param request - SetSecurityInfoPreferenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetSecurityInfoPreferenceResponse
+     *
+     * @param SetSecurityInfoPreferenceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SetSecurityInfoPreferenceResponse
+     */
+    public function setSecurityInfoPreferenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allowUserManageSecurityEmail) {
+            @$query['AllowUserManageSecurityEmail'] = $request->allowUserManageSecurityEmail;
+        }
+
+        if (null !== $request->directoryId) {
+            @$query['DirectoryId'] = $request->directoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetSecurityInfoPreference',
+            'version' => '2021-05-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetSecurityInfoPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets the security information management preferences for a directory.
+     *
+     * @remarks
+     * CloudSSO administrators can call this operation to set the security information management preferences for a specified directory. This controls whether CloudSSO users in the directory are allowed to manage their security email addresses in the CloudSSO user portal.
+     * > This configuration only controls the self-service management permissions of users in the CloudSSO user portal. It does not affect the ability of CloudSSO administrators to manage user security email addresses by using API operations.
+     * This topic provides an example to show how to disable the permission for users to manage their security email addresses in the `d-00fc2p61****` directory.
+     *
+     * @param request - SetSecurityInfoPreferenceRequest
+     *
+     * @returns SetSecurityInfoPreferenceResponse
+     *
+     * @param SetSecurityInfoPreferenceRequest $request
+     *
+     * @return SetSecurityInfoPreferenceResponse
+     */
+    public function setSecurityInfoPreference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSecurityInfoPreferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Tags resources.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5674,7 +6144,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * Tags resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -6290,11 +6760,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Modifies information about a user.
+     * Updates user information.
      *
      * @remarks
-     * You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
-     * > If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a user that is synchronized by using SCIM.
+     * You can modify the `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` of a user as needed. You cannot modify the `UserName` of a user.
+     * > When SCIM synchronization is enabled, you cannot modify the information of SCIM-synchronized users.
      *
      * @param request - UpdateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6357,11 +6827,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Modifies information about a user.
+     * Updates user information.
      *
      * @remarks
-     * You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
-     * > If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify information about a user that is synchronized by using SCIM.
+     * You can modify the `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` of a user as needed. You cannot modify the `UserName` of a user.
+     * > When SCIM synchronization is enabled, you cannot modify the information of SCIM-synchronized users.
      *
      * @param request - UpdateUserRequest
      *
@@ -6454,7 +6924,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Modifies a Resource Access Management (RAM) user provisioning.
+     * Invokes UpdateUserProvisioning to modify a Resource Access Management (RAM) user synchronization.
      *
      * @param request - UpdateUserProvisioningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6509,7 +6979,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * Modifies a Resource Access Management (RAM) user provisioning.
+     * Invokes UpdateUserProvisioning to modify a Resource Access Management (RAM) user synchronization.
      *
      * @param request - UpdateUserProvisioningRequest
      *

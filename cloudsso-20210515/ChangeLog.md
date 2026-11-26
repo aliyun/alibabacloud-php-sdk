@@ -1,3 +1,12 @@
+2026-11-26 Version: 1.8.0
+- Support API DeleteSecurityInfo.
+- Support API GetSecurityInfo.
+- Support API GetSecurityInfoPreference.
+- Support API SendVerificationMessage.
+- Support API SetSecurityInfo.
+- Support API SetSecurityInfoPreference.
+
+
 2026-11-04 Version: 1.7.2
 - Update API ResetUserPassword: add request parameters ResetMethod.
 
